@@ -34,7 +34,7 @@ export default function CosaHoFattoPage() {
         /* CASES */
         .chf-cases-list { display: flex; flex-direction: column; gap: 24px; margin-bottom: 56px; animation: chfFadeUp 0.7s ease both; animation-delay: 0.4s; }
         .chf-case-card { border: 1px solid var(--teal-border); border-radius: 10px; overflow: hidden; background: rgba(232,245,242,0.02); transition: border-color 0.3s; }
-        .chf-case-card:hover { border-color: rgba(0,212,160,0.5); }
+        .chf-case-card:hover { border-color: rgba(0,255,252,0.5); }
         .chf-case-bar { height: 3px; background: linear-gradient(90deg, var(--teal) 0%, transparent 100%); }
         .chf-case-inner { display: grid; grid-template-columns: 1fr 1fr; }
         .chf-case-left { padding: 32px; border-right: 1px solid var(--teal-border); }
@@ -67,7 +67,7 @@ export default function CosaHoFattoPage() {
         /* SKILLS GRID */
         .chf-skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 56px; }
         .chf-skill-card { border: 1px solid var(--teal-border); border-radius: 8px; padding: 24px 20px; background: var(--teal-dim); transition: border-color 0.3s, background 0.3s, transform 0.3s; }
-        .chf-skill-card:hover { border-color: var(--teal); background: rgba(0,212,160,0.15); transform: translateY(-3px); }
+        .chf-skill-card:hover { border-color: var(--teal); background: rgba(0,255,252,0.15); transform: translateY(-3px); }
         .chf-skill-icon { width: 32px; height: 32px; margin-bottom: 12px; color: var(--teal); }
         .chf-skill-title { font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text); margin-bottom: 8px; }
         .chf-skill-desc { font-size: 11px; font-weight: 300; color: var(--text-dim); line-height: 1.75; }

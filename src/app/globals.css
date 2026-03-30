@@ -3,9 +3,9 @@
 /* ── Design System — Identical to nicolaserrao.com original ── */
 
 :root {
-  --teal: #00d4a0;
-  --teal-dim: rgba(0,212,160,0.10);
-  --teal-border: rgba(0,212,160,0.22);
+  --teal: #00fffc;
+  --teal-dim: rgba(0,255,252,0.10);
+  --teal-border: rgba(0,255,252,0.22);
   --bg: #0a0e0d;
   --text: #e8f5f2;
   --text-dim: rgba(232,245,242,0.50);
@@ -48,8 +48,8 @@ body {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(ellipse 60% 50% at 85% 30%, rgba(0,212,160,0.06) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(0,212,160,0.04) 0%, transparent 50%);
+    radial-gradient(ellipse 60% 50% at 85% 30%, rgba(0,255,252,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(0,255,252,0.04) 0%, transparent 50%);
 }
 
 .bg-glow-alt {
@@ -58,8 +58,8 @@ body {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(0,212,160,0.05) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(0,212,160,0.04) 0%, transparent 50%);
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(0,255,252,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(0,255,252,0.04) 0%, transparent 50%);
 }
 
 /* ── Animations ── */
@@ -84,7 +84,7 @@ body {
 }
 
 .hero-badge-glitch:hover {
-  background: rgba(0,212,160,0.18) !important;
+  background: rgba(0,255,252,0.18) !important;
   border-color: var(--teal) !important;
 }
 

@@ -208,7 +208,7 @@ export default function MetodoGlitchPage() {
         .mg-truth-block::before {
           content: '\\201C';
           font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 160px; color: rgba(0,212,160,0.06);
+          font-size: 160px; color: rgba(0,255,252,0.06);
           position: absolute; top: -20px; left: 20px;
           line-height: 1; pointer-events: none;
         }

@@ -5,18 +5,48 @@ import { SITE } from "@/lib/constants";
 export default function HomePage() {
   return (
     <div className="min-h-[calc(100vh-var(--nav-h))] flex items-center">
-      {/* Hero grid: 1fr auto, gap 80px, padding 80px 60px, max-width 1100px */}
-      <div
-        className="w-full mx-auto grid items-center max-md:grid-cols-1 max-md:px-8 max-md:py-12 max-md:gap-10 max-md:text-center max-[480px]:px-5 max-[480px]:py-10"
-        style={{
-          maxWidth: "1100px",
-          gridTemplateColumns: "1fr auto",
-          gap: "80px",
-          padding: "80px 60px",
-        }}
-      >
+      <style>{`
+        .hero-wrapper {
+          width: 100%;
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 80px 60px;
+          display: grid;
+          grid-template-columns: 1fr auto;
+          gap: 80px;
+          align-items: center;
+        }
+        @media (max-width: 900px) {
+          .hero-wrapper {
+            grid-template-columns: 1fr;
+            padding: 48px 32px 60px;
+            gap: 40px;
+            text-align: center;
+          }
+        }
+        @media (max-width: 480px) {
+          .hero-wrapper {
+            padding: 40px 20px 48px;
+          }
+        }
+      `}</style>
+      <div className="hero-wrapper">
         {/* ── LEFT COLUMN ── */}
-        <div className="flex flex-col max-md:items-center" style={{ gap: "28px" }}>
+        <div className="hero-left" style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
+          <style>{`
+            @media (max-width: 900px) {
+              .hero-left { align-items: center; }
+              .hero-right { order: -1; flex-direction: row; align-items: center; justify-content: center; gap: 20px; }
+              .hero-photo { width: 120px !important; height: 120px !important; }
+              .hero-actions { }
+              .hero-tags { justify-content: center; }
+              .hero-tag-link { width: 100%; display: block; text-align: center; margin-top: 4px; }
+            }
+            @media (max-width: 480px) {
+              .hero-actions { flex-direction: column; width: 100%; }
+              .hero-actions a { justify-content: center; }
+            }
+          `}</style>
           {/* Badge: Disponibile */}
           <div
             className="animate-fade-up inline-flex items-center w-fit"
@@ -87,7 +117,7 @@ export default function HomePage() {
 
           {/* Buttons row: gap 14px */}
           <div
-            className="animate-fade-up delay-400 flex flex-wrap max-[480px]:flex-col max-[480px]:w-full"
+            className="animate-fade-up delay-400 flex flex-wrap hero-actions"
             style={{ gap: "14px" }}
           >
             {/* WhatsApp — green bg */}
@@ -149,7 +179,7 @@ export default function HomePage() {
 
           {/* Tags row: gap 8px, font-size 9px */}
           <div
-            className="animate-fade-up delay-500 flex flex-wrap max-md:justify-center"
+            className="animate-fade-up delay-500 flex flex-wrap hero-tags"
             style={{ gap: "8px" }}
           >
             {[
@@ -178,7 +208,7 @@ export default function HomePage() {
             ))}
             <Link
               href="/cosa-posso-fare"
-              className="no-underline hover:opacity-70 transition-opacity max-md:w-full max-md:text-center max-md:mt-1"
+              className="no-underline hover:opacity-70 transition-opacity hero-tag-link"
               style={{
                 fontSize: "9px",
                 letterSpacing: "1.5px",
@@ -194,12 +224,12 @@ export default function HomePage() {
 
         {/* ── RIGHT COLUMN — Photo + GLITCH badge ── */}
         <div
-          className="animate-fade-up delay-200 flex flex-col items-center shrink-0 max-md:order-first max-md:flex-row max-md:justify-center"
+          className="animate-fade-up delay-200 flex flex-col items-center shrink-0 hero-right"
           style={{ gap: "20px" }}
         >
           {/* Photo frame: 240px with spinning conic-gradient border */}
           <div
-            className="relative shrink-0 max-md:!w-[120px] max-md:!h-[120px]"
+            className="relative shrink-0 hero-photo"
             style={{ width: "240px", height: "240px" }}
           >
             {/* Spinning conic-gradient border */}

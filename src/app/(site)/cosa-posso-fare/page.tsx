@@ -101,7 +101,7 @@ export default function CosaPossoFarePage() {
 
         .skill-card:hover {
           border-color: var(--teal);
-          background: rgba(0,212,160,0.15);
+          background: rgba(0,255,252,0.15);
           transform: translateY(-4px);
         }
 
@@ -245,7 +245,7 @@ export default function CosaPossoFarePage() {
           content: '\u201C';
           font-family: var(--font-playfair), 'Playfair Display', serif;
           font-size: 160px;
-          color: rgba(0,212,160,0.06);
+          color: rgba(0,255,252,0.06);
           position: absolute;
           top: -20px; left: 20px;
           line-height: 1;
