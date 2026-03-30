@@ -1,0 +1,44 @@
+{
+  "slug": "piante-stabilizzate",
+  "companyName": "LinfaDecor",
+  "sector": "Piante stabilizzate / Green design",
+  "logo": null,
+  "palette": {
+    "primary": "#6B8E23",
+    "primaryDim": "rgba(107,142,35,0.08)",
+    "background": "#f8f5ef",
+    "text": "#2d2b28",
+    "textDim": "rgba(45,43,40,0.55)",
+    "border": "rgba(107,142,35,0.18)"
+  },
+  "headingFont": "Cormorant Garamond",
+  "heroTitle": "Natura, materia, silenzio.",
+  "heroSubtitle": "Strategia digitale per piante stabilizzate",
+  "heroTagline": "Un prodotto unico merita una comunicazione unica.",
+  "sections": [
+    {
+      "type": "problem",
+      "title": "Il contesto",
+      "content": "Le piante stabilizzate sono un prodotto di nicchia ad alto valore. Il pubblico è specifico: interior designer, architetti, hotel, uffici. Serve una comunicazione che parli la loro lingua."
+    },
+    {
+      "type": "strategy",
+      "title": "Approccio",
+      "items": [
+        { "title": "Visual storytelling", "description": "Fotografia d'autore, video ambientati, contenuti che trasmettono l'essenza del prodotto." },
+        { "title": "Targeting preciso", "description": "Meta Ads verso professionisti del design e dell'arredamento. Pinterest Ads per ispirare." },
+        { "title": "E-commerce o lead gen", "description": "A seconda del modello di business: vendita diretta online o generazione di richieste di preventivo qualificate." }
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Facciamo crescere il vostro brand?",
+    "subtitle": "Senza acqua, come le vostre piante. Ma con strategia.",
+    "whatsappText": "Ciao Nicola, ho visto la proposta per le piante stabilizzate.",
+    "emailSubject": "Piante stabilizzate — Strategia digitale",
+    "showGlitchEconomics": false
+  },
+  "meta": {
+    "status": "sent"
+  }
+}

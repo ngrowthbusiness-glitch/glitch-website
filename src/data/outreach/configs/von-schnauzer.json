@@ -1,0 +1,54 @@
+{
+  "slug": "von-schnauzer",
+  "companyName": "Von Schnauzer",
+  "sector": "Pet / Dog grooming premium",
+  "logo": null,
+  "palette": {
+    "primary": "#c8a04a",
+    "primaryDim": "rgba(200,160,74,0.10)",
+    "background": "#1a1611",
+    "text": "#f5efe4",
+    "textDim": "rgba(245,239,228,0.55)",
+    "border": "rgba(200,160,74,0.20)"
+  },
+  "headingFont": "Playfair Display",
+  "heroTitle": "Von Schnauzer, il premium nel mondo pet.",
+  "heroSubtitle": "Strategia digitale per un brand pet di lusso",
+  "heroTagline": "Un mercato in crescita esplosiva. Serve posizionamento, non improvvisazione.",
+  "sections": [
+    {
+      "type": "problem",
+      "title": "Il mercato pet premium",
+      "content": "Il mercato pet in Italia vale €3.5 miliardi e cresce del 10% annuo. Il segmento premium è il più redditizio ma anche il più competitivo. Servono brand forti e strategie mirate."
+    },
+    {
+      "type": "strategy",
+      "title": "Strategia",
+      "items": [
+        { "title": "Brand identity", "description": "Posizionamento luxury: storytelling, visual premium, community building." },
+        { "title": "Social + Content", "description": "Instagram e TikTok con contenuti che creano engagement e community. UGC strategy." },
+        { "title": "E-commerce & Revenue", "description": "Shopify + subscription model per prodotti ricorrenti. Multiple revenue streams: prodotti, servizi, membership." }
+      ]
+    },
+    {
+      "type": "metrics",
+      "title": "Revenue model",
+      "metrics": [
+        { "label": "Grooming", "value": "Core" },
+        { "label": "Prodotti premium", "value": "E-comm" },
+        { "label": "Membership", "value": "Recurring" },
+        { "label": "Formazione", "value": "B2B" }
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Costruiamo un brand premium?",
+    "subtitle": "Il mercato è pronto. Voi?",
+    "whatsappText": "Ciao Nicola, ho visto la proposta per Von Schnauzer.",
+    "emailSubject": "Von Schnauzer — Strategia brand premium",
+    "showGlitchEconomics": true
+  },
+  "meta": {
+    "status": "sent"
+  }
+}

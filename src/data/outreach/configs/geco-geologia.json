@@ -1,0 +1,43 @@
+{
+  "slug": "geco-geologia",
+  "companyName": "GECO Geologia",
+  "sector": "Consulenza geologica",
+  "logo": "/images/outreach/geco-geologia/geco-geologia.png",
+  "palette": {
+    "primary": "#8B6914",
+    "primaryDim": "rgba(139,105,20,0.10)",
+    "background": "#f5f0e8",
+    "text": "#2a2518",
+    "textDim": "rgba(42,37,24,0.60)",
+    "border": "rgba(139,105,20,0.20)"
+  },
+  "headingFont": "Cormorant Garamond",
+  "heroTitle": "GECO Geologia, il digitale al servizio della terra.",
+  "heroSubtitle": "Visibilità online per studi geologici",
+  "sections": [
+    {
+      "type": "problem",
+      "title": "Il contesto",
+      "content": "Il settore geologico è altamente specializzato ma poco visibile online. Chi cerca servizi geologici trova poca informazione qualificata. Un'opportunità per chi si posiziona bene."
+    },
+    {
+      "type": "method",
+      "title": "Approccio",
+      "items": [
+        { "title": "SEO tecnico", "description": "Posizionamento sui termini di ricerca specifici del settore: indagini geognostiche, relazioni geologiche, perizie." },
+        { "title": "Content authority", "description": "Articoli tecnici che dimostrano competenza e generano traffico qualificato." },
+        { "title": "Google Ads mirato", "description": "Campagne search su keyword ad alto intento commerciale nella vostra area operativa." }
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Parliamo di visibilità?",
+    "subtitle": "Un'analisi del vostro posizionamento attuale, gratuita e senza impegno.",
+    "whatsappText": "Ciao Nicola, ho visto la proposta per GECO Geologia.",
+    "emailSubject": "GECO Geologia — Richiesta info",
+    "showGlitchEconomics": false
+  },
+  "meta": {
+    "status": "sent"
+  }
+}

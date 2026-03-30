@@ -1,0 +1,43 @@
+{
+  "slug": "lm-legnami",
+  "companyName": "LM Legnami Michelangeli",
+  "sector": "Commercio legname premium",
+  "logo": "/images/outreach/LM-legnami/lm-logo.png",
+  "palette": {
+    "primary": "#f5c400",
+    "primaryDim": "rgba(245,196,0,0.10)",
+    "background": "#1a2744",
+    "text": "#f0ede6",
+    "textDim": "rgba(240,237,230,0.60)",
+    "border": "rgba(245,196,0,0.20)"
+  },
+  "headingFont": "Barlow",
+  "heroTitle": "LM Legnami, dal legno al digitale.",
+  "heroSubtitle": "Strategia per un brand premium del legname",
+  "sections": [
+    {
+      "type": "problem",
+      "title": "Il mercato",
+      "content": "Il settore del legname premium si sta spostando online. Architetti, designer e imprese edili cercano fornitori qualificati su Google. Chi è visibile, vince."
+    },
+    {
+      "type": "strategy",
+      "title": "Strategia",
+      "items": [
+        { "title": "Brand positioning", "description": "Posizionare LM Legnami come riferimento di qualità nel commercio del legno pregiato." },
+        { "title": "Google Ads + SEO", "description": "Intercettare la domanda di architetti e imprese che cercano legname di qualità." },
+        { "title": "Catalogo digitale", "description": "Presentazione prodotti con fotografia professionale e specifiche tecniche dettagliate." }
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Costruiamo qualcosa di solido?",
+    "subtitle": "Come il legno che vendete. Parliamone.",
+    "whatsappText": "Ciao Nicola, ho visto la proposta per LM Legnami.",
+    "emailSubject": "LM Legnami — Strategia digitale",
+    "showGlitchEconomics": true
+  },
+  "meta": {
+    "status": "sent"
+  }
+}

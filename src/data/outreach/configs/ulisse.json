@@ -1,0 +1,42 @@
+{
+  "slug": "ulisse",
+  "companyName": "Ulisse Servizi",
+  "sector": "Servizi professionali B2B",
+  "logo": null,
+  "palette": {
+    "primary": "#1a4f8a",
+    "primaryDim": "rgba(26,79,138,0.10)",
+    "background": "#ffffff",
+    "text": "#1a1a2e",
+    "textDim": "rgba(26,26,46,0.55)",
+    "border": "rgba(26,79,138,0.18)"
+  },
+  "heroTitle": "Ulisse Servizi, navighiamo verso la crescita.",
+  "heroSubtitle": "Strategia digitale per servizi B2B",
+  "sections": [
+    {
+      "type": "problem",
+      "title": "La sfida",
+      "content": "I servizi B2B richiedono un ciclo di vendita più lungo e una comunicazione che costruisca fiducia nel tempo. Il digitale è il canale perfetto per questo."
+    },
+    {
+      "type": "strategy",
+      "title": "La rotta",
+      "items": [
+        { "title": "Posizionamento", "description": "Definire la value proposition e comunicarla in modo chiaro su tutti i touchpoint digitali." },
+        { "title": "Lead generation", "description": "LinkedIn + Google Ads per generare contatti qualificati con un funnel strutturato." },
+        { "title": "Nurturing", "description": "Email marketing automatizzato per accompagnare i prospect nel percorso decisionale." }
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Parliamo di crescita?",
+    "subtitle": "Un primo incontro per capire le vostre esigenze.",
+    "whatsappText": "Ciao Nicola, ho visto la proposta per Ulisse Servizi.",
+    "emailSubject": "Ulisse Servizi — Strategia digitale",
+    "showGlitchEconomics": true
+  },
+  "meta": {
+    "status": "sent"
+  }
+}

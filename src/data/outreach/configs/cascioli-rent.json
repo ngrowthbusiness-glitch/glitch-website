@@ -1,0 +1,52 @@
+{
+  "slug": "cascioli-rent",
+  "companyName": "CascioliRent",
+  "sector": "Noleggio auto",
+  "logo": "/images/outreach/cascioli-rent/cascioli_white.png",
+  "palette": {
+    "primary": "#00fffc",
+    "primaryDim": "rgba(0,255,252,0.10)",
+    "background": "#0a0e13",
+    "text": "#e8f0ff",
+    "textDim": "rgba(232,240,255,0.50)",
+    "border": "rgba(0,255,252,0.15)"
+  },
+  "heroTitle": "CascioliRent, parliamo di crescita digitale.",
+  "heroSubtitle": "Una strategia su misura per il noleggio auto",
+  "heroTagline": "Non una proposta generica. Un'analisi concreta basata sul vostro mercato.",
+  "sections": [
+    {
+      "type": "problem",
+      "title": "Il contesto",
+      "content": "Il mercato del noleggio auto sta cambiando. I clienti cercano online, confrontano e decidono prima di chiamare. Chi non è visibile, perde."
+    },
+    {
+      "type": "method",
+      "title": "L'approccio GLITCH",
+      "items": [
+        { "title": "Grounding", "description": "Analizziamo il vostro posizionamento attuale, i competitor locali e il traffico potenziale." },
+        { "title": "Strategy", "description": "Google Ads + Meta Ads per catturare domanda attiva e generare awareness locale." },
+        { "title": "Testing", "description": "Budget controllato, test rapidi, ottimizzazione settimanale." }
+      ]
+    },
+    {
+      "type": "strategy",
+      "title": "Strategia proposta",
+      "items": [
+        { "title": "Google Ads — Search", "description": "Intercettare chi cerca noleggio auto nella vostra area. Keyword mirate, landing dedicate." },
+        { "title": "Meta Ads — Awareness", "description": "Campagne visual per far conoscere CascioliRent a chi sta valutando il noleggio." },
+        { "title": "Tracking & KPI", "description": "Dashboard con costo per lead, conversion rate, ROAS. Numeri chiari ogni settimana." }
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Pronti a parlarne?",
+    "subtitle": "30 minuti di analisi gratuita. Nessun impegno.",
+    "whatsappText": "Ciao Nicola, ho visto la proposta per CascioliRent. Vorrei parlarne.",
+    "emailSubject": "CascioliRent — Richiesta info strategia",
+    "showGlitchEconomics": true
+  },
+  "meta": {
+    "status": "sent"
+  }
+}

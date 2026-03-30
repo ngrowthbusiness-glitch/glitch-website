@@ -1,0 +1,54 @@
+{
+  "slug": "dea-group",
+  "companyName": "DEA Group",
+  "sector": "Servizi B2B / Consulenza",
+  "logo": "/images/outreach/dea-group/logodea.png",
+  "palette": {
+    "primary": "#1a6faf",
+    "primaryDim": "rgba(26,111,175,0.10)",
+    "background": "#ffffff",
+    "text": "#1a1a2e",
+    "textDim": "rgba(26,26,46,0.60)",
+    "border": "rgba(26,111,175,0.20)"
+  },
+  "headingFont": "Inter",
+  "heroTitle": "DEA Group, cresciamo insieme.",
+  "heroSubtitle": "Strategia digitale per il vostro posizionamento B2B",
+  "heroTagline": "Dal posizionamento alla lead generation: un percorso strutturato.",
+  "sections": [
+    {
+      "type": "problem",
+      "title": "Il mercato B2B oggi",
+      "content": "Il buyer B2B fa l'80% del percorso d'acquisto online prima di contattare un fornitore. Essere presenti con contenuti di valore e campagne mirate non è più opzionale."
+    },
+    {
+      "type": "strategy",
+      "title": "Tre pilastri",
+      "items": [
+        { "title": "Awareness", "description": "LinkedIn Ads + content strategy per posizionare DEA Group come punto di riferimento nel settore." },
+        { "title": "Consideration", "description": "Case studies, white paper, webinar. Contenuti che dimostrano competenza e generano fiducia." },
+        { "title": "Decision", "description": "Funnel di lead generation con landing dedicate, nurturing automatizzato e scoring dei contatti." }
+      ]
+    },
+    {
+      "type": "metrics",
+      "title": "Cosa possiamo misurare",
+      "metrics": [
+        { "label": "Costo per lead B2B", "value": "Target" },
+        { "label": "Lead qualificati/mese", "value": "KPI" },
+        { "label": "Pipeline value", "value": "€" },
+        { "label": "Conversion rate", "value": "%" }
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Costruiamo il bridge insieme?",
+    "subtitle": "Un incontro per capire dove siete e dove volete arrivare.",
+    "whatsappText": "Ciao Nicola, ho visto la proposta per DEA Group. Parliamone.",
+    "emailSubject": "DEA Group — Richiesta info strategia digitale",
+    "showGlitchEconomics": true
+  },
+  "meta": {
+    "status": "sent"
+  }
+}
