@@ -1,104 +1,223 @@
+"use client";
+
 import Link from "next/link";
-import { SITE, NAV_LINKS } from "@/lib/constants";
+import Image from "next/image";
+import { SITE } from "@/lib/constants";
+
+function handleCookieReset() {
+  document.cookie.split(";").forEach((c) => {
+    const name = c.split("=")[0].trim();
+    document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+  });
+  window.location.reload();
+}
 
 export default function Footer() {
-  const year = new Date().getFullYear();
-
   return (
-    <footer className="relative z-1 border-t border-border">
-      {/* Top section */}
-      <div className="max-w-[1100px] mx-auto px-[60px] py-12 max-md:px-8 max-[480px]:px-5">
-        <div className="grid grid-cols-3 gap-10 max-md:grid-cols-1 max-md:gap-8">
-          {/* Col 1: Logo + tagline */}
-          <div>
-            <div className="font-heading text-lg font-bold text-foreground mb-3">
-              Nicola <span className="text-primary">Serrao</span>
-            </div>
-            <p className="text-[11px] text-dimmed leading-relaxed">
-              {SITE.tagline}
-            </p>
-          </div>
-
-          {/* Col 2: Navigation */}
-          <div>
-            <div className="text-[9px] tracking-[3px] uppercase text-primary mb-4">
-              Navigazione
-            </div>
-            <ul className="list-none flex flex-col gap-2.5">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-[11px] text-dimmed hover:text-primary no-underline transition-colors duration-200"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Col 3: Contatti */}
-          <div>
-            <div className="text-[9px] tracking-[3px] uppercase text-primary mb-4">
-              Contatti
-            </div>
-            <ul className="list-none flex flex-col gap-2.5">
-              <li>
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="text-[11px] text-dimmed hover:text-primary no-underline transition-colors duration-200"
-                >
-                  {SITE.email}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={SITE.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[11px] text-dimmed hover:text-primary no-underline transition-colors duration-200"
-                >
-                  WhatsApp
-                </a>
-              </li>
-              <li>
-                <a
-                  href={SITE.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[11px] text-dimmed hover:text-primary no-underline transition-colors duration-200"
-                >
-                  LinkedIn
-                </a>
-              </li>
-            </ul>
-          </div>
+    <footer
+      style={{
+        borderTop: "1px solid var(--teal-border)",
+        padding: "48px 60px 32px",
+      }}
+    >
+      {/* ── footer-top ── */}
+      <div style={{ textAlign: "center", marginBottom: "24px" }}>
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "6px",
+            fontFamily: "var(--font-playfair), 'Playfair Display', serif",
+            fontSize: "20px",
+            fontWeight: 700,
+            color: "var(--text)",
+          }}
+        >
+          <Image
+            src="/favicon.svg"
+            alt=""
+            width={22}
+            height={22}
+            style={{ display: "inline-block" }}
+          />
+          Nicola <span style={{ color: "var(--teal)" }}>Serrao</span>
+        </div>
+        <div
+          style={{
+            fontSize: "11px",
+            fontStyle: "italic",
+            color: "var(--text-dim)",
+            marginTop: "4px",
+          }}
+        >
+          Digital Marketing Strategist
         </div>
       </div>
 
-      {/* Divider */}
-      <div className="divider-glow mx-[60px] max-md:mx-8" />
+      {/* ── footer-divider ── */}
+      <div
+        style={{
+          width: "100%",
+          height: "1px",
+          background:
+            "linear-gradient(90deg, transparent, var(--teal-border), transparent)",
+          marginBottom: "32px",
+        }}
+      />
 
-      {/* Bottom */}
-      <div className="max-w-[1100px] mx-auto px-[60px] py-5 flex flex-col items-center gap-2 text-[10px] text-faint tracking-[1px] text-center max-md:px-8 max-[480px]:px-5">
+      {/* ── footer-middle ── */}
+      <div className="footer-middle">
+        {/* Contatti */}
+        <div>
+          <div className="footer-col-label">Contatti</div>
+          <ul className="footer-col-list">
+            <li>
+              <a href={`mailto:${SITE.email}`} className="footer-link">
+                {SITE.email}
+              </a>
+            </li>
+            <li>
+              <a
+                href={SITE.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-link"
+              >
+                WhatsApp &rarr;
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Navigazione */}
+        <div>
+          <div className="footer-col-label">Navigazione</div>
+          <ul className="footer-col-list">
+            <li>
+              <Link href="/cosa-posso-fare" className="footer-link">
+                Cosa posso fare
+              </Link>
+            </li>
+            <li>
+              <Link href="/cosa-ho-fatto" className="footer-link">
+                Cosa ho fatto
+              </Link>
+            </li>
+            <li>
+              <Link href="/metodo-glitch" className="footer-link">
+                Metodo GLITCH
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Legale */}
+        <div>
+          <div className="footer-col-label">Legale</div>
+          <ul className="footer-col-list">
+            <li>
+              <Link href="/privacy-policy" className="footer-link">
+                Privacy &amp; Cookie Policy
+              </Link>
+            </li>
+            <li>
+              <button
+                type="button"
+                onClick={handleCookieReset}
+                className="footer-link"
+                style={{
+                  background: "none",
+                  border: "none",
+                  padding: 0,
+                  cursor: "pointer",
+                  font: "inherit",
+                }}
+              >
+                Gestisci cookie
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* ── footer-divider ── */}
+      <div
+        style={{
+          width: "100%",
+          height: "1px",
+          background:
+            "linear-gradient(90deg, transparent, var(--teal-border), transparent)",
+          marginTop: "32px",
+          marginBottom: "24px",
+        }}
+      />
+
+      {/* ── footer-bottom ── */}
+      <div
+        style={{
+          textAlign: "center",
+          fontSize: "10px",
+          color: "var(--text-faint)",
+          lineHeight: 1.8,
+        }}
+      >
         <p>
-          {SITE.address.street}, {SITE.address.cap} {SITE.address.city} (
-          {SITE.address.province})
+          Via Oberdan 25, 60020 Agugliano (AN) &mdash; P.IVA: 02703360426
+          &mdash; CF: SRRNCL93T31B963M
         </p>
-        <p>
-          P.IVA {SITE.piva} &middot; C.F. {SITE.cf}
-        </p>
-        <p>
-          &copy; {year} {SITE.name} &middot;{" "}
-          <Link
-            href="/privacy-policy"
-            className="text-faint hover:text-primary no-underline transition-colors duration-200"
-          >
-            Privacy Policy
-          </Link>
+        <p
+          style={{ color: "rgba(232,245,242,0.15)", marginTop: "4px" }}
+          className="footer-copy"
+        >
+          &copy; 2026 Nicola Serrao &mdash; Tutti i diritti riservati
         </p>
       </div>
+
+      {/* ── scoped styles ── */}
+      <style jsx>{`
+        .footer-middle {
+          display: flex;
+          justify-content: center;
+          gap: 80px;
+        }
+        .footer-col-label {
+          font-size: 9px;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          color: var(--teal);
+          margin-bottom: 12px;
+        }
+        .footer-col-list {
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+        .footer-link {
+          font-size: 11px;
+          color: var(--text-faint);
+          text-decoration: none;
+          transition: color 0.2s;
+        }
+        .footer-link:hover {
+          color: var(--teal);
+        }
+        @media (max-width: 900px) {
+          footer {
+            padding: 40px 32px 28px !important;
+          }
+          .footer-middle {
+            gap: 40px;
+          }
+        }
+        @media (max-width: 480px) {
+          .footer-middle {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+          }
+        }
+      `}</style>
     </footer>
   );
 }
