@@ -34,7 +34,7 @@ export default function Footer() {
           }}
         >
           <Image
-            src="/favicon.svg"
+            src="/favicon.png"
             alt=""
             width={18}
             height={18}
@@ -142,7 +142,7 @@ export default function Footer() {
                   border: "none",
                   padding: 0,
                   cursor: "pointer",
-                  font: "inherit",
+                  fontFamily: "inherit",
                 }}
               >
                 Gestisci cookie
