@@ -1,6 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/index.php",
+        destination: "/?utm_source=biglietto&utm_medium=offline&utm_campaign=business_card",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

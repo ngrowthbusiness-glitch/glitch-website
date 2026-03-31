@@ -3,7 +3,7 @@ export const SITE = {
   title: "Digital Marketing Strategist",
   tagline: "Aiuto le imprese italiane a crescere con strategie digitali concrete.",
   url: "https://nicolaserrao.com",
-  email: "marketing@nicolaserrao.it",
+  email: "marketing@nicolaserrao.com",
   whatsapp: "https://wa.me/393385691369",
   phone: "+39 338 5691369",
   linkedin: "https://www.linkedin.com/in/nicola-serrao/",

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { usePathname } from "next/navigation";
 
 const DELAY_MS = 60000;
 const STORAGE_KEY = "ns_feedback_given";
@@ -20,6 +21,7 @@ export default function FeedbackPopup() {
   const [step, setStep] = useState<Step>("choice");
   const [choice, setChoice] = useState("");
   const [text, setText] = useState("");
+  const pathname = usePathname();
 
   const show = useCallback(() => {
     if (sessionStorage.getItem(STORAGE_KEY)) return;
@@ -27,6 +29,8 @@ export default function FeedbackPopup() {
   }, []);
 
   useEffect(() => {
+    // Only show on homepage
+    if (pathname !== "/") return;
     if (sessionStorage.getItem(STORAGE_KEY)) return;
 
     const timer = setTimeout(show, DELAY_MS);
@@ -40,7 +44,7 @@ export default function FeedbackPopup() {
       clearTimeout(timer);
       document.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [show]);
+  }, [show, pathname]);
 
   function close() {
     setVisible(false);

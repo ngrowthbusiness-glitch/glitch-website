@@ -1,3 +1,3 @@
 export default function GlowBackground() {
-  return <div className="glow-bg" aria-hidden="true" />;
+  return <div className="bg-glow" aria-hidden="true" />;
 }
