@@ -75,29 +75,100 @@ export default function FeedbackPopup() {
 
   return (
     <div
-      className="fixed inset-0 z-[10000] flex items-center justify-center bg-[rgba(0,0,0,0.6)] backdrop-blur-sm p-5"
       onClick={(e) => {
         if (e.target === e.currentTarget) close();
       }}
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 10000,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "rgba(0,0,0,0.55)",
+        backdropFilter: "blur(8px)",
+        WebkitBackdropFilter: "blur(8px)",
+        padding: "24px",
+        animation: "fadeIn 0.3s ease both",
+      }}
     >
-      <div className="glass w-full max-w-md p-8 relative animate-fade-up">
+      <style>{`
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes popUp { from { opacity: 0; transform: translateY(16px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+      `}</style>
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "420px",
+          position: "relative",
+          background: "rgba(10,14,19,0.92)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          border: "1px solid var(--teal-border)",
+          borderRadius: "12px",
+          padding: "36px 32px",
+          boxShadow: "0 24px 64px rgba(0,0,0,0.5)",
+          animation: "popUp 0.4s ease both 0.05s",
+        }}
+      >
+        {/* Close button */}
         <button
           onClick={close}
-          className="absolute top-4 right-4 w-7 h-7 rounded-full bg-transparent border border-[rgba(255,255,255,0.12)] text-dimmed text-sm flex items-center justify-center cursor-pointer hover:text-primary hover:border-primary transition-colors font-[inherit]"
           aria-label="Chiudi"
+          style={{
+            position: "absolute",
+            top: "16px",
+            right: "16px",
+            width: "28px",
+            height: "28px",
+            borderRadius: "50%",
+            background: "transparent",
+            border: "1px solid rgba(232,245,242,0.1)",
+            color: "var(--text-faint)",
+            fontSize: "14px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            cursor: "pointer",
+            transition: "all 0.2s",
+            fontFamily: "inherit",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = "var(--teal)";
+            e.currentTarget.style.borderColor = "var(--teal-border)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = "var(--text-faint)";
+            e.currentTarget.style.borderColor = "rgba(232,245,242,0.1)";
+          }}
         >
           &times;
         </button>
 
         {step === "choice" && (
           <>
-            <div className="text-[9px] tracking-[3px] uppercase text-primary mb-3">
+            <div
+              style={{
+                fontSize: "8px",
+                letterSpacing: "3px",
+                textTransform: "uppercase",
+                color: "var(--teal)",
+                marginBottom: "12px",
+              }}
+            >
               Feedback veloce
             </div>
-            <p className="text-sm text-dimmed mb-6 leading-relaxed">
+            <p
+              style={{
+                fontSize: "13px",
+                color: "var(--text-dim)",
+                marginBottom: "24px",
+                lineHeight: 1.7,
+              }}
+            >
               Cosa ti frena dal fare il prossimo passo?
             </p>
-            <div className="flex flex-col gap-2.5">
+            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
               {CHOICES.map((c) => (
                 <button
                   key={c.key}
@@ -105,7 +176,29 @@ export default function FeedbackPopup() {
                     setChoice(c.key);
                     setStep("text");
                   }}
-                  className="text-left text-xs text-dimmed border border-[rgba(255,255,255,0.08)] rounded-lg px-4 py-3 bg-[rgba(255,255,255,0.03)] hover:border-primary hover:text-primary cursor-pointer transition-all duration-200 font-[inherit]"
+                  style={{
+                    textAlign: "left",
+                    fontSize: "11px",
+                    color: "var(--text-dim)",
+                    border: "1px solid rgba(232,245,242,0.08)",
+                    borderRadius: "8px",
+                    padding: "12px 16px",
+                    background: "rgba(232,245,242,0.02)",
+                    cursor: "pointer",
+                    transition: "all 0.2s",
+                    fontFamily: "inherit",
+                    lineHeight: 1.5,
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "var(--teal-border)";
+                    e.currentTarget.style.color = "var(--teal)";
+                    e.currentTarget.style.background = "rgba(0,255,252,0.04)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "rgba(232,245,242,0.08)";
+                    e.currentTarget.style.color = "var(--text-dim)";
+                    e.currentTarget.style.background = "rgba(232,245,242,0.02)";
+                  }}
                 >
                   {c.label}
                 </button>
@@ -116,7 +209,15 @@ export default function FeedbackPopup() {
 
         {step === "text" && (
           <>
-            <div className="text-[9px] tracking-[3px] uppercase text-primary mb-3">
+            <div
+              style={{
+                fontSize: "8px",
+                letterSpacing: "3px",
+                textTransform: "uppercase",
+                color: "var(--teal)",
+                marginBottom: "14px",
+              }}
+            >
               Vuoi aggiungere qualcosa?
             </div>
             <textarea
@@ -124,12 +225,48 @@ export default function FeedbackPopup() {
               onChange={(e) => setText(e.target.value)}
               placeholder="Facoltativo — scrivi pure liberamente"
               maxLength={1000}
-              className="w-full h-28 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-lg p-3 text-xs text-foreground placeholder:text-faint resize-none focus:outline-none focus:border-primary transition-colors font-[inherit]"
+              style={{
+                width: "100%",
+                height: "100px",
+                background: "rgba(232,245,242,0.02)",
+                border: "1px solid rgba(232,245,242,0.08)",
+                borderRadius: "8px",
+                padding: "12px 14px",
+                fontSize: "11px",
+                color: "var(--text)",
+                resize: "none",
+                outline: "none",
+                fontFamily: "inherit",
+                lineHeight: 1.7,
+                transition: "border-color 0.2s",
+              }}
+              onFocus={(e) => {
+                e.currentTarget.style.borderColor = "var(--teal-border)";
+              }}
+              onBlur={(e) => {
+                e.currentTarget.style.borderColor = "rgba(232,245,242,0.08)";
+              }}
             />
-            <div className="flex gap-3 mt-4">
+            <div style={{ display: "flex", gap: "10px", marginTop: "16px" }}>
               <button
                 onClick={submit}
-                className="flex-1 text-[10px] tracking-[2px] uppercase text-primary-fg bg-primary border-none px-5 py-3 rounded cursor-pointer font-medium hover:opacity-85 transition-opacity font-[inherit]"
+                style={{
+                  flex: 1,
+                  fontSize: "9px",
+                  letterSpacing: "2px",
+                  textTransform: "uppercase",
+                  background: "var(--teal)",
+                  color: "var(--bg)",
+                  border: "none",
+                  padding: "12px 20px",
+                  borderRadius: "5px",
+                  cursor: "pointer",
+                  fontWeight: 500,
+                  fontFamily: "inherit",
+                  transition: "opacity 0.2s",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.85"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
               >
                 Invia
               </button>
@@ -138,7 +275,27 @@ export default function FeedbackPopup() {
                   setText("");
                   submit();
                 }}
-                className="text-[10px] tracking-[2px] uppercase text-dimmed bg-transparent border border-border px-5 py-3 rounded cursor-pointer hover:text-primary transition-colors font-[inherit]"
+                style={{
+                  fontSize: "9px",
+                  letterSpacing: "2px",
+                  textTransform: "uppercase",
+                  color: "var(--text-faint)",
+                  background: "transparent",
+                  border: "1px solid rgba(232,245,242,0.1)",
+                  padding: "12px 20px",
+                  borderRadius: "5px",
+                  cursor: "pointer",
+                  fontFamily: "inherit",
+                  transition: "all 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = "var(--teal)";
+                  e.currentTarget.style.borderColor = "var(--teal-border)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = "var(--text-faint)";
+                  e.currentTarget.style.borderColor = "rgba(232,245,242,0.1)";
+                }}
               >
                 Salta
               </button>
@@ -147,9 +304,9 @@ export default function FeedbackPopup() {
         )}
 
         {step === "thanks" && (
-          <div className="text-center py-6">
-            <div className="text-2xl mb-3">&#10003;</div>
-            <p className="text-sm text-primary">
+          <div style={{ textAlign: "center", padding: "20px 0" }}>
+            <div style={{ fontSize: "22px", color: "var(--teal)", marginBottom: "12px" }}>&#10003;</div>
+            <p style={{ fontSize: "12px", color: "var(--teal)", letterSpacing: "1px" }}>
               Grazie per il feedback!
             </p>
           </div>

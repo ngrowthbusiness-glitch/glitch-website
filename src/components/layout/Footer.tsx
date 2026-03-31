@@ -157,8 +157,8 @@ export default function Footer() {
       <div
         style={{
           textAlign: "center",
-          fontSize: "9px",
-          color: "var(--text-faint)",
+          fontSize: "8px",
+          color: "rgba(232,245,242,0.15)",
           lineHeight: 1.8,
           letterSpacing: "0.5px",
         }}
@@ -195,8 +195,17 @@ export default function Footer() {
           flex-direction: column;
           gap: 6px;
         }
+        /* Contatti: più visibili */
+        .footer-middle > div:first-child .footer-link {
+          font-size: 11px;
+          color: var(--text-dim);
+        }
+        .footer-middle > div:first-child .footer-link:hover {
+          color: var(--teal);
+        }
+        /* Nav e Legale: più discreti */
         .footer-link {
-          font-size: 10px;
+          font-size: 9px;
           color: var(--text-faint);
           text-decoration: none;
           transition: color 0.2s;
