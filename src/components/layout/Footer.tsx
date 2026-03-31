@@ -17,18 +17,18 @@ export default function Footer() {
     <footer
       style={{
         borderTop: "1px solid var(--teal-border)",
-        padding: "48px 60px 32px",
+        padding: "40px 60px 28px",
       }}
     >
       {/* ── footer-top ── */}
-      <div style={{ textAlign: "center", marginBottom: "24px" }}>
+      <div style={{ textAlign: "center", marginBottom: "20px" }}>
         <div
           style={{
             display: "inline-flex",
             alignItems: "center",
             gap: "6px",
             fontFamily: "var(--font-playfair), 'Playfair Display', serif",
-            fontSize: "20px",
+            fontSize: "16px",
             fontWeight: 700,
             color: "var(--text)",
           }}
@@ -36,17 +36,18 @@ export default function Footer() {
           <Image
             src="/favicon.svg"
             alt=""
-            width={22}
-            height={22}
+            width={18}
+            height={18}
             style={{ display: "inline-block" }}
           />
           Nicola <span style={{ color: "var(--teal)" }}>Serrao</span>
         </div>
         <div
           style={{
-            fontSize: "11px",
+            fontSize: "9px",
+            letterSpacing: "1.5px",
             fontStyle: "italic",
-            color: "var(--text-dim)",
+            color: "var(--text-faint)",
             marginTop: "4px",
           }}
         >
@@ -156,9 +157,10 @@ export default function Footer() {
       <div
         style={{
           textAlign: "center",
-          fontSize: "10px",
+          fontSize: "9px",
           color: "var(--text-faint)",
           lineHeight: 1.8,
+          letterSpacing: "0.5px",
         }}
       >
         <p>
@@ -166,7 +168,7 @@ export default function Footer() {
           &mdash; CF: SRRNCL93T31B963M
         </p>
         <p
-          style={{ color: "rgba(232,245,242,0.15)", marginTop: "4px" }}
+          style={{ color: "rgba(232,245,242,0.12)", marginTop: "4px" }}
           className="footer-copy"
         >
           &copy; 2026 Nicola Serrao &mdash; Tutti i diritti riservati
@@ -181,20 +183,20 @@ export default function Footer() {
           gap: 80px;
         }
         .footer-col-label {
-          font-size: 9px;
+          font-size: 8px;
           letter-spacing: 3px;
           text-transform: uppercase;
           color: var(--teal);
-          margin-bottom: 12px;
+          margin-bottom: 10px;
         }
         .footer-col-list {
           list-style: none;
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: 6px;
         }
         .footer-link {
-          font-size: 11px;
+          font-size: 10px;
           color: var(--text-faint);
           text-decoration: none;
           transition: color 0.2s;

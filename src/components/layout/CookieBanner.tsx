@@ -77,10 +77,11 @@ export default function CookieBanner() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-[9999] backdrop-blur-[16px] px-[60px] py-5 max-md:px-6 max-[480px]:px-5"
+      className="fixed bottom-0 left-0 right-0 z-[9999] backdrop-blur-[16px]"
       style={{
         background: "rgba(10,14,19,0.97)",
         borderTop: "1px solid var(--teal-border)",
+        padding: "28px 60px",
         animation: hiding
           ? "slideDown 0.3s ease forwards"
           : "slideUp 0.4s ease both",
@@ -89,16 +90,38 @@ export default function CookieBanner() {
       <style>{`
         @keyframes slideUp { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         @keyframes slideDown { from { transform: translateY(0); opacity: 1; } to { transform: translateY(100%); opacity: 0; } }
+        @media (max-width: 768px) {
+          .cookie-banner-inner { padding: 24px 24px !important; }
+        }
+        @media (max-width: 480px) {
+          .cookie-banner-inner { padding: 20px 20px !important; }
+        }
       `}</style>
-      <div className="max-w-[1100px] mx-auto flex items-center gap-10 max-md:flex-col max-md:items-start max-md:gap-5">
-        <div className="flex-1">
+      <div
+        className="cookie-banner-inner"
+        style={{ maxWidth: 1100, margin: "0 auto", display: "flex", alignItems: "center", gap: "48px" }}
+      >
+        <div style={{ flex: 1 }}>
           <span
-            className="inline-block text-[9px] tracking-[3px] uppercase mb-2"
-            style={{ color: "var(--teal)" }}
+            style={{
+              display: "inline-block",
+              fontSize: "8px",
+              letterSpacing: "3px",
+              textTransform: "uppercase",
+              color: "var(--teal)",
+              marginBottom: "10px",
+            }}
           >
             Cookie & Privacy
           </span>
-          <p className="text-[11px] leading-relaxed" style={{ color: "var(--text-dim)" }}>
+          <p
+            style={{
+              fontSize: "11px",
+              lineHeight: 1.8,
+              color: "var(--text-dim)",
+              margin: 0,
+            }}
+          >
             Uso cookie tecnici (necessari) e cookie di profilazione (Meta Pixel
             via GTM) per analizzare il traffico e migliorare la tua esperienza.
             Puoi accettare tutto o continuare solo con i necessari.{" "}
@@ -111,13 +134,22 @@ export default function CookieBanner() {
             </Link>
           </p>
         </div>
-        <div className="flex gap-3 shrink-0 max-md:w-full max-[480px]:flex-col">
+        <div style={{ display: "flex", gap: "12px", flexShrink: 0 }}>
           <button
             onClick={() => handleChoice(false)}
-            className="text-[10px] tracking-[2px] uppercase bg-transparent px-5 py-3 rounded cursor-pointer hover:-translate-y-px transition-all duration-200 max-md:flex-1 text-center whitespace-nowrap font-[inherit]"
+            className="hover:-translate-y-px transition-all duration-200"
             style={{
+              fontSize: "9px",
+              letterSpacing: "2px",
+              textTransform: "uppercase",
               color: "var(--teal)",
+              background: "transparent",
               border: "1px solid var(--teal-border)",
+              padding: "11px 20px",
+              borderRadius: "4px",
+              cursor: "pointer",
+              whiteSpace: "nowrap",
+              fontFamily: "inherit",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = "rgba(0,255,252,0.08)";
@@ -132,10 +164,20 @@ export default function CookieBanner() {
           </button>
           <button
             onClick={() => handleChoice(true)}
-            className="text-[10px] tracking-[2px] uppercase border-none px-5 py-3 rounded cursor-pointer font-medium hover:opacity-85 hover:-translate-y-px transition-all duration-200 max-md:flex-1 text-center whitespace-nowrap font-[inherit]"
+            className="hover:opacity-85 hover:-translate-y-px transition-all duration-200"
             style={{
+              fontSize: "9px",
+              letterSpacing: "2px",
+              textTransform: "uppercase",
               background: "var(--teal)",
               color: "var(--bg)",
+              border: "none",
+              padding: "11px 20px",
+              borderRadius: "4px",
+              cursor: "pointer",
+              fontWeight: 500,
+              whiteSpace: "nowrap",
+              fontFamily: "inherit",
             }}
           >
             Accetta tutto
