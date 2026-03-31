@@ -67,13 +67,24 @@ export default function Footer() {
       />
 
       {/* ── footer-middle ── */}
-      <div className="footer-middle">
-        {/* Contatti */}
+      <style>{`
+        .ft-mid { display: flex; justify-content: center; gap: 80px; }
+        .ft-label { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+        .ft-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+        .ft-contact { font-size: 11px; color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+        .ft-contact:hover { color: var(--teal); }
+        .ft-link { font-size: 9px; color: var(--text-faint); text-decoration: none; transition: color 0.2s; }
+        .ft-link:hover { color: var(--teal); }
+        @media (max-width: 900px) { .ft-mid { gap: 40px; } }
+        @media (max-width: 480px) { .ft-mid { flex-direction: column; align-items: center; text-align: center; } }
+      `}</style>
+      <div className="ft-mid">
+        {/* Contatti — più visibili */}
         <div>
-          <div className="footer-col-label">Contatti</div>
-          <ul className="footer-col-list">
+          <div className="ft-label">Contatti</div>
+          <ul className="ft-list">
             <li>
-              <a href={`mailto:${SITE.email}`} className="footer-link">
+              <a href={`mailto:${SITE.email}`} className="ft-contact">
                 {SITE.email}
               </a>
             </li>
@@ -82,7 +93,7 @@ export default function Footer() {
                 href={SITE.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="footer-link"
+                className="ft-contact"
               >
                 WhatsApp &rarr;
               </a>
@@ -90,34 +101,34 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Navigazione */}
+        {/* Navigazione — discreto */}
         <div>
-          <div className="footer-col-label">Navigazione</div>
-          <ul className="footer-col-list">
+          <div className="ft-label">Navigazione</div>
+          <ul className="ft-list">
             <li>
-              <Link href="/cosa-posso-fare" className="footer-link">
+              <Link href="/cosa-posso-fare" className="ft-link">
                 Cosa posso fare
               </Link>
             </li>
             <li>
-              <Link href="/cosa-ho-fatto" className="footer-link">
+              <Link href="/cosa-ho-fatto" className="ft-link">
                 Cosa ho fatto
               </Link>
             </li>
             <li>
-              <Link href="/metodo-glitch" className="footer-link">
+              <Link href="/metodo-glitch" className="ft-link">
                 Metodo GLITCH
               </Link>
             </li>
           </ul>
         </div>
 
-        {/* Legale */}
+        {/* Legale — discreto */}
         <div>
-          <div className="footer-col-label">Legale</div>
-          <ul className="footer-col-list">
+          <div className="ft-label">Legale</div>
+          <ul className="ft-list">
             <li>
-              <Link href="/privacy-policy" className="footer-link">
+              <Link href="/privacy-policy" className="ft-link">
                 Privacy &amp; Cookie Policy
               </Link>
             </li>
@@ -125,7 +136,7 @@ export default function Footer() {
               <button
                 type="button"
                 onClick={handleCookieReset}
-                className="footer-link"
+                className="ft-link"
                 style={{
                   background: "none",
                   border: "none",
@@ -148,8 +159,8 @@ export default function Footer() {
           height: "1px",
           background:
             "linear-gradient(90deg, transparent, var(--teal-border), transparent)",
-          marginTop: "32px",
-          marginBottom: "24px",
+          marginTop: "28px",
+          marginBottom: "20px",
         }}
       />
 
@@ -167,68 +178,10 @@ export default function Footer() {
           Via Oberdan 25, 60020 Agugliano (AN) &mdash; P.IVA: 02703360426
           &mdash; CF: SRRNCL93T31B963M
         </p>
-        <p
-          style={{ color: "rgba(232,245,242,0.12)", marginTop: "4px" }}
-          className="footer-copy"
-        >
+        <p style={{ color: "rgba(232,245,242,0.10)", marginTop: "3px" }}>
           &copy; 2026 Nicola Serrao &mdash; Tutti i diritti riservati
         </p>
       </div>
-
-      {/* ── scoped styles ── */}
-      <style jsx>{`
-        .footer-middle {
-          display: flex;
-          justify-content: center;
-          gap: 80px;
-        }
-        .footer-col-label {
-          font-size: 8px;
-          letter-spacing: 3px;
-          text-transform: uppercase;
-          color: var(--teal);
-          margin-bottom: 10px;
-        }
-        .footer-col-list {
-          list-style: none;
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-        }
-        /* Contatti: più visibili */
-        .footer-middle > div:first-child .footer-link {
-          font-size: 11px;
-          color: var(--text-dim);
-        }
-        .footer-middle > div:first-child .footer-link:hover {
-          color: var(--teal);
-        }
-        /* Nav e Legale: più discreti */
-        .footer-link {
-          font-size: 9px;
-          color: var(--text-faint);
-          text-decoration: none;
-          transition: color 0.2s;
-        }
-        .footer-link:hover {
-          color: var(--teal);
-        }
-        @media (max-width: 900px) {
-          footer {
-            padding: 40px 32px 28px !important;
-          }
-          .footer-middle {
-            gap: 40px;
-          }
-        }
-        @media (max-width: 480px) {
-          .footer-middle {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-          }
-        }
-      `}</style>
     </footer>
   );
 }
