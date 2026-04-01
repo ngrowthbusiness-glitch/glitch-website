@@ -5,9 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { NAV_LINKS, SITE } from "@/lib/constants";
+import DiagnosiPopup from "@/components/layout/DiagnosiPopup";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [popupOpen, setPopupOpen] = useState(false);
   const [outreach, setOutreach] = useState<{
     slug: string;
     url: string;
@@ -17,7 +19,6 @@ export default function Navbar() {
 
   /* ── Outreach bubble system ── */
   useEffect(() => {
-    // Don't show bubble on outreach pages themselves
     if (pathname.startsWith("/outreach/")) return;
 
     const active = sessionStorage.getItem("ns_outreach_active");
@@ -25,7 +26,6 @@ export default function Navbar() {
 
     if (active && url) {
       setOutreach({ slug: active, url });
-      // Small delay before showing for smooth entrance
       const timer = setTimeout(() => setBubbleVisible(true), 600);
       return () => clearTimeout(timer);
     }
@@ -131,10 +131,9 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <a
-              href={SITE.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={() => setPopupOpen(true)}
               className="nav-cta"
               style={{
                 fontSize: "10px",
@@ -147,6 +146,8 @@ export default function Navbar() {
                 borderRadius: "4px",
                 background: "rgba(0,255,252,0.10)",
                 transition: "all 0.2s",
+                cursor: "pointer",
+                fontFamily: "inherit",
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget;
@@ -159,8 +160,8 @@ export default function Navbar() {
                 el.style.borderColor = "rgba(0,255,252,0.22)";
               }}
             >
-              Parliamoci
-            </a>
+              Diagnosi gratuita
+            </button>
           </li>
         </ul>
 
@@ -267,54 +268,34 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <a
-            href={SITE.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMenuOpen(false)}
+          <button
+            type="button"
+            onClick={() => {
+              setMenuOpen(false);
+              setPopupOpen(true);
+            }}
             style={{
               fontSize: "12px",
               letterSpacing: "2.5px",
               textTransform: "uppercase",
               textDecoration: "none",
-              color: "rgba(232,245,242,0.50)",
+              color: "#00fffc",
               padding: "8px 0",
               transition: "color 0.2s",
-            }}
-            onMouseEnter={(e) => {
-              (e.target as HTMLElement).style.color = "#00fffc";
-            }}
-            onMouseLeave={(e) => {
-              (e.target as HTMLElement).style.color =
-                "rgba(232,245,242,0.50)";
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              fontFamily: "inherit",
+              textAlign: "left",
             }}
           >
-            Parliamoci su WhatsApp
-          </a>
-          <a
-            href={`mailto:${SITE.email}`}
-            onClick={() => setMenuOpen(false)}
-            style={{
-              fontSize: "12px",
-              letterSpacing: "2.5px",
-              textTransform: "uppercase",
-              textDecoration: "none",
-              color: "rgba(232,245,242,0.50)",
-              padding: "8px 0",
-              transition: "color 0.2s",
-            }}
-            onMouseEnter={(e) => {
-              (e.target as HTMLElement).style.color = "#00fffc";
-            }}
-            onMouseLeave={(e) => {
-              (e.target as HTMLElement).style.color =
-                "rgba(232,245,242,0.50)";
-            }}
-          >
-            Inviami una mail
-          </a>
+            Diagnosi gratuita
+          </button>
         </div>
       )}
+
+      {/* ── Diagnosi Popup ── */}
+      <DiagnosiPopup open={popupOpen} onClose={() => setPopupOpen(false)} />
 
       {/* ── Outreach Bubble ── */}
       {outreach && (
