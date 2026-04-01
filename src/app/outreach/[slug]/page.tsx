@@ -28,12 +28,12 @@ export async function generateMetadata({
 /* ── Nicola palette (from old PHP templates) ── */
 const NS = {
   bg: "#0a0e0d",
-  teal: "#00d4a0",
-  tealDim: "rgba(0,212,160,0.10)",
-  tealBorder: "rgba(0,212,160,0.22)",
-  text: "#e8f5f2",
-  textDim: "rgba(232,245,242,0.50)",
-  textFaint: "rgba(232,245,242,0.20)",
+  teal: "#00fffc",
+  tealDim: "rgba(0,255,252,0.10)",
+  tealBorder: "rgba(0,255,252,0.22)",
+  text: "#e8f0ff",
+  textDim: "rgba(232,240,255,0.50)",
+  textFaint: "rgba(232,240,255,0.20)",
   serif: "'Playfair Display', serif",
   mono: "'DM Mono', monospace",
 } as const;
@@ -327,8 +327,8 @@ body { background: ${NS.bg}; color: ${NS.text}; font-family: ${NS.mono}; overflo
 .bg-glow {
   position: fixed; inset: 0; pointer-events: none; z-index: 0;
   background:
-    radial-gradient(ellipse 60% 50% at 85% 30%, rgba(0,212,160,0.05) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(0,212,160,0.03) 0%, transparent 50%);
+    radial-gradient(ellipse 60% 50% at 85% 30%, rgba(0,255,252,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(0,255,252,0.03) 0%, transparent 50%);
 }
 
 /* ══════════════════════════════════════════
@@ -485,7 +485,7 @@ body { background: ${NS.bg}; color: ${NS.text}; font-family: ${NS.mono}; overflo
 }
 .glitch-scanlines {
   position:absolute; inset:0;
-  background:repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,212,160,0.025) 2px, rgba(0,212,160,0.025) 4px);
+  background:repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,252,0.025) 2px, rgba(0,255,252,0.025) 4px);
   animation:scan 6s linear infinite;
 }
 @keyframes scan{from{background-position:0 0}to{background-position:0 40px}}
