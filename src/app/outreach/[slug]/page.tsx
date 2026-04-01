@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getOutreachConfig, getAllOutreachSlugs } from "@/data/outreach/loader";
-import type { OutreachConfig, OutreachSection } from "@/data/outreach/types";
+import type { OutreachSection } from "@/data/outreach/types";
 import { SITE } from "@/lib/constants";
 import OutreachTracker from "./tracker";
+import ResponseBox from "./response-box";
 
 export async function generateStaticParams() {
   return getAllOutreachSlugs().map((slug) => ({ slug }));
@@ -35,6 +36,7 @@ export default async function OutreachPage({
   if (!config) notFound();
 
   const isLightBg = isLight(config.palette.background);
+  const hasResponseBox = !!config.cta.ctaQuestion;
 
   return (
     <>
@@ -79,7 +81,7 @@ export default async function OutreachPage({
                 className="text-[10px] tracking-[2px] uppercase"
                 style={{ color: "var(--o-text-dim)" }}
               >
-                Proposta per {config.companyName}
+                {config.companyName}
               </span>
             </div>
             <div className="flex items-center gap-3">
@@ -138,48 +140,61 @@ export default async function OutreachPage({
             />
           ))}
 
-          {/* CTA */}
-          <section className="max-w-[900px] mx-auto px-[60px] py-20 text-center max-md:px-8 max-[480px]:px-5">
+          {/* CTA — Response Box or classic buttons */}
+          <section className="max-w-[900px] mx-auto px-[60px] py-20 max-md:px-8 max-[480px]:px-5">
             <h2
               className="font-heading text-3xl font-bold mb-4"
-              style={{ color: "var(--o-text)" }}
+              style={{ color: "var(--o-text)", textAlign: hasResponseBox ? "left" : "center" }}
             >
               {config.cta.title}
             </h2>
             {config.cta.subtitle && (
               <p
                 className="text-sm mb-8"
-                style={{ color: "var(--o-text-dim)" }}
+                style={{ color: "var(--o-text-dim)", textAlign: hasResponseBox ? "left" : "center" }}
               >
                 {config.cta.subtitle}
               </p>
             )}
-            <div className="flex gap-3.5 justify-center flex-wrap">
-              <a
-                href={`${SITE.whatsapp}?text=${encodeURIComponent(config.cta.whatsappText || "")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 text-[10px] font-medium tracking-[2px] uppercase px-6 py-3.5 rounded no-underline hover:opacity-85 hover:-translate-y-0.5 transition-all duration-200"
-                style={{
-                  background: "var(--o-primary)",
-                  color: isLightBg ? "#fff" : "var(--o-bg)",
-                }}
-              >
-                Scrivimi su WhatsApp
-              </a>
-              <a
-                href={`mailto:${SITE.email}?subject=${encodeURIComponent(config.cta.emailSubject || "")}`}
-                className="inline-flex items-center gap-2.5 text-[10px] tracking-[2px] uppercase px-6 py-3.5 rounded border no-underline hover:-translate-y-0.5 transition-all duration-200"
-                style={{
-                  color: "var(--o-primary)",
-                  borderColor: "var(--o-border)",
-                }}
-              >
-                Inviami una mail
-              </a>
-            </div>
+
+            {hasResponseBox ? (
+              <ResponseBox
+                question={config.cta.ctaQuestion!}
+                companyName={config.companyName}
+                slug={slug}
+                emailSubject={config.cta.emailSubject}
+                siteEmail={SITE.email}
+              />
+            ) : (
+              /* Legacy button CTA for existing configs */
+              <div className="flex gap-3.5 justify-center flex-wrap">
+                <a
+                  href={`${SITE.whatsapp}?text=${encodeURIComponent(config.cta.whatsappText || "")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 text-[10px] font-medium tracking-[2px] uppercase px-6 py-3.5 rounded no-underline hover:opacity-85 hover:-translate-y-0.5 transition-all duration-200"
+                  style={{
+                    background: "var(--o-primary)",
+                    color: isLightBg ? "#fff" : "var(--o-bg)",
+                  }}
+                >
+                  Scrivimi su WhatsApp
+                </a>
+                <a
+                  href={`mailto:${SITE.email}?subject=${encodeURIComponent(config.cta.emailSubject || "")}`}
+                  className="inline-flex items-center gap-2.5 text-[10px] tracking-[2px] uppercase px-6 py-3.5 rounded border no-underline hover:-translate-y-0.5 transition-all duration-200"
+                  style={{
+                    color: "var(--o-primary)",
+                    borderColor: "var(--o-border)",
+                  }}
+                >
+                  Inviami una mail
+                </a>
+              </div>
+            )}
+
             {config.cta.showGlitchEconomics && (
-              <div className="mt-10">
+              <div className={hasResponseBox ? "mt-10" : "mt-10 text-center"}>
                 <a
                   href={SITE.glitchEconomicsUrl}
                   target="_blank"
@@ -229,6 +244,105 @@ function SectionRenderer({
     ? "rgba(0,0,0,0.03)"
     : "rgba(255,255,255,0.04)";
 
+  // "insight" type renders as numbered observations
+  if (section.type === "insight" && section.items) {
+    return (
+      <section className="max-w-[900px] mx-auto px-[60px] py-12 max-md:px-8 max-[480px]:px-5">
+        {section.title && (
+          <h2
+            className="text-[9px] tracking-[3px] uppercase mb-6"
+            style={{ color: "var(--o-primary)" }}
+          >
+            {section.title}
+          </h2>
+        )}
+        <div className="flex flex-col gap-4">
+          {section.items.map((item, i) => (
+            <div
+              key={i}
+              className="flex gap-4 p-5 rounded-xl border"
+              style={{
+                background: cardBg,
+                borderColor: "var(--o-border)",
+              }}
+            >
+              <span
+                className="font-heading text-lg font-bold shrink-0"
+                style={{ color: "var(--o-primary)" }}
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div>
+                <h4
+                  className="font-heading text-base font-bold mb-1"
+                  style={{ color: "var(--o-text)" }}
+                >
+                  {item.title}
+                </h4>
+                <p
+                  className="text-xs leading-relaxed"
+                  style={{ color: "var(--o-text-dim)" }}
+                >
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
+  // "teaser" type renders as minimal, curiosity-driven cards
+  if (section.type === "teaser" && section.items) {
+    return (
+      <section className="max-w-[900px] mx-auto px-[60px] py-12 max-md:px-8 max-[480px]:px-5">
+        {section.title && (
+          <h2
+            className="font-heading text-2xl font-bold mb-2"
+            style={{ color: "var(--o-text)" }}
+          >
+            {section.title}
+          </h2>
+        )}
+        {section.subtitle && (
+          <p
+            className="text-sm mb-6"
+            style={{ color: "var(--o-text-dim)" }}
+          >
+            {section.subtitle}
+          </p>
+        )}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {section.items.map((item, i) => (
+            <div
+              key={i}
+              className="p-5 rounded-xl border-l-2"
+              style={{
+                background: cardBg,
+                borderColor: "var(--o-primary)",
+              }}
+            >
+              <h4
+                className="text-sm font-bold mb-1"
+                style={{ color: "var(--o-text)" }}
+              >
+                {item.title}
+              </h4>
+              <p
+                className="text-xs leading-relaxed"
+                style={{ color: "var(--o-text-dim)" }}
+              >
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
+  // Default rendering for existing types
   return (
     <section className="max-w-[900px] mx-auto px-[60px] py-12 max-md:px-8 max-[480px]:px-5">
       {section.title && (

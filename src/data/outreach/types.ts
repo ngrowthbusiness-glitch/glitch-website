@@ -1,5 +1,5 @@
 export interface OutreachSection {
-  type: "hero" | "problem" | "method" | "strategy" | "metrics" | "cta" | "custom";
+  type: "hero" | "problem" | "method" | "strategy" | "metrics" | "insight" | "teaser" | "cta" | "custom";
   title?: string;
   subtitle?: string;
   content?: string;
@@ -48,12 +48,14 @@ export interface OutreachConfig {
   cta: {
     title: string;
     subtitle?: string;
+    /** Strong question for the interactive response box */
+    ctaQuestion?: string;
     whatsappText?: string;
     emailSubject?: string;
     showGlitchEconomics?: boolean;
   };
 
-  /** Metadata for future Notion integration */
+  /** Metadata for Notion integration */
   meta?: {
     createdAt?: string;
     status?: "draft" | "sent" | "viewed" | "converted";
