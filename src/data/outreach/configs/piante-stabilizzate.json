@@ -4,41 +4,38 @@
   "sector": "Piante stabilizzate / Green design",
   "logo": null,
   "palette": {
-    "primary": "#6B8E23",
-    "primaryDim": "rgba(107,142,35,0.08)",
-    "background": "#f8f5ef",
-    "text": "#2d2b28",
-    "textDim": "rgba(45,43,40,0.55)",
-    "border": "rgba(107,142,35,0.18)"
+    "primary": "#5a6b50",
+    "primaryDim": "rgba(90,107,80,0.10)",
+    "background": "#f7f5f0",
+    "text": "#1a1a16",
+    "textDim": "rgba(26,26,22,0.55)",
+    "border": "rgba(26,26,22,0.09)"
   },
   "headingFont": "Cormorant Garamond",
-  "heroTitle": "Natura, materia, silenzio.",
-  "heroSubtitle": "Strategia digitale per piante stabilizzate",
-  "heroTagline": "Un prodotto unico merita una comunicazione unica.",
-  "sections": [
+  "heroTitle": "LinfaDecor, ho fatto del lavoro per voi.",
+  "heroSubtitle": "Ho analizzato il vostro sito, il mercato delle piante stabilizzate e il modo in cui comunicate online. Credo ci siano opportunit\u00e0 concrete per far crescere il vostro brand nel digitale.",
+  "pitch": "Le piante stabilizzate sono un prodotto di nicchia ad alto valore. Il pubblico \u00e8 specifico: interior designer, architetti, hotel, uffici. Serve una comunicazione che parli la loro lingua e trasmetta l\u2019essenza del prodotto.\n\nLinfaDecor ha il prodotto, la qualit\u00e0 e l\u2019esperienza. Quello che manca \u00e8 un ponte tra chi cerca soluzioni di green design e voi \u2013 un sistema che trasformi la curiosit\u00e0 in richieste concrete.\n\nCon un visual storytelling all\u2019altezza del prodotto e un targeting preciso verso i professionisti del design, il potenziale di crescita \u00e8 enorme.",
+  "boxes": [
     {
-      "type": "problem",
-      "title": "Il contesto",
-      "content": "Le piante stabilizzate sono un prodotto di nicchia ad alto valore. Il pubblico è specifico: interior designer, architetti, hotel, uffici. Serve una comunicazione che parli la loro lingua."
+      "title": "Visual Storytelling",
+      "description": "Le mie competenze in comunicazione e creativit\u00e0 vi permetterebbero di raccontare LinfaDecor con fotografia d\u2019autore, video ambientati e contenuti che trasmettono natura, materia e silenzio \u2013 l\u2019essenza del vostro prodotto."
     },
     {
-      "type": "strategy",
-      "title": "Approccio",
-      "items": [
-        { "title": "Visual storytelling", "description": "Fotografia d'autore, video ambientati, contenuti che trasmettono l'essenza del prodotto." },
-        { "title": "Targeting preciso", "description": "Meta Ads verso professionisti del design e dell'arredamento. Pinterest Ads per ispirare." },
-        { "title": "E-commerce o lead gen", "description": "A seconda del modello di business: vendita diretta online o generazione di richieste di preventivo qualificate." }
-      ]
+      "title": "Targeting & Acquisizione",
+      "description": "Con campagne Meta Ads verso professionisti del design e dell\u2019arredamento, e Pinterest Ads per ispirare, possiamo raggiungere esattamente chi cerca quello che offrite \u2013 abbassando il costo per ogni contatto qualificato."
+    },
+    {
+      "title": "Sistema Completo",
+      "description": "Come stratega, posso costruire il percorso completo: dalla scoperta del brand alla richiesta di preventivo, coordinando comunicazione, pagine web e follow-up per massimizzare ogni opportunit\u00e0 commerciale."
     }
   ],
+  "urgencyText": "Ho il massimo dell\u2019attenzione sul vostro progetto perch\u00e9 ci ho lavorato in questi giorni. E queste sono solo le idee che ho avuto oggi \u2013 sono sicuro che parlando con voi ne nascerebbero tante altre ancora.\n\nPerch\u00e9 non ci sentiamo? Penso veramente di potervi aiutare a migliorare la vostra situazione, ad avvicinarvi al vostro obiettivo. Non necessariamente lavorando insieme, ma semplicemente con questa chiacchierata potrei farvi chiarezza.\n\nLo apprezzerei.",
+  "sections": [],
   "cta": {
-    "title": "Facciamo crescere il vostro brand?",
-    "subtitle": "Senza acqua, come le vostre piante. Ma con strategia.",
-    "whatsappText": "Ciao Nicola, ho visto la proposta per le piante stabilizzate.",
-    "emailSubject": "Piante stabilizzate — Strategia digitale",
+    "title": "Parliamone.",
+    "whatsappText": "Ciao Nicola, ho visto il lavoro che hai fatto per LinfaDecor. Parliamone.",
+    "emailSubject": "LinfaDecor \u2014 Parliamone",
     "showGlitchEconomics": false
   },
-  "meta": {
-    "status": "sent"
-  }
+  "meta": { "status": "sent" }
 }

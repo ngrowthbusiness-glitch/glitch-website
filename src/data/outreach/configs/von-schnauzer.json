@@ -4,51 +4,38 @@
   "sector": "Pet / Dog grooming premium",
   "logo": null,
   "palette": {
-    "primary": "#c8a04a",
-    "primaryDim": "rgba(200,160,74,0.10)",
-    "background": "#1a1611",
-    "text": "#f5efe4",
-    "textDim": "rgba(245,239,228,0.55)",
-    "border": "rgba(200,160,74,0.20)"
+    "primary": "#c8922a",
+    "primaryDim": "rgba(200,146,42,0.12)",
+    "background": "#0e0c09",
+    "text": "#f5f0e8",
+    "textDim": "rgba(245,240,232,0.55)",
+    "border": "rgba(200,146,42,0.28)"
   },
   "headingFont": "Playfair Display",
-  "heroTitle": "Von Schnauzer, il premium nel mondo pet.",
-  "heroSubtitle": "Strategia digitale per un brand pet di lusso",
-  "heroTagline": "Un mercato in crescita esplosiva. Serve posizionamento, non improvvisazione.",
-  "sections": [
+  "heroTitle": "Von Schnauzer, ho fatto del lavoro per voi.",
+  "heroSubtitle": "Ho analizzato il vostro progetto, il mercato pet premium e le opportunit\u00e0 che avete davanti. Hai un asset raro: anni di esperienza su una razza specifica, una storia vera e una passione autentica.",
+  "pitch": "Il mercato pet in Italia vale miliardi e cresce ogni anno. Il segmento premium \u00e8 il pi\u00f9 redditizio ma anche il meno strutturato. Un brand ultra-verticale su una singola razza, con la forza di una storia autentica alle spalle, pu\u00f2 diventare un micro-monopolio.\n\nVon Schnauzer ha tutto per funzionare: competenza tecnica profonda, anni di esperienza, passione visibile. Quello che manca \u00e8 il sistema per trasformare questa autorit\u00e0 in un brand riconoscibile e in entrate concrete.\n\nDal naming all\u2019identit\u00e0 visiva, dalla monetizzazione ai contenuti: ho elaborato un percorso completo. E queste sono solo le idee che mi sono venute guardando il progetto dall\u2019esterno.",
+  "boxes": [
     {
-      "type": "problem",
-      "title": "Il mercato pet premium",
-      "content": "Il mercato pet in Italia vale €3.5 miliardi e cresce del 10% annuo. Il segmento premium è il più redditizio ma anche il più competitivo. Servono brand forti e strategie mirate."
+      "title": "Brand & Identit\u00e0",
+      "description": "Le mie competenze in branding e comunicazione vi permetterebbero di costruire un\u2019identit\u00e0 premium per Von Schnauzer \u2013 dal naming al visual, posizionandovi come il riferimento italiano per la razza."
     },
     {
-      "type": "strategy",
-      "title": "Strategia",
-      "items": [
-        { "title": "Brand identity", "description": "Posizionamento luxury: storytelling, visual premium, community building." },
-        { "title": "Social + Content", "description": "Instagram e TikTok con contenuti che creano engagement e community. UGC strategy." },
-        { "title": "E-commerce & Revenue", "description": "Shopify + subscription model per prodotti ricorrenti. Multiple revenue streams: prodotti, servizi, membership." }
-      ]
+      "title": "Contenuti & Community",
+      "description": "Con una strategia di contenuti strutturata tra Instagram, TikTok e un sito autorevole, possiamo costruire una community di appassionati che si fidano del brand e comprano i vostri servizi."
     },
     {
-      "type": "metrics",
-      "title": "Revenue model",
-      "metrics": [
-        { "label": "Grooming", "value": "Core" },
-        { "label": "Prodotti premium", "value": "E-comm" },
-        { "label": "Membership", "value": "Recurring" },
-        { "label": "Formazione", "value": "B2B" }
-      ]
+      "title": "Monetizzazione & Sistema",
+      "description": "Come stratega, posso strutturare pi\u00f9 fonti di reddito \u2013 consulenze, cuccioli premium, corsi digitali, membership \u2013 coordinando ogni passaggio per massimizzare il valore del brand nel tempo."
     }
   ],
+  "urgencyText": "Ho il massimo dell\u2019attenzione sul vostro progetto perch\u00e9 ci ho lavorato in questi giorni. E queste sono solo le idee che ho avuto oggi \u2013 sono sicuro che parlando con voi ne nascerebbero tante altre ancora.\n\nPerch\u00e9 non ci sentiamo? Penso veramente di potervi aiutare a migliorare la vostra situazione, ad avvicinarvi al vostro obiettivo. Non necessariamente lavorando insieme, ma semplicemente con questa chiacchierata potrei farvi chiarezza.\n\nLo apprezzerei.",
+  "sections": [],
   "cta": {
-    "title": "Costruiamo un brand premium?",
-    "subtitle": "Il mercato è pronto. Voi?",
-    "whatsappText": "Ciao Nicola, ho visto la proposta per Von Schnauzer.",
-    "emailSubject": "Von Schnauzer — Strategia brand premium",
-    "showGlitchEconomics": true
+    "title": "Parliamone.",
+    "whatsappText": "Ciao Nicola, ho visto il lavoro che hai fatto per Von Schnauzer. Parliamone.",
+    "emailSubject": "Von Schnauzer \u2014 Parliamone",
+    "showGlitchEconomics": false
   },
-  "meta": {
-    "status": "sent"
-  }
+  "meta": { "status": "sent" }
 }

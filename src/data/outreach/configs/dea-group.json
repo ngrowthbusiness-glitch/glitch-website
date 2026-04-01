@@ -12,43 +12,30 @@
     "border": "rgba(26,111,175,0.20)"
   },
   "headingFont": "Inter",
-  "heroTitle": "DEA Group, cresciamo insieme.",
-  "heroSubtitle": "Strategia digitale per il vostro posizionamento B2B",
-  "heroTagline": "Dal posizionamento alla lead generation: un percorso strutturato.",
-  "sections": [
+  "heroTitle": "DEA Group, ho fatto del lavoro per voi.",
+  "heroSubtitle": "Ho analizzato il vostro posizionamento online, il mercato B2B della consulenza e le opportunit\u00e0 che avete davanti. Credo ci siano margini concreti per far crescere DEA Group nel digitale.",
+  "pitch": "Il buyer B2B fa l\u201980% del percorso d\u2019acquisto online prima di contattare un fornitore. Essere presenti con contenuti di valore e campagne mirate non \u00e8 pi\u00f9 opzionale \u2013 \u00e8 il campo di gioco.\n\nDEA Group ha le competenze, la struttura e la credibilit\u00e0 nel settore. Quello che manca \u00e8 un sistema digitale strutturato che trasformi questa forza in lead qualificati e pipeline di vendita misurabile.\n\nDal posizionamento su LinkedIn alla lead generation con landing dedicate, passando per contenuti che costruiscono autorit\u00e0: c\u2019\u00e8 un percorso chiaro da costruire insieme.",
+  "boxes": [
     {
-      "type": "problem",
-      "title": "Il mercato B2B oggi",
-      "content": "Il buyer B2B fa l'80% del percorso d'acquisto online prima di contattare un fornitore. Essere presenti con contenuti di valore e campagne mirate non è più opzionale."
+      "title": "Awareness & Posizionamento",
+      "description": "Le mie competenze in comunicazione e strategia vi permetterebbero di posizionare DEA Group come punto di riferimento nel settore \u2013 con LinkedIn Ads e una content strategy che costruisce autorit\u00e0 e genera visibilit\u00e0."
     },
     {
-      "type": "strategy",
-      "title": "Tre pilastri",
-      "items": [
-        { "title": "Awareness", "description": "LinkedIn Ads + content strategy per posizionare DEA Group come punto di riferimento nel settore." },
-        { "title": "Consideration", "description": "Case studies, white paper, webinar. Contenuti che dimostrano competenza e generano fiducia." },
-        { "title": "Decision", "description": "Funnel di lead generation con landing dedicate, nurturing automatizzato e scoring dei contatti." }
-      ]
+      "title": "Contenuti & Fiducia",
+      "description": "Con case studies, white paper e contenuti che dimostrano competenza, possiamo costruire la fiducia necessaria perch\u00e9 i prospect scelgano DEA Group rispetto alla concorrenza."
     },
     {
-      "type": "metrics",
-      "title": "Cosa possiamo misurare",
-      "metrics": [
-        { "label": "Costo per lead B2B", "value": "Target" },
-        { "label": "Lead qualificati/mese", "value": "KPI" },
-        { "label": "Pipeline value", "value": "€" },
-        { "label": "Conversion rate", "value": "%" }
-      ]
+      "title": "Lead Generation & Funnel",
+      "description": "Come stratega, posso costruire un funnel completo: landing dedicate, nurturing automatizzato e scoring dei contatti \u2013 trasformando il traffico in opportunit\u00e0 commerciali concrete."
     }
   ],
+  "urgencyText": "Ho il massimo dell\u2019attenzione sul vostro progetto perch\u00e9 ci ho lavorato in questi giorni. E queste sono solo le idee che ho avuto oggi \u2013 sono sicuro che parlando con voi ne nascerebbero tante altre ancora.\n\nPerch\u00e9 non ci sentiamo? Penso veramente di potervi aiutare a migliorare la vostra situazione, ad avvicinarvi al vostro obiettivo. Non necessariamente lavorando insieme, ma semplicemente con questa chiacchierata potrei farvi chiarezza.\n\nLo apprezzerei.",
+  "sections": [],
   "cta": {
-    "title": "Costruiamo il bridge insieme?",
-    "subtitle": "Un incontro per capire dove siete e dove volete arrivare.",
-    "whatsappText": "Ciao Nicola, ho visto la proposta per DEA Group. Parliamone.",
-    "emailSubject": "DEA Group — Richiesta info strategia digitale",
-    "showGlitchEconomics": true
+    "title": "Parliamone.",
+    "whatsappText": "Ciao Nicola, ho visto il lavoro che hai fatto per DEA Group. Parliamone.",
+    "emailSubject": "DEA Group \u2014 Parliamone",
+    "showGlitchEconomics": false
   },
-  "meta": {
-    "status": "sent"
-  }
+  "meta": { "status": "sent" }
 }

@@ -11,32 +11,31 @@
     "textDim": "rgba(26,26,46,0.55)",
     "border": "rgba(26,79,138,0.18)"
   },
-  "heroTitle": "Ulisse Servizi, navighiamo verso la crescita.",
-  "heroSubtitle": "Strategia digitale per servizi B2B",
-  "sections": [
+  "headingFont": "Inter",
+  "heroTitle": "Ulisse Servizi, ho fatto del lavoro per voi.",
+  "heroSubtitle": "Ho analizzato il vostro posizionamento online, il mercato dei servizi B2B e le opportunit\u00e0 di crescita che avete davanti. Credo ci siano margini concreti per portare Ulisse al livello successivo.",
+  "pitch": "I servizi B2B richiedono un ciclo di vendita pi\u00f9 lungo e una comunicazione che costruisca fiducia nel tempo. Il buyer B2B fa l\u201980% del percorso d\u2019acquisto online prima di contattare un fornitore. Essere presenti con contenuti di valore non \u00e8 pi\u00f9 opzionale.\n\nUlisse Servizi ha la competenza e la struttura. Quello che manca \u00e8 un sistema digitale che trasformi questa forza in contatti qualificati \u2013 in modo prevedibile e misurabile.\n\nCon un posizionamento chiaro, campagne LinkedIn e Google Ads mirate, e un funnel di nurturing strutturato, il volume di lead qualificati pu\u00f2 crescere in modo significativo.",
+  "boxes": [
     {
-      "type": "problem",
-      "title": "La sfida",
-      "content": "I servizi B2B richiedono un ciclo di vendita più lungo e una comunicazione che costruisca fiducia nel tempo. Il digitale è il canale perfetto per questo."
+      "title": "Posizionamento & Contenuti",
+      "description": "Le mie competenze in comunicazione vi permetterebbero di definire e comunicare la value proposition di Ulisse in modo chiaro su tutti i touchpoint digitali \u2013 costruendo autorit\u00e0 e fiducia nel tempo."
     },
     {
-      "type": "strategy",
-      "title": "La rotta",
-      "items": [
-        { "title": "Posizionamento", "description": "Definire la value proposition e comunicarla in modo chiaro su tutti i touchpoint digitali." },
-        { "title": "Lead generation", "description": "LinkedIn + Google Ads per generare contatti qualificati con un funnel strutturato." },
-        { "title": "Nurturing", "description": "Email marketing automatizzato per accompagnare i prospect nel percorso decisionale." }
-      ]
+      "title": "Lead Generation",
+      "description": "Con LinkedIn Ads e Google Ads strutturati, possiamo generare contatti qualificati con un funnel che accompagna il prospect dal primo contatto alla richiesta di preventivo."
+    },
+    {
+      "title": "Nurturing & Sistema",
+      "description": "Come stratega, posso costruire un sistema di email marketing automatizzato che accompagna i prospect nel percorso decisionale \u2013 mantenendo Ulisse nella mente di chi deve ancora decidere."
     }
   ],
+  "urgencyText": "Ho il massimo dell\u2019attenzione sul vostro progetto perch\u00e9 ci ho lavorato in questi giorni. E queste sono solo le idee che ho avuto oggi \u2013 sono sicuro che parlando con voi ne nascerebbero tante altre ancora.\n\nPerch\u00e9 non ci sentiamo? Penso veramente di potervi aiutare a migliorare la vostra situazione, ad avvicinarvi al vostro obiettivo. Non necessariamente lavorando insieme, ma semplicemente con questa chiacchierata potrei farvi chiarezza.\n\nLo apprezzerei.",
+  "sections": [],
   "cta": {
-    "title": "Parliamo di crescita?",
-    "subtitle": "Un primo incontro per capire le vostre esigenze.",
-    "whatsappText": "Ciao Nicola, ho visto la proposta per Ulisse Servizi.",
-    "emailSubject": "Ulisse Servizi — Strategia digitale",
-    "showGlitchEconomics": true
+    "title": "Parliamone.",
+    "whatsappText": "Ciao Nicola, ho visto il lavoro che hai fatto per Ulisse Servizi. Parliamone.",
+    "emailSubject": "Ulisse Servizi \u2014 Parliamone",
+    "showGlitchEconomics": false
   },
-  "meta": {
-    "status": "sent"
-  }
+  "meta": { "status": "sent" }
 }

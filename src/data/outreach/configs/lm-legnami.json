@@ -12,32 +12,30 @@
     "border": "rgba(245,196,0,0.20)"
   },
   "headingFont": "Barlow",
-  "heroTitle": "LM Legnami, dal legno al digitale.",
-  "heroSubtitle": "Strategia per un brand premium del legname",
-  "sections": [
+  "heroTitle": "LM Legnami, ho fatto del lavoro per voi.",
+  "heroSubtitle": "Ho analizzato il vostro posizionamento online, il mercato del legname premium e le opportunit\u00e0 di crescita che avete davanti. Credo ci siano margini concreti.",
+  "pitch": "Il settore del legname premium si sta spostando online. Architetti, designer e imprese edili cercano fornitori qualificati su Google. Chi \u00e8 visibile, vince. Chi non c\u2019\u00e8, perde clienti ogni giorno senza saperlo.\n\nLM Legnami ha il prodotto, la qualit\u00e0 e la storia. Quello che manca \u00e8 un sistema digitale che trasformi questa forza in richieste concrete \u2013 da chi cerca esattamente quello che offrite.\n\nCon un posizionamento mirato, un catalogo digitale all\u2019altezza del prodotto e campagne Google Ads sulle keyword giuste, il potenziale di crescita \u00e8 significativo.",
+  "boxes": [
     {
-      "type": "problem",
-      "title": "Il mercato",
-      "content": "Il settore del legname premium si sta spostando online. Architetti, designer e imprese edili cercano fornitori qualificati su Google. Chi è visibile, vince."
+      "title": "Posizionamento & Brand",
+      "description": "Le mie competenze in comunicazione vi permetterebbero di posizionare LM Legnami come il riferimento di qualit\u00e0 nel commercio del legno pregiato \u2013 con un\u2019immagine digitale all\u2019altezza del prodotto che vendete."
     },
     {
-      "type": "strategy",
-      "title": "Strategia",
-      "items": [
-        { "title": "Brand positioning", "description": "Posizionare LM Legnami come riferimento di qualità nel commercio del legno pregiato." },
-        { "title": "Google Ads + SEO", "description": "Intercettare la domanda di architetti e imprese che cercano legname di qualità." },
-        { "title": "Catalogo digitale", "description": "Presentazione prodotti con fotografia professionale e specifiche tecniche dettagliate." }
-      ]
+      "title": "Visibilit\u00e0 & Acquisizione",
+      "description": "Con Google Ads e SEO strutturato, possiamo intercettare la domanda di architetti e imprese che cercano legname di qualit\u00e0 \u2013 portandoli direttamente a voi invece che ai vostri competitor."
+    },
+    {
+      "title": "Catalogo & Conversione",
+      "description": "Come stratega, posso costruire un sistema completo: dal catalogo digitale professionale alla richiesta di preventivo, ottimizzando ogni passaggio per trasformare le visite in contatti concreti."
     }
   ],
+  "urgencyText": "Ho il massimo dell\u2019attenzione sul vostro progetto perch\u00e9 ci ho lavorato in questi giorni. E queste sono solo le idee che ho avuto oggi \u2013 sono sicuro che parlando con voi ne nascerebbero tante altre ancora.\n\nPerch\u00e9 non ci sentiamo? Penso veramente di potervi aiutare a migliorare la vostra situazione, ad avvicinarvi al vostro obiettivo. Non necessariamente lavorando insieme, ma semplicemente con questa chiacchierata potrei farvi chiarezza.\n\nLo apprezzerei.",
+  "sections": [],
   "cta": {
-    "title": "Costruiamo qualcosa di solido?",
-    "subtitle": "Come il legno che vendete. Parliamone.",
-    "whatsappText": "Ciao Nicola, ho visto la proposta per LM Legnami.",
-    "emailSubject": "LM Legnami — Strategia digitale",
-    "showGlitchEconomics": true
+    "title": "Parliamone.",
+    "whatsappText": "Ciao Nicola, ho visto il lavoro che hai fatto per LM Legnami. Parliamone.",
+    "emailSubject": "LM Legnami \u2014 Parliamone",
+    "showGlitchEconomics": false
   },
-  "meta": {
-    "status": "sent"
-  }
+  "meta": { "status": "sent" }
 }
