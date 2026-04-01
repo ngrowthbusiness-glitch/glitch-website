@@ -60,7 +60,7 @@ export default async function OutreachPage({
 }
 
 /* ================================================================
-   V3 TEMPLATE
+   V3 TEMPLATE — inspired by old PHP outreach pages
    ================================================================ */
 
 function OutreachV3({ config, slug }: { config: OutreachConfig; slug: string }) {
@@ -75,9 +75,11 @@ function OutreachV3({ config, slug }: { config: OutreachConfig; slug: string }) 
       <style>{v3CSS(config, isLightBg)}</style>
 
       <div className="v3">
+        {/* Background glow */}
+        <div className="v3-bg-glow" aria-hidden="true" />
 
         {/* ────────────────────────────────────────────
-            NAVBAR — fixed top
+            NAVBAR
             ──────────────────────────────────────────── */}
         <nav className="v3-nav">
           <div className="v3-nav-inner">
@@ -101,7 +103,8 @@ function OutreachV3({ config, slug }: { config: OutreachConfig; slug: string }) 
         </nav>
 
         {/* ────────────────────────────────────────────
-            OPENER — Nicola hero (full height, two columns)
+            SEZIONE 1 — OPENER (Nicola Hero)
+            Layout 60/40: testo + foto
             ──────────────────────────────────────────── */}
         <section className="v3-opener" id="chi-sono">
           <div className="v3-opener-grid">
@@ -116,35 +119,25 @@ function OutreachV3({ config, slug }: { config: OutreachConfig; slug: string }) 
                   style={{ objectFit: "contain" }}
                 />
               </div>
+              <div className="v3-eyebrow">Digital Marketing Strategist</div>
               <h1 className="v3-opener-name">Nicola Serrao</h1>
-              <p className="v3-opener-role">Digital Marketing Strategist</p>
               <p className="v3-opener-intro">
                 Ho fatto un lavoro per te e credo ti possa tornare utile.
               </p>
-
               <div className="v3-opener-tags">
                 {NS_TAGS.map((t) => (
                   <span key={t} className="v3-opener-tag">{t}</span>
                 ))}
               </div>
-
-              {/* Scroll arrow — glitch style */}
-              <a href="#il-progetto" className="v3-scroll-anchor">
-                <span className="v3-scroll-text">Scopri il lavoro</span>
-                <div className="v3-scroll-icon">
-                  <svg className="v3-scroll-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 5v14M5 12l7 7 7-7" />
-                  </svg>
-                  <svg className="v3-scroll-arrow-glitch" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 5v14M5 12l7 7 7-7" />
-                  </svg>
-                </div>
+              <a href="#il-progetto" className="v3-scroll-cta">
+                <span className="v3-scroll-line" />
+                <span className="v3-scroll-label">scopri il lavoro</span>
               </a>
             </div>
 
-            {/* RIGHT: photo + status bar */}
+            {/* RIGHT: photo */}
             <div className="v3-opener-right">
-              <div className="v3-photo-container">
+              <div className="v3-photo-wrap">
                 <Image
                   src="/images/nicola.png"
                   alt="Nicola Serrao"
@@ -153,214 +146,244 @@ function OutreachV3({ config, slug }: { config: OutreachConfig; slug: string }) 
                   priority
                   className="v3-photo"
                 />
-                {/* Frosted status bar */}
                 <div className="v3-photo-bar">
                   <span className="v3-photo-bar-dot" />
                   <span className="v3-photo-bar-text">Sto lavorando al vostro progetto</span>
                 </div>
               </div>
+              <div className="v3-photo-caption">
+                Nicola Serrao
+                <span>Digital Marketing Strategist</span>
+              </div>
             </div>
           </div>
         </section>
 
         {/* ────────────────────────────────────────────
-            GLITCH DIVIDER
+            GLITCH ZONE 1
             ──────────────────────────────────────────── */}
-        <GlitchDivider from={NS.bg} to={config.palette.background} accent1={NS.primary} accent2={config.palette.primary} />
+        <GlitchZone
+          from={NS.bg}
+          to={config.palette.background}
+          accent={NS.primary}
+          label="// il lavoro che ho fatto per voi"
+          id="il-progetto"
+        />
 
         {/* ────────────────────────────────────────────
-            HERO — Prospect palette
+            SEZIONE 2 — PROSPECT
             ──────────────────────────────────────────── */}
-        <section className="v3-ps v3-hero" id="il-progetto">
-          <div className="v3-container">
-            {config.logo && (
-              <div className="v3-hero-logo">
+        <div className="v3-prospect">
+          {/* Prospect topbar — sticky */}
+          <div className="v3-p-topbar">
+            <div className="v3-p-topbar-inner">
+              {config.logo ? (
                 <Image
                   src={config.logo}
                   alt={config.companyName}
-                  width={48}
-                  height={48}
-                  style={{ objectFit: "contain" }}
+                  width={140}
+                  height={38}
+                  style={{ objectFit: "contain", display: "block" }}
                 />
-              </div>
-            )}
-            <span className="v3-label">{config.sector}</span>
-            <h1 className="v3-hero-h1">{config.heroTitle}</h1>
-            <p className="v3-hero-sub">{config.heroSubtitle}</p>
-            <a
-              href={`mailto:${SITE.email}?subject=${encodeURIComponent(config.cta.emailSubject || "")}`}
-              className="v3-btn"
-            >
-              Scrivimi &rarr;
-            </a>
+              ) : (
+                <span className="v3-p-topbar-brand">{config.companyName}</span>
+              )}
+              <span className="v3-p-topbar-tag">
+                Studio realizzato da Nicola Serrao &middot; nicolaserrao.com
+              </span>
+            </div>
           </div>
-        </section>
 
-        {/* ────────────────────────────────────────────
-            PITCH — Two columns: text + accent card
-            ──────────────────────────────────────────── */}
-        <section className="v3-ps v3-section">
-          <div className="v3-container">
-            <div className="v3-two-col">
-              <div className="v3-col-text">
-                <span className="v3-label">Cosa ho visto</span>
-                <h2 className="v3-h2">
+          {/* Intro */}
+          <section className="v3-p-intro">
+            <div className="v3-container">
+              <div className="v3-p-eyebrow">{config.sector}</div>
+              <h2 className="v3-p-headline">
+                {config.heroTitle}
+              </h2>
+              <p className="v3-p-sub">{config.heroSubtitle}</p>
+              <a
+                href={`mailto:${SITE.email}?subject=${encodeURIComponent(config.cta.emailSubject || "")}`}
+                className="v3-p-btn"
+              >
+                Scrivimi <span className="v3-btn-arr" />
+              </a>
+            </div>
+          </section>
+
+          {/* Pitch — 2 colonne: testo + card visiva */}
+          <section className="v3-pitch">
+            <div className="v3-pitch-grid">
+              <div className="v3-pitch-left">
+                <div className="v3-p-eyebrow">Cosa ho visto</div>
+                <h3 className="v3-pitch-h">
                   Ho studiato il vostro <em>progetto.</em>
-                </h2>
+                </h3>
                 {pitchParas.map((p, i) => (
-                  <p key={i} className="v3-body">{p}</p>
+                  <p key={i} className="v3-pitch-body">{p}</p>
                 ))}
               </div>
-              <div className="v3-col-visual">
-                <div className="v3-accent-card">
-                  <svg className="v3-accent-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
-                  <p className="v3-accent-title">Opportunit&agrave; concrete</p>
-                  <p className="v3-accent-sub">Analisi del vostro posizionamento, competitor e potenziale di crescita nel digitale.</p>
+              <div className="v3-pitch-right">
+                <div className="v3-pitch-card">
+                  <svg className="v3-pitch-card-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                  </svg>
+                  <p className="v3-pitch-card-title">Opportunit&agrave; concrete</p>
+                  <p className="v3-pitch-card-sub">
+                    Analisi del vostro posizionamento, competitor e potenziale di crescita nel digitale.
+                  </p>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* ────────────────────────────────────────────
-            COMPETENZE — Alternating rows
-            ──────────────────────────────────────────── */}
-        {config.boxes && config.boxes.length > 0 && (
-          <section className="v3-ps v3-section v3-section--tight" id="competenze">
-            <div className="v3-container">
-              <div className="v3-section-header">
-                <span className="v3-label">Cosa posso fare per voi</span>
-                <h2 className="v3-h2">
-                  Tre aree di <em>impatto.</em>
-                </h2>
-              </div>
-
-              <div className="v3-boxes-stack">
-                {config.boxes.map((box, i) => (
-                  <div key={i} className={`v3-box-row ${i % 2 !== 0 ? "v3-box-row--flip" : ""}`}>
-                    <div className="v3-box-content">
-                      <span className="v3-box-num">{String(i + 1).padStart(2, "0")}</span>
-                      <h3 className="v3-box-title">{box.title}</h3>
-                      <p className="v3-box-desc">{box.description}</p>
-                    </div>
-                    <div className="v3-box-visual">
-                      {box.image ? (
-                        <Image
-                          src={box.image}
-                          alt={box.title}
-                          width={480}
-                          height={320}
-                          className="v3-box-img"
-                        />
-                      ) : (
-                        <div className="v3-box-placeholder">
-                          <span className="v3-box-ph-icon">{getIcon(i)}</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </section>
-        )}
+
+          {/* Pillars — 3 card */}
+          {config.boxes && config.boxes.length > 0 && (
+            <section className="v3-pillars" id="competenze">
+              <div className="v3-container">
+                <div className="v3-pillars-header">
+                  <div className="v3-p-eyebrow v3-p-eyebrow--center">Cosa posso fare per voi</div>
+                  <h3 className="v3-pillars-headline">
+                    Tre aree di <em>impatto.</em>
+                  </h3>
+                </div>
+                <div className="v3-pillars-grid">
+                  {config.boxes.map((box, i) => (
+                    <div key={i} className={`v3-pillar v3-pc${i + 1}`}>
+                      <div className="v3-pillar-num">Pilastro {String(i + 1).padStart(2, "0")}</div>
+                      <div className="v3-pillar-icon">{getIcon(i)}</div>
+                      <h4 className="v3-pillar-title">{box.title}</h4>
+                      <p className="v3-pillar-body">{box.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+        </div>
 
         {/* ────────────────────────────────────────────
-            URGENCY + CTA
+            GLITCH ZONE 2
             ──────────────────────────────────────────── */}
-        <section className="v3-ps v3-section v3-urgency" id="parliamone">
-          <div className="v3-container-narrow">
-            {urgencyParas.length > 0 && (
-              <div className="v3-urgency-copy">
-                {urgencyParas.map((p, i) => (
-                  <p
-                    key={i}
-                    className={i === urgencyParas.length - 1 ? "v3-urgency-closing" : "v3-body"}
-                  >
-                    {p}
-                  </p>
-                ))}
-              </div>
-            )}
+        <GlitchZone
+          from={config.palette.background}
+          to={NS.bg}
+          accent={NS.primary}
+          label="// e queste sono solo alcune delle idee"
+        />
 
-            {hasResponseBox ? (
-              <ResponseBox
-                question={config.cta.ctaQuestion!}
-                companyName={config.companyName}
-                slug={slug}
-                emailSubject={config.cta.emailSubject}
-                siteEmail={SITE.email}
-              />
-            ) : (
-              <div className="v3-cta-row">
+        {/* ────────────────────────────────────────────
+            SEZIONE 3 — CHIUSURA (Nicola)
+            Layout 60/40: testo con frecce + foto
+            ──────────────────────────────────────────── */}
+        <section className="v3-close" id="parliamone">
+          <div className="v3-close-inner">
+            <div className="v3-close-left">
+              <div className="v3-eyebrow">Prossimo passo</div>
+              <h2 className="v3-close-h">
+                Questa &egrave; solo<br />
+                <em>la punta dell&apos;iceberg.</em>
+              </h2>
+              {urgencyParas.length > 0 && (
+                <div className="v3-close-lines">
+                  {urgencyParas.map((p, i) => (
+                    <div
+                      key={i}
+                      className={
+                        i === urgencyParas.length - 1
+                          ? "v3-close-line v3-close-closing"
+                          : "v3-close-line"
+                      }
+                    >
+                      {p}
+                    </div>
+                  ))}
+                </div>
+              )}
+              <div className="v3-close-cta">
                 <a
                   href={`mailto:${SITE.email}?subject=${encodeURIComponent(config.cta.emailSubject || "")}`}
-                  className="v3-btn"
+                  className="v3-close-btn-primary"
                 >
-                  Scrivimi via email
+                  Scrivimi una mail <span className="v3-btn-arr" />
                 </a>
                 <a
                   href={`${SITE.whatsapp}?text=${encodeURIComponent(config.cta.whatsappText || "")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="v3-btn-ghost"
+                  className="v3-close-btn-secondary"
                 >
                   Scrivimi su WhatsApp
                 </a>
               </div>
-            )}
+              {hasResponseBox && (
+                <ResponseBox
+                  question={config.cta.ctaQuestion!}
+                  companyName={config.companyName}
+                  slug={slug}
+                  emailSubject={config.cta.emailSubject}
+                  siteEmail={SITE.email}
+                />
+              )}
+              <div className="v3-close-note">
+                nicola@nicolaserrao.com &mdash; rispondo sempre entro 24 ore.
+                Se preferite una chiamata, scrivetelo nella mail.
+              </div>
+            </div>
+            <div className="v3-close-right">
+              <div className="v3-close-photo-wrap">
+                <Image
+                  src="/images/nicola.png"
+                  alt="Nicola Serrao"
+                  width={280}
+                  height={370}
+                  className="v3-close-photo"
+                />
+              </div>
+              <div className="v3-photo-caption">
+                Nicola Serrao
+                <span>Digital Marketing Strategist</span>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* ────────────────────────────────────────────
-            GLITCH DIVIDER 2
-            ──────────────────────────────────────────── */}
-        <GlitchDivider from={config.palette.background} to={NS.bg} accent1={config.palette.primary} accent2={NS.primary} />
-
-        {/* ────────────────────────────────────────────
-            FOOTER — Nicola
+            FOOTER
             ──────────────────────────────────────────── */}
         <footer className="v3-footer">
-          <div className="v3-footer-inner">
-            <div className="v3-footer-buttons">
-              <a
-                href={`${SITE.whatsapp}?text=${encodeURIComponent(config.cta.whatsappText || "")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="v3-footer-btn"
-              >
-                WhatsApp
-              </a>
-              <a
-                href={`mailto:${SITE.email}?subject=${encodeURIComponent(config.cta.emailSubject || "")}`}
-                className="v3-footer-btn-ghost"
-              >
-                Email
-              </a>
-            </div>
-            <div className="v3-footer-line" />
-            <p className="v3-footer-credit">
-              {SITE.name} &middot; {SITE.title} &middot;{" "}
-              <a href={SITE.url}>nicolaserrao.com</a>
-            </p>
-          </div>
+          <span>&copy; {SITE.name} &middot; {SITE.title}</span>
+          <a href={SITE.url}>nicolaserrao.com</a>
         </footer>
       </div>
     </>
   );
 }
 
-/* ── Glitch divider component ── */
-function GlitchDivider({ from, to, accent1, accent2 }: { from: string; to: string; accent1: string; accent2: string }) {
+/* ── Glitch zone — elaborate transition ── */
+function GlitchZone({
+  from,
+  to,
+  accent,
+  label,
+  id,
+}: {
+  from: string;
+  to: string;
+  accent: string;
+  label: string;
+  id?: string;
+}) {
   return (
-    <div
-      className="v3-glitch"
-      aria-hidden="true"
-      style={{ background: `linear-gradient(180deg, ${from} 0%, ${to} 100%)` }}
-    >
-      <div className="v3-gl v3-gl1" style={{ background: accent1 }} />
-      <div className="v3-gl v3-gl2" style={{ background: accent2 }} />
-      <div className="v3-gl v3-gl3" style={{ background: accent1 }} />
+    <div className="v3-gz" id={id} aria-hidden="true">
+      <div
+        className="v3-gz-bg"
+        style={{ background: `linear-gradient(180deg, ${from} 0%, ${to} 100%)` }}
+      />
+      <div className="v3-gz-scanlines" />
+      <div className="v3-gz-label" style={{ color: accent }}>
+        {label}
+      </div>
     </div>
   );
 }
@@ -377,665 +400,559 @@ function getIcon(i: number) {
 
 /* ── V3 CSS ── */
 function v3CSS(config: OutreachConfig, isLightBg: boolean): string {
-  const cardBg = isLightBg ? "rgba(0,0,0,0.025)" : "rgba(255,255,255,0.035)";
-  const cardBorder = isLightBg ? "rgba(0,0,0,0.08)" : "rgba(255,255,255,0.08)";
-  const btnText = isLightBg ? "#fff" : config.palette.background;
+  const pCardBg = isLightBg ? "rgba(0,0,0,0.025)" : "rgba(255,255,255,0.035)";
+  const pCardBorder = isLightBg ? "rgba(0,0,0,0.08)" : "rgba(255,255,255,0.08)";
+  const pBtnText = isLightBg ? "#fff" : config.palette.background;
 
   return `
-    /* ── Base ── */
+    /* ══════════════════════════════════════════
+       BASE
+    ══════════════════════════════════════════ */
     .v3 {
       font-family: var(--font-dm-mono), 'DM Mono', monospace;
       min-height: 100vh;
+      position: relative;
     }
-
-    /* ── Containers ── */
-    .v3-container { max-width: 1140px; margin: 0 auto; padding: 0 60px; }
-    .v3-container-narrow { max-width: 720px; margin: 0 auto; padding: 0 60px; }
-
-    /* ── Shared prospect section ── */
-    .v3-ps {
-      --o-primary: ${config.palette.primary};
-      --o-primary-dim: ${config.palette.primaryDim};
-      --o-bg: ${config.palette.background};
-      --o-text: ${config.palette.text};
-      --o-text-dim: ${config.palette.textDim};
-      --o-border: ${config.palette.border};
-      background: var(--o-bg);
-      color: var(--o-text);
+    .v3-bg-glow {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 85% 30%, rgba(0,255,252,0.04) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 10% 80%, rgba(0,255,252,0.02) 0%, transparent 50%);
     }
-
-    /* ── Typography ── */
-    .v3-label {
-      display: block;
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-    .v3-ps .v3-label { color: var(--o-primary); }
-
-    .v3-hero-h1 {
-      font-family: ${hf(config)}var(--font-playfair), 'Playfair Display', serif;
-      font-size: clamp(36px, 5.5vw, 56px);
-      font-weight: 700;
-      line-height: 1.08;
-      letter-spacing: -0.02em;
-      margin-bottom: 24px;
-    }
-    .v3-h2 {
-      font-family: ${hf(config)}var(--font-playfair), 'Playfair Display', serif;
-      font-size: clamp(26px, 3.5vw, 38px);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.015em;
-      margin-bottom: 20px;
-    }
-    .v3-h2 em {
-      font-style: italic;
-      color: var(--o-primary);
-    }
-    .v3-hero-sub {
-      font-size: 15px;
-      line-height: 1.75;
-      color: var(--o-text-dim);
-      max-width: 540px;
-      margin: 0 auto 40px;
-    }
-    .v3-body {
-      font-size: 14px;
-      line-height: 1.9;
-      color: var(--o-text-dim);
-      margin-bottom: 16px;
-      max-width: 520px;
-    }
-    .v3-body:last-child { margin-bottom: 0; }
+    .v3-container { max-width: 1100px; margin: 0 auto; padding: 0 60px; }
 
     /* ══════════════════════════════════════════
        NAVBAR
     ══════════════════════════════════════════ */
     .v3-nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(10,14,13,0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,14,13,0.88);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid ${NS.border};
     }
     .v3-nav-inner {
-      max-width: 1140px;
-      margin: 0 auto;
-      padding: 14px 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      max-width: 1100px; margin: 0 auto; padding: 14px 60px;
+      display: flex; align-items: center; justify-content: space-between;
     }
-    .v3-nav-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .v3-nav-name {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: ${NS.text};
-    }
-    .v3-nav-right {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
+    .v3-nav-left { display: flex; align-items: center; gap: 10px; }
+    .v3-nav-right { display: flex; align-items: center; gap: 28px; }
     .v3-nav-link {
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: ${NS.textDim};
-      text-decoration: none;
-      transition: color 0.2s;
+      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: ${NS.textDim}; text-decoration: none; transition: color 0.2s;
     }
     .v3-nav-link:hover { color: ${NS.primary}; }
 
     /* ══════════════════════════════════════════
-       OPENER (Nicola hero — full height)
+       SEZIONE 1 — OPENER (Nicola Hero)
     ══════════════════════════════════════════ */
     .v3-opener {
-      background: ${NS.bg};
-      color: ${NS.text};
+      position: relative; z-index: 1;
+      background: ${NS.bg}; color: ${NS.text};
       min-height: calc(100vh - 52px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 80px 60px 40px;
-      position: relative;
-    }
-    .v3-opener-grid {
-      max-width: 1140px;
-      margin: 0 auto;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-    }
-    .v3-opener-left {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-    .v3-opener-name {
-      font-family: var(--font-playfair), 'Playfair Display', serif;
-      font-size: clamp(40px, 5vw, 56px);
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
-    }
-    .v3-opener-role {
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: ${NS.primary};
-      margin-bottom: 28px;
-    }
-    .v3-opener-intro {
-      font-size: 18px;
-      line-height: 1.7;
-      color: ${NS.textDim};
-      max-width: 440px;
-      margin-bottom: 32px;
-      font-style: italic;
-    }
-    .v3-opener-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .v3-opener-tag {
-      font-size: 9px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 100px;
-      border: 1px solid ${NS.border};
-      color: ${NS.textDim};
-    }
-
-    /* ── Logo row ── */
-    .v3-opener-logo-row {
-      margin-bottom: 20px;
-    }
-
-    /* ── Photo (right column) ── */
-    .v3-opener-right {
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-    }
-    .v3-photo-container {
-      position: relative;
-      width: 100%;
-      max-width: 340px;
-      border-radius: 20px;
+      padding: 64px 60px 80px;
+      display: flex; flex-direction: column; justify-content: center;
       overflow: hidden;
     }
+    .v3-opener::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, ${NS.border}, transparent);
+    }
+    .v3-opener-grid {
+      max-width: 1100px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 380px;
+      gap: 60px; align-items: center;
+    }
+    .v3-opener-left { display: flex; flex-direction: column; }
+    .v3-opener-logo-row { margin-bottom: 20px; }
+
+    /* Eyebrow — riuso in tutto Nicola */
+    .v3-eyebrow {
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      color: ${NS.primary}; margin-bottom: 24px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .v3-eyebrow::before {
+      content: ''; width: 32px; height: 1px; background: ${NS.primary};
+    }
+
+    .v3-opener-name {
+      font-family: var(--font-playfair), 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 4.5vw, 4.4rem);
+      font-weight: 700; line-height: 1.08; letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+    .v3-opener-intro {
+      font-size: 15px; line-height: 1.85;
+      color: ${NS.textDim}; max-width: 520px; margin-bottom: 36px;
+    }
+    .v3-opener-tags {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 44px;
+    }
+    .v3-opener-tag {
+      font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 3px;
+      border: 1px solid rgba(232,240,255,0.15);
+      color: ${NS.textDim}; background: rgba(232,240,255,0.04);
+    }
+
+    /* Scroll CTA — freccia orizzontale + testo */
+    .v3-scroll-cta {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: ${NS.textDim}; text-decoration: none; transition: color 0.2s;
+    }
+    .v3-scroll-cta:hover { color: ${NS.primary}; }
+    .v3-scroll-line {
+      width: 36px; height: 1px; background: currentColor; position: relative;
+    }
+    .v3-scroll-line::after {
+      content: ''; position: absolute; right: 0; top: -4px;
+      width: 8px; height: 8px;
+      border-right: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+      transform: rotate(-45deg);
+    }
+    .v3-scroll-label { /* text next to arrow */ }
+
+    /* Foto colonna destra */
+    .v3-opener-right {
+      display: flex; flex-direction: column; align-items: center; gap: 20px;
+    }
+    .v3-photo-wrap {
+      position: relative; width: 100%; max-width: 340px;
+    }
+    .v3-photo-wrap::before {
+      content: ''; position: absolute; top: -8px; right: -8px;
+      width: 55%; height: 55%;
+      border-top: 1px solid ${NS.border};
+      border-right: 1px solid ${NS.border};
+      z-index: 3; pointer-events: none;
+    }
+    .v3-photo-wrap::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 35%;
+      background: linear-gradient(to top, ${NS.bg} 0%, transparent 100%);
+      z-index: 2; pointer-events: none;
+    }
     .v3-photo {
-      width: 100%;
-      height: auto;
+      position: relative; z-index: 1;
+      width: 100%; aspect-ratio: 3/4;
+      object-fit: cover; object-position: top center;
       display: block;
-      object-fit: cover;
-      object-position: top;
+      filter: grayscale(25%) contrast(1.05);
     }
     .v3-photo-bar {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 4;
       padding: 14px 20px;
       background: rgba(10,14,13,0.75);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      display: flex; align-items: center; gap: 10px;
       border-top: 1px solid ${NS.border};
     }
     .v3-photo-bar-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
+      width: 7px; height: 7px; border-radius: 50%;
       background: ${NS.primary};
-      animation: barPulse 2s ease-in-out infinite;
+      animation: v3pulse 2.5s ease-in-out infinite;
       flex-shrink: 0;
     }
-    @keyframes barPulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
+    @keyframes v3pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
     .v3-photo-bar-text {
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: ${NS.textDim};
+      font-size: 10px; letter-spacing: 1.5px;
+      text-transform: uppercase; color: ${NS.textDim};
     }
-
-    /* ── Scroll anchor — glitch style ── */
-    .v3-scroll-anchor {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 40px;
-      text-decoration: none;
-      color: ${NS.textDim};
-      transition: color 0.2s;
-    }
-    .v3-scroll-anchor:hover { color: ${NS.primary}; }
-    .v3-scroll-text {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-    }
-    .v3-scroll-icon {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-    .v3-scroll-arrow {
-      animation: scrollBounce 2s ease-in-out infinite;
-    }
-    .v3-scroll-arrow-glitch {
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      color: ${NS.primary};
-      animation: scrollGlitch 4s ease-in-out infinite;
-    }
-    @keyframes scrollBounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(4px); }
-    }
-    @keyframes scrollGlitch {
-      0%, 85%, 100% { opacity: 0; transform: translate(0, 0); }
-      87% { opacity: 0.8; transform: translate(-3px, 2px); }
-      89% { opacity: 0.4; transform: translate(2px, -1px); }
-      91% { opacity: 0.6; transform: translate(-1px, 3px); }
-      93% { opacity: 0; transform: translate(0, 0); }
-    }
-
-    /* ══════════════════════════════════════════
-       GLITCH DIVIDER
-    ══════════════════════════════════════════ */
-    .v3-glitch {
-      position: relative;
-      height: 48px;
-      overflow: hidden;
-    }
-    .v3-gl {
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 1px;
-      opacity: 0;
-    }
-    .v3-gl1 { top: 30%; animation: gl1 4s ease-in-out infinite; }
-    .v3-gl2 { top: 50%; animation: gl2 3s ease-in-out infinite 0.5s; }
-    .v3-gl3 { top: 70%; animation: gl3 5s ease-in-out infinite 1s; }
-    @keyframes gl1 {
-      0%,88%,100% { opacity: 0; transform: translateX(0); }
-      90% { opacity: 0.8; transform: translateX(-25%); }
-      92% { opacity: 0.3; transform: translateX(12%); }
-      94% { opacity: 0; transform: translateX(0); }
-    }
-    @keyframes gl2 {
-      0%,84%,100% { opacity: 0; transform: scaleX(1); }
-      86% { opacity: 0.6; transform: scaleX(0.5) translateX(30%); }
-      88% { opacity: 0; transform: scaleX(1); }
-    }
-    @keyframes gl3 {
-      0%,78%,100% { opacity: 0; }
-      80% { opacity: 0.4; transform: translateX(15%); }
-      82% { opacity: 0.2; transform: translateX(-20%); }
-      84% { opacity: 0; transform: translateX(0); }
-    }
-
-    /* ══════════════════════════════════════════
-       HERO
-    ══════════════════════════════════════════ */
-    .v3-hero {
-      padding: 96px 0 80px;
+    .v3-photo-caption {
       text-align: center;
-    }
-    .v3-hero-logo {
-      display: inline-block;
-      margin-bottom: 28px;
-      opacity: 0.85;
-    }
-
-    /* ══════════════════════════════════════════
-       BUTTONS
-    ══════════════════════════════════════════ */
-    .v3-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-dm-mono), 'DM Mono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 16px 36px;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      background: var(--o-primary);
-      color: ${btnText};
-    }
-    .v3-btn:hover {
-      transform: translateY(-2px) scale(1.03);
-      box-shadow: 0 0 24px ${config.palette.primary}40;
-    }
-    .v3-btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-dm-mono), 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 16px 36px;
-      border-radius: 100px;
-      border: 1px solid ${cardBorder};
-      text-decoration: none;
-      transition: all 0.2s;
-      color: var(--o-text-dim);
-      background: transparent;
-    }
-    .v3-btn-ghost:hover {
-      color: var(--o-text);
-      border-color: var(--o-primary);
-      background: var(--o-primary-dim);
-    }
-    .v3-cta-row {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* ══════════════════════════════════════════
-       SECTIONS (generic)
-    ══════════════════════════════════════════ */
-    .v3-section {
-      padding: 96px 0;
-    }
-    .v3-section--tight {
-      padding-top: 48px;
-    }
-    .v3-section-header {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-
-    /* ── Two-column split ── */
-    .v3-two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 72px;
-      align-items: center;
-    }
-
-    /* ── Accent card (visual column) ── */
-    .v3-accent-card {
-      padding: 44px 36px;
-      border-radius: 24px;
-      border: 1px solid ${cardBorder};
-      background: ${cardBg};
-      text-align: center;
-    }
-    .v3-accent-icon {
-      color: var(--o-primary);
-      margin-bottom: 20px;
-    }
-    .v3-accent-title {
-      font-family: ${hf(config)}var(--font-playfair), 'Playfair Display', serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--o-text);
-      margin-bottom: 10px;
-    }
-    .v3-accent-sub {
-      font-size: 12px;
-      line-height: 1.75;
-      color: var(--o-text-dim);
-      max-width: 280px;
-      margin: 0 auto;
-    }
-
-    /* ══════════════════════════════════════════
-       BOXES (alternating rows)
-    ══════════════════════════════════════════ */
-    .v3-boxes-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 48px;
-    }
-    .v3-box-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 72px;
-      align-items: center;
-      padding: 48px;
-      border-radius: 28px;
-      border: 1px solid ${cardBorder};
-      background: ${cardBg};
-      transition: border-color 0.3s;
-    }
-    .v3-box-row:hover {
-      border-color: ${config.palette.primary}30;
-    }
-    .v3-box-row--flip { direction: rtl; }
-    .v3-box-row--flip > * { direction: ltr; }
-
-    .v3-box-num {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: var(--o-primary);
-      margin-bottom: 12px;
-    }
-    .v3-box-title {
-      font-family: ${hf(config)}var(--font-playfair), 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 700;
-      line-height: 1.2;
-      color: var(--o-text);
-      margin-bottom: 14px;
-    }
-    .v3-box-desc {
-      font-size: 13px;
-      line-height: 1.85;
-      color: var(--o-text-dim);
-    }
-    .v3-box-visual { display: flex; align-items: center; justify-content: center; }
-    .v3-box-img {
-      width: 100%;
-      border-radius: 16px;
-      object-fit: cover;
-    }
-    .v3-box-placeholder {
-      width: 100%;
-      aspect-ratio: 16/10;
-      border-radius: 20px;
-      border: 1px solid ${cardBorder};
-      background: ${isLightBg ? "rgba(0,0,0,0.015)" : "rgba(255,255,255,0.02)"};
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .v3-box-ph-icon { color: var(--o-primary); opacity: 0.3; }
-
-    /* ══════════════════════════════════════════
-       URGENCY
-    ══════════════════════════════════════════ */
-    .v3-urgency {
-      text-align: center;
-      padding: 80px 0 96px;
-    }
-    .v3-urgency-copy {
-      text-align: left;
-      margin-bottom: 48px;
-    }
-    .v3-urgency-closing {
       font-family: var(--font-playfair), 'Playfair Display', serif;
-      font-size: 19px;
+      font-size: 0.95rem; font-style: italic;
+      color: ${NS.textDim}; line-height: 1.5;
+    }
+    .v3-photo-caption span {
+      color: ${NS.primary}; display: block; font-style: normal;
+      font-family: var(--font-dm-mono), 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 2px;
+      text-transform: uppercase; margin-top: 4px;
+    }
+
+    /* Fade-up animations */
+    @keyframes v3fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: none; }
+    }
+    .v3-opener-left > * { animation: v3fadeUp 0.6s ease both; }
+    .v3-opener-left > :nth-child(1) { animation-delay: 0s; }
+    .v3-opener-left > :nth-child(2) { animation-delay: 0.08s; }
+    .v3-opener-left > :nth-child(3) { animation-delay: 0.15s; }
+    .v3-opener-left > :nth-child(4) { animation-delay: 0.22s; }
+    .v3-opener-left > :nth-child(5) { animation-delay: 0.3s; }
+    .v3-opener-left > :nth-child(6) { animation-delay: 0.4s; }
+    .v3-opener-right { animation: v3fadeUp 0.6s 0.2s ease both; }
+
+    /* ══════════════════════════════════════════
+       GLITCH ZONE
+    ══════════════════════════════════════════ */
+    .v3-gz {
+      position: relative; height: 180px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 1;
+    }
+    .v3-gz-bg { position: absolute; inset: 0; }
+    .v3-gz-scanlines {
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        0deg, transparent, transparent 2px,
+        rgba(0,255,252,0.02) 2px, rgba(0,255,252,0.02) 4px
+      );
+      animation: v3scan 6s linear infinite;
+    }
+    @keyframes v3scan { from{background-position:0 0} to{background-position:0 40px} }
+    .v3-gz-label {
+      position: relative; z-index: 2;
+      font-family: var(--font-playfair), 'Playfair Display', serif;
       font-style: italic;
-      color: var(--o-text);
-      line-height: 1.6;
-      margin-top: 8px;
+      font-size: clamp(1.2rem, 2.5vw, 2rem);
+      font-weight: 700; letter-spacing: 0.06em;
+      animation: v3glitch 4s infinite;
+    }
+    @keyframes v3glitch {
+      0%,88%,100% {
+        text-shadow: 2px 0 rgba(255,0,100,0.5), -2px 0 rgba(0,200,255,0.5);
+        transform: none;
+      }
+      90% {
+        text-shadow: -5px 0 rgba(255,0,100,0.8), 5px 0 rgba(0,200,255,0.8);
+        transform: translateX(3px);
+      }
+      93% {
+        text-shadow: 5px 0 rgba(255,0,100,0.8), -5px 0 rgba(0,200,255,0.8);
+        transform: translateX(-3px);
+      }
+      96% {
+        text-shadow: 2px 0 rgba(255,0,100,0.5), -2px 0 rgba(0,200,255,0.5);
+        transform: none;
+      }
+    }
+
+    /* ══════════════════════════════════════════
+       SEZIONE 2 — PROSPECT
+    ══════════════════════════════════════════ */
+    .v3-prospect {
+      background: ${config.palette.background};
+      color: ${config.palette.text};
+      position: relative; z-index: 1;
+    }
+
+    /* Topbar prospect — sticky */
+    .v3-p-topbar {
+      background: ${isLightBg ? "rgba(255,255,255,0.97)" : "rgba(5,12,23,0.97)"};
+      border-bottom: 1px solid ${config.palette.border};
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    }
+    .v3-p-topbar-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 60px; height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .v3-p-topbar-brand {
+      font-family: ${hf(config)}var(--font-playfair), 'Playfair Display', serif;
+      font-size: 20px; font-weight: 700;
+    }
+    .v3-p-topbar-tag {
+      font-family: var(--font-dm-mono), 'DM Mono', monospace;
+      font-size: 11px; letter-spacing: 1.5px;
+      text-transform: uppercase; color: ${config.palette.textDim};
+    }
+
+    /* Prospect intro */
+    .v3-p-intro { padding: 72px 0 0; }
+    .v3-p-eyebrow {
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      color: ${config.palette.primary}; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .v3-p-eyebrow::before {
+      content: ''; width: 24px; height: 1px;
+      background: ${config.palette.primary};
+    }
+    .v3-p-eyebrow--center { justify-content: center; }
+    .v3-p-headline {
+      font-family: ${hf(config)}var(--font-playfair), 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.8vw, 3.6rem);
+      font-weight: 700; line-height: 1.15; letter-spacing: -0.02em;
+      max-width: 860px; margin-bottom: 20px;
+    }
+    .v3-p-sub {
+      font-size: 16px; line-height: 1.8;
+      color: ${config.palette.textDim};
+      max-width: 640px; margin-bottom: 40px;
+    }
+
+    /* Prospect CTA button */
+    .v3-p-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: ${config.palette.primary}; color: ${pBtnText};
+      font-family: var(--font-dm-mono), 'DM Mono', monospace;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 16px 28px; text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .v3-p-btn:hover { opacity: 0.85; transform: translateY(-2px); }
+    .v3-btn-arr {
+      width: 16px; height: 1px; background: currentColor; position: relative;
+    }
+    .v3-btn-arr::after {
+      content: ''; position: absolute; right: 0; top: -3px;
+      width: 6px; height: 6px;
+      border-right: 1px solid currentColor;
+      border-top: 1px solid currentColor;
+      transform: rotate(45deg);
+    }
+
+    /* Pitch — 2 colonne */
+    .v3-pitch {
+      padding: 72px 0;
+      border-top: 1px solid ${config.palette.border};
+    }
+    .v3-pitch-grid {
+      max-width: 1100px; margin: 0 auto; padding: 0 60px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+    }
+    .v3-pitch-h {
+      font-family: ${hf(config)}var(--font-playfair), 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 700; line-height: 1.2; margin-bottom: 20px;
+    }
+    .v3-pitch-h em { font-style: italic; color: ${config.palette.primary}; }
+    .v3-pitch-body {
+      font-size: 14px; line-height: 1.85;
+      color: ${config.palette.textDim}; margin-bottom: 16px;
+    }
+    .v3-pitch-body:last-child { margin-bottom: 0; }
+
+    /* Card visiva nella colonna destra del pitch */
+    .v3-pitch-card {
+      padding: 44px 36px; text-align: center;
+      border: 1px solid ${pCardBorder};
+      background: ${pCardBg};
+    }
+    .v3-pitch-card-icon {
+      color: ${config.palette.primary}; margin-bottom: 20px;
+    }
+    .v3-pitch-card-title {
+      font-family: ${hf(config)}var(--font-playfair), 'Playfair Display', serif;
+      font-size: 18px; font-weight: 700; margin-bottom: 10px;
+    }
+    .v3-pitch-card-sub {
+      font-size: 12px; line-height: 1.75;
+      color: ${config.palette.textDim};
+      max-width: 280px; margin: 0 auto;
+    }
+
+    /* ═════════ PILLARS ═════════ */
+    .v3-pillars {
+      padding: 72px 0;
+      border-top: 1px solid ${config.palette.border};
+    }
+    .v3-pillars-header {
+      text-align: center; margin-bottom: 48px;
+    }
+    .v3-pillars-headline {
+      font-family: ${hf(config)}var(--font-playfair), 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 2.8vw, 2.6rem);
+      font-weight: 700; line-height: 1.15;
+    }
+    .v3-pillars-headline em { font-style: italic; color: ${config.palette.primary}; }
+    .v3-pillars-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; background: ${pCardBorder};
+    }
+    .v3-pillar {
+      background: ${isLightBg ? "#fff" : pCardBg};
+      padding: 32px 28px; position: relative;
+      transition: background 0.2s;
+    }
+    .v3-pillar::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .v3-pc1::after { background: ${config.palette.primary}; }
+    .v3-pc2::after { background: ${isLightBg ? "rgba(0,0,0,0.25)" : "rgba(255,255,255,0.25)"}; }
+    .v3-pc3::after { background: linear-gradient(90deg, ${config.palette.primary}, ${isLightBg ? "rgba(0,0,0,0.25)" : "rgba(255,255,255,0.25)"}); }
+    .v3-pillar-num {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: ${config.palette.textDim}; margin-bottom: 14px;
+    }
+    .v3-pillar-icon {
+      color: ${config.palette.primary}; margin-bottom: 14px; opacity: 0.5;
+    }
+    .v3-pillar-title {
+      font-family: ${hf(config)}var(--font-playfair), 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 700;
+      margin-bottom: 10px; line-height: 1.3;
+    }
+    .v3-pillar-body {
+      font-size: 13px; line-height: 1.7;
+      color: ${config.palette.textDim};
+    }
+
+    /* ══════════════════════════════════════════
+       SEZIONE 3 — CHIUSURA (Nicola)
+    ══════════════════════════════════════════ */
+    .v3-close {
+      position: relative; z-index: 1;
+      padding: 96px 60px;
+      background: ${NS.bg}; color: ${NS.text};
+    }
+    .v3-close-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 360px;
+      gap: 80px; align-items: center;
+    }
+    .v3-close-h {
+      font-family: var(--font-playfair), 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.2vw, 3.4rem);
+      font-weight: 400; line-height: 1.15;
+      letter-spacing: -0.02em; margin-bottom: 28px;
+    }
+    .v3-close-h em { font-style: italic; color: ${NS.primary}; }
+    .v3-close-lines {
+      display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px;
+    }
+    .v3-close-line {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 14px; line-height: 1.7; color: ${NS.textDim};
+    }
+    .v3-close-line::before {
+      content: '\\2192'; color: ${NS.primary};
+      flex-shrink: 0; margin-top: 2px; font-size: 12px;
+    }
+    .v3-close-closing {
+      font-family: var(--font-playfair), 'Playfair Display', serif;
+      font-style: italic; font-size: 17px;
+      color: ${NS.text}; line-height: 1.5;
+    }
+    .v3-close-closing::before { content: none; }
+    .v3-close-cta {
+      display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 32px;
+    }
+    .v3-close-btn-primary {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: ${NS.primary}; color: ${NS.bg};
+      font-family: var(--font-dm-mono), 'DM Mono', monospace;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 16px 28px; text-decoration: none;
+      transition: opacity 0.2s; white-space: nowrap;
+    }
+    .v3-close-btn-primary:hover { opacity: 0.85; }
+    .v3-close-btn-secondary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent; color: ${NS.primary};
+      font-family: var(--font-dm-mono), 'DM Mono', monospace;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 16px 28px; text-decoration: none;
+      border: 1px solid ${NS.border};
+      transition: background 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+    .v3-close-btn-secondary:hover {
+      background: ${NS.primaryDim}; border-color: ${NS.primary};
+    }
+    .v3-close-note {
+      font-size: 12px; color: ${NS.textFaint};
+      line-height: 1.7; font-style: italic;
+      padding-top: 20px;
+      border-top: 1px solid rgba(232,240,255,0.07);
+    }
+
+    /* Foto chiusura */
+    .v3-close-right {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 20px;
+    }
+    .v3-close-photo-wrap {
+      position: relative; width: 80%; max-width: 280px;
+    }
+    .v3-close-photo-wrap::before {
+      content: ''; position: absolute; top: -6px; left: -6px;
+      width: 50%; height: 50%;
+      border-top: 1px solid ${NS.border};
+      border-left: 1px solid ${NS.border};
+      z-index: 3; pointer-events: none;
+    }
+    .v3-close-photo-wrap::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 45%;
+      background: linear-gradient(to top, ${NS.bg} 0%, transparent 100%);
+      z-index: 2; pointer-events: none;
+    }
+    .v3-close-photo {
+      position: relative; z-index: 1;
+      width: 100%; aspect-ratio: 3/4;
+      object-fit: cover; object-position: top center;
+      display: block;
+      filter: grayscale(30%) contrast(1.05);
     }
 
     /* ══════════════════════════════════════════
        FOOTER
     ══════════════════════════════════════════ */
     .v3-footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid ${NS.border};
+      padding: 24px 60px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 10px; letter-spacing: 1.5px;
+      text-transform: uppercase; color: ${NS.textFaint};
       background: ${NS.bg};
-      color: ${NS.text};
-      padding: 48px 60px 28px;
     }
-    .v3-footer-inner {
-      max-width: 1140px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .v3-footer-buttons {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      margin-bottom: 32px;
-    }
-    .v3-footer-btn {
-      display: inline-flex;
-      font-family: var(--font-dm-mono), 'DM Mono', monospace;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 14px 28px;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      background: ${NS.primary};
-      color: ${NS.bg};
-    }
-    .v3-footer-btn:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 20px ${NS.primary}40;
-    }
-    .v3-footer-btn-ghost {
-      display: inline-flex;
-      font-family: var(--font-dm-mono), 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 14px 28px;
-      border-radius: 100px;
-      border: 1px solid ${NS.border};
-      text-decoration: none;
-      transition: all 0.2s;
-      color: ${NS.textDim};
-    }
-    .v3-footer-btn-ghost:hover {
-      color: ${NS.text};
-      border-color: ${NS.primary};
-    }
-    .v3-footer-line {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, ${NS.border}, transparent);
-      margin-bottom: 20px;
-    }
-    .v3-footer-credit {
-      font-size: 10px;
-      letter-spacing: 1px;
-      color: ${NS.textFaint};
-    }
-    .v3-footer-credit a {
-      color: ${NS.primary};
-      text-decoration: none;
+    .v3-footer a {
+      color: ${NS.primary}; text-decoration: none;
       transition: opacity 0.2s;
     }
-    .v3-footer-credit a:hover { opacity: 0.7; }
+    .v3-footer a:hover { opacity: 0.7; }
 
     /* ══════════════════════════════════════════
        RESPONSIVE
     ══════════════════════════════════════════ */
-    @media (max-width: 1024px) {
-      .v3-nav-inner { padding: 14px 40px; }
-      .v3-container { padding: 0 40px; }
-      .v3-container-narrow { padding: 0 40px; }
-      .v3-opener { padding: 60px 40px 36px; }
-      .v3-opener-grid { gap: 40px; }
-      .v3-two-col { gap: 48px; }
-      .v3-box-row { gap: 40px; padding: 36px; }
-    }
-
-    @media (max-width: 768px) {
-      .v3-nav-inner { padding: 12px 28px; }
-      .v3-nav-right { gap: 16px; }
-      .v3-nav-link { font-size: 9px; }
-      .v3-container, .v3-container-narrow { padding: 0 28px; }
-      .v3-opener { padding: 48px 28px 32px; min-height: auto; }
-      .v3-opener-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-      .v3-opener-right { justify-content: center; }
-      .v3-photo-container { max-width: 240px; }
-
-      .v3-hero { padding: 64px 0 56px; }
-      .v3-section { padding: 64px 0; }
-      .v3-urgency { padding: 56px 0 64px; }
-
-      .v3-two-col { grid-template-columns: 1fr; gap: 36px; }
-      .v3-box-row {
-        grid-template-columns: 1fr;
-        gap: 28px;
-        padding: 28px;
-        border-radius: 20px;
-      }
-      .v3-box-row--flip { direction: ltr; }
-      .v3-box-visual { order: -1; }
-
-      .v3-section-header { margin-bottom: 40px; }
-      .v3-footer { padding: 36px 28px 20px; }
+    @media (max-width: 960px) {
+      .v3-nav-inner { padding: 14px 28px; }
+      .v3-opener { padding: 48px 28px 64px; }
+      .v3-opener-grid { grid-template-columns: 1fr; gap: 32px; }
+      .v3-opener-right { order: -1; max-width: 240px; margin: 0 auto; }
+      .v3-container { padding: 0 28px; }
+      .v3-p-topbar-inner { padding: 0 28px; }
+      .v3-p-topbar-tag { display: none; }
+      .v3-pitch-grid { grid-template-columns: 1fr; padding: 0 28px; }
+      .v3-pillars-grid { grid-template-columns: 1fr; }
+      .v3-close { padding: 64px 28px; }
+      .v3-close-inner { grid-template-columns: 1fr; gap: 48px; }
+      .v3-close-right { order: -1; max-width: 200px; margin: 0 auto; }
+      .v3-footer { padding: 24px 28px; }
     }
 
     @media (max-width: 480px) {
       .v3-nav-inner { padding: 10px 20px; }
       .v3-nav-right { display: none; }
-      .v3-container, .v3-container-narrow { padding: 0 20px; }
-      .v3-opener { padding: 36px 20px 24px; }
+      .v3-opener { padding: 36px 20px 48px; min-height: auto; }
       .v3-opener-grid { gap: 24px; }
-      .v3-photo-container { max-width: 180px; }
+      .v3-opener-right { max-width: 180px; }
       .v3-opener-name { font-size: 32px; }
-      .v3-opener-intro { font-size: 14px; }
       .v3-opener-tags { display: none; }
-      .v3-scroll-anchor { margin-top: 20px; }
-
-      .v3-hero { padding: 48px 0 40px; }
-      .v3-section { padding: 48px 0; }
-      .v3-box-row { padding: 24px; }
-
-      .v3-cta-row { flex-direction: column; }
-      .v3-btn, .v3-btn-ghost { justify-content: center; width: 100%; }
-      .v3-footer { padding: 28px 20px 16px; }
-      .v3-footer-buttons { flex-direction: column; }
-      .v3-footer-btn, .v3-footer-btn-ghost { justify-content: center; }
-      .v3-glitch { height: 32px; }
+      .v3-container { padding: 0 20px; }
+      .v3-p-topbar-inner { padding: 0 20px; height: 56px; }
+      .v3-p-intro { padding-top: 48px; }
+      .v3-pitch { padding: 48px 0; }
+      .v3-pitch-grid { padding: 0 20px; gap: 36px; }
+      .v3-pillars { padding: 48px 0; }
+      .v3-close { padding: 48px 20px; }
+      .v3-close-cta { flex-direction: column; }
+      .v3-close-btn-primary,
+      .v3-close-btn-secondary { justify-content: center; }
+      .v3-footer { padding: 20px; flex-direction: column; gap: 8px; }
+      .v3-gz { height: 120px; }
     }
   `;
 }
