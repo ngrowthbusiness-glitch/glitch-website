@@ -11,43 +11,42 @@
     "textDim": "rgba(232,240,255,0.50)",
     "border": "rgba(0,255,252,0.15)"
   },
-  "heroTitle": "CascioliRent, il noleggio si decide online.",
-  "heroSubtitle": "E chi non si fa trovare, non esiste.",
+  "heroTitle": "CascioliRent, parliamo di crescita digitale.",
+  "heroSubtitle": "Una strategia su misura per il noleggio auto",
+  "heroTagline": "Non una proposta generica. Un'analisi concreta basata sul vostro mercato.",
   "sections": [
     {
-      "type": "insight",
-      "title": "Cosa vedo",
+      "type": "problem",
+      "title": "Il contesto",
+      "content": "Il mercato del noleggio auto sta cambiando. I clienti cercano online, confrontano e decidono prima di chiamare. Chi non è visibile, perde."
+    },
+    {
+      "type": "method",
+      "title": "L'approccio GLITCH",
       "items": [
-        { "title": "Il cliente cerca su Google, non in concessionaria", "description": "Il 78% di chi noleggia un'auto inizia la ricerca online. Chi appare per primo, vince. Oggi CascioliRent non appare per le keyword più importanti nella vostra area." },
-        { "title": "I vostri competitor investono in Ads, voi no", "description": "Ho verificato: almeno 2-3 concorrenti locali stanno facendo campagne Google attive sul noleggio. Ogni giorno che passa, prendono clienti che cercavano voi." },
-        { "title": "Avete un brand forte offline, debole online", "description": "CascioliRent ha storia, struttura, credibilità. Ma online questa forza non si vede. C'è un gap enorme tra il valore reale e la percezione digitale." }
+        { "title": "Grounding", "description": "Analizziamo il vostro posizionamento attuale, i competitor locali e il traffico potenziale." },
+        { "title": "Strategy", "description": "Google Ads + Meta Ads per catturare domanda attiva e generare awareness locale." },
+        { "title": "Testing", "description": "Budget controllato, test rapidi, ottimizzazione settimanale." }
       ]
     },
     {
-      "type": "problem",
-      "title": "Il vero problema",
-      "content": "Non è che non avete clienti. È che state perdendo quelli che vi cercano attivamente — e li state regalando a chi ha semplicemente deciso di farsi trovare prima di voi."
-    },
-    {
-      "type": "teaser",
-      "title": "Cosa farei",
-      "subtitle": "Non vi dico come. Vi dico cosa.",
+      "type": "strategy",
+      "title": "Strategia proposta",
       "items": [
-        { "title": "Intercettare la domanda attiva", "description": "Chi cerca 'noleggio auto + la vostra zona' deve trovare voi, non i competitor." },
-        { "title": "Rendere visibile il vostro valore", "description": "La flotta, i servizi, la flessibilità — tutto questo deve emergere online come emerge offline." },
-        { "title": "Misurare ogni euro investito", "description": "Numeri chiari ogni settimana: quanti vi hanno trovato, quanti hanno chiamato, quanto è costato." }
+        { "title": "Google Ads — Search", "description": "Intercettare chi cerca noleggio auto nella vostra area. Keyword mirate, landing dedicate." },
+        { "title": "Meta Ads — Awareness", "description": "Campagne visual per far conoscere CascioliRent a chi sta valutando il noleggio." },
+        { "title": "Tracking & KPI", "description": "Dashboard con costo per lead, conversion rate, ROAS. Numeri chiari ogni settimana." }
       ]
     }
   ],
   "cta": {
-    "title": "Una domanda, prima di tutto.",
-    "subtitle": "Rispondete e vi darò il mio parere onesto — gratuitamente.",
-    "ctaQuestion": "Se domani 50 persone cercassero 'noleggio auto' nella vostra zona, quante vi troverebbero?",
-    "emailSubject": "CascioliRent — Strategia digitale",
-    "showGlitchEconomics": false
+    "title": "Pronti a parlarne?",
+    "subtitle": "30 minuti di analisi gratuita. Nessun impegno.",
+    "whatsappText": "Ciao Nicola, ho visto la proposta per CascioliRent. Vorrei parlarne.",
+    "emailSubject": "CascioliRent — Richiesta info strategia",
+    "showGlitchEconomics": true
   },
   "meta": {
-    "status": "sent",
-    "createdAt": "2026-03-19T00:00:00.000Z"
+    "status": "sent"
   }
 }

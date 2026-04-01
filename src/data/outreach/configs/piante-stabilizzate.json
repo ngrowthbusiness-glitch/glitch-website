@@ -12,42 +12,33 @@
     "border": "rgba(107,142,35,0.18)"
   },
   "headingFont": "Cormorant Garamond",
-  "heroTitle": "LinfaDecor, un prodotto unico che nessuno trova.",
-  "heroSubtitle": "Le piante stabilizzate sono straordinarie. Ma chi le cerca, vi trova?",
+  "heroTitle": "Natura, materia, silenzio.",
+  "heroSubtitle": "Strategia digitale per piante stabilizzate",
+  "heroTagline": "Un prodotto unico merita una comunicazione unica.",
   "sections": [
     {
-      "type": "insight",
-      "title": "Cosa vedo",
-      "items": [
-        { "title": "Il vostro pubblico è preciso e raggiungibile", "description": "Interior designer, architetti, hotel, uffici direzionali. Sono professionisti che cercano online, scrollano Pinterest, seguono profili di design. Raggiungerli non è difficile — serve solo la strategia giusta." },
-        { "title": "Il prodotto è ad alto valore ma bassa awareness", "description": "Molti non sanno che le piante stabilizzate esistono. Chi le scopre, le vuole. Il problema non è il prodotto — è che non abbastanza persone lo vedono." }
-      ]
-    },
-    {
       "type": "problem",
-      "title": "Il vero problema",
-      "content": "Avete un prodotto che si vende da solo una volta visto. Ma non abbastanza persone lo vedono — e quelle che lo cercano attivamente trovano competitor che comunicano meglio online, non che producono meglio."
+      "title": "Il contesto",
+      "content": "Le piante stabilizzate sono un prodotto di nicchia ad alto valore. Il pubblico è specifico: interior designer, architetti, hotel, uffici. Serve una comunicazione che parli la loro lingua."
     },
     {
-      "type": "teaser",
-      "title": "Cosa farei",
-      "subtitle": "Non vi dico come. Vi dico dove interverrei.",
+      "type": "strategy",
+      "title": "Approccio",
       "items": [
-        { "title": "Far scoprire il prodotto a chi lo cercherebbe se sapesse che esiste", "description": "Il visual è il vostro miglior venditore. Servono i canali giusti per farlo lavorare." },
-        { "title": "Raggiungere i professionisti che decidono", "description": "Designer e architetti scelgono i materiali. Dovete essere nella loro mente prima del prossimo progetto." },
-        { "title": "Trasformare la scoperta in richiesta", "description": "Dal primo impatto visivo alla richiesta di preventivo — senza frizioni, senza passaggi inutili." }
+        { "title": "Visual storytelling", "description": "Fotografia d'autore, video ambientati, contenuti che trasmettono l'essenza del prodotto." },
+        { "title": "Targeting preciso", "description": "Meta Ads verso professionisti del design e dell'arredamento. Pinterest Ads per ispirare." },
+        { "title": "E-commerce o lead gen", "description": "A seconda del modello di business: vendita diretta online o generazione di richieste di preventivo qualificate." }
       ]
     }
   ],
   "cta": {
-    "title": "Una domanda, prima di tutto.",
-    "subtitle": "Rispondete e vi darò il mio parere onesto — gratuitamente.",
-    "ctaQuestion": "Se un interior designer cercasse 'piante stabilizzate' per un progetto, vi troverebbe?",
-    "emailSubject": "LinfaDecor — Strategia digitale green design",
+    "title": "Facciamo crescere il vostro brand?",
+    "subtitle": "Senza acqua, come le vostre piante. Ma con strategia.",
+    "whatsappText": "Ciao Nicola, ho visto la proposta per le piante stabilizzate.",
+    "emailSubject": "Piante stabilizzate — Strategia digitale",
     "showGlitchEconomics": false
   },
   "meta": {
-    "status": "sent",
-    "createdAt": "2026-03-19T00:00:00.000Z"
+    "status": "sent"
   }
 }
