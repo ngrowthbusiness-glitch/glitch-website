@@ -41,250 +41,415 @@ export default async function OutreachPage({
   return (
     <>
       <OutreachTracker slug={slug} />
-      <div
-        className="min-h-screen"
-        style={{
-          "--o-primary": config.palette.primary,
-          "--o-primary-dim": config.palette.primaryDim,
-          "--o-bg": config.palette.background,
-          "--o-text": config.palette.text,
-          "--o-text-dim": config.palette.textDim,
-          "--o-border": config.palette.border,
-        } as React.CSSProperties}
-      >
-        <div
-          className="min-h-screen"
-          style={{ background: "var(--o-bg)", color: "var(--o-text)" }}
-        >
-          {/* Header bar */}
-          <header
-            className="sticky top-0 z-50 px-[60px] py-4 flex items-center justify-between max-md:px-8 max-[480px]:px-5"
-            style={{
-              background: isLightBg
-                ? "rgba(255,255,255,0.9)"
-                : "rgba(10,14,19,0.9)",
-              backdropFilter: "blur(12px)",
-              borderBottom: `1px solid var(--o-border)`,
-            }}
-          >
-            <div className="flex items-center gap-4">
-              {config.logo && (
-                <Image
-                  src={config.logo}
-                  alt={config.companyName}
-                  width={32}
-                  height={32}
-                  className="object-contain"
-                />
-              )}
-              <span
-                className="text-[10px] tracking-[2px] uppercase"
-                style={{ color: "var(--o-text-dim)" }}
-              >
-                {config.companyName}
-              </span>
-            </div>
-            <div className="flex items-center gap-3">
+      <style>{`
+        .o-page {
+          --o-primary: ${config.palette.primary};
+          --o-primary-dim: ${config.palette.primaryDim};
+          --o-bg: ${config.palette.background};
+          --o-text: ${config.palette.text};
+          --o-text-dim: ${config.palette.textDim};
+          --o-border: ${config.palette.border};
+          min-height: 100vh;
+          background: ${config.palette.background};
+          color: ${config.palette.text};
+          font-family: 'DM Mono', monospace;
+        }
+
+        /* Header */
+        .o-header {
+          position: sticky;
+          top: 0;
+          z-index: 50;
+          padding: 16px 60px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background: ${isLightBg ? 'rgba(255,255,255,0.9)' : 'rgba(10,14,19,0.9)'};
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border-bottom: 1px solid var(--o-border);
+        }
+        .o-header-left, .o-header-right {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+        .o-header-label {
+          font-size: 10px;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          color: var(--o-text-dim);
+        }
+
+        /* Sections */
+        .o-section {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 48px 60px;
+        }
+        .o-section-hero {
+          padding-top: 80px;
+          padding-bottom: 64px;
+        }
+
+        /* Typography */
+        .o-eyebrow {
+          font-size: 9px;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          color: var(--o-primary);
+          margin-bottom: 16px;
+        }
+        .o-h1 {
+          font-family: ${config.headingFont ? `'${config.headingFont}', ` : ''}var(--font-playfair), 'Playfair Display', serif;
+          font-size: clamp(32px, 5vw, 48px);
+          font-weight: 700;
+          line-height: 1.1;
+          color: var(--o-text);
+          margin-bottom: 16px;
+        }
+        .o-h2 {
+          font-family: ${config.headingFont ? `'${config.headingFont}', ` : ''}var(--font-playfair), 'Playfair Display', serif;
+          font-size: 24px;
+          font-weight: 700;
+          color: var(--o-text);
+          margin-bottom: 24px;
+        }
+        .o-h3 {
+          font-family: ${config.headingFont ? `'${config.headingFont}', ` : ''}var(--font-playfair), 'Playfair Display', serif;
+          font-size: 30px;
+          font-weight: 700;
+          color: var(--o-text);
+          margin-bottom: 16px;
+        }
+        .o-subtitle {
+          font-size: 16px;
+          line-height: 1.6;
+          color: var(--o-text-dim);
+          margin-bottom: 12px;
+        }
+        .o-tagline {
+          font-family: ${config.headingFont ? `'${config.headingFont}', ` : ''}var(--font-playfair), 'Playfair Display', serif;
+          font-style: italic;
+          font-size: 14px;
+          color: var(--o-text-dim);
+        }
+        .o-body {
+          font-size: 14px;
+          line-height: 1.85;
+          color: var(--o-text-dim);
+          margin-bottom: 24px;
+        }
+        .o-sub-label {
+          font-size: 13px;
+          color: var(--o-text-dim);
+          margin-bottom: 24px;
+        }
+
+        /* Cards */
+        .o-card-bg { background: ${isLightBg ? 'rgba(0,0,0,0.03)' : 'rgba(255,255,255,0.04)'}; }
+
+        /* Insight cards */
+        .o-insight-list {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+        .o-insight-card {
+          display: flex;
+          gap: 16px;
+          padding: 20px;
+          border-radius: 12px;
+          border: 1px solid var(--o-border);
+        }
+        .o-insight-num {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: 18px;
+          font-weight: 700;
+          color: var(--o-primary);
+          flex-shrink: 0;
+        }
+        .o-insight-title {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: 16px;
+          font-weight: 700;
+          color: var(--o-text);
+          margin-bottom: 4px;
+        }
+        .o-insight-desc {
+          font-size: 12px;
+          line-height: 1.7;
+          color: var(--o-text-dim);
+        }
+
+        /* Grid cards */
+        .o-grid-3 {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 16px;
+        }
+        .o-grid-card {
+          padding: 24px;
+          border-radius: 12px;
+          border: 1px solid var(--o-border);
+        }
+        .o-grid-card-title {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: 16px;
+          font-weight: 700;
+          color: var(--o-text);
+          margin-bottom: 8px;
+        }
+        .o-grid-card-desc {
+          font-size: 12px;
+          line-height: 1.7;
+          color: var(--o-text-dim);
+        }
+
+        /* Teaser cards */
+        .o-teaser-card {
+          padding: 20px;
+          border-radius: 12px;
+          border-left: 2px solid var(--o-primary);
+        }
+        .o-teaser-title {
+          font-size: 14px;
+          font-weight: 700;
+          color: var(--o-text);
+          margin-bottom: 4px;
+        }
+        .o-teaser-desc {
+          font-size: 12px;
+          line-height: 1.7;
+          color: var(--o-text-dim);
+        }
+
+        /* Metrics */
+        .o-metrics-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 16px;
+        }
+        .o-metric-card {
+          padding: 20px;
+          border-radius: 12px;
+          border: 1px solid var(--o-border);
+          text-align: center;
+        }
+        .o-metric-value {
+          font-size: 18px;
+          font-weight: 700;
+          color: var(--o-primary);
+        }
+        .o-metric-label {
+          font-size: 9px;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          margin-top: 4px;
+          color: var(--o-text-dim);
+        }
+
+        /* CTA buttons (legacy) */
+        .o-btn-primary {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 10px;
+          font-weight: 500;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          padding: 14px 24px;
+          border-radius: 5px;
+          text-decoration: none;
+          transition: opacity 0.2s, transform 0.2s;
+          background: var(--o-primary);
+          color: ${isLightBg ? '#fff' : config.palette.background};
+        }
+        .o-btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
+        .o-btn-secondary {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 10px;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          padding: 14px 24px;
+          border-radius: 5px;
+          border: 1px solid var(--o-border);
+          text-decoration: none;
+          transition: all 0.2s;
+          color: var(--o-primary);
+          background: transparent;
+        }
+        .o-btn-secondary:hover { transform: translateY(-2px); }
+        .o-cta-buttons {
+          display: flex;
+          gap: 14px;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+        .o-economics-link {
+          font-size: 9px;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          text-decoration: none;
+          color: var(--o-text-dim);
+          transition: opacity 0.2s;
+        }
+        .o-economics-link:hover { opacity: 0.7; }
+
+        /* Footer */
+        .o-footer {
+          text-align: center;
+          padding: 24px;
+          font-size: 10px;
+          letter-spacing: 1px;
+          color: var(--o-text-dim);
+          border-top: 1px solid var(--o-border);
+        }
+        .o-footer a {
+          color: var(--o-primary);
+          text-decoration: none;
+          transition: opacity 0.2s;
+        }
+        .o-footer a:hover { opacity: 0.7; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+          .o-header { padding: 16px 32px; }
+          .o-section { padding: 36px 32px; }
+          .o-section-hero { padding-top: 60px; padding-bottom: 48px; }
+          .o-grid-3 { grid-template-columns: 1fr; }
+          .o-metrics-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+          .o-header { padding: 16px 20px; }
+          .o-section { padding: 28px 20px; }
+          .o-cta-buttons { flex-direction: column; }
+          .o-btn-primary, .o-btn-secondary { justify-content: center; }
+        }
+      `}</style>
+
+      <div className="o-page">
+        {/* Header */}
+        <header className="o-header">
+          <div className="o-header-left">
+            {config.logo && (
               <Image
-                src="/favicon.png"
-                alt="NS"
-                width={20}
-                height={20}
-                className="object-contain"
+                src={config.logo}
+                alt={config.companyName}
+                width={32}
+                height={32}
+                style={{ objectFit: "contain" }}
               />
-              <span
-                className="text-[10px] tracking-[1.5px] uppercase"
-                style={{ color: "var(--o-text-dim)" }}
-              >
-                Nicola Serrao
-              </span>
-            </div>
-          </header>
-
-          {/* Hero */}
-          <section className="max-w-[900px] mx-auto px-[60px] pt-20 pb-16 max-md:px-8 max-[480px]:px-5">
-            <div
-              className="text-[9px] tracking-[3px] uppercase mb-4"
-              style={{ color: "var(--o-primary)" }}
-            >
-              {config.sector}
-            </div>
-            <h1
-              className="font-heading text-[clamp(32px,5vw,48px)] font-bold leading-tight mb-4"
-              style={{ color: "var(--o-text)" }}
-            >
-              {config.heroTitle}
-            </h1>
-            <p
-              className="text-base leading-relaxed mb-3"
-              style={{ color: "var(--o-text-dim)" }}
-            >
-              {config.heroSubtitle}
-            </p>
-            {config.heroTagline && (
-              <p
-                className="font-heading italic text-sm"
-                style={{ color: "var(--o-text-dim)" }}
-              >
-                {config.heroTagline}
-              </p>
             )}
-          </section>
-
-          {/* Dynamic sections */}
-          {config.sections.map((section, i) => (
-            <SectionRenderer
-              key={i}
-              section={section}
-              isLightBg={isLightBg}
+            <span className="o-header-label">{config.companyName}</span>
+          </div>
+          <div className="o-header-right">
+            <Image
+              src="/favicon.png"
+              alt="NS"
+              width={20}
+              height={20}
+              style={{ objectFit: "contain" }}
             />
-          ))}
+            <span className="o-header-label">Nicola Serrao</span>
+          </div>
+        </header>
 
-          {/* CTA — Response Box or classic buttons */}
-          <section className="max-w-[900px] mx-auto px-[60px] py-20 max-md:px-8 max-[480px]:px-5">
-            <h2
-              className="font-heading text-3xl font-bold mb-4"
-              style={{ color: "var(--o-text)", textAlign: hasResponseBox ? "left" : "center" }}
-            >
-              {config.cta.title}
-            </h2>
-            {config.cta.subtitle && (
-              <p
-                className="text-sm mb-8"
-                style={{ color: "var(--o-text-dim)", textAlign: hasResponseBox ? "left" : "center" }}
-              >
-                {config.cta.subtitle}
-              </p>
-            )}
+        {/* Hero */}
+        <section className="o-section o-section-hero">
+          <div className="o-eyebrow">{config.sector}</div>
+          <h1 className="o-h1">{config.heroTitle}</h1>
+          <p className="o-subtitle">{config.heroSubtitle}</p>
+          {config.heroTagline && (
+            <p className="o-tagline">{config.heroTagline}</p>
+          )}
+        </section>
 
-            {hasResponseBox ? (
-              <ResponseBox
-                question={config.cta.ctaQuestion!}
-                companyName={config.companyName}
-                slug={slug}
-                emailSubject={config.cta.emailSubject}
-                siteEmail={SITE.email}
-              />
-            ) : (
-              /* Legacy button CTA for existing configs */
-              <div className="flex gap-3.5 justify-center flex-wrap">
-                <a
-                  href={`${SITE.whatsapp}?text=${encodeURIComponent(config.cta.whatsappText || "")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 text-[10px] font-medium tracking-[2px] uppercase px-6 py-3.5 rounded no-underline hover:opacity-85 hover:-translate-y-0.5 transition-all duration-200"
-                  style={{
-                    background: "var(--o-primary)",
-                    color: isLightBg ? "#fff" : "var(--o-bg)",
-                  }}
-                >
-                  Scrivimi su WhatsApp
-                </a>
-                <a
-                  href={`mailto:${SITE.email}?subject=${encodeURIComponent(config.cta.emailSubject || "")}`}
-                  className="inline-flex items-center gap-2.5 text-[10px] tracking-[2px] uppercase px-6 py-3.5 rounded border no-underline hover:-translate-y-0.5 transition-all duration-200"
-                  style={{
-                    color: "var(--o-primary)",
-                    borderColor: "var(--o-border)",
-                  }}
-                >
-                  Inviami una mail
-                </a>
-              </div>
-            )}
+        {/* Dynamic sections */}
+        {config.sections.map((section, i) => (
+          <SectionRenderer key={i} section={section} />
+        ))}
 
-            {config.cta.showGlitchEconomics && (
-              <div className={hasResponseBox ? "mt-10" : "mt-10 text-center"}>
-                <a
-                  href={SITE.glitchEconomicsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[9px] tracking-[2px] uppercase no-underline hover:opacity-70 transition-opacity"
-                  style={{ color: "var(--o-text-dim)" }}
-                >
-                  Analizza i tuoi numeri con GLITCH Economics &rarr;
-                </a>
-              </div>
-            )}
-          </section>
-
-          {/* Minimal footer */}
-          <footer
-            className="text-center py-6 text-[10px] tracking-[1px]"
-            style={{
-              color: "var(--o-text-dim)",
-              borderTop: `1px solid var(--o-border)`,
-            }}
-          >
-            <p>
-              {SITE.name} &middot; {SITE.title} &middot;{" "}
-              <a
-                href={SITE.url}
-                className="no-underline hover:opacity-70 transition-opacity"
-                style={{ color: "var(--o-primary)" }}
-              >
-                nicolaserrao.com
-              </a>
+        {/* CTA */}
+        <section className="o-section">
+          <h2 className="o-h3" style={{ textAlign: hasResponseBox ? "left" : "center" }}>
+            {config.cta.title}
+          </h2>
+          {config.cta.subtitle && (
+            <p className="o-sub-label" style={{ textAlign: hasResponseBox ? "left" : "center" }}>
+              {config.cta.subtitle}
             </p>
-          </footer>
-        </div>
+          )}
+
+          {hasResponseBox ? (
+            <ResponseBox
+              question={config.cta.ctaQuestion!}
+              companyName={config.companyName}
+              slug={slug}
+              emailSubject={config.cta.emailSubject}
+              siteEmail={SITE.email}
+            />
+          ) : (
+            <div className="o-cta-buttons">
+              <a
+                href={`${SITE.whatsapp}?text=${encodeURIComponent(config.cta.whatsappText || "")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="o-btn-primary"
+              >
+                Scrivimi su WhatsApp
+              </a>
+              <a
+                href={`mailto:${SITE.email}?subject=${encodeURIComponent(config.cta.emailSubject || "")}`}
+                className="o-btn-secondary"
+              >
+                Inviami una mail
+              </a>
+            </div>
+          )}
+
+          {config.cta.showGlitchEconomics && (
+            <div style={{ marginTop: 40, textAlign: hasResponseBox ? "left" : "center" }}>
+              <a
+                href={SITE.glitchEconomicsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="o-economics-link"
+              >
+                Analizza i tuoi numeri con GLITCH Economics &rarr;
+              </a>
+            </div>
+          )}
+        </section>
+
+        {/* Footer */}
+        <footer className="o-footer">
+          <p>
+            {SITE.name} &middot; {SITE.title} &middot;{" "}
+            <a href={SITE.url}>nicolaserrao.com</a>
+          </p>
+        </footer>
       </div>
     </>
   );
 }
 
-function SectionRenderer({
-  section,
-  isLightBg,
-}: {
-  section: OutreachSection;
-  isLightBg: boolean;
-}) {
-  const cardBg = isLightBg
-    ? "rgba(0,0,0,0.03)"
-    : "rgba(255,255,255,0.04)";
-
-  // "insight" type renders as numbered observations
+function SectionRenderer({ section }: { section: OutreachSection }) {
   if (section.type === "insight" && section.items) {
     return (
-      <section className="max-w-[900px] mx-auto px-[60px] py-12 max-md:px-8 max-[480px]:px-5">
-        {section.title && (
-          <h2
-            className="text-[9px] tracking-[3px] uppercase mb-6"
-            style={{ color: "var(--o-primary)" }}
-          >
-            {section.title}
-          </h2>
-        )}
-        <div className="flex flex-col gap-4">
+      <section className="o-section">
+        {section.title && <div className="o-eyebrow">{section.title}</div>}
+        <div className="o-insight-list">
           {section.items.map((item, i) => (
-            <div
-              key={i}
-              className="flex gap-4 p-5 rounded-xl border"
-              style={{
-                background: cardBg,
-                borderColor: "var(--o-border)",
-              }}
-            >
-              <span
-                className="font-heading text-lg font-bold shrink-0"
-                style={{ color: "var(--o-primary)" }}
-              >
+            <div key={i} className="o-insight-card o-card-bg">
+              <span className="o-insight-num">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div>
-                <h4
-                  className="font-heading text-base font-bold mb-1"
-                  style={{ color: "var(--o-text)" }}
-                >
-                  {item.title}
-                </h4>
-                <p
-                  className="text-xs leading-relaxed"
-                  style={{ color: "var(--o-text-dim)" }}
-                >
-                  {item.description}
-                </p>
+                <div className="o-insight-title">{item.title}</div>
+                <p className="o-insight-desc">{item.description}</p>
               </div>
             </div>
           ))}
@@ -293,48 +458,18 @@ function SectionRenderer({
     );
   }
 
-  // "teaser" type renders as minimal, curiosity-driven cards
   if (section.type === "teaser" && section.items) {
     return (
-      <section className="max-w-[900px] mx-auto px-[60px] py-12 max-md:px-8 max-[480px]:px-5">
-        {section.title && (
-          <h2
-            className="font-heading text-2xl font-bold mb-2"
-            style={{ color: "var(--o-text)" }}
-          >
-            {section.title}
-          </h2>
-        )}
+      <section className="o-section">
+        {section.title && <h2 className="o-h2">{section.title}</h2>}
         {section.subtitle && (
-          <p
-            className="text-sm mb-6"
-            style={{ color: "var(--o-text-dim)" }}
-          >
-            {section.subtitle}
-          </p>
+          <p className="o-sub-label">{section.subtitle}</p>
         )}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="o-grid-3">
           {section.items.map((item, i) => (
-            <div
-              key={i}
-              className="p-5 rounded-xl border-l-2"
-              style={{
-                background: cardBg,
-                borderColor: "var(--o-primary)",
-              }}
-            >
-              <h4
-                className="text-sm font-bold mb-1"
-                style={{ color: "var(--o-text)" }}
-              >
-                {item.title}
-              </h4>
-              <p
-                className="text-xs leading-relaxed"
-                style={{ color: "var(--o-text-dim)" }}
-              >
-                {item.description}
-              </p>
+            <div key={i} className="o-teaser-card o-card-bg">
+              <div className="o-teaser-title">{item.title}</div>
+              <p className="o-teaser-desc">{item.description}</p>
             </div>
           ))}
         </div>
@@ -342,78 +477,28 @@ function SectionRenderer({
     );
   }
 
-  // Default rendering for existing types
   return (
-    <section className="max-w-[900px] mx-auto px-[60px] py-12 max-md:px-8 max-[480px]:px-5">
-      {section.title && (
-        <h2
-          className="font-heading text-2xl font-bold mb-6"
-          style={{ color: "var(--o-text)" }}
-        >
-          {section.title}
-        </h2>
-      )}
-
-      {section.content && (
-        <p
-          className="text-sm leading-relaxed mb-6"
-          style={{ color: "var(--o-text-dim)" }}
-        >
-          {section.content}
-        </p>
-      )}
+    <section className="o-section">
+      {section.title && <h2 className="o-h2">{section.title}</h2>}
+      {section.content && <p className="o-body">{section.content}</p>}
 
       {section.items && (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="o-grid-3">
           {section.items.map((item, i) => (
-            <div
-              key={i}
-              className="p-6 rounded-xl border"
-              style={{
-                background: cardBg,
-                borderColor: "var(--o-border)",
-              }}
-            >
-              <h4
-                className="font-heading text-base font-bold mb-2"
-                style={{ color: "var(--o-text)" }}
-              >
-                {item.title}
-              </h4>
-              <p
-                className="text-xs leading-relaxed"
-                style={{ color: "var(--o-text-dim)" }}
-              >
-                {item.description}
-              </p>
+            <div key={i} className="o-grid-card o-card-bg">
+              <div className="o-grid-card-title">{item.title}</div>
+              <p className="o-grid-card-desc">{item.description}</p>
             </div>
           ))}
         </div>
       )}
 
       {section.metrics && (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="o-metrics-grid">
           {section.metrics.map((m, i) => (
-            <div
-              key={i}
-              className="p-5 rounded-xl border text-center"
-              style={{
-                background: cardBg,
-                borderColor: "var(--o-border)",
-              }}
-            >
-              <div
-                className="text-lg font-bold"
-                style={{ color: "var(--o-primary)" }}
-              >
-                {m.value}
-              </div>
-              <div
-                className="text-[9px] tracking-[1.5px] uppercase mt-1"
-                style={{ color: "var(--o-text-dim)" }}
-              >
-                {m.label}
-              </div>
+            <div key={i} className="o-metric-card o-card-bg">
+              <div className="o-metric-value">{m.value}</div>
+              <div className="o-metric-label">{m.label}</div>
             </div>
           ))}
         </div>
