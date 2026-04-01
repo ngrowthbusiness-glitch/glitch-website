@@ -12,43 +12,43 @@
     "border": "rgba(200,160,74,0.20)"
   },
   "headingFont": "Playfair Display",
-  "heroTitle": "Von Schnauzer, il premium nel mondo pet.",
-  "heroSubtitle": "Strategia digitale per un brand pet di lusso",
-  "heroTagline": "Un mercato in crescita esplosiva. Serve posizionamento, non improvvisazione.",
+  "heroTitle": "Von Schnauzer, il premium pet è un mercato da €3.5 miliardi.",
+  "heroSubtitle": "E sta crescendo del 10% all'anno. La domanda è: voi dove siete?",
   "sections": [
     {
-      "type": "problem",
-      "title": "Il mercato pet premium",
-      "content": "Il mercato pet in Italia vale €3.5 miliardi e cresce del 10% annuo. Il segmento premium è il più redditizio ma anche il più competitivo. Servono brand forti e strategie mirate."
-    },
-    {
-      "type": "strategy",
-      "title": "Strategia",
+      "type": "insight",
+      "title": "Cosa vedo",
       "items": [
-        { "title": "Brand identity", "description": "Posizionamento luxury: storytelling, visual premium, community building." },
-        { "title": "Social + Content", "description": "Instagram e TikTok con contenuti che creano engagement e community. UGC strategy." },
-        { "title": "E-commerce & Revenue", "description": "Shopify + subscription model per prodotti ricorrenti. Multiple revenue streams: prodotti, servizi, membership." }
+        { "title": "Il segmento premium è il più redditizio del pet", "description": "Il proprietario che spende per il grooming di qualità non cerca il prezzo più basso. Cerca il brand che gli dà fiducia. Chi costruisce quel brand, cattura il margine più alto." },
+        { "title": "Il mercato pet cresce ma i brand premium sono pochi", "description": "Tanti operatori, pochi brand riconoscibili. Chi investe in posizionamento adesso si prende una fetta di mercato che tra 2 anni costerà 5 volte di più." },
+        { "title": "Il vostro nome ha potenziale di brand fortissimo", "description": "'Von Schnauzer' è un nome che evoca qualità, tradizione, premium. È un asset. Ma un nome forte senza visibilità è un'occasione sprecata." }
       ]
     },
     {
-      "type": "metrics",
-      "title": "Revenue model",
-      "metrics": [
-        { "label": "Grooming", "value": "Core" },
-        { "label": "Prodotti premium", "value": "E-comm" },
-        { "label": "Membership", "value": "Recurring" },
-        { "label": "Formazione", "value": "B2B" }
+      "type": "problem",
+      "title": "Il vero problema",
+      "content": "Siete in un mercato in crescita esplosiva con un nome perfetto per il premium. Ma senza un brand digitale forte e un sistema per acquisire clienti, state lasciando spazio a competitor che hanno meno qualità ma più visibilità."
+    },
+    {
+      "type": "teaser",
+      "title": "Cosa farei",
+      "subtitle": "Non vi dico come. Vi dico su cosa lavorerei.",
+      "items": [
+        { "title": "Trasformare un nome forte in un brand riconoscibile", "description": "Von Schnauzer ha tutto per diventare il punto di riferimento premium. Serve costruire l'immagine giusta." },
+        { "title": "Creare una community prima ancora di vendere", "description": "I proprietari premium sono appassionati. Chi li coinvolge, li fidelizza per sempre." },
+        { "title": "Costruire più fonti di ricavo dal brand", "description": "Grooming è il core, ma un brand premium può generare revenue da prodotti, membership e formazione." }
       ]
     }
   ],
   "cta": {
-    "title": "Costruiamo un brand premium?",
-    "subtitle": "Il mercato è pronto. Voi?",
-    "whatsappText": "Ciao Nicola, ho visto la proposta per Von Schnauzer.",
-    "emailSubject": "Von Schnauzer — Strategia brand premium",
-    "showGlitchEconomics": true
+    "title": "Una domanda, prima di tutto.",
+    "subtitle": "Rispondete e vi darò il mio parere onesto — gratuitamente.",
+    "ctaQuestion": "Se un proprietario cercasse 'grooming premium' nella vostra zona, troverebbe Von Schnauzer o un competitor?",
+    "emailSubject": "Von Schnauzer — Brand premium nel pet",
+    "showGlitchEconomics": false
   },
   "meta": {
-    "status": "sent"
+    "status": "sent",
+    "createdAt": "2026-03-19T00:00:00.000Z"
   }
 }

@@ -11,32 +11,42 @@
     "textDim": "rgba(26,26,46,0.55)",
     "border": "rgba(26,79,138,0.18)"
   },
-  "heroTitle": "Ulisse Servizi, navighiamo verso la crescita.",
-  "heroSubtitle": "Strategia digitale per servizi B2B",
+  "heroTitle": "Ulisse Servizi, il problema non è il servizio.",
+  "heroSubtitle": "È che chi ne ha bisogno non vi trova al momento giusto.",
   "sections": [
     {
-      "type": "problem",
-      "title": "La sfida",
-      "content": "I servizi B2B richiedono un ciclo di vendita più lungo e una comunicazione che costruisca fiducia nel tempo. Il digitale è il canale perfetto per questo."
+      "type": "insight",
+      "title": "Cosa vedo",
+      "items": [
+        { "title": "Il B2B ha cicli lunghi ma decisioni digitali", "description": "Il vostro cliente ideale impiega settimane per decidere, ma la prima scrematura avviene online in pochi minuti. Chi è presente con contenuti di valore, entra nella shortlist." },
+        { "title": "La fiducia nel B2B si costruisce prima del primo contatto", "description": "Case study, contenuti tecnici, presenza professionale. Il buyer B2B vuole sapere chi siete prima di chiamarvi — e cerca queste risposte online." }
+      ]
     },
     {
-      "type": "strategy",
-      "title": "La rotta",
+      "type": "problem",
+      "title": "Il vero problema",
+      "content": "I vostri servizi risolvono problemi reali per aziende reali. Ma il processo di acquisto B2B è cambiato: chi decide, ricerca online prima di contattare. Se non vi trova in quella fase, non esiste il primo incontro."
+    },
+    {
+      "type": "teaser",
+      "title": "Cosa farei",
+      "subtitle": "Non vi dico come. Vi dico dove interverrei.",
       "items": [
-        { "title": "Posizionamento", "description": "Definire la value proposition e comunicarla in modo chiaro su tutti i touchpoint digitali." },
-        { "title": "Lead generation", "description": "LinkedIn + Google Ads per generare contatti qualificati con un funnel strutturato." },
-        { "title": "Nurturing", "description": "Email marketing automatizzato per accompagnare i prospect nel percorso decisionale." }
+        { "title": "Farvi trovare quando il buyer cerca soluzioni", "description": "Essere presenti nel momento esatto in cui il vostro cliente ideale ha il problema che risolvete." },
+        { "title": "Costruire credibilità prima della stretta di mano", "description": "Quando vi contattano, devono già sapere che siete la scelta giusta." },
+        { "title": "Generare contatti che diventano clienti", "description": "Non numeri su un report, ma persone con un problema reale e il budget per risolverlo." }
       ]
     }
   ],
   "cta": {
-    "title": "Parliamo di crescita?",
-    "subtitle": "Un primo incontro per capire le vostre esigenze.",
-    "whatsappText": "Ciao Nicola, ho visto la proposta per Ulisse Servizi.",
-    "emailSubject": "Ulisse Servizi — Strategia digitale",
-    "showGlitchEconomics": true
+    "title": "Una domanda, prima di tutto.",
+    "subtitle": "Rispondete e vi darò il mio parere onesto — gratuitamente.",
+    "ctaQuestion": "Se il vostro prossimo cliente vi cercasse online oggi, cosa troverebbe di voi?",
+    "emailSubject": "Ulisse Servizi — Strategia digitale B2B",
+    "showGlitchEconomics": false
   },
   "meta": {
-    "status": "sent"
+    "status": "sent",
+    "createdAt": "2026-03-19T00:00:00.000Z"
   }
 }

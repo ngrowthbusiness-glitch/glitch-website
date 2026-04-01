@@ -12,32 +12,43 @@
     "border": "rgba(245,196,0,0.20)"
   },
   "headingFont": "Barlow",
-  "heroTitle": "LM Legnami, dal legno al digitale.",
-  "heroSubtitle": "Strategia per un brand premium del legname",
+  "heroTitle": "LM Legnami, il legno si sceglie online.",
+  "heroSubtitle": "Architetti e imprese cercano fornitori su Google. Chi trovano?",
   "sections": [
     {
-      "type": "problem",
-      "title": "Il mercato",
-      "content": "Il settore del legname premium si sta spostando online. Architetti, designer e imprese edili cercano fornitori qualificati su Google. Chi è visibile, vince."
+      "type": "insight",
+      "title": "Cosa vedo",
+      "items": [
+        { "title": "Il buyer del legname premium è cambiato", "description": "Architetti, designer e imprese edili confrontano fornitori online prima di chiamare. Chi ha un catalogo digitale professionale e si fa trovare, entra nella shortlist." },
+        { "title": "Il settore è ancora poco digitalizzato", "description": "La maggior parte dei commercianti di legname non ha presenza digitale seria. Questo significa che chi investe ora ha un vantaggio competitivo enorme con budget contenuti." },
+        { "title": "Il vostro prodotto si vende da solo — se lo vedono", "description": "Il legname premium è un prodotto visivo e tattile. Online servono immagini e specifiche che trasmettano la qualità che i vostri clienti toccano con mano in magazzino." }
+      ]
     },
     {
-      "type": "strategy",
-      "title": "Strategia",
+      "type": "problem",
+      "title": "Il vero problema",
+      "content": "Il vostro legno è eccellente. Ma l'architetto che sta progettando adesso non lo sa — perché quando cerca 'legname pregiato' o 'fornitore legno per interni', non vi trova. Trova chi ha deciso di farsi trovare."
+    },
+    {
+      "type": "teaser",
+      "title": "Cosa farei",
+      "subtitle": "Non vi dico come. Vi dico su cosa lavorerei.",
       "items": [
-        { "title": "Brand positioning", "description": "Posizionare LM Legnami come riferimento di qualità nel commercio del legno pregiato." },
-        { "title": "Google Ads + SEO", "description": "Intercettare la domanda di architetti e imprese che cercano legname di qualità." },
-        { "title": "Catalogo digitale", "description": "Presentazione prodotti con fotografia professionale e specifiche tecniche dettagliate." }
+        { "title": "Farvi trovare da chi progetta", "description": "Architetti e designer cercano fornitori specifici. Dovreste essere la prima risposta." },
+        { "title": "Mostrare il prodotto come merita", "description": "Il legno ha una storia, una texture, un valore. Tutto questo deve emergere online." },
+        { "title": "Trasformare le visite in richieste di preventivo", "description": "Un percorso chiaro: dalla scoperta alla richiesta, senza frizioni." }
       ]
     }
   ],
   "cta": {
-    "title": "Costruiamo qualcosa di solido?",
-    "subtitle": "Come il legno che vendete. Parliamone.",
-    "whatsappText": "Ciao Nicola, ho visto la proposta per LM Legnami.",
+    "title": "Una domanda, prima di tutto.",
+    "subtitle": "Rispondete e vi darò il mio parere onesto — gratuitamente.",
+    "ctaQuestion": "Se un architetto cercasse 'legname pregiato' nella vostra zona, vi troverebbe prima dei competitor?",
     "emailSubject": "LM Legnami — Strategia digitale",
-    "showGlitchEconomics": true
+    "showGlitchEconomics": false
   },
   "meta": {
-    "status": "sent"
+    "status": "sent",
+    "createdAt": "2026-03-19T00:00:00.000Z"
   }
 }

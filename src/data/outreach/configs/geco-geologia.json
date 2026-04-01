@@ -12,32 +12,42 @@
     "border": "rgba(139,105,20,0.20)"
   },
   "headingFont": "Cormorant Garamond",
-  "heroTitle": "GECO Geologia, il digitale al servizio della terra.",
-  "heroSubtitle": "Visibilità online per studi geologici",
+  "heroTitle": "GECO Geologia, la competenza c'è. La visibilità no.",
+  "heroSubtitle": "Il vostro settore è di nicchia. Questo è un vantaggio, se lo sapete usare.",
   "sections": [
     {
-      "type": "problem",
-      "title": "Il contesto",
-      "content": "Il settore geologico è altamente specializzato ma poco visibile online. Chi cerca servizi geologici trova poca informazione qualificata. Un'opportunità per chi si posiziona bene."
+      "type": "insight",
+      "title": "Cosa vedo",
+      "items": [
+        { "title": "Chi cerca servizi geologici trova il vuoto", "description": "Ho cercato 'indagini geognostiche', 'relazione geologica', 'perizia geologica' nella vostra area. I risultati sono scarsi e generici. Chi si posiziona ora, domina." },
+        { "title": "La nicchia è il vostro superpotere", "description": "Pochi competitor online significa costi bassi per acquisire visibilità. In settori più competitivi servirebbe 10 volte il budget per lo stesso risultato." }
+      ]
     },
     {
-      "type": "method",
-      "title": "Approccio",
+      "type": "problem",
+      "title": "Il vero problema",
+      "content": "Avete la competenza tecnica di chi fa questo lavoro da anni. Ma chi ha bisogno di un geologo oggi, vi cerca online — e non vi trova. La vostra esperienza resta invisibile a chi ne ha più bisogno."
+    },
+    {
+      "type": "teaser",
+      "title": "Cosa farei",
+      "subtitle": "Non vi dico come. Vi dico su cosa lavorerei.",
       "items": [
-        { "title": "SEO tecnico", "description": "Posizionamento sui termini di ricerca specifici del settore: indagini geognostiche, relazioni geologiche, perizie." },
-        { "title": "Content authority", "description": "Articoli tecnici che dimostrano competenza e generano traffico qualificato." },
-        { "title": "Google Ads mirato", "description": "Campagne search su keyword ad alto intento commerciale nella vostra area operativa." }
+        { "title": "Farvi trovare da chi vi cerca già", "description": "Le keyword del vostro settore sono poco competitive. Basta poco per essere i primi." },
+        { "title": "Trasformare la competenza in autorità online", "description": "La vostra esperienza diventa contenuto che attrae clienti e costruisce credibilità." },
+        { "title": "Portarvi richieste qualificate, non traffico generico", "description": "Persone che cercano esattamente ciò che fate — non visitatori casuali." }
       ]
     }
   ],
   "cta": {
-    "title": "Parliamo di visibilità?",
-    "subtitle": "Un'analisi del vostro posizionamento attuale, gratuita e senza impegno.",
-    "whatsappText": "Ciao Nicola, ho visto la proposta per GECO Geologia.",
-    "emailSubject": "GECO Geologia — Richiesta info",
+    "title": "Una domanda, prima di tutto.",
+    "subtitle": "Rispondete e vi darò il mio parere onesto — gratuitamente.",
+    "ctaQuestion": "Se qualcuno nella vostra zona cercasse 'geologo' su Google adesso, vi troverebbe?",
+    "emailSubject": "GECO Geologia — Visibilità online",
     "showGlitchEconomics": false
   },
   "meta": {
-    "status": "sent"
+    "status": "sent",
+    "createdAt": "2026-03-19T00:00:00.000Z"
   }
 }

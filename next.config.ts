@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
         destination: "/?utm_source=biglietto&utm_medium=offline&utm_campaign=business_card",
         permanent: true,
       },
+      // Redirect old .php outreach URLs to new Next.js routes
+      {
+        source: "/outreach/:slug.php",
+        destination: "/outreach/:slug",
+        permanent: true,
+      },
     ];
   },
   async headers() {
