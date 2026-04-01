@@ -319,7 +319,7 @@ export default function DiagnosiPopup({ open, onClose }: DiagnosiPopupProps) {
               <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <p className="dx-takeaway-text">
-              Alla fine della call avrai <strong>il mio parere onesto sulla tua situazione</strong> &mdash; cosa funziona, cosa no, e se ha senso lavorare insieme.
+              Alla fine della call avrai <strong>il mio parere onesto sulla tua situazione</strong> &ndash; cosa funziona, cosa no, e se ha senso lavorare insieme.
             </p>
           </div>
 
