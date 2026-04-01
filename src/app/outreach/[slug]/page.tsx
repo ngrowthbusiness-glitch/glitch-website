@@ -37,13 +37,14 @@ const NS = {
   border: "rgba(0,255,252,0.12)",
 } as const;
 
-const NS_STATS = [
-  { value: "30+", label: "Clienti gestiti" },
-  { value: "5M+", label: "Budget Ads gestito" },
-  { value: "+200%", label: "Fatturato (caso reale)" },
-];
-
 const NS_TAGS = ["Strategia", "Digital ADV", "E-commerce", "CRO", "Lead Gen"];
+
+const NAV_ITEMS = [
+  { label: "Chi sono", anchor: "chi-sono" },
+  { label: "Il progetto", anchor: "il-progetto" },
+  { label: "Competenze", anchor: "competenze" },
+  { label: "Parliamone", anchor: "parliamone" },
+];
 
 export default async function OutreachPage({
   params,
@@ -76,43 +77,87 @@ function OutreachV3({ config, slug }: { config: OutreachConfig; slug: string }) 
       <div className="v3">
 
         {/* ────────────────────────────────────────────
-            OPENER — Nicola (dark)
+            NAVBAR — fixed top
             ──────────────────────────────────────────── */}
-        <section className="v3-opener">
-          <div className="v3-opener-grid">
-            {/* left: identity + stats */}
-            <div className="v3-opener-left">
-              <p className="v3-opener-name">Nicola Serrao</p>
-              <p className="v3-opener-role">Digital Marketing Strategist</p>
+        <nav className="v3-nav">
+          <div className="v3-nav-inner">
+            <div className="v3-nav-left">
+              <Image
+                src="/favicon.png"
+                alt="NS"
+                width={28}
+                height={28}
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+            <div className="v3-nav-right">
+              {NAV_ITEMS.map((item) => (
+                <a key={item.anchor} href={`#${item.anchor}`} className="v3-nav-link">
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </nav>
 
-              <div className="v3-opener-stats">
-                {NS_STATS.map((s, i) => (
-                  <div key={s.label} className="v3-opener-stat">
-                    <span className="v3-opener-stat-val">{s.value}</span>
-                    <span className="v3-opener-stat-lbl">{s.label}</span>
-                    {i < NS_STATS.length - 1 && <span className="v3-opener-stat-div" />}
-                  </div>
-                ))}
+        {/* ────────────────────────────────────────────
+            OPENER — Nicola hero (full height, two columns)
+            ──────────────────────────────────────────── */}
+        <section className="v3-opener" id="chi-sono">
+          <div className="v3-opener-grid">
+            {/* LEFT: identity */}
+            <div className="v3-opener-left">
+              <div className="v3-opener-logo-row">
+                <Image
+                  src="/favicon.png"
+                  alt="NS"
+                  width={40}
+                  height={40}
+                  style={{ objectFit: "contain" }}
+                />
               </div>
+              <h1 className="v3-opener-name">Nicola Serrao</h1>
+              <p className="v3-opener-role">Digital Marketing Strategist</p>
+              <p className="v3-opener-intro">
+                Ho fatto un lavoro per te e credo ti possa tornare utile.
+              </p>
 
               <div className="v3-opener-tags">
                 {NS_TAGS.map((t) => (
                   <span key={t} className="v3-opener-tag">{t}</span>
                 ))}
               </div>
+
+              {/* Scroll arrow — glitch style */}
+              <a href="#il-progetto" className="v3-scroll-anchor">
+                <span className="v3-scroll-text">Scopri il lavoro</span>
+                <div className="v3-scroll-icon">
+                  <svg className="v3-scroll-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 5v14M5 12l7 7 7-7" />
+                  </svg>
+                  <svg className="v3-scroll-arrow-glitch" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 5v14M5 12l7 7 7-7" />
+                  </svg>
+                </div>
+              </a>
             </div>
 
-            {/* right: photo */}
+            {/* RIGHT: photo + status bar */}
             <div className="v3-opener-right">
-              <div className="v3-photo-ring">
+              <div className="v3-photo-container">
                 <Image
                   src="/images/nicola.png"
                   alt="Nicola Serrao"
-                  width={140}
-                  height={140}
+                  width={320}
+                  height={400}
                   priority
                   className="v3-photo"
                 />
+                {/* Frosted status bar */}
+                <div className="v3-photo-bar">
+                  <span className="v3-photo-bar-dot" />
+                  <span className="v3-photo-bar-text">Sto lavorando al vostro progetto</span>
+                </div>
               </div>
             </div>
           </div>
@@ -126,7 +171,7 @@ function OutreachV3({ config, slug }: { config: OutreachConfig; slug: string }) 
         {/* ────────────────────────────────────────────
             HERO — Prospect palette
             ──────────────────────────────────────────── */}
-        <section className="v3-ps v3-hero">
+        <section className="v3-ps v3-hero" id="il-progetto">
           <div className="v3-container">
             {config.logo && (
               <div className="v3-hero-logo">
@@ -181,7 +226,7 @@ function OutreachV3({ config, slug }: { config: OutreachConfig; slug: string }) 
             COMPETENZE — Alternating rows
             ──────────────────────────────────────────── */}
         {config.boxes && config.boxes.length > 0 && (
-          <section className="v3-ps v3-section v3-section--tight">
+          <section className="v3-ps v3-section v3-section--tight" id="competenze">
             <div className="v3-container">
               <div className="v3-section-header">
                 <span className="v3-label">Cosa posso fare per voi</span>
@@ -223,7 +268,7 @@ function OutreachV3({ config, slug }: { config: OutreachConfig; slug: string }) 
         {/* ────────────────────────────────────────────
             URGENCY + CTA
             ──────────────────────────────────────────── */}
-        <section className="v3-ps v3-section v3-urgency">
+        <section className="v3-ps v3-section v3-urgency" id="parliamone">
           <div className="v3-container-narrow">
             {urgencyParas.length > 0 && (
               <div className="v3-urgency-copy">
@@ -407,102 +452,218 @@ function v3CSS(config: OutreachConfig, isLightBg: boolean): string {
     .v3-body:last-child { margin-bottom: 0; }
 
     /* ══════════════════════════════════════════
-       OPENER (Nicola)
+       NAVBAR
+    ══════════════════════════════════════════ */
+    .v3-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,14,13,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid ${NS.border};
+    }
+    .v3-nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 14px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .v3-nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .v3-nav-name {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: ${NS.text};
+    }
+    .v3-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .v3-nav-link {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: ${NS.textDim};
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .v3-nav-link:hover { color: ${NS.primary}; }
+
+    /* ══════════════════════════════════════════
+       OPENER (Nicola hero — full height)
     ══════════════════════════════════════════ */
     .v3-opener {
       background: ${NS.bg};
       color: ${NS.text};
-      padding: 52px 60px 44px;
+      min-height: calc(100vh - 52px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 60px 40px;
+      position: relative;
     }
     .v3-opener-grid {
       max-width: 1140px;
       margin: 0 auto;
+      width: 100%;
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 40px;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
       align-items: center;
+    }
+    .v3-opener-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
     }
     .v3-opener-name {
       font-family: var(--font-playfair), 'Playfair Display', serif;
-      font-size: 22px;
+      font-size: clamp(40px, 5vw, 56px);
       font-weight: 700;
-      margin-bottom: 4px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
     }
     .v3-opener-role {
-      font-size: 9px;
+      font-size: 11px;
       letter-spacing: 3px;
       text-transform: uppercase;
       color: ${NS.primary};
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
-    .v3-opener-stats {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      margin-bottom: 20px;
-    }
-    .v3-opener-stat {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      padding-right: 24px;
-      position: relative;
-    }
-    .v3-opener-stat-div {
-      position: absolute;
-      right: 0;
-      top: 4px;
-      bottom: 4px;
-      width: 1px;
-      background: ${NS.border};
-    }
-    .v3-opener-stat + .v3-opener-stat { padding-left: 24px; }
-    .v3-opener-stat-val {
-      font-family: var(--font-playfair), 'Playfair Display', serif;
-      font-size: 24px;
-      font-weight: 700;
-      color: ${NS.primary};
-      line-height: 1;
-      letter-spacing: -0.03em;
-    }
-    .v3-opener-stat-lbl {
-      font-size: 9px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+    .v3-opener-intro {
+      font-size: 18px;
+      line-height: 1.7;
       color: ${NS.textDim};
+      max-width: 440px;
+      margin-bottom: 32px;
+      font-style: italic;
     }
     .v3-opener-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 8px;
     }
     .v3-opener-tag {
-      font-size: 8px;
+      font-size: 9px;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      padding: 5px 12px;
+      padding: 6px 14px;
       border-radius: 100px;
       border: 1px solid ${NS.border};
       color: ${NS.textDim};
     }
-    .v3-opener-right { flex-shrink: 0; }
-    .v3-photo-ring {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      padding: 3px;
-      background: conic-gradient(${NS.primary} 0deg, transparent 120deg, ${NS.primary} 240deg, transparent 360deg);
-      animation: photoSpin 8s linear infinite;
+
+    /* ── Logo row ── */
+    .v3-opener-logo-row {
+      margin-bottom: 20px;
     }
-    @keyframes photoSpin { to { transform: rotate(360deg); } }
+
+    /* ── Photo (right column) ── */
+    .v3-opener-right {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+    .v3-photo-container {
+      position: relative;
+      width: 100%;
+      max-width: 340px;
+      border-radius: 20px;
+      overflow: hidden;
+    }
     .v3-photo {
       width: 100%;
-      height: 100%;
-      border-radius: 50%;
+      height: auto;
+      display: block;
       object-fit: cover;
       object-position: top;
-      display: block;
-      border: 3px solid ${NS.bg};
+    }
+    .v3-photo-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 14px 20px;
+      background: rgba(10,14,13,0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-top: 1px solid ${NS.border};
+    }
+    .v3-photo-bar-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: ${NS.primary};
+      animation: barPulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes barPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .v3-photo-bar-text {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: ${NS.textDim};
+    }
+
+    /* ── Scroll anchor — glitch style ── */
+    .v3-scroll-anchor {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 40px;
+      text-decoration: none;
+      color: ${NS.textDim};
+      transition: color 0.2s;
+    }
+    .v3-scroll-anchor:hover { color: ${NS.primary}; }
+    .v3-scroll-text {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+    .v3-scroll-icon {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .v3-scroll-arrow {
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+    .v3-scroll-arrow-glitch {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      color: ${NS.primary};
+      animation: scrollGlitch 4s ease-in-out infinite;
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(4px); }
+    }
+    @keyframes scrollGlitch {
+      0%, 85%, 100% { opacity: 0; transform: translate(0, 0); }
+      87% { opacity: 0.8; transform: translate(-3px, 2px); }
+      89% { opacity: 0.4; transform: translate(2px, -1px); }
+      91% { opacity: 0.6; transform: translate(-1px, 3px); }
+      93% { opacity: 0; transform: translate(0, 0); }
     }
 
     /* ══════════════════════════════════════════
@@ -813,17 +974,27 @@ function v3CSS(config: OutreachConfig, isLightBg: boolean): string {
        RESPONSIVE
     ══════════════════════════════════════════ */
     @media (max-width: 1024px) {
+      .v3-nav-inner { padding: 14px 40px; }
       .v3-container { padding: 0 40px; }
       .v3-container-narrow { padding: 0 40px; }
-      .v3-opener { padding: 40px 40px 36px; }
+      .v3-opener { padding: 60px 40px 36px; }
+      .v3-opener-grid { gap: 40px; }
       .v3-two-col { gap: 48px; }
       .v3-box-row { gap: 40px; padding: 36px; }
     }
 
     @media (max-width: 768px) {
+      .v3-nav-inner { padding: 12px 28px; }
+      .v3-nav-right { gap: 16px; }
+      .v3-nav-link { font-size: 9px; }
       .v3-container, .v3-container-narrow { padding: 0 28px; }
-      .v3-opener { padding: 32px 28px; }
-      .v3-opener-grid { gap: 20px; }
+      .v3-opener { padding: 48px 28px 32px; min-height: auto; }
+      .v3-opener-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .v3-opener-right { justify-content: center; }
+      .v3-photo-container { max-width: 240px; }
 
       .v3-hero { padding: 64px 0 56px; }
       .v3-section { padding: 64px 0; }
@@ -844,15 +1015,16 @@ function v3CSS(config: OutreachConfig, isLightBg: boolean): string {
     }
 
     @media (max-width: 480px) {
+      .v3-nav-inner { padding: 10px 20px; }
+      .v3-nav-right { display: none; }
       .v3-container, .v3-container-narrow { padding: 0 20px; }
-      .v3-opener { padding: 24px 20px; }
-      .v3-opener-grid { grid-template-columns: 1fr auto; gap: 12px; }
-      .v3-photo-ring { width: 64px; height: 64px; }
-      .v3-opener-stats { flex-wrap: wrap; gap: 12px; }
-      .v3-opener-stat { padding-right: 16px; }
-      .v3-opener-stat + .v3-opener-stat { padding-left: 16px; }
-      .v3-opener-stat-val { font-size: 18px; }
+      .v3-opener { padding: 36px 20px 24px; }
+      .v3-opener-grid { gap: 24px; }
+      .v3-photo-container { max-width: 180px; }
+      .v3-opener-name { font-size: 32px; }
+      .v3-opener-intro { font-size: 14px; }
       .v3-opener-tags { display: none; }
+      .v3-scroll-anchor { margin-top: 20px; }
 
       .v3-hero { padding: 48px 0 40px; }
       .v3-section { padding: 48px 0; }
