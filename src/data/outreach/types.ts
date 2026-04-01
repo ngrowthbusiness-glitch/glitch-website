@@ -17,6 +17,7 @@ export interface OutreachSection {
 export interface OutreachBox {
   title: string;
   description: string;
+  image?: string;
 }
 
 export interface OutreachConfig {
