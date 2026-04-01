@@ -11,42 +11,40 @@
     "textDim": "rgba(232,240,255,0.50)",
     "border": "rgba(0,255,252,0.15)"
   },
-  "heroTitle": "CascioliRent, parliamo di crescita digitale.",
-  "heroSubtitle": "Una strategia su misura per il noleggio auto",
-  "heroTagline": "Non una proposta generica. Un'analisi concreta basata sul vostro mercato.",
-  "sections": [
+
+  "heroTitle": "CascioliRent, ho fatto del lavoro per voi.",
+  "heroSubtitle": "Ho analizzato il vostro sito, le vostre attivit\u00e0 online e il vostro marketing. Credo ci siano opportunit\u00e0 concrete per portare il vostro progetto Rent al livello successivo.",
+
+  "pitch": "Credo fermamente che CascioliRent abbia tutte le carte per diventare il punto di riferimento del noleggio nel centro Italia. Avete il brand, la struttura, l\u2019intraprendenza \u2013 e vedo che siete gi\u00e0 attivi sul fronte marketing.\n\nMa c\u2019\u00e8 di pi\u00f9. Il mercato del noleggio si decide online. Chi cerca, confronta e sceglie prima ancora di entrare in ufficio. Con una comunicazione pi\u00f9 mirata e un sistema digitale strutturato, il volume di richieste che potete intercettare \u00e8 significativamente pi\u00f9 alto di quello attuale.\n\nNon parlo di teoria. Parlo di clienti concreti che oggi cercano esattamente quello che offrite \u2013 e che potreste raggiungere con le mosse giuste.",
+
+  "boxes": [
     {
-      "type": "problem",
-      "title": "Il contesto",
-      "content": "Il mercato del noleggio auto sta cambiando. I clienti cercano online, confrontano e decidono prima di chiamare. Chi non è visibile, perde."
+      "title": "Creativit\u00e0 & Comunicazione",
+      "description": "Le mie esperienze in comunicazione e creativit\u00e0 vi permetterebbero di presentare CascioliRent in modo pi\u00f9 incisivo online \u2013 comunicando il valore del vostro servizio a chi sta valutando il noleggio, aumentando l\u2019interesse e abbassando il costo per acquisire ogni potenziale cliente."
     },
     {
-      "type": "method",
-      "title": "L'approccio GLITCH",
-      "items": [
-        { "title": "Grounding", "description": "Analizziamo il vostro posizionamento attuale, i competitor locali e il traffico potenziale." },
-        { "title": "Strategy", "description": "Google Ads + Meta Ads per catturare domanda attiva e generare awareness locale." },
-        { "title": "Testing", "description": "Budget controllato, test rapidi, ottimizzazione settimanale." }
-      ]
+      "title": "Conversione & Ottimizzazione",
+      "description": "Le mie competenze in conversione e ottimizzazione vi aiuterebbero a trasformare pi\u00f9 visitatori in richieste concrete \u2013 con pagine che convincono, testi che fanno agire, e un sistema che misura ogni passaggio per migliorare continuamente."
     },
     {
-      "type": "strategy",
-      "title": "Strategia proposta",
-      "items": [
-        { "title": "Google Ads — Search", "description": "Intercettare chi cerca noleggio auto nella vostra area. Keyword mirate, landing dedicate." },
-        { "title": "Meta Ads — Awareness", "description": "Campagne visual per far conoscere CascioliRent a chi sta valutando il noleggio." },
-        { "title": "Tracking & KPI", "description": "Dashboard con costo per lead, conversion rate, ROAS. Numeri chiari ogni settimana." }
-      ]
+      "title": "Strategia Full Funnel",
+      "description": "Come stratega, posso avere il controllo su tutto il flusso \u2013 da quello che comunicate online a come gestite il contatto con chi vi scrive, coordinando ogni passaggio per massimizzare il risultato finale: pi\u00f9 contratti di noleggio."
     }
   ],
+
+  "urgencyText": "Ho il massimo dell\u2019attenzione sul vostro progetto perch\u00e9 ci ho lavorato in questi giorni. E queste sono solo le idee che ho avuto oggi \u2013 sono sicuro che parlando con voi e con il vostro team ne nascerebbero tante altre ancora.\n\nPerch\u00e9 non ci sentiamo? Penso veramente di potervi aiutare a migliorare la vostra situazione, ad avvicinarvi al vostro obiettivo. Non necessariamente lavorando insieme, ma semplicemente con questa chiacchierata potrei farvi chiarezza.\n\nLo apprezzerei.",
+
+  "sections": [],
+
   "cta": {
-    "title": "Pronti a parlarne?",
-    "subtitle": "30 minuti di analisi gratuita. Nessun impegno.",
-    "whatsappText": "Ciao Nicola, ho visto la proposta per CascioliRent. Vorrei parlarne.",
-    "emailSubject": "CascioliRent — Richiesta info strategia",
-    "showGlitchEconomics": true
+    "title": "Parliamone.",
+    "whatsappText": "Ciao Nicola, ho visto il lavoro che hai fatto per CascioliRent. Parliamone.",
+    "emailSubject": "CascioliRent \u2014 Parliamone",
+    "showGlitchEconomics": false
   },
+
   "meta": {
-    "status": "sent"
+    "status": "sent",
+    "createdAt": "2026-03-19T00:00:00.000Z"
   }
 }

@@ -14,6 +14,11 @@ export interface OutreachSection {
   }>;
 }
 
+export interface OutreachBox {
+  title: string;
+  description: string;
+}
+
 export interface OutreachConfig {
   slug: string;
   companyName: string;
@@ -22,7 +27,6 @@ export interface OutreachConfig {
   logo?: string;
   sector: string;
 
-  /** Custom palette overrides — falls back to site defaults */
   palette: {
     primary: string;
     primaryDim: string;
@@ -32,30 +36,34 @@ export interface OutreachConfig {
     border: string;
   };
 
-  /** Custom font override (Google Fonts name) */
   headingFont?: string;
   bodyFont?: string;
 
-  /** Hero section */
   heroTitle: string;
   heroSubtitle: string;
   heroTagline?: string;
 
-  /** Main content sections */
+  /** v3 — Pitch: expanded concept in entrepreneurial language */
+  pitch?: string;
+
+  /** v3 — 3 boxes: Nicola's skill → prospect's benefit */
+  boxes?: OutreachBox[];
+
+  /** v3 — Custom urgency text */
+  urgencyText?: string;
+
+  /** Legacy v1 sections (backward compat) */
   sections: OutreachSection[];
 
-  /** CTA config */
   cta: {
     title: string;
     subtitle?: string;
-    /** Strong question for the interactive response box */
     ctaQuestion?: string;
     whatsappText?: string;
     emailSubject?: string;
     showGlitchEconomics?: boolean;
   };
 
-  /** Metadata for Notion integration */
   meta?: {
     createdAt?: string;
     status?: "draft" | "sent" | "viewed" | "converted";
