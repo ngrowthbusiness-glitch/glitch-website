@@ -148,6 +148,34 @@ export default function DiagnosiPopup({ open, onClose }: DiagnosiPopupProps) {
           line-height: 1.7;
         }
 
+        .dx-takeaway {
+          border: 1px solid rgba(0,255,252,0.22);
+          border-radius: 8px;
+          background: rgba(0,255,252,0.05);
+          padding: 20px 24px;
+          margin-bottom: 28px;
+          display: flex;
+          gap: 14px;
+          align-items: flex-start;
+        }
+        .dx-takeaway-icon {
+          flex-shrink: 0;
+          width: 20px;
+          height: 20px;
+          color: #00fffc;
+          margin-top: 1px;
+        }
+        .dx-takeaway-text {
+          font-size: 12px;
+          font-weight: 300;
+          color: #e8f5f2;
+          line-height: 1.7;
+        }
+        .dx-takeaway-text strong {
+          font-weight: 500;
+          color: #00fffc;
+        }
+
         .dx-divider {
           width: 100%;
           height: 1px;
@@ -284,6 +312,15 @@ export default function DiagnosiPopup({ open, onClose }: DiagnosiPopupProps) {
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className="dx-takeaway">
+            <svg className="dx-takeaway-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <p className="dx-takeaway-text">
+              Alla fine della call avrai <strong>il mio parere onesto sulla tua situazione</strong> &mdash; cosa funziona, cosa no, e se ha senso lavorare insieme.
+            </p>
           </div>
 
           <div className="dx-divider" />
