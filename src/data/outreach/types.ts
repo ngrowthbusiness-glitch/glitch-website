@@ -50,6 +50,22 @@ export interface OutreachConfig {
   /** v3 — 3 boxes: Nicola's skill → prospect's benefit */
   boxes?: OutreachBox[];
 
+  /** v3 — Timeline: before/after visualization */
+  timeline?: {
+    before: { label: string; points: string[] };
+    after: { label: string; points: string[] };
+  };
+
+  /** v3 — Value rows: dual-column (my language / their language) */
+  valueRows?: Array<{
+    title: string;
+    mine: { headline: string; points: string[] };
+    theirs: { headline: string; points: string[] };
+  }>;
+
+  /** v3 — Bottom takeaways (concise bullet points) */
+  takeaways?: string[];
+
   /** v3 — Custom urgency text */
   urgencyText?: string;
 

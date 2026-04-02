@@ -164,53 +164,145 @@ function OutreachV3({ config, slug }: { config: OutreachConfig; slug: string }) 
           <p className="c-sub">{config.heroSubtitle}</p>
         </div>
 
-        {/* Blocco analisi — 50/50: testo | visual */}
-        <div className="method-block">
-          <div className="method-text">
-            <div className="m-num">Analisi &middot; 00</div>
-            <h3 className="m-title">
-              Ho studiato il vostro <span className="acc">progetto.</span>
-            </h3>
-            {pitchParas.map((p, i) => (
-              <p key={i} className="m-body">{p}</p>
-            ))}
-            <div className="m-callout">
-              <strong>Non parlo di teoria.</strong> Parlo di opportunit&agrave; concrete che ho individuato analizzando il vostro business dall&apos;esterno.
+        {/* ═══ LAYOUT A: Timeline + Value Rows (when present) ═══ */}
+        {config.timeline ? (
+          <>
+            {/* Pitch headline */}
+            <div className="c-pitch-section">
+              <div className="c-container">
+                {pitchParas.map((p, i) => (
+                  <p key={i} className="c-pitch-text">{p}</p>
+                ))}
+              </div>
             </div>
-          </div>
-          <div className="method-visual">
-            <div className="method-card">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ marginBottom: 16 }}>
-                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-              </svg>
-              <div className="method-card-title">Opportunit&agrave; concrete</div>
-              <p className="method-card-sub">
-                Analisi del vostro posizionamento, competitor e potenziale di crescita nel digitale.
-              </p>
-            </div>
-          </div>
-        </div>
 
-        {/* Pillars */}
-        {config.boxes && config.boxes.length > 0 && (
-          <div className="pillars-wrap" id="competenze">
-            <div className="pillars-header">
-              <div className="c-eyebrow">Cosa posso fare per voi</div>
-              <h2 className="c-headline" style={{ fontSize: "clamp(1.6rem,2.8vw,2.6rem)", marginBottom: 0 }}>
-                Tre pilastri su cui posso<br />portare valore a {config.companyName}.
-              </h2>
-            </div>
-            <div className="pillars-grid">
-              {config.boxes.map((box, i) => (
-                <div key={i} className={`pcard p${i + 1}`}>
-                  <div className="p-num">Pilastro {String(i + 1).padStart(2, "0")}</div>
-                  <span className="p-icon">{getPillarIcon(i)}</span>
-                  <div className="p-title">{box.title}</div>
-                  <p className="p-body">{box.description}</p>
+            {/* Timeline: oggi → domani */}
+            <div className="tl-wrap">
+              <div className="tl-container">
+                <div className="tl-card tl-before">
+                  <div className="tl-label">Oggi</div>
+                  <h4 className="tl-title">{config.timeline.before.label}</h4>
+                  <ul className="tl-points">
+                    {config.timeline.before.points.map((p, i) => (
+                      <li key={i}>{p}</li>
+                    ))}
+                  </ul>
                 </div>
-              ))}
+                <div className="tl-arrow" aria-hidden="true">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                </div>
+                <div className="tl-card tl-after">
+                  <div className="tl-label">Domani</div>
+                  <h4 className="tl-title">{config.timeline.after.label}</h4>
+                  <ul className="tl-points">
+                    {config.timeline.after.points.map((p, i) => (
+                      <li key={i}>{p}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
+
+            {/* Value rows: il mio linguaggio | il vostro linguaggio */}
+            {config.valueRows && config.valueRows.length > 0 && (
+              <div className="vr-wrap" id="competenze">
+                <div className="vr-container">
+                  <div className="vr-header">
+                    <div className="c-eyebrow">Cosa pu&ograve; fare una figura come me per voi</div>
+                  </div>
+                  {config.valueRows.map((row, i) => (
+                    <div key={i} className="vr-row">
+                      <div className="vr-row-label">
+                        <span className="vr-num">{String(i + 1).padStart(2, "0")}</span>
+                        <span className="vr-title">{row.title}</span>
+                      </div>
+                      <div className="vr-cols">
+                        <div className="vr-col vr-mine">
+                          <div className="vr-col-tag">Il mio lavoro</div>
+                          <h4 className="vr-col-h">{row.mine.headline}</h4>
+                          <ul className="vr-col-points">
+                            {row.mine.points.map((p, j) => (
+                              <li key={j}>{p}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="vr-col vr-theirs">
+                          <div className="vr-col-tag">Cosa significa per voi</div>
+                          <h4 className="vr-col-h">{row.theirs.headline}</h4>
+                          <ul className="vr-col-points">
+                            {row.theirs.points.map((p, j) => (
+                              <li key={j}>{p}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Takeaways */}
+            {config.takeaways && config.takeaways.length > 0 && (
+              <div className="tk-wrap">
+                <div className="tk-container">
+                  {config.takeaways.map((t, i) => (
+                    <div key={i} className="tk-item">{t}</div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </>
+        ) : (
+          <>
+            {/* ═══ LAYOUT B: Method block + Pillars (default) ═══ */}
+            <div className="method-block">
+              <div className="method-text">
+                <div className="m-num">Analisi &middot; 00</div>
+                <h3 className="m-title">
+                  Ho studiato il vostro <span className="acc">progetto.</span>
+                </h3>
+                {pitchParas.map((p, i) => (
+                  <p key={i} className="m-body">{p}</p>
+                ))}
+                <div className="m-callout">
+                  <strong>Non parlo di teoria.</strong> Parlo di opportunit&agrave; concrete che ho individuato analizzando il vostro business dall&apos;esterno.
+                </div>
+              </div>
+              <div className="method-visual">
+                <div className="method-card">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ marginBottom: 16 }}>
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                  </svg>
+                  <div className="method-card-title">Opportunit&agrave; concrete</div>
+                  <p className="method-card-sub">
+                    Analisi del vostro posizionamento, competitor e potenziale di crescita nel digitale.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {config.boxes && config.boxes.length > 0 && (
+              <div className="pillars-wrap" id="competenze">
+                <div className="pillars-header">
+                  <div className="c-eyebrow">Cosa posso fare per voi</div>
+                  <h2 className="c-headline" style={{ fontSize: "clamp(1.6rem,2.8vw,2.6rem)", marginBottom: 0 }}>
+                    Tre pilastri su cui posso<br />portare valore a {config.companyName}.
+                  </h2>
+                </div>
+                <div className="pillars-grid">
+                  {config.boxes.map((box, i) => (
+                    <div key={i} className={`pcard p${i + 1}`}>
+                      <div className="p-num">Pilastro {String(i + 1).padStart(2, "0")}</div>
+                      <span className="p-icon">{getPillarIcon(i)}</span>
+                      <div className="p-title">{box.title}</div>
+                      <p className="p-body">{box.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </>
         )}
       </section>
 
@@ -738,6 +830,144 @@ body { background: ${NS.bg}; color: ${NS.text}; font-family: ${NS.mono}; overflo
 .site-footer a { color:${NS.teal}; text-decoration:none; }
 
 /* ══════════════════════════════════════════
+   PITCH SECTION (for timeline layout)
+══════════════════════════════════════════ */
+.c-pitch-section {
+  padding: 56px 0 0;
+  border-top: 1px solid ${pBorder};
+}
+.c-container { max-width: 1100px; margin: 0 auto; padding: 0 64px; }
+.c-pitch-text {
+  font-size: 17px; line-height: 1.75; color: ${pTextDim};
+  max-width: 720px; margin-bottom: 12px; font-weight: 300;
+}
+.c-pitch-text:last-child { margin-bottom: 0; }
+
+/* ══════════════════════════════════════════
+   TIMELINE
+══════════════════════════════════════════ */
+.tl-wrap { padding: 56px 0; }
+.tl-container {
+  max-width: 1100px; margin: 0 auto; padding: 0 64px;
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  gap: 0; align-items: stretch;
+}
+.tl-card {
+  padding: 32px 28px; border: 1px solid ${pBorder};
+}
+.tl-before { background: ${isDark ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.02)"}; }
+.tl-after { background: ${config.palette.primaryDim}; border-color: ${pPrimary}30; }
+.tl-label {
+  font-family: ${NS.mono}; font-size: 9px; letter-spacing: 3px;
+  text-transform: uppercase; color: ${pTextFaint}; margin-bottom: 12px;
+}
+.tl-after .tl-label { color: ${pPrimary}; }
+.tl-title {
+  font-size: 1.1rem; font-weight: 700; color: ${pText};
+  margin-bottom: 16px; line-height: 1.3;
+}
+.tl-points {
+  list-style: none; padding: 0;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.tl-points li {
+  font-size: 13px; line-height: 1.6; color: ${pTextDim};
+  padding-left: 16px; position: relative; font-weight: 300;
+}
+.tl-points li::before {
+  content: ''; position: absolute; left: 0; top: 8px;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: ${pTextFaint};
+}
+.tl-after .tl-points li::before { background: ${pPrimary}; }
+.tl-arrow {
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 20px; color: ${pPrimary};
+}
+
+/* ══════════════════════════════════════════
+   VALUE ROWS
+══════════════════════════════════════════ */
+.vr-wrap { padding: 0 0 56px; border-top: 1px solid ${pBorder}; }
+.vr-container { max-width: 1100px; margin: 0 auto; padding: 0 64px; }
+.vr-header { padding: 48px 0 36px; }
+.vr-row {
+  border-bottom: 1px solid ${pBorder};
+  padding: 36px 0;
+}
+.vr-row:last-child { border-bottom: none; }
+.vr-row-label {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 24px;
+}
+.vr-num {
+  font-family: ${NS.mono}; font-size: 10px; letter-spacing: 2px;
+  color: ${pPrimary}; font-weight: 700;
+}
+.vr-title {
+  font-size: 1.3rem; font-weight: 700; color: ${pText};
+  letter-spacing: -0.02em;
+}
+.vr-cols {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+.vr-col {
+  padding: 28px 24px;
+}
+.vr-mine {
+  background: ${isDark ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.02)"};
+  border-left: 3px solid ${pTextFaint};
+}
+.vr-theirs {
+  background: ${config.palette.primaryDim};
+  border-left: 3px solid ${pPrimary};
+}
+.vr-col-tag {
+  font-family: ${NS.mono}; font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; color: ${pTextFaint};
+  margin-bottom: 12px;
+}
+.vr-theirs .vr-col-tag { color: ${pPrimary}; }
+.vr-col-h {
+  font-size: 15px; font-weight: 600; color: ${pText};
+  margin-bottom: 14px; line-height: 1.35;
+}
+.vr-col-points {
+  list-style: none; padding: 0;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.vr-col-points li {
+  font-size: 12.5px; line-height: 1.6; color: ${pTextDim};
+  padding-left: 14px; position: relative; font-weight: 300;
+}
+.vr-col-points li::before {
+  content: '\\2192'; position: absolute; left: 0; top: 0;
+  font-size: 10px; color: ${pTextFaint};
+}
+.vr-theirs .vr-col-points li::before { color: ${pPrimary}; }
+
+/* ══════════════════════════════════════════
+   TAKEAWAYS
+══════════════════════════════════════════ */
+.tk-wrap {
+  padding: 48px 0; border-top: 1px solid ${pBorder};
+}
+.tk-container {
+  max-width: 1100px; margin: 0 auto; padding: 0 64px;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.tk-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  font-size: 14px; line-height: 1.7; color: ${pTextDim};
+  font-weight: 300;
+}
+.tk-item::before {
+  content: '\\2192'; color: ${pPrimary}; flex-shrink: 0;
+  margin-top: 1px; font-size: 13px;
+}
+
+/* ══════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════ */
 @media(max-width:960px){
@@ -753,6 +983,12 @@ body { background: ${NS.bg}; color: ${NS.text}; font-family: ${NS.mono}; overflo
   .close-right { order:-1; max-width:200px; margin:0 auto; }
   .prospect-topbar-tag { display:none; }
   .site-footer { flex-direction:column; gap:8px; }
+  .c-container { padding:0 28px; }
+  .tl-container { grid-template-columns:1fr; padding:0 28px; gap:16px; }
+  .tl-arrow { transform:rotate(90deg); justify-self:center; }
+  .vr-container { padding:0 28px; }
+  .vr-cols { grid-template-columns:1fr; }
+  .tk-container { padding:0 28px; }
 }
 @media(max-width:480px){
   .page-topbar { padding:20px 20px 0; }
@@ -765,6 +1001,10 @@ body { background: ${NS.bg}; color: ${NS.text}; font-family: ${NS.mono}; overflo
   .method-text { padding:36px 20px; }
   .method-visual { padding:36px 20px; }
   .pillars-wrap { padding:48px 20px; }
+  .c-container { padding:0 20px; }
+  .tl-container { padding:0 20px; }
+  .vr-container { padding:0 20px; }
+  .tk-container { padding:0 20px; }
   .nicola-close { padding:48px 20px; }
   .close-cta-row { flex-direction:column; }
   .close-cta-mail { justify-content:center; }
