@@ -14,6 +14,16 @@ const nextConfig: NextConfig = {
         destination: "/outreach/:slug",
         permanent: true,
       },
+      // Redirect short outreach URLs (/:slug → /outreach/:slug)
+      { source: "/cascioli-rent", destination: "/outreach/cascioli-rent", permanent: true },
+      { source: "/casciolirent", destination: "/outreach/cascioli-rent", permanent: true },
+      { source: "/dea-group", destination: "/outreach/dea-group", permanent: true },
+      { source: "/geco-geologia", destination: "/outreach/geco-geologia", permanent: true },
+      { source: "/piante-stabilizzate", destination: "/outreach/piante-stabilizzate", permanent: true },
+      { source: "/linfadecor", destination: "/outreach/piante-stabilizzate", permanent: true },
+      { source: "/von-schnauzer", destination: "/outreach/von-schnauzer", permanent: true },
+      { source: "/lm-legnami", destination: "/outreach/lm-legnami", permanent: true },
+      { source: "/ulisse", destination: "/outreach/ulisse", permanent: true },
     ];
   },
   async headers() {
