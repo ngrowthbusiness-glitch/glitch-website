@@ -6,6 +6,8 @@ import type { OutreachConfig, OutreachSection } from "@/data/outreach/types";
 import { SITE } from "@/lib/constants";
 import OutreachTracker from "./tracker";
 import ResponseBox from "./response-box";
+import BubbleNav from "./bubble-nav";
+import LiveClock from "./live-clock";
 
 export async function generateStaticParams() {
   return getAllOutreachSlugs().map((slug) => ({ slug }));
@@ -47,6 +49,7 @@ export default async function OutreachPage({
   const config = getOutreachConfig(slug);
   if (!config) notFound();
 
+  if (slug === "cascioli-rent") return <OutreachCascioliRent config={config} slug={slug} />;
   if (config.pitch) return <OutreachV3 config={config} slug={slug} />;
   return <OutreachV2 config={config} slug={slug} />;
 }
@@ -1010,6 +1013,733 @@ body { background: ${NS.bg}; color: ${NS.text}; font-family: ${NS.mono}; overflo
   .close-cta-mail { justify-content:center; }
   .site-footer { padding:20px; }
   .glitch-zone { height:120px; }
+}
+  `;
+}
+
+/* ================================================================
+   CASCIOLI RENT — FULLY CUSTOM TEMPLATE
+   ================================================================ */
+
+function OutreachCascioliRent({ config, slug }: { config: OutreachConfig; slug: string }) {
+  const today = new Date().toLocaleDateString("it-IT", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
+  return (
+    <>
+      <OutreachTracker slug={slug} />
+      <style>{cascioliRentCSS()}</style>
+
+      <div className="cr-bg-glow" />
+      <BubbleNav />
+
+      {/* ════════════════════════════════════════
+           SECTION 1 — NICOLA (Nicola style)
+         ════════════════════════════════════════ */}
+      <section className="cr-nicola" id="chi-sono">
+        <div className="cr-nicola-left">
+          <div className="cr-ns-logo-row">
+            <Image src="/favicon.png" alt="" width={36} height={36} style={{ objectFit: "contain" }} />
+          </div>
+          <h1 className="cr-ns-name">Nicola Serrao</h1>
+          <div className="cr-ns-role">Digital Marketing Strategist</div>
+          <p className="cr-ns-intro">
+            Ho provato dell&apos;interesse nel vostro progetto, cos&igrave; l&apos;ho approfondito
+            per capire se con le mie competenze ci pu&ograve; essere qualcosa da migliorare.
+            L&apos;ho fatto &mdash; quello che trovate sotto &egrave; un breve resoconto.
+          </p>
+          <ul className="cr-ns-pills">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ancona, Italia
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+              nicolaserrao.com
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              {SITE.phone}
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Analisi del {today}
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <LiveClock />
+              <span className="cr-tz-label">Roma</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="cr-nicola-right">
+          <div className="cr-photo-wrap">
+            <Image
+              src="/images/nicola.png"
+              alt="Nicola Serrao"
+              width={360}
+              height={480}
+              priority
+              className="cr-photo"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+           GLITCH DIVIDER 1
+         ════════════════════════════════════════ */}
+      <div className="cr-glitch-zone cr-glitch-fwd" id="il-progetto">
+        <div className="cr-glitch-bg" />
+        <div className="cr-glitch-scanlines" />
+        <div className="cr-glitch-label">// entriamo nel vostro mondo</div>
+      </div>
+
+      {/* ════════════════════════════════════════
+           SECTION 2 — CASCIOLI RENT
+         ════════════════════════════════════════ */}
+      <section className="cr-prospect">
+
+        {/* Prospect sticky topbar */}
+        <div className="cr-prospect-topbar">
+          <Image
+            src={config.logo || "/favicon.png"}
+            alt={config.companyName}
+            width={160}
+            height={38}
+            style={{ objectFit: "contain", display: "block", maxWidth: 200, filter: "invert(1)" }}
+          />
+          <div className="cr-prospect-topbar-tag">Studio realizzato da Nicola Serrao</div>
+        </div>
+
+        {/* Intro */}
+        <div className="cr-intro">
+          <div className="cr-eyebrow">Il quadro attuale</div>
+          <h2 className="cr-headline">
+            Questo &egrave; quello che &egrave; emerso<br />da quello che ho potuto vedere online.
+          </h2>
+          <p className="cr-sub">
+            Ho analizzato la vostra presenza digitale &mdash; sito, advertising, comunicazione &mdash;
+            per capire dove si pu&ograve; intervenire concretamente.
+          </p>
+        </div>
+
+        {/* ─── FUNNEL OGGI ─── */}
+        <div className="cr-funnel-section">
+          <div className="cr-funnel-header">
+            <div className="cr-eyebrow">Come vi immagino oggi</div>
+          </div>
+          <div className="cr-funnel-flow cr-funnel-current">
+            <div className="cr-funnel-node">
+              <div className="cr-funnel-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <div className="cr-funnel-title">Ads attive</div>
+              <div className="cr-funnel-detail">Meta / altre piattaforme</div>
+            </div>
+            <div className="cr-funnel-arrow" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+            <div className="cr-funnel-node">
+              <div className="cr-funnel-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              </div>
+              <div className="cr-funnel-title">Messaggio generico</div>
+              <div className="cr-funnel-detail">Personalizzazione limitata</div>
+            </div>
+            <div className="cr-funnel-arrow" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+            <div className="cr-funnel-node">
+              <div className="cr-funnel-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
+              <div className="cr-funnel-title">Team vendite</div>
+              <div className="cr-funnel-detail">Gestione del contatto</div>
+            </div>
+            <div className="cr-funnel-arrow" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+            <div className="cr-funnel-node cr-funnel-node-q">
+              <div className="cr-funnel-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </div>
+              <div className="cr-funnel-title">Risultato?</div>
+              <div className="cr-funnel-detail">Difficile da misurare</div>
+            </div>
+          </div>
+          <p className="cr-funnel-note">
+            Non conosco i vostri dati interni &mdash; questa &egrave; la mia lettura dall&apos;esterno.
+          </p>
+        </div>
+
+        {/* ─── FUNNEL PROPOSTO ─── */}
+        <div className="cr-funnel-section cr-funnel-proposed-section">
+          <div className="cr-funnel-header">
+            <div className="cr-eyebrow">Come potrebbe funzionare con un sistema strutturato</div>
+          </div>
+          <div className="cr-funnel-flow cr-funnel-proposed">
+            <div className="cr-funnel-node cr-funnel-node-hi">
+              <div className="cr-funnel-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+              </div>
+              <div className="cr-funnel-title">Ads mirate</div>
+              <div className="cr-funnel-detail">KPI precisi, test continuo</div>
+            </div>
+            <div className="cr-funnel-arrow" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+            <div className="cr-funnel-node cr-funnel-node-hi">
+              <div className="cr-funnel-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <div className="cr-funnel-title">Creativit&agrave; strategica</div>
+              <div className="cr-funnel-detail">Messaggi per situazioni reali, non offerte generiche</div>
+            </div>
+            <div className="cr-funnel-arrow" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+            <div className="cr-funnel-node cr-funnel-node-hi">
+              <div className="cr-funnel-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <div className="cr-funnel-title">Sistema di conversione</div>
+              <div className="cr-funnel-detail">Landing dedicate, follow-up strutturato</div>
+            </div>
+            <div className="cr-funnel-arrow" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+            <div className="cr-funnel-node cr-funnel-node-hi">
+              <div className="cr-funnel-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
+              <div className="cr-funnel-title">Team vendite</div>
+              <div className="cr-funnel-detail">Dati dal marketing &rarr; feedback &rarr; ottimizzazione</div>
+            </div>
+          </div>
+          <div className="cr-funnel-loop">
+            <svg width="100%" height="40" viewBox="0 0 600 40" preserveAspectRatio="none" fill="none" stroke="#1a9bbf" strokeWidth="1.5" strokeDasharray="6 4" opacity="0.5">
+              <path d="M540 5 C580 5,595 20,595 35 L5 35 C5 20,20 5,60 5" />
+              <polygon points="55,0 65,5 55,10" fill="#1a9bbf" opacity="0.5" />
+            </svg>
+            <span className="cr-funnel-loop-label">Feedback loop &mdash; ottimizzazione continua</span>
+          </div>
+        </div>
+
+        {/* ─── VALUE SECTION ─── */}
+        <div className="cr-value-section" id="competenze">
+          <div className="cr-value-header">
+            <div className="cr-eyebrow">Cosa porto al tavolo</div>
+          </div>
+
+          {/* Row 1 — Strategia */}
+          <div className="cr-vr-row">
+            <div className="cr-vr-label">
+              <span className="cr-vr-num">01</span>
+              <span className="cr-vr-title">Strategia</span>
+            </div>
+            <div className="cr-vr-cols">
+              <div className="cr-vr-col cr-vr-mine">
+                <p>Un sistema di acquisizione clienti misurabile. Funnel strutturato con obiettivi chiari collegati ai risultati commerciali.</p>
+              </div>
+              <div className="cr-vr-col cr-vr-theirs">
+                <p>Sapere con esattezza quanto costa acquisire un cliente, quanti contatti diventano contratti, dove intervenire per migliorare.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Row 2 — Analisi */}
+          <div className="cr-vr-row">
+            <div className="cr-vr-label">
+              <span className="cr-vr-num">02</span>
+              <span className="cr-vr-title">Analisi</span>
+            </div>
+            <div className="cr-vr-cols">
+              <div className="cr-vr-col cr-vr-mine">
+                <p>KPI, iterazione, feedback loop con il reparto vendite. Ogni passaggio del funnel tracciato e ottimizzato.</p>
+              </div>
+              <div className="cr-vr-col cr-vr-theirs">
+                <p>Ogni euro investito produce dati. Ogni dato produce una decisione migliore. Niente budget sprecato.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Row 3 — Creativita */}
+          <div className="cr-vr-row">
+            <div className="cr-vr-label">
+              <span className="cr-vr-num">03</span>
+              <span className="cr-vr-title">Creativit&agrave;</span>
+            </div>
+            <div className="cr-vr-cols">
+              <div className="cr-vr-col cr-vr-mine">
+                <p>Comunicazione che vi differenzia. Messaggi per ogni livello di consapevolezza, non &ldquo;ecco l&apos;ultima offerta&rdquo;.</p>
+              </div>
+              <div className="cr-vr-col cr-vr-theirs">
+                <p>Pi&ugrave; visibilit&agrave; tra chi conta. Pi&ugrave; traffico qualificato. Pi&ugrave; richieste da convertire.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ─── TAKEAWAYS ─── */}
+        <div className="cr-takeaways">
+          <div className="cr-tk-item">Questa &egrave; un&apos;ipotesi costruita dall&apos;esterno &mdash; con un confronto diretto sarebbe ancora pi&ugrave; precisa.</div>
+          <div className="cr-tk-item">Non serve stravolgere nulla: si parte da quello che funziona gi&agrave;.</div>
+          <div className="cr-tk-item">Se ci sono i presupposti, lo capiamo in 20 minuti.</div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+           GLITCH DIVIDER 2
+         ════════════════════════════════════════ */}
+      <div className="cr-glitch-zone cr-glitch-bwd">
+        <div className="cr-glitch-bg" />
+        <div className="cr-glitch-scanlines" />
+        <div className="cr-glitch-label">// e adesso?</div>
+      </div>
+
+      {/* ════════════════════════════════════════
+           SECTION 3 — CLOSING NICOLA
+         ════════════════════════════════════════ */}
+      <section className="cr-close" id="parliamone">
+        <div className="cr-close-inner">
+          <div className="cr-close-eyebrow">Prossimo passo</div>
+          <h2 className="cr-close-headline">
+            Ho informazioni fresche<br />sul vostro business.
+          </h2>
+          <p className="cr-close-sub">
+            Perch&eacute; non ci prendiamo un momento per conoscerci?
+          </p>
+          <div className="cr-close-cta-row">
+            <a
+              href={`mailto:${SITE.email}?subject=${encodeURIComponent(config.cta.emailSubject || "")}`}
+              className="cr-close-cta"
+            >
+              Prenota una call
+              <span className="cr-arr" />
+            </a>
+          </div>
+          <a
+            href={`${SITE.whatsapp}?text=${encodeURIComponent(config.cta.whatsappText || "")}`}
+            className="cr-close-wa"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            O scrivimi su WhatsApp
+          </a>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+           FOOTER
+         ════════════════════════════════════════ */}
+      <footer className="cr-footer">
+        <span>&copy; Nicola Serrao &middot; Digital Marketing Strategist &middot; nicolaserrao.com</span>
+        <span>{SITE.email} &middot; {SITE.phone}</span>
+      </footer>
+    </>
+  );
+}
+
+/* ── CascioliRent CSS ── */
+function cascioliRentCSS(): string {
+  /* Nicola palette */
+  const n = {
+    bg: "#0a0e0d",
+    cyan: "#00fffc",
+    cyanDim: "rgba(0,255,252,0.10)",
+    cyanBorder: "rgba(0,255,252,0.22)",
+    text: "#e8f0ff",
+    textDim: "rgba(232,240,255,0.50)",
+    textFaint: "rgba(232,240,255,0.20)",
+    serif: "'Playfair Display', serif",
+    mono: "'DM Mono', monospace",
+  };
+  /* CascioliRent palette — sobria, corporate, dal sito reale */
+  const c = {
+    bg: "#f4f7fa",
+    primary: "#1a2744",
+    secondary: "#2d4a6f",
+    cardBg: "#ffffff",
+    midBg: "#edf1f5",
+    text: "#1a2b3c",
+    textDim: "rgba(26,43,60,0.60)",
+    textFaint: "rgba(26,43,60,0.35)",
+    border: "rgba(26,43,60,0.10)",
+    font: "'Fira Sans', sans-serif",
+  };
+
+  return `
+/* ══════════════════════════════════════════
+   CASCIOLI RENT — RESET & BASE
+══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: ${n.bg}; color: ${n.text}; font-family: ${n.mono}; overflow-x: hidden; }
+.cr-bg-glow {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 30%, rgba(0,255,252,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(0,255,252,0.02) 0%, transparent 50%);
+}
+
+/* ══════════════════════════════════════════
+   BUBBLE NAV
+══════════════════════════════════════════ */
+.cr-bubble-nav {
+  position: fixed; top: 18px; left: 50%; transform: translateX(-50%);
+  z-index: 100; display: flex; align-items: center; justify-content: space-between;
+  width: min(92%, 860px); padding: 10px 24px;
+  border-radius: 999px;
+  background: rgba(10,14,13,0.55);
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(0,255,252,0.10);
+}
+.cr-bubble-logo {
+  display: flex; align-items: center; gap: 8px;
+  font-family: ${n.serif}; font-size: 15px; font-weight: 700;
+  color: ${n.text}; letter-spacing: -0.3px;
+}
+.cr-bubble-logo img { border-radius: 4px; }
+.cr-bubble-links { display: flex; align-items: center; gap: 24px; }
+.cr-bubble-links a {
+  font-family: ${n.mono}; font-size: 10px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: ${n.textDim}; text-decoration: none;
+  transition: color 0.2s;
+}
+.cr-bubble-links a:hover { color: ${n.cyan}; }
+
+/* ══════════════════════════════════════════
+   SECTION 1 — NICOLA
+══════════════════════════════════════════ */
+.cr-nicola {
+  position: relative; z-index: 1;
+  min-height: 100vh; padding: 100px 64px 80px;
+  display: grid; grid-template-columns: 1fr 380px;
+  gap: 60px; align-items: center;
+}
+.cr-nicola::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, ${n.cyanBorder}, transparent);
+}
+.cr-ns-logo-row { margin-bottom: 20px; animation: crFadeUp .6s ease both; }
+.cr-ns-name {
+  font-family: ${n.serif}; font-size: clamp(2.2rem, 3.5vw, 3.6rem);
+  font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;
+  color: ${n.text}; margin-bottom: 8px;
+  animation: crFadeUp .6s .05s ease both;
+}
+.cr-ns-role {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: ${n.cyan}; margin-bottom: 28px;
+  animation: crFadeUp .6s .1s ease both;
+}
+.cr-ns-intro {
+  font-size: 15px; line-height: 1.8; color: ${n.textDim};
+  max-width: 520px; margin-bottom: 32px;
+  animation: crFadeUp .6s .15s ease both;
+}
+.cr-ns-pills {
+  list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;
+  animation: crFadeUp .6s .2s ease both;
+}
+.cr-ns-pills li {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12px; color: ${n.textDim};
+}
+.cr-ns-pills li svg { color: ${n.cyan}; flex-shrink: 0; }
+.cr-clock { font-variant-numeric: tabular-nums; }
+.cr-tz-label {
+  font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
+  color: ${n.textFaint}; margin-left: 4px;
+}
+
+/* Photo */
+.cr-nicola-right {
+  display: flex; flex-direction: column; align-items: center;
+  animation: crFadeUp .6s .2s ease both;
+}
+.cr-photo-wrap {
+  position: relative; width: 100%; max-width: 340px;
+  clip-path: polygon(0 0, 100% 3%, 97% 100%, 3% 97%);
+}
+.cr-photo {
+  width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center;
+  display: block; filter: grayscale(60%) contrast(1.08); opacity: 0.85;
+}
+
+@keyframes crFadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
+
+/* ══════════════════════════════════════════
+   GLITCH ZONES
+══════════════════════════════════════════ */
+.cr-glitch-zone {
+  position: relative; height: 180px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center; z-index: 1;
+}
+.cr-glitch-fwd .cr-glitch-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, ${n.bg} 0%, ${c.bg} 100%);
+}
+.cr-glitch-bwd .cr-glitch-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, ${c.bg} 0%, ${n.bg} 100%);
+}
+.cr-glitch-scanlines {
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,252,0.025) 2px, rgba(0,255,252,0.025) 4px);
+  animation: crScan 6s linear infinite;
+}
+@keyframes crScan { from{background-position:0 0} to{background-position:0 40px} }
+.cr-glitch-label {
+  position: relative; z-index: 2; font-family: ${n.serif}; font-style: italic;
+  font-size: clamp(1.2rem, 2.5vw, 2rem); font-weight: 700; color: ${n.cyan};
+  letter-spacing: 0.06em; animation: crGltch 4s infinite;
+}
+@keyframes crGltch {
+  0%,88%,100%{text-shadow:2px 0 rgba(255,0,100,.5),-2px 0 rgba(0,200,255,.5);transform:none}
+  90%{text-shadow:-5px 0 rgba(255,0,100,.8),5px 0 rgba(0,200,255,.8);transform:translateX(3px)}
+  93%{text-shadow:5px 0 rgba(255,0,100,.8),-5px 0 rgba(0,200,255,.8);transform:translateX(-3px)}
+  96%{text-shadow:2px 0 rgba(255,0,100,.5),-2px 0 rgba(0,200,255,.5);transform:none}
+}
+
+/* ══════════════════════════════════════════
+   SECTION 2 — PROSPECT
+══════════════════════════════════════════ */
+.cr-prospect {
+  background: ${c.bg}; color: ${c.text};
+  font-family: ${c.font}; position: relative; z-index: 1;
+}
+.cr-prospect-topbar {
+  background: rgba(244,247,250,0.95); border-bottom: 1px solid ${c.border};
+  padding: 0 64px; height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 20;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.cr-prospect-topbar-tag {
+  font-family: ${n.mono}; font-size: 11px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: ${c.textFaint};
+}
+
+/* Intro */
+.cr-intro { padding: 72px 64px 0; max-width: 1100px; margin: 0 auto; }
+.cr-eyebrow {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: ${c.primary}; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.cr-eyebrow::before { content:''; width:24px; height:1px; background:${c.primary}; }
+.cr-headline {
+  font-size: clamp(1.8rem, 3.2vw, 3rem); font-weight: 700;
+  line-height: 1.15; color: ${c.text}; max-width: 780px;
+  margin-bottom: 20px; letter-spacing: -0.02em;
+}
+.cr-sub {
+  font-size: 16px; line-height: 1.8; color: ${c.textDim};
+  max-width: 640px; margin-bottom: 48px; font-weight: 300;
+}
+
+/* ═════════ FUNNEL FLOWS ═════════ */
+.cr-funnel-section {
+  padding: 48px 64px; max-width: 1100px; margin: 0 auto;
+}
+.cr-funnel-proposed-section {
+  border-top: 1px solid ${c.border};
+}
+.cr-funnel-header { margin-bottom: 32px; }
+.cr-funnel-flow {
+  display: flex; align-items: stretch; gap: 0;
+}
+.cr-funnel-node {
+  flex: 1; padding: 24px 20px; text-align: center;
+  border: 1px solid ${c.border}; background: ${c.midBg};
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  transition: background 0.2s;
+}
+.cr-funnel-node-q { border-style: dashed; }
+.cr-funnel-node-hi {
+  background: ${c.cardBg}; border-color: ${c.primary}30;
+}
+.cr-funnel-icon { color: ${c.primary}; margin-bottom: 4px; }
+.cr-funnel-current .cr-funnel-icon { color: ${c.textFaint}; }
+.cr-funnel-title {
+  font-size: 14px; font-weight: 600; color: ${c.text}; line-height: 1.3;
+}
+.cr-funnel-detail {
+  font-size: 11px; line-height: 1.5; color: ${c.textDim}; font-weight: 300;
+}
+.cr-funnel-arrow {
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 10px; color: ${c.primary}; flex-shrink: 0;
+}
+.cr-funnel-current .cr-funnel-arrow { color: ${c.textFaint}; }
+.cr-funnel-note {
+  font-size: 12px; color: ${c.textDim}; font-style: italic;
+  margin-top: 20px; text-align: center;
+}
+.cr-funnel-loop {
+  margin-top: 12px; text-align: center; position: relative;
+}
+.cr-funnel-loop-label {
+  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: ${c.textDim}; display: block; margin-top: 6px;
+}
+
+/* ═════════ VALUE SECTION ═════════ */
+.cr-value-section {
+  padding: 56px 64px; max-width: 1100px; margin: 0 auto;
+  border-top: 1px solid ${c.border};
+}
+.cr-value-header { margin-bottom: 40px; }
+.cr-vr-row {
+  border-bottom: 1px solid ${c.border}; padding: 36px 0;
+}
+.cr-vr-row:last-child { border-bottom: none; }
+.cr-vr-label {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 24px;
+}
+.cr-vr-num {
+  font-family: ${n.mono}; font-size: 10px; letter-spacing: 2px;
+  color: ${c.primary}; font-weight: 700;
+}
+.cr-vr-title {
+  font-size: 1.3rem; font-weight: 700; color: ${c.text};
+  letter-spacing: -0.02em;
+}
+.cr-vr-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+}
+.cr-vr-col { padding: 24px 20px; }
+.cr-vr-col p {
+  font-size: 14px; line-height: 1.75; color: ${c.textDim}; font-weight: 300;
+}
+.cr-vr-mine {
+  background: ${c.midBg};
+  border-left: 3px solid ${c.border};
+}
+.cr-vr-theirs {
+  background: ${c.cardBg};
+  border-left: 3px solid ${c.primary};
+}
+
+/* ═════════ TAKEAWAYS ═════════ */
+.cr-takeaways {
+  padding: 48px 64px; max-width: 1100px; margin: 0 auto;
+  border-top: 1px solid ${c.border};
+  display: flex; flex-direction: column; gap: 20px;
+}
+.cr-tk-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  font-size: 14px; line-height: 1.7; color: ${c.textDim}; font-weight: 300;
+}
+.cr-tk-item::before {
+  content: '\\2192'; color: ${c.primary}; flex-shrink: 0;
+  margin-top: 1px; font-size: 13px;
+}
+
+/* ══════════════════════════════════════════
+   SECTION 3 — CLOSING
+══════════════════════════════════════════ */
+.cr-close {
+  position: relative; z-index: 1;
+  padding: 96px 64px; background: ${n.bg};
+  text-align: center;
+}
+.cr-close-inner { max-width: 700px; margin: 0 auto; }
+.cr-close-eyebrow {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: ${n.cyan}; margin-bottom: 24px;
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.cr-close-eyebrow::before { content:''; width:32px; height:1px; background:${n.cyan}; }
+.cr-close-eyebrow::after { content:''; width:32px; height:1px; background:${n.cyan}; }
+.cr-close-headline {
+  font-family: ${n.serif};
+  font-size: clamp(2rem, 3.5vw, 3.6rem); font-weight: 700;
+  line-height: 1.12; letter-spacing: -0.02em;
+  color: ${n.text}; margin-bottom: 20px;
+}
+.cr-close-sub {
+  font-size: 17px; line-height: 1.7; color: ${n.textDim};
+  margin-bottom: 40px;
+}
+.cr-close-cta-row { margin-bottom: 20px; }
+.cr-close-cta {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: ${n.cyan}; color: ${n.bg};
+  font-family: ${n.mono}; font-size: 11px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 16px 32px; text-decoration: none; transition: opacity 0.2s;
+}
+.cr-close-cta:hover { opacity: 0.85; }
+.cr-arr { width: 16px; height: 1px; background: ${n.bg}; position: relative; }
+.cr-arr::after {
+  content:''; position:absolute; right:0; top:-3px;
+  width:6px; height:6px;
+  border-right:1px solid ${n.bg}; border-top:1px solid ${n.bg};
+  transform:rotate(45deg);
+}
+.cr-close-wa {
+  font-size: 12px; color: ${n.textDim}; text-decoration: none;
+  transition: color 0.2s; display: inline-block;
+  border-bottom: 1px solid ${n.textFaint};
+  padding-bottom: 2px;
+}
+.cr-close-wa:hover { color: ${n.cyan}; border-color: ${n.cyan}; }
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+.cr-footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid ${n.cyanBorder};
+  padding: 24px 64px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: ${n.textFaint}; background: ${n.bg};
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media(max-width:960px){
+  .cr-bubble-links { gap: 16px; }
+  .cr-nicola { grid-template-columns: 1fr; padding: 100px 28px 64px; gap: 40px; }
+  .cr-nicola-right { order: -1; max-width: 220px; margin: 0 auto; }
+  .cr-prospect-topbar { padding: 0 28px; }
+  .cr-prospect-topbar-tag { display: none; }
+  .cr-intro { padding: 56px 28px 0; }
+  .cr-funnel-section { padding: 40px 28px; }
+  .cr-funnel-flow { flex-direction: column; gap: 0; }
+  .cr-funnel-arrow { transform: rotate(90deg); padding: 8px 0; }
+  .cr-value-section { padding: 48px 28px; }
+  .cr-vr-cols { grid-template-columns: 1fr; }
+  .cr-takeaways { padding: 40px 28px; }
+  .cr-close { padding: 64px 28px; }
+  .cr-footer { padding: 20px 28px; flex-direction: column; gap: 6px; text-align: center; }
+  .cr-glitch-zone { height: 140px; }
+}
+@media(max-width:480px){
+  .cr-bubble-nav { padding: 8px 16px; width: 96%; }
+  .cr-bubble-links { gap: 10px; }
+  .cr-bubble-links a { font-size: 8px; letter-spacing: 1px; }
+  .cr-nicola { padding: 90px 20px 48px; min-height: auto; }
+  .cr-nicola-right { max-width: 160px; }
+  .cr-ns-name { font-size: 2rem; }
+  .cr-intro { padding: 40px 20px 0; }
+  .cr-funnel-section { padding: 32px 20px; }
+  .cr-value-section { padding: 40px 20px; }
+  .cr-takeaways { padding: 32px 20px; }
+  .cr-close { padding: 48px 20px; }
+  .cr-footer { padding: 16px 20px; }
+  .cr-glitch-zone { height: 100px; }
+  .cr-prospect-topbar { padding: 0 20px; height: 56px; }
 }
   `;
 }
