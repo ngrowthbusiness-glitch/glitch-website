@@ -1042,8 +1042,7 @@ function OutreachNetImpianti({ config, slug }: { config: OutreachConfig; slug: s
       <nav className="ni-nav">
         <div className="ni-nav-inner">
           <a href="#" className="ni-nav-logo">
-            <span className="ni-nav-logo-icon">&#9889;</span>
-            N.E.T. Impianti
+            <Image src="/images/outreach/net-impianti/logo.png" alt="N.E.T. Impianti" width={140} height={40} style={{ objectFit: "contain" }} />
           </a>
           <div className="ni-nav-links">
             <a href="#ni-servizi">Servizi</a>
@@ -1158,9 +1157,13 @@ function OutreachNetImpianti({ config, slug }: { config: OutreachConfig; slug: s
           </div>
           <div className="ni-projects-grid">
             <div className="ni-project-card ni-project-featured">
-              <div className="ni-project-img-placeholder">
-                <span>Centrale Enel &mdash; Slovacchia</span>
-              </div>
+              <Image
+                src="/images/outreach/net-impianti/enel-slovacchia.jpg"
+                alt="Centrale Enel — Slovacchia"
+                width={1120}
+                height={480}
+                className="ni-project-img"
+              />
               <div className="ni-project-info">
                 <span className="ni-project-tag">Internazionale &middot; Industriale</span>
                 <h3 className="ni-project-title">Centrale Enel &mdash; Slovacchia</h3>
@@ -1168,9 +1171,13 @@ function OutreachNetImpianti({ config, slug }: { config: OutreachConfig; slug: s
               </div>
             </div>
             <div className="ni-project-card">
-              <div className="ni-project-img-placeholder">
-                <span>Tirreno Power</span>
-              </div>
+              <Image
+                src="/images/outreach/net-impianti/tirreno-power.jpg"
+                alt="Centrale Tirreno Power"
+                width={560}
+                height={315}
+                className="ni-project-img"
+              />
               <div className="ni-project-info">
                 <span className="ni-project-tag">Nazionale &middot; Energia</span>
                 <h3 className="ni-project-title">Centrale Tirreno Power</h3>
@@ -1178,9 +1185,13 @@ function OutreachNetImpianti({ config, slug }: { config: OutreachConfig; slug: s
               </div>
             </div>
             <div className="ni-project-card">
-              <div className="ni-project-img-placeholder">
-                <span>Piattaforme industriali</span>
-              </div>
+              <Image
+                src="/images/outreach/net-impianti/piattaforma.jpg"
+                alt="Piattaforme industriali"
+                width={560}
+                height={315}
+                className="ni-project-img"
+              />
               <div className="ni-project-info">
                 <span className="ni-project-tag">Infrastrutture &middot; Speciale</span>
                 <h3 className="ni-project-title">Piattaforme industriali</h3>
@@ -1518,13 +1529,11 @@ body { background: ${white}; color: ${textDark}; font-family: 'Inter', -apple-sy
   transition: border-color 0.2s;
 }
 .ni-project-card:hover { border-color: rgba(59,130,246,0.3); }
-.ni-project-img-placeholder {
-  width: 100%; aspect-ratio: 16/9; display: flex;
-  align-items: center; justify-content: center;
-  background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(10,22,40,0.3) 100%);
-  font-size: 14px; color: rgba(248,250,252,0.3); font-weight: 500;
+.ni-project-img {
+  width: 100%; height: auto; aspect-ratio: 16/9;
+  object-fit: cover; display: block;
 }
-.ni-project-featured .ni-project-img-placeholder { aspect-ratio: 21/9; }
+.ni-project-featured .ni-project-img { aspect-ratio: 21/9; }
 .ni-project-info { padding: 24px; }
 .ni-project-tag {
   font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
