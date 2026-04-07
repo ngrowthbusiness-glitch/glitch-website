@@ -51,6 +51,7 @@ export default async function OutreachPage({
   const config = getOutreachConfig(slug);
   if (!config) notFound();
 
+  if (slug === "t33") return <OutreachT33 config={config} slug={slug} />;
   if (slug === "blulogistic") return <OutreachBlulogistic config={config} slug={slug} />;
   if (slug === "tecnografting") return <OutreachTecnografting config={config} slug={slug} />;
   if (slug === "unibag") return <OutreachUnibag config={config} slug={slug} />;
@@ -3969,6 +3970,606 @@ function SectionRenderer({ section }: { section: OutreachSection }) {
       )}
     </section>
   );
+}
+
+/* ================================================================
+   T33 (SOUND POLICY) — FULLY CUSTOM TEMPLATE
+   ================================================================ */
+
+function OutreachT33({ config, slug }: { config: OutreachConfig; slug: string }) {
+  const today = new Date().toLocaleDateString("it-IT", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
+  return (
+    <>
+      <OutreachTracker slug={slug} />
+      <style>{t33CSS()}</style>
+
+      <div className="t3-bg-glow" />
+      <BubbleNav />
+
+      {/* ════════════════════════════════════════
+           SECTION 1 — NICOLA (dark)
+         ════════════════════════════════════════ */}
+      <section className="t3-nicola" id="chi-sono">
+        <div className="t3-nicola-left">
+          <div className="t3-ns-logo-row">
+            <Image src="/favicon.png" alt="" width={36} height={36} style={{ objectFit: "contain" }} />
+          </div>
+          <h1 className="t3-ns-name">Nicola Serrao</h1>
+          <div className="t3-ns-role">Digital Marketing Strategist</div>
+          <p className="t3-ns-intro">
+            Mi occupo di strategia digitale per organizzazioni che producono valore
+            intellettuale e hanno bisogno di farlo arrivare alle persone giuste.
+            Ho studiato il vostro percorso &mdash; dalla fondazione ad Ancona nel 2007
+            al nuovo capitolo con OpenEconomics &mdash; e credo ci siano leve concrete
+            per amplificare ci&ograve; che gi&agrave; fate molto bene.
+          </p>
+          <ul className="t3-ns-pills">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ancona, Italia
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+              nicolaserrao.com
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Riflessione del {today}
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <LiveClock />
+              <span className="t3-tz-label">Roma</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="t3-nicola-right">
+          <div className="t3-photo-wrap">
+            <Image
+              src="/images/nicola.png"
+              alt="Nicola Serrao"
+              width={360}
+              height={480}
+              priority
+              className="t3-photo"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+           GLITCH DIVIDER 1
+         ════════════════════════════════════════ */}
+      <div className="t3-glitch-zone t3-glitch-fwd" id="il-progetto">
+        <div className="t3-glitch-bg" />
+        <div className="t3-glitch-scanlines" />
+        <div className="t3-glitch-label">// il momento strategico</div>
+      </div>
+
+      {/* ════════════════════════════════════════
+           SECTION 2 — T33 (white, institutional)
+         ════════════════════════════════════════ */}
+      <section className="t3-prospect">
+
+        {/* Prospect sticky topbar */}
+        <div className="t3-prospect-topbar">
+          <Image
+            src={config.logo || "/favicon.png"}
+            alt={config.companyName}
+            width={120}
+            height={38}
+            style={{ objectFit: "contain", display: "block", maxWidth: 160 }}
+          />
+          <div className="t3-prospect-topbar-tag">Riflessione strategica a cura di Nicola Serrao</div>
+        </div>
+
+        {/* ─── Sub-section A: Il nuovo capitolo ─── */}
+        <div className="t3-subsection" id="contesto">
+          <div className="t3-subsection-header">
+            <div className="t3-eyebrow">Il contesto</div>
+            <h2 className="t3-headline">Da boutique di Ancona<br />a player europeo.</h2>
+          </div>
+          <div className="t3-body-text">
+            <p>
+              L&apos;acquisizione da parte di OpenEconomics crea una nuova entit&agrave; nel mercato
+              europeo della valutazione delle politiche. &Egrave; un momento di opportunit&agrave; &mdash;
+              ma anche un momento in cui la comunicazione diventa critica.
+            </p>
+            <p>
+              Come raccontate questa storia alle managing authority, alla Commissione,
+              ai potenziali talenti, determina come il mercato percepisce il nuovo gruppo.
+              Il posizionamento non si costruisce da solo &mdash; va articolato con intenzione.
+            </p>
+          </div>
+        </div>
+
+        {/* ─── Sub-section B: Il gap ─── */}
+        <div className="t3-subsection t3-subsection-bordered" id="competenze">
+          <div className="t3-eyebrow">L&apos;osservazione</div>
+          <h2 className="t3-headline">Contenuti di altissimo livello.<br />Distribuzione che non li valorizza.</h2>
+          <div className="t3-two-col">
+            <div className="t3-two-col-text">
+              <p>
+                Le vostre tavole rotonde sul futuro della coesione, gli studi per DG REGIO,
+                le valutazioni ex post: sono materiali di valore straordinario. Ma oggi vivono
+                sul sito come repository statici.
+              </p>
+              <p>
+                Non raggiungono proattivamente le managing authority che non vi conoscono ancora,
+                non diventano thought leadership sistematica, non alimentano una pipeline di
+                relazioni nuove.
+              </p>
+            </div>
+            <div className="t3-obs-card">
+              <ul className="t3-obs-list">
+                <li>
+                  <span className="t3-obs-dot" />
+                  Sito come vetrina, non come motore di relazioni
+                </li>
+                <li>
+                  <span className="t3-obs-dot" />
+                  LinkedIn usato per HR, non per sviluppo commerciale
+                </li>
+                <li>
+                  <span className="t3-obs-dot" />
+                  Contenuti di alto valore senza distribuzione mirata
+                </li>
+                <li>
+                  <span className="t3-obs-dot" />
+                  Nuovo posizionamento post-acquisizione da comunicare
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* ─── Sub-section C: Le leve strategiche ─── */}
+        <div className="t3-subsection t3-subsection-bordered">
+          <div className="t3-eyebrow">Dove intervenire</div>
+          <h2 className="t3-headline">Quattro aree dove la comunicazione<br />pu&ograve; fare la differenza.</h2>
+          <div className="t3-strategy-grid">
+            <div className="t3-strategy-card">
+              <div className="t3-strategy-num">01</div>
+              <h3 className="t3-strategy-title">Riposizionamento del brand</h3>
+              <p className="t3-strategy-desc">
+                Articolare il nuovo posizionamento t33 + OpenEconomics verso Commissione,
+                Parlamento, CoR e managing authority. Chi fa cosa, per chi, con quali punti
+                di forza distintivi.
+              </p>
+            </div>
+            <div className="t3-strategy-card">
+              <div className="t3-strategy-num">02</div>
+              <h3 className="t3-strategy-title">Thought leadership sistematica</h3>
+              <p className="t3-strategy-desc">
+                Trasformare report e studi in policy brief, infografiche, newsletter per managing
+                authority. Non produrre di pi&ugrave; &mdash; distribuire meglio ci&ograve; che
+                gi&agrave; producete.
+              </p>
+            </div>
+            <div className="t3-strategy-card">
+              <div className="t3-strategy-num">03</div>
+              <h3 className="t3-strategy-title">Sviluppo commerciale mirato</h3>
+              <p className="t3-strategy-desc">
+                Posizionarvi come &ldquo;top of mind&rdquo; presso nuove managing authority e nuovi Paesi.
+                Non lead generation classica &mdash; facilitazione di contatti qualificati attraverso
+                contenuti mirati.
+              </p>
+            </div>
+            <div className="t3-strategy-card">
+              <div className="t3-strategy-num">04</div>
+              <h3 className="t3-strategy-title">Attrazione talenti</h3>
+              <p className="t3-strategy-desc">
+                Rafforzare l&apos;employer branding verso profili quantitativi, economisti, data scientist.
+                La crescita richiede le persone giuste &mdash; e le persone giuste cercano online.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* ─── Sub-section D: Closing thought ─── */}
+        <div className="t3-subsection t3-subsection-bordered t3-closing-thought">
+          <p className="t3-thought">
+            Queste sono riflessioni dall&apos;esterno. Il valore reale emerge da un confronto
+            diretto &mdash; capire i vostri obiettivi post-acquisizione, le priorit&agrave; del nuovo
+            gruppo, le aree dove la comunicazione pu&ograve; accelerare ci&ograve; che state costruendo.
+          </p>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+           GLITCH DIVIDER 2
+         ════════════════════════════════════════ */}
+      <div className="t3-glitch-zone t3-glitch-bwd">
+        <div className="t3-glitch-bg" />
+        <div className="t3-glitch-scanlines" />
+        <div className="t3-glitch-label">// e adesso?</div>
+      </div>
+
+      {/* ════════════════════════════════════════
+           SECTION 3 — CLOSING (dark, Nicola style)
+         ════════════════════════════════════════ */}
+      <section className="t3-close" id="parliamone">
+        <div className="t3-close-inner">
+          <div className="t3-close-eyebrow">Prossimo passo</div>
+          <h2 className="t3-close-headline">
+            Un confronto<br />tra professionisti.
+          </h2>
+          <p className="t3-close-sub">
+            Nessuna proposta preconfezionata. Solo una conversazione per capire
+            se posso esservi utile.
+          </p>
+          <div className="t3-close-cta-row">
+            <a
+              href={`mailto:${SITE.email}?subject=${encodeURIComponent(config.cta.emailSubject || "")}`}
+              className="t3-close-cta"
+            >
+              Scrivimi
+              <span className="t3-arr" />
+            </a>
+          </div>
+          <a
+            href={`${SITE.whatsapp}?text=${encodeURIComponent("Buongiorno Nicola, ho letto la riflessione su t33. Vorrei approfondire.")}`}
+            className="t3-close-wa"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            O scrivimi su WhatsApp
+          </a>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+           FOOTER
+         ════════════════════════════════════════ */}
+      <footer className="t3-footer">
+        <span>&copy; Nicola Serrao &middot; Digital Marketing Strategist &middot; nicolaserrao.com</span>
+        <span>{SITE.email} &middot; {SITE.phone}</span>
+      </footer>
+    </>
+  );
+}
+
+/* ── T33 CSS ── */
+function t33CSS(): string {
+  /* Nicola palette */
+  const n = {
+    bg: "#0a0e0d",
+    cyan: "#00fffc",
+    cyanDim: "rgba(0,255,252,0.10)",
+    cyanBorder: "rgba(0,255,252,0.22)",
+    text: "#e8f0ff",
+    textDim: "rgba(232,240,255,0.50)",
+    textFaint: "rgba(232,240,255,0.20)",
+    serif: "'Playfair Display', serif",
+    mono: "'DM Mono', monospace",
+  };
+  /* t33 palette */
+  const t = {
+    bg: "#ffffff",
+    primary: "#009ee0",
+    accent: "#df4d34",
+    cardBg: "#f8f9fa",
+    text: "#212121",
+    textDim: "rgba(33,33,33,0.55)",
+    textFaint: "rgba(33,33,33,0.35)",
+    border: "rgba(33,33,33,0.08)",
+    font: "'Inter', system-ui, sans-serif",
+  };
+
+  return `
+/* ══════════════════════════════════════════
+   T33 — RESET & BASE
+══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: ${n.bg}; color: ${n.text}; font-family: ${n.mono}; overflow-x: hidden; }
+.t3-bg-glow {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 30%, rgba(0,255,252,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(0,255,252,0.02) 0%, transparent 50%);
+}
+
+/* ══════════════════════════════════════════
+   SECTION 1 — NICOLA
+══════════════════════════════════════════ */
+.t3-nicola {
+  position: relative; z-index: 1;
+  min-height: 100vh; padding: 100px 64px 80px;
+  display: grid; grid-template-columns: 1fr 380px;
+  gap: 60px; align-items: center;
+}
+.t3-nicola::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, ${n.cyanBorder}, transparent);
+}
+.t3-ns-logo-row { margin-bottom: 20px; animation: t3FadeUp .6s ease both; }
+.t3-ns-name {
+  font-family: ${n.serif}; font-size: clamp(2.2rem, 3.5vw, 3.6rem);
+  font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;
+  color: ${n.text}; margin-bottom: 8px;
+  animation: t3FadeUp .6s .05s ease both;
+}
+.t3-ns-role {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: ${n.cyan}; margin-bottom: 28px;
+  animation: t3FadeUp .6s .1s ease both;
+}
+.t3-ns-intro {
+  font-size: 15px; line-height: 1.85; color: ${n.textDim};
+  max-width: 540px; margin-bottom: 32px;
+  animation: t3FadeUp .6s .15s ease both;
+}
+.t3-ns-pills {
+  list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;
+  animation: t3FadeUp .6s .2s ease both;
+}
+.t3-ns-pills li {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12px; color: ${n.textDim};
+}
+.t3-ns-pills li svg { color: ${n.cyan}; flex-shrink: 0; }
+.t3-clock { font-variant-numeric: tabular-nums; }
+.t3-tz-label {
+  font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
+  color: ${n.textFaint}; margin-left: 4px;
+}
+
+/* Photo */
+.t3-nicola-right {
+  display: flex; flex-direction: column; align-items: center;
+  animation: t3FadeUp .6s .2s ease both;
+}
+.t3-photo-wrap {
+  position: relative; width: 100%; max-width: 340px;
+  clip-path: polygon(0 0, 100% 3%, 97% 100%, 3% 97%);
+}
+.t3-photo {
+  width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center;
+  display: block; filter: grayscale(60%) contrast(1.08); opacity: 0.85;
+}
+
+@keyframes t3FadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
+
+/* ══════════════════════════════════════════
+   GLITCH ZONES
+══════════════════════════════════════════ */
+.t3-glitch-zone {
+  position: relative; height: 180px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center; z-index: 1;
+}
+.t3-glitch-fwd .t3-glitch-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, ${n.bg} 0%, ${t.bg} 100%);
+}
+.t3-glitch-bwd .t3-glitch-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, ${t.bg} 0%, ${n.bg} 100%);
+}
+.t3-glitch-scanlines {
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,252,0.025) 2px, rgba(0,255,252,0.025) 4px);
+  animation: t3Scan 6s linear infinite;
+}
+@keyframes t3Scan { from{background-position:0 0} to{background-position:0 40px} }
+.t3-glitch-label {
+  position: relative; z-index: 2; font-family: ${n.serif}; font-style: italic;
+  font-size: clamp(1.2rem, 2.5vw, 2rem); font-weight: 700; color: ${n.cyan};
+  letter-spacing: 0.06em; animation: t3Gltch 4s infinite;
+}
+@keyframes t3Gltch {
+  0%,88%,100%{text-shadow:2px 0 rgba(255,0,100,.5),-2px 0 rgba(0,200,255,.5);transform:none}
+  90%{text-shadow:-5px 0 rgba(255,0,100,.8),5px 0 rgba(0,200,255,.8);transform:translateX(3px)}
+  93%{text-shadow:5px 0 rgba(255,0,100,.8),-5px 0 rgba(0,200,255,.8);transform:translateX(-3px)}
+  96%{text-shadow:2px 0 rgba(255,0,100,.5),-2px 0 rgba(0,200,255,.5);transform:none}
+}
+
+/* ══════════════════════════════════════════
+   SECTION 2 — PROSPECT (t33)
+══════════════════════════════════════════ */
+.t3-prospect {
+  background: ${t.bg}; color: ${t.text};
+  font-family: ${t.font}; position: relative; z-index: 1;
+}
+.t3-prospect-topbar {
+  background: rgba(255,255,255,0.95); border-bottom: 1px solid ${t.border};
+  padding: 0 64px; height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 20;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.t3-prospect-topbar-tag {
+  font-family: ${n.mono}; font-size: 11px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: ${t.textFaint};
+}
+
+/* Sub-sections */
+.t3-subsection { padding: 72px 64px 0; max-width: 1100px; margin: 0 auto; }
+.t3-subsection-bordered { border-top: 1px solid ${t.border}; }
+.t3-subsection-header { margin-bottom: 40px; }
+.t3-eyebrow {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: ${t.primary}; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.t3-eyebrow::before { content:''; width:24px; height:1px; background:${t.primary}; }
+.t3-headline {
+  font-size: clamp(1.8rem, 3.2vw, 3rem); font-weight: 700;
+  line-height: 1.15; color: ${t.text}; max-width: 780px;
+  margin-bottom: 20px; letter-spacing: -0.02em;
+}
+
+/* Body text for section A */
+.t3-body-text {
+  max-width: 680px;
+}
+.t3-body-text p {
+  font-size: 16px; line-height: 1.85; color: ${t.textDim};
+  margin-bottom: 16px; font-weight: 300;
+}
+.t3-body-text p:last-child { margin-bottom: 0; }
+
+/* Two-column layout */
+.t3-two-col {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+}
+.t3-two-col-text p {
+  font-size: 15px; line-height: 1.85; color: ${t.textDim}; font-weight: 300;
+  margin-bottom: 14px;
+}
+.t3-two-col-text p:last-child { margin-bottom: 0; }
+
+/* Observations card */
+.t3-obs-card {
+  background: ${t.cardBg}; border: 1px solid ${t.border};
+  padding: 28px 32px; border-radius: 8px;
+  border-left: 3px solid ${t.primary};
+}
+.t3-obs-list {
+  list-style: none; padding: 0; display: flex; flex-direction: column; gap: 18px;
+}
+.t3-obs-list li {
+  display: flex; align-items: flex-start; gap: 14px;
+  font-size: 14px; line-height: 1.65; color: ${t.text}; font-weight: 400;
+}
+.t3-obs-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: ${t.primary}; flex-shrink: 0; margin-top: 7px;
+}
+
+/* Strategy cards grid */
+.t3-strategy-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+  margin-top: 8px;
+}
+.t3-strategy-card {
+  background: ${t.cardBg}; border: 1px solid ${t.border};
+  padding: 36px 32px; transition: border-color 0.2s;
+}
+.t3-strategy-card:hover { border-color: rgba(33,33,33,0.15); }
+.t3-strategy-num {
+  font-family: ${n.mono}; font-size: 11px; letter-spacing: 2px;
+  color: ${t.primary}; margin-bottom: 14px; font-weight: 500;
+}
+.t3-strategy-title {
+  font-size: 18px; font-weight: 600; color: ${t.text};
+  margin-bottom: 10px; letter-spacing: -0.01em; line-height: 1.3;
+}
+.t3-strategy-desc {
+  font-size: 14px; line-height: 1.75; color: ${t.textDim}; font-weight: 300;
+}
+
+/* Closing thought */
+.t3-closing-thought {
+  padding-bottom: 80px; padding-top: 64px;
+  display: flex; align-items: center; justify-content: center;
+}
+.t3-thought {
+  max-width: 720px; text-align: center;
+  font-size: 18px; line-height: 1.85; font-style: italic;
+  color: ${t.textDim}; font-weight: 300;
+}
+
+/* ══════════════════════════════════════════
+   SECTION 3 — CLOSING
+══════════════════════════════════════════ */
+.t3-close {
+  position: relative; z-index: 1;
+  padding: 96px 64px; background: ${n.bg};
+  text-align: center;
+}
+.t3-close-inner { max-width: 700px; margin: 0 auto; }
+.t3-close-eyebrow {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: ${n.cyan}; margin-bottom: 24px;
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.t3-close-eyebrow::before { content:''; width:32px; height:1px; background:${n.cyan}; }
+.t3-close-eyebrow::after { content:''; width:32px; height:1px; background:${n.cyan}; }
+.t3-close-headline {
+  font-family: ${n.serif};
+  font-size: clamp(2rem, 3.5vw, 3.6rem); font-weight: 700;
+  line-height: 1.12; letter-spacing: -0.02em;
+  color: ${n.text}; margin-bottom: 20px;
+}
+.t3-close-sub {
+  font-size: 17px; line-height: 1.7; color: ${n.textDim};
+  margin-bottom: 40px;
+}
+.t3-close-cta-row { margin-bottom: 20px; }
+.t3-close-cta {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: ${n.cyan}; color: ${n.bg};
+  font-family: ${n.mono}; font-size: 11px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 16px 32px; text-decoration: none; transition: opacity 0.2s;
+}
+.t3-close-cta:hover { opacity: 0.85; }
+.t3-arr { width: 16px; height: 1px; background: ${n.bg}; position: relative; }
+.t3-arr::after {
+  content:''; position:absolute; right:0; top:-3px;
+  width:6px; height:6px;
+  border-right:1px solid ${n.bg}; border-top:1px solid ${n.bg};
+  transform:rotate(45deg);
+}
+.t3-close-wa {
+  font-size: 12px; color: ${n.textDim}; text-decoration: none;
+  transition: color 0.2s; display: inline-block;
+  border-bottom: 1px solid ${n.textFaint};
+  padding-bottom: 2px;
+}
+.t3-close-wa:hover { color: ${n.cyan}; border-color: ${n.cyan}; }
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+.t3-footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid ${n.cyanBorder};
+  padding: 24px 64px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: ${n.textFaint}; background: ${n.bg};
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media(max-width:960px){
+  .t3-nicola { grid-template-columns: 1fr; padding: 100px 28px 64px; gap: 40px; }
+  .t3-nicola-right { order: -1; max-width: 220px; margin: 0 auto; }
+  .t3-prospect-topbar { padding: 0 28px; }
+  .t3-prospect-topbar-tag { display: none; }
+  .t3-subsection { padding: 56px 28px 0; }
+  .t3-two-col { grid-template-columns: 1fr; gap: 32px; }
+  .t3-strategy-grid { grid-template-columns: 1fr; }
+  .t3-closing-thought { padding-bottom: 56px; }
+  .t3-close { padding: 64px 28px; }
+  .t3-footer { padding: 20px 28px; flex-direction: column; gap: 6px; text-align: center; }
+  .t3-glitch-zone { height: 140px; }
+}
+@media(max-width:480px){
+  .t3-nicola { padding: 90px 20px 48px; min-height: auto; }
+  .t3-nicola-right { max-width: 160px; }
+  .t3-ns-name { font-size: 2rem; }
+  .t3-subsection { padding: 40px 20px 0; }
+  .t3-obs-card { padding: 20px 24px; }
+  .t3-strategy-card { padding: 24px 20px; }
+  .t3-closing-thought { padding-bottom: 48px; padding-top: 48px; }
+  .t3-thought { font-size: 16px; }
+  .t3-close { padding: 48px 20px; }
+  .t3-footer { padding: 16px 20px; }
+  .t3-glitch-zone { height: 100px; }
+  .t3-prospect-topbar { padding: 0 20px; height: 56px; }
+}
+  `;
 }
 
 /* ================================================================
