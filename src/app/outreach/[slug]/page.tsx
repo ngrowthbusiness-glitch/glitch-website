@@ -1139,6 +1139,13 @@ function OutreachUnibag({ config, slug }: { config: OutreachConfig; slug: string
               </p>
             </div>
             <div className="ub-diff-card">
+              <Image
+                src="/images/outreach/unibag/bio.jpg"
+                alt="Shopper biodegradabili Unibag"
+                width={480}
+                height={280}
+                style={{ width: "100%", height: "auto", objectFit: "cover", borderRadius: 8, marginBottom: 20, border: "1px solid rgba(27,27,27,0.08)" }}
+              />
               <div className="ub-diff-card-title">I vostri differenziali</div>
               <ul className="ub-diff-list">
                 <li>
@@ -1166,6 +1173,11 @@ function OutreachUnibag({ config, slug }: { config: OutreachConfig; slug: string
         <div className="ub-section-block ub-section-border">
           <div className="ub-eyebrow">Competitor</div>
           <h2 className="ub-headline">Il mercato vi sta aspettando.</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, marginBottom: 32 }}>
+            <Image src="/images/outreach/unibag/flexiloop.jpg" alt="Flexiloop" width={360} height={240} style={{ width: "100%", height: "auto", objectFit: "cover", borderRadius: 8, border: "1px solid rgba(27,27,27,0.08)" }} />
+            <Image src="/images/outreach/unibag/shopper.jpg" alt="Shopper" width={360} height={240} style={{ width: "100%", height: "auto", objectFit: "cover", borderRadius: 8, border: "1px solid rgba(27,27,27,0.08)" }} />
+            <Image src="/images/outreach/unibag/patch.jpg" alt="Patch" width={360} height={240} style={{ width: "100%", height: "auto", objectFit: "cover", borderRadius: 8, border: "1px solid rgba(27,27,27,0.08)" }} />
+          </div>
           <div className="ub-comp-grid">
             <div className="ub-comp-card">
               <div className="ub-comp-name">Poliflex</div>
@@ -2550,17 +2562,29 @@ function OutreachTecnografting({ config, slug }: { config: OutreachConfig; slug:
         <div className="tg-subsection tg-subsection-bordered">
           <div className="tg-eyebrow">Differenziazione</div>
           <h2 className="tg-headline">Specializzazione italiana + R&amp;D sul campo.</h2>
-          <p className="tg-body">
-            La vostra specializzazione italiana nelle clip per innesti &mdash;
-            in particolare per piante spinose &mdash; &egrave; rara sul mercato.
-            La R&amp;D testata direttamente sul campo vi d&agrave; un vantaggio tecnico
-            che pochi possono replicare. L&apos;acquisizione da parte del Gruppo Paskal
-            vi apre una rete distributiva globale.
-          </p>
-          <p className="tg-body">
-            Ma l&apos;opportunit&agrave; digitale &egrave; ancora completamente scoperta.
-            Nessuno in questa nicchia sta intercettando la domanda online in modo strutturato.
-          </p>
+          <div className="tg-two-col">
+            <div className="tg-two-col-text">
+              <p className="tg-body">
+                La vostra specializzazione italiana nelle clip per innesti &mdash;
+                in particolare per piante spinose &mdash; &egrave; rara sul mercato.
+                La R&amp;D testata direttamente sul campo vi d&agrave; un vantaggio tecnico
+                che pochi possono replicare.
+              </p>
+              <p className="tg-body">
+                L&apos;acquisizione da parte del Gruppo Paskal vi apre una rete distributiva globale.
+                Ma l&apos;opportunit&agrave; digitale &egrave; ancora completamente scoperta.
+              </p>
+            </div>
+            <div className="tg-img-col">
+              <Image
+                src="/images/outreach/tecnografting/product1.jpg"
+                alt="Clip per innesti Tecnografting"
+                width={480}
+                height={286}
+                className="tg-section-img"
+              />
+            </div>
+          </div>
         </div>
 
         {/* ─── Sub-section C: Il metodo — 3 mesi ─── */}
@@ -2863,6 +2887,11 @@ body { background: ${n.bg}; color: ${n.text}; font-family: ${n.mono}; overflow-x
 }
 .tg-two-col-text p {
   font-size: 15px; line-height: 1.8; color: ${t.textDim}; font-weight: 300;
+}
+.tg-img-col { display: flex; align-items: center; }
+.tg-section-img {
+  width: 100%; height: auto; border-radius: 8px;
+  object-fit: cover; border: 1px solid ${t.border};
 }
 .tg-stat-cards { display: flex; flex-direction: column; gap: 12px; }
 .tg-stat-card {

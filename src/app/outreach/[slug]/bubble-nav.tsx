@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function BubbleNav() {
   const [visible, setVisible] = useState(true);
-  const [lastY, setLastY] = useState(0);
+  const lastY = useRef(0);
 
   useEffect(() => {
     let ticking = false;
@@ -13,35 +13,70 @@ export default function BubbleNav() {
       ticking = true;
       requestAnimationFrame(() => {
         const y = window.scrollY;
-        if (y > lastY && y > 80) setVisible(false);
+        if (y > lastY.current && y > 80) setVisible(false);
         else setVisible(true);
-        setLastY(y);
+        lastY.current = y;
         ticking = false;
       });
     };
-    // capture lastY in closure via ref-like pattern
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  });
+  }, []);
 
   return (
     <nav
-      className="cr-bubble-nav"
       style={{
+        position: "fixed",
+        top: 18,
+        left: "50%",
+        transform: "translateX(-50%)",
+        zIndex: 100,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        width: "min(92%, 860px)",
+        padding: "10px 24px",
+        borderRadius: 999,
+        background: "rgba(10,14,13,0.55)",
+        backdropFilter: "blur(18px)",
+        WebkitBackdropFilter: "blur(18px)",
+        border: "1px solid rgba(0,255,252,0.10)",
         opacity: visible ? 1 : 0,
         pointerEvents: visible ? "auto" : "none",
         transition: "opacity 0.35s ease",
       }}
     >
-      <div className="cr-bubble-logo">
-        <img src="/favicon.png" alt="" width={28} height={28} />
-        <span>NS</span>
+      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        <img src="/favicon.png" alt="" width={28} height={28} style={{ borderRadius: 4 }} />
+        <span
+          style={{
+            fontFamily: "'Playfair Display', serif",
+            fontSize: 15,
+            fontWeight: 700,
+            color: "#e8f0ff",
+            letterSpacing: "-0.3px",
+          }}
+        >
+          NS
+        </span>
       </div>
-      <div className="cr-bubble-links">
-        <a href="#chi-sono">Chi sono</a>
-        <a href="#il-progetto">Il progetto</a>
-        <a href="#competenze">Competenze</a>
-        <a href="#parliamone">Parliamone</a>
+      <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
+        {["Chi sono", "Il progetto", "Competenze", "Parliamone"].map((label) => (
+          <a
+            key={label}
+            href={`#${label.toLowerCase().replace(/ /g, "-")}`}
+            style={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: 10,
+              letterSpacing: "1.5px",
+              textTransform: "uppercase" as const,
+              color: "rgba(232,240,255,0.50)",
+              textDecoration: "none",
+            }}
+          >
+            {label}
+          </a>
+        ))}
       </div>
     </nav>
   );
