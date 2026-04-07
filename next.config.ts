@@ -26,6 +26,7 @@ const nextConfig: NextConfig = {
       { source: "/ulisse", destination: "/outreach/ulisse", permanent: true },
       { source: "/net-impianti", destination: "/outreach/net-impianti", permanent: true },
       { source: "/unibag", destination: "/outreach/unibag", permanent: true },
+      { source: "/tecnografting", destination: "/outreach/tecnografting", permanent: true },
     ];
   },
   async headers() {

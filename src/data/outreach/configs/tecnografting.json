@@ -1,0 +1,27 @@
+{
+  "slug": "tecnografting",
+  "companyName": "Tecnografting",
+  "sector": "Clip per innesti orticoli",
+  "logo": "/images/outreach/tecnografting/logo.png",
+  "palette": {
+    "primary": "#007ee5",
+    "primaryDim": "rgba(0,126,229,0.10)",
+    "background": "#f5f6f8",
+    "text": "#0f151a",
+    "textDim": "rgba(15,21,26,0.55)",
+    "border": "rgba(15,21,26,0.08)"
+  },
+  "headingFont": "Inter",
+  "heroTitle": "Tecnografting",
+  "heroSubtitle": "",
+  "sections": [],
+  "cta": {
+    "title": "Parliamone.",
+    "emailSubject": "Tecnografting \u2014 Ho visto la vostra analisi",
+    "whatsappText": "Ciao Nicola, ho visto l'analisi che hai fatto per Tecnografting. Parliamone.",
+    "showGlitchEconomics": false
+  },
+  "meta": {
+    "status": "draft"
+  }
+}

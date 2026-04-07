@@ -51,6 +51,7 @@ export default async function OutreachPage({
   const config = getOutreachConfig(slug);
   if (!config) notFound();
 
+  if (slug === "tecnografting") return <OutreachTecnografting config={config} slug={slug} />;
   if (slug === "unibag") return <OutreachUnibag config={config} slug={slug} />;
   if (slug === "net-impianti") return <OutreachNetImpianti config={config} slug={slug} />;
   if (slug === "cascioli-rent") return <OutreachCascioliRent config={config} slug={slug} />;
@@ -2414,6 +2415,598 @@ body { background: ${white}; color: ${textDark}; font-family: 'Inter', -apple-sy
   .ni-section { padding: 64px 0; }
   .ni-hero-cta-row { flex-direction: column; }
   .ni-btn-primary, .ni-btn-ghost { justify-content: center; width: 100%; }
+}
+  `;
+}
+
+/* ================================================================
+   TECNOGRAFTING — FULLY CUSTOM TEMPLATE
+   ================================================================ */
+
+function OutreachTecnografting({ config, slug }: { config: OutreachConfig; slug: string }) {
+  const today = new Date().toLocaleDateString("it-IT", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
+  return (
+    <>
+      <OutreachTracker slug={slug} />
+      <style>{tecnograftingCSS()}</style>
+
+      <div className="tg-bg-glow" />
+      <BubbleNav />
+
+      {/* ════════════════════════════════════════
+           SECTION 1 — NICOLA (dark)
+         ════════════════════════════════════════ */}
+      <section className="tg-nicola" id="chi-sono">
+        <div className="tg-nicola-left">
+          <div className="tg-ns-logo-row">
+            <Image src="/favicon.png" alt="" width={36} height={36} style={{ objectFit: "contain" }} />
+          </div>
+          <h1 className="tg-ns-name">Nicola Serrao</h1>
+          <div className="tg-ns-role">Digital Marketing Strategist</div>
+          <p className="tg-ns-intro">
+            Ho analizzato il vostro mercato &mdash; clip per innesti orticoli &mdash;
+            e ho individuato uno spazio che i vostri competitor non stanno coprendo.
+            Con il metodo giusto, in 3 mesi possiamo capire se Tecnografting pu&ograve;
+            costruire un sistema di acquisizione clienti digitale profittevole.
+          </p>
+          <ul className="tg-ns-pills">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ancona, Italia
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+              nicolaserrao.com
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Analisi del {today}
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <LiveClock />
+              <span className="tg-tz-label">Roma</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="tg-nicola-right">
+          <div className="tg-photo-wrap">
+            <Image
+              src="/images/nicola.png"
+              alt="Nicola Serrao"
+              width={360}
+              height={480}
+              priority
+              className="tg-photo"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+           GLITCH DIVIDER 1
+         ════════════════════════════════════════ */}
+      <div className="tg-glitch-zone tg-glitch-fwd" id="il-progetto">
+        <div className="tg-glitch-bg" />
+        <div className="tg-glitch-scanlines" />
+        <div className="tg-glitch-label">// quello che ho intravisto</div>
+      </div>
+
+      {/* ════════════════════════════════════════
+           SECTION 2 — TECNOGRAFTING (light)
+         ════════════════════════════════════════ */}
+      <section className="tg-prospect">
+
+        {/* Prospect sticky topbar */}
+        <div className="tg-prospect-topbar">
+          <Image
+            src={config.logo || "/favicon.png"}
+            alt={config.companyName}
+            width={160}
+            height={38}
+            style={{ objectFit: "contain", display: "block", maxWidth: 200, filter: "invert(1)" }}
+          />
+          <div className="tg-prospect-topbar-tag">Studio realizzato da Nicola Serrao</div>
+        </div>
+
+        {/* ─── Sub-section A: Il quadro ─── */}
+        <div className="tg-subsection" id="competenze">
+          <div className="tg-subsection-header">
+            <div className="tg-eyebrow">Il mercato</div>
+            <h2 className="tg-headline">Un mercato in crescita.<br />Una nicchia ancora libera.</h2>
+          </div>
+          <div className="tg-two-col">
+            <div className="tg-two-col-text">
+              <p>
+                Il mercato nursery tech cresce dell&apos;8% annuo. La domanda di clip affidabili
+                per innesti &egrave; in aumento. Eppure, quasi nessun player sta facendo
+                lead generation digitale mirata verso i vivai europei.
+              </p>
+            </div>
+            <div className="tg-stat-cards">
+              <div className="tg-stat-card">
+                <div className="tg-stat-value">+8% CAGR</div>
+                <div className="tg-stat-label">Nursery tech globale</div>
+              </div>
+              <div className="tg-stat-card">
+                <div className="tg-stat-value">0</div>
+                <div className="tg-stat-label">Competitor con lead gen digitale mirata</div>
+              </div>
+              <div className="tg-stat-card">
+                <div className="tg-stat-value">50+</div>
+                <div className="tg-stat-label">Anni di esperienza Tecnografting</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ─── Sub-section B: Il vostro vantaggio ─── */}
+        <div className="tg-subsection tg-subsection-bordered">
+          <div className="tg-eyebrow">Differenziazione</div>
+          <h2 className="tg-headline">Specializzazione italiana + R&amp;D sul campo.</h2>
+          <p className="tg-body">
+            La vostra specializzazione italiana nelle clip per innesti &mdash;
+            in particolare per piante spinose &mdash; &egrave; rara sul mercato.
+            La R&amp;D testata direttamente sul campo vi d&agrave; un vantaggio tecnico
+            che pochi possono replicare. L&apos;acquisizione da parte del Gruppo Paskal
+            vi apre una rete distributiva globale.
+          </p>
+          <p className="tg-body">
+            Ma l&apos;opportunit&agrave; digitale &egrave; ancora completamente scoperta.
+            Nessuno in questa nicchia sta intercettando la domanda online in modo strutturato.
+          </p>
+        </div>
+
+        {/* ─── Sub-section C: Il metodo — 3 mesi ─── */}
+        <div className="tg-subsection tg-subsection-bordered">
+          <div className="tg-eyebrow">La proposta</div>
+          <h2 className="tg-headline">3 mesi per avere una risposta.</h2>
+          <p className="tg-sub">
+            Non servono grandi budget. Serve un metodo. Strategia, analisi, creativit&agrave; &mdash; e test veloci.
+          </p>
+          <div className="tg-timeline">
+            <div className="tg-timeline-block">
+              <div className="tg-timeline-month">Mese 1</div>
+              <div className="tg-timeline-title">Analisi &amp; Strategia</div>
+              <div className="tg-timeline-desc">Capire il target, definire il messaggio, costruire gli asset.</div>
+            </div>
+            <div className="tg-timeline-block">
+              <div className="tg-timeline-month">Mese 2</div>
+              <div className="tg-timeline-title">Test &amp; Dati</div>
+              <div className="tg-timeline-desc">Lanciare, misurare, iterare. Budget contenuto, risultati concreti.</div>
+            </div>
+            <div className="tg-timeline-block">
+              <div className="tg-timeline-month">Mese 3</div>
+              <div className="tg-timeline-title">La risposta</div>
+              <div className="tg-timeline-desc">Il sistema funziona? Si scala. Non funziona? Avrete dati su cosa evitare.</div>
+            </div>
+          </div>
+          <div className="tg-highlight-box">
+            Con un buon metodo non si perde mai. Nel peggiore dei casi, avrete chiarezza.
+          </div>
+        </div>
+
+        {/* ─── Sub-section D: Ma prima, parliamoci ─── */}
+        <div className="tg-subsection tg-subsection-bordered">
+          <div className="tg-eyebrow">Il prossimo passo</div>
+          <h2 className="tg-headline">Queste sono ipotesi.<br />La soluzione vera esce solo da una chiacchierata.</h2>
+          <div className="tg-arrow-lines">
+            <div className="tg-arrow-line">
+              <span className="tg-arrow-icon">&rarr;</span>
+              <span>Non posso fare strategia senza conoscere i vostri obiettivi e le dinamiche aziendali.</span>
+            </div>
+            <div className="tg-arrow-line">
+              <span className="tg-arrow-icon">&rarr;</span>
+              <span>Quello che vedete qui &egrave; un&apos;analisi preliminare &mdash; il valore vero emerge dal confronto diretto.</span>
+            </div>
+            <div className="tg-arrow-line">
+              <span className="tg-arrow-icon">&rarr;</span>
+              <span>15 minuti bastano per capire se ci sono i presupposti per lavorare insieme.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+           GLITCH DIVIDER 2
+         ════════════════════════════════════════ */}
+      <div className="tg-glitch-zone tg-glitch-bwd">
+        <div className="tg-glitch-bg" />
+        <div className="tg-glitch-scanlines" />
+        <div className="tg-glitch-label">// e adesso?</div>
+      </div>
+
+      {/* ════════════════════════════════════════
+           SECTION 3 — CLOSING (dark, Nicola style)
+         ════════════════════════════════════════ */}
+      <section className="tg-close" id="parliamone">
+        <div className="tg-close-inner">
+          <div className="tg-close-eyebrow">Prossimo passo</div>
+          <h2 className="tg-close-headline">
+            Una chiacchierata<br />di 15 minuti.
+          </h2>
+          <p className="tg-close-sub">
+            Vi racconto quello che ho trovato. Poi decidete voi.
+          </p>
+          <div className="tg-close-cta-row">
+            <a
+              href={`mailto:${SITE.email}?subject=${encodeURIComponent(config.cta.emailSubject || "")}`}
+              className="tg-close-cta"
+            >
+              Scrivimi
+              <span className="tg-arr" />
+            </a>
+          </div>
+          <a
+            href={`${SITE.whatsapp}?text=${encodeURIComponent(config.cta.whatsappText || "")}`}
+            className="tg-close-wa"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            O scrivimi su WhatsApp
+          </a>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+           FOOTER
+         ════════════════════════════════════════ */}
+      <footer className="tg-footer">
+        <span>&copy; Nicola Serrao &middot; Digital Marketing Strategist &middot; nicolaserrao.com</span>
+        <span>{SITE.email} &middot; {SITE.phone}</span>
+      </footer>
+    </>
+  );
+}
+
+/* ── Tecnografting CSS ── */
+function tecnograftingCSS(): string {
+  /* Nicola palette */
+  const n = {
+    bg: "#0a0e0d",
+    cyan: "#00fffc",
+    cyanDim: "rgba(0,255,252,0.10)",
+    cyanBorder: "rgba(0,255,252,0.22)",
+    text: "#e8f0ff",
+    textDim: "rgba(232,240,255,0.50)",
+    textFaint: "rgba(232,240,255,0.20)",
+    serif: "'Playfair Display', serif",
+    mono: "'DM Mono', monospace",
+  };
+  /* Tecnografting palette */
+  const t = {
+    bg: "#f5f6f8",
+    primary: "#007ee5",
+    accent: "#056ab2",
+    cardBg: "#ffffff",
+    text: "#0f151a",
+    textDim: "rgba(15,21,26,0.55)",
+    textFaint: "rgba(15,21,26,0.35)",
+    border: "rgba(15,21,26,0.08)",
+    font: "'Inter', system-ui, sans-serif",
+  };
+
+  return `
+/* ══════════════════════════════════════════
+   TECNOGRAFTING — RESET & BASE
+══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: ${n.bg}; color: ${n.text}; font-family: ${n.mono}; overflow-x: hidden; }
+.tg-bg-glow {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 30%, rgba(0,255,252,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(0,255,252,0.02) 0%, transparent 50%);
+}
+
+/* ══════════════════════════════════════════
+   BUBBLE NAV
+══════════════════════════════════════════ */
+.tg-bubble-nav {
+  position: fixed; top: 18px; left: 50%; transform: translateX(-50%);
+  z-index: 100; display: flex; align-items: center; justify-content: space-between;
+  width: min(92%, 860px); padding: 10px 24px;
+  border-radius: 999px;
+  background: rgba(10,14,13,0.55);
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(0,255,252,0.10);
+}
+
+/* ══════════════════════════════════════════
+   SECTION 1 — NICOLA
+══════════════════════════════════════════ */
+.tg-nicola {
+  position: relative; z-index: 1;
+  min-height: 100vh; padding: 100px 64px 80px;
+  display: grid; grid-template-columns: 1fr 380px;
+  gap: 60px; align-items: center;
+}
+.tg-nicola::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, ${n.cyanBorder}, transparent);
+}
+.tg-ns-logo-row { margin-bottom: 20px; animation: tgFadeUp .6s ease both; }
+.tg-ns-name {
+  font-family: ${n.serif}; font-size: clamp(2.2rem, 3.5vw, 3.6rem);
+  font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;
+  color: ${n.text}; margin-bottom: 8px;
+  animation: tgFadeUp .6s .05s ease both;
+}
+.tg-ns-role {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: ${n.cyan}; margin-bottom: 28px;
+  animation: tgFadeUp .6s .1s ease both;
+}
+.tg-ns-intro {
+  font-size: 15px; line-height: 1.8; color: ${n.textDim};
+  max-width: 520px; margin-bottom: 32px;
+  animation: tgFadeUp .6s .15s ease both;
+}
+.tg-ns-pills {
+  list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;
+  animation: tgFadeUp .6s .2s ease both;
+}
+.tg-ns-pills li {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12px; color: ${n.textDim};
+}
+.tg-ns-pills li svg { color: ${n.cyan}; flex-shrink: 0; }
+.tg-clock { font-variant-numeric: tabular-nums; }
+.tg-tz-label {
+  font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
+  color: ${n.textFaint}; margin-left: 4px;
+}
+
+/* Photo */
+.tg-nicola-right {
+  display: flex; flex-direction: column; align-items: center;
+  animation: tgFadeUp .6s .2s ease both;
+}
+.tg-photo-wrap {
+  position: relative; width: 100%; max-width: 340px;
+  clip-path: polygon(0 0, 100% 3%, 97% 100%, 3% 97%);
+}
+.tg-photo {
+  width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center;
+  display: block; filter: grayscale(60%) contrast(1.08); opacity: 0.85;
+}
+
+@keyframes tgFadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
+
+/* ══════════════════════════════════════════
+   GLITCH ZONES
+══════════════════════════════════════════ */
+.tg-glitch-zone {
+  position: relative; height: 180px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center; z-index: 1;
+}
+.tg-glitch-fwd .tg-glitch-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, ${n.bg} 0%, ${t.bg} 100%);
+}
+.tg-glitch-bwd .tg-glitch-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, ${t.bg} 0%, ${n.bg} 100%);
+}
+.tg-glitch-scanlines {
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,252,0.025) 2px, rgba(0,255,252,0.025) 4px);
+  animation: tgScan 6s linear infinite;
+}
+@keyframes tgScan { from{background-position:0 0} to{background-position:0 40px} }
+.tg-glitch-label {
+  position: relative; z-index: 2; font-family: ${n.serif}; font-style: italic;
+  font-size: clamp(1.2rem, 2.5vw, 2rem); font-weight: 700; color: ${n.cyan};
+  letter-spacing: 0.06em; animation: tgGltch 4s infinite;
+}
+@keyframes tgGltch {
+  0%,88%,100%{text-shadow:2px 0 rgba(255,0,100,.5),-2px 0 rgba(0,200,255,.5);transform:none}
+  90%{text-shadow:-5px 0 rgba(255,0,100,.8),5px 0 rgba(0,200,255,.8);transform:translateX(3px)}
+  93%{text-shadow:5px 0 rgba(255,0,100,.8),-5px 0 rgba(0,200,255,.8);transform:translateX(-3px)}
+  96%{text-shadow:2px 0 rgba(255,0,100,.5),-2px 0 rgba(0,200,255,.5);transform:none}
+}
+
+/* ══════════════════════════════════════════
+   SECTION 2 — PROSPECT
+══════════════════════════════════════════ */
+.tg-prospect {
+  background: ${t.bg}; color: ${t.text};
+  font-family: ${t.font}; position: relative; z-index: 1;
+}
+.tg-prospect-topbar {
+  background: rgba(245,246,248,0.95); border-bottom: 1px solid ${t.border};
+  padding: 0 64px; height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 20;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.tg-prospect-topbar-tag {
+  font-family: ${n.mono}; font-size: 11px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: ${t.textFaint};
+}
+
+/* Sub-sections */
+.tg-subsection { padding: 72px 64px 0; max-width: 1100px; margin: 0 auto; }
+.tg-subsection-bordered { border-top: 1px solid ${t.border}; }
+.tg-subsection-header { margin-bottom: 40px; }
+.tg-eyebrow {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: ${t.primary}; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.tg-eyebrow::before { content:''; width:24px; height:1px; background:${t.primary}; }
+.tg-headline {
+  font-size: clamp(1.8rem, 3.2vw, 3rem); font-weight: 700;
+  line-height: 1.15; color: ${t.text}; max-width: 780px;
+  margin-bottom: 20px; letter-spacing: -0.02em;
+}
+.tg-sub {
+  font-size: 16px; line-height: 1.8; color: ${t.textDim};
+  max-width: 640px; margin-bottom: 40px; font-weight: 300;
+}
+.tg-body {
+  font-size: 15px; line-height: 1.8; color: ${t.textDim};
+  max-width: 640px; margin-bottom: 16px; font-weight: 300;
+}
+
+/* Two-column layout (text + stats) */
+.tg-two-col {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+}
+.tg-two-col-text p {
+  font-size: 15px; line-height: 1.8; color: ${t.textDim}; font-weight: 300;
+}
+.tg-stat-cards { display: flex; flex-direction: column; gap: 12px; }
+.tg-stat-card {
+  background: ${t.cardBg}; border: 1px solid ${t.border};
+  padding: 20px 24px; display: flex; align-items: center; gap: 16px;
+}
+.tg-stat-value {
+  font-size: 20px; font-weight: 700; color: ${t.primary};
+  white-space: nowrap; min-width: 90px;
+}
+.tg-stat-label {
+  font-size: 12px; line-height: 1.5; color: ${t.textDim}; font-weight: 300;
+}
+
+/* Timeline */
+.tg-timeline {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  margin-bottom: 32px;
+}
+.tg-timeline-block {
+  background: ${t.cardBg}; border: 1px solid ${t.border}; padding: 28px 24px;
+}
+.tg-timeline-month {
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: ${t.primary}; font-weight: 700; margin-bottom: 12px;
+}
+.tg-timeline-title {
+  font-size: 16px; font-weight: 700; color: ${t.text};
+  margin-bottom: 8px; letter-spacing: -0.01em;
+}
+.tg-timeline-desc {
+  font-size: 13px; line-height: 1.7; color: ${t.textDim}; font-weight: 300;
+}
+
+/* Highlight box */
+.tg-highlight-box {
+  background: ${t.primary}; color: #ffffff;
+  padding: 24px 32px; font-size: 15px; font-weight: 500;
+  line-height: 1.6; letter-spacing: -0.01em;
+}
+
+/* Arrow lines */
+.tg-arrow-lines {
+  display: flex; flex-direction: column; gap: 20px;
+  padding-bottom: 72px;
+}
+.tg-arrow-line {
+  display: flex; align-items: flex-start; gap: 14px;
+  font-size: 15px; line-height: 1.7; color: ${t.textDim}; font-weight: 300;
+}
+.tg-arrow-icon {
+  color: ${t.primary}; flex-shrink: 0; margin-top: 2px; font-size: 14px;
+}
+
+/* ══════════════════════════════════════════
+   SECTION 3 — CLOSING
+══════════════════════════════════════════ */
+.tg-close {
+  position: relative; z-index: 1;
+  padding: 96px 64px; background: ${n.bg};
+  text-align: center;
+}
+.tg-close-inner { max-width: 700px; margin: 0 auto; }
+.tg-close-eyebrow {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: ${n.cyan}; margin-bottom: 24px;
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.tg-close-eyebrow::before { content:''; width:32px; height:1px; background:${n.cyan}; }
+.tg-close-eyebrow::after { content:''; width:32px; height:1px; background:${n.cyan}; }
+.tg-close-headline {
+  font-family: ${n.serif};
+  font-size: clamp(2rem, 3.5vw, 3.6rem); font-weight: 700;
+  line-height: 1.12; letter-spacing: -0.02em;
+  color: ${n.text}; margin-bottom: 20px;
+}
+.tg-close-sub {
+  font-size: 17px; line-height: 1.7; color: ${n.textDim};
+  margin-bottom: 40px;
+}
+.tg-close-cta-row { margin-bottom: 20px; }
+.tg-close-cta {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: ${n.cyan}; color: ${n.bg};
+  font-family: ${n.mono}; font-size: 11px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 16px 32px; text-decoration: none; transition: opacity 0.2s;
+}
+.tg-close-cta:hover { opacity: 0.85; }
+.tg-arr { width: 16px; height: 1px; background: ${n.bg}; position: relative; }
+.tg-arr::after {
+  content:''; position:absolute; right:0; top:-3px;
+  width:6px; height:6px;
+  border-right:1px solid ${n.bg}; border-top:1px solid ${n.bg};
+  transform:rotate(45deg);
+}
+.tg-close-wa {
+  font-size: 12px; color: ${n.textDim}; text-decoration: none;
+  transition: color 0.2s; display: inline-block;
+  border-bottom: 1px solid ${n.textFaint};
+  padding-bottom: 2px;
+}
+.tg-close-wa:hover { color: ${n.cyan}; border-color: ${n.cyan}; }
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+.tg-footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid ${n.cyanBorder};
+  padding: 24px 64px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: ${n.textFaint}; background: ${n.bg};
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media(max-width:960px){
+  .tg-nicola { grid-template-columns: 1fr; padding: 100px 28px 64px; gap: 40px; }
+  .tg-nicola-right { order: -1; max-width: 220px; margin: 0 auto; }
+  .tg-prospect-topbar { padding: 0 28px; }
+  .tg-prospect-topbar-tag { display: none; }
+  .tg-subsection { padding: 56px 28px 0; }
+  .tg-two-col { grid-template-columns: 1fr; gap: 32px; }
+  .tg-timeline { grid-template-columns: 1fr; }
+  .tg-arrow-lines { padding-bottom: 56px; }
+  .tg-close { padding: 64px 28px; }
+  .tg-footer { padding: 20px 28px; flex-direction: column; gap: 6px; text-align: center; }
+  .tg-glitch-zone { height: 140px; }
+}
+@media(max-width:480px){
+  .tg-nicola { padding: 90px 20px 48px; min-height: auto; }
+  .tg-nicola-right { max-width: 160px; }
+  .tg-ns-name { font-size: 2rem; }
+  .tg-subsection { padding: 40px 20px 0; }
+  .tg-stat-card { flex-direction: column; align-items: flex-start; gap: 4px; padding: 16px 20px; }
+  .tg-timeline-block { padding: 20px 16px; }
+  .tg-highlight-box { padding: 20px 24px; font-size: 14px; }
+  .tg-close { padding: 48px 20px; }
+  .tg-footer { padding: 16px 20px; }
+  .tg-glitch-zone { height: 100px; }
+  .tg-prospect-topbar { padding: 0 20px; height: 56px; }
 }
   `;
 }
