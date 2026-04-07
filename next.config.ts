@@ -24,6 +24,7 @@ const nextConfig: NextConfig = {
       { source: "/von-schnauzer", destination: "/outreach/von-schnauzer", permanent: true },
       { source: "/lm-legnami", destination: "/outreach/lm-legnami", permanent: true },
       { source: "/ulisse", destination: "/outreach/ulisse", permanent: true },
+      { source: "/net-impianti", destination: "/outreach/net-impianti", permanent: true },
     ];
   },
   async headers() {

@@ -8,6 +8,8 @@ import OutreachTracker from "./tracker";
 import ResponseBox from "./response-box";
 import BubbleNav from "./bubble-nav";
 import LiveClock from "./live-clock";
+import LogoSlider from "./logo-slider";
+import NetImpiantiForm from "./net-impianti-form";
 
 export async function generateStaticParams() {
   return getAllOutreachSlugs().map((slug) => ({ slug }));
@@ -49,6 +51,7 @@ export default async function OutreachPage({
   const config = getOutreachConfig(slug);
   if (!config) notFound();
 
+  if (slug === "net-impianti") return <OutreachNetImpianti config={config} slug={slug} />;
   if (slug === "cascioli-rent") return <OutreachCascioliRent config={config} slug={slug} />;
   if (config.pitch) return <OutreachV3 config={config} slug={slug} />;
   return <OutreachV2 config={config} slug={slug} />;
@@ -1013,6 +1016,654 @@ body { background: ${NS.bg}; color: ${NS.text}; font-family: ${NS.mono}; overflo
   .close-cta-mail { justify-content:center; }
   .site-footer { padding:20px; }
   .glitch-zone { height:120px; }
+}
+  `;
+}
+
+/* ================================================================
+   NET IMPIANTI — SITE DEMO (outreach as website mockup)
+   ================================================================ */
+
+function OutreachNetImpianti({ config, slug }: { config: OutreachConfig; slug: string }) {
+  return (
+    <>
+      <OutreachTracker slug={slug} />
+      <style>{netImpiantiCSS()}</style>
+
+      {/* ── Banner Nicola (sottile, non invasivo) ── */}
+      <div className="ni-banner">
+        <span>
+          Bozza realizzata da <strong>Nicola Serrao</strong> per N.E.T. Impianti &mdash;{" "}
+          <a href="#ni-perche">Scopri perch&eacute; &darr;</a>
+        </span>
+      </div>
+
+      {/* ── Navbar ── */}
+      <nav className="ni-nav">
+        <div className="ni-nav-inner">
+          <a href="#" className="ni-nav-logo">
+            <span className="ni-nav-logo-icon">&#9889;</span>
+            N.E.T. Impianti
+          </a>
+          <div className="ni-nav-links">
+            <a href="#ni-servizi">Servizi</a>
+            <a href="#ni-progetti">Progetti</a>
+            <a href="#ni-chi-siamo">Chi siamo</a>
+            <a href="#ni-contatti" className="ni-nav-cta">Preventivo gratuito</a>
+          </div>
+        </div>
+      </nav>
+
+      {/* ════════════════════════════════════════
+          HERO
+      ════════════════════════════════════════ */}
+      <section className="ni-hero">
+        <div className="ni-hero-content">
+          <div className="ni-hero-eyebrow">Impianti elettrici &middot; Telecomunicazioni &middot; Dal 2004</div>
+          <h1 className="ni-hero-h1">
+            Progettiamo impianti elettrici<br />
+            che fanno funzionare<br />
+            <em>le aziende che contano.</em>
+          </h1>
+          <p className="ni-hero-sub">
+            Da oltre 20 anni, NET Impianti realizza soluzioni elettriche e di telecomunicazione per
+            l&apos;industria, il civile e le grandi infrastrutture. Da Falconara Marittima all&apos;Europa.
+          </p>
+          <div className="ni-hero-cta-row">
+            <a href="#ni-contatti" className="ni-btn-primary">
+              Richiedi preventivo gratuito
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </a>
+            <a href="#ni-progetti" className="ni-btn-ghost">Guarda i progetti</a>
+          </div>
+          <div className="ni-hero-stats">
+            <div className="ni-stat">
+              <span className="ni-stat-num">20+</span>
+              <span className="ni-stat-label">Anni di esperienza</span>
+            </div>
+            <div className="ni-stat-divider" />
+            <div className="ni-stat">
+              <span className="ni-stat-num">2.3M&euro;</span>
+              <span className="ni-stat-label">Fatturato 2023</span>
+            </div>
+            <div className="ni-stat-divider" />
+            <div className="ni-stat">
+              <span className="ni-stat-num">12</span>
+              <span className="ni-stat-label">Specialisti</span>
+            </div>
+            <div className="ni-stat-divider" />
+            <div className="ni-stat">
+              <span className="ni-stat-num">EU</span>
+              <span className="ni-stat-label">Progetti internazionali</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Logo slider ── */}
+      <LogoSlider />
+
+      {/* ════════════════════════════════════════
+          SERVIZI
+      ════════════════════════════════════════ */}
+      <section className="ni-section ni-section-light" id="ni-servizi">
+        <div className="ni-container">
+          <div className="ni-section-header">
+            <span className="ni-eyebrow">Servizi</span>
+            <h2 className="ni-h2">Soluzioni per ogni scala di progetto</h2>
+            <p className="ni-section-sub">Dal piccolo intervento civile ai grandi impianti industriali e infrastrutturali.</p>
+          </div>
+          <div className="ni-services-grid">
+            <div className="ni-service-card">
+              <div className="ni-service-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>
+              </div>
+              <h3 className="ni-service-title">Impianti civili</h3>
+              <p className="ni-service-desc">Progettazione e installazione di impianti elettrici per edifici residenziali e commerciali. Certificazioni e conformit&agrave; normativa.</p>
+            </div>
+            <div className="ni-service-card">
+              <div className="ni-service-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M2 20h20M5 20V10l7-6 7 6v10" /><rect x="9" y="14" width="6" height="6" /></svg>
+              </div>
+              <h3 className="ni-service-title">Impianti industriali</h3>
+              <p className="ni-service-desc">Soluzioni elettriche per stabilimenti produttivi, centrali energetiche e infrastrutture critiche. Esperienza su progetti Enel e Tirreno Power.</p>
+            </div>
+            <div className="ni-service-card">
+              <div className="ni-service-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg>
+              </div>
+              <h3 className="ni-service-title">Telecomunicazioni</h3>
+              <p className="ni-service-desc">Reti dati, fibra ottica, cablaggi strutturati e sistemi di comunicazione per aziende e enti pubblici.</p>
+            </div>
+            <div className="ni-service-card">
+              <div className="ni-service-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" /></svg>
+              </div>
+              <h3 className="ni-service-title">Manutenzione</h3>
+              <p className="ni-service-desc">Assistenza programmata e interventi rapidi. Contratti di manutenzione per garantire continuit&agrave; operativa ai vostri impianti.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+          PROGETTI
+      ════════════════════════════════════════ */}
+      <section className="ni-section ni-section-dark" id="ni-progetti">
+        <div className="ni-container">
+          <div className="ni-section-header ni-section-header--light">
+            <span className="ni-eyebrow ni-eyebrow--light">Progetti</span>
+            <h2 className="ni-h2 ni-h2--light">Dall&apos;Italia all&apos;Europa</h2>
+            <p className="ni-section-sub ni-section-sub--light">Alcuni dei progetti pi&ugrave; significativi realizzati dal nostro team.</p>
+          </div>
+          <div className="ni-projects-grid">
+            <div className="ni-project-card ni-project-featured">
+              <div className="ni-project-img-placeholder">
+                <span>Centrale Enel &mdash; Slovacchia</span>
+              </div>
+              <div className="ni-project-info">
+                <span className="ni-project-tag">Internazionale &middot; Industriale</span>
+                <h3 className="ni-project-title">Centrale Enel &mdash; Slovacchia</h3>
+                <p className="ni-project-desc">Impianto elettrico completo per centrale di produzione energetica. Progettazione, installazione e collaudo in conformit&agrave; agli standard europei.</p>
+              </div>
+            </div>
+            <div className="ni-project-card">
+              <div className="ni-project-img-placeholder">
+                <span>Tirreno Power</span>
+              </div>
+              <div className="ni-project-info">
+                <span className="ni-project-tag">Nazionale &middot; Energia</span>
+                <h3 className="ni-project-title">Centrale Tirreno Power</h3>
+                <p className="ni-project-desc">Interventi di manutenzione e potenziamento degli impianti elettrici della centrale.</p>
+              </div>
+            </div>
+            <div className="ni-project-card">
+              <div className="ni-project-img-placeholder">
+                <span>Piattaforme industriali</span>
+              </div>
+              <div className="ni-project-info">
+                <span className="ni-project-tag">Infrastrutture &middot; Speciale</span>
+                <h3 className="ni-project-title">Piattaforme industriali</h3>
+                <p className="ni-project-desc">Installazione e cablaggio elettrico per piattaforme operative in ambienti complessi.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+          CHI SIAMO
+      ════════════════════════════════════════ */}
+      <section className="ni-section ni-section-light" id="ni-chi-siamo">
+        <div className="ni-container">
+          <div className="ni-about-grid">
+            <div className="ni-about-text">
+              <span className="ni-eyebrow">Chi siamo</span>
+              <h2 className="ni-h2">Un team che costruisce con passione dal 2004</h2>
+              <p className="ni-about-body">
+                N.E.T. Impianti nasce a Falconara Marittima con una missione chiara: offrire soluzioni
+                elettriche e di telecomunicazione affidabili, sicure e all&apos;avanguardia.
+              </p>
+              <p className="ni-about-body">
+                In oltre 20 anni abbiamo costruito un team di 12 specialisti capaci di operare
+                su progetti di qualsiasi dimensione &mdash; dal piccolo impianto civile alle grandi
+                centrali energetiche internazionali.
+              </p>
+              <p className="ni-about-body">
+                La nostra forza? Esperienza su grandi progetti, presenza radicata nel territorio
+                e un&apos;assistenza che non si ferma alla consegna.
+              </p>
+            </div>
+            <div className="ni-about-numbers">
+              <div className="ni-about-num-card">
+                <span className="ni-about-num">2004</span>
+                <span className="ni-about-num-label">Anno di fondazione</span>
+              </div>
+              <div className="ni-about-num-card">
+                <span className="ni-about-num">12</span>
+                <span className="ni-about-num-label">Professionisti nel team</span>
+              </div>
+              <div className="ni-about-num-card">
+                <span className="ni-about-num">2.3M&euro;</span>
+                <span className="ni-about-num-label">Fatturato 2023</span>
+              </div>
+              <div className="ni-about-num-card">
+                <span className="ni-about-num">+48%</span>
+                <span className="ni-about-num-label">Crescita ricavi YoY</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+          CONTATTI
+      ════════════════════════════════════════ */}
+      <section className="ni-section ni-section-light ni-contacts" id="ni-contatti">
+        <div className="ni-container">
+          <div className="ni-contact-grid">
+            <div className="ni-contact-text">
+              <span className="ni-eyebrow">Contatti</span>
+              <h2 className="ni-h2">Parliamo del vostro progetto</h2>
+              <p className="ni-about-body">
+                Compilate il form e vi ricontatteremo entro 24 ore con una valutazione preliminare gratuita.
+              </p>
+              <div className="ni-contact-info">
+                <div className="ni-contact-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" /></svg>
+                  <span>071 7497830</span>
+                </div>
+                <div className="ni-contact-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg>
+                  <span>Via del Lavoro 2, Falconara M. (AN)</span>
+                </div>
+                <div className="ni-contact-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2" /><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" /></svg>
+                  <span>P.IVA 02187070426</span>
+                </div>
+              </div>
+            </div>
+            <div className="ni-contact-form-wrap">
+              <NetImpiantiForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+          NOTA NICOLA (sottile, in fondo)
+      ════════════════════════════════════════ */}
+      <section className="ni-nicola-note" id="ni-perche">
+        <div className="ni-container">
+          <div className="ni-note-inner">
+            <Image src="/favicon.png" alt="NS" width={32} height={32} style={{ objectFit: "contain", opacity: 0.8 }} />
+            <div className="ni-note-text">
+              <p className="ni-note-main">
+                Questa bozza &egrave; stata creata da <strong>Nicola Serrao</strong>, Digital Marketing Strategist.
+                Creare siti web non &egrave; il mio forte &mdash; io mi occupo di strategia marketing.
+              </p>
+              <p className="ni-note-main">
+                Ma volevo farvi vedere cosa si potrebbe fare con la vostra presenza online.
+                Se internamente avete mai pensato di investire nel marketing digitale per generare
+                pi&ugrave; richieste di preventivo, questa potrebbe essere un&apos;occasione per conoscerci.
+              </p>
+              <a href={`mailto:${SITE.email}?subject=NET%20Impianti%20%E2%80%94%20Ho%20visto%20la%20bozza`} className="ni-note-cta">
+                Scrivimi &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Footer ── */}
+      <footer className="ni-footer">
+        <div className="ni-container">
+          <div className="ni-footer-grid">
+            <div>
+              <span className="ni-footer-brand">&#9889; N.E.T. Impianti</span>
+              <p className="ni-footer-desc">Network Electrical And Telecommunication S.r.l.</p>
+            </div>
+            <div className="ni-footer-col">
+              <span className="ni-footer-label">Sede</span>
+              <span>Via del Lavoro 2</span>
+              <span>60015 Falconara Marittima (AN)</span>
+            </div>
+            <div className="ni-footer-col">
+              <span className="ni-footer-label">Contatti</span>
+              <span>Tel: 071 7497830</span>
+              <span>P.IVA: 02187070426</span>
+            </div>
+          </div>
+          <div className="ni-footer-bottom">
+            <span>&copy; 2026 N.E.T. Impianti S.r.l. &mdash; Tutti i diritti riservati</span>
+          </div>
+        </div>
+      </footer>
+    </>
+  );
+}
+
+/* ── NET IMPIANTI CSS ── */
+function netImpiantiCSS(): string {
+  const navy = "#0a1628";
+  const blue = "#3b82f6";
+  const orange = "#f59e0b";
+  const light = "#f8fafc";
+  const white = "#ffffff";
+  const textDark = "#1e293b";
+  const textDim = "#64748b";
+  const border = "rgba(30,41,59,0.08)";
+
+  return `
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: ${white}; color: ${textDark}; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+.ni-container { max-width: 1120px; margin: 0 auto; padding: 0 48px; }
+
+/* ── Banner Nicola ── */
+.ni-banner {
+  background: ${navy}; color: rgba(248,250,252,0.7);
+  text-align: center; padding: 10px 24px;
+  font-size: 12px; letter-spacing: 0.3px; line-height: 1.5;
+  position: relative; z-index: 50;
+}
+.ni-banner strong { color: #fff; }
+.ni-banner a { color: ${blue}; text-decoration: none; }
+.ni-banner a:hover { text-decoration: underline; }
+
+/* ── Navbar ── */
+.ni-nav {
+  position: sticky; top: 0; z-index: 40;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid ${border};
+  padding: 0 48px;
+}
+.ni-nav-inner {
+  max-width: 1120px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.ni-nav-logo {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 16px; font-weight: 700; color: ${navy};
+  text-decoration: none; letter-spacing: -0.02em;
+}
+.ni-nav-logo-icon { font-size: 20px; }
+.ni-nav-links { display: flex; align-items: center; gap: 32px; }
+.ni-nav-links a {
+  font-size: 13px; font-weight: 500; color: ${textDim};
+  text-decoration: none; transition: color 0.2s;
+}
+.ni-nav-links a:hover { color: ${textDark}; }
+.ni-nav-cta {
+  background: ${orange} !important; color: ${white} !important;
+  padding: 8px 20px !important; border-radius: 6px;
+  font-weight: 600 !important; font-size: 12px !important;
+  letter-spacing: 0.3px; transition: opacity 0.2s !important;
+}
+.ni-nav-cta:hover { opacity: 0.9; }
+
+/* ── Hero ── */
+.ni-hero {
+  background: ${navy}; color: #fff;
+  padding: 120px 48px 80px; position: relative;
+  overflow: hidden;
+}
+.ni-hero::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 60% 60% at 70% 40%, rgba(59,130,246,0.08) 0%, transparent 70%);
+}
+.ni-hero-content { max-width: 1120px; margin: 0 auto; position: relative; z-index: 1; }
+.ni-hero-eyebrow {
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  color: ${blue}; margin-bottom: 28px; font-weight: 500;
+}
+.ni-hero-h1 {
+  font-size: clamp(2.4rem, 4.5vw, 4rem); font-weight: 800;
+  line-height: 1.1; letter-spacing: -0.03em;
+  margin-bottom: 24px; max-width: 720px;
+}
+.ni-hero-h1 em { font-style: italic; color: ${blue}; }
+.ni-hero-sub {
+  font-size: 17px; line-height: 1.75; color: rgba(248,250,252,0.6);
+  max-width: 560px; margin-bottom: 40px; font-weight: 300;
+}
+.ni-hero-cta-row { display: flex; gap: 16px; margin-bottom: 56px; flex-wrap: wrap; }
+.ni-btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: ${orange}; color: ${white};
+  font-size: 13px; font-weight: 600; letter-spacing: 0.3px;
+  padding: 14px 28px; border-radius: 8px; text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.ni-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,158,11,0.3); }
+.ni-btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: rgba(248,250,252,0.7);
+  font-size: 13px; font-weight: 500;
+  padding: 14px 28px; border-radius: 8px; text-decoration: none;
+  border: 1px solid rgba(248,250,252,0.15);
+  transition: all 0.2s;
+}
+.ni-btn-ghost:hover { color: #fff; border-color: rgba(248,250,252,0.3); background: rgba(248,250,252,0.05); }
+
+/* Stats */
+.ni-hero-stats {
+  display: flex; align-items: center; gap: 0;
+}
+.ni-stat { display: flex; flex-direction: column; gap: 4px; padding: 0 32px; }
+.ni-stat:first-child { padding-left: 0; }
+.ni-stat-num {
+  font-size: 28px; font-weight: 800; color: #fff;
+  letter-spacing: -0.03em; line-height: 1;
+}
+.ni-stat-label {
+  font-size: 11px; color: rgba(248,250,252,0.4);
+  letter-spacing: 0.5px;
+}
+.ni-stat-divider {
+  width: 1px; height: 40px; background: rgba(248,250,252,0.1);
+}
+
+/* ── Logo Slider ── */
+.ni-slider-wrap {
+  background: ${light}; border-bottom: 1px solid ${border};
+  padding: 24px 0; overflow: hidden;
+}
+.ni-slider-label {
+  text-align: center; font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; color: ${textDim}; margin-bottom: 20px;
+}
+.ni-slider-track { overflow: hidden; position: relative; }
+.ni-slider-inner {
+  display: flex; gap: 48px; animation: niSlide 20s linear infinite;
+  width: max-content;
+}
+.ni-slider-item {
+  font-size: 14px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(30,41,59,0.2);
+  white-space: nowrap; flex-shrink: 0;
+}
+@keyframes niSlide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ── Sections ── */
+.ni-section { padding: 96px 0; }
+.ni-section-light { background: ${white}; }
+.ni-section-dark { background: ${navy}; }
+.ni-section-header { text-align: center; margin-bottom: 64px; }
+.ni-eyebrow {
+  display: inline-block; font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: ${blue}; font-weight: 600;
+  margin-bottom: 16px;
+}
+.ni-eyebrow--light { color: rgba(59,130,246,0.8); }
+.ni-h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800;
+  line-height: 1.15; letter-spacing: -0.02em;
+  color: ${textDark}; margin-bottom: 16px;
+}
+.ni-h2--light { color: #fff; }
+.ni-section-sub { font-size: 16px; line-height: 1.7; color: ${textDim}; max-width: 520px; margin: 0 auto; }
+.ni-section-sub--light { color: rgba(248,250,252,0.5); }
+
+/* ── Services Grid ── */
+.ni-services-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+}
+.ni-service-card {
+  padding: 36px 28px; background: ${light};
+  border: 1px solid ${border}; border-radius: 12px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.ni-service-card:hover {
+  border-color: rgba(59,130,246,0.2);
+  box-shadow: 0 4px 20px rgba(59,130,246,0.06);
+}
+.ni-service-icon { color: ${blue}; margin-bottom: 20px; }
+.ni-service-title { font-size: 16px; font-weight: 700; color: ${textDark}; margin-bottom: 10px; }
+.ni-service-desc { font-size: 13px; line-height: 1.7; color: ${textDim}; }
+
+/* ── Projects Grid ── */
+.ni-projects-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+}
+.ni-project-featured { grid-column: 1 / -1; }
+.ni-project-card {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(248,250,252,0.08);
+  background: rgba(248,250,252,0.03);
+  transition: border-color 0.2s;
+}
+.ni-project-card:hover { border-color: rgba(59,130,246,0.3); }
+.ni-project-img-placeholder {
+  width: 100%; aspect-ratio: 16/9; display: flex;
+  align-items: center; justify-content: center;
+  background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(10,22,40,0.3) 100%);
+  font-size: 14px; color: rgba(248,250,252,0.3); font-weight: 500;
+}
+.ni-project-featured .ni-project-img-placeholder { aspect-ratio: 21/9; }
+.ni-project-info { padding: 24px; }
+.ni-project-tag {
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: ${blue}; margin-bottom: 8px; display: block;
+}
+.ni-project-title { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.ni-project-desc { font-size: 13px; line-height: 1.7; color: rgba(248,250,252,0.5); }
+
+/* ── About ── */
+.ni-about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+}
+.ni-about-body { font-size: 15px; line-height: 1.8; color: ${textDim}; margin-bottom: 16px; }
+.ni-about-numbers {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+.ni-about-num-card {
+  padding: 28px 24px; background: ${light};
+  border: 1px solid ${border}; border-radius: 12px;
+  text-align: center;
+}
+.ni-about-num {
+  display: block; font-size: 2rem; font-weight: 800;
+  color: ${navy}; letter-spacing: -0.03em; line-height: 1;
+  margin-bottom: 6px;
+}
+.ni-about-num-label { font-size: 11px; color: ${textDim}; letter-spacing: 0.3px; }
+
+/* ── Contact ── */
+.ni-contacts { background: ${light} !important; border-top: 1px solid ${border}; }
+.ni-contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
+}
+.ni-contact-info { margin-top: 24px; display: flex; flex-direction: column; gap: 14px; }
+.ni-contact-item {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 14px; color: ${textDim};
+}
+.ni-contact-item svg { color: ${blue}; flex-shrink: 0; }
+
+/* Form */
+.ni-form { display: flex; flex-direction: column; gap: 0; }
+.ni-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.ni-field-full { grid-column: 1 / -1; }
+.ni-label { display: block; font-size: 12px; font-weight: 600; color: ${textDark}; margin-bottom: 6px; }
+.ni-input, .ni-textarea, .ni-select {
+  width: 100%; padding: 12px 14px; border: 1px solid ${border};
+  border-radius: 8px; font-size: 14px; font-family: inherit;
+  color: ${textDark}; background: ${white};
+  transition: border-color 0.2s;
+}
+.ni-input:focus, .ni-textarea:focus, .ni-select:focus {
+  outline: none; border-color: ${blue};
+}
+.ni-textarea { resize: vertical; }
+.ni-select { appearance: none; cursor: pointer; }
+.ni-accordion-toggle {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; padding: 14px 0; margin-top: 8px;
+  background: none; border: none; cursor: pointer;
+  font-size: 13px; color: ${blue}; font-weight: 500;
+  font-family: inherit;
+}
+.ni-accordion-icon { transition: transform 0.2s; }
+.ni-accordion-open .ni-accordion-icon { transform: rotate(180deg); }
+.ni-accordion-body { padding: 0 0 16px; animation: niFadeIn 0.3s ease; }
+@keyframes niFadeIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+.ni-submit {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; padding: 14px 28px; margin-top: 16px;
+  background: ${orange}; color: ${white};
+  font-size: 14px; font-weight: 600; font-family: inherit;
+  border: none; border-radius: 8px; cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.ni-submit:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(245,158,11,0.3); }
+
+/* ── Nota Nicola ── */
+.ni-nicola-note {
+  background: ${navy}; padding: 64px 0;
+}
+.ni-note-inner {
+  display: flex; gap: 24px; align-items: flex-start;
+  max-width: 640px;
+}
+.ni-note-text { display: flex; flex-direction: column; gap: 12px; }
+.ni-note-main {
+  font-size: 14px; line-height: 1.75; color: rgba(248,250,252,0.6);
+}
+.ni-note-main strong { color: #fff; }
+.ni-note-cta {
+  display: inline-block; color: ${blue}; font-size: 13px;
+  font-weight: 600; text-decoration: none; margin-top: 8px;
+  transition: opacity 0.2s;
+}
+.ni-note-cta:hover { opacity: 0.8; }
+
+/* ── Footer ── */
+.ni-footer { background: ${navy}; border-top: 1px solid rgba(248,250,252,0.06); padding: 48px 0 24px; }
+.ni-footer-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px;
+  padding-bottom: 32px; border-bottom: 1px solid rgba(248,250,252,0.06);
+}
+.ni-footer-brand {
+  font-size: 18px; font-weight: 700; color: #fff;
+  display: block; margin-bottom: 8px;
+}
+.ni-footer-desc { font-size: 12px; color: rgba(248,250,252,0.4); line-height: 1.5; }
+.ni-footer-col { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: rgba(248,250,252,0.5); }
+.ni-footer-label { font-size: 11px; font-weight: 600; color: rgba(248,250,252,0.3); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+.ni-footer-bottom { padding-top: 20px; font-size: 11px; color: rgba(248,250,252,0.25); }
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .ni-container { padding: 0 28px; }
+  .ni-hero { padding: 80px 28px 60px; }
+  .ni-services-grid { grid-template-columns: 1fr 1fr; }
+  .ni-projects-grid { grid-template-columns: 1fr; }
+  .ni-about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .ni-contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .ni-footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .ni-nav { padding: 0 28px; }
+  .ni-hero-stats { flex-wrap: wrap; gap: 20px; }
+  .ni-stat { padding: 0 20px; }
+}
+@media (max-width: 480px) {
+  .ni-container { padding: 0 20px; }
+  .ni-hero { padding: 64px 20px 48px; }
+  .ni-nav { padding: 0 20px; }
+  .ni-nav-links a:not(.ni-nav-cta) { display: none; }
+  .ni-services-grid { grid-template-columns: 1fr; }
+  .ni-hero-stats { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .ni-stat { padding: 0; }
+  .ni-stat-divider { display: none; }
+  .ni-about-numbers { grid-template-columns: 1fr 1fr; }
+  .ni-form-grid { grid-template-columns: 1fr; }
+  .ni-section { padding: 64px 0; }
+  .ni-hero-cta-row { flex-direction: column; }
+  .ni-btn-primary, .ni-btn-ghost { justify-content: center; width: 100%; }
 }
   `;
 }
