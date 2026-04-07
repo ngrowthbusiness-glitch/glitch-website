@@ -27,6 +27,7 @@ const nextConfig: NextConfig = {
       { source: "/net-impianti", destination: "/outreach/net-impianti", permanent: true },
       { source: "/unibag", destination: "/outreach/unibag", permanent: true },
       { source: "/blulogistic", destination: "/outreach/blulogistic", permanent: true },
+      { source: "/la-femme", destination: "/outreach/la-femme", permanent: true },
       { source: "/t33", destination: "/outreach/t33", permanent: true },
       { source: "/tecnografting", destination: "/outreach/tecnografting", permanent: true },
     ];

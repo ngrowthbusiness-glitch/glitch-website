@@ -1,0 +1,26 @@
+{
+  "slug": "la-femme",
+  "companyName": "La Femme",
+  "sector": "Manifattura moda donna / Conto terzi",
+  "logo": null,
+  "palette": {
+    "primary": "#1a1a1a",
+    "primaryDim": "rgba(26,26,26,0.08)",
+    "background": "#faf8f5",
+    "text": "#1a1a1a",
+    "textDim": "rgba(26,26,26,0.50)",
+    "border": "rgba(26,26,26,0.08)"
+  },
+  "headingFont": "Playfair Display",
+  "heroTitle": "La Femme",
+  "heroSubtitle": "",
+  "sections": [],
+  "cta": {
+    "title": "Parliamone.",
+    "emailSubject": "La Femme — Una riflessione sul vostro posizionamento",
+    "showGlitchEconomics": false
+  },
+  "meta": {
+    "status": "draft"
+  }
+}

@@ -51,6 +51,7 @@ export default async function OutreachPage({
   const config = getOutreachConfig(slug);
   if (!config) notFound();
 
+  if (slug === "la-femme") return <OutreachLaFemme config={config} slug={slug} />;
   if (slug === "t33") return <OutreachT33 config={config} slug={slug} />;
   if (slug === "blulogistic") return <OutreachBlulogistic config={config} slug={slug} />;
   if (slug === "tecnografting") return <OutreachTecnografting config={config} slug={slug} />;
@@ -3970,6 +3971,606 @@ function SectionRenderer({ section }: { section: OutreachSection }) {
       )}
     </section>
   );
+}
+
+/* ================================================================
+   LA FEMME — FULLY CUSTOM TEMPLATE
+   B2B fashion manufacturer — elegant editorial design
+   ================================================================ */
+
+function OutreachLaFemme({ config, slug }: { config: OutreachConfig; slug: string }) {
+  const today = new Date().toLocaleDateString("it-IT", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
+  return (
+    <>
+      <OutreachTracker slug={slug} />
+      <style>{laFemmeCSS()}</style>
+
+      <div className="lf-bg-glow" />
+      <BubbleNav />
+
+      {/* ════════════════════════════════════════
+           SECTION 1 — NICOLA (dark)
+         ════════════════════════════════════════ */}
+      <section className="lf-nicola" id="chi-sono">
+        <div className="lf-nicola-left">
+          <div className="lf-ns-logo-row">
+            <Image src="/favicon.png" alt="" width={36} height={36} style={{ objectFit: "contain" }} />
+          </div>
+          <h1 className="lf-ns-name">Nicola Serrao</h1>
+          <div className="lf-ns-role">Digital Marketing Strategist</div>
+          <p className="lf-ns-intro">
+            Mi occupo di posizionamento digitale per aziende manifatturiere italiane.
+            Ho studiato la vostra storia &mdash; quattro generazioni nel tessile, dalla sartoria
+            Caraceni fino allo stabilimento di Trecastelli &mdash; e vedo un&apos;opportunit&agrave;
+            concreta: far arrivare il vostro racconto alle persone giuste nella filiera moda.
+          </p>
+          <ul className="lf-ns-pills">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ancona, Italia
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+              nicolaserrao.com
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Analisi del {today}
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <LiveClock />
+              <span className="lf-tz-label">Roma</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="lf-nicola-right">
+          <div className="lf-photo-wrap">
+            <Image
+              src="/images/nicola.png"
+              alt="Nicola Serrao"
+              width={360}
+              height={480}
+              priority
+              className="lf-photo"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+           GLITCH DIVIDER 1
+         ════════════════════════════════════════ */}
+      <div className="lf-glitch-zone lf-glitch-fwd" id="il-progetto">
+        <div className="lf-glitch-bg" />
+        <div className="lf-glitch-scanlines" />
+        <div className="lf-glitch-label">// quello che ho visto</div>
+      </div>
+
+      {/* ════════════════════════════════════════
+           SECTION 2 — LA FEMME (warm cream)
+         ════════════════════════════════════════ */}
+      <section className="lf-prospect">
+
+        {/* Prospect sticky topbar */}
+        <div className="lf-prospect-topbar">
+          <Image src="/images/outreach/la-femme/logo.png" alt="La Femme" width={140} height={40} style={{ objectFit: "contain" }} />
+          <div className="lf-prospect-topbar-tag">Riflessione a cura di Nicola Serrao</div>
+        </div>
+
+        {/* ─── SUB-SECTION A: Il vostro patrimonio ─── */}
+        <div className="lf-section-block" id="patrimonio">
+          <div className="lf-eyebrow">Chi siete</div>
+          <h2 className="lf-headline">Artigianale di dimensioni industriali.</h2>
+          {/* Immagini produzione */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8, marginBottom: 36, borderRadius: 8, overflow: "hidden" }}>
+            <Image src="/images/outreach/la-femme/taglio.jpg" alt="Taglio" width={370} height={250} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <Image src="/images/outreach/la-femme/cucire.jpg" alt="Confezione" width={370} height={250} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <Image src="/images/outreach/la-femme/stiro.jpg" alt="Stiro" width={370} height={250} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </div>
+          <div className="lf-two-col">
+            <div className="lf-col-text">
+              <p>
+                Quattro generazioni nel tessile &mdash; dalla sartoria Caraceni a Roma fino
+                allo stabilimento unico di Trecastelli. Un ciclo produttivo interamente interno:
+                taglio, confezione, stiro. Tecnologia Lever System per la movimentazione aerea
+                dei capi. Specializzazione nei capi spalla e nei tessuti pi&ugrave; complessi.
+              </p>
+              <p>
+                Questo non &egrave; un laboratorio artigianale che cerca di sembrare grande,
+                n&eacute; un&apos;industria che cerca di sembrare artigianale. &Egrave; una
+                realt&agrave; che ha saputo tenere insieme entrambe le cose &mdash; e questo
+                ha un valore enorme nella filiera moda di oggi.
+              </p>
+            </div>
+            <div className="lf-col-card">
+              <div className="lf-strength-card">
+                <div className="lf-strength-title">I vostri punti di forza</div>
+                <ul className="lf-strength-list">
+                  <li>Full cycle Made in Italy (taglio, confezione, stiro)</li>
+                  <li>4 generazioni nel tessile dal 1915</li>
+                  <li>Specializzazione capi spalla e tessuti complessi</li>
+                  <li>Tecnologia Lever System</li>
+                  <li>64 professionisti, stabilimento unico</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ─── SUB-SECTION B: Il gap ─── */}
+        <div className="lf-section-block" id="osservazione">
+          <div className="lf-eyebrow">L&apos;osservazione</div>
+          <h2 className="lf-headline">Un racconto straordinario che non sta lavorando per voi.</h2>
+          <div className="lf-narrow-text">
+            <p>
+              I responsabili prodotto e sourcing manager delle case di moda cercano partner come voi.
+              Ma oggi, se non vi conoscono gi&agrave;, non vi trovano.
+            </p>
+            <p>
+              Il vostro sito racconta bene chi siete, ma non aiuta un buyer a capire in 5 minuti
+              se siete il partner giusto. Manca il percorso: dalla scoperta alla richiesta di contatto.
+            </p>
+          </div>
+        </div>
+
+        {/* ─── SUB-SECTION C: Le leve ─── */}
+        <div className="lf-section-block" id="competenze">
+          <div className="lf-eyebrow">Le leve</div>
+          <h2 className="lf-headline">Tre aree concrete.</h2>
+          <div className="lf-three-blocks">
+
+            <div className="lf-block">
+              <div className="lf-block-num">01</div>
+              <h3 className="lf-block-title">Posizionamento B2B chiaro</h3>
+              <p className="lf-block-desc">
+                Tradurre la vostra storia in una value proposition per buyer: per quali brand,
+                che problemi risolvete, perch&eacute; voi e non un altro. Non cambiare chi
+                siete &mdash; rendere visibile ci&ograve; che gi&agrave; fate.
+              </p>
+            </div>
+
+            <div className="lf-block">
+              <div className="lf-block-num">02</div>
+              <h3 className="lf-block-title">Nuove relazioni nella filiera</h3>
+              <p className="lf-block-desc">
+                Non serve traffico. Servono 2-3 contatti giusti all&apos;anno &mdash; brand mid-tier,
+                capsule di nicchia, marchi digitali per cui il vostro tipo di produzione ha molto senso.
+                Un sistema pulito e professionale per farvi conoscere.
+              </p>
+            </div>
+
+            <div className="lf-block">
+              <div className="lf-block-num">03</div>
+              <h3 className="lf-block-title">Il racconto per buyer esteri</h3>
+              <p className="lf-block-desc">
+                Brand stranieri stanno riportando produzione in Europa. La vostra storia (Caraceni,
+                4 generazioni, stabilimento unico) &egrave; esattamente il tipo di narrativa che
+                funziona. Ma queste persone oggi non vi vedono.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        {/* ─── SUB-SECTION D: Closing thought ─── */}
+        <div className="lf-section-block lf-closing-thought">
+          <p className="lf-thought">
+            Non ho la pretesa di dirvi da fuori cosa dovete fare. Quello che posso offrire
+            &egrave; un confronto onesto: mettere sul tavolo i dati che ho raccolto e valutare
+            insieme se c&apos;&egrave; spazio per migliorare il modo in cui il vostro lavoro
+            arriva alle persone giuste.
+          </p>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+           GLITCH DIVIDER 2
+         ════════════════════════════════════════ */}
+      <div className="lf-glitch-zone lf-glitch-bwd">
+        <div className="lf-glitch-bg" />
+        <div className="lf-glitch-scanlines" />
+        <div className="lf-glitch-label">// e adesso?</div>
+      </div>
+
+      {/* ════════════════════════════════════════
+           SECTION 3 — CLOSING (dark, Nicola)
+         ════════════════════════════════════════ */}
+      <section className="lf-close" id="parliamone">
+        <div className="lf-close-inner">
+          <div className="lf-close-eyebrow">Prossimo passo</div>
+          <h2 className="lf-close-headline">
+            Una chiacchierata tra chi<br />fa le cose bene.
+          </h2>
+          <p className="lf-close-sub">
+            Nessuna proposta standard. Solo un confronto per capire se posso esservi utile.
+          </p>
+          <div className="lf-close-cta-row">
+            <a
+              href={`mailto:${SITE.email}?subject=${encodeURIComponent(config.cta.emailSubject || "")}`}
+              className="lf-close-cta"
+            >
+              Scrivimi
+              <span className="lf-arr" />
+            </a>
+          </div>
+          <a
+            href={`${SITE.whatsapp}?text=${encodeURIComponent("Buongiorno, ho visto la riflessione sul posizionamento di La Femme.")}`}
+            className="lf-close-wa"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            O scrivimi su WhatsApp
+          </a>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+           FOOTER
+         ════════════════════════════════════════ */}
+      <footer className="lf-footer">
+        <span>&copy; Nicola Serrao &middot; Digital Marketing Strategist &middot; nicolaserrao.com</span>
+        <span>{SITE.email} &middot; {SITE.phone}</span>
+      </footer>
+    </>
+  );
+}
+
+/* ── La Femme CSS ── */
+function laFemmeCSS(): string {
+  /* Nicola palette */
+  const n = {
+    bg: "#0a0e0d",
+    cyan: "#00fffc",
+    cyanDim: "rgba(0,255,252,0.10)",
+    cyanBorder: "rgba(0,255,252,0.22)",
+    text: "#e8f0ff",
+    textDim: "rgba(232,240,255,0.50)",
+    textFaint: "rgba(232,240,255,0.20)",
+    serif: "'Playfair Display', serif",
+    mono: "'DM Mono', monospace",
+  };
+  /* La Femme palette — warm cream, high-end fashion lookbook */
+  const f = {
+    bg: "#faf8f5",
+    primary: "#1a1a1a",
+    accent: "#8a7560",
+    cardBg: "#ffffff",
+    text: "#1a1a1a",
+    textDim: "rgba(26,26,26,0.50)",
+    textFaint: "rgba(26,26,26,0.30)",
+    border: "rgba(26,26,26,0.08)",
+    serif: "'Playfair Display', serif",
+    body: "'Inter', sans-serif",
+  };
+
+  return `
+/* ══════════════════════════════════════════
+   LA FEMME — RESET & BASE
+══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: ${n.bg}; color: ${n.text}; font-family: ${n.mono}; overflow-x: hidden; }
+.lf-bg-glow {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 30%, rgba(0,255,252,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(0,255,252,0.02) 0%, transparent 50%);
+}
+
+/* ══════════════════════════════════════════
+   SECTION 1 — NICOLA
+══════════════════════════════════════════ */
+.lf-nicola {
+  position: relative; z-index: 1;
+  min-height: 100vh; padding: 100px 64px 80px;
+  display: grid; grid-template-columns: 1fr 380px;
+  gap: 60px; align-items: center;
+}
+.lf-nicola::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, ${n.cyanBorder}, transparent);
+}
+.lf-ns-logo-row { margin-bottom: 20px; animation: lfFadeUp .6s ease both; }
+.lf-ns-name {
+  font-family: ${n.serif}; font-size: clamp(2.2rem, 3.5vw, 3.6rem);
+  font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;
+  color: ${n.text}; margin-bottom: 8px;
+  animation: lfFadeUp .6s .05s ease both;
+}
+.lf-ns-role {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: ${n.cyan}; margin-bottom: 28px;
+  animation: lfFadeUp .6s .1s ease both;
+}
+.lf-ns-intro {
+  font-size: 15px; line-height: 1.8; color: ${n.textDim};
+  max-width: 520px; margin-bottom: 32px;
+  animation: lfFadeUp .6s .15s ease both;
+}
+.lf-ns-pills {
+  list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;
+  animation: lfFadeUp .6s .2s ease both;
+}
+.lf-ns-pills li {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12px; color: ${n.textDim};
+}
+.lf-ns-pills li svg { color: ${n.cyan}; flex-shrink: 0; }
+.lf-clock { font-variant-numeric: tabular-nums; }
+.lf-tz-label {
+  font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
+  color: ${n.textFaint}; margin-left: 4px;
+}
+
+/* Photo */
+.lf-nicola-right {
+  display: flex; flex-direction: column; align-items: center;
+  animation: lfFadeUp .6s .2s ease both;
+}
+.lf-photo-wrap {
+  position: relative; width: 100%; max-width: 340px;
+  clip-path: polygon(0 0, 100% 3%, 97% 100%, 3% 97%);
+}
+.lf-photo {
+  width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center;
+  display: block; filter: grayscale(60%) contrast(1.08); opacity: 0.85;
+}
+
+@keyframes lfFadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
+
+/* ══════════════════════════════════════════
+   GLITCH ZONES
+══════════════════════════════════════════ */
+.lf-glitch-zone {
+  position: relative; height: 180px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center; z-index: 1;
+}
+.lf-glitch-fwd .lf-glitch-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, ${n.bg} 0%, ${f.bg} 100%);
+}
+.lf-glitch-bwd .lf-glitch-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, ${f.bg} 0%, ${n.bg} 100%);
+}
+.lf-glitch-scanlines {
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,252,0.025) 2px, rgba(0,255,252,0.025) 4px);
+  animation: lfScan 6s linear infinite;
+}
+@keyframes lfScan { from{background-position:0 0} to{background-position:0 40px} }
+.lf-glitch-label {
+  position: relative; z-index: 2; font-family: ${n.serif}; font-style: italic;
+  font-size: clamp(1.2rem, 2.5vw, 2rem); font-weight: 700; color: ${n.cyan};
+  letter-spacing: 0.06em; animation: lfGltch 4s infinite;
+}
+@keyframes lfGltch {
+  0%,88%,100%{text-shadow:2px 0 rgba(255,0,100,.5),-2px 0 rgba(0,200,255,.5);transform:none}
+  90%{text-shadow:-5px 0 rgba(255,0,100,.8),5px 0 rgba(0,200,255,.8);transform:translateX(3px)}
+  93%{text-shadow:5px 0 rgba(255,0,100,.8),-5px 0 rgba(0,200,255,.8);transform:translateX(-3px)}
+  96%{text-shadow:2px 0 rgba(255,0,100,.5),-2px 0 rgba(0,200,255,.5);transform:none}
+}
+
+/* ══════════════════════════════════════════
+   SECTION 2 — PROSPECT (La Femme)
+══════════════════════════════════════════ */
+.lf-prospect {
+  background: ${f.bg}; color: ${f.text};
+  font-family: ${f.body}; position: relative; z-index: 1;
+}
+
+/* Prospect topbar */
+.lf-prospect-topbar {
+  background: rgba(250,248,245,0.95); border-bottom: 1px solid ${f.border};
+  padding: 0 64px; height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 20;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.lf-prospect-topbar-name {
+  font-family: ${f.serif}; font-style: italic; font-size: 22px;
+  font-weight: 700; color: ${f.primary}; letter-spacing: -0.02em;
+}
+.lf-prospect-topbar-tag {
+  font-family: ${n.mono}; font-size: 11px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: ${f.textFaint};
+}
+
+/* Section blocks */
+.lf-section-block {
+  padding: 72px 64px 0; max-width: 1100px; margin: 0 auto;
+}
+.lf-section-block + .lf-section-block {
+  border-top: 1px solid ${f.border}; margin-top: 64px;
+}
+
+/* Eyebrow */
+.lf-eyebrow {
+  font-family: ${n.mono}; font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: ${f.accent}; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.lf-eyebrow::before { content:''; width:24px; height:1px; background:${f.accent}; }
+
+/* Headline */
+.lf-headline {
+  font-family: ${f.serif}; font-size: clamp(1.8rem, 3.2vw, 3rem); font-weight: 700;
+  line-height: 1.15; color: ${f.text}; max-width: 780px;
+  margin-bottom: 40px; letter-spacing: -0.02em;
+}
+
+/* Two-column layout */
+.lf-two-col {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+}
+.lf-col-text p {
+  font-size: 15px; line-height: 1.85; color: ${f.textDim}; font-weight: 300;
+  margin-bottom: 20px;
+}
+.lf-col-text p:last-child { margin-bottom: 0; }
+
+/* Strength card */
+.lf-strength-card {
+  background: ${f.cardBg}; border: 1px solid ${f.border};
+  padding: 32px; border-radius: 2px;
+}
+.lf-strength-title {
+  font-family: ${n.mono}; font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase; color: ${f.accent}; margin-bottom: 24px;
+}
+.lf-strength-list {
+  list-style: none; padding: 0; display: flex; flex-direction: column; gap: 16px;
+}
+.lf-strength-list li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 14px; line-height: 1.6; color: ${f.text}; font-weight: 400;
+}
+.lf-strength-list li::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: ${f.accent}; flex-shrink: 0; margin-top: 7px;
+}
+
+/* Narrow text (for gap section) */
+.lf-narrow-text {
+  max-width: 680px;
+}
+.lf-narrow-text p {
+  font-size: 15px; line-height: 1.85; color: ${f.textDim}; font-weight: 300;
+  margin-bottom: 20px;
+}
+.lf-narrow-text p:last-child { margin-bottom: 0; }
+
+/* Three blocks */
+.lf-three-blocks {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+}
+.lf-block {
+  padding: 0;
+  border-top: 2px solid ${f.accent};
+  padding-top: 24px;
+}
+.lf-block-num {
+  font-family: ${n.mono}; font-size: 11px; letter-spacing: 2px;
+  color: ${f.accent}; font-weight: 700; margin-bottom: 12px;
+}
+.lf-block-title {
+  font-family: ${f.serif}; font-size: 1.15rem; font-weight: 700;
+  color: ${f.text}; margin-bottom: 12px; letter-spacing: -0.01em;
+}
+.lf-block-desc {
+  font-size: 14px; line-height: 1.8; color: ${f.textDim}; font-weight: 300;
+}
+
+/* Closing thought */
+.lf-closing-thought {
+  text-align: center; padding-bottom: 72px !important;
+}
+.lf-thought {
+  font-family: ${f.serif}; font-style: italic;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem); line-height: 1.75;
+  color: ${f.textDim}; max-width: 680px; margin: 0 auto;
+}
+
+/* ══════════════════════════════════════════
+   SECTION 3 — CLOSING (Nicola)
+══════════════════════════════════════════ */
+.lf-close {
+  position: relative; z-index: 1;
+  padding: 96px 64px; background: ${n.bg};
+  text-align: center;
+}
+.lf-close-inner { max-width: 700px; margin: 0 auto; }
+.lf-close-eyebrow {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: ${n.cyan}; margin-bottom: 24px;
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.lf-close-eyebrow::before { content:''; width:32px; height:1px; background:${n.cyan}; }
+.lf-close-eyebrow::after { content:''; width:32px; height:1px; background:${n.cyan}; }
+.lf-close-headline {
+  font-family: ${n.serif};
+  font-size: clamp(2rem, 3.5vw, 3.6rem); font-weight: 700;
+  line-height: 1.12; letter-spacing: -0.02em;
+  color: ${n.text}; margin-bottom: 20px;
+}
+.lf-close-sub {
+  font-size: 17px; line-height: 1.7; color: ${n.textDim};
+  margin-bottom: 40px;
+}
+.lf-close-cta-row { margin-bottom: 20px; }
+.lf-close-cta {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: ${n.cyan}; color: ${n.bg};
+  font-family: ${n.mono}; font-size: 11px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 16px 32px; text-decoration: none; transition: opacity 0.2s;
+}
+.lf-close-cta:hover { opacity: 0.85; }
+.lf-arr { width: 16px; height: 1px; background: ${n.bg}; position: relative; }
+.lf-arr::after {
+  content:''; position:absolute; right:0; top:-3px;
+  width:6px; height:6px;
+  border-right:1px solid ${n.bg}; border-top:1px solid ${n.bg};
+  transform:rotate(45deg);
+}
+.lf-close-wa {
+  font-size: 12px; color: ${n.textDim}; text-decoration: none;
+  transition: color 0.2s; display: inline-block;
+  border-bottom: 1px solid ${n.textFaint};
+  padding-bottom: 2px;
+}
+.lf-close-wa:hover { color: ${n.cyan}; border-color: ${n.cyan}; }
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+.lf-footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid ${n.cyanBorder};
+  padding: 24px 64px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: ${n.textFaint}; background: ${n.bg};
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media(max-width:960px){
+  .lf-nicola { grid-template-columns: 1fr; padding: 100px 28px 64px; gap: 40px; }
+  .lf-nicola-right { order: -1; max-width: 220px; margin: 0 auto; }
+  .lf-prospect-topbar { padding: 0 28px; }
+  .lf-prospect-topbar-tag { display: none; }
+  .lf-section-block { padding: 56px 28px 0; }
+  .lf-two-col { grid-template-columns: 1fr; gap: 32px; }
+  .lf-three-blocks { grid-template-columns: 1fr; gap: 24px; }
+  .lf-closing-thought { padding-bottom: 56px !important; }
+  .lf-close { padding: 64px 28px; }
+  .lf-footer { padding: 20px 28px; flex-direction: column; gap: 6px; text-align: center; }
+  .lf-glitch-zone { height: 140px; }
+}
+@media(max-width:480px){
+  .lf-nicola { padding: 90px 20px 48px; min-height: auto; }
+  .lf-nicola-right { max-width: 160px; }
+  .lf-ns-name { font-size: 2rem; }
+  .lf-section-block { padding: 40px 20px 0; }
+  .lf-section-block + .lf-section-block { margin-top: 40px; }
+  .lf-closing-thought { padding-bottom: 40px !important; }
+  .lf-close { padding: 48px 20px; }
+  .lf-footer { padding: 16px 20px; }
+  .lf-glitch-zone { height: 100px; }
+  .lf-prospect-topbar { padding: 0 20px; height: 56px; }
+  .lf-prospect-topbar-name { font-size: 18px; }
+}
+  `;
 }
 
 /* ================================================================
