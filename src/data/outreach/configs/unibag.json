@@ -1,0 +1,24 @@
+{
+  "slug": "unibag",
+  "companyName": "Unibag",
+  "sector": "Packaging / Buste biodegradabili",
+  "logo": "/images/outreach/unibag/logo.png",
+  "palette": {
+    "primary": "#0066cc",
+    "primaryDim": "rgba(0,102,204,0.10)",
+    "background": "#f0ede5",
+    "text": "#1b1b1b",
+    "textDim": "rgba(27,27,27,0.55)",
+    "border": "rgba(27,27,27,0.08)"
+  },
+  "headingFont": "Inter",
+  "heroTitle": "Unibag",
+  "heroSubtitle": "",
+  "sections": [],
+  "cta": {
+    "title": "Parliamone.",
+    "emailSubject": "Unibag — Ho visto la vostra analisi",
+    "showGlitchEconomics": false
+  },
+  "meta": { "status": "draft" }
+}

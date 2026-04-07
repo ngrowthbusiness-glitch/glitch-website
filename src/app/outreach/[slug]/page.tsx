@@ -51,6 +51,7 @@ export default async function OutreachPage({
   const config = getOutreachConfig(slug);
   if (!config) notFound();
 
+  if (slug === "unibag") return <OutreachUnibag config={config} slug={slug} />;
   if (slug === "net-impianti") return <OutreachNetImpianti config={config} slug={slug} />;
   if (slug === "cascioli-rent") return <OutreachCascioliRent config={config} slug={slug} />;
   if (config.pitch) return <OutreachV3 config={config} slug={slug} />;
@@ -1016,6 +1017,746 @@ body { background: ${NS.bg}; color: ${NS.text}; font-family: ${NS.mono}; overflo
   .close-cta-mail { justify-content:center; }
   .site-footer { padding:20px; }
   .glitch-zone { height:120px; }
+}
+  `;
+}
+
+/* ================================================================
+   UNIBAG — Custom outreach: 3-month validation pitch
+   ================================================================ */
+
+function OutreachUnibag({ config, slug }: { config: OutreachConfig; slug: string }) {
+  const today = new Date().toLocaleDateString("it-IT", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
+  return (
+    <>
+      <OutreachTracker slug={slug} />
+      <style>{unibagCSS()}</style>
+
+      <div className="ub-bg-glow" />
+
+      {/* ════════════════════════════════════════
+           SECTION 1 — NICOLA (dark bg)
+         ════════════════════════════════════════ */}
+      <section className="ub-nicola" id="chi-sono">
+        <div className="ub-nicola-left">
+          <div className="ub-ns-logo-row">
+            <Image src="/favicon.png" alt="" width={36} height={36} style={{ objectFit: "contain" }} />
+          </div>
+          <h1 className="ub-ns-name">Nicola Serrao</h1>
+          <div className="ub-ns-role">Digital Marketing Strategist</div>
+          <p className="ub-ns-intro">
+            Ho analizzato il vostro mercato e ho individuato un&apos;opportunit&agrave; concreta.
+            Con il metodo giusto, in soli 3 mesi possiamo capire se Unibag pu&ograve; costruire
+            un sistema di lead generation B2B profittevole.
+          </p>
+          <ul className="ub-ns-pills">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ancona, Italia
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+              nicolaserrao.com
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Analisi del {today}
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <LiveClock />
+              <span className="ub-tz-label">Roma</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="ub-nicola-right">
+          <div className="ub-photo-wrap">
+            <Image
+              src="/images/nicola.png"
+              alt="Nicola Serrao"
+              width={360}
+              height={480}
+              priority
+              className="ub-photo"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+           GLITCH DIVIDER 1
+         ════════════════════════════════════════ */}
+      <div className="ub-glitch-zone ub-glitch-fwd" id="il-progetto">
+        <div className="ub-glitch-bg" />
+        <div className="ub-glitch-scanlines" />
+        <div className="ub-glitch-label">// quello che ho trovato</div>
+      </div>
+
+      {/* ════════════════════════════════════════
+           SECTION 2 — UNIBAG (warm beige bg)
+         ════════════════════════════════════════ */}
+      <section className="ub-prospect">
+
+        {/* Prospect sticky topbar */}
+        <div className="ub-prospect-topbar">
+          <Image
+            src={config.logo || "/favicon.png"}
+            alt={config.companyName}
+            width={160}
+            height={38}
+            style={{ objectFit: "contain", display: "block", maxWidth: 200 }}
+          />
+          <div className="ub-prospect-topbar-tag">Studio realizzato da Nicola Serrao</div>
+        </div>
+
+        {/* ─── Sub-section A: Vantaggio competitivo ─── */}
+        <div className="ub-section-block">
+          <div className="ub-eyebrow">Analisi</div>
+          <h2 className="ub-headline">
+            Avete qualcosa che i vostri<br />competitor non hanno.
+          </h2>
+          <div className="ub-two-col">
+            <div className="ub-two-col-text">
+              <p>
+                La vostra certificazione Vinçotte OK Compost &mdash; conforme alla norma EN 13432:2002 &mdash;
+                non &egrave; un claim marketing. &Egrave; un dato verificabile a livello europeo.
+              </p>
+              <p>
+                Con il regolamento PPWR 2026 alle porte, chi acquista packaging ha bisogno di fornitori
+                che garantiscano conformit&agrave; normativa. Voi ce l&apos;avete gi&agrave;.
+              </p>
+              <p>
+                A questo si aggiunge un ciclo produttivo chiuso con il 100% degli scarti riciclati,
+                personalizzazione tecnica avanzata e oltre 50 anni di esperienza nel territorio marchigiano.
+                Questo non &egrave; &ldquo;green generico&rdquo; &mdash; &egrave; sostanza verificabile.
+              </p>
+            </div>
+            <div className="ub-diff-card">
+              <div className="ub-diff-card-title">I vostri differenziali</div>
+              <ul className="ub-diff-list">
+                <li>
+                  <span className="ub-diff-bullet ub-diff-green" />
+                  Certificazione Vinçotte OK Compost EN 13432
+                </li>
+                <li>
+                  <span className="ub-diff-bullet ub-diff-green" />
+                  Ciclo produttivo chiuso (100% scarti riciclati)
+                </li>
+                <li>
+                  <span className="ub-diff-bullet" />
+                  Personalizzazione tecnica (6 colori, formati custom)
+                </li>
+                <li>
+                  <span className="ub-diff-bullet" />
+                  Eredit&agrave; marchigiana 50+ anni
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* ─── Sub-section B: Competitor ─── */}
+        <div className="ub-section-block ub-section-border">
+          <div className="ub-eyebrow">Competitor</div>
+          <h2 className="ub-headline">Il mercato vi sta aspettando.</h2>
+          <div className="ub-comp-grid">
+            <div className="ub-comp-card">
+              <div className="ub-comp-name">Poliflex</div>
+              <div className="ub-comp-location">Brescia</div>
+              <p className="ub-comp-desc">Custom polietilene, sito moderno + SEO</p>
+              <div className="ub-comp-tag ub-comp-tag-no">NO certificazione compostabile</div>
+            </div>
+            <div className="ub-comp-card">
+              <div className="ub-comp-name">Milanesi Plast</div>
+              <div className="ub-comp-location">Milano</div>
+              <p className="ub-comp-desc">Storytelling 40 anni, LinkedIn B2B</p>
+              <div className="ub-comp-tag ub-comp-tag-no">NO certificazione compostabile</div>
+            </div>
+            <div className="ub-comp-card">
+              <div className="ub-comp-name">Sipi</div>
+              <div className="ub-comp-location">Melzo</div>
+              <p className="ub-comp-desc">B2B con filtri prodotti</p>
+              <div className="ub-comp-tag ub-comp-tag-no">NO certificazione compostabile</div>
+            </div>
+          </div>
+          <p className="ub-comp-note">
+            Loro vincono su visibilit&agrave; digitale. Voi vincete sulla sostanza.
+            Il gap si chiude con il metodo giusto.
+          </p>
+        </div>
+
+        {/* ─── Sub-section C: La proposta — 3 mesi ─── */}
+        <div className="ub-section-block ub-section-border">
+          <div className="ub-eyebrow">Il metodo</div>
+          <h2 className="ub-headline">3 mesi. Un test. La risposta.</h2>
+          <p className="ub-sub">
+            Con il giusto metodo, in soli 3 mesi possiamo capire se Unibag pu&ograve; avere
+            un sistema di acquisizione clienti B2B profittevole.
+          </p>
+
+          <div className="ub-timeline">
+            <div className="ub-tl-block">
+              <div className="ub-tl-month">Mese 1</div>
+              <div className="ub-tl-title">Strategia</div>
+              <p className="ub-tl-desc">
+                Definire target, messaggio, canali. Costruire gli asset. KPI chiari.
+              </p>
+            </div>
+            <div className="ub-tl-connector" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+            <div className="ub-tl-block">
+              <div className="ub-tl-month">Mese 2</div>
+              <div className="ub-tl-title">Test &amp; Analisi</div>
+              <p className="ub-tl-desc">
+                Lanciare, misurare, iterare. LinkedIn Ads + Google Ads. Dati reali, non ipotesi.
+              </p>
+            </div>
+            <div className="ub-tl-connector" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+            <div className="ub-tl-block">
+              <div className="ub-tl-month">Mese 3</div>
+              <div className="ub-tl-title">Risultato</div>
+              <p className="ub-tl-desc">
+                Sapere con certezza: quanto costa un lead, quanti diventano clienti, se il sistema &egrave; profittevole.
+              </p>
+            </div>
+          </div>
+
+          <div className="ub-highlight-box">
+            Se funziona, si scala. Se non funziona, avrete comunque dati e chiarezza che prima non avevate.
+            <strong> In entrambi i casi, vincete.</strong>
+          </div>
+        </div>
+
+        {/* ─── Sub-section D: Cosa porto al tavolo ─── */}
+        <div className="ub-section-block ub-section-border" id="competenze">
+          <div className="ub-eyebrow">Cosa porto al tavolo</div>
+
+          {/* Row 1 — Strategia */}
+          <div className="ub-vr-row">
+            <div className="ub-vr-label">
+              <span className="ub-vr-num">01</span>
+              <span className="ub-vr-title">Strategia</span>
+            </div>
+            <div className="ub-vr-cols">
+              <div className="ub-vr-col ub-vr-mine">
+                <p>Posizionamento &ldquo;partner green compliant PPWR 2026&rdquo;. Funnel B2B strutturato. Target: responsabili acquisti packaging Marche/Lombardia.</p>
+              </div>
+              <div className="ub-vr-col ub-vr-theirs">
+                <p>Sapere esattamente chi contattare, con quale messaggio, su quale canale. Zero budget sprecato.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Row 2 — Analisi */}
+          <div className="ub-vr-row">
+            <div className="ub-vr-label">
+              <span className="ub-vr-num">02</span>
+              <span className="ub-vr-title">Analisi</span>
+            </div>
+            <div className="ub-vr-cols">
+              <div className="ub-vr-col ub-vr-mine">
+                <p>KPI dal giorno uno. 20 lead/mese come obiettivo iniziale. Ogni euro tracciato. Feedback loop settimanale.</p>
+              </div>
+              <div className="ub-vr-col ub-vr-theirs">
+                <p>Numeri reali ogni settimana. Sapere se funziona o no &mdash; e perch&eacute;. Decisioni basate su dati, non sensazioni.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Row 3 — Creativita */}
+          <div className="ub-vr-row">
+            <div className="ub-vr-label">
+              <span className="ub-vr-num">03</span>
+              <span className="ub-vr-title">Creativit&agrave;</span>
+            </div>
+            <div className="ub-vr-cols">
+              <div className="ub-vr-col ub-vr-mine">
+                <p>Video produzione 30 secondi. Case study &ldquo;Da scarto a loyalty&rdquo;. Calcolatore prezzi online. Campioni gratis post-call.</p>
+              </div>
+              <div className="ub-vr-col ub-vr-theirs">
+                <p>Comunicare il vostro vero valore: non &ldquo;sacchetti green&rdquo; generico, ma certificazione verificabile + made in Italy + personalizzazione estrema.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ─── Sub-section E: Takeaways ─── */}
+        <div className="ub-takeaways">
+          <div className="ub-tk-item">
+            Queste sono idee embrionali da un&apos;analisi rapida &mdash; il valore vero esce solo da una chiacchierata di 15 minuti.
+          </div>
+          <div className="ub-tk-item">
+            Non serve stravolgere nulla: si parte da quello che avete gi&agrave; e si costruisce un sistema misurabile.
+          </div>
+          <div className="ub-tk-item">
+            Se ci sono i presupposti, lo capiamo in una call veloce. Senza impegno.
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+           GLITCH DIVIDER 2
+         ════════════════════════════════════════ */}
+      <div className="ub-glitch-zone ub-glitch-bwd">
+        <div className="ub-glitch-bg" />
+        <div className="ub-glitch-scanlines" />
+        <div className="ub-glitch-label">// e adesso?</div>
+      </div>
+
+      {/* ════════════════════════════════════════
+           SECTION 3 — CLOSING NICOLA
+         ════════════════════════════════════════ */}
+      <section className="ub-close" id="parliamone">
+        <div className="ub-close-inner">
+          <div className="ub-close-eyebrow">Prossimo passo</div>
+          <h2 className="ub-close-headline">
+            15 minuti per capire<br />se ha senso.
+          </h2>
+          <p className="ub-close-sub">
+            Ho informazioni fresche sul vostro mercato. Vi racconto quello che ho trovato &mdash; poi decidete voi.
+          </p>
+          <div className="ub-close-cta-row">
+            <a
+              href={`mailto:${SITE.email}?subject=${encodeURIComponent(config.cta.emailSubject || "")}`}
+              className="ub-close-cta"
+            >
+              Prenota una call
+              <span className="ub-arr" />
+            </a>
+          </div>
+          <a
+            href={`${SITE.whatsapp}?text=${encodeURIComponent("Ciao Nicola, ho visto la vostra analisi per Unibag. Vorrei parlarne.")}`}
+            className="ub-close-wa"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Scrivimi su WhatsApp
+          </a>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+           FOOTER
+         ════════════════════════════════════════ */}
+      <footer className="ub-footer">
+        <span>&copy; Nicola Serrao &middot; Digital Marketing Strategist &middot; nicolaserrao.com</span>
+        <span>{SITE.email} &middot; {SITE.phone}</span>
+      </footer>
+    </>
+  );
+}
+
+/* ── Unibag CSS ── */
+function unibagCSS(): string {
+  /* Nicola palette */
+  const n = {
+    bg: "#0a0e0d",
+    cyan: "#00fffc",
+    cyanDim: "rgba(0,255,252,0.10)",
+    cyanBorder: "rgba(0,255,252,0.22)",
+    text: "#e8f0ff",
+    textDim: "rgba(232,240,255,0.50)",
+    textFaint: "rgba(232,240,255,0.20)",
+    serif: "'Playfair Display', serif",
+    mono: "'DM Mono', monospace",
+  };
+  /* Unibag palette — warm beige, professional */
+  const u = {
+    bg: "#f0ede5",
+    primary: "#0066cc",
+    green: "#218506",
+    cardBg: "#ffffff",
+    midBg: "#e8e4dc",
+    text: "#1b1b1b",
+    textDim: "#414546",
+    textFaint: "rgba(27,27,27,0.35)",
+    border: "rgba(27,27,27,0.08)",
+    font: "'Inter', system-ui, -apple-system, sans-serif",
+  };
+
+  return `
+/* ══════════════════════════════════════════
+   UNIBAG — RESET & BASE
+══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: ${n.bg}; color: ${n.text}; font-family: ${n.mono}; overflow-x: hidden; }
+.ub-bg-glow {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 30%, rgba(0,255,252,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(0,255,252,0.02) 0%, transparent 50%);
+}
+
+/* ══════════════════════════════════════════
+   SECTION 1 — NICOLA
+══════════════════════════════════════════ */
+.ub-nicola {
+  position: relative; z-index: 1;
+  min-height: 100vh; padding: 80px 64px 80px;
+  display: grid; grid-template-columns: 1fr 380px;
+  gap: 60px; align-items: center;
+}
+.ub-nicola::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, ${n.cyanBorder}, transparent);
+}
+.ub-ns-logo-row { margin-bottom: 20px; animation: ubFadeUp .6s ease both; }
+.ub-ns-name {
+  font-family: ${n.serif}; font-size: clamp(2.2rem, 3.5vw, 3.6rem);
+  font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;
+  color: ${n.text}; margin-bottom: 8px;
+  animation: ubFadeUp .6s .05s ease both;
+}
+.ub-ns-role {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: ${n.cyan}; margin-bottom: 28px;
+  animation: ubFadeUp .6s .1s ease both;
+}
+.ub-ns-intro {
+  font-size: 15px; line-height: 1.8; color: ${n.textDim};
+  max-width: 520px; margin-bottom: 32px;
+  animation: ubFadeUp .6s .15s ease both;
+}
+.ub-ns-pills {
+  list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;
+  animation: ubFadeUp .6s .2s ease both;
+}
+.ub-ns-pills li {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12px; color: ${n.textDim};
+}
+.ub-ns-pills li svg { color: ${n.cyan}; flex-shrink: 0; }
+.ub-clock { font-variant-numeric: tabular-nums; }
+.ub-tz-label {
+  font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
+  color: ${n.textFaint}; margin-left: 4px;
+}
+
+/* Photo */
+.ub-nicola-right {
+  display: flex; flex-direction: column; align-items: center;
+  animation: ubFadeUp .6s .2s ease both;
+}
+.ub-photo-wrap {
+  position: relative; width: 100%; max-width: 340px;
+  clip-path: polygon(0 0, 100% 3%, 97% 100%, 3% 97%);
+}
+.ub-photo {
+  width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center;
+  display: block; filter: grayscale(60%) contrast(1.08); opacity: 0.85;
+}
+
+@keyframes ubFadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
+
+/* ══════════════════════════════════════════
+   GLITCH ZONES
+══════════════════════════════════════════ */
+.ub-glitch-zone {
+  position: relative; height: 180px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center; z-index: 1;
+}
+.ub-glitch-fwd .ub-glitch-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, ${n.bg} 0%, ${u.bg} 100%);
+}
+.ub-glitch-bwd .ub-glitch-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, ${u.bg} 0%, ${n.bg} 100%);
+}
+.ub-glitch-scanlines {
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,252,0.025) 2px, rgba(0,255,252,0.025) 4px);
+  animation: ubScan 6s linear infinite;
+}
+@keyframes ubScan { from{background-position:0 0} to{background-position:0 40px} }
+.ub-glitch-label {
+  position: relative; z-index: 2; font-family: ${n.serif}; font-style: italic;
+  font-size: clamp(1.2rem, 2.5vw, 2rem); font-weight: 700; color: ${n.cyan};
+  letter-spacing: 0.06em; animation: ubGltch 4s infinite;
+}
+@keyframes ubGltch {
+  0%,88%,100%{text-shadow:2px 0 rgba(255,0,100,.5),-2px 0 rgba(0,200,255,.5);transform:none}
+  90%{text-shadow:-5px 0 rgba(255,0,100,.8),5px 0 rgba(0,200,255,.8);transform:translateX(3px)}
+  93%{text-shadow:5px 0 rgba(255,0,100,.8),-5px 0 rgba(0,200,255,.8);transform:translateX(-3px)}
+  96%{text-shadow:2px 0 rgba(255,0,100,.5),-2px 0 rgba(0,200,255,.5);transform:none}
+}
+
+/* ══════════════════════════════════════════
+   SECTION 2 — PROSPECT (Unibag)
+══════════════════════════════════════════ */
+.ub-prospect {
+  background: ${u.bg}; color: ${u.text};
+  font-family: ${u.font}; position: relative; z-index: 1;
+}
+.ub-prospect-topbar {
+  background: rgba(240,237,229,0.95); border-bottom: 1px solid ${u.border};
+  padding: 0 64px; height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 20;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.ub-prospect-topbar-tag {
+  font-family: ${n.mono}; font-size: 11px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: ${u.textFaint};
+}
+
+/* Section blocks */
+.ub-section-block { padding: 56px 64px; max-width: 1100px; margin: 0 auto; }
+.ub-section-border { border-top: 1px solid ${u.border}; }
+.ub-eyebrow {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: ${u.primary}; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.ub-eyebrow::before { content:''; width:24px; height:1px; background:${u.primary}; }
+.ub-headline {
+  font-size: clamp(1.8rem, 3.2vw, 3rem); font-weight: 700;
+  line-height: 1.15; color: ${u.text}; max-width: 780px;
+  margin-bottom: 20px; letter-spacing: -0.02em;
+}
+.ub-sub {
+  font-size: 16px; line-height: 1.8; color: ${u.textDim};
+  max-width: 640px; margin-bottom: 40px; font-weight: 300;
+}
+
+/* ═════════ Sub-A: Two-col with diff card ═════════ */
+.ub-two-col {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 32px;
+}
+.ub-two-col-text p {
+  font-size: 15px; line-height: 1.8; color: ${u.textDim}; font-weight: 300;
+  margin-bottom: 16px;
+}
+.ub-diff-card {
+  background: ${u.cardBg}; border: 1px solid ${u.border};
+  padding: 32px; border-radius: 2px;
+}
+.ub-diff-card-title {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: ${u.primary}; font-weight: 600; margin-bottom: 24px;
+}
+.ub-diff-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+.ub-diff-list li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 14px; line-height: 1.6; color: ${u.text}; font-weight: 400;
+}
+.ub-diff-bullet {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 6px;
+  background: ${u.primary};
+}
+.ub-diff-green { background: ${u.green}; }
+
+/* ═════════ Sub-B: Competitor grid ═════════ */
+.ub-comp-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px;
+}
+.ub-comp-card {
+  background: ${u.cardBg}; border: 1px solid ${u.border};
+  padding: 28px 24px; border-radius: 2px;
+}
+.ub-comp-name {
+  font-size: 16px; font-weight: 700; color: ${u.text}; margin-bottom: 2px;
+}
+.ub-comp-location {
+  font-size: 11px; color: ${u.textFaint}; letter-spacing: 1px;
+  text-transform: uppercase; margin-bottom: 12px;
+}
+.ub-comp-desc {
+  font-size: 13px; line-height: 1.7; color: ${u.textDim}; font-weight: 300;
+  margin-bottom: 16px;
+}
+.ub-comp-tag {
+  font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600; padding: 6px 12px; display: inline-block; border-radius: 2px;
+}
+.ub-comp-tag-no {
+  background: rgba(200,50,50,0.08); color: #b33;
+}
+.ub-comp-note {
+  font-size: 15px; line-height: 1.7; color: ${u.textDim}; font-weight: 400;
+  font-style: italic; text-align: center; padding-top: 8px;
+}
+
+/* ═════════ Sub-C: Timeline ═════════ */
+.ub-timeline {
+  display: flex; align-items: stretch; gap: 0; margin-bottom: 32px;
+}
+.ub-tl-block {
+  flex: 1; padding: 32px 24px; text-align: center;
+  background: ${u.cardBg}; border: 1px solid ${u.border};
+}
+.ub-tl-month {
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: ${u.primary}; font-weight: 700; margin-bottom: 8px;
+}
+.ub-tl-title {
+  font-size: 18px; font-weight: 700; color: ${u.text};
+  margin-bottom: 12px; letter-spacing: -0.01em;
+}
+.ub-tl-desc {
+  font-size: 13px; line-height: 1.7; color: ${u.textDim}; font-weight: 300;
+}
+.ub-tl-connector {
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 10px; color: ${u.primary}; flex-shrink: 0;
+}
+
+.ub-highlight-box {
+  background: ${u.cardBg}; border-left: 3px solid ${u.primary};
+  padding: 24px 28px; font-size: 15px; line-height: 1.7;
+  color: ${u.text}; font-weight: 300;
+}
+.ub-highlight-box strong { font-weight: 600; color: ${u.primary}; }
+
+/* ═════════ Sub-D: Value rows ═════════ */
+.ub-vr-row {
+  border-bottom: 1px solid ${u.border}; padding: 36px 0;
+}
+.ub-vr-row:last-child { border-bottom: none; }
+.ub-vr-label {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 24px;
+}
+.ub-vr-num {
+  font-family: ${n.mono}; font-size: 10px; letter-spacing: 2px;
+  color: ${u.primary}; font-weight: 700;
+}
+.ub-vr-title {
+  font-size: 1.3rem; font-weight: 700; color: ${u.text};
+  letter-spacing: -0.02em;
+}
+.ub-vr-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+}
+.ub-vr-col { padding: 24px 20px; }
+.ub-vr-col p {
+  font-size: 14px; line-height: 1.75; color: ${u.textDim}; font-weight: 300;
+}
+.ub-vr-mine {
+  background: ${u.midBg};
+  border-left: 3px solid ${u.border};
+}
+.ub-vr-theirs {
+  background: ${u.cardBg};
+  border-left: 3px solid ${u.primary};
+}
+
+/* ═════════ Sub-E: Takeaways ═════════ */
+.ub-takeaways {
+  padding: 48px 64px; max-width: 1100px; margin: 0 auto;
+  border-top: 1px solid ${u.border};
+  display: flex; flex-direction: column; gap: 20px;
+}
+.ub-tk-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  font-size: 14px; line-height: 1.7; color: ${u.textDim}; font-weight: 300;
+}
+.ub-tk-item::before {
+  content: '\\2192'; color: ${u.primary}; flex-shrink: 0;
+  margin-top: 1px; font-size: 13px;
+}
+
+/* ══════════════════════════════════════════
+   SECTION 3 — CLOSING
+══════════════════════════════════════════ */
+.ub-close {
+  position: relative; z-index: 1;
+  padding: 96px 64px; background: ${n.bg};
+  text-align: center;
+}
+.ub-close-inner { max-width: 700px; margin: 0 auto; }
+.ub-close-eyebrow {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: ${n.cyan}; margin-bottom: 24px;
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.ub-close-eyebrow::before { content:''; width:32px; height:1px; background:${n.cyan}; }
+.ub-close-eyebrow::after { content:''; width:32px; height:1px; background:${n.cyan}; }
+.ub-close-headline {
+  font-family: ${n.serif};
+  font-size: clamp(2rem, 3.5vw, 3.6rem); font-weight: 700;
+  line-height: 1.12; letter-spacing: -0.02em;
+  color: ${n.text}; margin-bottom: 20px;
+}
+.ub-close-sub {
+  font-size: 17px; line-height: 1.7; color: ${n.textDim};
+  margin-bottom: 40px;
+}
+.ub-close-cta-row { margin-bottom: 20px; }
+.ub-close-cta {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: ${n.cyan}; color: ${n.bg};
+  font-family: ${n.mono}; font-size: 11px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 16px 32px; text-decoration: none; transition: opacity 0.2s;
+}
+.ub-close-cta:hover { opacity: 0.85; }
+.ub-arr { width: 16px; height: 1px; background: ${n.bg}; position: relative; }
+.ub-arr::after {
+  content:''; position:absolute; right:0; top:-3px;
+  width:6px; height:6px;
+  border-right:1px solid ${n.bg}; border-top:1px solid ${n.bg};
+  transform:rotate(45deg);
+}
+.ub-close-wa {
+  font-size: 12px; color: ${n.textDim}; text-decoration: none;
+  transition: color 0.2s; display: inline-block;
+  border-bottom: 1px solid ${n.textFaint};
+  padding-bottom: 2px;
+}
+.ub-close-wa:hover { color: ${n.cyan}; border-color: ${n.cyan}; }
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+.ub-footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid ${n.cyanBorder};
+  padding: 24px 64px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: ${n.textFaint}; background: ${n.bg};
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media(max-width:960px){
+  .ub-nicola { grid-template-columns: 1fr; padding: 80px 28px 64px; gap: 40px; }
+  .ub-nicola-right { order: -1; max-width: 220px; margin: 0 auto; }
+  .ub-prospect-topbar { padding: 0 28px; }
+  .ub-prospect-topbar-tag { display: none; }
+  .ub-section-block { padding: 48px 28px; }
+  .ub-two-col { grid-template-columns: 1fr; gap: 24px; }
+  .ub-comp-grid { grid-template-columns: 1fr; }
+  .ub-timeline { flex-direction: column; gap: 0; }
+  .ub-tl-connector { transform: rotate(90deg); padding: 8px 0; }
+  .ub-vr-cols { grid-template-columns: 1fr; }
+  .ub-takeaways { padding: 40px 28px; }
+  .ub-close { padding: 64px 28px; }
+  .ub-footer { padding: 20px 28px; flex-direction: column; gap: 6px; text-align: center; }
+  .ub-glitch-zone { height: 140px; }
+}
+@media(max-width:480px){
+  .ub-nicola { padding: 60px 20px 48px; min-height: auto; }
+  .ub-nicola-right { max-width: 160px; }
+  .ub-ns-name { font-size: 2rem; }
+  .ub-section-block { padding: 40px 20px; }
+  .ub-takeaways { padding: 32px 20px; }
+  .ub-close { padding: 48px 20px; }
+  .ub-footer { padding: 16px 20px; }
+  .ub-glitch-zone { height: 100px; }
+  .ub-prospect-topbar { padding: 0 20px; height: 56px; }
 }
   `;
 }
