@@ -51,6 +51,7 @@ export default async function OutreachPage({
   const config = getOutreachConfig(slug);
   if (!config) notFound();
 
+  if (slug === "blulogistic") return <OutreachBlulogistic config={config} slug={slug} />;
   if (slug === "tecnografting") return <OutreachTecnografting config={config} slug={slug} />;
   if (slug === "unibag") return <OutreachUnibag config={config} slug={slug} />;
   if (slug === "net-impianti") return <OutreachNetImpianti config={config} slug={slug} />;
@@ -3968,6 +3969,604 @@ function SectionRenderer({ section }: { section: OutreachSection }) {
       )}
     </section>
   );
+}
+
+/* ================================================================
+   BLULOGISTIC — FULLY CUSTOM TEMPLATE
+   ================================================================ */
+
+function OutreachBlulogistic({ config, slug }: { config: OutreachConfig; slug: string }) {
+  const today = new Date().toLocaleDateString("it-IT", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
+  return (
+    <>
+      <OutreachTracker slug={slug} />
+      <style>{blulogisticCSS()}</style>
+
+      <div className="bl-bg-glow" />
+      <BubbleNav />
+
+      {/* ════════════════════════════════════════
+           SECTION 1 — NICOLA (dark)
+         ════════════════════════════════════════ */}
+      <section className="bl-nicola" id="chi-sono">
+        <div className="bl-nicola-left">
+          <div className="bl-ns-logo-row">
+            <Image src="/favicon.png" alt="" width={36} height={36} style={{ objectFit: "contain" }} />
+          </div>
+          <h1 className="bl-ns-name">Nicola Serrao</h1>
+          <div className="bl-ns-role">Digital Marketing Strategist</div>
+          <p className="bl-ns-intro">
+            Mi occupo di strategia digitale per aziende B2B. Ho analizzato il settore
+            della logistica e dei trasporti &mdash; e credo che per Blulogistic ci sia
+            un&apos;opportunit&agrave; concreta nel digitale per supportare i vostri
+            obiettivi 2026. Vi propongo un confronto per valutarlo insieme.
+          </p>
+          <ul className="bl-ns-pills">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ancona, Italia
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+              nicolaserrao.com
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Analisi del {today}
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <LiveClock />
+              <span className="bl-tz-label">Roma</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="bl-nicola-right">
+          <div className="bl-photo-wrap">
+            <Image
+              src="/images/nicola.png"
+              alt="Nicola Serrao"
+              width={360}
+              height={480}
+              priority
+              className="bl-photo"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+           GLITCH DIVIDER 1
+         ════════════════════════════════════════ */}
+      <div className="bl-glitch-zone bl-glitch-fwd" id="il-progetto">
+        <div className="bl-glitch-bg" />
+        <div className="bl-glitch-scanlines" />
+        <div className="bl-glitch-label">// il quadro che ho visto</div>
+      </div>
+
+      {/* ════════════════════════════════════════
+           SECTION 2 — BLULOGISTIC (light)
+         ════════════════════════════════════════ */}
+      <section className="bl-prospect">
+
+        {/* Prospect sticky topbar */}
+        <div className="bl-prospect-topbar">
+          <Image
+            src={config.logo || "/favicon.png"}
+            alt={config.companyName}
+            width={160}
+            height={38}
+            style={{ objectFit: "contain", display: "block", maxWidth: 200 }}
+          />
+          <div className="bl-prospect-topbar-tag">Studio realizzato da Nicola Serrao</div>
+        </div>
+
+        {/* ─── Sub-section A: Il contesto digitale ─── */}
+        <div className="bl-subsection" id="competenze">
+          <div className="bl-subsection-header">
+            <div className="bl-eyebrow">Il mercato</div>
+            <h2 className="bl-headline">Il 79% degli acquirenti B2B logistica<br />inizia la ricerca online.</h2>
+          </div>
+          <div className="bl-two-col">
+            <div className="bl-two-col-text">
+              <p>
+                Il settore trasporti e logistica &egrave; sempre pi&ugrave; digitale-dipendente.
+                Chi cerca servizi di trasporto combinato, groupage o intermodale parte da Google.
+                Chi &egrave; visibile, intercetta la domanda. Chi non c&apos;&egrave;, la perde.
+              </p>
+            </div>
+            <div className="bl-img-col">
+              <Image
+                src="/images/outreach/blulogistic/gallery.jpg"
+                alt="Flotta Blulogistic"
+                width={520}
+                height={340}
+                className="bl-section-img"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* ─── Sub-section B: Il vostro posizionamento ─── */}
+        <div className="bl-subsection bl-subsection-bordered">
+          <div className="bl-eyebrow">Blulogistic oggi</div>
+          <h2 className="bl-headline">Un&apos;esperienza solida.<br />Una presenza online da costruire.</h2>
+          <div className="bl-two-col">
+            <div className="bl-highlight-card">
+              <ul className="bl-strength-list">
+                <li>
+                  <span className="bl-check-icon">&#10003;</span>
+                  20+ anni di esperienza nel settore
+                </li>
+                <li>
+                  <span className="bl-check-icon">&#10003;</span>
+                  Rotta Sardegna &#8596; Centro-Nord consolidata
+                </li>
+                <li>
+                  <span className="bl-check-icon">&#10003;</span>
+                  Flotta Euro 5/6 (vantaggio green)
+                </li>
+                <li>
+                  <span className="bl-check-icon">&#10003;</span>
+                  Team esperto (Lorenzetti, Bocchini)
+                </li>
+              </ul>
+            </div>
+            <div className="bl-two-col-text">
+              <p>
+                Ma oggi il vostro sito &egrave; una vetrina statica. Nessun form di preventivo
+                dinamico, nessuna campagna attiva, nessun contenuto che intercetti la domanda
+                online. In un mercato dove il 79% parte da una ricerca, questo &egrave; un gap
+                che si traduce in opportunit&agrave; perse ogni giorno.
+              </p>
+              <div className="bl-team-img-wrap">
+                <Image
+                  src="/images/outreach/blulogistic/team.jpg"
+                  alt="Team Blulogistic"
+                  width={480}
+                  height={300}
+                  className="bl-section-img"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ─── Sub-section C: L'opportunita ─── */}
+        <div className="bl-subsection bl-subsection-bordered">
+          <div className="bl-eyebrow">La proposta</div>
+          <h2 className="bl-headline">Valutare insieme l&apos;apporto dell&apos;online<br />nei vostri obiettivi 2026.</h2>
+          <p className="bl-sub">
+            Non vi propongo di stravolgere nulla. Vi propongo un confronto professionale
+            per capire se e come il digitale pu&ograve; supportare la vostra crescita.
+            Dalla visibilit&agrave; su &ldquo;trasporto Sardegna groupage&rdquo; alla generazione
+            di contatti qualificati da PMI esportatrici &mdash; le opportunit&agrave; ci sono.
+            Serve capire quali hanno senso per voi.
+          </p>
+          <div className="bl-opp-list">
+            <div className="bl-opp-item">
+              <div className="bl-opp-title">Visibilit&agrave;</div>
+              <div className="bl-opp-desc">Farvi trovare da chi cerca esattamente quello che offrite</div>
+            </div>
+            <div className="bl-opp-item">
+              <div className="bl-opp-title">Lead qualificati</div>
+              <div className="bl-opp-desc">Trasformare la ricerca online in richieste di preventivo concrete</div>
+            </div>
+            <div className="bl-opp-item">
+              <div className="bl-opp-title">Misurabilit&agrave;</div>
+              <div className="bl-opp-desc">Sapere con esattezza cosa funziona e cosa no</div>
+            </div>
+          </div>
+        </div>
+
+        {/* ─── Sub-section D: Takeaways ─── */}
+        <div className="bl-subsection bl-subsection-bordered">
+          <div className="bl-arrow-lines">
+            <div className="bl-arrow-line">
+              <span className="bl-arrow-icon">&rarr;</span>
+              <span>Questa &egrave; una lettura dall&apos;esterno &mdash; il valore vero emerge da un confronto diretto.</span>
+            </div>
+            <div className="bl-arrow-line">
+              <span className="bl-arrow-icon">&rarr;</span>
+              <span>Non serve un grande investimento per iniziare: serve chiarezza sugli obiettivi.</span>
+            </div>
+            <div className="bl-arrow-line">
+              <span className="bl-arrow-icon">&rarr;</span>
+              <span>Se vi interessa valutare, bastano 20 minuti di chiamata. Senza impegno.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+           GLITCH DIVIDER 2
+         ════════════════════════════════════════ */}
+      <div className="bl-glitch-zone bl-glitch-bwd">
+        <div className="bl-glitch-bg" />
+        <div className="bl-glitch-scanlines" />
+        <div className="bl-glitch-label">// e adesso?</div>
+      </div>
+
+      {/* ════════════════════════════════════════
+           SECTION 3 — CLOSING (dark, Nicola style)
+         ════════════════════════════════════════ */}
+      <section className="bl-close" id="parliamone">
+        <div className="bl-close-inner">
+          <div className="bl-close-eyebrow">Prossimo passo</div>
+          <h2 className="bl-close-headline">
+            Un confronto<br />di 20 minuti.
+          </h2>
+          <p className="bl-close-sub">
+            Vi racconto quello che ho trovato e valutiamo insieme se ha senso
+            per i vostri obiettivi 2026.
+          </p>
+          <div className="bl-close-cta-row">
+            <a
+              href={`mailto:${SITE.email}?subject=${encodeURIComponent(config.cta.emailSubject || "")}`}
+              className="bl-close-cta"
+            >
+              Scrivimi
+              <span className="bl-arr" />
+            </a>
+          </div>
+          <a
+            href={`${SITE.whatsapp}?text=${encodeURIComponent(config.cta.whatsappText || "")}`}
+            className="bl-close-wa"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            O scrivimi su WhatsApp
+          </a>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+           FOOTER
+         ════════════════════════════════════════ */}
+      <footer className="bl-footer">
+        <span>&copy; Nicola Serrao &middot; Digital Marketing Strategist &middot; nicolaserrao.com</span>
+        <span>{SITE.email} &middot; {SITE.phone}</span>
+      </footer>
+    </>
+  );
+}
+
+/* ── Blulogistic CSS ── */
+function blulogisticCSS(): string {
+  /* Nicola palette */
+  const n = {
+    bg: "#0a0e0d",
+    cyan: "#00fffc",
+    cyanDim: "rgba(0,255,252,0.10)",
+    cyanBorder: "rgba(0,255,252,0.22)",
+    text: "#e8f0ff",
+    textDim: "rgba(232,240,255,0.50)",
+    textFaint: "rgba(232,240,255,0.20)",
+    serif: "'Playfair Display', serif",
+    mono: "'DM Mono', monospace",
+  };
+  /* Blulogistic palette */
+  const b = {
+    bg: "#f5f7fa",
+    primary: "#2d6db5",
+    accent: "#3a85d3",
+    cardBg: "#ffffff",
+    text: "#1a2332",
+    textDim: "rgba(26,35,50,0.55)",
+    textFaint: "rgba(26,35,50,0.35)",
+    border: "rgba(26,35,50,0.08)",
+    font: "'Inter', system-ui, sans-serif",
+  };
+
+  return `
+/* ══════════════════════════════════════════
+   BLULOGISTIC — RESET & BASE
+══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: ${n.bg}; color: ${n.text}; font-family: ${n.mono}; overflow-x: hidden; }
+.bl-bg-glow {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 30%, rgba(0,255,252,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(0,255,252,0.02) 0%, transparent 50%);
+}
+
+/* ══════════════════════════════════════════
+   SECTION 1 — NICOLA
+══════════════════════════════════════════ */
+.bl-nicola {
+  position: relative; z-index: 1;
+  min-height: 100vh; padding: 100px 64px 80px;
+  display: grid; grid-template-columns: 1fr 380px;
+  gap: 60px; align-items: center;
+}
+.bl-nicola::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, ${n.cyanBorder}, transparent);
+}
+.bl-ns-logo-row { margin-bottom: 20px; animation: blFadeUp .6s ease both; }
+.bl-ns-name {
+  font-family: ${n.serif}; font-size: clamp(2.2rem, 3.5vw, 3.6rem);
+  font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;
+  color: ${n.text}; margin-bottom: 8px;
+  animation: blFadeUp .6s .05s ease both;
+}
+.bl-ns-role {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: ${n.cyan}; margin-bottom: 28px;
+  animation: blFadeUp .6s .1s ease both;
+}
+.bl-ns-intro {
+  font-size: 15px; line-height: 1.8; color: ${n.textDim};
+  max-width: 520px; margin-bottom: 32px;
+  animation: blFadeUp .6s .15s ease both;
+}
+.bl-ns-pills {
+  list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;
+  animation: blFadeUp .6s .2s ease both;
+}
+.bl-ns-pills li {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12px; color: ${n.textDim};
+}
+.bl-ns-pills li svg { color: ${n.cyan}; flex-shrink: 0; }
+.bl-clock { font-variant-numeric: tabular-nums; }
+.bl-tz-label {
+  font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
+  color: ${n.textFaint}; margin-left: 4px;
+}
+
+/* Photo */
+.bl-nicola-right {
+  display: flex; flex-direction: column; align-items: center;
+  animation: blFadeUp .6s .2s ease both;
+}
+.bl-photo-wrap {
+  position: relative; width: 100%; max-width: 340px;
+  clip-path: polygon(0 0, 100% 3%, 97% 100%, 3% 97%);
+}
+.bl-photo {
+  width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center;
+  display: block; filter: grayscale(60%) contrast(1.08); opacity: 0.85;
+}
+
+@keyframes blFadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
+
+/* ══════════════════════════════════════════
+   GLITCH ZONES
+══════════════════════════════════════════ */
+.bl-glitch-zone {
+  position: relative; height: 180px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center; z-index: 1;
+}
+.bl-glitch-fwd .bl-glitch-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, ${n.bg} 0%, ${b.bg} 100%);
+}
+.bl-glitch-bwd .bl-glitch-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, ${b.bg} 0%, ${n.bg} 100%);
+}
+.bl-glitch-scanlines {
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,252,0.025) 2px, rgba(0,255,252,0.025) 4px);
+  animation: blScan 6s linear infinite;
+}
+@keyframes blScan { from{background-position:0 0} to{background-position:0 40px} }
+.bl-glitch-label {
+  position: relative; z-index: 2; font-family: ${n.serif}; font-style: italic;
+  font-size: clamp(1.2rem, 2.5vw, 2rem); font-weight: 700; color: ${n.cyan};
+  letter-spacing: 0.06em; animation: blGltch 4s infinite;
+}
+@keyframes blGltch {
+  0%,88%,100%{text-shadow:2px 0 rgba(255,0,100,.5),-2px 0 rgba(0,200,255,.5);transform:none}
+  90%{text-shadow:-5px 0 rgba(255,0,100,.8),5px 0 rgba(0,200,255,.8);transform:translateX(3px)}
+  93%{text-shadow:5px 0 rgba(255,0,100,.8),-5px 0 rgba(0,200,255,.8);transform:translateX(-3px)}
+  96%{text-shadow:2px 0 rgba(255,0,100,.5),-2px 0 rgba(0,200,255,.5);transform:none}
+}
+
+/* ══════════════════════════════════════════
+   SECTION 2 — PROSPECT
+══════════════════════════════════════════ */
+.bl-prospect {
+  background: ${b.bg}; color: ${b.text};
+  font-family: ${b.font}; position: relative; z-index: 1;
+}
+.bl-prospect-topbar {
+  background: rgba(245,247,250,0.95); border-bottom: 1px solid ${b.border};
+  padding: 0 64px; height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 20;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.bl-prospect-topbar-tag {
+  font-family: ${n.mono}; font-size: 11px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: ${b.textFaint};
+}
+
+/* Sub-sections */
+.bl-subsection { padding: 72px 64px 0; max-width: 1100px; margin: 0 auto; }
+.bl-subsection-bordered { border-top: 1px solid ${b.border}; }
+.bl-subsection-header { margin-bottom: 40px; }
+.bl-eyebrow {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: ${b.primary}; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.bl-eyebrow::before { content:''; width:24px; height:1px; background:${b.primary}; }
+.bl-headline {
+  font-size: clamp(1.8rem, 3.2vw, 3rem); font-weight: 700;
+  line-height: 1.15; color: ${b.text}; max-width: 780px;
+  margin-bottom: 20px; letter-spacing: -0.02em;
+}
+.bl-sub {
+  font-size: 16px; line-height: 1.8; color: ${b.textDim};
+  max-width: 640px; margin-bottom: 40px; font-weight: 300;
+}
+.bl-body {
+  font-size: 15px; line-height: 1.8; color: ${b.textDim};
+  max-width: 640px; margin-bottom: 16px; font-weight: 300;
+}
+
+/* Two-column layout */
+.bl-two-col {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+}
+.bl-two-col-text p {
+  font-size: 15px; line-height: 1.8; color: ${b.textDim}; font-weight: 300;
+}
+.bl-img-col { display: flex; align-items: center; }
+.bl-section-img {
+  width: 100%; height: auto; border-radius: 8px;
+  object-fit: cover; border: 1px solid ${b.border};
+}
+.bl-team-img-wrap { margin-top: 24px; }
+
+/* Highlight card (strengths) */
+.bl-highlight-card {
+  background: ${b.cardBg}; border: 1px solid ${b.border};
+  padding: 28px 32px; border-radius: 8px;
+  border-left: 3px solid ${b.primary};
+}
+.bl-strength-list {
+  list-style: none; padding: 0; display: flex; flex-direction: column; gap: 16px;
+}
+.bl-strength-list li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 15px; line-height: 1.6; color: ${b.text}; font-weight: 400;
+}
+.bl-check-icon {
+  color: ${b.primary}; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+}
+
+/* Opportunity items */
+.bl-opp-list {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  margin-bottom: 32px;
+}
+.bl-opp-item {
+  background: ${b.cardBg}; border: 1px solid ${b.border}; padding: 28px 24px;
+}
+.bl-opp-title {
+  font-size: 16px; font-weight: 700; color: ${b.primary};
+  margin-bottom: 8px; letter-spacing: -0.01em;
+}
+.bl-opp-desc {
+  font-size: 13px; line-height: 1.7; color: ${b.textDim}; font-weight: 300;
+}
+
+/* Arrow lines */
+.bl-arrow-lines {
+  display: flex; flex-direction: column; gap: 20px;
+  padding-bottom: 72px; padding-top: 48px;
+}
+.bl-arrow-line {
+  display: flex; align-items: flex-start; gap: 14px;
+  font-size: 15px; line-height: 1.7; color: ${b.textDim}; font-weight: 300;
+}
+.bl-arrow-icon {
+  color: ${b.primary}; flex-shrink: 0; margin-top: 2px; font-size: 14px;
+}
+
+/* ══════════════════════════════════════════
+   SECTION 3 — CLOSING
+══════════════════════════════════════════ */
+.bl-close {
+  position: relative; z-index: 1;
+  padding: 96px 64px; background: ${n.bg};
+  text-align: center;
+}
+.bl-close-inner { max-width: 700px; margin: 0 auto; }
+.bl-close-eyebrow {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: ${n.cyan}; margin-bottom: 24px;
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.bl-close-eyebrow::before { content:''; width:32px; height:1px; background:${n.cyan}; }
+.bl-close-eyebrow::after { content:''; width:32px; height:1px; background:${n.cyan}; }
+.bl-close-headline {
+  font-family: ${n.serif};
+  font-size: clamp(2rem, 3.5vw, 3.6rem); font-weight: 700;
+  line-height: 1.12; letter-spacing: -0.02em;
+  color: ${n.text}; margin-bottom: 20px;
+}
+.bl-close-sub {
+  font-size: 17px; line-height: 1.7; color: ${n.textDim};
+  margin-bottom: 40px;
+}
+.bl-close-cta-row { margin-bottom: 20px; }
+.bl-close-cta {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: ${n.cyan}; color: ${n.bg};
+  font-family: ${n.mono}; font-size: 11px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 16px 32px; text-decoration: none; transition: opacity 0.2s;
+}
+.bl-close-cta:hover { opacity: 0.85; }
+.bl-arr { width: 16px; height: 1px; background: ${n.bg}; position: relative; }
+.bl-arr::after {
+  content:''; position:absolute; right:0; top:-3px;
+  width:6px; height:6px;
+  border-right:1px solid ${n.bg}; border-top:1px solid ${n.bg};
+  transform:rotate(45deg);
+}
+.bl-close-wa {
+  font-size: 12px; color: ${n.textDim}; text-decoration: none;
+  transition: color 0.2s; display: inline-block;
+  border-bottom: 1px solid ${n.textFaint};
+  padding-bottom: 2px;
+}
+.bl-close-wa:hover { color: ${n.cyan}; border-color: ${n.cyan}; }
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+.bl-footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid ${n.cyanBorder};
+  padding: 24px 64px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: ${n.textFaint}; background: ${n.bg};
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media(max-width:960px){
+  .bl-nicola { grid-template-columns: 1fr; padding: 100px 28px 64px; gap: 40px; }
+  .bl-nicola-right { order: -1; max-width: 220px; margin: 0 auto; }
+  .bl-prospect-topbar { padding: 0 28px; }
+  .bl-prospect-topbar-tag { display: none; }
+  .bl-subsection { padding: 56px 28px 0; }
+  .bl-two-col { grid-template-columns: 1fr; gap: 32px; }
+  .bl-opp-list { grid-template-columns: 1fr; }
+  .bl-arrow-lines { padding-bottom: 56px; }
+  .bl-close { padding: 64px 28px; }
+  .bl-footer { padding: 20px 28px; flex-direction: column; gap: 6px; text-align: center; }
+  .bl-glitch-zone { height: 140px; }
+}
+@media(max-width:480px){
+  .bl-nicola { padding: 90px 20px 48px; min-height: auto; }
+  .bl-nicola-right { max-width: 160px; }
+  .bl-ns-name { font-size: 2rem; }
+  .bl-subsection { padding: 40px 20px 0; }
+  .bl-highlight-card { padding: 20px 24px; }
+  .bl-opp-item { padding: 20px 16px; }
+  .bl-close { padding: 48px 20px; }
+  .bl-footer { padding: 16px 20px; }
+  .bl-glitch-zone { height: 100px; }
+  .bl-prospect-topbar { padding: 0 20px; height: 56px; }
+}
+  `;
 }
 
 function isLight(hex: string): boolean {
