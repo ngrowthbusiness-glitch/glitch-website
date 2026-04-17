@@ -9,6 +9,16 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    slug: "test-ab-significanza-statistica",
+    date: "17 Aprile 2026",
+    category: "Analytics & KPI",
+    title: "Il tuo test A/B ha mostrato +18%. Probabilmente non significa niente.",
+    excerpt:
+      "Stagionalità, ciclo stipendi, azioni dei competitor: le variabili che falsano quasi ogni test. Quanti utenti servono davvero per un risultato affidabile — e come testare bene con volumi bassi.",
+    readTime: "9 min",
+    tags: ["A/B Test", "Dati", "Significanza statistica"],
+  },
+  {
     slug: "roas-non-e-un-kpi",
     date: "17 Aprile 2026",
     category: "Analytics & KPI",
@@ -220,20 +230,4 @@ export default function BlogIndexPage() {
               <div className="blog-card-title">{post.title}</div>
               <div className="blog-card-excerpt">{post.excerpt}</div>
               <div className="blog-card-tags">
-                {post.tags.map(tag => (
-                  <span key={tag} className="blog-card-tag">{tag}</span>
-                ))}
-              </div>
-              <div className="blog-card-arrow">
-                Leggi l&rsquo;articolo
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </>
-  );
-}
+                {post.tags.map(
