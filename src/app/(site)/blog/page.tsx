@@ -9,6 +9,16 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    slug: "prime-settimane-consulente-marketing",
+    date: "17 Aprile 2026",
+    category: "Metodo & Consulenza",
+    title: "Prima della strategia, si mappa. Cosa fa davvero un buon consulente marketing nelle prime settimane.",
+    excerpt:
+      "Audit dei dati, intervista interna, benchmark di mercato: le tre macro aree che un buon consulente copre prima di toccare il budget. Niente slide, niente proposte — prima si capisce.",
+    readTime: "7 min",
+    tags: ["Consulenza", "Metodo", "Analytics"],
+  },
+  {
     slug: "test-ab-significanza-statistica",
     date: "17 Aprile 2026",
     category: "Analytics & KPI",
@@ -230,20 +240,4 @@ export default function BlogIndexPage() {
               <div className="blog-card-title">{post.title}</div>
               <div className="blog-card-excerpt">{post.excerpt}</div>
               <div className="blog-card-tags">
-                {post.tags.map(tag => (
-                  <span key={tag} className="blog-card-tag">{tag}</span>
-                ))}
-              </div>
-              <div className="blog-card-arrow">
-                Leggi l&rsquo;articolo
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </>
-  );
-}
+            
