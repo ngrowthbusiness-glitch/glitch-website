@@ -840,7 +840,7 @@ export default function ArticleConsulentePage() {
               </div>
             </div>
             <div className="mk-cta-action">
-              <a href="/#contatti" className="mk-cta-btn">Ricevi la lista</a>
+              <Link href="/risorse/domande-consulente" className="mk-cta-btn">Ricevi la lista</Link>
             </div>
           </div>
         </div>
@@ -936,3 +936,5 @@ export default function ArticleConsulentePage() {
     </>
   );
 }
+
+    
