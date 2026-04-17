@@ -112,7 +112,7 @@ export default function RoasArticlePage() {
         .art-page {
           max-width: 1100px;
           margin: 0 auto;
-          padding: 60px 60px 120px;
+          padding: 120px 60px 120px;
         }
 
         .art-col {

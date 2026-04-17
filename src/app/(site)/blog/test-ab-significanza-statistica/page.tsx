@@ -112,7 +112,7 @@ export default function TestAbPage() {
         .ab-page {
           max-width: 1100px;
           margin: 0 auto;
-          padding: 60px 60px 120px;
+          padding: 120px 60px 120px;
         }
         .ab-col       { max-width: 680px; margin: 0 auto; }
         .ab-col-wide  { max-width: 880px; margin: 0 auto; }
