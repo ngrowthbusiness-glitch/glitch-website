@@ -594,7 +594,7 @@ export default function HomePage() {
             <div className="fcmo-col-body">
               Il senior vende, il junior esegue. Ottimizza metriche di piattaforma &mdash; ROAS, CTR, CPM &mdash; ma nessuno guarda i tuoi margini reali.
             </div>
-            <div className="fcmo-col-verdict">&cross; Nessuno guarda i tuoi margini</div>
+            <div className="fcmo-col-verdict">&#10007; Nessuno guarda i tuoi margini</div>
           </div>
 
           {/* Dipendente */}
@@ -603,7 +603,7 @@ export default function HomePage() {
             <div className="fcmo-col-body">
               60&ndash;80K/anno. Una skill, un ruolo. Ha bisogno di qualcuno che gli dica cosa fare. E se non funziona, sei bloccato.
             </div>
-            <div className="fcmo-col-verdict">&cross; Costo alto, rischio alto</div>
+            <div className="fcmo-col-verdict">&#10007; Costo alto, rischio alto</div>
           </div>
 
           {/* Fractional CMO */}
@@ -612,7 +612,7 @@ export default function HomePage() {
             <div className="fcmo-col-body">
               Da &euro;1.500/mese. Strategia e numeri. Si prende la responsabilit&agrave; dei risultati. Pochi clienti, massima cura.
             </div>
-            <div className="fcmo-col-verdict">&check; Costo frazionato, impatto pieno</div>
+            <div className="fcmo-col-verdict">&#10003; Costo frazionato, impatto pieno</div>
           </div>
         </div>
 
