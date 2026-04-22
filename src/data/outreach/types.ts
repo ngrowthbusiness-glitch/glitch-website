@@ -20,6 +20,21 @@ export interface OutreachBox {
   image?: string;
 }
 
+/* ── v4 types — video-first one-screen landing ── */
+
+export interface OutreachBlock {
+  today: string;
+  tomorrow: string;
+}
+
+export interface OutreachV4Cta {
+  text: string;
+  whatsappText?: string;
+  emailSubject?: string;
+}
+
+/* ── Main config — supports both legacy (v3) and new (v4) formats ── */
+
 export interface OutreachConfig {
   slug: string;
   companyName: string;
@@ -28,7 +43,18 @@ export interface OutreachConfig {
   logo?: string;
   sector: string;
 
-  palette: {
+  /** v4 — version discriminator */
+  version?: "v4";
+
+  /** v4 — Loom embed URL */
+  videoUrl?: string | null;
+
+  /** v4 — today/tomorrow blocks (max 3) */
+  blocks?: OutreachBlock[];
+
+  /* ── Legacy v3 fields (kept for backward compat with sent pages) ── */
+
+  palette?: {
     primary: string;
     primaryDim: string;
     background: string;
@@ -40,50 +66,40 @@ export interface OutreachConfig {
   headingFont?: string;
   bodyFont?: string;
 
-  heroTitle: string;
-  heroSubtitle: string;
+  heroTitle?: string;
+  heroSubtitle?: string;
   heroTagline?: string;
 
-  /** v3 — Pitch: expanded concept in entrepreneurial language */
   pitch?: string;
-
-  /** v3 — 3 boxes: Nicola's skill → prospect's benefit */
   boxes?: OutreachBox[];
 
-  /** v3 — Timeline: before/after visualization */
   timeline?: {
     before: { label: string; points: string[] };
     after: { label: string; points: string[] };
   };
 
-  /** v3 — Value rows: dual-column (my language / their language) */
   valueRows?: Array<{
     title: string;
     mine: { headline: string; points: string[] };
     theirs: { headline: string; points: string[] };
   }>;
 
-  /** v3 — Bottom takeaways (concise bullet points) */
   takeaways?: string[];
-
-  /** v3 — Custom urgency text */
   urgencyText?: string;
 
-  /** Legacy v1 sections (backward compat) */
-  sections: OutreachSection[];
+  /** Legacy v1 sections */
+  sections?: OutreachSection[];
 
-  cta: {
-    title: string;
+  cta: OutreachV4Cta & {
+    title?: string;
     subtitle?: string;
     ctaQuestion?: string;
-    whatsappText?: string;
-    emailSubject?: string;
     showGlitchEconomics?: boolean;
   };
 
   meta?: {
     createdAt?: string;
-    status?: "draft" | "sent" | "viewed" | "converted";
+    status?: "draft" | "ready" | "sent" | "viewed" | "converted";
     notionPageId?: string;
     notes?: string;
   };
