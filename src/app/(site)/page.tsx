@@ -173,6 +173,9 @@ export default function HomePage() {
           background: rgba(0,255,252,0.04);
           box-shadow: 0 0 40px rgba(0,255,252,0.06);
         }
+        .fcmo-col-icon {
+          margin-bottom: 8px; opacity: 0.9;
+        }
         .fcmo-col-title {
           font-family: var(--font-playfair), 'Playfair Display', serif;
           font-size: 18px; font-weight: 700; line-height: 1.2;
@@ -352,6 +355,70 @@ export default function HomePage() {
           font-size: 11px; color: var(--text-dim); margin-top: 6px; line-height: 1.5;
         }
 
+        /* ── Brain orbit ── */
+        .brain-orbit-wrap {
+          display: flex; align-items: center; justify-content: center;
+          min-height: 340px;
+        }
+        .brain-orbit {
+          position: relative; width: 320px; height: 320px;
+        }
+        .brain-core {
+          position: absolute; top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          width: 72px; height: 72px; border-radius: 50%;
+          background: rgba(0,255,252,0.06);
+          border: 1px solid rgba(0,255,252,0.3);
+          display: flex; flex-direction: column;
+          align-items: center; justify-content: center; gap: 2px;
+          z-index: 2;
+          box-shadow: 0 0 40px rgba(0,255,252,0.1);
+        }
+        .brain-core-label {
+          font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase;
+          color: var(--teal); font-weight: 500;
+        }
+        .brain-ring {
+          position: absolute; inset: 0; border-radius: 50%;
+          border: 1px solid rgba(0,255,252,0.08);
+        }
+        .brain-ring-1 {
+          inset: 30px;
+          animation: orbit-spin 20s linear infinite;
+        }
+        .brain-ring-2 {
+          inset: 0px;
+          animation: orbit-spin 30s linear infinite reverse;
+        }
+        .brain-node {
+          position: absolute; top: 50%; left: 50%;
+          width: 48px; height: 48px; margin: -24px 0 0 -24px;
+          transform: rotate(var(--angle)) translateX(calc((320px - 60px) / 2 - 24px)) rotate(calc(-1 * var(--angle)));
+          display: flex; align-items: center; justify-content: center;
+          border-radius: 50%;
+          background: rgba(0,255,252,0.05);
+          border: 1px solid rgba(0,255,252,0.2);
+          transition: border-color 0.3s, background 0.3s;
+        }
+        .brain-ring-1 .brain-node {
+          transform: rotate(var(--angle)) translateX(calc((320px - 60px) / 2 - 54px)) rotate(calc(-1 * var(--angle)));
+        }
+        .brain-ring-1 .brain-node { animation: counter-orbit 20s linear infinite; }
+        .brain-ring-2 .brain-node { animation: counter-orbit 30s linear infinite reverse; }
+        .brain-node:hover { border-color: rgba(0,255,252,0.5); background: rgba(0,255,252,0.1); }
+        .brain-node span {
+          font-size: 8px; letter-spacing: 0.5px; color: var(--text-dim);
+          font-weight: 500; white-space: nowrap;
+        }
+        @keyframes orbit-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes counter-orbit { 0% { transform: rotate(var(--angle)) translateX(calc((320px - 60px) / 2 - 24px)) rotate(calc(-1 * var(--angle) - 0deg)); } 100% { transform: rotate(var(--angle)) translateX(calc((320px - 60px) / 2 - 24px)) rotate(calc(-1 * var(--angle) - 360deg)); } }
+
+        /* ── Case study mini chart ── */
+        .case-chart {
+          margin-top: 8px; padding-top: 16px;
+          border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
         /* ═══════════════════════════════════
            6. CASE STUDIES
         ═══════════════════════════════════ */
@@ -503,7 +570,8 @@ export default function HomePage() {
           .cases-grid { grid-template-columns: 1fr; }
           .blog-grid { grid-template-columns: 1fr; }
           .risorse-grid { grid-template-columns: 1fr; }
-          .brain-tools { grid-template-columns: repeat(2, 1fr); }
+          .brain-orbit-wrap { min-height: 280px; }
+          .brain-orbit { width: 260px; height: 260px; }
           .brain-cost-grid { grid-template-columns: 1fr; gap: 16px; }
         }
         @media (max-width: 480px) {
@@ -590,6 +658,17 @@ export default function HomePage() {
         <div className="fcmo-grid">
           {/* Agenzia */}
           <div className="fcmo-col fcmo-col-dim">
+            <div className="fcmo-col-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <rect x="8" y="18" width="8" height="22" rx="1" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5"/>
+                <rect x="20" y="12" width="8" height="28" rx="1" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5"/>
+                <rect x="32" y="22" width="8" height="18" rx="1" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5"/>
+                <circle cx="12" cy="14" r="2" fill="rgba(255,255,255,0.12)"/>
+                <circle cx="24" cy="8" r="2" fill="rgba(255,255,255,0.2)"/>
+                <circle cx="36" cy="18" r="2" fill="rgba(255,255,255,0.08)"/>
+                <path d="M12 14L24 8L36 18" stroke="rgba(255,255,255,0.08)" strokeWidth="1" strokeDasharray="3 3"/>
+              </svg>
+            </div>
             <div className="fcmo-col-title">Agenzia</div>
             <div className="fcmo-col-body">
               Il senior vende, il junior esegue. Ottimizza metriche di piattaforma &mdash; ROAS, CTR, CPM &mdash; ma nessuno guarda i tuoi margini reali.
@@ -599,6 +678,13 @@ export default function HomePage() {
 
           {/* Dipendente */}
           <div className="fcmo-col fcmo-col-dim">
+            <div className="fcmo-col-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="16" r="7" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5"/>
+                <path d="M12 40c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5" strokeLinecap="round"/>
+                <path d="M24 28v-4" stroke="rgba(255,255,255,0.08)" strokeWidth="1" strokeDasharray="2 2"/>
+              </svg>
+            </div>
             <div className="fcmo-col-title">Dipendente</div>
             <div className="fcmo-col-body">
               60&ndash;80K/anno. Una skill, un ruolo. Ha bisogno di qualcuno che gli dica cosa fare. E se non funziona, sei bloccato.
@@ -608,6 +694,24 @@ export default function HomePage() {
 
           {/* Fractional CMO */}
           <div className="fcmo-col fcmo-col-teal">
+            <div className="fcmo-col-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="24" r="10" stroke="rgba(0,255,252,0.3)" strokeWidth="1.5"/>
+                <circle cx="24" cy="24" r="4" fill="rgba(0,255,252,0.15)" stroke="rgba(0,255,252,0.4)" strokeWidth="1"/>
+                <circle cx="24" cy="8" r="3" stroke="rgba(0,255,252,0.25)" strokeWidth="1"/><text x="24" y="10" textAnchor="middle" fontSize="5" fill="rgba(0,255,252,0.5)">S</text>
+                <circle cx="38" cy="18" r="3" stroke="rgba(0,255,252,0.25)" strokeWidth="1"/><text x="38" y="20" textAnchor="middle" fontSize="5" fill="rgba(0,255,252,0.5)">N</text>
+                <circle cx="38" cy="32" r="3" stroke="rgba(0,255,252,0.25)" strokeWidth="1"/><text x="38" y="34" textAnchor="middle" fontSize="5" fill="rgba(0,255,252,0.5)">E</text>
+                <circle cx="24" cy="40" r="3" stroke="rgba(0,255,252,0.25)" strokeWidth="1"/><text x="24" y="42" textAnchor="middle" fontSize="5" fill="rgba(0,255,252,0.5)">A</text>
+                <circle cx="10" cy="32" r="3" stroke="rgba(0,255,252,0.25)" strokeWidth="1"/><text x="10" y="34" textAnchor="middle" fontSize="5" fill="rgba(0,255,252,0.5)">D</text>
+                <circle cx="10" cy="18" r="3" stroke="rgba(0,255,252,0.25)" strokeWidth="1"/><text x="10" y="20" textAnchor="middle" fontSize="5" fill="rgba(0,255,252,0.5)">C</text>
+                <line x1="24" y1="14" x2="24" y2="11" stroke="rgba(0,255,252,0.15)" strokeWidth="0.5"/>
+                <line x1="32" y1="18" x2="35" y2="18" stroke="rgba(0,255,252,0.15)" strokeWidth="0.5"/>
+                <line x1="32" y1="30" x2="35" y2="32" stroke="rgba(0,255,252,0.15)" strokeWidth="0.5"/>
+                <line x1="24" y1="34" x2="24" y2="37" stroke="rgba(0,255,252,0.15)" strokeWidth="0.5"/>
+                <line x1="16" y1="30" x2="13" y2="32" stroke="rgba(0,255,252,0.15)" strokeWidth="0.5"/>
+                <line x1="16" y1="18" x2="13" y2="18" stroke="rgba(0,255,252,0.15)" strokeWidth="0.5"/>
+              </svg>
+            </div>
             <div className="fcmo-col-title">Fractional CMO</div>
             <div className="fcmo-col-body">
               Da &euro;1.500/mese. Strategia e numeri. Si prende la responsabilit&agrave; dei risultati. Pochi clienti, massima cura.
@@ -673,47 +777,59 @@ export default function HomePage() {
         </p>
 
         <div className="brain-grid">
+          {/* Left — text + impact */}
           <div>
-            <div style={{ fontSize: "14px", color: "var(--text-dim)", lineHeight: 1.8, marginBottom: "24px", maxWidth: "540px" }}>
+            <div style={{ fontSize: "14px", color: "var(--text-dim)", lineHeight: 1.8, marginBottom: "32px", maxWidth: "540px" }}>
               Un progetto Claude Code configurato sulla tua azienda: contesto, storico, obiettivi, KPI. Con skill personalizzate e connettori ai tuoi strumenti di lavoro. <strong style={{ color: "var(--text)" }}>Pochissimi lo offrono. &Egrave; integrato nel mio servizio.</strong>
             </div>
-            <div className="brain-tools">
-              {[
-                { name: "Gmail", role: "Comunicazione" },
-                { name: "Slack", role: "Team" },
-                { name: "Notion", role: "Knowledge base" },
-                { name: "CRM", role: "Pipeline" },
-                { name: "Analytics", role: "Dati" },
-                { name: "Fatturazione", role: "Numeri" },
-              ].map((tool) => (
-                <div key={tool.name} className="brain-tool">
-                  <div className="brain-tool-name">{tool.name}</div>
-                  <div className="brain-tool-role">{tool.role}</div>
+
+            <div className="brain-cost">
+              <div style={{ fontSize: "9px", letterSpacing: "3px", textTransform: "uppercase", color: "var(--teal)", marginBottom: "20px" }}>
+                Ipotesi di impatto
+              </div>
+              <div className="brain-cost-grid">
+                <div className="brain-cost-item">
+                  <div className="brain-cost-value">~20h</div>
+                  <div className="brain-cost-label">Ore risparmiate al mese su task ripetitivi</div>
                 </div>
-              ))}
+                <div className="brain-cost-item">
+                  <div className="brain-cost-value">3&times;</div>
+                  <div className="brain-cost-label">Velocit&agrave; di risposta su analisi e report</div>
+                </div>
+                <div className="brain-cost-item">
+                  <div className="brain-cost-value">&euro;0</div>
+                  <div className="brain-cost-label">Costo aggiuntivo &mdash; incluso nel servizio</div>
+                </div>
+                <div className="brain-cost-item">
+                  <div className="brain-cost-value">1 giorno</div>
+                  <div className="brain-cost-label">Per avere il setup operativo</div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="brain-cost">
-            <div style={{ fontSize: "9px", letterSpacing: "3px", textTransform: "uppercase", color: "var(--teal)", marginBottom: "20px" }}>
-              Ipotesi di impatto
-            </div>
-            <div className="brain-cost-grid">
-              <div className="brain-cost-item">
-                <div className="brain-cost-value">~20h</div>
-                <div className="brain-cost-label">Ore risparmiate al mese su task ripetitivi</div>
+          {/* Right — Orbit visualization */}
+          <div className="brain-orbit-wrap">
+            <div className="brain-orbit">
+              {/* Center core */}
+              <div className="brain-core">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" strokeWidth="1.5">
+                  <path d="M12 2a4 4 0 014 4c0 1.95-2 4-4 6-2-2-4-4.05-4-6a4 4 0 014-4z"/>
+                  <path d="M12 12v10M8 22h8"/>
+                </svg>
+                <span className="brain-core-label">AI Brain</span>
               </div>
-              <div className="brain-cost-item">
-                <div className="brain-cost-value">3&times;</div>
-                <div className="brain-cost-label">Velocit&agrave; di risposta su analisi e report</div>
+              {/* Orbit ring 1 */}
+              <div className="brain-ring brain-ring-1">
+                <div className="brain-node" style={{"--angle":"0deg"} as React.CSSProperties}><span>Gmail</span></div>
+                <div className="brain-node" style={{"--angle":"120deg"} as React.CSSProperties}><span>Slack</span></div>
+                <div className="brain-node" style={{"--angle":"240deg"} as React.CSSProperties}><span>Notion</span></div>
               </div>
-              <div className="brain-cost-item">
-                <div className="brain-cost-value">&euro;0</div>
-                <div className="brain-cost-label">Costo aggiuntivo &mdash; &egrave; incluso nel servizio</div>
-              </div>
-              <div className="brain-cost-item">
-                <div className="brain-cost-value">1 giorno</div>
-                <div className="brain-cost-label">Per avere il setup operativo</div>
+              {/* Orbit ring 2 */}
+              <div className="brain-ring brain-ring-2">
+                <div className="brain-node" style={{"--angle":"60deg"} as React.CSSProperties}><span>CRM</span></div>
+                <div className="brain-node" style={{"--angle":"180deg"} as React.CSSProperties}><span>Analytics</span></div>
+                <div className="brain-node" style={{"--angle":"300deg"} as React.CSSProperties}><span>Billing</span></div>
               </div>
             </div>
           </div>
@@ -756,6 +872,14 @@ export default function HomePage() {
                 <div className="case-metric-label">Time to result</div>
               </div>
             </div>
+            {/* Mini revenue growth chart */}
+            <div className="case-chart">
+              <svg width="100%" height="48" viewBox="0 0 200 48" preserveAspectRatio="none">
+                <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="rgba(0,255,252,0.2)"/><stop offset="100%" stopColor="rgba(0,255,252,0)"/></linearGradient></defs>
+                <path d="M0 44 L40 40 L80 36 L120 28 L160 18 L200 6" fill="none" stroke="var(--teal)" strokeWidth="1.5" opacity="0.6"/>
+                <path d="M0 44 L40 40 L80 36 L120 28 L160 18 L200 6 V48 H0 Z" fill="url(#g1)"/>
+              </svg>
+            </div>
           </div>
 
           {/* Case 2 */}
@@ -782,6 +906,18 @@ export default function HomePage() {
                 <div className="case-metric-label">Iscritti</div>
               </div>
             </div>
+            {/* Mini funnel chart */}
+            <div className="case-chart">
+              <svg width="100%" height="40" viewBox="0 0 200 40">
+                <rect x="0" y="4" width="200" height="8" rx="4" fill="rgba(0,255,252,0.06)"/>
+                <rect x="0" y="4" width="200" height="8" rx="4" fill="rgba(0,255,252,0.15)"/>
+                <rect x="0" y="18" width="130" height="8" rx="4" fill="rgba(0,255,252,0.25)"/>
+                <rect x="0" y="32" width="60" height="8" rx="4" fill="var(--teal)" opacity="0.5"/>
+                <text x="204" y="11" fontSize="7" fill="var(--text-faint)">3K iscritti</text>
+                <text x="134" y="25" fontSize="7" fill="var(--text-faint)">show-up 20%</text>
+                <text x="64" y="39" fontSize="7" fill="var(--teal)">&#8364;19K rev</text>
+              </svg>
+            </div>
           </div>
 
           {/* Case 3 */}
@@ -804,6 +940,17 @@ export default function HomePage() {
                 <div className="case-metric-label">Lead quality</div>
               </div>
             </div>
+            {/* CPL drop bar chart */}
+            <div className="case-chart">
+              <svg width="100%" height="40" viewBox="0 0 200 40">
+                <rect x="10" y="2" width="40" height="36" rx="4" fill="rgba(255,255,255,0.06)"/>
+                <rect x="80" y="20" width="40" height="18" rx="4" fill="rgba(0,255,252,0.2)"/>
+                <rect x="150" y="28" width="40" height="10" rx="4" fill="var(--teal)" opacity="0.5"/>
+                <text x="30" y="16" textAnchor="middle" fontSize="8" fill="var(--text-faint)">&#8364;25</text>
+                <text x="100" y="16" textAnchor="middle" fontSize="8" fill="var(--text-dim)">&#8364;10</text>
+                <text x="170" y="24" textAnchor="middle" fontSize="8" fill="var(--teal)">&#8364;4,50</text>
+              </svg>
+            </div>
           </div>
 
           {/* Case 4 */}
@@ -821,6 +968,17 @@ export default function HomePage() {
                 <div className="case-metric-value">ROAS 16</div>
                 <div className="case-metric-label">Return on Ad Spend</div>
               </div>
+            </div>
+            {/* ROAS gauge */}
+            <div className="case-chart">
+              <svg width="100%" height="40" viewBox="0 0 200 40">
+                <rect x="0" y="16" width="200" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+                <rect x="0" y="16" width="160" height="8" rx="4" fill="var(--teal)" opacity="0.4"/>
+                <text x="164" y="14" fontSize="8" fill="var(--teal)">ROAS 16</text>
+                <text x="164" y="36" fontSize="7" fill="var(--text-faint)">media settore: 4</text>
+                <line x1="50" y1="14" x2="50" y2="26" stroke="rgba(255,255,255,0.15)" strokeWidth="1" strokeDasharray="2 2"/>
+                <text x="50" y="10" textAnchor="middle" fontSize="6" fill="var(--text-faint)">avg</text>
+              </svg>
             </div>
           </div>
         </div>
@@ -985,10 +1143,22 @@ function TabsClient() {
       `}} />
       <div data-tabs="">
         <div className="tabs-nav">
-          <button className="tabs-btn" data-tab-btn="0" data-active="true">Settimana 1</button>
-          <button className="tabs-btn" data-tab-btn="1" data-active="false">Settimana 1&ndash;2</button>
-          <button className="tabs-btn" data-tab-btn="2" data-active="false">Settimana 2&ndash;4</button>
-          <button className="tabs-btn" data-tab-btn="3" data-active="false">Setup operativo</button>
+          <button className="tabs-btn" data-tab-btn="0" data-active="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{marginRight:"6px",verticalAlign:"middle"}}><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            Settimana 1
+          </button>
+          <button className="tabs-btn" data-tab-btn="1" data-active="false">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{marginRight:"6px",verticalAlign:"middle"}}><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            Settimana 1&ndash;2
+          </button>
+          <button className="tabs-btn" data-tab-btn="2" data-active="false">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{marginRight:"6px",verticalAlign:"middle"}}><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 4v16"/></svg>
+            Settimana 2&ndash;4
+          </button>
+          <button className="tabs-btn" data-tab-btn="3" data-active="false">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{marginRight:"6px",verticalAlign:"middle"}}><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+            Setup operativo
+          </button>
         </div>
 
         {/* Tab 0 — Analisi risorse */}
