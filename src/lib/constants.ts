@@ -25,6 +25,8 @@ export const NAV_LINKS = [
   { href: "/cosa-posso-fare", label: "Cosa posso fare" },
   { href: "/cosa-ho-fatto", label: "Cosa ho fatto" },
   { href: "/metodo-glitch", label: "Metodo GLITCH" },
+  { href: "/blog", label: "Blog" },
+  { href: "/risorse", label: "Risorse" },
 ] as const;
 
 export const SERVICES = [

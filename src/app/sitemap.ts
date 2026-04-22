@@ -8,6 +8,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/cosa-posso-fare`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/cosa-ho-fatto`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/metodo-glitch`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
+    // Blog
+    { url: `${BASE_URL}/blog`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE_URL}/blog/prime-settimane-consulente-marketing`, lastModified: new Date("2026-04-17"), changeFrequency: "yearly", priority: 0.7 },
+    { url: `${BASE_URL}/blog/test-ab-significanza-statistica`, lastModified: new Date("2026-04-17"), changeFrequency: "yearly", priority: 0.7 },
+    { url: `${BASE_URL}/blog/roas-non-e-un-kpi`, lastModified: new Date("2026-04-17"), changeFrequency: "yearly", priority: 0.7 },
+    // Risorse gratuite
+    { url: `${BASE_URL}/risorse`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE_URL}/risorse/audit-score`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE_URL}/risorse/kpi-calculator`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE_URL}/risorse/fractional-cmo`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE_URL}/risorse/domande-consulente`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
+    // Legal
     { url: `${BASE_URL}/privacy-policy`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
   ];
   // Outreach pages are noindex — excluded from sitemap intentionally

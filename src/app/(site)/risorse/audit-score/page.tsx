@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
 
 /* ─────────────────────────────────────────────
@@ -126,6 +126,21 @@ function getProfile(score: number): Profile {
 }
 
 /* ─────────────────────────────────────────────
+   MARKDOWN RENDERER
+───────────────────────────────────────────── */
+function renderMarkdown(text: string): string {
+  return text
+    .replace(/^## (.+)$/gm, '<h2 style="font-family:var(--font-playfair),\'Playfair Display\',serif;font-size:clamp(16px,2vw,20px);font-weight:700;color:var(--text);margin:24px 0 10px;line-height:1.3;">$1</h2>')
+    .replace(/^### (.+)$/gm, '<h3 style="font-size:12px;font-weight:600;color:var(--text);margin:18px 0 6px;letter-spacing:0.5px;">$1</h3>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong style="color:var(--text);font-weight:600;">$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em style="color:var(--text-dim);">$1</em>')
+    .replace(/^- (.+)$/gm, '<li style="margin:5px 0;padding-left:4px;">$1</li>')
+    .replace(/(<li[^>]*>.*<\/li>\n?)+/g, (m) => `<ul style="list-style:none;padding:0;margin:10px 0;">${m}</ul>`)
+    .replace(/\n\n/g, '</p><p style="margin:10px 0;font-size:13px;color:var(--text-dim);line-height:1.75;">')
+    .replace(/^(?!<[h|u|l|p])(.+)$/gm, '<p style="margin:10px 0;font-size:13px;color:var(--text-dim);line-height:1.75;">$1</p>');
+}
+
+/* ─────────────────────────────────────────────
    COMPONENT
 ───────────────────────────────────────────── */
 export default function AuditScorePage() {
@@ -136,9 +151,63 @@ export default function AuditScorePage() {
   const [email, setEmail] = useState("");
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
+  const [settore, setSettore] = useState("altro");
+  const [budget, setBudget] = useState("500-1500");
+  const [aiResult, setAiResult] = useState("");
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiError, setAiError] = useState("");
+  const aiRef = useRef<HTMLDivElement>(null);
 
   const score = answers.filter(Boolean).length;
   const profile = getProfile(score);
+
+  const fetchAI = useCallback(async (ans: boolean[], set: string, bud: string) => {
+    setAiLoading(true);
+    setAiError("");
+    setAiResult("");
+    const risposte: Record<string, boolean> = {};
+    QUESTIONS.forEach((q, i) => { risposte[q.id] = ans[i] ?? false; });
+    try {
+      const response = await fetch("/api/risorse/marketing-audit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ risposte, settore: set, budget: bud }),
+      });
+      if (!response.ok || !response.body) throw new Error("Errore del server");
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split("\n");
+        buffer = lines.pop() ?? "";
+        for (const line of lines) {
+          if (!line.startsWith("data: ")) continue;
+          const data = line.slice(6);
+          if (data === "[DONE]") break;
+          try {
+            const parsed = JSON.parse(data);
+            if (parsed.error) throw new Error(parsed.error);
+            if (parsed.text) setAiResult((prev) => prev + parsed.text);
+          } catch (e) {
+            if (e instanceof Error && e.message !== "Unexpected end of JSON input") throw e;
+          }
+        }
+      }
+    } catch (err) {
+      setAiError(err instanceof Error ? err.message : "Errore sconosciuto");
+    } finally {
+      setAiLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (step === "result" && answers.length === QUESTIONS.length && !aiResult && !aiLoading) {
+      fetchAI(answers, settore, budget);
+    }
+  }, [step, answers, settore, budget, aiResult, aiLoading, fetchAI]);
 
   function handleAnswer(val: boolean) {
     const next = [...answers, val];
@@ -378,6 +447,96 @@ export default function AuditScorePage() {
         @media (max-width: 480px) {
           .as-wrap { padding: 90px 16px 64px; }
         }
+
+        /* ── AI ANALYSIS ── */
+        .as-ai-wrap {
+          margin-top: 48px;
+          border: 1px solid rgba(0,255,252,0.15);
+          border-radius: 12px;
+          overflow: hidden;
+        }
+        .as-ai-header {
+          background: rgba(0,255,252,0.05);
+          border-bottom: 1px solid rgba(0,255,252,0.1);
+          padding: 14px 28px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .as-ai-dot {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: var(--teal);
+        }
+        .as-ai-label {
+          font-size: 9px;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          color: var(--teal);
+        }
+        .as-ai-body {
+          padding: 28px;
+        }
+        .as-ai-body svg { max-width: 100%; height: auto; }
+        .as-ai-spinner {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 14px;
+          padding: 40px 0;
+          color: var(--text-faint);
+          font-size: 11px;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+        .as-ai-spin {
+          width: 28px;
+          height: 28px;
+          border: 2px solid rgba(0,255,252,0.12);
+          border-top-color: var(--teal);
+          border-radius: 50%;
+          animation: aispin 0.8s linear infinite;
+        }
+        @keyframes aispin { to { transform: rotate(360deg); } }
+        .as-ai-error {
+          padding: 16px 20px;
+          color: #ff8080;
+          font-size: 12px;
+        }
+        .as-post-cta {
+          margin-top: 28px;
+          padding: 24px 28px;
+          border: 1px solid rgba(0,255,252,0.1);
+          border-radius: 10px;
+          background: rgba(0,255,252,0.025);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+          flex-wrap: wrap;
+        }
+        .as-post-cta-text { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+        .as-post-cta-text strong { color: var(--text); }
+        .as-post-cta-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: var(--teal);
+          color: #0a0e0d;
+          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-size: 10px;
+          font-weight: 500;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          padding: 12px 20px;
+          border-radius: 6px;
+          text-decoration: none;
+          white-space: nowrap;
+          transition: opacity 0.2s;
+          flex-shrink: 0;
+        }
+        .as-post-cta-btn:hover { opacity: 0.85; }
       `}</style>
 
       <div className="as-wrap">
@@ -490,7 +649,49 @@ export default function AuditScorePage() {
             <div className="as-nextstep">
               <strong>Next step:</strong> {profile.nextStep}
             </div>
-            <button className="as-get-report-btn" onClick={() => setStep("form")}>
+            {/* ── AI ANALYSIS ── */}
+            <div className="as-ai-wrap" ref={aiRef}>
+              <div className="as-ai-header">
+                <div className="as-ai-dot" style={aiLoading ? { animation: "pulse 1.5s ease-in-out infinite" } : {}} />
+                <span className="as-ai-label">
+                  {aiLoading ? "Analisi AI in corso..." : aiResult ? "Diagnosi AI completata" : "Preparazione analisi..."}
+                </span>
+              </div>
+              <div className="as-ai-body">
+                {aiLoading && !aiResult && (
+                  <div className="as-ai-spinner">
+                    <div className="as-ai-spin" />
+                    <span>Analisi in corso...</span>
+                  </div>
+                )}
+                {aiError && <div className="as-ai-error">Errore: {aiError}</div>}
+                {aiResult && (
+                  <div dangerouslySetInnerHTML={{ __html: renderMarkdown(aiResult) }} />
+                )}
+              </div>
+            </div>
+
+            {!aiLoading && aiResult && (
+              <div className="as-post-cta">
+                <div className="as-post-cta-text">
+                  <strong>Vuoi trasformare questa diagnosi in un piano?</strong><br />
+                  15 minuti per capire insieme quali 3 azioni portano il massimo impatto nel tuo caso specifico.
+                </div>
+                <a
+                  href="https://wa.me/393516737345"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="as-post-cta-btn"
+                >
+                  Prenota la call
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              </div>
+            )}
+
+            <button className="as-get-report-btn" onClick={() => setStep("form")} style={{ marginTop: "24px" }}>
               Ricevi il report completo via email
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
