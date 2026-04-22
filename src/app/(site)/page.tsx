@@ -413,6 +413,84 @@ export default function HomePage() {
         @keyframes orbit-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         @keyframes counter-orbit { 0% { transform: rotate(var(--angle)) translateX(calc((320px - 60px) / 2 - 24px)) rotate(calc(-1 * var(--angle) - 0deg)); } 100% { transform: rotate(var(--angle)) translateX(calc((320px - 60px) / 2 - 24px)) rotate(calc(-1 * var(--angle) - 360deg)); } }
 
+        /* ─�� Reviews carousel ── */
+        .reviews-track-wrap {
+          position: relative; overflow: hidden;
+          margin: 0 -60px; padding: 0 60px;
+        }
+        .reviews-track {
+          display: flex; gap: 24px; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+          padding: 20px 0;
+        }
+        .review-card {
+          flex: 0 0 calc(50% - 12px); min-width: 340px;
+          border: 1px solid rgba(255,255,255,0.08); border-radius: 10px;
+          padding: 32px 28px; background: rgba(255,255,255,0.02);
+          display: flex; flex-direction: column; gap: 16px;
+          transition: all 0.5s cubic-bezier(0.4,0,0.2,1);
+          opacity: 0.35; transform: scale(0.95);
+        }
+        .review-card[data-active="true"] {
+          opacity: 1; transform: scale(1);
+          border-color: rgba(0,255,252,0.2);
+          background: rgba(0,255,252,0.03);
+          box-shadow: 0 0 40px rgba(0,255,252,0.04);
+        }
+        .review-card[data-adjacent="true"] {
+          opacity: 0.6; transform: scale(0.97);
+        }
+        .review-quote-icon {
+          color: var(--teal); opacity: 0.3; line-height: 1;
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: 48px; font-weight: 700; margin-bottom: -12px;
+        }
+        .review-text {
+          font-size: 15px; color: var(--text); line-height: 1.8;
+          font-style: italic;
+        }
+        .review-author {
+          display: flex; align-items: center; gap: 12px; margin-top: auto;
+        }
+        .review-avatar {
+          width: 40px; height: 40px; border-radius: 50%;
+          background: rgba(0,255,252,0.08); border: 1px solid rgba(0,255,252,0.15);
+          display: flex; align-items: center; justify-content: center;
+          font-size: 14px; font-weight: 700; color: var(--teal);
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+        }
+        .review-author-info { display: flex; flex-direction: column; gap: 2px; }
+        .review-author-name {
+          font-size: 13px; font-weight: 500; color: var(--text);
+        }
+        .review-author-role {
+          font-size: 10px; color: var(--text-dim); letter-spacing: 0.5px;
+        }
+        .reviews-nav {
+          display: flex; justify-content: center; gap: 12px; margin-top: 28px;
+        }
+        .reviews-nav-btn {
+          width: 40px; height: 40px; border-radius: 50%;
+          border: 1px solid rgba(255,255,255,0.1); background: transparent;
+          color: var(--text-dim); cursor: pointer;
+          display: flex; align-items: center; justify-content: center;
+          transition: all 0.2s;
+        }
+        .reviews-nav-btn:hover {
+          border-color: var(--teal-border); color: var(--teal);
+          background: var(--teal-dim);
+        }
+        .reviews-dots {
+          display: flex; align-items: center; gap: 8px;
+        }
+        .reviews-dot {
+          width: 8px; height: 8px; border-radius: 50%;
+          background: rgba(255,255,255,0.12); transition: all 0.3s;
+          border: none; cursor: pointer; padding: 0;
+        }
+        .reviews-dot[data-active="true"] {
+          background: var(--teal); width: 24px; border-radius: 4px;
+        }
+
         /* ── Case study mini chart ── */
         .case-chart {
           margin-top: 8px; padding-top: 16px;
@@ -572,6 +650,8 @@ export default function HomePage() {
           .risorse-grid { grid-template-columns: 1fr; }
           .brain-orbit-wrap { min-height: 280px; }
           .brain-orbit { width: 260px; height: 260px; }
+          .reviews-track-wrap { margin: 0 -32px; padding: 0 32px; }
+          .review-card { flex: 0 0 calc(80% - 12px); min-width: 280px; }
           .brain-cost-grid { grid-template-columns: 1fr; gap: 16px; }
         }
         @media (max-width: 480px) {
@@ -993,6 +1073,21 @@ export default function HomePage() {
       <div className="hp-wrap"><div className="hp-divider" /></div>
 
       {/* ════════════════════════════════════════
+          6b. RECENSIONI — Orbital Carousel
+      ════════════════════════════════════════ */}
+      <div className="hp-wrap hp-section">
+        <div style={{ textAlign: "center", marginBottom: "40px" }}>
+          <div className="hp-eyebrow">Chi ha lavorato con me</div>
+          <h2 className="hp-h2">
+            Le parole <em>dei clienti.</em>
+          </h2>
+        </div>
+        <ReviewsCarousel />
+      </div>
+
+      <div className="hp-wrap"><div className="hp-divider" /></div>
+
+      {/* ════════════════════════════════════════
           7. BLOG PREVIEW
       ════════════════════════════════════════ */}
       <div className="hp-wrap hp-section">
@@ -1235,6 +1330,137 @@ function TabsClient() {
               <div className="stack-text"><strong>Google Drive</strong> &mdash; Documenti, asset, report</div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════
+   REVIEWS CAROUSEL — Manual scroll, orbital fading
+══════════════════════════════════════════════════════════ */
+const REVIEWS = [
+  {
+    text: "Nicola ha preso in mano il marketing quando non sapevamo nemmeno da dove partire. In 4 mesi ha triplicato il fatturato con un metodo che finalmente ci fa capire i numeri.",
+    name: "Marco R.",
+    role: "CEO, Brand Nutrition",
+    initials: "MR",
+  },
+  {
+    text: "Non ci ha venduto campagne. Ci ha dato una direzione. Per la prima volta sappiamo esattamente cosa funziona, cosa no, e perch\u00e9.",
+    name: "Andrea B.",
+    role: "Founder, E-commerce Fashion",
+    initials: "AB",
+  },
+  {
+    text: "Lavorare con Nicola \u00e8 diverso. Non \u00e8 un fornitore, \u00e8 qualcuno che pensa al tuo progetto come se fosse il suo. E i risultati si vedono.",
+    name: "Laura M.",
+    role: "Direttrice Marketing, B2B Services",
+    initials: "LM",
+  },
+  {
+    text: "Il setup AI che ci ha costruito ci fa risparmiare almeno 15 ore a settimana. Non pensavo fosse possibile avere tutto il contesto aziendale sempre accessibile cos\u00ec.",
+    name: "Giovanni T.",
+    role: "COO, SaaS Startup",
+    initials: "GT",
+  },
+  {
+    text: "Avevamo speso 50K in agenzie senza capire dove andassero i soldi. Nicola in 30 giorni ci ha mostrato esattamente il problema. Ora investiamo la met\u00e0 con il doppio dei risultati.",
+    name: "Francesca D.",
+    role: "Imprenditrice, Retail",
+    initials: "FD",
+  },
+];
+
+function ReviewsCarousel() {
+  return (
+    <div>
+      <script dangerouslySetInnerHTML={{ __html: `
+        document.addEventListener('click', function(e) {
+          var btn = e.target.closest('[data-review-nav]');
+          if (!btn) return;
+          var wrap = btn.closest('[data-reviews]');
+          if (!wrap) return;
+          var dir = btn.getAttribute('data-review-nav');
+          var track = wrap.querySelector('[data-review-track]');
+          var cards = track.querySelectorAll('[data-review-card]');
+          var total = cards.length;
+          var curr = parseInt(track.getAttribute('data-current') || '0');
+          var next = dir === 'next' ? Math.min(curr + 1, total - 1) : Math.max(curr - 1, 0);
+          track.setAttribute('data-current', next);
+          // Update active states
+          cards.forEach(function(c, i) {
+            c.setAttribute('data-active', i === next ? 'true' : 'false');
+            c.setAttribute('data-adjacent', (i === next - 1 || i === next + 1) ? 'true' : 'false');
+          });
+          // Update dots
+          wrap.querySelectorAll('[data-review-dot]').forEach(function(d, i) {
+            d.setAttribute('data-active', i === next ? 'true' : 'false');
+          });
+          // Scroll
+          var cardWidth = cards[0].offsetWidth + 24;
+          var wrapWidth = track.parentElement.offsetWidth;
+          var offset = (cardWidth * next) - (wrapWidth / 2) + (cards[0].offsetWidth / 2);
+          track.style.transform = 'translateX(' + (-Math.max(0, Math.min(offset, track.scrollWidth - wrapWidth))) + 'px)';
+        });
+        // Dot click
+        document.addEventListener('click', function(e) {
+          var dot = e.target.closest('[data-review-dot]');
+          if (!dot) return;
+          var wrap = dot.closest('[data-reviews]');
+          var idx = parseInt(dot.getAttribute('data-review-dot'));
+          var track = wrap.querySelector('[data-review-track]');
+          var cards = track.querySelectorAll('[data-review-card]');
+          track.setAttribute('data-current', idx);
+          cards.forEach(function(c, i) {
+            c.setAttribute('data-active', i === idx ? 'true' : 'false');
+            c.setAttribute('data-adjacent', (i === idx - 1 || i === idx + 1) ? 'true' : 'false');
+          });
+          wrap.querySelectorAll('[data-review-dot]').forEach(function(d, i) {
+            d.setAttribute('data-active', i === idx ? 'true' : 'false');
+          });
+          var cardWidth = cards[0].offsetWidth + 24;
+          var wrapWidth = track.parentElement.offsetWidth;
+          var offset = (cardWidth * idx) - (wrapWidth / 2) + (cards[0].offsetWidth / 2);
+          track.style.transform = 'translateX(' + (-Math.max(0, Math.min(offset, track.scrollWidth - wrapWidth))) + 'px)';
+        });
+      `}} />
+      <div data-reviews="">
+        <div className="reviews-track-wrap">
+          <div className="reviews-track" data-review-track="" data-current="0">
+            {REVIEWS.map((r, i) => (
+              <div
+                key={i}
+                className="review-card"
+                data-review-card=""
+                data-active={i === 0 ? "true" : "false"}
+                data-adjacent={i === 1 ? "true" : "false"}
+              >
+                <div className="review-quote-icon">&ldquo;</div>
+                <div className="review-text">{r.text}</div>
+                <div className="review-author">
+                  <div className="review-avatar">{r.initials}</div>
+                  <div className="review-author-info">
+                    <div className="review-author-name">{r.name}</div>
+                    <div className="review-author-role">{r.role}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="reviews-nav">
+          <button className="reviews-nav-btn" data-review-nav="prev">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          </button>
+          <div className="reviews-dots">
+            {REVIEWS.map((_, i) => (
+              <button key={i} className="reviews-dot" data-review-dot={i} data-active={i === 0 ? "true" : "false"} />
+            ))}
+          </div>
+          <button className="reviews-nav-btn" data-review-nav="next">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
         </div>
       </div>
     </div>
