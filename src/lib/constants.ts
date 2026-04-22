@@ -1,7 +1,8 @@
 export const SITE = {
   name: "Nicola Serrao",
-  title: "Digital Marketing Strategist",
-  tagline: "Aiuto le imprese italiane a crescere con strategie digitali concrete.",
+  title: "Fractional CMO & AI-Powered Strategist",
+  tagline: "La mente di un ufficio marketing. In una sola persona.",
+  liveStatus: { current: 2, max: 3 },
   url: "https://nicolaserrao.com",
   email: "marketing@nicolaserrao.com",
   whatsapp: "https://wa.me/393385691369",

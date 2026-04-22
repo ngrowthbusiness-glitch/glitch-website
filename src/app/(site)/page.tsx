@@ -2,345 +2,43 @@ import Image from "next/image";
 import Link from "next/link";
 import { SITE } from "@/lib/constants";
 
+/* ───────────────────────────────────────────────────────
+   HOMEPAGE — nicolaserrao.com
+   Sezioni:
+   1. Hero
+   2. Fractional CMO (confronto 3 colonne)
+   3. Numbers Ticker
+   4. Primi 30 giorni (tab)
+   5. Brain Company (AI)
+   6. Case Studies
+   7. Blog preview
+   8. Risorse gratuite
+   9. CTA finale
+─────────────────────────────────────────────────────── */
+
 export default function HomePage() {
   return (
     <>
-      {/* ══════════════════════════════════════════════
-          HERO — full viewport, unchanged
-      ══════════════════════════════════════════════ */}
-      <div className="min-h-[calc(100vh-var(--nav-h))] flex items-center">
-        <style>{`
-          .hero-wrapper {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 80px 60px;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 80px;
-            align-items: center;
-          }
-          @media (max-width: 900px) {
-            .hero-wrapper {
-              grid-template-columns: 1fr;
-              padding: 48px 32px 60px;
-              gap: 40px;
-              text-align: center;
-            }
-          }
-          @media (max-width: 480px) {
-            .hero-wrapper {
-              padding: 40px 20px 48px;
-            }
-          }
-        `}</style>
-        <div className="hero-wrapper">
-          {/* ── LEFT COLUMN ── */}
-          <div className="hero-left" style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
-            <style>{`
-              @media (max-width: 900px) {
-                .hero-left { align-items: center; }
-                .hero-right { order: -1; flex-direction: row; align-items: center; justify-content: center; gap: 20px; }
-                .hero-photo { width: 120px !important; height: 120px !important; }
-                .hero-actions { }
-                .hero-tags { justify-content: center; }
-                .hero-tag-link { width: 100%; display: block; text-align: center; margin-top: 4px; }
-              }
-              @media (max-width: 480px) {
-                .hero-actions { flex-direction: column; width: 100%; }
-                .hero-actions a { justify-content: center; }
-              }
-            `}</style>
-            {/* Badge: Disponibile */}
-            <div
-              className="animate-fade-up inline-flex items-center w-fit"
-              style={{
-                gap: "8px",
-                fontSize: "9px",
-                letterSpacing: "3px",
-                textTransform: "uppercase",
-                color: "var(--teal)",
-                border: "1px solid var(--teal-border)",
-                padding: "6px 12px",
-                borderRadius: "5px",
-                background: "var(--teal-dim)",
-              }}
-            >
-              <span
-                style={{
-                  width: "6px",
-                  height: "6px",
-                  borderRadius: "50%",
-                  background: "var(--teal)",
-                  animation: "pulse 2s ease-in-out infinite",
-                }}
-              />
-              Fractional CMO — Disponibile
-            </div>
-
-            {/* H1 */}
-            <h1
-              className="animate-fade-up delay-100 font-heading font-bold leading-none"
-              style={{
-                fontSize: "clamp(44px, 6vw, 72px)",
-                color: "var(--text)",
-              }}
-            >
-              Nicola Serrao
-            </h1>
-
-            {/* Subtitle */}
-            <div
-              className="animate-fade-up delay-200"
-              style={{
-                fontSize: "clamp(11px, 1.5vw, 14px)",
-                letterSpacing: "4px",
-                textTransform: "uppercase",
-                color: "var(--teal)",
-              }}
-            >
-              Fractional CMO &amp; Growth Strategist
-            </div>
-
-            {/* Tagline — Playfair italic */}
-            <p
-              className="animate-fade-up delay-300 font-heading italic leading-relaxed"
-              style={{
-                fontSize: "clamp(16px, 2vw, 21px)",
-                color: "var(--text-dim)",
-                maxWidth: "500px",
-              }}
-            >
-              Hai gi&agrave; un&apos;agenzia.
-              <br />
-              Ti manca qualcuno che sappia{" "}
-              <strong style={{ color: "var(--text)", fontStyle: "normal" }}>
-                dove stai andando.
-              </strong>
-            </p>
-
-            {/* Buttons row */}
-            <div
-              className="animate-fade-up delay-400 flex flex-wrap hero-actions"
-              style={{ gap: "14px" }}
-            >
-              <a
-                href={SITE.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center no-underline hover:opacity-85 hover:-translate-y-0.5 transition-all duration-200 whitespace-nowrap max-[480px]:justify-center hero-btn-wa"
-                style={{
-                  gap: "10px",
-                  background: "var(--teal)",
-                  color: "var(--bg)",
-                  fontSize: "10px",
-                  fontWeight: 500,
-                  letterSpacing: "2px",
-                  textTransform: "uppercase",
-                  padding: "14px 24px",
-                  borderRadius: "5px",
-                  textDecoration: "none",
-                }}
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.335-1.502A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.523-5.172-1.432l-.371-.22-3.762.892.946-3.653-.242-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
-                </svg>
-                Prenota 15 minuti
-              </a>
-              <Link
-                href="/risorse"
-                className="inline-flex items-center no-underline hover:-translate-y-0.5 transition-all duration-200 whitespace-nowrap max-[480px]:justify-center hero-btn-email"
-                style={{
-                  gap: "10px",
-                  background: "transparent",
-                  color: "var(--teal)",
-                  fontSize: "10px",
-                  letterSpacing: "2px",
-                  textTransform: "uppercase",
-                  padding: "14px 24px",
-                  borderRadius: "5px",
-                  border: "1px solid var(--teal-border)",
-                  textDecoration: "none",
-                }}
-              >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-                Risorse Gratis
-              </Link>
-            </div>
-
-            {/* Tags row */}
-            <div
-              className="animate-fade-up delay-500 flex flex-wrap hero-tags"
-              style={{ gap: "8px" }}
-            >
-              {[
-                "Fractional CMO",
-                "Strategia Revenue",
-                "E-commerce",
-                "B2B Lead Gen",
-                "Growth",
-                "Metodo GLITCH",
-              ].map((tag) => (
-                <span
-                  key={tag}
-                  style={{
-                    fontSize: "9px",
-                    letterSpacing: "1.5px",
-                    textTransform: "uppercase",
-                    color: "var(--text-dim)",
-                    border: "1px solid var(--text-faint)",
-                    padding: "4px 10px",
-                    borderRadius: "5px",
-                    background: "rgba(232,245,242,0.04)",
-                  }}
-                >
-                  {tag}
-                </span>
-              ))}
-              <Link
-                href="/cosa-posso-fare"
-                className="no-underline hover:opacity-70 transition-opacity hero-tag-link"
-                style={{
-                  fontSize: "9px",
-                  letterSpacing: "1.5px",
-                  textTransform: "uppercase",
-                  color: "var(--teal)",
-                  padding: "4px 0",
-                }}
-              >
-                Cosa posso fare &rarr;
-              </Link>
-            </div>
-          </div>
-
-          {/* ── RIGHT COLUMN — Photo + GLITCH badge ── */}
-          <div
-            className="animate-fade-up delay-200 flex flex-col items-center shrink-0 hero-right"
-            style={{ gap: "20px" }}
-          >
-            <div
-              className="relative shrink-0 hero-photo"
-              style={{ width: "240px", height: "240px" }}
-            >
-              <div
-                className="absolute rounded-full"
-                style={{
-                  inset: "-3px",
-                  background:
-                    "conic-gradient(var(--teal) 0deg, transparent 120deg, var(--teal) 240deg, transparent 360deg)",
-                  animation: "spin 6s linear infinite",
-                  opacity: 0.5,
-                }}
-              />
-              <div
-                className="absolute rounded-full"
-                style={{
-                  inset: "3px",
-                  background: "var(--bg)",
-                  zIndex: 1,
-                }}
-              />
-              <Image
-                src="/images/nicola.png"
-                alt="Nicola Serrao"
-                width={228}
-                height={228}
-                priority
-                className="absolute rounded-full object-cover object-top"
-                style={{
-                  inset: "6px",
-                  width: "calc(100% - 12px)",
-                  height: "calc(100% - 12px)",
-                  zIndex: 2,
-                }}
-              />
-            </div>
-            <Link
-              href="/metodo-glitch"
-              className="no-underline transition-all duration-200 whitespace-nowrap hero-badge-glitch"
-              style={{
-                fontSize: "9px",
-                letterSpacing: "2.5px",
-                textTransform: "uppercase",
-                color: "var(--teal)",
-                border: "1px solid var(--teal-border)",
-                padding: "6px 18px",
-                borderRadius: "5px",
-                background: "var(--teal-dim)",
-                zIndex: 10,
-              }}
-            >
-              Metodo GLITCH
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* ══════════════════════════════════════════════
-          SEZIONI SOTTO IL FOLD
-      ══════════════════════════════════════════════ */}
+      {/* ══════════════════════════════════════════════════════
+          GLOBAL STYLES
+      ══════════════════════════════════════════════════════ */}
       <style>{`
-        .hp-section {
-          max-width: 1100px;
+        /* ── Layout ── */
+        .hp-wrap {
+          max-width: 1400px;
           margin: 0 auto;
           padding: 0 60px;
         }
-
-        /* ── SOCIAL PROOF BAR ── */
-        .hp-proof-bar {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 0;
-          border: 1px solid var(--teal-border);
-          border-radius: 10px;
-          background: var(--teal-dim);
-          padding: 32px 40px;
-          margin-bottom: 100px;
+        .hp-wrap-narrow {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 0 60px;
         }
-        .hp-proof-item {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 8px;
-          text-align: center;
-          flex: 1;
-        }
-        .hp-proof-value {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: clamp(28px, 4vw, 40px);
-          font-weight: 700;
-          color: var(--teal);
-          line-height: 1;
-        }
-        .hp-proof-label {
-          font-size: 10px;
-          letter-spacing: 1px;
-          color: var(--text-dim);
-          line-height: 1.6;
-        }
-        .hp-proof-divider {
-          width: 1px;
-          height: 48px;
-          background: var(--teal-border);
-          flex-shrink: 0;
-          margin: 0 20px;
+        .hp-section {
+          margin-bottom: 120px;
         }
 
-        /* ── IL PROBLEMA ── */
-        .hp-problem {
-          margin-bottom: 100px;
-        }
+        /* ── Typography helpers ── */
         .hp-eyebrow {
           font-size: 9px;
           letter-spacing: 4px;
@@ -348,858 +46,1027 @@ export default function HomePage() {
           color: var(--teal);
           margin-bottom: 24px;
         }
-        .hp-problem-title {
+        .hp-h2 {
           font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: clamp(24px, 3.5vw, 36px);
+          font-size: clamp(26px, 3.5vw, 42px);
           font-weight: 700;
-          line-height: 1.2;
+          line-height: 1.15;
           color: var(--text);
-          margin-bottom: 28px;
+          margin-bottom: 16px;
         }
-        .hp-problem-title em {
-          font-style: italic;
-          color: var(--teal);
-        }
-        .hp-problem-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 16px;
-        }
-        .hp-pain-card {
-          border: 1px solid rgba(232,245,242,0.08);
-          border-radius: 8px;
-          padding: 24px 20px;
-          background: rgba(232,245,242,0.02);
-          transition: border-color 0.3s;
-        }
-        .hp-pain-card:hover {
-          border-color: var(--teal-border);
-        }
-        .hp-pain-icon {
-          font-size: 20px;
-          margin-bottom: 14px;
-          opacity: 0.6;
-        }
-        .hp-pain-text {
-          font-size: 12px;
-          font-weight: 300;
+        .hp-h2 em { font-style: italic; color: var(--teal); }
+        .hp-subtitle {
+          font-size: 14px;
           color: var(--text-dim);
           line-height: 1.8;
-        }
-        .hp-pain-text strong {
-          color: var(--text);
-          font-weight: 500;
+          max-width: 680px;
         }
 
-        /* ── DIVIDER ── */
+        /* ── Divider ── */
         .hp-divider {
           width: 100%;
           height: 1px;
           background: linear-gradient(90deg, transparent, var(--teal-border), transparent);
-          margin: 0 0 100px;
+          margin: 0 0 120px;
         }
 
-        /* ── CASO STUDIO ── */
-        .hp-case {
-          margin-bottom: 100px;
-        }
-        .hp-case-card {
-          border: 1px solid var(--teal-border);
-          border-radius: 10px;
-          overflow: hidden;
-          background: var(--teal-dim);
-        }
-        .hp-case-bar {
-          height: 3px;
-          background: linear-gradient(90deg, var(--teal) 0%, transparent 100%);
-        }
-        .hp-case-inner {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-        }
-        .hp-case-left {
-          padding: 36px;
-          border-right: 1px solid var(--teal-border);
-        }
-        .hp-case-right {
-          padding: 36px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          gap: 20px;
-        }
-        .hp-case-badge {
-          display: inline-block;
-          font-size: 9px;
-          letter-spacing: 1.5px;
-          text-transform: uppercase;
-          color: var(--teal);
-          border: 1px solid var(--teal-border);
-          padding: 4px 10px;
-          border-radius: 3px;
-          background: var(--teal-dim);
-          margin-right: 8px;
-          margin-bottom: 8px;
-        }
-        .hp-case-brand {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 24px;
-          font-weight: 700;
-          color: var(--text);
-          margin-bottom: 8px;
-        }
-        .hp-case-desc {
-          font-size: 12px;
-          font-weight: 300;
-          color: var(--text-dim);
-          line-height: 1.85;
-        }
-        .hp-case-metrics {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 20px;
-        }
-        .hp-metric-value {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 32px;
-          font-weight: 700;
-          color: var(--teal);
-          line-height: 1;
-          margin-bottom: 6px;
-        }
-        .hp-metric-label {
-          font-size: 10px;
-          color: var(--text-dim);
-          line-height: 1.5;
-        }
-        .hp-case-link {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          font-size: 10px;
-          letter-spacing: 1.5px;
-          text-transform: uppercase;
-          color: var(--teal);
-          text-decoration: none;
-          transition: opacity 0.2s;
-          margin-top: 8px;
-        }
-        .hp-case-link:hover { opacity: 0.7; }
-
-        /* ── METODO GLITCH PILLOLE ── */
-        .hp-method {
-          margin-bottom: 100px;
-        }
-        .hp-method-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: clamp(24px, 3.5vw, 36px);
-          font-weight: 700;
-          line-height: 1.2;
-          color: var(--text);
-          margin-bottom: 12px;
-        }
-        .hp-method-title em {
-          font-style: italic;
-          color: var(--teal);
-        }
-        .hp-method-sub {
-          font-size: 12px;
-          font-weight: 300;
-          color: var(--text-dim);
-          line-height: 1.85;
-          max-width: 560px;
-          margin-bottom: 36px;
-        }
-        .hp-method-grid {
-          display: grid;
-          grid-template-columns: repeat(6, 1fr);
-          gap: 12px;
-          margin-bottom: 24px;
-        }
-        .hp-method-step {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          padding: 20px 8px;
-          border: 1px solid rgba(232,245,242,0.08);
-          border-radius: 8px;
-          background: rgba(232,245,242,0.02);
-          transition: border-color 0.3s, background 0.3s;
-        }
-        .hp-method-step:hover {
-          border-color: var(--teal-border);
-          background: var(--teal-dim);
-        }
-        .hp-method-letter {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 24px;
-          font-weight: 700;
-          color: var(--teal);
-          margin-bottom: 8px;
-        }
-        .hp-method-name {
-          font-size: 9px;
-          letter-spacing: 1px;
-          text-transform: uppercase;
-          color: var(--text-dim);
-        }
-
-        /* ── CTA FINALE ── */
-        .hp-cta {
-          border: 1px solid var(--teal-border);
-          border-radius: 10px;
-          padding: 48px;
-          background: var(--teal-dim);
-          text-align: center;
-          margin-bottom: 100px;
-          position: relative;
-          overflow: hidden;
-        }
-        .hp-cta::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(0,255,252,0.06), transparent);
-          pointer-events: none;
-        }
-        .hp-cta-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: clamp(24px, 3.5vw, 36px);
-          font-weight: 700;
-          color: var(--text);
-          margin-bottom: 12px;
-          position: relative;
-        }
-        .hp-cta-sub {
-          font-size: 12px;
-          font-weight: 300;
-          color: var(--text-dim);
-          line-height: 1.85;
-          margin-bottom: 32px;
-          position: relative;
-        }
-        .hp-cta-buttons {
-          display: flex;
-          justify-content: center;
-          gap: 14px;
-          position: relative;
-        }
+        /* ── Buttons ── */
         .hp-btn-primary {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          background: var(--teal);
-          color: #0a0e0d;
+          display: inline-flex; align-items: center; gap: 10px;
+          background: var(--teal); color: #0a0e0d;
           font-family: var(--font-dm-mono), 'DM Mono', monospace;
-          font-size: 10px;
-          font-weight: 500;
-          letter-spacing: 2px;
-          text-transform: uppercase;
-          padding: 14px 28px;
-          border-radius: 5px;
-          text-decoration: none;
-          transition: opacity 0.2s, transform 0.2s;
-          white-space: nowrap;
+          font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+          padding: 14px 28px; border-radius: 5px; text-decoration: none;
+          transition: opacity 0.2s, transform 0.2s; white-space: nowrap;
         }
         .hp-btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
         .hp-btn-secondary {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          background: transparent;
-          color: var(--teal);
+          display: inline-flex; align-items: center; gap: 10px;
+          background: transparent; color: var(--teal);
           font-family: var(--font-dm-mono), 'DM Mono', monospace;
-          font-size: 10px;
-          font-weight: 400;
-          letter-spacing: 2px;
-          text-transform: uppercase;
-          padding: 14px 28px;
-          border-radius: 5px;
-          border: 1px solid var(--teal-border);
-          text-decoration: none;
-          transition: background 0.2s, border-color 0.2s, transform 0.2s;
-          white-space: nowrap;
+          font-size: 10px; font-weight: 400; letter-spacing: 2px; text-transform: uppercase;
+          padding: 14px 28px; border-radius: 5px;
+          border: 1px solid var(--teal-border); text-decoration: none;
+          transition: background 0.2s, border-color 0.2s, transform 0.2s; white-space: nowrap;
         }
-        .hp-btn-secondary:hover {
-          background: var(--teal-dim);
-          border-color: var(--teal);
-          transform: translateY(-2px);
+        .hp-btn-secondary:hover { background: var(--teal-dim); border-color: var(--teal); transform: translateY(-2px); }
+
+        /* ═══════════════════════════════════
+           1. HERO
+        ═══════════════════════════════════ */
+        .hero-grid {
+          max-width: 1400px; margin: 0 auto; padding: 80px 60px;
+          display: grid; grid-template-columns: 1fr auto;
+          gap: 80px; align-items: center;
+        }
+        .hero-left { display: flex; flex-direction: column; gap: 24px; }
+
+        .hero-pre {
+          font-size: 11px; letter-spacing: 1px;
+          color: var(--text-dim); text-transform: uppercase;
+        }
+        .hero-h1 {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: clamp(40px, 5.5vw, 68px);
+          font-weight: 700; line-height: 1.05; color: var(--text);
+        }
+        .hero-sub {
+          font-size: clamp(13px, 1.5vw, 16px);
+          color: var(--text-dim); line-height: 1.7; max-width: 540px;
         }
 
-        /* ── RISORSE GRATUITE ── */
-        .hp-risorse {
-          max-width: 900px;
-          margin: 0 auto;
+        /* Pills */
+        .hero-pills-main { display: flex; flex-wrap: wrap; gap: 10px; }
+        .hero-pill-teal {
+          font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+          color: var(--teal); padding: 7px 16px; border-radius: 5px;
+          border: 1px solid rgba(0,255,252,0.5); background: rgba(0,255,252,0.08);
+          font-weight: 500;
         }
-        .hp-risorse-header {
-          text-align: center;
-          margin-bottom: 40px;
+        .hero-pills-grey { display: flex; flex-wrap: wrap; gap: 8px; }
+        .hero-pill-grey {
+          font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+          color: var(--text-dim); padding: 4px 10px; border-radius: 5px;
+          border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04);
         }
-        .hp-risorse-eyebrow {
-          font-size: 9px;
-          letter-spacing: 3px;
-          text-transform: uppercase;
-          color: var(--teal);
+
+        /* Right column */
+        .hero-right { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .hero-photo-wrap { position: relative; width: 220px; height: 220px; flex-shrink: 0; }
+
+        /* Live status */
+        .hero-status {
+          border: 1px solid var(--teal-border); border-radius: 8px;
+          background: var(--teal-dim); padding: 12px 18px;
+          display: flex; flex-direction: column; gap: 6px; min-width: 200px;
+        }
+        .hero-status-row {
+          display: flex; align-items: center; gap: 8px;
+          font-size: 11px; color: var(--text-dim);
+        }
+        .hero-status-dot {
+          width: 7px; height: 7px; border-radius: 50%;
+          background: var(--teal); animation: pulse 2s ease-in-out infinite;
+        }
+        .hero-status-label {
+          font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
+          color: var(--text-faint);
+        }
+
+        /* ═══════════════════════════════════
+           2. FRACTIONAL CMO — 3 columns
+        ═══════════════════════════════════ */
+        .fcmo-grid {
+          display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+          margin-top: 40px;
+        }
+        .fcmo-col {
+          border-radius: 10px; padding: 32px 28px;
+          display: flex; flex-direction: column; gap: 16px;
+        }
+        .fcmo-col-dim {
+          border: 1px solid rgba(255,255,255,0.08);
+          background: rgba(255,255,255,0.02);
+        }
+        .fcmo-col-teal {
+          border: 1px solid rgba(0,255,252,0.3);
+          background: rgba(0,255,252,0.04);
+          box-shadow: 0 0 40px rgba(0,255,252,0.06);
+        }
+        .fcmo-col-title {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: 18px; font-weight: 700; line-height: 1.2;
+        }
+        .fcmo-col-dim .fcmo-col-title { color: var(--text-dim); }
+        .fcmo-col-teal .fcmo-col-title { color: var(--teal); }
+        .fcmo-col-body {
+          font-size: 13px; line-height: 1.8;
+        }
+        .fcmo-col-dim .fcmo-col-body { color: var(--text-faint); }
+        .fcmo-col-teal .fcmo-col-body { color: var(--text-dim); }
+        .fcmo-col-verdict {
+          font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+          margin-top: auto; padding-top: 12px;
+          border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .fcmo-col-dim .fcmo-col-verdict { color: rgba(255,100,100,0.6); }
+        .fcmo-col-teal .fcmo-col-verdict { color: var(--teal); }
+        .fcmo-closer {
+          font-size: 14px; color: var(--text-dim); line-height: 1.8;
+          max-width: 780px; margin-top: 40px;
+        }
+        .fcmo-closer strong { color: var(--text); font-weight: 500; }
+
+        /* ═══════════════════════════════════
+           3. NUMBERS TICKER
+        ═══════════════════════════════════ */
+        .ticker-wrap {
+          overflow: hidden; border-top: 1px solid var(--teal-border);
+          border-bottom: 1px solid var(--teal-border);
+          padding: 20px 0; margin-bottom: 120px;
+        }
+        .ticker-track {
+          display: flex; gap: 60px; width: max-content;
+          animation: ticker-scroll 25s linear infinite;
+        }
+        .ticker-item {
+          display: flex; align-items: center; gap: 12px;
+          font-size: 14px; color: var(--text-dim); white-space: nowrap;
+          flex-shrink: 0;
+        }
+        .ticker-value {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: 22px; font-weight: 700; color: var(--teal);
+        }
+        @keyframes ticker-scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+
+        /* ═══════════════════════════════════
+           4. PRIMI 30 GIORNI — Tabs
+        ═══════════════════════════════════ */
+        .tabs-nav {
+          display: flex; gap: 4px; margin-bottom: 0;
+        }
+        .tabs-btn {
+          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+          color: var(--text-dim); background: transparent;
+          border: 1px solid rgba(255,255,255,0.08); border-bottom: none;
+          border-radius: 8px 8px 0 0; padding: 12px 24px;
+          cursor: pointer; transition: all 0.2s; white-space: nowrap;
+        }
+        .tabs-btn:hover { color: var(--text); background: rgba(255,255,255,0.03); }
+        .tabs-btn[data-active="true"] {
+          color: var(--teal); background: rgba(0,255,252,0.04);
+          border-color: var(--teal-border);
+        }
+        .tabs-panel {
+          border: 1px solid var(--teal-border); border-radius: 0 10px 10px 10px;
+          padding: 40px; background: rgba(0,255,252,0.02);
+          min-height: 280px; display: flex; flex-direction: column; justify-content: center;
+        }
+        .tab-title {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: 22px; font-weight: 700; color: var(--text);
           margin-bottom: 12px;
         }
-        .hp-risorse-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: clamp(22px, 3vw, 30px);
-          font-weight: 700;
-          color: var(--text);
-          line-height: 1.25;
+        .tab-desc {
+          font-size: 14px; color: var(--text-dim); line-height: 1.8;
+          max-width: 680px; margin-bottom: 28px;
         }
-        .hp-risorse-title em {
-          font-style: italic;
-          color: var(--teal);
+        .tab-pills {
+          display: flex; flex-wrap: wrap; gap: 10px;
         }
-        .hp-risorse-sub {
-          margin-top: 12px;
-          font-size: 13px;
-          color: var(--text-dim);
-          line-height: 1.7;
-          max-width: 520px;
-          margin-left: auto;
-          margin-right: auto;
+        .tab-pill {
+          font-size: 11px; letter-spacing: 1px;
+          color: var(--text); padding: 10px 18px; border-radius: 6px;
+          border: 1px solid rgba(0,255,252,0.15); background: rgba(0,255,252,0.04);
+          display: flex; align-items: center; gap: 8px;
         }
-        .hp-risorse-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 16px;
-        }
-        .hp-risorsa-card {
-          border: 1px solid rgba(0,255,252,0.12);
-          border-radius: 10px;
-          padding: 28px 24px;
-          background: rgba(0,255,252,0.025);
-          display: flex;
-          flex-direction: column;
-          gap: 14px;
-          text-decoration: none;
-          position: relative;
-          overflow: hidden;
-          transition: border-color 0.25s, background 0.25s, transform 0.2s;
-        }
-        .hp-risorsa-card::before {
-          content: '';
-          position: absolute;
-          top: 0; left: 0; right: 0;
-          height: 2px;
-          background: linear-gradient(90deg, var(--teal), transparent);
-          opacity: 0;
-          transition: opacity 0.25s;
-        }
-        .hp-risorsa-card:hover {
-          border-color: rgba(0,255,252,0.3);
-          background: rgba(0,255,252,0.05);
-          transform: translateY(-3px);
-        }
-        .hp-risorsa-card:hover::before {
-          opacity: 1;
-        }
-        .hp-risorsa-badge {
-          display: inline-flex;
-          align-items: center;
-          gap: 5px;
-          font-size: 8px;
-          letter-spacing: 2px;
-          text-transform: uppercase;
-          color: var(--teal);
-          border: 1px solid var(--teal-border);
-          padding: 3px 8px;
-          border-radius: 3px;
-          background: var(--teal-dim);
-          width: fit-content;
-        }
-        .hp-risorsa-icon {
-          width: 36px;
-          height: 36px;
-          border-radius: 8px;
-          background: rgba(0,255,252,0.08);
-          border: 1px solid rgba(0,255,252,0.15);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: var(--teal);
-          flex-shrink: 0;
-        }
-        .hp-risorsa-name {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: clamp(15px, 1.8vw, 17px);
-          font-weight: 700;
-          color: var(--text);
-          line-height: 1.3;
-        }
-        .hp-risorsa-desc {
-          font-size: 12px;
-          color: var(--text-dim);
-          line-height: 1.7;
-          flex: 1;
-        }
-        .hp-risorsa-question {
-          font-size: 11px;
-          color: var(--text-faint);
-          line-height: 1.6;
-          border-left: 2px solid var(--teal-border);
-          padding-left: 10px;
-          font-style: italic;
-        }
-        .hp-risorsa-cta {
-          font-size: 9px;
-          letter-spacing: 1.5px;
-          text-transform: uppercase;
-          color: var(--teal);
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          transition: gap 0.2s;
-        }
-        .hp-risorsa-card:hover .hp-risorsa-cta { gap: 10px; }
+        .tab-pill-icon { color: var(--teal); font-size: 14px; }
 
-        /* ── RESPONSIVE ── */
-        @media (max-width: 900px) {
-          .hp-section { padding: 0 32px; }
-          .hp-proof-bar { flex-direction: column; gap: 24px; padding: 24px 20px; }
-          .hp-proof-divider { width: 48px; height: 1px; margin: 0; }
-          .hp-problem-grid { grid-template-columns: 1fr; }
-          .hp-case-inner { grid-template-columns: 1fr; }
-          .hp-case-left { border-right: none; border-bottom: 1px solid var(--teal-border); }
-          .hp-method-grid { grid-template-columns: repeat(3, 1fr); }
-          .hp-cta { padding: 36px 28px; }
-          .hp-risorse-grid { grid-template-columns: 1fr; }
-          .hp-blog-grid { grid-template-columns: 1fr; }
+        /* Scenario cards */
+        .scenario-grid {
+          display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
         }
-        @media (max-width: 480px) {
-          .hp-section { padding: 0 20px; }
-          .hp-case-left, .hp-case-right { padding: 24px 20px; }
-          .hp-method-grid { grid-template-columns: repeat(2, 1fr); }
-          .hp-cta-buttons { flex-direction: column; align-items: center; }
-          .hp-btn-primary, .hp-btn-secondary { width: 100%; justify-content: center; }
+        .scenario-card {
+          border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;
+          padding: 24px 20px; background: rgba(255,255,255,0.02);
+          text-align: center;
         }
-        /* ── BLOG PREVIEW ── */
-        .hp-blog {
-          max-width: 900px;
-          margin: 0 auto;
+        .scenario-card-active {
+          border-color: rgba(0,255,252,0.3); background: rgba(0,255,252,0.04);
         }
-        .hp-blog-header {
-          display: flex;
-          align-items: baseline;
-          justify-content: space-between;
-          gap: 16px;
-          margin-bottom: 32px;
-          flex-wrap: wrap;
+        .scenario-label {
+          font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+          color: var(--text-dim); margin-bottom: 8px;
         }
-        .hp-blog-title {
+        .scenario-value {
           font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: clamp(20px, 2.5vw, 26px);
-          font-weight: 700;
-          color: var(--text);
+          font-size: 28px; font-weight: 700; line-height: 1;
+          margin-bottom: 6px;
         }
-        .hp-blog-title em {
-          font-style: italic;
-          color: var(--teal);
+        .scenario-card .scenario-value { color: var(--text-dim); }
+        .scenario-card-active .scenario-value { color: var(--teal); }
+        .scenario-note { font-size: 11px; color: var(--text-faint); }
+
+        /* Stack items */
+        .stack-list {
+          display: flex; flex-direction: column; gap: 12px; max-width: 480px;
         }
-        .hp-blog-link {
-          font-size: 10px;
-          letter-spacing: 1.5px;
-          text-transform: uppercase;
-          color: var(--teal);
-          text-decoration: none;
-          flex-shrink: 0;
-          transition: opacity 0.2s;
+        .stack-item {
+          display: flex; align-items: center; gap: 14px;
+          padding: 14px 18px; border-radius: 8px;
+          border: 1px solid rgba(0,255,252,0.12); background: rgba(0,255,252,0.03);
         }
-        .hp-blog-link:hover { opacity: 0.7; }
-        .hp-blog-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 16px;
+        .stack-icon {
+          width: 36px; height: 36px; border-radius: 8px;
+          background: rgba(0,255,252,0.08); border: 1px solid rgba(0,255,252,0.15);
+          display: flex; align-items: center; justify-content: center;
+          color: var(--teal); font-size: 14px; flex-shrink: 0;
         }
-        .hp-blog-card {
-          border: 1px solid rgba(232,245,242,0.08);
-          border-radius: 8px;
-          padding: 22px 20px;
-          background: rgba(232,245,242,0.02);
-          text-decoration: none;
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
+        .stack-text { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+        .stack-text strong { color: var(--text); font-weight: 500; }
+
+        /* ═══════════════════════════════════
+           5. BRAIN COMPANY (AI)
+        ═══════════════════════════════════ */
+        .brain-grid {
+          display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+          align-items: center;
+        }
+        .brain-tools {
+          display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+          margin-top: 24px;
+        }
+        .brain-tool {
+          border: 1px solid rgba(0,255,252,0.12); border-radius: 8px;
+          padding: 14px 12px; text-align: center;
+          background: rgba(0,255,252,0.03);
           transition: border-color 0.2s, background 0.2s;
         }
-        .hp-blog-card:hover {
-          border-color: var(--teal-border);
-          background: var(--teal-dim);
+        .brain-tool:hover {
+          border-color: rgba(0,255,252,0.3); background: rgba(0,255,252,0.06);
         }
-        .hp-blog-card-cat {
-          font-size: 9px;
-          letter-spacing: 1.5px;
-          text-transform: uppercase;
-          color: var(--teal);
-          border: 1px solid var(--teal-border);
-          padding: 2px 7px;
-          border-radius: 3px;
-          background: var(--teal-dim);
+        .brain-tool-name {
+          font-size: 11px; color: var(--text); font-weight: 500;
+        }
+        .brain-tool-role {
+          font-size: 9px; color: var(--text-faint); margin-top: 4px;
+        }
+        .brain-cost {
+          border: 1px solid var(--teal-border); border-radius: 10px;
+          padding: 28px; background: var(--teal-dim);
+        }
+        .brain-cost-grid {
+          display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+        }
+        .brain-cost-item { text-align: center; }
+        .brain-cost-value {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: 28px; font-weight: 700; color: var(--teal); line-height: 1;
+        }
+        .brain-cost-label {
+          font-size: 11px; color: var(--text-dim); margin-top: 6px; line-height: 1.5;
+        }
+
+        /* ═══════════════════════════════════
+           6. CASE STUDIES
+        ═══════════════════════════════════ */
+        .cases-grid {
+          display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+        }
+        .case-card {
+          border: 1px solid rgba(255,255,255,0.08); border-radius: 10px;
+          padding: 32px 28px; background: rgba(255,255,255,0.02);
+          display: flex; flex-direction: column; gap: 16px;
+          transition: border-color 0.3s;
+        }
+        .case-card:hover { border-color: var(--teal-border); }
+        .case-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+        .case-badge {
+          font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+          color: var(--teal); border: 1px solid var(--teal-border);
+          padding: 3px 8px; border-radius: 3px; background: var(--teal-dim);
+        }
+        .case-name {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: 20px; font-weight: 700; color: var(--text);
+        }
+        .case-desc { font-size: 13px; color: var(--text-dim); line-height: 1.8; }
+        .case-metrics { display: flex; gap: 24px; flex-wrap: wrap; }
+        .case-metric-value {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: 24px; font-weight: 700; color: var(--teal); line-height: 1;
+        }
+        .case-metric-label { font-size: 10px; color: var(--text-dim); margin-top: 4px; }
+        .case-quote {
+          font-size: 12px; font-style: italic; color: var(--text-dim);
+          border-left: 2px solid var(--teal-border); padding-left: 14px;
+          line-height: 1.7;
+        }
+
+        /* ═══════════════════════════════════
+           7. BLOG PREVIEW
+        ═══════════════════════════════════ */
+        .blog-grid {
+          display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+        }
+        .blog-card {
+          border: 1px solid rgba(232,245,242,0.08); border-radius: 8px;
+          padding: 24px 22px; background: rgba(232,245,242,0.02);
+          text-decoration: none; display: flex; flex-direction: column; gap: 12px;
+          transition: border-color 0.2s, background 0.2s;
+        }
+        .blog-card:hover { border-color: var(--teal-border); background: var(--teal-dim); }
+        .blog-card-cat {
+          font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+          color: var(--teal); border: 1px solid var(--teal-border);
+          padding: 2px 7px; border-radius: 3px; background: var(--teal-dim);
           align-self: flex-start;
         }
-        .hp-blog-card-title {
+        .blog-card-title {
           font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 15px;
-          font-weight: 700;
-          color: var(--text);
-          line-height: 1.4;
-          flex: 1;
+          font-size: 16px; font-weight: 700; color: var(--text); line-height: 1.4; flex: 1;
         }
-        .hp-blog-card-meta {
-          font-size: 10px;
-          color: var(--text-faint);
-          letter-spacing: 0.5px;
+        .blog-card-meta { font-size: 10px; color: var(--text-faint); }
+        .blog-card-arrow {
+          font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+          color: var(--teal); display: flex; align-items: center; gap: 5px;
+          opacity: 0; transition: opacity 0.2s;
         }
-        .hp-blog-card-arrow {
-          font-size: 10px;
-          letter-spacing: 1px;
-          text-transform: uppercase;
-          color: var(--teal);
-          display: flex;
-          align-items: center;
-          gap: 5px;
-          opacity: 0;
-          transition: opacity 0.2s;
+        .blog-card:hover .blog-card-arrow { opacity: 1; }
+
+        /* ═══════════════════════════════════
+           8. RISORSE GRATUITE
+        ═══════════════════════════════════ */
+        .risorse-grid {
+          display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
         }
-        .hp-blog-card:hover .hp-blog-card-arrow { opacity: 1; }
+        .risorsa-card {
+          border: 1px solid rgba(0,255,252,0.12); border-radius: 10px;
+          padding: 28px 24px; background: rgba(0,255,252,0.025);
+          display: flex; flex-direction: column; gap: 14px;
+          text-decoration: none; position: relative; overflow: hidden;
+          transition: border-color 0.25s, background 0.25s, transform 0.2s;
+        }
+        .risorsa-card::before {
+          content: ''; position: absolute; top: 0; left: 0; right: 0;
+          height: 2px; background: linear-gradient(90deg, var(--teal), transparent);
+          opacity: 0; transition: opacity 0.25s;
+        }
+        .risorsa-card:hover { border-color: rgba(0,255,252,0.3); background: rgba(0,255,252,0.05); transform: translateY(-3px); }
+        .risorsa-card:hover::before { opacity: 1; }
+        .risorsa-badge {
+          display: inline-flex; align-items: center; gap: 5px;
+          font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+          color: var(--teal); border: 1px solid var(--teal-border);
+          padding: 3px 8px; border-radius: 3px; background: var(--teal-dim);
+          width: fit-content;
+        }
+        .risorsa-icon {
+          width: 36px; height: 36px; border-radius: 8px;
+          background: rgba(0,255,252,0.08); border: 1px solid rgba(0,255,252,0.15);
+          display: flex; align-items: center; justify-content: center;
+          color: var(--teal); flex-shrink: 0;
+        }
+        .risorsa-name {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: 17px; font-weight: 700; color: var(--text); line-height: 1.3;
+        }
+        .risorsa-desc { font-size: 12px; color: var(--text-dim); line-height: 1.7; flex: 1; }
+        .risorsa-cta {
+          font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+          color: var(--teal); display: flex; align-items: center; gap: 6px;
+          transition: gap 0.2s;
+        }
+        .risorsa-card:hover .risorsa-cta { gap: 10px; }
+
+        /* ═══════════════════════════════════
+           9. CTA FINALE
+        ═══════════════════════════════════ */
+        .hp-cta {
+          border: 1px solid var(--teal-border); border-radius: 10px;
+          padding: 56px 48px; background: var(--teal-dim);
+          text-align: center; position: relative; overflow: hidden;
+        }
+        .hp-cta::before {
+          content: ''; position: absolute; inset: 0;
+          background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(0,255,252,0.06), transparent);
+          pointer-events: none;
+        }
+
+        /* ═══════════════════════════════════
+           RESPONSIVE
+        ═══════════════════════════════════ */
+        @media (max-width: 1200px) {
+          .hero-grid { gap: 48px; }
+          .brain-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 900px) {
+          .hp-wrap, .hp-wrap-narrow { padding: 0 32px; }
+          .hero-grid {
+            grid-template-columns: 1fr; padding: 48px 32px 60px;
+            gap: 32px; text-align: center;
+          }
+          .hero-left { align-items: center; }
+          .hero-right { order: -1; flex-direction: row; align-items: center; justify-content: center; gap: 20px; }
+          .hero-photo-wrap { width: 120px !important; height: 120px !important; }
+          .hero-pills-main, .hero-pills-grey { justify-content: center; }
+          .hero-sub { margin-left: auto; margin-right: auto; }
+          .fcmo-grid { grid-template-columns: 1fr; }
+          .tabs-nav { overflow-x: auto; }
+          .tabs-panel { padding: 28px 24px; }
+          .scenario-grid { grid-template-columns: 1fr; }
+          .cases-grid { grid-template-columns: 1fr; }
+          .blog-grid { grid-template-columns: 1fr; }
+          .risorse-grid { grid-template-columns: 1fr; }
+          .brain-tools { grid-template-columns: repeat(2, 1fr); }
+          .brain-cost-grid { grid-template-columns: 1fr; gap: 16px; }
+        }
+        @media (max-width: 480px) {
+          .hp-wrap, .hp-wrap-narrow { padding: 0 20px; }
+          .hero-grid { padding: 40px 20px 48px; }
+          .hero-actions { flex-direction: column; width: 100%; }
+          .hero-actions a { justify-content: center; }
+          .hp-btn-primary, .hp-btn-secondary { width: 100%; justify-content: center; }
+          .tabs-btn { padding: 10px 14px; font-size: 9px; }
+        }
       `}</style>
 
-      {/* ── 1. RISORSE GRATUITE ── */}
-      <div className="hp-section" style={{ paddingTop: "0", paddingBottom: "80px" }}>
-        <div className="hp-risorse">
-          <div className="hp-risorse-header">
-            <div className="hp-risorse-eyebrow">&#9733; Gratis — senza registrazione</div>
-            <h2 className="hp-risorse-title">
-              Strumenti pratici <em>per decidere meglio.</em>
-            </h2>
-            <p className="hp-risorse-sub">
-              Tre risorse gratuite alimentate da AI. Rispondono alle domande che ogni imprenditore si fa sul proprio marketing — in modo diretto, senza giri di parole.
+      {/* ════════════════════════════════════════
+          1. HERO
+      ════════════════════════════════════════ */}
+      <div className="min-h-[calc(100vh-var(--nav-h))] flex items-center">
+        <div className="hero-grid">
+          {/* ── Left ── */}
+          <div className="hero-left">
+            <div className="hero-pre">Per aziende B2B, E-commerce e Startup</div>
+
+            <h1 className="hero-h1">
+              La mente di un ufficio marketing.<br />
+              <span style={{ color: "var(--teal)" }}>In una sola persona.</span>
+            </h1>
+
+            <p className="hero-sub">
+              Strategia, numeri e crescita &mdash; senza assumere un team interno.
             </p>
-          </div>
-          <div className="hp-risorse-grid">
 
-            {/* Card 1 — KPI Calculator */}
-            <Link href="/risorse/kpi-calculator" className="hp-risorsa-card">
-              <div className="hp-risorsa-badge">
-                <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                AI-Powered
-              </div>
-              <div className="hp-risorsa-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-              </div>
-              <div className="hp-risorsa-name">KPI Calculator</div>
-              <div className="hp-risorsa-question">
-                &ldquo;Sto spendendo troppo in ads? Qual &egrave; il mio break-even ROAS reale?&rdquo;
-              </div>
-              <div className="hp-risorsa-desc">
-                Inserisci budget, fatturato e margine. Ricevi in 30 secondi un&apos;analisi AI con i 3 scenari di crescita e i KPI che contano davvero.
-              </div>
-              <div className="hp-risorsa-cta">
-                Calcola ora
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
-            </Link>
-
-            {/* Card 2 — Marketing Audit */}
-            <Link href="/risorse/audit-score" className="hp-risorsa-card">
-              <div className="hp-risorsa-badge">
-                <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                AI-Powered
-              </div>
-              <div className="hp-risorsa-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                </svg>
-              </div>
-              <div className="hp-risorsa-name">Marketing Audit</div>
-              <div className="hp-risorsa-question">
-                &ldquo;Il mio marketing &egrave; strutturato o sto solo spendendo a caso?&rdquo;
-              </div>
-              <div className="hp-risorsa-desc">
-                10 domande sul tuo stack marketing. L&apos;AI diagnostica i gap pi&ugrave; critici, stima il costo invisibile di ciascuno e ti d&agrave; 3 priorit&agrave; concrete.
-              </div>
-              <div className="hp-risorsa-cta">
-                Fai il test
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
-            </Link>
-
-            {/* Card 3 — Fractional CMO Self-Assessment */}
-            <Link href="/risorse/fractional-cmo" className="hp-risorsa-card">
-              <div className="hp-risorsa-badge">
-                <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                AI-Powered
-              </div>
-              <div className="hp-risorsa-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-              </div>
-              <div className="hp-risorsa-name">Fractional CMO Check</div>
-              <div className="hp-risorsa-question">
-                &ldquo;Ho davvero bisogno di un Fractional CMO o basta una consulenza spot?&rdquo;
-              </div>
-              <div className="hp-risorsa-desc">
-                Self-assessment in 5 minuti. L&apos;AI analizza fase, team e obiettivi e ti dice esattamente quale figura ti serve — e perch&eacute;.
-              </div>
-              <div className="hp-risorsa-cta">
-                Scopri il tuo profilo
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
-            </Link>
-
-          </div>
-        </div>
-      </div>
-
-      {/* ── 2. SOCIAL PROOF BAR ── */}
-      <div className="hp-section">
-        <div className="hp-proof-bar">
-          <div className="hp-proof-item">
-            <span className="hp-proof-value">30+</span>
-            <span className="hp-proof-label">Clienti gestiti</span>
-          </div>
-          <div className="hp-proof-divider" />
-          <div className="hp-proof-item">
-            <span className="hp-proof-value">&euro;5M+</span>
-            <span className="hp-proof-label">Budget Ads gestito</span>
-          </div>
-          <div className="hp-proof-divider" />
-          <div className="hp-proof-item">
-            <span className="hp-proof-value">15+</span>
-            <span className="hp-proof-label">Settori diversi</span>
-          </div>
-          <div className="hp-proof-divider" />
-          <div className="hp-proof-item">
-            <span className="hp-proof-value">+200%</span>
-            <span className="hp-proof-label">Fatturato (caso reale)</span>
-          </div>
-        </div>
-      </div>
-
-      {/* ── 2. IL PROBLEMA ── */}
-      <div className="hp-section">
-        <div className="hp-problem">
-          <div className="hp-eyebrow">Ti riconosci?</div>
-          <h2 className="hp-problem-title">
-            Hai un&apos;agenzia. Hai il budget. <em>Ma manca la direzione.</em>
-          </h2>
-          <div className="hp-problem-grid">
-            <div className="hp-pain-card">
-              <div className="hp-pain-icon">&#9898;</div>
-              <p className="hp-pain-text">
-                <strong>Le agenzie eseguono,</strong> ma nessuno decide dove andare. Ogni trimestre ricomincia da zero senza una strategia che si accumula.
-              </p>
+            {/* Teal pills */}
+            <div className="hero-pills-main">
+              <span className="hero-pill-teal">Fractional CMO</span>
+              <span className="hero-pill-teal">AI-Powered</span>
             </div>
-            <div className="hp-pain-card">
-              <div className="hp-pain-icon">&#9898;</div>
-              <p className="hp-pain-text">
-                <strong>Il fatturato cresce</strong>, ma i margini no. Spendi di pi&ugrave; in ads, ottieni gli stessi risultati. Il problema non &egrave; il budget — &egrave; il metodo.
-              </p>
+
+            {/* Grey pills */}
+            <div className="hero-pills-grey">
+              {["E-commerce", "B2B Lead Gen", "Growth", "Revenue Strategy", "CRO"].map((tag) => (
+                <span key={tag} className="hero-pill-grey">{tag}</span>
+              ))}
             </div>
-            <div className="hp-pain-card">
-              <div className="hp-pain-icon">&#9898;</div>
-              <p className="hp-pain-text">
-                <strong>Non hai bisogno di un altro fornitore.</strong> Hai bisogno di qualcuno che si sieda al tuo tavolo, capisca i tuoi numeri e dica la verit&agrave;.
-              </p>
+
+            {/* CTA buttons */}
+            <div className="flex flex-wrap hero-actions" style={{ gap: "14px" }}>
+              <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="hp-btn-primary">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.335-1.502A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.523-5.172-1.432l-.371-.22-3.762.892.946-3.653-.242-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                Prenota 15 minuti
+              </a>
+              <Link href="/risorse" className="hp-btn-secondary">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                Risorse Gratis
+              </Link>
+            </div>
+          </div>
+
+          {/* ── Right ── */}
+          <div className="hero-right">
+            <div className="hero-photo-wrap">
+              <div className="absolute rounded-full" style={{ inset: "-3px", background: "conic-gradient(var(--teal) 0deg, transparent 120deg, var(--teal) 240deg, transparent 360deg)", animation: "spin 6s linear infinite", opacity: 0.5 }} />
+              <div className="absolute rounded-full" style={{ inset: "3px", background: "var(--bg)", zIndex: 1 }} />
+              <Image src="/images/nicola.png" alt="Nicola Serrao" width={208} height={208} priority className="absolute rounded-full object-cover object-top" style={{ inset: "6px", width: "calc(100% - 12px)", height: "calc(100% - 12px)", zIndex: 2 }} />
+            </div>
+            <div className="hero-status">
+              <div className="hero-status-row">
+                <span className="hero-status-dot" />
+                <span>{SITE.liveStatus.current} clienti su {SITE.liveStatus.max} &mdash; <strong style={{ color: "var(--teal)" }}>disponibile</strong></span>
+              </div>
+              <span className="hero-status-label">Seguo massimo {SITE.liveStatus.max} aziende alla volta</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="hp-section">
-        <div className="hp-divider" />
+      {/* ════════════════════════════════════════
+          2. FRACTIONAL CMO — confronto 3 colonne
+      ════════════════════════════════════════ */}
+      <div className="hp-wrap hp-section">
+        <div className="hp-eyebrow">Perch&eacute; un Fractional CMO</div>
+        <h2 className="hp-h2">
+          Un direttore marketing senior nella tua azienda.<br /><em>Senza assumerlo.</em>
+        </h2>
+
+        <div className="fcmo-grid">
+          {/* Agenzia */}
+          <div className="fcmo-col fcmo-col-dim">
+            <div className="fcmo-col-title">Agenzia</div>
+            <div className="fcmo-col-body">
+              Il senior vende, il junior esegue. Ottimizza metriche di piattaforma &mdash; ROAS, CTR, CPM &mdash; ma nessuno guarda i tuoi margini reali.
+            </div>
+            <div className="fcmo-col-verdict">&cross; Nessuno guarda i tuoi margini</div>
+          </div>
+
+          {/* Dipendente */}
+          <div className="fcmo-col fcmo-col-dim">
+            <div className="fcmo-col-title">Dipendente</div>
+            <div className="fcmo-col-body">
+              60&ndash;80K/anno. Una skill, un ruolo. Ha bisogno di qualcuno che gli dica cosa fare. E se non funziona, sei bloccato.
+            </div>
+            <div className="fcmo-col-verdict">&cross; Costo alto, rischio alto</div>
+          </div>
+
+          {/* Fractional CMO */}
+          <div className="fcmo-col fcmo-col-teal">
+            <div className="fcmo-col-title">Fractional CMO</div>
+            <div className="fcmo-col-body">
+              Da &euro;1.500/mese. Strategia e numeri. Si prende la responsabilit&agrave; dei risultati. Pochi clienti, massima cura.
+            </div>
+            <div className="fcmo-col-verdict">&check; Costo frazionato, impatto pieno</div>
+          </div>
+        </div>
+
+        <p className="fcmo-closer">
+          Entro nella tua azienda, costruisco la strategia, coordino chi esegue, misuro cosa resta in tasca. <strong>Penso ai miei clienti anche fuori dall&apos;orario di lavoro &mdash; non per ossessione, ma perch&eacute; ci tengo davvero.</strong>
+        </p>
       </div>
 
-      {/* ── 3. MINI CASO STUDIO ── */}
-      <div className="hp-section">
-        <div className="hp-case">
-          <div className="hp-eyebrow">Caso reale</div>
-          <div className="hp-case-card">
-            <div className="hp-case-bar" />
-            <div className="hp-case-inner">
-              <div className="hp-case-left">
-                <div>
-                  <span className="hp-case-badge">E-commerce</span>
-                  <span className="hp-case-badge">Strategia</span>
+      {/* ════════════════════════════════════════
+          3. NUMBERS TICKER
+      ════════════════════════════════════════ */}
+      <div className="ticker-wrap">
+        <div className="ticker-track">
+          {[...Array(2)].map((_, i) => (
+            <div key={i} style={{ display: "flex", gap: "60px" }}>
+              <div className="ticker-item"><span className="ticker-value">30+</span> aziende seguite</div>
+              <div className="ticker-item"><span className="ticker-value">&euro;5M+</span> budget Ads gestito</div>
+              <div className="ticker-item"><span className="ticker-value">15+</span> settori diversi</div>
+              <div className="ticker-item"><span className="ticker-value">+200%</span> fatturato (caso reale)</div>
+              <div className="ticker-item"><span className="ticker-value">ROAS 16</span> pneumatici B2C</div>
+              <div className="ticker-item"><span className="ticker-value">&euro;4,50</span> CPL autonoleggio</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ════════════════════════════════════════
+          4. PRIMI 30 GIORNI — Tabs
+      ════════════════════════════════════════ */}
+      <div className="hp-wrap hp-section">
+        <div className="hp-eyebrow">Come lavoro</div>
+        <h2 className="hp-h2">
+          Cosa cambia per te <em>dal giorno 1</em>
+        </h2>
+        <p className="hp-subtitle" style={{ marginBottom: "40px" }}>
+          Impegno minimo: 3 mesi. Ecco cosa succede nei primi 30 giorni.
+        </p>
+
+        <TabsClient />
+
+        <p style={{ fontSize: "14px", color: "var(--text-dim)", lineHeight: 1.8, marginTop: "32px", maxWidth: "780px" }}>
+          <strong style={{ color: "var(--text)" }}>Mese 2&ndash;3:</strong> si testa sul mercato, si trova dove il funnel perde, si calibra. Entro 90 giorni sai gi&agrave; se la macchina funziona &mdash; o cosa va cambiato.
+        </p>
+      </div>
+
+      <div className="hp-wrap"><div className="hp-divider" /></div>
+
+      {/* ════════════════════════════════════════
+          5. BRAIN COMPANY (AI)
+      ════════════════════════════════════════ */}
+      <div className="hp-wrap hp-section">
+        <div className="hp-eyebrow">AI-Powered</div>
+        <h2 className="hp-h2">
+          Il cervello digitale <em>della tua azienda</em>
+        </h2>
+        <p className="hp-subtitle" style={{ marginBottom: "48px" }}>
+          Creo un progetto AI dedicato al tuo business: testi, dati, procedure, tutto in un posto. Collegato ai tuoi strumenti. Operativo dal giorno 1.
+        </p>
+
+        <div className="brain-grid">
+          <div>
+            <div style={{ fontSize: "14px", color: "var(--text-dim)", lineHeight: 1.8, marginBottom: "24px", maxWidth: "540px" }}>
+              Un progetto Claude Code configurato sulla tua azienda: contesto, storico, obiettivi, KPI. Con skill personalizzate e connettori ai tuoi strumenti di lavoro. <strong style={{ color: "var(--text)" }}>Pochissimi lo offrono. &Egrave; integrato nel mio servizio.</strong>
+            </div>
+            <div className="brain-tools">
+              {[
+                { name: "Gmail", role: "Comunicazione" },
+                { name: "Slack", role: "Team" },
+                { name: "Notion", role: "Knowledge base" },
+                { name: "CRM", role: "Pipeline" },
+                { name: "Analytics", role: "Dati" },
+                { name: "Fatturazione", role: "Numeri" },
+              ].map((tool) => (
+                <div key={tool.name} className="brain-tool">
+                  <div className="brain-tool-name">{tool.name}</div>
+                  <div className="brain-tool-role">{tool.role}</div>
                 </div>
-                <div className="hp-case-brand">Balance Nutrition</div>
-                <p className="hp-case-desc">
-                  Brand nel settore nutrition con fatturato mensile di &euro;45k, campagne Ads non ottimizzate e un AOV basso che limitava i margini. In 4 mesi abbiamo triplicato il fatturato lavorando su strategia, catalogo e funnel di acquisizione.
-                </p>
-                <Link href="/cosa-ho-fatto" className="hp-case-link">
-                  Vedi tutti i casi &rarr;
-                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="brain-cost">
+            <div style={{ fontSize: "9px", letterSpacing: "3px", textTransform: "uppercase", color: "var(--teal)", marginBottom: "20px" }}>
+              Ipotesi di impatto
+            </div>
+            <div className="brain-cost-grid">
+              <div className="brain-cost-item">
+                <div className="brain-cost-value">~20h</div>
+                <div className="brain-cost-label">Ore risparmiate al mese su task ripetitivi</div>
               </div>
-              <div className="hp-case-right">
-                <div className="hp-case-metrics">
-                  <div>
-                    <div className="hp-metric-value">+200%</div>
-                    <div className="hp-metric-label">Fatturato mensile</div>
-                  </div>
-                  <div>
-                    <div className="hp-metric-value">+33%</div>
-                    <div className="hp-metric-label">AOV con strategia bundle</div>
-                  </div>
-                  <div>
-                    <div className="hp-metric-value">10%</div>
-                    <div className="hp-metric-label">Margini netti consolidati</div>
-                  </div>
-                  <div>
-                    <div className="hp-metric-value">4 mesi</div>
-                    <div className="hp-metric-label">Per triplicare il fatturato</div>
-                  </div>
-                </div>
+              <div className="brain-cost-item">
+                <div className="brain-cost-value">3&times;</div>
+                <div className="brain-cost-label">Velocit&agrave; di risposta su analisi e report</div>
+              </div>
+              <div className="brain-cost-item">
+                <div className="brain-cost-value">&euro;0</div>
+                <div className="brain-cost-label">Costo aggiuntivo &mdash; &egrave; incluso nel servizio</div>
+              </div>
+              <div className="brain-cost-item">
+                <div className="brain-cost-value">1 giorno</div>
+                <div className="brain-cost-label">Per avere il setup operativo</div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="hp-section">
-        <div className="hp-divider" />
-      </div>
+      <div className="hp-wrap"><div className="hp-divider" /></div>
 
-      {/* ── 4. METODO GLITCH IN PILLOLE ── */}
-      <div className="hp-section">
-        <div className="hp-method">
-          <div className="hp-eyebrow">Il metodo</div>
-          <h2 className="hp-method-title">
-            Non parto dalle campagne.<br /><em>Parto dalla strategia.</em>
-          </h2>
-          <p className="hp-method-sub">
-            Il Metodo GLITCH &egrave; il framework che uso come Fractional CMO: 6 fasi dalla diagnosi del business alla crescita misurabile. Affianco il tuo team 3&ndash;4 volte al mese — strategia, decisioni, priorit&agrave;.
-          </p>
-          <div className="hp-method-grid">
-            {[
-              { letter: "G", name: "Grounding" },
-              { letter: "L", name: "Loops" },
-              { letter: "I", name: "Insight" },
-              { letter: "T", name: "Testing" },
-              { letter: "C", name: "Calibration" },
-              { letter: "H", name: "Harvest" },
-            ].map((step) => (
-              <div key={step.letter} className="hp-method-step">
-                <div className="hp-method-letter">{step.letter}</div>
-                <div className="hp-method-name">{step.name}</div>
+      {/* ════════════════════════════════════════
+          6. CASE STUDIES
+      ════════════════════════════════════════ */}
+      <div className="hp-wrap hp-section">
+        <div className="hp-eyebrow">Risultati reali</div>
+        <h2 className="hp-h2">
+          Numeri, non promesse.
+        </h2>
+
+        <div className="cases-grid" style={{ marginTop: "40px" }}>
+          {/* Case 1 */}
+          <div className="case-card">
+            <div className="case-badges">
+              <span className="case-badge">E-commerce</span>
+              <span className="case-badge">Nutrition</span>
+            </div>
+            <div className="case-name">Balance Nutrition</div>
+            <div className="case-desc">
+              E-commerce alimentare. Fatturato bloccato a &euro;45k/mese, campagne non ottimizzate, AOV basso. In 4 mesi: strategia, catalogo, funnel.
+            </div>
+            <div className="case-metrics">
+              <div>
+                <div className="case-metric-value">+200%</div>
+                <div className="case-metric-label">Fatturato mensile</div>
               </div>
-            ))}
+              <div>
+                <div className="case-metric-value">+33%</div>
+                <div className="case-metric-label">AOV</div>
+              </div>
+              <div>
+                <div className="case-metric-value">4 mesi</div>
+                <div className="case-metric-label">Time to result</div>
+              </div>
+            </div>
           </div>
-          <Link
-            href="/metodo-glitch"
-            style={{
-              fontSize: "10px",
-              letterSpacing: "1.5px",
-              textTransform: "uppercase",
-              color: "var(--teal)",
-              textDecoration: "none",
-              transition: "opacity 0.2s",
-            }}
-          >
-            Scopri il metodo completo &rarr;
+
+          {/* Case 2 */}
+          <div className="case-card">
+            <div className="case-badges">
+              <span className="case-badge">Info-product</span>
+              <span className="case-badge">Lancio</span>
+            </div>
+            <div className="case-name">Lancio Yoga</div>
+            <div className="case-desc">
+              Lancio corso online da zero. Budget &euro;3.000, strategia Meta completa: CPL ottimizzato, CBO, early bird, retargeting 24h.
+            </div>
+            <div className="case-metrics">
+              <div>
+                <div className="case-metric-value">&euro;19K</div>
+                <div className="case-metric-label">Revenue da &euro;3K budget</div>
+              </div>
+              <div>
+                <div className="case-metric-value">&euro;1</div>
+                <div className="case-metric-label">CPL finale</div>
+              </div>
+              <div>
+                <div className="case-metric-value">3.000</div>
+                <div className="case-metric-label">Iscritti</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Case 3 */}
+          <div className="case-card">
+            <div className="case-badges">
+              <span className="case-badge">B2B</span>
+              <span className="case-badge">Lead Gen</span>
+            </div>
+            <div className="case-name">Autonoleggio</div>
+            <div className="case-desc">
+              CPL competitor: &euro;10. CPL di partenza: &euro;25. Landing con angolo differenziante, 10 creative full funnel.
+            </div>
+            <div className="case-metrics">
+              <div>
+                <div className="case-metric-value">&euro;4,50</div>
+                <div className="case-metric-label">CPL finale</div>
+              </div>
+              <div>
+                <div className="case-metric-value">80%+</div>
+                <div className="case-metric-label">Lead quality</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Case 4 */}
+          <div className="case-card">
+            <div className="case-badges">
+              <span className="case-badge">B2C</span>
+              <span className="case-badge">Pneumatici</span>
+            </div>
+            <div className="case-name">Pneumatici — ROAS 16</div>
+            <div className="case-desc">
+              Settore commodity. Meta Ads con strategia stagionale e segmentazione per tipologia veicolo.
+            </div>
+            <div className="case-metrics">
+              <div>
+                <div className="case-metric-value">ROAS 16</div>
+                <div className="case-metric-label">Return on Ad Spend</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style={{ marginTop: "24px" }}>
+          <Link href="/cosa-ho-fatto" style={{ fontSize: "10px", letterSpacing: "1.5px", textTransform: "uppercase", color: "var(--teal)", textDecoration: "none" }}>
+            Vedi tutti i casi &rarr;
           </Link>
         </div>
       </div>
 
-      <div className="hp-section">
-        <div className="hp-divider" />
-      </div>
+      <div className="hp-wrap"><div className="hp-divider" /></div>
 
-      {/* ── 5. BLOG PREVIEW ── */}
-      <div className="hp-section">
-        <div className="hp-blog">
-          <div className="hp-blog-header">
-            <h2 className="hp-blog-title">
-              Dal campo.<br /><em>Senza filtri.</em>
-            </h2>
-            <Link href="/blog" className="hp-blog-link">
-              Tutti gli articoli &rarr;
+      {/* ════════════════════════════════════════
+          7. BLOG PREVIEW
+      ════════════════════════════════════════ */}
+      <div className="hp-wrap hp-section">
+        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: "16px", marginBottom: "32px", flexWrap: "wrap" }}>
+          <h2 className="hp-h2" style={{ marginBottom: 0 }}>
+            Dal campo. <em>Senza filtri.</em>
+          </h2>
+          <Link href="/blog" style={{ fontSize: "10px", letterSpacing: "1.5px", textTransform: "uppercase", color: "var(--teal)", textDecoration: "none", flexShrink: 0 }}>
+            Tutti gli articoli &rarr;
+          </Link>
+        </div>
+        <div className="blog-grid">
+          {[
+            { slug: "prime-settimane-consulente-marketing", category: "Metodo", title: "Prima della strategia, si mappa. Cosa fa un buon consulente nelle prime settimane.", readTime: "7 min" },
+            { slug: "test-ab-significanza-statistica", category: "Analytics", title: "Il tuo test A/B ha mostrato +18%. Probabilmente non significa niente.", readTime: "9 min" },
+            { slug: "roas-non-e-un-kpi", category: "Analytics", title: "Il ROAS non \u00e8 un KPI. Ecco cosa guardare invece.", readTime: "8 min" },
+          ].map((post) => (
+            <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-card">
+              <span className="blog-card-cat">{post.category}</span>
+              <div className="blog-card-title">{post.title}</div>
+              <div className="blog-card-meta">{post.readTime} lettura</div>
+              <div className="blog-card-arrow">
+                Leggi <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
             </Link>
-          </div>
-          <div className="hp-blog-grid">
-            {[
-              {
-                slug: "prime-settimane-consulente-marketing",
-                category: "Metodo",
-                title: "Prima della strategia, si mappa. Cosa fa davvero un buon consulente nelle prime settimane.",
-                readTime: "7 min",
-              },
-              {
-                slug: "test-ab-significanza-statistica",
-                category: "Analytics",
-                title: "Il tuo test A/B ha mostrato +18%. Probabilmente non significa niente.",
-                readTime: "9 min",
-              },
-              {
-                slug: "roas-non-e-un-kpi",
-                category: "Analytics",
-                title: "Il ROAS non è un KPI. Ecco cosa guardare invece.",
-                readTime: "8 min",
-              },
-            ].map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`} className="hp-blog-card">
-                <span className="hp-blog-card-cat">{post.category}</span>
-                <div className="hp-blog-card-title">{post.title}</div>
-                <div className="hp-blog-card-meta">{post.readTime} lettura</div>
-                <div className="hp-blog-card-arrow">
-                  Leggi
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </Link>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
 
-      <div className="hp-section">
-        <div className="hp-divider" />
+      <div className="hp-wrap"><div className="hp-divider" /></div>
+
+      {/* ════════════════════════════════════════
+          8. RISORSE GRATUITE
+      ════════════════════════════════════════ */}
+      <div className="hp-wrap hp-section">
+        <div style={{ textAlign: "center", marginBottom: "40px" }}>
+          <div className="hp-eyebrow">&#9733; Gratis &mdash; senza registrazione</div>
+          <h2 className="hp-h2">
+            Strumenti pratici <em>per decidere meglio.</em>
+          </h2>
+          <p className="hp-subtitle" style={{ maxWidth: "600px", margin: "0 auto" }}>
+            Tre risorse gratuite alimentate da AI. Rispondono alle domande che ogni imprenditore si fa sul proprio marketing.
+          </p>
+        </div>
+        <div className="risorse-grid">
+          {/* KPI Calculator */}
+          <Link href="/risorse/kpi-calculator" className="risorsa-card">
+            <div className="risorsa-badge">
+              <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              AI-Powered
+            </div>
+            <div className="risorsa-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </div>
+            <div className="risorsa-name">KPI Calculator</div>
+            <div className="risorsa-desc">
+              Inserisci budget, fatturato e margine. Ricevi un&apos;analisi AI con 3 scenari di crescita e i KPI che contano davvero.
+            </div>
+            <div className="risorsa-cta">
+              Calcola ora <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </Link>
+
+          {/* Marketing Audit */}
+          <Link href="/risorse/audit-score" className="risorsa-card">
+            <div className="risorsa-badge">
+              <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              AI-Powered
+            </div>
+            <div className="risorsa-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            </div>
+            <div className="risorsa-name">Marketing Audit</div>
+            <div className="risorsa-desc">
+              10 domande sul tuo stack marketing. L&apos;AI diagnostica i gap critici e ti d&agrave; 3 priorit&agrave; concrete.
+            </div>
+            <div className="risorsa-cta">
+              Fai il test <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </Link>
+
+          {/* Fractional CMO Check */}
+          <Link href="/risorse/fractional-cmo" className="risorsa-card">
+            <div className="risorsa-badge">
+              <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              AI-Powered
+            </div>
+            <div className="risorsa-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            </div>
+            <div className="risorsa-name">Fractional CMO Check</div>
+            <div className="risorsa-desc">
+              Self-assessment in 5 minuti. L&apos;AI analizza fase, team e obiettivi e ti dice quale figura ti serve.
+            </div>
+            <div className="risorsa-cta">
+              Scopri il tuo profilo <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </Link>
+        </div>
       </div>
 
-      {/* ── 6. CTA FINALE ── */}
-      <div className="hp-section">
+      {/* ════════════════════════════════════════
+          9. CTA FINALE
+      ════════════════════════════════════════ */}
+      <div className="hp-wrap" style={{ marginBottom: "120px" }}>
         <div className="hp-cta">
-          <h2 className="hp-cta-title">15 minuti. Zero pitch.</h2>
-          <p className="hp-cta-sub">
+          <h2 className="hp-h2" style={{ position: "relative", marginBottom: "12px" }}>15 minuti. Zero pitch.</h2>
+          <p style={{ fontSize: "14px", color: "var(--text-dim)", lineHeight: 1.8, marginBottom: "32px", position: "relative" }}>
             Una call per capire se il modello Fractional CMO ha senso per il tuo business.<br />
             Nessuna presentazione, nessun preventivo. Solo una conversazione onesta sui tuoi numeri.
           </p>
-          <div className="hp-cta-buttons">
-            <a
-              href={SITE.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hp-btn-primary"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.335-1.502A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.523-5.172-1.432l-.371-.22-3.762.892.946-3.653-.242-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
-              </svg>
+          <div style={{ display: "flex", justifyContent: "center", gap: "14px", position: "relative", flexWrap: "wrap" }}>
+            <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="hp-btn-primary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.335-1.502A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.523-5.172-1.432l-.371-.22-3.762.892.946-3.653-.242-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
               Prenota la call
             </a>
             <a href={`mailto:${SITE.email}`} className="hp-btn-secondary">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
               Scrivimi una mail
             </a>
           </div>
         </div>
       </div>
     </>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════
+   TABS CLIENT COMPONENT — "Primi 30 giorni"
+   Inline client component using state for tab switching
+══════════════════════════════════════════════════════════ */
+function TabsClient() {
+  return (
+    <div>
+      <script dangerouslySetInnerHTML={{ __html: `
+        document.addEventListener('click', function(e) {
+          var btn = e.target.closest('[data-tab-btn]');
+          if (!btn) return;
+          var wrap = btn.closest('[data-tabs]');
+          if (!wrap) return;
+          var idx = btn.getAttribute('data-tab-btn');
+          wrap.querySelectorAll('[data-tab-btn]').forEach(function(b) { b.setAttribute('data-active', 'false'); });
+          btn.setAttribute('data-active', 'true');
+          wrap.querySelectorAll('[data-tab-panel]').forEach(function(p) {
+            p.style.display = p.getAttribute('data-tab-panel') === idx ? 'flex' : 'none';
+          });
+        });
+      `}} />
+      <div data-tabs="">
+        <div className="tabs-nav">
+          <button className="tabs-btn" data-tab-btn="0" data-active="true">Settimana 1</button>
+          <button className="tabs-btn" data-tab-btn="1" data-active="false">Settimana 1&ndash;2</button>
+          <button className="tabs-btn" data-tab-btn="2" data-active="false">Settimana 2&ndash;4</button>
+          <button className="tabs-btn" data-tab-btn="3" data-active="false">Setup operativo</button>
+        </div>
+
+        {/* Tab 0 — Analisi risorse */}
+        <div className="tabs-panel" data-tab-panel="0" style={{ display: "flex" }}>
+          <div className="tab-title">Analisi risorse</div>
+          <div className="tab-desc">
+            Chi fa cosa nella tua azienda. Cosa manca. Cosa serve da fuori &mdash; te lo dico subito, non tra 2 mesi.
+          </div>
+          <div className="tab-pills">
+            <div className="tab-pill"><span className="tab-pill-icon">&#9679;</span> Team interno</div>
+            <div className="tab-pill"><span className="tab-pill-icon">&#9679;</span> Canali attivi</div>
+            <div className="tab-pill"><span className="tab-pill-icon">&#9679;</span> Budget reale</div>
+            <div className="tab-pill"><span className="tab-pill-icon">&#9679;</span> Gap di competenze</div>
+          </div>
+        </div>
+
+        {/* Tab 1 — Tracking audit */}
+        <div className="tabs-panel" data-tab-panel="1" style={{ display: "none" }}>
+          <div className="tab-title">Tracking audit</div>
+          <div className="tab-desc">
+            Se i dati sono sporchi, ogni decisione &egrave; sbagliata. Si sistema prima di analizzare qualsiasi cosa.
+          </div>
+          <div className="tab-pills">
+            <div className="tab-pill"><span className="tab-pill-icon">&#10003;</span> GA4</div>
+            <div className="tab-pill"><span className="tab-pill-icon">&#10003;</span> Server-side API</div>
+            <div className="tab-pill"><span className="tab-pill-icon">&#10003;</span> Consent Mode</div>
+            <div className="tab-pill"><span className="tab-pill-icon">&#10003;</span> Pixel Meta</div>
+            <div className="tab-pill"><span className="tab-pill-icon">&#10003;</span> GDPR</div>
+          </div>
+        </div>
+
+        {/* Tab 2 — Unit economics */}
+        <div className="tabs-panel" data-tab-panel="2" style={{ display: "none" }}>
+          <div className="tab-title">Unit economics + forecasting</div>
+          <div className="tab-desc">
+            Non ROAS. Non CPM. Cosa ti resta in tasca per ogni vendita. Tre scenari per decidere dove investire.
+          </div>
+          <div className="scenario-grid">
+            <div className="scenario-card">
+              <div className="scenario-label">Scenario A</div>
+              <div className="scenario-value">8%</div>
+              <div className="scenario-note">Come sei ora</div>
+            </div>
+            <div className="scenario-card scenario-card-active">
+              <div className="scenario-label">Scenario B</div>
+              <div className="scenario-value">14%</div>
+              <div className="scenario-note">Ottimizzato, +0 budget</div>
+            </div>
+            <div className="scenario-card">
+              <div className="scenario-label">Scenario C</div>
+              <div className="scenario-value">12%</div>
+              <div className="scenario-note">Scalato con +budget</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Tab 3 — Setup operativo */}
+        <div className="tabs-panel" data-tab-panel="3" style={{ display: "none" }}>
+          <div className="tab-title">Il cervello del progetto</div>
+          <div className="tab-desc">
+            Tutto in un posto. Sempre aggiornato. Niente perso in email o chat.
+          </div>
+          <div className="stack-list">
+            <div className="stack-item">
+              <div className="stack-icon">N</div>
+              <div className="stack-text"><strong>Notion</strong> &mdash; Playbook operativo, task, decisioni</div>
+            </div>
+            <div className="stack-item">
+              <div className="stack-icon">C</div>
+              <div className="stack-text"><strong>Claude Project</strong> &mdash; Contesto business sempre accessibile</div>
+            </div>
+            <div className="stack-item">
+              <div className="stack-icon">D</div>
+              <div className="stack-text"><strong>Google Drive</strong> &mdash; Documenti, asset, report</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

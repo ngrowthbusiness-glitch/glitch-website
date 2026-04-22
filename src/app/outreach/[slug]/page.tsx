@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getOutreachConfig, getAllOutreachSlugs } from "@/data/outreach/loader";
-import type { OutreachConfig, OutreachSection } from "@/data/outreach/types";
+import type { OutreachConfig, OutreachSection, OutreachBlock } from "@/data/outreach/types";
 import { SITE } from "@/lib/constants";
 import OutreachTracker from "./tracker";
 import ResponseBox from "./response-box";
 import BubbleNav from "./bubble-nav";
 import LiveClock from "./live-clock";
 import LogoSlider from "./logo-slider";
-import NetImpiantiForm from "./net-impianti-form";
+
 
 export async function generateStaticParams() {
   return getAllOutreachSlugs().map((slug) => ({ slug }));
@@ -51,15 +51,376 @@ export default async function OutreachPage({
   const config = getOutreachConfig(slug);
   if (!config) notFound();
 
-  if (slug === "la-femme") return <OutreachLaFemme config={config} slug={slug} />;
-  if (slug === "t33") return <OutreachT33 config={config} slug={slug} />;
-  if (slug === "blulogistic") return <OutreachBlulogistic config={config} slug={slug} />;
-  if (slug === "tecnografting") return <OutreachTecnografting config={config} slug={slug} />;
-  if (slug === "unibag") return <OutreachUnibag config={config} slug={slug} />;
-  if (slug === "net-impianti") return <OutreachNetImpianti config={config} slug={slug} />;
+  /* v4 — new video-first one-screen template */
+  if (config.version === "v4") return <OutreachV4 config={config} slug={slug} />;
+  /* Legacy templates for already-sent pages */
   if (slug === "cascioli-rent") return <OutreachCascioliRent config={config} slug={slug} />;
   if (config.pitch) return <OutreachV3 config={config} slug={slug} />;
   return <OutreachV2 config={config} slug={slug} />;
+}
+
+/* ================================================================
+   V4 TEMPLATE — video-first, one-screen landing
+   ================================================================ */
+
+function OutreachV4({ config, slug }: { config: OutreachConfig; slug: string }) {
+  const blocks = config.blocks || [];
+
+  return (
+    <>
+      <OutreachTracker slug={slug} />
+      <style>{`
+        /* ── v4 reset & base ── */
+        .v4-page {
+          min-height: 100vh;
+          background: ${NS.bg};
+          color: ${NS.text};
+          font-family: ${NS.mono};
+          display: flex;
+          flex-direction: column;
+        }
+
+        /* ── topbar ── */
+        .v4-topbar {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 16px 32px;
+          border-bottom: 1px solid ${NS.tealBorder};
+        }
+        .v4-topbar-logo {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-family: ${NS.serif};
+          font-size: 15px;
+          color: ${NS.text};
+          text-decoration: none;
+          letter-spacing: 0.5px;
+        }
+        .v4-topbar-logo span { color: ${NS.teal}; }
+        .v4-topbar-tag {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 10px;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          color: ${NS.textDim};
+        }
+        .v4-topbar-dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: ${NS.teal};
+          animation: v4pulse 2s ease-in-out infinite;
+        }
+
+        /* ── main content ── */
+        .v4-content {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 40px 32px;
+          gap: 48px;
+          max-width: 900px;
+          margin: 0 auto;
+          width: 100%;
+        }
+
+        /* ── video section ── */
+        .v4-video-wrap {
+          width: 100%;
+          border-radius: 12px;
+          overflow: hidden;
+          border: 1px solid ${NS.tealBorder};
+          background: rgba(0,255,252,0.03);
+        }
+        .v4-video-aspect {
+          position: relative;
+          width: 100%;
+          padding-bottom: 56.25%; /* 16:9 */
+        }
+        .v4-video-aspect iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border: none;
+        }
+        .v4-video-placeholder {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: 12px;
+          color: ${NS.textDim};
+          font-size: 13px;
+        }
+        .v4-video-placeholder svg {
+          opacity: 0.4;
+        }
+
+        /* ── blocks grid ── */
+        .v4-blocks {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+        .v4-block-row {
+          display: grid;
+          grid-template-columns: 1fr auto 1fr;
+          gap: 16px;
+          align-items: stretch;
+        }
+        .v4-block-card {
+          padding: 24px;
+          border-radius: 10px;
+          border: 1px solid ${NS.tealBorder};
+          background: rgba(0,255,252,0.03);
+        }
+        .v4-block-label {
+          font-size: 9px;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          margin-bottom: 10px;
+        }
+        .v4-block-label-today {
+          color: ${NS.textDim};
+        }
+        .v4-block-label-tomorrow {
+          color: ${NS.teal};
+        }
+        .v4-block-text {
+          font-family: ${NS.serif};
+          font-size: 16px;
+          line-height: 1.5;
+          color: ${NS.text};
+        }
+        .v4-block-card-tomorrow {
+          border-color: rgba(0,255,252,0.35);
+          background: rgba(0,255,252,0.06);
+        }
+        .v4-block-arrow {
+          display: flex;
+          align-items: center;
+          color: ${NS.teal};
+          opacity: 0.6;
+        }
+
+        /* ── CTA section ── */
+        .v4-cta {
+          width: 100%;
+          text-align: center;
+          padding: 32px 0 0;
+          border-top: 1px solid ${NS.tealBorder};
+        }
+        .v4-cta-text {
+          font-family: ${NS.serif};
+          font-size: clamp(20px, 3vw, 28px);
+          font-style: italic;
+          color: ${NS.text};
+          margin-bottom: 24px;
+        }
+        .v4-cta-buttons {
+          display: flex;
+          gap: 14px;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+        .v4-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          padding: 14px 28px;
+          border-radius: 5px;
+          font-size: 10px;
+          font-weight: 500;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          text-decoration: none;
+          transition: all 0.2s;
+          cursor: pointer;
+        }
+        .v4-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+        .v4-btn-wa {
+          background: ${NS.teal};
+          color: ${NS.bg};
+        }
+        .v4-btn-email {
+          background: transparent;
+          color: ${NS.teal};
+          border: 1px solid ${NS.tealBorder};
+        }
+        .v4-btn-email:hover {
+          background: ${NS.tealDim};
+          border-color: ${NS.teal};
+        }
+
+        /* ── footer ── */
+        .v4-footer {
+          text-align: center;
+          padding: 24px 32px;
+          font-size: 11px;
+          color: ${NS.textFaint};
+          letter-spacing: 1px;
+        }
+        .v4-footer a { color: ${NS.textDim}; text-decoration: none; }
+        .v4-footer a:hover { color: ${NS.teal}; }
+
+        /* ── glow background ── */
+        .v4-bg-glow {
+          position: fixed;
+          inset: 0;
+          pointer-events: none;
+          z-index: 0;
+          background:
+            radial-gradient(ellipse 60% 50% at 85% 30%, rgba(0,255,252,0.05) 0%, transparent 60%),
+            radial-gradient(ellipse 40% 40% at 10% 80%, rgba(0,255,252,0.03) 0%, transparent 50%);
+        }
+
+        @keyframes v4pulse {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        /* ── responsive ── */
+        @media (max-width: 640px) {
+          .v4-topbar { padding: 12px 20px; }
+          .v4-topbar-tag { display: none; }
+          .v4-content { padding: 28px 20px; gap: 36px; }
+          .v4-block-row {
+            grid-template-columns: 1fr;
+            gap: 8px;
+          }
+          .v4-block-arrow {
+            transform: rotate(90deg);
+            justify-content: center;
+          }
+          .v4-block-card { padding: 18px; }
+          .v4-block-text { font-size: 14px; }
+        }
+      `}</style>
+
+      <div className="v4-bg-glow" />
+
+      <div className="v4-page" style={{ position: "relative", zIndex: 1 }}>
+        {/* ── TOPBAR ── */}
+        <div className="v4-topbar">
+          <a
+            href="https://nicolaserrao.com"
+            className="v4-topbar-logo"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image src="/favicon.png" alt="" width={20} height={20} style={{ objectFit: "contain" }} />
+            Nicola<span>.</span>Serrao
+          </a>
+          <div className="v4-topbar-tag">
+            <span className="v4-topbar-dot" />
+            proposta riservata &middot; {config.companyName}
+          </div>
+        </div>
+
+        {/* ── MAIN CONTENT ── */}
+        <div className="v4-content">
+
+          {/* VIDEO */}
+          <div className="v4-video-wrap">
+            <div className="v4-video-aspect">
+              {config.videoUrl ? (
+                <iframe
+                  src={config.videoUrl}
+                  allowFullScreen
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  title={`Video per ${config.companyName}`}
+                />
+              ) : (
+                <div className="v4-video-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <polygon points="5 3 19 12 5 21 5 3" />
+                  </svg>
+                  Video in arrivo
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* BLOCKS: today → tomorrow */}
+          {blocks.length > 0 && (
+            <div className="v4-blocks">
+              {blocks.map((block: OutreachBlock, i: number) => (
+                <div key={i} className="v4-block-row">
+                  <div className="v4-block-card">
+                    <div className="v4-block-label v4-block-label-today">Oggi</div>
+                    <div className="v4-block-text">{block.today}</div>
+                  </div>
+                  <div className="v4-block-arrow">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                  <div className="v4-block-card v4-block-card-tomorrow">
+                    <div className="v4-block-label v4-block-label-tomorrow">Domani</div>
+                    <div className="v4-block-text">{block.tomorrow}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* CTA */}
+          <div className="v4-cta">
+            <p className="v4-cta-text">{config.cta.text || "Ti va una chiacchierata di 15 minuti?"}</p>
+            <div className="v4-cta-buttons">
+              {config.cta.whatsappText && (
+                <a
+                  href={`https://wa.me/393385691369?text=${encodeURIComponent(config.cta.whatsappText)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="v4-btn v4-btn-wa"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.335-1.502A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.523-5.172-1.432l-.371-.22-3.762.892.946-3.653-.242-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+                  </svg>
+                  Scrivimi su WhatsApp
+                </a>
+              )}
+              {config.cta.emailSubject && (
+                <a
+                  href={`mailto:marketing@nicolaserrao.com?subject=${encodeURIComponent(config.cta.emailSubject)}`}
+                  className="v4-btn v4-btn-email"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="M22 4L12 13 2 4" />
+                  </svg>
+                  Scrivimi via email
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* ── FOOTER ── */}
+        <div className="v4-footer">
+          <a href="https://nicolaserrao.com" target="_blank" rel="noopener noreferrer">
+            nicolaserrao.com
+          </a>
+        </div>
+      </div>
+    </>
+  );
 }
 
 /* ================================================================
@@ -67,7 +428,8 @@ export default async function OutreachPage({
    ================================================================ */
 
 function OutreachV3({ config, slug }: { config: OutreachConfig; slug: string }) {
-  const isLightBg = isLight(config.palette.background);
+  const palette = config.palette!;
+  const isLightBg = isLight(palette.background);
   const hasResponseBox = !!config.cta.ctaQuestion;
   const pitchParas = config.pitch!.split("\n\n");
   const urgencyParas = config.urgencyText ? config.urgencyText.split("\n\n") : [];
@@ -407,11 +769,12 @@ function getPillarIcon(i: number): string {
 /* ── V3 CSS — exact port from old PHP templates ── */
 function v3CSS(config: OutreachConfig, isLightBg: boolean): string {
   const isDark = !isLightBg;
-  const pBg = config.palette.background;
-  const pPrimary = config.palette.primary;
-  const pText = config.palette.text;
-  const pTextDim = config.palette.textDim;
-  const pBorder = config.palette.border;
+  const palette = config.palette!;
+  const pBg = palette.background;
+  const pPrimary = palette.primary;
+  const pText = palette.text;
+  const pTextDim = palette.textDim;
+  const pBorder = palette.border;
   const pFont = config.headingFont ? `'${config.headingFont}', sans-serif` : `'Fira Sans', sans-serif`;
 
   // Derived prospect colors
@@ -668,7 +1031,7 @@ body { background: ${NS.bg}; color: ${NS.text}; font-family: ${NS.mono}; overflo
 }
 .method-visual::before {
   content:''; position:absolute; inset:0;
-  background: radial-gradient(ellipse 70% 70% at 60% 50%, ${config.palette.primaryDim} 0%, transparent 70%);
+  background: radial-gradient(ellipse 70% 70% at 60% 50%, ${palette.primaryDim} 0%, transparent 70%);
   pointer-events:none;
 }
 .m-num {
@@ -688,7 +1051,7 @@ body { background: ${NS.bg}; color: ${NS.text}; font-family: ${NS.mono}; overflo
 .m-callout {
   border-left: 3px solid ${pPrimary};
   padding: 16px 20px; margin-top: 20px;
-  background: ${config.palette.primaryDim};
+  background: ${palette.primaryDim};
   font-size: 13px; font-style: italic;
   color: ${pTextDim}; line-height: 1.7;
 }
@@ -867,7 +1230,7 @@ body { background: ${NS.bg}; color: ${NS.text}; font-family: ${NS.mono}; overflo
   padding: 32px 28px; border: 1px solid ${pBorder};
 }
 .tl-before { background: ${isDark ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.02)"}; }
-.tl-after { background: ${config.palette.primaryDim}; border-color: ${pPrimary}30; }
+.tl-after { background: ${palette.primaryDim}; border-color: ${pPrimary}30; }
 .tl-label {
   font-family: ${NS.mono}; font-size: 9px; letter-spacing: 3px;
   text-transform: uppercase; color: ${pTextFaint}; margin-bottom: 12px;
@@ -931,7 +1294,7 @@ body { background: ${NS.bg}; color: ${NS.text}; font-family: ${NS.mono}; overflo
   border-left: 3px solid ${pTextFaint};
 }
 .vr-theirs {
-  background: ${config.palette.primaryDim};
+  background: ${palette.primaryDim};
   border-left: 3px solid ${pPrimary};
 }
 .vr-col-tag {
@@ -2032,7 +2395,7 @@ function OutreachNetImpianti({ config, slug }: { config: OutreachConfig; slug: s
               </div>
             </div>
             <div className="ni-contact-form-wrap">
-              <NetImpiantiForm />
+              {/* NetImpiantiForm removed — outreach cleanup pending */}
             </div>
           </div>
         </div>
@@ -3780,7 +4143,8 @@ function hf(c: OutreachConfig): string {
    ================================================================ */
 
 function OutreachV2({ config, slug }: { config: OutreachConfig; slug: string }) {
-  const isLightBg = isLight(config.palette.background);
+  const palette = config.palette!;
+  const isLightBg = isLight(palette.background);
   const hasResponseBox = !!config.cta.ctaQuestion;
 
   return (
@@ -3788,15 +4152,15 @@ function OutreachV2({ config, slug }: { config: OutreachConfig; slug: string }) 
       <OutreachTracker slug={slug} />
       <style>{`
         .o-page {
-          --o-primary: ${config.palette.primary};
-          --o-primary-dim: ${config.palette.primaryDim};
-          --o-bg: ${config.palette.background};
-          --o-text: ${config.palette.text};
-          --o-text-dim: ${config.palette.textDim};
-          --o-border: ${config.palette.border};
+          --o-primary: ${palette.primary};
+          --o-primary-dim: ${palette.primaryDim};
+          --o-bg: ${palette.background};
+          --o-text: ${palette.text};
+          --o-text-dim: ${palette.textDim};
+          --o-border: ${palette.border};
           min-height: 100vh;
-          background: ${config.palette.background};
-          color: ${config.palette.text};
+          background: ${palette.background};
+          color: ${palette.text};
           font-family: 'DM Mono', monospace;
         }
         .o-header {
@@ -3836,7 +4200,7 @@ function OutreachV2({ config, slug }: { config: OutreachConfig; slug: string }) 
         .o-metric-card { padding: 20px; border-radius: 12px; border: 1px solid var(--o-border); text-align: center; }
         .o-metric-value { font-size: 18px; font-weight: 700; color: var(--o-primary); }
         .o-metric-label { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 4px; color: var(--o-text-dim); }
-        .o-btn-primary { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; padding: 14px 24px; border-radius: 5px; text-decoration: none; transition: opacity 0.2s, transform 0.2s; background: var(--o-primary); color: ${isLightBg ? "#fff" : config.palette.background}; }
+        .o-btn-primary { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; padding: 14px 24px; border-radius: 5px; text-decoration: none; transition: opacity 0.2s, transform 0.2s; background: var(--o-primary); color: ${isLightBg ? "#fff" : palette.background}; }
         .o-btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
         .o-btn-secondary { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 14px 24px; border-radius: 5px; border: 1px solid var(--o-border); text-decoration: none; transition: all 0.2s; color: var(--o-primary); background: transparent; }
         .o-btn-secondary:hover { transform: translateY(-2px); }
@@ -3880,7 +4244,7 @@ function OutreachV2({ config, slug }: { config: OutreachConfig; slug: string }) 
           {config.heroTagline && <p className="o-tagline">{config.heroTagline}</p>}
         </section>
 
-        {config.sections.map((section, i) => (
+        {config.sections?.map((section, i) => (
           <SectionRenderer key={i} section={section} />
         ))}
 
