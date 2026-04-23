@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -46,6 +47,13 @@ export default function CosaHoFattoPage() {
         .chf-metric { display: flex; flex-direction: column; gap: 4px; }
         .chf-case-what { font-size: 11px; font-weight: 300; color: var(--text-dim); line-height: 1.8; border-top: 1px solid var(--teal-border); padding-top: 16px; }
         .chf-case-what strong { color: var(--text); font-weight: 500; }
+        .chf-case-link {
+          display: inline-flex; align-items: center; gap: 6px;
+          font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+          color: var(--teal); text-decoration: none;
+          margin-top: 16px; transition: gap 0.2s;
+        }
+        .chf-case-link:hover { gap: 10px; }
 
         /* MARKET TAGS */
         .chf-markets-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
@@ -165,6 +173,9 @@ export default function CosaHoFattoPage() {
                 <div className="chf-case-what">
                   <strong>Cosa ho fatto:</strong> Strategia di scala sulle Ads Meta, ristrutturazione del catalogo prodotti con bundle ad alto AOV, ottimizzazione del funnel di acquisizione. Il risultato ha trasformato il rapporto: da collaborazione su singole campagne a Growth Strategist a lungo termine.
                 </div>
+                <Link href="/cosa-ho-fatto/balance-nutrition" className="chf-case-link">
+                  Leggi il caso completo <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </Link>
               </div>
             </div>
           </div>
@@ -267,6 +278,14 @@ export default function CosaHoFattoPage() {
                 </div>
                 <div className="chf-case-what">
                   <strong>Cosa ho fatto:</strong> Gestione end-to-end delle campagne Meta &mdash; strategia, audience, creativit&agrave;, budget, ottimizzazione e report. In settori che vanno dal B2B puro all&apos;e-commerce consumer, con obiettivi ogni volta completamente diversi.
+                </div>
+                <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+                  <Link href="/cosa-ho-fatto/lancio-yoga" className="chf-case-link">
+                    Caso: Lancio Yoga <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </Link>
+                  <Link href="/cosa-ho-fatto/autonoleggio" className="chf-case-link">
+                    Caso: Autonoleggio <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </Link>
                 </div>
               </div>
             </div>

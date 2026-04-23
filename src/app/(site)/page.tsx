@@ -541,82 +541,6 @@ export default function HomePage() {
         }
 
         /* ═══════════════════════════════════
-           7. BLOG PREVIEW
-        ═══════════════════════════════════ */
-        .blog-grid {
-          display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-        }
-        .blog-card {
-          border: 1px solid rgba(232,245,242,0.08); border-radius: 8px;
-          padding: 24px 22px; background: rgba(232,245,242,0.02);
-          text-decoration: none; display: flex; flex-direction: column; gap: 12px;
-          transition: border-color 0.2s, background 0.2s;
-        }
-        .blog-card:hover { border-color: var(--teal-border); background: var(--teal-dim); }
-        .blog-card-cat {
-          font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
-          color: var(--teal); border: 1px solid var(--teal-border);
-          padding: 2px 7px; border-radius: 3px; background: var(--teal-dim);
-          align-self: flex-start;
-        }
-        .blog-card-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 16px; font-weight: 700; color: var(--text); line-height: 1.4; flex: 1;
-        }
-        .blog-card-meta { font-size: 10px; color: var(--text-faint); }
-        .blog-card-arrow {
-          font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
-          color: var(--teal); display: flex; align-items: center; gap: 5px;
-          opacity: 0; transition: opacity 0.2s;
-        }
-        .blog-card:hover .blog-card-arrow { opacity: 1; }
-
-        /* ═══════════════════════════════════
-           8. RISORSE GRATUITE
-        ═══════════════════════════════════ */
-        .risorse-grid {
-          display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-        }
-        .risorsa-card {
-          border: 1px solid rgba(0,255,252,0.12); border-radius: 10px;
-          padding: 28px 24px; background: rgba(0,255,252,0.025);
-          display: flex; flex-direction: column; gap: 14px;
-          text-decoration: none; position: relative; overflow: hidden;
-          transition: border-color 0.25s, background 0.25s, transform 0.2s;
-        }
-        .risorsa-card::before {
-          content: ''; position: absolute; top: 0; left: 0; right: 0;
-          height: 2px; background: linear-gradient(90deg, var(--teal), transparent);
-          opacity: 0; transition: opacity 0.25s;
-        }
-        .risorsa-card:hover { border-color: rgba(0,255,252,0.3); background: rgba(0,255,252,0.05); transform: translateY(-3px); }
-        .risorsa-card:hover::before { opacity: 1; }
-        .risorsa-badge {
-          display: inline-flex; align-items: center; gap: 5px;
-          font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
-          color: var(--teal); border: 1px solid var(--teal-border);
-          padding: 3px 8px; border-radius: 3px; background: var(--teal-dim);
-          width: fit-content;
-        }
-        .risorsa-icon {
-          width: 36px; height: 36px; border-radius: 8px;
-          background: rgba(0,255,252,0.08); border: 1px solid rgba(0,255,252,0.15);
-          display: flex; align-items: center; justify-content: center;
-          color: var(--teal); flex-shrink: 0;
-        }
-        .risorsa-name {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 17px; font-weight: 700; color: var(--text); line-height: 1.3;
-        }
-        .risorsa-desc { font-size: 12px; color: var(--text-dim); line-height: 1.7; flex: 1; }
-        .risorsa-cta {
-          font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
-          color: var(--teal); display: flex; align-items: center; gap: 6px;
-          transition: gap 0.2s;
-        }
-        .risorsa-card:hover .risorsa-cta { gap: 10px; }
-
-        /* ═══════════════════════════════════
            9. CTA FINALE
         ═══════════════════════════════════ */
         .hp-cta {
@@ -707,8 +631,6 @@ export default function HomePage() {
           .orbital-card { position: relative; left: auto; width: 100%; max-width: 100%;
             transform: none !important; opacity: 1 !important; display: none; }
           .orbital-card.pos-center { display: flex; }
-          .blog-grid { grid-template-columns: 1fr; }
-          .risorse-grid { grid-template-columns: 1fr; }
           .brain-svg-wrap { min-height: 280px; }
           .brain-svg-container { width: 260px; height: 260px; }
           .reviews-track-wrap { margin: 0 -32px; padding: 0 32px; }
@@ -1140,108 +1062,6 @@ export default function HomePage() {
       </div>
 
       <div className="hp-wrap"><div className="hp-divider" /></div>
-
-      {/* ════════════════════════════════════════
-          7. BLOG PREVIEW
-      ════════════════════════════════════════ */}
-      <div className="hp-wrap hp-section">
-        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: "16px", marginBottom: "32px", flexWrap: "wrap" }}>
-          <h2 className="hp-h2" style={{ marginBottom: 0 }}>
-            Dal campo. <em>Senza filtri.</em>
-          </h2>
-          <Link href="/blog" style={{ fontSize: "10px", letterSpacing: "1.5px", textTransform: "uppercase", color: "var(--teal)", textDecoration: "none", flexShrink: 0 }}>
-            Tutti gli articoli &rarr;
-          </Link>
-        </div>
-        <div className="blog-grid">
-          {[
-            { slug: "prime-settimane-consulente-marketing", category: "Metodo", title: "Prima della strategia, si mappa. Cosa fa un buon consulente nelle prime settimane.", readTime: "7 min" },
-            { slug: "test-ab-significanza-statistica", category: "Analytics", title: "Il tuo test A/B ha mostrato +18%. Probabilmente non significa niente.", readTime: "9 min" },
-            { slug: "roas-non-e-un-kpi", category: "Analytics", title: "Il ROAS non \u00e8 un KPI. Ecco cosa guardare invece.", readTime: "8 min" },
-          ].map((post) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-card">
-              <span className="blog-card-cat">{post.category}</span>
-              <div className="blog-card-title">{post.title}</div>
-              <div className="blog-card-meta">{post.readTime} lettura</div>
-              <div className="blog-card-arrow">
-                Leggi <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
-
-      <div className="hp-wrap"><div className="hp-divider" /></div>
-
-      {/* ════════════════════════════════════════
-          8. RISORSE GRATUITE
-      ════════════════════════════════════════ */}
-      <div className="hp-wrap hp-section">
-        <div style={{ textAlign: "center", marginBottom: "40px" }}>
-          <div className="hp-eyebrow">&#9733; Gratis &mdash; senza registrazione</div>
-          <h2 className="hp-h2">
-            Strumenti pratici <em>per decidere meglio.</em>
-          </h2>
-          <p className="hp-subtitle" style={{ maxWidth: "600px", margin: "0 auto" }}>
-            Tre risorse gratuite alimentate da AI. Rispondono alle domande che ogni imprenditore si fa sul proprio marketing.
-          </p>
-        </div>
-        <div className="risorse-grid">
-          {/* KPI Calculator */}
-          <Link href="/risorse/kpi-calculator" className="risorsa-card">
-            <div className="risorsa-badge">
-              <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              AI-Powered
-            </div>
-            <div className="risorsa-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-            </div>
-            <div className="risorsa-name">KPI Calculator</div>
-            <div className="risorsa-desc">
-              Inserisci budget, fatturato e margine. Ricevi un&apos;analisi AI con 3 scenari di crescita e i KPI che contano davvero.
-            </div>
-            <div className="risorsa-cta">
-              Calcola ora <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </div>
-          </Link>
-
-          {/* Marketing Audit */}
-          <Link href="/risorse/audit-score" className="risorsa-card">
-            <div className="risorsa-badge">
-              <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              AI-Powered
-            </div>
-            <div className="risorsa-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-            </div>
-            <div className="risorsa-name">Marketing Audit</div>
-            <div className="risorsa-desc">
-              10 domande sul tuo stack marketing. L&apos;AI diagnostica i gap critici e ti d&agrave; 3 priorit&agrave; concrete.
-            </div>
-            <div className="risorsa-cta">
-              Fai il test <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </div>
-          </Link>
-
-          {/* Fractional CMO Check */}
-          <Link href="/risorse/fractional-cmo" className="risorsa-card">
-            <div className="risorsa-badge">
-              <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              AI-Powered
-            </div>
-            <div className="risorsa-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-            </div>
-            <div className="risorsa-name">Fractional CMO Check</div>
-            <div className="risorsa-desc">
-              Self-assessment in 5 minuti. L&apos;AI analizza fase, team e obiettivi e ti dice quale figura ti serve.
-            </div>
-            <div className="risorsa-cta">
-              Scopri il tuo profilo <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </div>
-          </Link>
-        </div>
-      </div>
 
       {/* ════════════════════════════════════════
           9. CTA FINALE
