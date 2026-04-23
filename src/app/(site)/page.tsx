@@ -227,81 +227,94 @@ export default function HomePage() {
         }
 
         /* ═══════════════════════════════════
-           4. PRIMI 30 GIORNI — Dual Timeline
+           4. PRIMI 30 GIORNI — Box Cards
         ═══════════════════════════════════ */
-        .dtl-grid {
+        .tl-cards {
           display: grid; grid-template-columns: repeat(4, 1fr);
-          gap: 0; margin-top: 32px; position: relative;
+          gap: 16px; margin-top: 32px;
         }
-        .dtl-col {
-          display: flex; flex-direction: column; align-items: center;
-          text-align: center; position: relative;
+        .tl-card {
+          border-radius: 12px; overflow: hidden;
+          border: 1px solid rgba(0,255,252,0.12);
+          transition: border-color 0.3s;
         }
-        /* Top row: what I do */
-        .dtl-top {
-          padding: 0 12px 28px; min-height: 120px;
-          display: flex; flex-direction: column; align-items: center; gap: 8px;
+        .tl-card:hover { border-color: rgba(0,255,252,0.3); }
+        .tl-card-top {
+          background: rgba(10,14,13,0.9);
+          padding: 24px 20px; min-height: 140px;
+          display: flex; flex-direction: column; gap: 8px;
         }
-        .dtl-period {
+        .tl-card-period {
           font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
-          color: var(--teal); opacity: 0.7;
+          color: var(--teal); opacity: 0.6;
         }
-        .dtl-action-title {
+        .tl-card-title {
           font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 15px; font-weight: 700; color: var(--text);
+          font-size: 17px; font-weight: 700; color: var(--text);
         }
-        .dtl-action-desc {
-          font-size: 11px; color: var(--text-dim); line-height: 1.7;
-          max-width: 240px;
-        }
-        /* Center: dot + connector */
-        .dtl-center {
-          position: relative; height: 48px;
-          display: flex; align-items: center; justify-content: center;
-        }
-        .dtl-dot {
-          width: 14px; height: 14px; border-radius: 50%;
-          background: rgba(0,255,252,0.2); border: 2px solid var(--teal);
-          position: relative; z-index: 2;
-          box-shadow: 0 0 12px rgba(0,255,252,0.2);
-        }
-        .dtl-connector {
-          position: absolute; top: 50%; left: 0; right: 0;
-          height: 1px; z-index: 1;
-          background: linear-gradient(90deg, rgba(0,255,252,0.05), rgba(0,255,252,0.2), rgba(0,255,252,0.05));
-          transform: translateY(-50%);
-        }
-        .dtl-col:first-child .dtl-connector { left: 50%; }
-        .dtl-col:last-child .dtl-connector { right: 50%; }
-        /* Bottom row: what it means for you */
-        .dtl-bottom {
-          padding: 28px 12px 0; min-height: 100px;
-          display: flex; flex-direction: column; align-items: center; gap: 6px;
-        }
-        .dtl-impact-label {
-          font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
-          color: var(--teal); opacity: 0.5; margin-bottom: 4px;
-        }
-        .dtl-impact-text {
+        .tl-card-desc {
           font-size: 12px; color: var(--text-dim); line-height: 1.7;
-          max-width: 220px;
         }
-        .dtl-impact-text strong { color: var(--text); font-weight: 500; }
+        .tl-card-bottom {
+          background: rgba(0,255,252,0.04);
+          border-top: 1px solid rgba(0,255,252,0.1);
+          padding: 20px 20px; min-height: 100px;
+          display: flex; flex-direction: column; gap: 4px;
+        }
+        .tl-card-label {
+          font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+          color: var(--teal); opacity: 0.7; margin-bottom: 4px;
+        }
+        .tl-card-impact {
+          font-size: 14px; color: var(--text); line-height: 1.6;
+          font-weight: 500;
+        }
+        .tl-card-impact-sub {
+          font-size: 12px; color: var(--text-dim); line-height: 1.6;
+        }
+        /* Arrow flow below cards */
+        .tl-arrow {
+          margin-top: 40px; position: relative;
+        }
+        .tl-arrow-line {
+          display: flex; align-items: center; gap: 0;
+        }
+        .tl-arrow-seg {
+          height: 3px; border-radius: 2px;
+        }
+        .tl-arrow-label {
+          font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+          white-space: nowrap; padding: 0 12px;
+        }
+        .tl-arrow-head {
+          width: 0; height: 0; flex-shrink: 0;
+          border-top: 8px solid transparent;
+          border-bottom: 8px solid transparent;
+          border-left: 12px solid var(--teal);
+        }
 
         /* ═══════════════════════════════════
            5. BRAIN COMPANY (AI)
         ═══════════════════════════════════ */
+        .brain-section {
+          background: rgba(0,255,252,0.02);
+          border-top: 1px solid rgba(0,255,252,0.08);
+          border-bottom: 1px solid rgba(0,255,252,0.08);
+          padding: 100px 0;
+          margin-bottom: 120px;
+        }
         .brain-grid {
-          display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+          display: grid; grid-template-columns: 1fr 1fr; gap: 56px;
           align-items: center;
         }
         .brain-benefit-cards {
           display: flex; flex-direction: column; gap: 16px;
-          margin-top: 24px;
+          margin-top: 28px;
         }
         .brain-benefit {
           border: 1px solid rgba(0,255,252,0.15); border-radius: 10px;
           padding: 24px 24px; background: rgba(0,255,252,0.03);
+          display: flex; gap: 16px; align-items: flex-start;
           transition: border-color 0.3s, background 0.3s;
         }
         .brain-benefit:hover {
@@ -313,48 +326,66 @@ export default function HomePage() {
           display: flex; align-items: center; justify-content: center;
           flex-shrink: 0;
         }
+        .brain-benefit-content { flex: 1; }
         .brain-benefit-title {
           font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 18px; font-weight: 700; color: var(--teal);
-          margin-bottom: 8px;
+          font-size: 17px; font-weight: 700; color: var(--teal);
+          margin-bottom: 6px;
         }
         .brain-benefit-desc {
           font-size: 13px; color: var(--text-dim); line-height: 1.7;
         }
+        .brain-note {
+          margin-top: 24px; font-size: 12px; color: var(--text-faint);
+          line-height: 1.7; max-width: 480px;
+          border-left: 2px solid rgba(0,255,252,0.15); padding-left: 14px;
+        }
 
-        /* ── Brain SVG illustration ── */
-        .brain-svg-wrap {
+        /* ── Concentric orbits ── */
+        .brain-orbits-wrap {
           display: flex; align-items: center; justify-content: center;
           min-height: 380px;
         }
-        .brain-svg-container {
-          position: relative; width: 340px; height: 340px;
+        .brain-orbits {
+          position: relative; width: 360px; height: 360px;
         }
-        .brain-svg-float {
-          animation: brain-float 6s ease-in-out infinite;
-        }
-        @keyframes brain-float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-        }
-        .brain-orbit-label {
-          position: absolute;
+        .brain-orbit-ring {
+          position: absolute; border-radius: 50%;
+          border: 1px solid rgba(0,255,252,0.08);
           display: flex; align-items: center; justify-content: center;
-          width: 52px; height: 52px; border-radius: 50%;
-          background: rgba(0,255,252,0.06);
-          border: 1px solid rgba(0,255,252,0.2);
-          font-size: 8px; letter-spacing: 0.5px; color: var(--text-dim);
-          font-weight: 500; white-space: nowrap;
-          animation: brain-pulse 3s ease-in-out infinite;
         }
-        .brain-orbit-label:nth-child(2) { animation-delay: 0.5s; }
-        .brain-orbit-label:nth-child(3) { animation-delay: 1s; }
-        .brain-orbit-label:nth-child(4) { animation-delay: 1.5s; }
-        .brain-orbit-label:nth-child(5) { animation-delay: 2s; }
-        .brain-orbit-label:nth-child(6) { animation-delay: 2.5s; }
-        @keyframes brain-pulse {
-          0%, 100% { opacity: 0.7; transform: scale(1); }
-          50% { opacity: 1; transform: scale(1.05); }
+        .brain-orbit-ring-4 { inset: 0; border-color: rgba(0,255,252,0.06); }
+        .brain-orbit-ring-3 { inset: 40px; border-color: rgba(0,255,252,0.1); }
+        .brain-orbit-ring-2 { inset: 80px; border-color: rgba(0,255,252,0.15); }
+        .brain-orbit-ring-1 { inset: 120px; border-color: rgba(0,255,252,0.2); }
+        .brain-orbit-core {
+          position: absolute; inset: 140px;
+          border-radius: 50%; display: flex; flex-direction: column;
+          align-items: center; justify-content: center; gap: 4px;
+          background: rgba(0,255,252,0.06);
+          border: 1.5px solid rgba(0,255,252,0.35);
+          box-shadow: 0 0 30px rgba(0,255,252,0.1);
+          z-index: 5;
+        }
+        .brain-orbit-core-text {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: 12px; font-weight: 700; color: var(--teal);
+        }
+        .brain-orbit-core-sub {
+          font-size: 7px; letter-spacing: 1.5px; text-transform: uppercase;
+          color: var(--text-dim);
+        }
+        .brain-ring-label {
+          position: absolute; font-size: 8px; letter-spacing: 1px;
+          text-transform: uppercase; color: var(--text-faint);
+          background: var(--bg); padding: 2px 8px; white-space: nowrap;
+        }
+        .brain-ring-node {
+          position: absolute; width: 32px; height: 32px; border-radius: 50%;
+          background: rgba(0,255,252,0.05); border: 1px solid rgba(0,255,252,0.2);
+          display: flex; align-items: center; justify-content: center;
+          font-size: 7px; color: var(--text-dim); font-weight: 500;
+          z-index: 3;
         }
 
         /* ═══════════════════════════════════
@@ -585,8 +616,10 @@ export default function HomePage() {
           .hero-pills-main, .hero-pills-grey { justify-content: center; }
           .hero-sub { margin-left: auto; margin-right: auto; }
           .fcmo-grid { grid-template-columns: 1fr; }
-          .dtl-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-          .dtl-connector { display: none; }
+          .tl-cards { grid-template-columns: repeat(2, 1fr); }
+          .brain-grid { grid-template-columns: 1fr; }
+          .brain-orbits-wrap { min-height: 300px; }
+          .brain-orbits { width: 300px; height: 300px; }
           .uc-stage { height: auto; min-height: 480px; }
           .uc-card { position: relative; left: auto; width: 100%; max-width: 100%;
             transform: none !important; opacity: 1 !important; display: none; }
@@ -601,7 +634,7 @@ export default function HomePage() {
           .hero-actions { flex-direction: column; width: 100%; }
           .hero-actions a { justify-content: center; }
           .hp-btn-primary, .hp-btn-secondary { width: 100%; justify-content: center; }
-          .dtl-grid { grid-template-columns: 1fr; }
+          .tl-cards { grid-template-columns: 1fr; }
         }
       `}</style>
 
@@ -782,210 +815,189 @@ export default function HomePage() {
           Impegno minimo: 3 mesi. Ecco cosa succede nei primi 30 giorni.
         </p>
 
-        {/* Row labels */}
-        <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
-          <div style={{ fontSize: "9px", letterSpacing: "2px", textTransform: "uppercase", color: "var(--teal)", opacity: 0.6 }}>&#9650; Cosa faccio io</div>
-        </div>
-
-        <div className="dtl-grid">
-          {/* Col 1 */}
-          <div className="dtl-col">
-            <div className="dtl-top">
-              <div className="dtl-period">Settimana 1</div>
-              <div className="dtl-action-title">Analisi risorse</div>
-              <div className="dtl-action-desc">Mappo team, canali, budget. Ti dico subito cosa serve da fuori.</div>
+        <div className="tl-cards">
+          {/* Card 1 */}
+          <div className="tl-card">
+            <div className="tl-card-top">
+              <div className="tl-card-period">Settimana 1</div>
+              <div className="tl-card-title">Analisi risorse</div>
+              <div className="tl-card-desc">Mappo team, canali, budget. Ti dico subito cosa serve da fuori.</div>
             </div>
-            <div className="dtl-center">
-              <div className="dtl-connector" />
-              <div className="dtl-dot" />
-            </div>
-            <div className="dtl-bottom">
-              <div className="dtl-impact-label">Per te</div>
-              <div className="dtl-impact-text"><strong>Chiarezza immediata</strong> su dove stai spendendo e cosa manca.</div>
+            <div className="tl-card-bottom">
+              <div className="tl-card-label">Per te</div>
+              <div className="tl-card-impact">Chiarezza immediata</div>
+              <div className="tl-card-impact-sub">Sai dove stai spendendo e cosa manca.</div>
             </div>
           </div>
 
-          {/* Col 2 */}
-          <div className="dtl-col">
-            <div className="dtl-top">
-              <div className="dtl-period">Settimana 1&ndash;2</div>
-              <div className="dtl-action-title">Tracking audit</div>
-              <div className="dtl-action-desc">GA4, Pixel Meta, Consent Mode, GDPR. Dati puliti prima di decidere.</div>
+          {/* Card 2 */}
+          <div className="tl-card">
+            <div className="tl-card-top">
+              <div className="tl-card-period">Settimana 1&ndash;2</div>
+              <div className="tl-card-title">Tracking audit</div>
+              <div className="tl-card-desc">GA4, Pixel Meta, Consent Mode, GDPR. Dati puliti prima di decidere.</div>
             </div>
-            <div className="dtl-center">
-              <div className="dtl-connector" />
-              <div className="dtl-dot" />
-            </div>
-            <div className="dtl-bottom">
-              <div className="dtl-impact-label">Per te</div>
-              <div className="dtl-impact-text"><strong>Decisioni basate su dati reali</strong>, non su numeri sporchi.</div>
+            <div className="tl-card-bottom">
+              <div className="tl-card-label">Per te</div>
+              <div className="tl-card-impact">Decisioni su dati reali</div>
+              <div className="tl-card-impact-sub">Non su numeri sporchi o stime a occhio.</div>
             </div>
           </div>
 
-          {/* Col 3 */}
-          <div className="dtl-col">
-            <div className="dtl-top">
-              <div className="dtl-period">Settimana 2&ndash;4</div>
-              <div className="dtl-action-title">Unit economics</div>
-              <div className="dtl-action-desc">Margine reale per vendita. Tre scenari di crescita e forecasting.</div>
+          {/* Card 3 */}
+          <div className="tl-card">
+            <div className="tl-card-top">
+              <div className="tl-card-period">Settimana 2&ndash;4</div>
+              <div className="tl-card-title">Unit economics</div>
+              <div className="tl-card-desc">Margine reale per vendita. Tre scenari di crescita e forecasting.</div>
             </div>
-            <div className="dtl-center">
-              <div className="dtl-connector" />
-              <div className="dtl-dot" />
-            </div>
-            <div className="dtl-bottom">
-              <div className="dtl-impact-label">Per te</div>
-              <div className="dtl-impact-text"><strong>Sai esattamente quanto investire</strong> e cosa aspettarti.</div>
+            <div className="tl-card-bottom">
+              <div className="tl-card-label">Per te</div>
+              <div className="tl-card-impact">Sai quanto investire</div>
+              <div className="tl-card-impact-sub">E cosa aspettarti in termini di ritorno.</div>
             </div>
           </div>
 
-          {/* Col 4 */}
-          <div className="dtl-col">
-            <div className="dtl-top">
-              <div className="dtl-period">Setup</div>
-              <div className="dtl-action-title">Brain Company</div>
-              <div className="dtl-action-desc">Notion + Claude AI + Drive. Il cervello operativo del tuo progetto.</div>
+          {/* Card 4 */}
+          <div className="tl-card">
+            <div className="tl-card-top">
+              <div className="tl-card-period">Setup</div>
+              <div className="tl-card-title">Brain Company</div>
+              <div className="tl-card-desc">Notion + Claude AI + Drive. Il cervello operativo del tuo progetto.</div>
             </div>
-            <div className="dtl-center">
-              <div className="dtl-connector" />
-              <div className="dtl-dot" />
-            </div>
-            <div className="dtl-bottom">
-              <div className="dtl-impact-label">Per te</div>
-              <div className="dtl-impact-text"><strong>Tutto in un posto</strong>, sempre aggiornato. Zero email perse.</div>
+            <div className="tl-card-bottom">
+              <div className="tl-card-label">Per te</div>
+              <div className="tl-card-impact">Tutto in un posto</div>
+              <div className="tl-card-impact-sub">Sempre aggiornato. Zero email perse.</div>
             </div>
           </div>
         </div>
 
-        <div style={{ display: "flex", justifyContent: "space-between", marginTop: "8px" }}>
-          <div style={{ fontSize: "9px", letterSpacing: "2px", textTransform: "uppercase", color: "var(--text-faint)" }}>&#9660; Cosa significa per la tua azienda</div>
+        {/* Arrow flow: Mese 1 → converge → Mese 2-3 iterazione → risultati */}
+        <div className="tl-arrow">
+          <div className="tl-arrow-line" style={{ display: "flex", alignItems: "center" }}>
+            <div className="tl-arrow-seg" style={{ flex: "0 0 25%", background: "linear-gradient(90deg, rgba(0,255,252,0.1), rgba(0,255,252,0.3))" }} />
+            <div className="tl-arrow-label" style={{ color: "var(--teal)", opacity: 0.7 }}>Mese 1</div>
+            <div className="tl-arrow-seg" style={{ flex: "0 0 15%", background: "rgba(0,255,252,0.3)" }} />
+            <div className="tl-arrow-label" style={{ color: "var(--teal)" }}>Mese 2&ndash;3: test &amp; calibra</div>
+            <div className="tl-arrow-seg" style={{ flex: 1, background: "linear-gradient(90deg, rgba(0,255,252,0.3), var(--teal))" }} />
+            <div className="tl-arrow-head" />
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+            <div style={{ fontSize: "10px", color: "var(--text-faint)" }}>Costruzione</div>
+            <div style={{ fontSize: "10px", color: "var(--text-dim)" }}>Iterazione</div>
+            <div style={{ fontSize: "10px", color: "var(--teal)", fontWeight: 500 }}>Risultati</div>
+          </div>
         </div>
-
-        <p style={{ fontSize: "14px", color: "var(--text-dim)", lineHeight: 1.8, marginTop: "32px", maxWidth: "780px" }}>
-          <strong style={{ color: "var(--text)" }}>Mese 2&ndash;3:</strong> si testa sul mercato, si trova dove il funnel perde, si calibra. Entro 90 giorni sai gi&agrave; se la macchina funziona &mdash; o cosa va cambiato.
-        </p>
       </div>
-
-      <div className="hp-wrap"><div className="hp-divider" /></div>
 
       {/* ════════════════════════════════════════
-          5. BRAIN COMPANY (AI) — Rewritten
+          5. BRAIN COMPANY (AI) — Full-width section with bg
       ════════════════════════════════════════ */}
-      <div className="hp-wrap hp-section">
-        {/* Product badge */}
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
-          <div style={{
-            display: "inline-flex", alignItems: "center", gap: "8px",
-            padding: "6px 14px", borderRadius: "5px",
-            border: "1px solid rgba(0,255,252,0.4)", background: "rgba(0,255,252,0.08)",
-            fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase",
-            color: "var(--teal)", fontWeight: 600,
-          }}>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            Incluso nel servizio
-          </div>
-        </div>
-
-        <h2 className="hp-h2" style={{ fontSize: "clamp(28px, 4vw, 48px)" }}>
-          Brain Company<span style={{ color: "var(--teal)" }}>.</span>
-        </h2>
-        <p className="hp-subtitle" style={{ marginBottom: "16px", maxWidth: "600px" }}>
-          Il cervello digitale della tua azienda. Se inizi una collaborazione con me, te lo costruisco. &Egrave; il mio modo di lavorare.
-        </p>
-        <p style={{ fontSize: "12px", color: "var(--text-faint)", marginBottom: "48px" }}>
-          Powered by Anthropic Claude &mdash; il modello AI pi&ugrave; avanzato al mondo.
-        </p>
-
-        <div className="brain-grid">
-          {/* Left — 3 benefit cards */}
-          <div>
-            <div className="brain-benefit-cards">
-              <div className="brain-benefit">
-                <div className="brain-benefit-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                </div>
-                <div className="brain-benefit-title">~20h risparmiate al mese</div>
-                <div className="brain-benefit-desc">
-                  Addio preventivi manuali, report ripetitivi, email di routine. L&apos;AI se ne occupa.
-                </div>
-              </div>
-              <div className="brain-benefit">
-                <div className="brain-benefit-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" strokeWidth="1.5"><path d="M12 2a4 4 0 014 4c0 1.95-2 4-4 6-2-2-4-4.05-4-6a4 4 0 014-4z"/><path d="M12 12v10M8 22h8"/></svg>
-                </div>
-                <div className="brain-benefit-title">Un assistente AI che conosce tutto del tuo business</div>
-                <div className="brain-benefit-desc">
-                  Ogni numero, ogni decisione, ogni cliente. Sempre aggiornato. Ti risponde in secondi su qualsiasi aspetto della tua azienda.
-                </div>
-              </div>
-              <div className="brain-benefit">
-                <div className="brain-benefit-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" strokeWidth="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                </div>
-                <div className="brain-benefit-title">Operativo dal giorno 1</div>
-                <div className="brain-benefit-desc">
-                  Si configura in un giorno. Gmail, Slack, Notion, CRM, fatturazione &mdash; tutto collegato, tutto che parla.
-                </div>
-              </div>
+      <div className="brain-section">
+        <div className="hp-wrap">
+          {/* Product badge */}
+          <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
+            <div style={{
+              display: "inline-flex", alignItems: "center", gap: "8px",
+              padding: "6px 14px", borderRadius: "5px",
+              border: "1px solid rgba(0,255,252,0.4)", background: "rgba(0,255,252,0.08)",
+              fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase",
+              color: "var(--teal)", fontWeight: 600,
+            }}>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              Incluso nel servizio
             </div>
           </div>
 
-          {/* Right — SVG brain illustration */}
-          <div className="brain-svg-wrap">
-            <div className="brain-svg-container brain-svg-float">
-              {/* Abstract constellation/network brain SVG */}
-              <svg width="340" height="340" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Outer glow */}
-                <defs>
-                  <radialGradient id="brain-glow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="rgba(0,255,252,0.08)"/>
-                    <stop offset="100%" stopColor="rgba(0,255,252,0)"/>
-                  </radialGradient>
-                </defs>
-                <circle cx="170" cy="170" r="120" fill="url(#brain-glow)"/>
-                {/* Network lines */}
-                <line x1="170" y1="100" x2="120" y2="140" stroke="rgba(0,255,252,0.15)" strokeWidth="1"/>
-                <line x1="170" y1="100" x2="220" y2="140" stroke="rgba(0,255,252,0.15)" strokeWidth="1"/>
-                <line x1="120" y1="140" x2="140" y2="190" stroke="rgba(0,255,252,0.12)" strokeWidth="1"/>
-                <line x1="220" y1="140" x2="200" y2="190" stroke="rgba(0,255,252,0.12)" strokeWidth="1"/>
-                <line x1="140" y1="190" x2="200" y2="190" stroke="rgba(0,255,252,0.15)" strokeWidth="1"/>
-                <line x1="140" y1="190" x2="130" y2="230" stroke="rgba(0,255,252,0.1)" strokeWidth="1"/>
-                <line x1="200" y1="190" x2="210" y2="230" stroke="rgba(0,255,252,0.1)" strokeWidth="1"/>
-                <line x1="130" y1="230" x2="170" y2="250" stroke="rgba(0,255,252,0.12)" strokeWidth="1"/>
-                <line x1="210" y1="230" x2="170" y2="250" stroke="rgba(0,255,252,0.12)" strokeWidth="1"/>
-                <line x1="170" y1="100" x2="170" y2="170" stroke="rgba(0,255,252,0.08)" strokeWidth="1" strokeDasharray="4 4"/>
-                <line x1="120" y1="140" x2="100" y2="170" stroke="rgba(0,255,252,0.08)" strokeWidth="1"/>
-                <line x1="220" y1="140" x2="240" y2="170" stroke="rgba(0,255,252,0.08)" strokeWidth="1"/>
-                <line x1="100" y1="170" x2="140" y2="190" stroke="rgba(0,255,252,0.1)" strokeWidth="1"/>
-                <line x1="240" y1="170" x2="200" y2="190" stroke="rgba(0,255,252,0.1)" strokeWidth="1"/>
-                {/* Brain nodes */}
-                <circle cx="170" cy="100" r="5" fill="rgba(0,255,252,0.3)" stroke="rgba(0,255,252,0.5)" strokeWidth="1"/>
-                <circle cx="120" cy="140" r="4" fill="rgba(0,255,252,0.2)" stroke="rgba(0,255,252,0.4)" strokeWidth="1"/>
-                <circle cx="220" cy="140" r="4" fill="rgba(0,255,252,0.2)" stroke="rgba(0,255,252,0.4)" strokeWidth="1"/>
-                <circle cx="140" cy="190" r="5" fill="rgba(0,255,252,0.3)" stroke="rgba(0,255,252,0.5)" strokeWidth="1"/>
-                <circle cx="200" cy="190" r="5" fill="rgba(0,255,252,0.3)" stroke="rgba(0,255,252,0.5)" strokeWidth="1"/>
-                <circle cx="170" cy="170" r="6" fill="rgba(0,255,252,0.15)" stroke="rgba(0,255,252,0.4)" strokeWidth="1.5"/>
-                <circle cx="100" cy="170" r="3" fill="rgba(0,255,252,0.15)" stroke="rgba(0,255,252,0.3)" strokeWidth="1"/>
-                <circle cx="240" cy="170" r="3" fill="rgba(0,255,252,0.15)" stroke="rgba(0,255,252,0.3)" strokeWidth="1"/>
-                <circle cx="130" cy="230" r="4" fill="rgba(0,255,252,0.2)" stroke="rgba(0,255,252,0.4)" strokeWidth="1"/>
-                <circle cx="210" cy="230" r="4" fill="rgba(0,255,252,0.2)" stroke="rgba(0,255,252,0.4)" strokeWidth="1"/>
-                <circle cx="170" cy="250" r="5" fill="rgba(0,255,252,0.3)" stroke="rgba(0,255,252,0.5)" strokeWidth="1"/>
-                {/* Center label */}
-                <text x="170" y="174" textAnchor="middle" fontSize="7" fill="rgba(0,255,252,0.6)" fontWeight="600" letterSpacing="1">AI</text>
-              </svg>
-              {/* Orbiting labels */}
-              <div className="brain-orbit-label" style={{ top: "16px", left: "50%", marginLeft: "-26px" }}>Gmail</div>
-              <div className="brain-orbit-label" style={{ top: "60px", right: "8px" }}>Slack</div>
-              <div className="brain-orbit-label" style={{ bottom: "60px", right: "8px" }}>Notion</div>
-              <div className="brain-orbit-label" style={{ bottom: "16px", left: "50%", marginLeft: "-26px" }}>CRM</div>
-              <div className="brain-orbit-label" style={{ bottom: "60px", left: "8px" }}>Analytics</div>
-              <div className="brain-orbit-label" style={{ top: "60px", left: "8px" }}>Billing</div>
+          <h2 className="hp-h2" style={{ fontSize: "clamp(28px, 4vw, 48px)" }}>
+            Brain Company<span style={{ color: "var(--teal)" }}>.</span>
+          </h2>
+          <p className="hp-subtitle" style={{ marginBottom: "16px", maxWidth: "620px" }}>
+            Il cervello digitale della tua azienda. Se inizi una collaborazione con me, te lo costruisco. &Egrave; il mio modo di lavorare &mdash; e diventa tuo.
+          </p>
+          <p style={{ fontSize: "12px", color: "var(--text-faint)", marginBottom: "48px" }}>
+            Powered by Anthropic Claude &mdash; il modello AI pi&ugrave; avanzato al mondo.
+          </p>
+
+          <div className="brain-grid">
+            {/* Left — benefits + ownership note */}
+            <div>
+              <div className="brain-benefit-cards">
+                <div className="brain-benefit">
+                  <div className="brain-benefit-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  </div>
+                  <div className="brain-benefit-content">
+                    <div className="brain-benefit-title">~20h risparmiate al mese</div>
+                    <div className="brain-benefit-desc">
+                      Addio preventivi manuali, report ripetitivi, email di routine. L&apos;AI se ne occupa.
+                    </div>
+                  </div>
+                </div>
+                <div className="brain-benefit">
+                  <div className="brain-benefit-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" strokeWidth="1.5"><path d="M12 2a4 4 0 014 4c0 1.95-2 4-4 6-2-2-4-4.05-4-6a4 4 0 014-4z"/><path d="M12 12v10M8 22h8"/></svg>
+                  </div>
+                  <div className="brain-benefit-content">
+                    <div className="brain-benefit-title">Un assistente AI costruito sul tuo business</div>
+                    <div className="brain-benefit-desc">
+                      Servono interviste, analisi, tempo per capire la tua azienda. Ma una volta configurato, conosce ogni numero, ogni decisione, ogni cliente. Sempre aggiornato.
+                    </div>
+                  </div>
+                </div>
+                <div className="brain-benefit">
+                  <div className="brain-benefit-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" strokeWidth="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  </div>
+                  <div className="brain-benefit-content">
+                    <div className="brain-benefit-title">La propriet&agrave; intellettuale &egrave; tua</div>
+                    <div className="brain-benefit-desc">
+                      Iniziamo col mio sistema. Quando vuoi, tutto passa a te: contesto, skill, automazioni. Costo per te: &euro;90/mese di Anthropic. Il valore che contiene? Inestimabile.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="brain-note">
+                Usiamo il Brain Company per il bene del progetto. Non &egrave; un upsell &mdash; &egrave; il modo in cui lavoro. Fa parte del servizio di Fractional CMO.
+              </div>
+            </div>
+
+            {/* Right — Concentric orbits */}
+            <div className="brain-orbits-wrap">
+              <div className="brain-orbits">
+                {/* Ring 4: Automazioni */}
+                <div className="brain-orbit-ring brain-orbit-ring-4">
+                  <div className="brain-ring-label" style={{ top: "-10px", left: "50%", transform: "translateX(-50%)" }}>Automazioni</div>
+                  <div className="brain-ring-node" style={{ top: "10px", right: "40px" }}>N8N</div>
+                  <div className="brain-ring-node" style={{ bottom: "10px", left: "40px" }}>Zap</div>
+                </div>
+                {/* Ring 3: Skills */}
+                <div className="brain-orbit-ring brain-orbit-ring-3">
+                  <div className="brain-ring-label" style={{ top: "-10px", left: "50%", transform: "translateX(-50%)" }}>Skills</div>
+                  <div className="brain-ring-node" style={{ top: "8px", right: "20px" }}>Ads</div>
+                  <div className="brain-ring-node" style={{ bottom: "8px", left: "20px" }}>SEO</div>
+                </div>
+                {/* Ring 2: Tools */}
+                <div className="brain-orbit-ring brain-orbit-ring-2">
+                  <div className="brain-ring-label" style={{ top: "-10px", left: "50%", transform: "translateX(-50%)" }}>Tools</div>
+                  <div className="brain-ring-node" style={{ top: "4px", left: "50%", transform: "translateX(-50%)" }}>GA4</div>
+                  <div className="brain-ring-node" style={{ bottom: "4px", right: "10px" }}>CRM</div>
+                </div>
+                {/* Ring 1: Contesto */}
+                <div className="brain-orbit-ring brain-orbit-ring-1">
+                  <div className="brain-ring-label" style={{ bottom: "-10px", left: "50%", transform: "translateX(-50%)" }}>Contesto</div>
+                </div>
+                {/* Core: Brand */}
+                <div className="brain-orbit-core">
+                  <div className="brain-orbit-core-text">Il tuo brand</div>
+                  <div className="brain-orbit-core-sub">Centro</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div className="hp-wrap"><div className="hp-divider" /></div>
 
       {/* ════════════════════════════════════════
           6. CASE STUDIES — Unified Carousel
