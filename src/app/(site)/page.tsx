@@ -10,9 +10,7 @@ import { SITE } from "@/lib/constants";
    3. Numbers Ticker
    4. Primi 30 giorni (timeline)
    5. Brain Company (AI)
-   6. Case Studies (3D orbital carousel)
-   7. Blog preview
-   8. Risorse gratuite
+   6. Case Studies + Recensioni (unified carousel)
    9. CTA finale
    + Custom cursor (desktop only)
    + Popup (50% scroll / 15s)
@@ -359,185 +357,147 @@ export default function HomePage() {
           50% { opacity: 1; transform: scale(1.05); }
         }
 
-        /* ── Reviews carousel ── */
-        .reviews-track-wrap {
-          position: relative; overflow: hidden;
-          margin: 0 -60px; padding: 0 60px;
-        }
-        .reviews-track {
-          display: flex; gap: 24px; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
-          padding: 20px 0;
-        }
-        .review-card {
-          flex: 0 0 calc(50% - 12px); min-width: 340px;
-          border: 1px solid rgba(255,255,255,0.08); border-radius: 10px;
-          padding: 28px 24px; background: rgba(255,255,255,0.02);
-          display: flex; flex-direction: column; gap: 12px;
-          transition: all 0.5s cubic-bezier(0.4,0,0.2,1);
-          opacity: 0.35; transform: scale(0.95);
-        }
-        .review-card[data-active="true"] {
-          opacity: 1; transform: scale(1);
-          border-color: rgba(0,255,252,0.2);
-          background: rgba(0,255,252,0.03);
-          box-shadow: 0 0 40px rgba(0,255,252,0.04);
-        }
-        .review-card[data-adjacent="true"] {
-          opacity: 0.6; transform: scale(0.97);
-        }
-        .review-quote-icon {
-          color: var(--teal); opacity: 0.3; line-height: 1;
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 48px; font-weight: 700; margin-bottom: -12px;
-        }
-        .review-text {
-          font-size: 15px; color: var(--text); line-height: 1.8;
-          font-style: italic;
-        }
-        .review-author {
-          display: flex; align-items: center; gap: 12px; margin-top: auto;
-        }
-        .review-avatar {
-          width: 40px; height: 40px; border-radius: 50%;
-          background: rgba(0,255,252,0.08); border: 1px solid rgba(0,255,252,0.15);
-          display: flex; align-items: center; justify-content: center;
-          font-size: 14px; font-weight: 700; color: var(--teal);
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-        }
-        .review-author-info { display: flex; flex-direction: column; gap: 2px; }
-        .review-author-name {
-          font-size: 13px; font-weight: 500; color: var(--text);
-        }
-        .review-author-role {
-          font-size: 10px; color: var(--text-dim); letter-spacing: 0.5px;
-        }
-        .reviews-nav {
-          display: flex; justify-content: center; gap: 12px; margin-top: 28px;
-        }
-        .reviews-nav-btn {
-          width: 40px; height: 40px; border-radius: 50%;
-          border: 1px solid rgba(255,255,255,0.1); background: transparent;
-          color: var(--text-dim); cursor: pointer;
-          display: flex; align-items: center; justify-content: center;
-          transition: all 0.2s;
-        }
-        .reviews-nav-btn:hover {
-          border-color: var(--teal-border); color: var(--teal);
-          background: var(--teal-dim);
-        }
-        .reviews-dots {
-          display: flex; align-items: center; gap: 8px;
-        }
-        .reviews-dot {
-          width: 8px; height: 8px; border-radius: 50%;
-          background: rgba(255,255,255,0.12); transition: all 0.3s;
-          border: none; cursor: pointer; padding: 0;
-        }
-        .reviews-dot[data-active="true"] {
-          background: var(--teal); width: 24px; border-radius: 4px;
-        }
-
         /* ═══════════════════════════════════
-           6. CASE STUDIES — 3D Orbital Carousel
+           6. UNIFIED CASE STUDIES CAROUSEL
         ═══════════════════════════════════ */
-        .orbital-stage {
-          perspective: 1400px;
-          height: 400px;
+        .uc-stage {
           position: relative;
+          height: 520px;
           overflow: visible;
           margin-top: 40px;
         }
-        .orbital-track {
+        .uc-track {
           position: relative;
           width: 100%; height: 100%;
           display: flex; align-items: center; justify-content: center;
         }
-        .orbital-card {
+        .uc-card {
           position: absolute;
-          width: 480px; max-width: 90vw;
-          border: 1px solid rgba(255,255,255,0.08); border-radius: 10px;
-          padding: 32px 28px; background: rgba(255,255,255,0.02);
-          display: flex; flex-direction: column; gap: 16px;
-          transition: all .65s cubic-bezier(.25,.46,.45,.94);
+          width: 500px; max-width: 90vw;
+          border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;
+          padding: 32px 28px; background: rgba(12,16,15,0.95);
+          display: flex; flex-direction: column; gap: 14px;
+          transition: all 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
           will-change: transform, opacity;
         }
-        .orbital-card.pos-center {
-          transform: translateX(-50%) translateZ(0) rotateY(0deg) scale(1);
+        .uc-card.uc-center {
+          transform: translateX(-50%) scale(1);
           left: 50%; opacity: 1; z-index: 4;
-          border-color: rgba(0,255,252,0.25);
-          box-shadow: 0 0 60px rgba(0,255,252,0.08);
+          border-color: rgba(0,255,252,0.3);
+          box-shadow: 0 0 60px rgba(0,255,252,0.1), 0 0 120px rgba(0,255,252,0.04);
         }
-        .orbital-card.pos-left {
-          transform: translateX(-380px) translateX(-50%) scale(0.78) rotateY(12deg);
-          left: 50%; opacity: 0.4; z-index: 2;
+        .uc-card.uc-left {
+          transform: translateX(calc(-50% - 480px)) scale(0.85);
+          left: 50%; opacity: 0.3; z-index: 2;
         }
-        .orbital-card.pos-right {
-          transform: translateX(380px) translateX(-50%) scale(0.78) rotateY(-12deg);
-          left: 50%; opacity: 0.4; z-index: 2;
+        .uc-card.uc-right {
+          transform: translateX(calc(-50% + 480px)) scale(0.85);
+          left: 50%; opacity: 0.3; z-index: 2;
         }
-        .orbital-card.pos-exit-left {
-          transform: translateX(-700px) translateX(-50%) scale(0.6) rotateY(20deg);
+        .uc-card.uc-exit-left {
+          transform: translateX(calc(-50% - 900px)) scale(0.7);
           left: 50%; opacity: 0; z-index: 0; pointer-events: none;
         }
-        .orbital-card.pos-exit-right {
-          transform: translateX(700px) translateX(-50%) scale(0.6) rotateY(-20deg);
+        .uc-card.uc-exit-right {
+          transform: translateX(calc(-50% + 900px)) scale(0.7);
           left: 50%; opacity: 0; z-index: 0; pointer-events: none;
         }
-        /* Gradient overlay for left/right cards */
-        .orbital-card.pos-left::after,
-        .orbital-card.pos-right::after {
-          content: ''; position: absolute; inset: 0; border-radius: 10px;
+        /* Gradient overlay for side cards */
+        .uc-card.uc-left::after,
+        .uc-card.uc-right::after {
+          content: ''; position: absolute; inset: 0; border-radius: 12px;
           pointer-events: none;
         }
-        .orbital-card.pos-left::after {
-          background: linear-gradient(90deg, rgba(10,14,13,0.7), transparent);
+        .uc-card.uc-left::after {
+          background: linear-gradient(90deg, rgba(10,14,13,0.8), transparent);
         }
-        .orbital-card.pos-right::after {
-          background: linear-gradient(-90deg, rgba(10,14,13,0.7), transparent);
+        .uc-card.uc-right::after {
+          background: linear-gradient(-90deg, rgba(10,14,13,0.8), transparent);
         }
-        .case-badges { display: flex; flex-wrap: wrap; gap: 6px; }
-        .case-badge {
-          font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+        /* Card inner elements */
+        .uc-top-row {
+          display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;
+        }
+        .uc-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+        .uc-badge {
+          font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase;
           color: var(--teal); border: 1px solid var(--teal-border);
           padding: 3px 8px; border-radius: 3px; background: var(--teal-dim);
         }
-        .case-name {
+        .uc-kpi {
+          text-align: right; flex-shrink: 0;
+        }
+        .uc-kpi-value {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: 32px; font-weight: 700; color: var(--teal); line-height: 1;
+        }
+        .uc-kpi-sub {
+          font-size: 10px; color: var(--text-dim); margin-top: 2px;
+        }
+        .uc-title {
           font-family: var(--font-playfair), 'Playfair Display', serif;
           font-size: 20px; font-weight: 700; color: var(--text);
         }
-        .case-desc { font-size: 13px; color: var(--text-dim); line-height: 1.8; }
-        .case-metrics { display: flex; gap: 24px; flex-wrap: wrap; }
-        .case-metric-value {
+        .uc-quote {
+          font-size: 13px; color: var(--text); line-height: 1.8;
+          font-style: italic; padding-left: 16px;
+          border-left: 2px solid rgba(0,255,252,0.4);
+        }
+        .uc-strategy-label {
+          font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+          color: var(--teal); font-weight: 600; margin-bottom: -8px;
+        }
+        .uc-strategy {
+          font-size: 12px; color: var(--text-dim); line-height: 1.8;
+        }
+        .uc-metrics-grid {
+          display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+        }
+        .uc-metric-box {
+          border: 1px solid rgba(255,255,255,0.06); border-radius: 6px;
+          padding: 10px 8px; background: rgba(255,255,255,0.02);
+          text-align: center;
+        }
+        .uc-metric-val {
           font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 24px; font-weight: 700; color: var(--teal); line-height: 1;
+          font-size: 16px; font-weight: 700; color: var(--teal); line-height: 1.2;
         }
-        .case-metric-label { font-size: 10px; color: var(--text-dim); margin-top: 4px; }
-        /* Carousel arrows */
-        .orbital-arrows {
+        .uc-metric-lbl {
+          font-size: 9px; color: var(--text-dim); margin-top: 4px; line-height: 1.3;
+        }
+        .uc-link {
+          font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+          color: var(--teal); text-decoration: none; opacity: 0.8;
+          transition: opacity 0.2s;
+        }
+        .uc-link:hover { opacity: 1; }
+        /* Navigation */
+        .uc-nav {
           display: flex; justify-content: center; align-items: center;
-          gap: 16px; margin-top: 24px;
+          gap: 16px; margin-top: 28px;
         }
-        .orbital-arrow {
+        .uc-arrow {
           width: 48px; height: 48px; border-radius: 50%;
           border: 1px solid rgba(255,255,255,0.1); background: transparent;
           color: var(--text-dim); cursor: pointer;
           display: flex; align-items: center; justify-content: center;
-          transition: all 0.2s;
+          transition: all 0.2s; flex-shrink: 0;
         }
-        .orbital-arrow:hover {
+        .uc-arrow:hover {
           border-color: var(--teal-border); color: var(--teal);
           background: var(--teal-dim);
         }
-        .orbital-dots {
+        .uc-dots {
           display: flex; align-items: center; gap: 8px;
         }
-        .orbital-dot {
-          width: 8px; height: 8px; border-radius: 50%;
+        .uc-dot {
+          width: 6px; height: 6px; border-radius: 50%;
           background: rgba(255,255,255,0.12); transition: all 0.3s;
           border: none; cursor: pointer; padding: 0;
         }
-        .orbital-dot[data-active="true"] {
-          background: var(--teal); width: 24px; border-radius: 4px;
+        .uc-dot[data-active="true"] {
+          background: var(--teal); width: 22px; border-radius: 4px;
+          box-shadow: 0 0 8px rgba(0,255,252,0.4);
         }
 
         /* ═══════════════════════════════════
@@ -609,9 +569,9 @@ export default function HomePage() {
         @media (max-width: 1200px) {
           .hero-grid { gap: 48px; }
           .brain-grid { grid-template-columns: 1fr; }
-          .orbital-card { width: 400px; }
-          .orbital-card.pos-left { transform: translateX(-300px) translateX(-50%) scale(0.78) rotateY(12deg); }
-          .orbital-card.pos-right { transform: translateX(300px) translateX(-50%) scale(0.78) rotateY(-12deg); }
+          .uc-card { width: 420px; }
+          .uc-card.uc-left { transform: translateX(calc(-50% - 380px)) scale(0.85); }
+          .uc-card.uc-right { transform: translateX(calc(-50% + 380px)) scale(0.85); }
         }
         @media (max-width: 900px) {
           .hp-wrap, .hp-wrap-narrow { padding: 0 32px; }
@@ -627,14 +587,13 @@ export default function HomePage() {
           .fcmo-grid { grid-template-columns: 1fr; }
           .dtl-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
           .dtl-connector { display: none; }
-          .orbital-stage { height: auto; min-height: 400px; perspective: none; }
-          .orbital-card { position: relative; left: auto; width: 100%; max-width: 100%;
+          .uc-stage { height: auto; min-height: 480px; }
+          .uc-card { position: relative; left: auto; width: 100%; max-width: 100%;
             transform: none !important; opacity: 1 !important; display: none; }
-          .orbital-card.pos-center { display: flex; }
+          .uc-card.uc-center { display: flex; }
+          .uc-metrics-grid { grid-template-columns: repeat(2, 1fr); }
           .brain-svg-wrap { min-height: 280px; }
           .brain-svg-container { width: 260px; height: 260px; }
-          .reviews-track-wrap { margin: 0 -32px; padding: 0 32px; }
-          .review-card { flex: 0 0 calc(80% - 12px); min-width: 280px; }
         }
         @media (max-width: 480px) {
           .hp-wrap, .hp-wrap-narrow { padding: 0 20px; }
@@ -1029,36 +988,18 @@ export default function HomePage() {
       <div className="hp-wrap"><div className="hp-divider" /></div>
 
       {/* ════════════════════════════════════════
-          6. CASE STUDIES — 3D Orbital Carousel
+          6. CASE STUDIES — Unified Carousel
       ════════════════════════════════════════ */}
       <div className="hp-wrap hp-section">
-        <div className="hp-eyebrow">Risultati reali</div>
+        <div className="hp-eyebrow">RISULTATI REALI</div>
         <h2 className="hp-h2">
-          Numeri, non promesse.
+          Numeri veri.<br /><em>Aziende vere.</em>
         </h2>
+        <p className="hp-subtitle" style={{ marginBottom: "8px" }}>
+          Non casi di studio generici. Problemi reali, scelte precise, risultati misurabili.
+        </p>
 
         <CasesCarousel />
-
-        <div style={{ marginTop: "24px" }}>
-          <Link href="/cosa-ho-fatto" style={{ fontSize: "10px", letterSpacing: "1.5px", textTransform: "uppercase", color: "var(--teal)", textDecoration: "none" }}>
-            Vedi tutti i casi &rarr;
-          </Link>
-        </div>
-      </div>
-
-      <div className="hp-wrap"><div className="hp-divider" /></div>
-
-      {/* ════════════════════════════════════════
-          6b. RECENSIONI — Orbital Carousel
-      ════════════════════════════════════════ */}
-      <div className="hp-wrap hp-section">
-        <div style={{ textAlign: "center", marginBottom: "40px" }}>
-          <div className="hp-eyebrow">Chi ha lavorato con me</div>
-          <h2 className="hp-h2">
-            Le parole <em>dei clienti.</em>
-          </h2>
-        </div>
-        <ReviewsCarousel />
       </div>
 
       <div className="hp-wrap"><div className="hp-divider" /></div>
@@ -1140,314 +1081,189 @@ export default function HomePage() {
 }
 
 /* ══════════════════════════════════════════════════════════
-   CASES CAROUSEL — 3D Orbital
+   UNIFIED CASES CAROUSEL
 ══════════════════════════════════════════════════════════ */
 function CasesCarousel() {
   return (
     <div>
       <script dangerouslySetInnerHTML={{ __html: `
         document.addEventListener('click', function(e) {
-          var btn = e.target.closest('[data-case-nav]');
+          var btn = e.target.closest('[data-uc-nav]');
           if (!btn) return;
-          var wrap = btn.closest('[data-cases]');
+          var wrap = btn.closest('[data-uc]');
           if (!wrap) return;
-          var dir = btn.getAttribute('data-case-nav');
-          var cards = wrap.querySelectorAll('[data-case-card]');
+          var dir = btn.getAttribute('data-uc-nav');
+          var cards = wrap.querySelectorAll('[data-uc-card]');
           var total = cards.length;
-          var curr = parseInt(wrap.getAttribute('data-case-current') || '0');
+          var curr = parseInt(wrap.getAttribute('data-uc-current') || '0');
           var next = dir === 'next' ? (curr + 1) % total : (curr - 1 + total) % total;
-          wrap.setAttribute('data-case-current', next);
-          updateCasePositions(wrap, next, total);
+          wrap.setAttribute('data-uc-current', next);
+          ucUpdate(wrap, next, total);
         });
         document.addEventListener('click', function(e) {
-          var dot = e.target.closest('[data-case-dot]');
+          var dot = e.target.closest('[data-uc-dot]');
           if (!dot) return;
-          var wrap = dot.closest('[data-cases]');
-          var idx = parseInt(dot.getAttribute('data-case-dot'));
-          var total = wrap.querySelectorAll('[data-case-card]').length;
-          wrap.setAttribute('data-case-current', idx);
-          updateCasePositions(wrap, idx, total);
+          var wrap = dot.closest('[data-uc]');
+          var idx = parseInt(dot.getAttribute('data-uc-dot'));
+          var total = wrap.querySelectorAll('[data-uc-card]').length;
+          wrap.setAttribute('data-uc-current', idx);
+          ucUpdate(wrap, idx, total);
         });
-        function updateCasePositions(wrap, curr, total) {
-          var cards = wrap.querySelectorAll('[data-case-card]');
-          var dots = wrap.querySelectorAll('[data-case-dot]');
+        function ucUpdate(wrap, curr, total) {
+          var cards = wrap.querySelectorAll('[data-uc-card]');
+          var dots = wrap.querySelectorAll('[data-uc-dot]');
           cards.forEach(function(c, i) {
-            c.className = 'orbital-card';
+            c.className = 'uc-card';
             var diff = i - curr;
-            if (diff === 0) c.classList.add('pos-center');
-            else if (diff === 1 || diff === -(total - 1)) c.classList.add('pos-right');
-            else if (diff === -1 || diff === (total - 1)) c.classList.add('pos-left');
-            else if (diff > 1) c.classList.add('pos-exit-right');
-            else c.classList.add('pos-exit-left');
+            if (diff === 0) c.classList.add('uc-center');
+            else if (diff === 1 || diff === -(total - 1)) c.classList.add('uc-right');
+            else if (diff === -1 || diff === (total - 1)) c.classList.add('uc-left');
+            else if (diff > 1) c.classList.add('uc-exit-right');
+            else c.classList.add('uc-exit-left');
           });
           dots.forEach(function(d, i) {
             d.setAttribute('data-active', i === curr ? 'true' : 'false');
           });
         }
       `}} />
-      <div data-cases="" data-case-current="0">
-        <div className="orbital-stage">
-          <div className="orbital-track">
-            {/* Case 1 */}
-            <div className="orbital-card pos-center" data-case-card="0">
-              <div className="case-badges">
-                <span className="case-badge">E-commerce</span>
-                <span className="case-badge">Nutrition</span>
-              </div>
-              <div className="case-name">Balance Nutrition</div>
-              <div className="case-desc">
-                E-commerce alimentare. Fatturato bloccato a &euro;45k/mese, campagne non ottimizzate, AOV basso. In 4 mesi: strategia, catalogo, funnel.
-              </div>
-              <div className="case-metrics">
-                <div>
-                  <div className="case-metric-value">+200%</div>
-                  <div className="case-metric-label">Fatturato mensile</div>
+      <div data-uc="" data-uc-current="0">
+        <div className="uc-stage">
+          <div className="uc-track">
+
+            {/* Card 1 — Balance Nutrition */}
+            <div className="uc-card uc-center" data-uc-card="0">
+              <div className="uc-top-row">
+                <div className="uc-badges">
+                  <span className="uc-badge">E-Commerce</span>
+                  <span className="uc-badge">Nutrition</span>
                 </div>
-                <div>
-                  <div className="case-metric-value">+33%</div>
-                  <div className="case-metric-label">AOV</div>
-                </div>
-                <div>
-                  <div className="case-metric-value">4 mesi</div>
-                  <div className="case-metric-label">Time to result</div>
+                <div className="uc-kpi">
+                  <div className="uc-kpi-value">+200%</div>
+                  <div className="uc-kpi-sub">in 4 mesi</div>
                 </div>
               </div>
+              <div className="uc-title">Balance Nutrition: da &euro;45K a &euro;150K/mese</div>
+              <div className="uc-quote">
+                &ldquo;Non sapevamo da dove partire. In 4 mesi ha triplicato il fatturato con un metodo che ci fa finalmente capire i numeri.&rdquo;
+              </div>
+              <div className="uc-strategy-label">Come ci siamo riusciti:</div>
+              <div className="uc-strategy">
+                Analisi completa del business, unit economics precisi, ottimizzazione budget Ads. Non abbiamo speso di pi&ugrave; &mdash; abbiamo speso meglio.
+              </div>
+              <div className="uc-metrics-grid">
+                <div className="uc-metric-box"><div className="uc-metric-val">&euro;150K</div><div className="uc-metric-lbl">fatturato / mese</div></div>
+                <div className="uc-metric-box"><div className="uc-metric-val">+33%</div><div className="uc-metric-lbl">AOV</div></div>
+                <div className="uc-metric-box"><div className="uc-metric-val">10%</div><div className="uc-metric-lbl">margini netti</div></div>
+                <div className="uc-metric-box"><div className="uc-metric-val">4</div><div className="uc-metric-lbl">mesi</div></div>
+              </div>
+              <Link href="/cosa-ho-fatto/balance-nutrition" className="uc-link">Leggi il caso completo &rarr;</Link>
             </div>
 
-            {/* Case 2 */}
-            <div className="orbital-card pos-right" data-case-card="1">
-              <div className="case-badges">
-                <span className="case-badge">Info-product</span>
-                <span className="case-badge">Lancio</span>
-              </div>
-              <div className="case-name">Lancio Yoga</div>
-              <div className="case-desc">
-                Lancio corso online da zero. Budget &euro;3.000, strategia Meta completa: CPL ottimizzato, CBO, early bird, retargeting 24h.
-              </div>
-              <div className="case-metrics">
-                <div>
-                  <div className="case-metric-value">&euro;19K</div>
-                  <div className="case-metric-label">Revenue da &euro;3K budget</div>
+            {/* Card 2 — Lancio Yoga */}
+            <div className="uc-card uc-right" data-uc-card="1">
+              <div className="uc-top-row">
+                <div className="uc-badges">
+                  <span className="uc-badge">Corso Online</span>
+                  <span className="uc-badge">Meta Ads</span>
+                  <span className="uc-badge">Lancio</span>
                 </div>
-                <div>
-                  <div className="case-metric-value">&euro;1</div>
-                  <div className="case-metric-label">CPL finale</div>
-                </div>
-                <div>
-                  <div className="case-metric-value">3.000</div>
-                  <div className="case-metric-label">Iscritti</div>
+                <div className="uc-kpi">
+                  <div className="uc-kpi-value">6.3x</div>
+                  <div className="uc-kpi-sub">Return on Ad Spend</div>
                 </div>
               </div>
+              <div className="uc-title">Yoga: &euro;3K &rarr; &euro;19K</div>
+              <div className="uc-quote">
+                &ldquo;Budget limitato, nessuna lista, nessun pubblico caldo. Avevamo solo il prodotto. In 14 giorni abbiamo riempito il corso.&rdquo;
+              </div>
+              <div className="uc-strategy-label">Come ci siamo riusciti:</div>
+              <div className="uc-strategy">
+                Consulenza strategica dall&apos;inizio alla fine: timing, email, ads, pricing, gestione del lancio.
+              </div>
+              <div className="uc-metrics-grid">
+                <div className="uc-metric-box"><div className="uc-metric-val">3.000</div><div className="uc-metric-lbl">lead a &euro;1 CPL</div></div>
+                <div className="uc-metric-box"><div className="uc-metric-val">&euro;19K</div><div className="uc-metric-lbl">incassato</div></div>
+                <div className="uc-metric-box"><div className="uc-metric-val">&euro;3K</div><div className="uc-metric-lbl">budget investito</div></div>
+                <div className="uc-metric-box"><div className="uc-metric-val">&euro;297</div><div className="uc-metric-lbl">prezzo corso</div></div>
+              </div>
+              <Link href="/cosa-ho-fatto/lancio-yoga" className="uc-link">Leggi il caso completo &rarr;</Link>
             </div>
 
-            {/* Case 3 */}
-            <div className="orbital-card pos-exit-right" data-case-card="2">
-              <div className="case-badges">
-                <span className="case-badge">B2B</span>
-                <span className="case-badge">Lead Gen</span>
-              </div>
-              <div className="case-name">Autonoleggio</div>
-              <div className="case-desc">
-                CPL competitor: &euro;10. CPL di partenza: &euro;25. Landing con angolo differenziante, 10 creative full funnel.
-              </div>
-              <div className="case-metrics">
-                <div>
-                  <div className="case-metric-value">&euro;4,50</div>
-                  <div className="case-metric-label">CPL finale</div>
+            {/* Card 3 — Pneumatici */}
+            <div className="uc-card uc-exit-right" data-uc-card="2">
+              <div className="uc-top-row">
+                <div className="uc-badges">
+                  <span className="uc-badge">E-Commerce</span>
+                  <span className="uc-badge">Gomme</span>
+                  <span className="uc-badge">ROAS</span>
                 </div>
-                <div>
-                  <div className="case-metric-value">80%+</div>
-                  <div className="case-metric-label">Lead quality</div>
+                <div className="uc-kpi">
+                  <div className="uc-kpi-value">ROAS 16</div>
+                  <div className="uc-kpi-sub">Obiettivo era 12</div>
                 </div>
               </div>
+              <div className="uc-title">Pneumatici: ROAS 16</div>
+              <div className="uc-quote">
+                &ldquo;Per essere profittevole devo avere almeno ROAS 12 &mdash; marginalit&agrave; 7%, target quasi impossibile.&rdquo;
+              </div>
+              <div className="uc-strategy-label">Come ci siamo riusciti:</div>
+              <div className="uc-strategy">
+                Studio mercato e competitor. Amplificato ci&ograve; che il business poteva dare in pi&ugrave;: copy su consigli &ldquo;segreti&rdquo; che solo un esperto conosce.
+              </div>
+              <div className="uc-metrics-grid">
+                <div className="uc-metric-box"><div className="uc-metric-val">&euro;11</div><div className="uc-metric-lbl">CPA</div></div>
+                <div className="uc-metric-box"><div className="uc-metric-val">&euro;180</div><div className="uc-metric-lbl">AOV medio</div></div>
+                <div className="uc-metric-box"><div className="uc-metric-val">16</div><div className="uc-metric-lbl">ROAS vs 12</div></div>
+                <div className="uc-metric-box"><div className="uc-metric-val">14gg</div><div className="uc-metric-lbl">di test</div></div>
+              </div>
+              <Link href="/cosa-ho-fatto/pneumatici" className="uc-link">Leggi il caso completo &rarr;</Link>
             </div>
 
-            {/* Case 4 */}
-            <div className="orbital-card pos-exit-left" data-case-card="3">
-              <div className="case-badges">
-                <span className="case-badge">B2C</span>
-                <span className="case-badge">Pneumatici</span>
-              </div>
-              <div className="case-name">Pneumatici &mdash; ROAS 16</div>
-              <div className="case-desc">
-                Settore commodity. Meta Ads con strategia stagionale e segmentazione per tipologia veicolo.
-              </div>
-              <div className="case-metrics">
-                <div>
-                  <div className="case-metric-value">ROAS 16</div>
-                  <div className="case-metric-label">Return on Ad Spend</div>
+            {/* Card 4 — Autonoleggio */}
+            <div className="uc-card uc-exit-left" data-uc-card="3">
+              <div className="uc-top-row">
+                <div className="uc-badges">
+                  <span className="uc-badge">Lead Gen</span>
+                  <span className="uc-badge">Noleggio Auto</span>
+                  <span className="uc-badge">B2B</span>
+                </div>
+                <div className="uc-kpi">
+                  <div className="uc-kpi-value">-84%</div>
+                  <div className="uc-kpi-sub">Riduzione CPL</div>
                 </div>
               </div>
+              <div className="uc-title">Noleggio: &euro;25 &rarr; &euro;4 CPL</div>
+              <div className="uc-quote">
+                &ldquo;Costo per lead altissimo, qualit&agrave; bassa. Il team commerciale perdeva tempo su contatti non qualificati.&rdquo;
+              </div>
+              <div className="uc-strategy-label">Come ci siamo riusciti:</div>
+              <div className="uc-strategy">
+                Consulenza totale: gestione Ads, creative, ottimizzazione pagina. Focus qualit&agrave; del lead, non solo sul volume.
+              </div>
+              <div className="uc-metrics-grid">
+                <div className="uc-metric-box"><div className="uc-metric-val">&euro;4</div><div className="uc-metric-lbl">CPL finale</div></div>
+                <div className="uc-metric-box"><div className="uc-metric-val">&euro;25</div><div className="uc-metric-lbl">CPL di partenza</div></div>
+                <div className="uc-metric-box"><div className="uc-metric-val">Alta</div><div className="uc-metric-lbl">qualit&agrave; lead</div></div>
+                <div className="uc-metric-box"><div className="uc-metric-val">-84%</div><div className="uc-metric-lbl">riduzione costo</div></div>
+              </div>
+              <Link href="/cosa-ho-fatto/autonoleggio" className="uc-link">Leggi il caso completo &rarr;</Link>
             </div>
+
           </div>
         </div>
 
-        {/* Navigation arrows + dots */}
-        <div className="orbital-arrows">
-          <button className="orbital-arrow" data-case-nav="prev">
+        {/* Navigation */}
+        <div className="uc-nav">
+          <button className="uc-arrow" data-uc-nav="prev">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
           </button>
-          <div className="orbital-dots">
-            <button className="orbital-dot" data-case-dot="0" data-active="true" />
-            <button className="orbital-dot" data-case-dot="1" data-active="false" />
-            <button className="orbital-dot" data-case-dot="2" data-active="false" />
-            <button className="orbital-dot" data-case-dot="3" data-active="false" />
+          <div className="uc-dots">
+            <button className="uc-dot" data-uc-dot="0" data-active="true" />
+            <button className="uc-dot" data-uc-dot="1" data-active="false" />
+            <button className="uc-dot" data-uc-dot="2" data-active="false" />
+            <button className="uc-dot" data-uc-dot="3" data-active="false" />
           </div>
-          <button className="orbital-arrow" data-case-nav="next">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ══════════════════════════════════════════════════════════
-   REVIEWS CAROUSEL — Manual scroll, orbital fading
-══════════════════════════════════════════════════════════ */
-const REVIEWS = [
-  {
-    text: "Nicola ha preso in mano il marketing quando non sapevamo nemmeno da dove partire. In 4 mesi ha triplicato il fatturato con un metodo che finalmente ci fa capire i numeri.",
-    name: "Marco R.",
-    role: "CEO, Brand Nutrition",
-    initials: "MR",
-    caseHref: "/cosa-ho-fatto/balance-nutrition",
-    metric: "+200% fatturato",
-  },
-  {
-    text: "Budget di 3mila euro e ci ha portato 19mila di revenue. Il lancio \u00e8 stato chirurgico: CPL a 1 euro, 3000 iscritti, show-up al 20%. Non avevo mai visto numeri cos\u00ec.",
-    name: "Andrea B.",
-    role: "Founder, Corso Yoga Online",
-    initials: "AB",
-    caseHref: "/cosa-ho-fatto/lancio-yoga",
-    metric: "\u20ac19K da \u20ac3K",
-  },
-  {
-    text: "Pagavamo 25 euro a lead e i competitor stavano a 10. Nicola ha rifatto landing e creative da zero. Adesso siamo a 4,50 con l\u201980% di lead qualificati.",
-    name: "Laura M.",
-    role: "Direttrice Marketing, Autonoleggio",
-    initials: "LM",
-    caseHref: "/cosa-ho-fatto/autonoleggio",
-    metric: "CPL \u20ac4,50",
-  },
-  {
-    text: "Il setup AI che ci ha costruito ci fa risparmiare almeno 15 ore a settimana. Non pensavo fosse possibile avere tutto il contesto aziendale sempre accessibile cos\u00ec.",
-    name: "Giovanni T.",
-    role: "COO, SaaS Startup",
-    initials: "GT",
-    metric: "~15h/sett",
-  },
-  {
-    text: "ROAS 16 su un settore commodity come i pneumatici. La strategia stagionale che ha impostato funziona da sola, mese dopo mese.",
-    name: "Francesca D.",
-    role: "E-commerce Manager, Pneumatici",
-    initials: "FD",
-    caseHref: "/cosa-ho-fatto/pneumatici",
-    metric: "ROAS 16",
-  },
-];
-
-function ReviewsCarousel() {
-  return (
-    <div>
-      <script dangerouslySetInnerHTML={{ __html: `
-        document.addEventListener('click', function(e) {
-          var btn = e.target.closest('[data-review-nav]');
-          if (!btn) return;
-          var wrap = btn.closest('[data-reviews]');
-          if (!wrap) return;
-          var dir = btn.getAttribute('data-review-nav');
-          var track = wrap.querySelector('[data-review-track]');
-          var cards = track.querySelectorAll('[data-review-card]');
-          var total = cards.length;
-          var curr = parseInt(track.getAttribute('data-current') || '0');
-          var next = dir === 'next' ? Math.min(curr + 1, total - 1) : Math.max(curr - 1, 0);
-          track.setAttribute('data-current', next);
-          // Update active states
-          cards.forEach(function(c, i) {
-            c.setAttribute('data-active', i === next ? 'true' : 'false');
-            c.setAttribute('data-adjacent', (i === next - 1 || i === next + 1) ? 'true' : 'false');
-          });
-          // Update dots
-          wrap.querySelectorAll('[data-review-dot]').forEach(function(d, i) {
-            d.setAttribute('data-active', i === next ? 'true' : 'false');
-          });
-          // Scroll
-          var cardWidth = cards[0].offsetWidth + 24;
-          var wrapWidth = track.parentElement.offsetWidth;
-          var offset = (cardWidth * next) - (wrapWidth / 2) + (cards[0].offsetWidth / 2);
-          track.style.transform = 'translateX(' + (-Math.max(0, Math.min(offset, track.scrollWidth - wrapWidth))) + 'px)';
-        });
-        // Dot click
-        document.addEventListener('click', function(e) {
-          var dot = e.target.closest('[data-review-dot]');
-          if (!dot) return;
-          var wrap = dot.closest('[data-reviews]');
-          var idx = parseInt(dot.getAttribute('data-review-dot'));
-          var track = wrap.querySelector('[data-review-track]');
-          var cards = track.querySelectorAll('[data-review-card]');
-          track.setAttribute('data-current', idx);
-          cards.forEach(function(c, i) {
-            c.setAttribute('data-active', i === idx ? 'true' : 'false');
-            c.setAttribute('data-adjacent', (i === idx - 1 || i === idx + 1) ? 'true' : 'false');
-          });
-          wrap.querySelectorAll('[data-review-dot]').forEach(function(d, i) {
-            d.setAttribute('data-active', i === idx ? 'true' : 'false');
-          });
-          var cardWidth = cards[0].offsetWidth + 24;
-          var wrapWidth = track.parentElement.offsetWidth;
-          var offset = (cardWidth * idx) - (wrapWidth / 2) + (cards[0].offsetWidth / 2);
-          track.style.transform = 'translateX(' + (-Math.max(0, Math.min(offset, track.scrollWidth - wrapWidth))) + 'px)';
-        });
-      `}} />
-      <div data-reviews="">
-        <div className="reviews-track-wrap">
-          <div className="reviews-track" data-review-track="" data-current="0">
-            {REVIEWS.map((r, i) => (
-              <div
-                key={i}
-                className="review-card"
-                data-review-card=""
-                data-active={i === 0 ? "true" : "false"}
-                data-adjacent={i === 1 ? "true" : "false"}
-              >
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
-                <div className="review-quote-icon">&ldquo;</div>
-                {r.metric && (
-                  <div style={{ fontSize: "11px", letterSpacing: "1px", color: "var(--teal)", fontWeight: 600, padding: "4px 10px", borderRadius: "4px", border: "1px solid rgba(0,255,252,0.2)", background: "rgba(0,255,252,0.05)", whiteSpace: "nowrap" }}>
-                    {r.metric}
-                  </div>
-                )}
-              </div>
-                <div className="review-text">{r.text}</div>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "auto" }}>
-                  <div className="review-author">
-                    <div className="review-avatar">{r.initials}</div>
-                    <div className="review-author-info">
-                      <div className="review-author-name">{r.name}</div>
-                      <div className="review-author-role">{r.role}</div>
-                    </div>
-                  </div>
-                  {r.caseHref && (
-                    <a href={r.caseHref} style={{ fontSize: "9px", letterSpacing: "1.5px", textTransform: "uppercase", color: "var(--teal)", textDecoration: "none", opacity: 0.7, transition: "opacity 0.2s" }}>
-                      Caso studio &rarr;
-                    </a>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="reviews-nav">
-          <button className="reviews-nav-btn" data-review-nav="prev">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          </button>
-          <div className="reviews-dots">
-            {REVIEWS.map((_, i) => (
-              <button key={i} className="reviews-dot" data-review-dot={i} data-active={i === 0 ? "true" : "false"} />
-            ))}
-          </div>
-          <button className="reviews-nav-btn" data-review-nav="next">
+          <button className="uc-arrow" data-uc-nav="next">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
         </div>
