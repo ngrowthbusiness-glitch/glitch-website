@@ -114,3 +114,175 @@ body {
 .delay-300 { animation-delay: 0.3s; }
 .delay-400 { animation-delay: 0.4s; }
 .delay-500 { animation-delay: 0.5s; }
+
+/* ══════════════════════════════════════════════
+   SHARED DESIGN SYSTEM — used across all pages
+══════════════════════════════════════════════ */
+
+/* ── Layout containers ── */
+.s-wrap       { max-width: 1400px; margin: 0 auto; padding: 0 60px; }
+.s-wrap-md    { max-width: 1100px; margin: 0 auto; padding: 0 60px; }
+.s-wrap-sm    { max-width: 900px; margin: 0 auto; padding: 0 60px; }
+.s-section    { margin-bottom: 120px; }
+.s-page       { padding: 60px 60px 120px; max-width: 1400px; margin: 0 auto; }
+
+/* ── Typography ── */
+.s-eyebrow {
+  font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 24px;
+  display: flex; align-items: center; gap: 12px;
+}
+.s-eyebrow::before {
+  content: ""; width: 22px; height: 1px; background: var(--teal); opacity: 0.5;
+}
+.s-h1 {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 700; line-height: 1.1; color: var(--text);
+  margin-bottom: 20px;
+}
+.s-h2 {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  font-size: clamp(26px, 3.5vw, 42px);
+  font-weight: 700; line-height: 1.15; color: var(--text);
+  margin-bottom: 16px;
+}
+.s-h3 {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 700; line-height: 1.25; color: var(--text);
+  margin-bottom: 12px;
+}
+.s-h2 em, .s-h1 em, .s-h3 em { font-style: italic; color: var(--teal); }
+
+.s-subtitle {
+  font-size: 14px; color: var(--text-dim);
+  line-height: 1.8; max-width: 680px;
+}
+.s-body {
+  font-size: 13px; color: var(--text-dim);
+  line-height: 1.8;
+}
+
+/* ── Divider ── */
+.s-divider {
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--teal-border), transparent);
+  margin: 0 0 120px;
+}
+
+/* ── Buttons ── */
+.s-btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--teal); color: #0a0e0d;
+  font-family: var(--font-dm-mono), 'DM Mono', monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 14px 28px; border-radius: 5px;
+  text-decoration: none; border: none;
+  transition: opacity 0.2s, transform 0.2s;
+  white-space: nowrap; cursor: pointer;
+}
+.s-btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
+
+.s-btn-secondary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: transparent; color: var(--teal);
+  font-family: var(--font-dm-mono), 'DM Mono', monospace;
+  font-size: 10px; font-weight: 400;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 14px 28px; border-radius: 5px;
+  border: 1px solid var(--teal-border);
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  white-space: nowrap; cursor: pointer;
+}
+.s-btn-secondary:hover {
+  background: var(--teal-dim); border-color: var(--teal); transform: translateY(-2px);
+}
+
+/* ── Card base ── */
+.s-card {
+  border: 1px solid rgba(232,245,242,0.08); border-radius: 10px;
+  padding: 28px 24px; background: rgba(232,245,242,0.02);
+  transition: border-color 0.3s, background 0.3s;
+}
+.s-card:hover {
+  border-color: var(--teal-border); background: var(--teal-dim);
+}
+.s-card-teal {
+  border: 1px solid rgba(0,255,252,0.2); border-radius: 10px;
+  padding: 28px 24px; background: rgba(0,255,252,0.03);
+  transition: border-color 0.3s, background 0.3s;
+}
+.s-card-teal:hover {
+  border-color: rgba(0,255,252,0.4); background: rgba(0,255,252,0.06);
+}
+
+/* ── Badge / Pill ── */
+.s-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--teal); border: 1px solid var(--teal-border);
+  padding: 3px 9px; border-radius: 3px; background: var(--teal-dim);
+}
+.s-pill {
+  font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--text-dim); padding: 4px 10px; border-radius: 5px;
+  border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04);
+}
+
+/* ── Quote / Truth block ── */
+.s-quote {
+  border: 1px solid var(--teal-border); border-radius: 10px;
+  padding: 36px 40px; background: var(--teal-dim);
+  position: relative; overflow: hidden;
+}
+.s-quote::before {
+  content: '\201C'; position: absolute; top: 16px; left: 20px;
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  font-size: 64px; color: var(--teal); opacity: 0.15; line-height: 1;
+}
+
+/* ── CTA block ── */
+.s-cta {
+  border: 1px solid var(--teal-border); border-radius: 10px;
+  padding: 56px 48px; background: var(--teal-dim);
+  text-align: center; position: relative; overflow: hidden;
+}
+.s-cta::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(0,255,252,0.06), transparent);
+  pointer-events: none;
+}
+
+/* ── Metric value ── */
+.s-metric-value {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 40px); font-weight: 700;
+  color: var(--teal); line-height: 1;
+}
+.s-metric-label {
+  font-size: 10px; letter-spacing: 1px;
+  color: var(--text-dim); line-height: 1.6; margin-top: 4px;
+}
+
+/* ── Link arrow ── */
+.s-link {
+  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--teal); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: opacity 0.2s, gap 0.2s;
+}
+.s-link:hover { opacity: 0.7; gap: 10px; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .s-wrap, .s-wrap-md, .s-wrap-sm { padding: 0 32px; }
+  .s-page { padding: 48px 32px 80px; }
+}
+@media (max-width: 480px) {
+  .s-wrap, .s-wrap-md, .s-wrap-sm { padding: 0 20px; }
+  .s-page { padding: 40px 20px 60px; }
+  .s-btn-primary, .s-btn-secondary { width: 100%; justify-content: center; }
+}
