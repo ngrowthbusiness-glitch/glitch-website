@@ -10,15 +10,14 @@ export const metadata: Metadata = {
 const resources = [
   {
     slug: "audit-score",
-    badge: "Quiz interattivo",
-    badgeColor: "teal",
-    title: "Diagnosi marketing in 10 domande",
+    badge: "AI-Powered",
+    title: "Diagnosi Marketing",
     subtitle: "Quanto è solido il tuo sistema di misurazione?",
     description:
-      "10 domande secche sul tuo setup analytics, tracking, attribuzione e reporting. Alla fine sai esattamente dove stai perdendo soldi senza accorgertene.",
+      "10 domande sul tuo setup analytics, tracking e reporting. L'AI analizza i gap e ti dà 3 priorità concrete.",
     deliverables: [
-      "Score 0–10 con valutazione del tuo livello attuale",
-      "Analisi gap: cosa manca nel tuo sistema di misurazione",
+      "Score 0–10 con profilo del tuo livello attuale",
+      "Analisi AI personalizzata dei tuoi gap",
       "3 priorità concrete su cui intervenire subito",
     ],
     time: "5 min",
@@ -26,21 +25,36 @@ const resources = [
     href: "/risorse/audit-score",
   },
   {
-    slug: "domande-consulente",
-    badge: "Guida pratica",
-    badgeColor: "teal",
-    title: "Le domande da fare prima di assumere un consulente",
-    subtitle: "Come separare chi sa fare da chi sa vendere.",
+    slug: "kpi-calculator",
+    badge: "AI-Powered",
+    title: "KPI Calculator",
+    subtitle: "I tuoi numeri dicono la verità?",
     description:
-      "Una lista strutturata di domande — divisa per fase del rapporto — per valutare un consulente marketing prima di firmare qualsiasi accordo. Con la spiegazione del perché ogni risposta rivela qualcosa.",
+      "Inserisci budget, fatturato e margine. L'AI calcola break-even ROAS, CPA max e 3 scenari di crescita.",
     deliverables: [
-      "Domande pre-contratto: cosa chiedere prima di iniziare",
-      "Domande sul metodo: come lavora davvero, non come lo descrive",
-      "Domande sui risultati: come valutare performance e accountability",
+      "Break-even ROAS e CPA massimo sostenibile",
+      "3 scenari: attuale, ottimizzato, scalato",
+      "Analisi AI su dove stai perdendo margine",
     ],
-    time: "10 min lettura",
-    cta: "Leggi la guida",
-    href: "/risorse/domande-consulente",
+    time: "3 min",
+    cta: "Calcola ora",
+    href: "/risorse/kpi-calculator",
+  },
+  {
+    slug: "fractional-cmo",
+    badge: "AI-Powered",
+    title: "Fractional CMO Check",
+    subtitle: "Ti serve davvero un Fractional CMO?",
+    description:
+      "Self-assessment in 3 step. L'AI analizza fase, team e obiettivi e ti dice quale figura ti serve — e perché.",
+    deliverables: [
+      "Profilo personalizzato (Fractional CMO, Consulente spot, Agenzia)",
+      "Diagnosi della tua situazione specifica",
+      "Radar chart su 5 dimensioni del tuo business",
+    ],
+    time: "5 min",
+    cta: "Scopri il tuo profilo",
+    href: "/risorse/fractional-cmo",
   },
 ];
 
@@ -179,34 +193,24 @@ export default function RisorsePage() {
           gap: 12px;
         }
 
-        .risorse-coming-soon {
-          border: 1px dashed rgba(232,245,242,0.08);
-          border-radius: 8px;
-          padding: 28px 36px;
-          display: flex;
+        .risorse-badge-ai {
+          display: inline-flex;
           align-items: center;
-          gap: 20px;
-          opacity: 0.5;
-          max-width: 800px;
-          margin: 0 auto;
+          gap: 5px;
+          font-size: 9px;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          color: var(--teal);
+          border: 1px solid var(--teal-border);
+          padding: 3px 9px;
+          border-radius: 3px;
+          background: var(--teal-dim);
         }
 
-        .risorse-cs-icon {
-          width: 36px;
-          height: 36px;
-          border-radius: 6px;
-          background: rgba(232,245,242,0.04);
-          border: 1px solid rgba(232,245,242,0.06);
-          display: flex;
-          align-items: center;
-          justify-content: center;
+        .risorse-badge-ai svg {
+          width: 10px;
+          height: 10px;
           flex-shrink: 0;
-        }
-
-        .risorse-cs-title {
-          font-size: 13px;
-          color: var(--text-dim);
-          margin-bottom: 4px;
         }
 
         .risorse-note {
@@ -247,7 +251,6 @@ export default function RisorsePage() {
 
         @media (max-width: 900px) {
           .risorse-card { padding: 24px 20px; }
-          .risorse-coming-soon { padding: 20px; }
           .risorse-note { padding: 16px; }
         }
 
@@ -277,7 +280,12 @@ export default function RisorsePage() {
           {resources.map((r) => (
             <Link key={r.slug} href={r.href} className="risorse-card">
               <div className="risorse-card-top">
-                <span className="s-badge">{r.badge}</span>
+                <span className="risorse-badge-ai">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg>
+                  {r.badge}
+                </span>
                 <span className="risorse-free">Gratis</span>
                 <span className="risorse-card-dot" />
                 <span className="risorse-card-time">{r.time}</span>
@@ -315,19 +323,6 @@ export default function RisorsePage() {
             </Link>
           ))}
 
-          {/* COMING SOON */}
-          <div className="risorse-coming-soon">
-            <div className="risorse-cs-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ color: "var(--text-faint)" }}>
-                <rect x="9" y="9" width="13" height="13" rx="2" />
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-              </svg>
-            </div>
-            <div>
-              <div className="risorse-cs-title">Checklist E-commerce — dalla scheda prodotto al checkout</div>
-              <span className="s-pill">In arrivo</span>
-            </div>
-          </div>
         </div>
 
         {/* BOTTOM NOTE */}
@@ -346,9 +341,9 @@ export default function RisorsePage() {
             <line x1="12" y1="16" x2="12.01" y2="16" />
           </svg>
           <p className="risorse-note-text">
-            Hai bisogno di qualcosa di più specifico?{" "}
-            <Link href="/#contatto">Scrivimi</Link> — se è un problema che ho già risolto
-            per qualcun altro, probabilmente ho qualcosa di pronto.
+            Tutte le risorse sono alimentate da AI (Anthropic Claude) e forniscono risposte personalizzate in tempo reale.
+            Hai bisogno di qualcosa di pi&ugrave; specifico?{" "}
+            <Link href="/#contatto">Scrivimi</Link>.
           </p>
         </div>
 

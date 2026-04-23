@@ -38,6 +38,16 @@ const posts = [
     readTime: "8 min",
     tags: ["Analytics", "ROAS", "E-commerce"],
   },
+  {
+    slug: "domande-consulente-marketing",
+    date: "22 Aprile 2026",
+    category: "Strategia",
+    title: "16 domande da fare al tuo consulente marketing prima di firmare.",
+    excerpt:
+      "16 domande concrete divise per area — prima del contratto, metodo di lavoro, struttura e responsabilità, e i segnali di allarme da riconoscere subito. Con la spiegazione del perché ogni risposta rivela qualcosa.",
+    readTime: "10 min",
+    tags: ["Consulenza", "Strategia", "Metodo"],
+  },
 ];
 
 export default function BlogIndexPage() {
