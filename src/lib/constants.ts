@@ -23,7 +23,7 @@ export const SITE = {
 
 export const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/cosa-posso-fare", label: "Cosa posso fare" },
+  { href: "/cosa-posso-fare", label: "Perché conoscerci" },
   { href: "/cosa-ho-fatto", label: "Cosa ho fatto" },
   { href: "/metodo-glitch", label: "Metodo GLITCH" },
   { href: "/blog", label: "Blog" },
