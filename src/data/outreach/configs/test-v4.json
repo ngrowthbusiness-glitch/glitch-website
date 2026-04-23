@@ -1,0 +1,33 @@
+{
+  "slug": "test-v4",
+  "version": "v4",
+  "companyName": "Azienda Demo",
+  "contactName": "Marco Rossi",
+  "contactRole": "CEO",
+  "sector": "E-commerce arredamento",
+
+  "videoUrl": null,
+
+  "blocks": [
+    {
+      "today": "Il 73% del traffico al vostro sito esce dalla homepage senza visitare una sola pagina prodotto.",
+      "tomorrow": "Un funnel strutturato che accompagna ogni visitatore dal primo click alla richiesta di preventivo."
+    },
+    {
+      "today": "I vostri competitor investono in Google Ads e vi rubano traffico su keyword dove voi sareste piu rilevanti.",
+      "tomorrow": "Una strategia SEO + Ads mirata che vi posiziona dove i vostri clienti stanno gia cercando."
+    }
+  ],
+
+  "cta": {
+    "text": "Ti va una chiacchierata di 15 minuti?",
+    "whatsappText": "Ciao Nicola, ho visto il lavoro che hai fatto per Azienda Demo. Parliamone.",
+    "emailSubject": "Azienda Demo — Parliamone"
+  },
+
+  "meta": {
+    "createdAt": "2026-04-08",
+    "status": "draft",
+    "notes": "Config di test per validare il template v4"
+  }
+}

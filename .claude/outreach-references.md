@@ -1,3 +1,37 @@
+# Outreach System — Documentazione
+
+## Workflow v4 (aprile 2026)
+
+### Concept
+Landing page one-screen con video Loom come elemento centrale.
+Il prospect riceve un link, vede un video di ~90 secondi dove Nicola mostra di aver
+studiato il suo business, e sotto trova 2-3 blocchi sintetici "oggi → domani" con una CTA.
+
+### Flusso operativo
+1. **Ricerca**: analisi web del prospect (sito, social, competitor, digital presence)
+2. **Insight**: presentazione a Nicola di 3-5 insight specifici — CONFRONTO prima di proseguire
+3. **Generazione**: config JSON v4 in `src/data/outreach/configs/{slug}.json`
+4. **Video**: Nicola registra il Loom (~90s) basandosi sugli insight approvati
+5. **Aggiornamento**: inserimento videoUrl nel config, status → "ready"
+6. **Deploy**: commit + push → Vercel deploy automatico
+7. **Invio**: link `nicolaserrao.com/outreach/{slug}` al prospect
+
+### Formato config v4
+Vedi `src/data/outreach/types.ts` per i tipi completi.
+Campi chiave: `version: "v4"`, `videoUrl`, `blocks` (array di {today, tomorrow}), `cta.text`.
+
+### Design system
+- Background: #0a0e0d / Teal: #00fffc / Font: Playfair Display + DM Mono
+- Identico al sito nicolaserrao.com — non si usano colori del brand del prospect
+
+### Landing attive (legacy v3, non toccare)
+- cascioli-rent, dea-group, geco-geologia, lm-legnami, piante-stabilizzate, ulisse, von-schnauzer
+
+### Skill
+La skill `outreach-generate` (in `.claude/skills/outreach-generate/`) gestisce l'intero flusso.
+
+---
+
 # Outreach Design References
 
 Repository di siti di riferimento categorizzati per settore, stile e pattern di design.

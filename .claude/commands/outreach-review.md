@@ -1,30 +1,25 @@
 # Revisiona landing outreach
 
-Analizza una landing outreach esistente e suggerisci miglioramenti.
+Analizza una landing outreach v4 esistente e suggerisci miglioramenti.
 
 ## Come funziona
 
-L'utente specifica uno slug (es. "von-schnauzer").
-Tu leggi il config JSON corrispondente e analizzi:
+L'utente specifica uno slug (es. "nome-azienda").
+Leggi il config JSON in `src/data/outreach/configs/{slug}.json` e verifica:
 
-1. **Copy** — Il problema è centrato sul prospect o è generico? Gli insight sono specifici? La strategia svela troppo o crea curiosità?
-2. **Struttura** — Segue la struttura v2 (insight → problem → teaser → box)? O è ancora v1 (problem → method → strategy → CTA)?
-3. **CTA** — Ha la ctaQuestion per la box interattiva? La domanda è forte abbastanza?
-4. **Palette/Font** — I colori richiamano il brand del prospect? Il font è coerente col positioning?
-5. **Tono** — È diretto e rispettoso? Usa il linguaggio del settore?
+1. **Blocchi oggi/domani**: Sono specifici e basati su dati reali? O sono generici?
+2. **Sinteticita**: Ogni blocco e comprensibile in 3 secondi di lettura?
+3. **CTA**: Il testo della CTA abbassa la barriera d'ingresso?
+4. **Video**: Il videoUrl e impostato? Se si, e in formato embed corretto?
+5. **Tono**: Diretto, rispettoso, nel linguaggio del settore del prospect?
 
 ## Output
 
-Fornisci:
-- Lista di problemi trovati con severità (critico/migliorabile/ok)
-- Suggerimenti concreti di riscrittura per ogni problema
+- Lista di problemi con severita (critico / migliorabile / ok)
+- Suggerimenti concreti di riscrittura
 - Se richiesto, applica le modifiche direttamente al JSON
 
-## Regole
+## Per landing legacy (v3)
 
-Fai riferimento alle regole di copywriting nella memoria outreach:
-- Centrare il problema del prospect
-- Non svelare la strategia completa
-- Insight specifici, non generici
-- CTA come domanda provocatoria
-- Max 3 sezioni + CTA
+Le landing v3 gia inviate non vanno modificate. Se l'utente chiede di
+revisionare una landing v3, segnala che e nel formato legacy.
