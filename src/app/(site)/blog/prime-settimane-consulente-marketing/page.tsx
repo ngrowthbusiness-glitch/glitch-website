@@ -107,8 +107,6 @@ export default function ArticleConsulentePage() {
         /* ── LAYOUT ── */
         .mk-article-wrap {
           max-width: 1100px;
-          margin: 0 auto;
-          padding: 120px 60px 120px;
         }
         .mk-col      { max-width: 680px; margin: 0 auto; }
         .mk-col-wide { max-width: 880px; margin: 0 auto; }
@@ -451,19 +449,17 @@ export default function ArticleConsulentePage() {
           .mk-cta-block { flex-direction: column; gap: 20px; }
         }
         @media (max-width: 768px) {
-          .mk-article-wrap { padding: 100px 24px 80px; }
           .mk-questions-header { flex-wrap: wrap; gap: 6px; }
           .mk-questions-header-sub { margin-left: 0; }
         }
         @media (max-width: 480px) {
-          .mk-article-wrap { padding: 90px 16px 64px; }
           .mk-area-card { padding: 20px; }
           .mk-q-group { padding: 16px 20px; }
           .mk-cta-block { padding: 24px 20px; }
         }
       `}</style>
 
-      <div className="mk-article-wrap">
+      <div className="s-page mk-article-wrap">
 
         {/* BREADCRUMB */}
         <nav className="mk-breadcrumb" aria-label="Breadcrumb">

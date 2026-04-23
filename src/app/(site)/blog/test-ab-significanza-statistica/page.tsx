@@ -111,8 +111,6 @@ export default function TestAbPage() {
 
         .ab-page {
           max-width: 1100px;
-          margin: 0 auto;
-          padding: 120px 60px 120px;
         }
         .ab-col       { max-width: 680px; margin: 0 auto; }
         .ab-col-wide  { max-width: 880px; margin: 0 auto; }
@@ -664,7 +662,6 @@ export default function TestAbPage() {
         ══════════════════════════════════════════ */
 
         @media (max-width: 768px) {
-          .ab-page { padding: 40px 24px 80px; }
           .ab-funnel-cols { grid-template-columns: 1fr; }
           .ab-vars-grid { grid-template-columns: repeat(2, 1fr); }
           .ab-lead-magnet { padding: 28px 24px; }
@@ -673,7 +670,6 @@ export default function TestAbPage() {
         }
 
         @media (max-width: 480px) {
-          .ab-page { padding: 32px 16px 64px; }
           .ab-vars-grid { grid-template-columns: 1fr; }
           .ab-sig-link { display: none; }
           .ab-4si-item { grid-template-columns: auto 1fr; }
@@ -682,7 +678,7 @@ export default function TestAbPage() {
 
       `}</style>
 
-      <div className="ab-page">
+      <div className="s-page ab-page">
 
         {/* ════ BREADCRUMB ════ */}
         <div className="ab-col">

@@ -21,7 +21,6 @@ export default function CosaPossoFarePage() {
         .cpf-page {
           position: relative;
           z-index: 1;
-          padding-top: calc(var(--nav-h) + 72px);
         }
 
         /* ── HERO TWO-COL ── */
@@ -235,7 +234,6 @@ export default function CosaPossoFarePage() {
 
         /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
-          .cpf-page { padding-top: calc(var(--nav-h) + 48px); }
           .cpf-hero { grid-template-columns: 1fr; gap: 40px; }
           .cpf-wa-block { position: static; }
           .skills-grid { grid-template-columns: 1fr 1fr; }
@@ -243,7 +241,6 @@ export default function CosaPossoFarePage() {
         }
 
         @media (max-width: 480px) {
-          .cpf-page { padding-top: calc(var(--nav-h) + 36px); }
           .skills-grid { grid-template-columns: 1fr; }
           .cpf-cta-buttons { flex-direction: column; width: 100%; }
         }

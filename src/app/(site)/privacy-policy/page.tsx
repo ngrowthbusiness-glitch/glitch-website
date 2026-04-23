@@ -21,12 +21,7 @@ export default function PrivacyPolicyPage() {
           __html: `
 .pp-wrapper {
   position: relative; z-index: 1;
-  padding-top: calc(var(--nav-h, 64px) + 60px);
-  padding-bottom: 80px;
   max-width: 760px;
-  margin: 0 auto;
-  padding-left: 60px;
-  padding-right: 60px;
 }
 .pp-wrapper .page-label {
   display: inline-flex; align-items: center; gap: 8px;
@@ -97,15 +92,13 @@ export default function PrivacyPolicyPage() {
 .pp-wrapper a { color: var(--teal); text-decoration: none; }
 .pp-wrapper a:hover { opacity: 0.75; }
 @media (max-width: 900px) {
-  .pp-wrapper { padding: calc(var(--nav-h, 64px) + 40px) 32px 60px; }
 }
 @media (max-width: 480px) {
-  .pp-wrapper { padding: calc(var(--nav-h, 64px) + 32px) 20px 48px; }
 }
 `,
         }}
       />
-      <div className="pp-wrapper">
+      <div className="s-page pp-wrapper">
         <div className="page-label">Informativa legale</div>
         <h1 className="page-title">
           Privacy &amp;

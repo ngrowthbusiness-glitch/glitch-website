@@ -111,8 +111,6 @@ export default function RoasArticlePage() {
 
         .art-page {
           max-width: 1100px;
-          margin: 0 auto;
-          padding: 120px 60px 120px;
         }
 
         .art-col {
@@ -1438,7 +1436,6 @@ export default function RoasArticlePage() {
         ══════════════════════════════════════════ */
 
         @media (max-width: 768px) {
-          .art-page { padding: 40px 24px 80px; }
           .art-dual-stat { grid-template-columns: 1fr; }
           .art-chain-header { flex-wrap: wrap; }
           .art-pyramid-header { flex-direction: column; align-items: flex-start; gap: 8px; }
@@ -1450,7 +1447,6 @@ export default function RoasArticlePage() {
         }
 
         @media (max-width: 480px) {
-          .art-page { padding: 32px 16px 64px; }
           .art-formula { flex-direction: column; align-items: flex-start; }
           .art-cost-row { grid-template-columns: 1fr auto; }
           .art-cost-pct { display: none; }
@@ -1459,7 +1455,7 @@ export default function RoasArticlePage() {
 
       `}</style>
 
-      <div className="art-page">
+      <div className="s-page art-page">
 
         {/* ════════════════════════════════════════
             BREADCRUMB

@@ -68,9 +68,6 @@ export default function MetodoGlitchPage() {
   return (
     <>
       <style>{`
-        /* ── PAGE ── */
-        .mg-page { padding-top: calc(var(--nav-h) + 80px); }
-
         /* ── HERO ── */
         .mg-hero-title .letter {
           color: var(--teal);
@@ -204,7 +201,6 @@ export default function MetodoGlitchPage() {
 
         /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
-          .mg-page { padding-top: calc(var(--nav-h) + 48px); }
           .mg-step { grid-template-columns: 60px 1fr; }
           .mg-step:not(:last-child) .mg-step-line { left: 29px; }
           .mg-step-letter-wrap { width: 46px; height: 46px; }
@@ -216,7 +212,6 @@ export default function MetodoGlitchPage() {
         }
 
         @media (max-width: 480px) {
-          .mg-page { padding-top: calc(var(--nav-h) + 36px); }
           .mg-cta-buttons { flex-direction: column; width: 100%; }
           .mg-truth { padding: 24px 20px; }
           .mg-step-right { padding-left: 16px; }
