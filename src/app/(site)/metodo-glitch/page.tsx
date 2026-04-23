@@ -68,21 +68,10 @@ export default function MetodoGlitchPage() {
   return (
     <>
       <style>{`
+        /* ── PAGE ── */
+        .mg-page { padding-top: calc(var(--nav-h) + 80px); }
+
         /* ── HERO ── */
-        .mg-hero-eyebrow {
-          font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
-          color: var(--teal); margin-bottom: 20px;
-          animation: fadeUp 0.5s ease both;
-        }
-
-        .mg-hero-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: clamp(36px, 6vw, 64px);
-          font-weight: 700; line-height: 1.05;
-          color: var(--text); margin-bottom: 24px;
-          animation: fadeUp 0.6s ease both; animation-delay: 0.1s;
-        }
-
         .mg-hero-title .letter {
           color: var(--teal);
           font-style: italic;
@@ -189,29 +178,9 @@ export default function MetodoGlitchPage() {
           max-width: 600px;
         }
 
-        /* ── DIVIDER ── */
-        .mg-divider {
-          width: 100%; height: 1px;
-          background: linear-gradient(90deg, var(--teal-border) 0%, transparent 80%);
-          margin: 56px 0;
-        }
+        /* ── TRUTH ── */
+        .mg-truth { margin-bottom: 56px; }
 
-        /* ── TRUTH BLOCK ── */
-        .mg-truth-block {
-          border: 1px solid var(--teal-border);
-          border-radius: 10px;
-          padding: 40px 44px;
-          background: var(--teal-dim);
-          position: relative; overflow: hidden;
-          margin-bottom: 56px;
-        }
-        .mg-truth-block::before {
-          content: '\\201C';
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 160px; color: rgba(0,255,252,0.06);
-          position: absolute; top: -20px; left: 20px;
-          line-height: 1; pointer-events: none;
-        }
         .mg-truth-text {
           font-family: var(--font-playfair), 'Playfair Display', serif;
           font-style: italic; font-size: clamp(16px, 2vw, 20px);
@@ -233,30 +202,9 @@ export default function MetodoGlitchPage() {
         .mg-cta-text p { font-size: 11px; font-weight: 300; color: var(--text-dim); line-height: 1.8; }
         .mg-cta-buttons { display: flex; gap: 14px; flex-shrink: 0; }
 
-        .mg-btn-primary {
-          display: inline-flex; align-items: center; gap: 10px;
-          background: var(--teal); color: #0a0e0d;
-          font-family: var(--font-dm-mono), 'DM Mono', monospace; font-size: 10px;
-          font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
-          padding: 14px 24px; border-radius: 5px; text-decoration: none;
-          transition: opacity 0.2s, transform 0.2s; white-space: nowrap;
-        }
-        .mg-btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
-
-        .mg-btn-secondary {
-          display: inline-flex; align-items: center; gap: 10px;
-          background: transparent; color: var(--teal);
-          font-family: var(--font-dm-mono), 'DM Mono', monospace; font-size: 10px;
-          font-weight: 400; letter-spacing: 2px; text-transform: uppercase;
-          padding: 14px 24px; border-radius: 5px;
-          border: 1px solid var(--teal-border); text-decoration: none;
-          transition: background 0.2s, border-color 0.2s, transform 0.2s; white-space: nowrap;
-        }
-        .mg-btn-secondary:hover { background: var(--teal-dim); border-color: var(--teal); transform: translateY(-2px); }
-
         /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
-          .mg-page { padding: calc(var(--nav-h) + 48px) 32px 60px !important; }
+          .mg-page { padding-top: calc(var(--nav-h) + 48px); }
           .mg-step { grid-template-columns: 60px 1fr; }
           .mg-step:not(:last-child) .mg-step-line { left: 29px; }
           .mg-step-letter-wrap { width: 46px; height: 46px; }
@@ -264,30 +212,26 @@ export default function MetodoGlitchPage() {
           .mg-step-right { padding: 2px 0 40px 24px; }
           .mg-cta-section { flex-direction: column; align-items: flex-start; }
           .mg-cta-buttons { flex-wrap: wrap; }
-          .mg-truth-block { padding: 28px 28px; }
+          .mg-truth { padding: 28px 28px; }
         }
 
         @media (max-width: 480px) {
-          .mg-page { padding: calc(var(--nav-h) + 36px) 20px 48px !important; }
+          .mg-page { padding-top: calc(var(--nav-h) + 36px); }
           .mg-cta-buttons { flex-direction: column; width: 100%; }
-          .mg-btn-primary, .mg-btn-secondary { justify-content: center; }
-          .mg-truth-block { padding: 24px 20px; }
+          .mg-truth { padding: 24px 20px; }
           .mg-step-right { padding-left: 16px; }
         }
       `}</style>
 
       <div
-        className="mg-page"
+        className="mg-page s-page"
         style={{
           position: "relative",
           zIndex: 1,
-          maxWidth: 1000,
-          margin: "0 auto",
-          padding: "calc(var(--nav-h) + 80px) 60px 80px",
         }}
       >
-        <div className="mg-hero-eyebrow">Il mio approccio</div>
-        <h1 className="mg-hero-title">
+        <div className="s-eyebrow animate-fade-up">Il mio approccio</div>
+        <h1 className="mg-hero-title s-h1 animate-fade-up delay-100">
           Metodo{" "}
           <span className="letter">G</span>
           <span className="letter">L</span>
@@ -325,14 +269,14 @@ export default function MetodoGlitchPage() {
         </div>
 
         {/* Quote */}
-        <div className="mg-truth-block">
+        <div className="s-quote mg-truth">
           <p className="mg-truth-text">
             &ldquo;Il metodo non &egrave; una gabbia &mdash; &egrave; una bussola. Ogni azienda &egrave; diversa, ogni mercato &egrave; diverso. Ma{" "}
             <strong>lavorare senza metodo &egrave; solo improvvisazione ben pagata.</strong>&rdquo;
           </p>
         </div>
 
-        <div className="mg-divider" />
+        <div className="s-divider" style={{ margin: '56px 0' }} />
 
         {/* CTA */}
         <div className="mg-cta-section">
@@ -344,14 +288,14 @@ export default function MetodoGlitchPage() {
             </p>
           </div>
           <div className="mg-cta-buttons">
-            <a href={SITE.whatsapp} className="mg-btn-primary" target="_blank" rel="noopener noreferrer">
+            <a href={SITE.whatsapp} className="s-btn-primary" target="_blank" rel="noopener noreferrer">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
                 <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.335-1.502A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.523-5.172-1.432l-.371-.22-3.762.892.946-3.653-.242-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
               </svg>
               Parliamoci
             </a>
-            <a href="/cosa-posso-fare" className="mg-btn-secondary">
+            <a href="/cosa-posso-fare" className="s-btn-secondary">
               Cosa posso fare &rarr;
             </a>
           </div>

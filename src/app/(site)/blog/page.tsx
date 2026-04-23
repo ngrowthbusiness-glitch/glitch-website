@@ -44,50 +44,15 @@ export default function BlogIndexPage() {
   return (
     <>
       <style>{`
-        .blog-page {
-          max-width: 1100px;
-          margin: 0 auto;
-          padding: 60px 60px 120px;
-        }
-
         .blog-header {
           max-width: 680px;
           margin: 0 auto 64px;
-        }
-
-        .blog-eyebrow {
-          font-size: 9px;
-          letter-spacing: 4px;
-          text-transform: uppercase;
-          color: var(--teal);
-          margin-bottom: 20px;
-        }
-
-        .blog-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: clamp(28px, 4vw, 42px);
-          font-weight: 700;
-          color: var(--text);
-          line-height: 1.2;
-          margin-bottom: 16px;
-        }
-
-        .blog-title em {
-          font-style: italic;
-          color: var(--teal);
         }
 
         .blog-desc {
           font-size: 13px;
           color: var(--text-dim);
           line-height: 1.85;
-        }
-
-        .blog-divider {
-          width: 100%;
-          height: 1px;
-          background: linear-gradient(90deg, transparent, var(--teal-border), transparent);
-          margin-bottom: 48px;
         }
 
         .blog-grid {
@@ -119,17 +84,6 @@ export default function BlogIndexPage() {
           gap: 10px;
           margin-bottom: 14px;
           flex-wrap: wrap;
-        }
-
-        .blog-card-category {
-          font-size: 9px;
-          letter-spacing: 1.5px;
-          text-transform: uppercase;
-          color: var(--teal);
-          border: 1px solid var(--teal-border);
-          padding: 3px 8px;
-          border-radius: 3px;
-          background: var(--teal-dim);
         }
 
         .blog-card-dot {
@@ -199,20 +153,19 @@ export default function BlogIndexPage() {
           opacity: 1;
         }
 
-        @media (max-width: 768px) {
-          .blog-page { padding: 40px 24px 80px; }
+        @media (max-width: 900px) {
+          .blog-card { padding: 24px; }
         }
 
         @media (max-width: 480px) {
-          .blog-page { padding: 32px 16px 64px; }
           .blog-card { padding: 20px; }
         }
       `}</style>
 
-      <div className="blog-page">
+      <div className="s-page">
         <div className="blog-header">
-          <div className="blog-eyebrow">Insights &amp; Metodo</div>
-          <h1 className="blog-title">
+          <div className="s-eyebrow">Insights &amp; Metodo</div>
+          <h1 className="s-h2">
             Numeri reali.<br /><em>Zero vanity metrics.</em>
           </h1>
           <p className="blog-desc">
@@ -221,7 +174,7 @@ export default function BlogIndexPage() {
           </p>
         </div>
 
-        <div className="blog-divider" />
+        <div className="s-divider" style={{ marginBottom: 48 }} />
 
         <div className="blog-grid">
           {posts.map((post) => (
@@ -231,7 +184,7 @@ export default function BlogIndexPage() {
               className="blog-card"
             >
               <div className="blog-card-meta">
-                <span className="blog-card-category">{post.category}</span>
+                <span className="s-badge">{post.category}</span>
                 <span className="blog-card-dot" />
                 <span className="blog-card-date">{post.date}</span>
                 <span className="blog-card-dot" />

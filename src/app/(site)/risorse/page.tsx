@@ -48,50 +48,15 @@ export default function RisorsePage() {
   return (
     <>
       <style>{`
-        .risorse-page {
-          max-width: 1100px;
-          margin: 0 auto;
-          padding: 60px 60px 120px;
-        }
-
         .risorse-header {
           max-width: 680px;
           margin: 0 auto 64px;
-        }
-
-        .risorse-eyebrow {
-          font-size: 9px;
-          letter-spacing: 4px;
-          text-transform: uppercase;
-          color: var(--teal);
-          margin-bottom: 20px;
-        }
-
-        .risorse-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: clamp(28px, 4vw, 42px);
-          font-weight: 700;
-          color: var(--text);
-          line-height: 1.2;
-          margin-bottom: 16px;
-        }
-
-        .risorse-title em {
-          font-style: italic;
-          color: var(--teal);
         }
 
         .risorse-desc {
           font-size: 13px;
           color: var(--text-dim);
           line-height: 1.85;
-        }
-
-        .risorse-divider {
-          width: 100%;
-          height: 1px;
-          background: linear-gradient(90deg, transparent, var(--teal-border), transparent);
-          margin-bottom: 48px;
         }
 
         .risorse-grid {
@@ -123,17 +88,6 @@ export default function RisorsePage() {
           gap: 10px;
           margin-bottom: 18px;
           flex-wrap: wrap;
-        }
-
-        .risorse-badge {
-          font-size: 9px;
-          letter-spacing: 1.5px;
-          text-transform: uppercase;
-          color: var(--teal);
-          border: 1px solid var(--teal-border);
-          padding: 3px 8px;
-          border-radius: 3px;
-          background: var(--teal-dim);
         }
 
         .risorse-free {
@@ -255,16 +209,6 @@ export default function RisorsePage() {
           margin-bottom: 4px;
         }
 
-        .risorse-cs-badge {
-          font-size: 9px;
-          letter-spacing: 1.5px;
-          text-transform: uppercase;
-          color: var(--text-faint);
-          border: 1px solid rgba(232,245,242,0.06);
-          padding: 2px 7px;
-          border-radius: 3px;
-        }
-
         .risorse-note {
           max-width: 800px;
           margin: 48px auto 0;
@@ -301,24 +245,23 @@ export default function RisorsePage() {
           border-color: var(--teal);
         }
 
-        @media (max-width: 768px) {
-          .risorse-page { padding: 40px 24px 80px; }
+        @media (max-width: 900px) {
           .risorse-card { padding: 24px 20px; }
           .risorse-coming-soon { padding: 20px; }
           .risorse-note { padding: 16px; }
         }
 
         @media (max-width: 480px) {
-          .risorse-page { padding: 32px 16px 64px; }
+          .risorse-card { padding: 20px 16px; }
         }
       `}</style>
 
-      <div className="risorse-page">
+      <div className="s-page">
 
         {/* HEADER */}
         <div className="risorse-header">
-          <div className="risorse-eyebrow">Strumenti gratuiti</div>
-          <h1 className="risorse-title">
+          <div className="s-eyebrow">Strumenti gratuiti</div>
+          <h1 className="s-h2">
             Utile anche se<br /><em>non lavoriamo insieme.</em>
           </h1>
           <p className="risorse-desc">
@@ -327,14 +270,14 @@ export default function RisorsePage() {
           </p>
         </div>
 
-        <div className="risorse-divider" />
+        <div className="s-divider" style={{ marginBottom: 48 }} />
 
         {/* RESOURCE CARDS */}
         <div className="risorse-grid">
           {resources.map((r) => (
             <Link key={r.slug} href={r.href} className="risorse-card">
               <div className="risorse-card-top">
-                <span className="risorse-badge">{r.badge}</span>
+                <span className="s-badge">{r.badge}</span>
                 <span className="risorse-free">Gratis</span>
                 <span className="risorse-card-dot" />
                 <span className="risorse-card-time">{r.time}</span>
@@ -382,7 +325,7 @@ export default function RisorsePage() {
             </div>
             <div>
               <div className="risorse-cs-title">Checklist E-commerce — dalla scheda prodotto al checkout</div>
-              <span className="risorse-cs-badge">In arrivo</span>
+              <span className="s-pill">In arrivo</span>
             </div>
           </div>
         </div>

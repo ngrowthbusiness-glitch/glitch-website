@@ -18,21 +18,16 @@ export default function CosaHoFattoPage() {
     <>
       <style>{`
         /* HERO */
-        .chf-hero-eyebrow { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--teal); margin-bottom: 20px; animation: chfFadeUp 0.5s ease both; }
-        .chf-hero-title { font-family: 'Playfair Display', serif; font-size: clamp(36px, 6vw, 64px); font-weight: 700; line-height: 1.05; margin-bottom: 24px; animation: chfFadeUp 0.6s ease both; animation-delay: 0.1s; }
-        .chf-hero-title em { font-style: italic; color: var(--teal); }
-        .chf-hero-sub { font-size: 13px; font-weight: 300; color: var(--text-dim); line-height: 1.9; max-width: 580px; margin-bottom: 48px; animation: chfFadeUp 0.6s ease both; animation-delay: 0.2s; }
+        .chf-hero-sub { font-size: 13px; font-weight: 300; color: var(--text-dim); line-height: 1.9; max-width: 580px; margin-bottom: 48px; animation: fadeUp 0.6s ease both; animation-delay: 0.2s; }
 
         /* NUMBERS BAR */
-        .chf-numbers-bar { display: flex; align-items: center; justify-content: space-between; border: 1px solid var(--teal-border); border-radius: 10px; background: var(--teal-dim); padding: 32px 40px; margin-bottom: 56px; animation: chfFadeUp 0.6s ease both; animation-delay: 0.3s; }
+        .chf-numbers-bar { display: flex; align-items: center; justify-content: space-between; border: 1px solid var(--teal-border); border-radius: 10px; background: var(--teal-dim); padding: 32px 40px; margin-bottom: 56px; animation: fadeUp 0.6s ease both; animation-delay: 0.3s; }
         .chf-number-item { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; flex: 1; }
-        .chf-number-value { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 40px); font-weight: 700; color: var(--teal); line-height: 1; }
-        .chf-number-label { font-size: 10px; letter-spacing: 1px; color: var(--text-dim); line-height: 1.6; }
         .chf-number-label em { display: block; font-style: italic; color: var(--text-faint); font-size: 9px; margin-top: 3px; }
         .chf-number-divider { width: 1px; height: 48px; background: var(--teal-border); flex-shrink: 0; margin: 0 20px; }
 
         /* CASES */
-        .chf-cases-list { display: flex; flex-direction: column; gap: 24px; margin-bottom: 56px; animation: chfFadeUp 0.7s ease both; animation-delay: 0.4s; }
+        .chf-cases-list { display: flex; flex-direction: column; gap: 24px; margin-bottom: 56px; animation: fadeUp 0.7s ease both; animation-delay: 0.4s; }
         .chf-case-card { border: 1px solid var(--teal-border); border-radius: 10px; overflow: hidden; background: rgba(232,245,242,0.02); transition: border-color 0.3s; }
         .chf-case-card:hover { border-color: rgba(0,255,252,0.5); }
         .chf-case-bar { height: 3px; background: linear-gradient(90deg, var(--teal) 0%, transparent 100%); }
@@ -49,17 +44,12 @@ export default function CosaHoFattoPage() {
         .chf-case-results-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-faint); margin-bottom: 16px; }
         .chf-case-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
         .chf-metric { display: flex; flex-direction: column; gap: 4px; }
-        .chf-metric-value { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--teal); line-height: 1; }
-        .chf-metric-label { font-size: 10px; color: var(--text-dim); line-height: 1.5; }
         .chf-case-what { font-size: 11px; font-weight: 300; color: var(--text-dim); line-height: 1.8; border-top: 1px solid var(--teal-border); padding-top: 16px; }
         .chf-case-what strong { color: var(--text); font-weight: 500; }
 
         /* MARKET TAGS */
         .chf-markets-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
         .chf-market-tag { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-dim); border: 1px solid rgba(232,245,242,0.12); padding: 3px 9px; border-radius: 3px; background: rgba(232,245,242,0.03); }
-
-        /* DIVIDER */
-        .chf-divider { width: 100%; height: 1px; background: linear-gradient(90deg, var(--teal-border) 0%, transparent 80%); margin: 56px 0; }
 
         /* SECTION LABEL */
         .chf-section-label { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--text-faint); margin-bottom: 28px; }
@@ -80,22 +70,11 @@ export default function CosaHoFattoPage() {
         .chf-tool-name { font-size: 11px; font-weight: 500; color: var(--text); letter-spacing: 0.5px; }
         .chf-tool-desc { font-size: 9px; color: var(--text-faint); letter-spacing: 1px; text-transform: uppercase; }
 
-        /* COMING SOON */
-        .chf-coming-soon { border: 1px dashed var(--teal-border); border-radius: 10px; padding: 40px; text-align: center; margin-bottom: 56px; }
-        .chf-cs-icon { font-size: 28px; color: var(--teal); margin-bottom: 16px; letter-spacing: 8px; }
-        .chf-coming-soon p { font-size: 12px; font-weight: 300; color: var(--text-dim); line-height: 1.9; }
-
         /* CTA */
         .chf-cta-section { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
         .chf-cta-text h3 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 30px); font-weight: 700; margin-bottom: 10px; }
         .chf-cta-text p { font-size: 11px; font-weight: 300; color: var(--text-dim); line-height: 1.8; }
         .chf-cta-buttons { display: flex; gap: 14px; flex-shrink: 0; }
-        .chf-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--teal); color: #0a0e0d; font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; padding: 14px 24px; border-radius: 5px; text-decoration: none; transition: opacity 0.2s, transform 0.2s; white-space: nowrap; }
-        .chf-btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
-        .chf-btn-secondary { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--teal); font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; padding: 14px 24px; border-radius: 5px; border: 1px solid var(--teal-border); text-decoration: none; transition: background 0.2s, border-color 0.2s, transform 0.2s; white-space: nowrap; }
-        .chf-btn-secondary:hover { background: var(--teal-dim); border-color: var(--teal); transform: translateY(-2px); }
-
-        @keyframes chfFadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         /* RESPONSIVE */
         @media (max-width: 900px) {
@@ -111,15 +90,14 @@ export default function CosaHoFattoPage() {
           .chf-case-left, .chf-case-right { padding: 24px 20px; }
           .chf-case-metrics { grid-template-columns: 1fr 1fr; }
           .chf-cta-buttons { flex-direction: column; width: 100%; }
-          .chf-btn-primary, .chf-btn-secondary { justify-content: center; }
         }
       `}</style>
 
-      <div style={{ position: "relative", zIndex: 1, maxWidth: 1000, margin: "0 auto", padding: "80px 60px" }}>
+      <div className="s-page" style={{ position: "relative", zIndex: 1 }}>
 
         {/* HERO */}
-        <div className="chf-hero-eyebrow">Cosa ho fatto</div>
-        <h1 className="chf-hero-title">Numeri reali.<br /><em>Aziende reali.</em></h1>
+        <div className="s-eyebrow animate-fade-up">Cosa ho fatto</div>
+        <h1 className="s-h1 animate-fade-up delay-100">Numeri reali.<br /><em>Aziende reali.</em></h1>
         <p className="chf-hero-sub">
           Non ho casi studio inventati n&eacute; slide patinate con proiezioni fantasy.<br />
           Questi sono progetti in cui ho lavorato davvero &mdash; con budget reali, problemi reali e risultati che si possono misurare.
@@ -128,18 +106,18 @@ export default function CosaHoFattoPage() {
         {/* NUMERI IN EVIDENZA */}
         <div className="chf-numbers-bar">
           <div className="chf-number-item">
-            <span className="chf-number-value">30+</span>
-            <span className="chf-number-label">Clienti gestiti</span>
+            <span className="s-metric-value">30+</span>
+            <span className="s-metric-label">Clienti gestiti</span>
           </div>
           <div className="chf-number-divider"></div>
           <div className="chf-number-item">
-            <span className="chf-number-value">6 mesi</span>
-            <span className="chf-number-label">Durata media del rapporto<br /><em>3 collaborazioni oltre i 2 anni</em></span>
+            <span className="s-metric-value">6 mesi</span>
+            <span className="s-metric-label">Durata media del rapporto<br /><em>3 collaborazioni oltre i 2 anni</em></span>
           </div>
           <div className="chf-number-divider"></div>
           <div className="chf-number-item">
-            <span className="chf-number-value">&euro;5M+</span>
-            <span className="chf-number-label">Budget Adv gestito su Meta</span>
+            <span className="s-metric-value">&euro;5M+</span>
+            <span className="s-metric-label">Budget Adv gestito su Meta</span>
           </div>
         </div>
 
@@ -167,20 +145,20 @@ export default function CosaHoFattoPage() {
                   <div className="chf-case-results-label">Risultati &mdash; in 4 mesi</div>
                   <div className="chf-case-metrics">
                     <div className="chf-metric">
-                      <span className="chf-metric-value">+200%</span>
-                      <span className="chf-metric-label">Fatturato mensile (da 45k a 150k)</span>
+                      <span className="s-metric-value">+200%</span>
+                      <span className="s-metric-label">Fatturato mensile (da 45k a 150k)</span>
                     </div>
                     <div className="chf-metric">
-                      <span className="chf-metric-value">+33%</span>
-                      <span className="chf-metric-label">AOV con strategia bundle</span>
+                      <span className="s-metric-value">+33%</span>
+                      <span className="s-metric-label">AOV con strategia bundle</span>
                     </div>
                     <div className="chf-metric">
-                      <span className="chf-metric-value">10%</span>
-                      <span className="chf-metric-label">Margini netti consolidati</span>
+                      <span className="s-metric-value">10%</span>
+                      <span className="s-metric-label">Margini netti consolidati</span>
                     </div>
                     <div className="chf-metric">
-                      <span className="chf-metric-value">4</span>
-                      <span className="chf-metric-label">Mesi per triplicare il fatturato</span>
+                      <span className="s-metric-value">4</span>
+                      <span className="s-metric-label">Mesi per triplicare il fatturato</span>
                     </div>
                   </div>
                 </div>
@@ -212,20 +190,20 @@ export default function CosaHoFattoPage() {
                   <div className="chf-case-results-label">Contesto</div>
                   <div className="chf-case-metrics">
                     <div className="chf-metric">
-                      <span className="chf-metric-value">Luxury</span>
-                      <span className="chf-metric-label">Brand tessile di alto profilo</span>
+                      <span className="s-metric-value">Luxury</span>
+                      <span className="s-metric-label">Brand tessile di alto profilo</span>
                     </div>
                     <div className="chf-metric">
-                      <span className="chf-metric-value">E-com</span>
-                      <span className="chf-metric-label">Vendita mobili da bagno</span>
+                      <span className="s-metric-value">E-com</span>
+                      <span className="s-metric-label">Vendita mobili da bagno</span>
                     </div>
                     <div className="chf-metric">
-                      <span className="chf-metric-value">Meta</span>
-                      <span className="chf-metric-label">Canale gestito end-to-end</span>
+                      <span className="s-metric-value">Meta</span>
+                      <span className="s-metric-label">Canale gestito end-to-end</span>
                     </div>
                     <div className="chf-metric">
-                      <span className="chf-metric-value">Zero</span>
-                      <span className="chf-metric-label">Margine di errore accettato</span>
+                      <span className="s-metric-value">Zero</span>
+                      <span className="s-metric-label">Margine di errore accettato</span>
                     </div>
                   </div>
                 </div>
@@ -270,20 +248,20 @@ export default function CosaHoFattoPage() {
                   <div className="chf-case-results-label">Il perimetro</div>
                   <div className="chf-case-metrics">
                     <div className="chf-metric">
-                      <span className="chf-metric-value">15+</span>
-                      <span className="chf-metric-label">Clienti gestiti in totale</span>
+                      <span className="s-metric-value">15+</span>
+                      <span className="s-metric-label">Clienti gestiti in totale</span>
                     </div>
                     <div className="chf-metric">
-                      <span className="chf-metric-value">15</span>
-                      <span className="chf-metric-label">Mercati e settori diversi</span>
+                      <span className="s-metric-value">15</span>
+                      <span className="s-metric-label">Mercati e settori diversi</span>
                     </div>
                     <div className="chf-metric">
-                      <span className="chf-metric-value">Lead</span>
-                      <span className="chf-metric-label">B2B, HR, Tech, Servizi professionali</span>
+                      <span className="s-metric-value">Lead</span>
+                      <span className="s-metric-label">B2B, HR, Tech, Servizi professionali</span>
                     </div>
                     <div className="chf-metric">
-                      <span className="chf-metric-value">E-com</span>
-                      <span className="chf-metric-label">Lusso, Nutrition, Moda, Benessere</span>
+                      <span className="s-metric-value">E-com</span>
+                      <span className="s-metric-label">Lusso, Nutrition, Moda, Benessere</span>
                     </div>
                   </div>
                 </div>
@@ -296,7 +274,7 @@ export default function CosaHoFattoPage() {
 
         </div>
 
-        <div className="chf-divider"></div>
+        <div className="s-divider" style={{ margin: '56px 0' }}></div>
 
         {/* COMPETENZE */}
         <div className="chf-section-label">Competenze &amp; Specializzazioni</div>
@@ -323,7 +301,7 @@ export default function CosaHoFattoPage() {
           </div>
         </div>
 
-        <div className="chf-divider"></div>
+        <div className="s-divider" style={{ margin: '56px 0' }}></div>
 
         {/* STRUMENTI */}
         <div className="chf-section-label">Strumenti che uso ogni giorno</div>
@@ -337,13 +315,7 @@ export default function CosaHoFattoPage() {
           <div className="chf-tool-item chf-tool-item-special"><span className="chf-tool-name">Buon senso</span><span className="chf-tool-desc">Lo strumento pi&ugrave; raro</span></div>
         </div>
 
-        {/* COMING SOON */}
-        <div className="chf-coming-soon">
-          <div className="chf-cs-icon">&#8943;</div>
-          <p>Altri casi studio in arrivo.<br />Ogni progetto &egrave; una storia diversa &mdash; e merita di essere raccontata bene.</p>
-        </div>
-
-        <div className="chf-divider"></div>
+        <div className="s-divider" style={{ margin: '56px 0' }}></div>
 
         {/* CTA */}
         <div className="chf-cta-section">
@@ -352,11 +324,11 @@ export default function CosaHoFattoPage() {
             <p>Iniziamo con una chiacchierata gratuita.<br />Nessun impegno, solo una conversazione onesta.</p>
           </div>
           <div className="chf-cta-buttons">
-            <a href={SITE.whatsapp} className="chf-btn-primary" target="_blank" rel="noopener noreferrer">
+            <a href={SITE.whatsapp} className="s-btn-primary" target="_blank" rel="noopener noreferrer">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.335-1.502A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.523-5.172-1.432l-.371-.22-3.762.892.946-3.653-.242-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
               Conosciamoci
             </a>
-            <a href="/cosa-posso-fare" className="chf-btn-secondary">Cosa posso fare &rarr;</a>
+            <a href="/cosa-posso-fare" className="s-btn-secondary">Cosa posso fare &rarr;</a>
           </div>
         </div>
 

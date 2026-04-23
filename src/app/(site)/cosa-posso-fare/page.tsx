@@ -21,38 +21,11 @@ export default function CosaPossoFarePage() {
         .cpf-page {
           position: relative;
           z-index: 1;
-          max-width: 1100px;
-          margin: 0 auto;
-          padding: calc(var(--nav-h) + 72px) 60px 80px;
+          padding-top: calc(var(--nav-h) + 72px);
         }
 
         /* ── HERO ── */
-        .hero-eyebrow {
-          font-size: 9px;
-          letter-spacing: 4px;
-          text-transform: uppercase;
-          color: var(--teal);
-          margin-bottom: 20px;
-          animation: fadeUp 0.5s ease both;
-        }
-
-        .hero-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: clamp(32px, 5vw, 54px);
-          font-weight: 700;
-          line-height: 1.1;
-          color: var(--text);
-          margin-bottom: 24px;
-          animation: fadeUp 0.6s ease both;
-          animation-delay: 0.1s;
-        }
-
-        .hero-title em {
-          font-style: italic;
-          color: var(--teal);
-        }
-
-        .hero-sub {
+        .cpf-hero-sub {
           font-size: 12px;
           font-weight: 300;
           color: var(--text-dim);
@@ -61,14 +34,6 @@ export default function CosaPossoFarePage() {
           margin-bottom: 56px;
           animation: fadeUp 0.6s ease both;
           animation-delay: 0.2s;
-        }
-
-        /* ── DIVIDER ── */
-        .divider {
-          width: 100%;
-          height: 1px;
-          background: linear-gradient(90deg, var(--teal-border) 0%, transparent 80%);
-          margin: 56px 0;
         }
 
         /* ── SECTION LABEL ── */
@@ -230,27 +195,8 @@ export default function CosaPossoFarePage() {
           background: var(--teal-dim);
         }
 
-        /* ── TRUTH BLOCK ── */
-        .truth-block {
-          border: 1px solid var(--teal-border);
-          border-radius: 10px;
-          padding: 40px 44px;
-          background: var(--teal-dim);
-          position: relative;
-          overflow: hidden;
-          margin-bottom: 56px;
-        }
-
-        .truth-block::before {
-          content: '\u201C';
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 160px;
-          color: rgba(0,255,252,0.06);
-          position: absolute;
-          top: -20px; left: 20px;
-          line-height: 1;
-          pointer-events: none;
-        }
+        /* ── TRUTH ── */
+        .cpf-truth { margin-bottom: 56px; }
 
         .truth-text {
           font-family: var(--font-playfair), 'Playfair Display', serif;
@@ -297,80 +243,34 @@ export default function CosaPossoFarePage() {
           flex-shrink: 0;
         }
 
-        .btn-primary {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          background: var(--teal);
-          color: #0a0e0d;
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
-          font-size: 10px;
-          font-weight: 500;
-          letter-spacing: 2px;
-          text-transform: uppercase;
-          padding: 14px 24px;
-          border-radius: 5px;
-          text-decoration: none;
-          transition: opacity 0.2s, transform 0.2s;
-          white-space: nowrap;
-        }
-
-        .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
-
-        .btn-secondary {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          background: transparent;
-          color: var(--teal);
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
-          font-size: 10px;
-          font-weight: 400;
-          letter-spacing: 2px;
-          text-transform: uppercase;
-          padding: 14px 24px;
-          border-radius: 5px;
-          border: 1px solid var(--teal-border);
-          text-decoration: none;
-          transition: background 0.2s, border-color 0.2s, transform 0.2s;
-          white-space: nowrap;
-        }
-
-        .btn-secondary:hover {
-          background: var(--teal-dim);
-          border-color: var(--teal);
-          transform: translateY(-2px);
-        }
-
         /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
-          .cpf-page { padding: calc(var(--nav-h) + 48px) 32px 60px; }
+          .cpf-page { padding-top: calc(var(--nav-h) + 48px); }
           .skills-grid { grid-template-columns: 1fr 1fr; }
           .process-steps { grid-template-columns: 1fr; gap: 36px; }
           .process-steps::before { display: none; }
           .cta-section { flex-direction: column; align-items: flex-start; }
           .cta-buttons { flex-wrap: wrap; }
-          .truth-block { padding: 28px 28px; }
+          .cpf-truth { padding: 28px 28px; }
         }
 
         @media (max-width: 480px) {
-          .cpf-page { padding: calc(var(--nav-h) + 36px) 20px 48px; }
+          .cpf-page { padding-top: calc(var(--nav-h) + 36px); }
           .skills-grid { grid-template-columns: 1fr; }
           .cta-buttons { flex-direction: column; width: 100%; }
-          .btn-primary, .btn-secondary { justify-content: center; }
-          .truth-block { padding: 24px 20px; }
+          .cpf-truth { padding: 24px 20px; }
         }
       `}</style>
 
-      <div className="cpf-page">
+      <div className="cpf-page s-page">
         {/* Hero */}
-        <div className="hero-eyebrow">Cosa posso fare per te</div>
-        <h1 className="hero-title">
+        <div className="s-eyebrow animate-fade-up">Cosa posso fare per te</div>
+        <h1 className="s-h1 animate-fade-up delay-100">
           Prima ti ascolto.<br />
           <em>Poi capiamo insieme</em><br />
           cosa ti serve davvero.
         </h1>
-        <p className="hero-sub">
+        <p className="cpf-hero-sub">
           Non ho un listino prezzi. Non ho pacchetti preconfezionati.<br />
           Ho un metodo, esperienza, e la volont&agrave; di capire il tuo business prima di dirti qualsiasi cosa.
         </p>
@@ -430,7 +330,7 @@ export default function CosaPossoFarePage() {
 
         </div>
 
-        <div className="divider"></div>
+        <div className="s-divider" style={{ margin: '56px 0' }}></div>
 
         {/* Processo */}
         <div className="process">
@@ -458,7 +358,7 @@ export default function CosaPossoFarePage() {
         </div>
 
         {/* Quote */}
-        <div className="truth-block">
+        <div className="s-quote cpf-truth">
           <p className="truth-text">
             &ldquo;Un imprenditore ha bisogno di qualcuno che gli dica <strong>la verit&agrave;</strong>. Non proiezioni senza fondamenta. Non numeri gonfiati. Il mio obiettivo &egrave; uno solo: <strong>far emergere il potenziale reale del tuo business online.</strong>&rdquo;
           </p>
@@ -471,14 +371,14 @@ export default function CosaPossoFarePage() {
             <p>Zero impegno. Zero pressione.<br />Solo una conversazione onesta sul tuo business.</p>
           </div>
           <div className="cta-buttons">
-            <a href={SITE.whatsapp} className="btn-primary">
+            <a href={SITE.whatsapp} className="s-btn-primary">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
                 <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.335-1.502A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.523-5.172-1.432l-.371-.22-3.762.892.946-3.653-.242-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
               </svg>
               Scrivimi su WA
             </a>
-            <a href={`mailto:${SITE.email}`} className="btn-secondary">
+            <a href={`mailto:${SITE.email}`} className="s-btn-secondary">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
