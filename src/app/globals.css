@@ -124,7 +124,7 @@ body {
 .s-wrap-md    { max-width: 1100px; margin: 0 auto; padding: 0 60px; }
 .s-wrap-sm    { max-width: 900px; margin: 0 auto; padding: 0 60px; }
 .s-section    { margin-bottom: 120px; }
-.s-page       { padding: 60px 60px 120px; max-width: 1400px; margin: 0 auto; }
+.s-page       { padding: 80px 60px 120px; max-width: 1400px; margin: 0 auto; }
 
 /* ── Typography ── */
 .s-eyebrow {

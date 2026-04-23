@@ -96,8 +96,8 @@ export default function HomePage() {
         ═══════════════════════════════════ */
         .hero-grid {
           max-width: 1400px; margin: 0 auto; padding: 80px 60px;
-          display: grid; grid-template-columns: 1fr auto;
-          gap: 80px; align-items: center;
+          display: grid; grid-template-columns: 1fr 260px;
+          gap: 60px; align-items: center;
         }
         .hero-left { display: flex; flex-direction: column; gap: 24px; }
 
@@ -617,6 +617,7 @@ export default function HomePage() {
           .hero-sub { margin-left: auto; margin-right: auto; }
           .fcmo-grid { grid-template-columns: 1fr; }
           .tl-cards { grid-template-columns: repeat(2, 1fr); }
+          .reviews-grid-3 { grid-template-columns: 1fr !important; }
           .brain-grid { grid-template-columns: 1fr; }
           .brain-orbits-wrap { min-height: 300px; }
           .brain-orbits { width: 300px; height: 300px; }
@@ -1012,6 +1013,61 @@ export default function HomePage() {
         </p>
 
         <CasesCarousel />
+      </div>
+
+      <div className="hp-wrap"><div className="hp-divider" /></div>
+
+      {/* ════════════════════════════════════════
+          8b. RECENSIONI — dal punto di vista dell'imprenditore
+      ════════════════════════════════════════ */}
+      <div className="hp-wrap hp-section">
+        <div style={{ textAlign: "center", marginBottom: "48px" }}>
+          <div className="hp-eyebrow">Chi ha lavorato con me</div>
+          <h2 className="hp-h2">
+            Non ti dico io <em>come lavoro.</em><br />Te lo dicono loro.
+          </h2>
+        </div>
+        <div className="reviews-grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }}>
+          <div style={{ border: "1px solid rgba(0,255,252,0.12)", borderRadius: "10px", padding: "28px 24px", background: "rgba(0,255,252,0.02)" }}>
+            <div style={{ fontFamily: "var(--font-playfair), 'Playfair Display', serif", fontSize: "40px", color: "var(--teal)", opacity: 0.2, lineHeight: 1 }}>&ldquo;</div>
+            <p style={{ fontSize: "14px", color: "var(--text)", lineHeight: 1.8, fontStyle: "italic", margin: "8px 0 20px" }}>
+              La cosa che mi ha colpito &egrave; che non ha provato a vendermi nulla. Mi ha ascoltato, ha analizzato i numeri e mi ha detto esattamente dove stavo sbagliando. In 4 mesi il fatturato &egrave; triplicato.
+            </p>
+            <div style={{ borderTop: "1px solid rgba(0,255,252,0.08)", paddingTop: "16px", display: "flex", alignItems: "center", gap: "12px" }}>
+              <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "rgba(0,255,252,0.08)", border: "1px solid rgba(0,255,252,0.15)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: 700, color: "var(--teal)" }}>MR</div>
+              <div>
+                <div style={{ fontSize: "13px", fontWeight: 500, color: "var(--text)" }}>Marco R.</div>
+                <div style={{ fontSize: "10px", color: "var(--text-dim)" }}>Imprenditore, E-commerce</div>
+              </div>
+            </div>
+          </div>
+          <div style={{ border: "1px solid rgba(0,255,252,0.12)", borderRadius: "10px", padding: "28px 24px", background: "rgba(0,255,252,0.02)" }}>
+            <div style={{ fontFamily: "var(--font-playfair), 'Playfair Display', serif", fontSize: "40px", color: "var(--teal)", opacity: 0.2, lineHeight: 1 }}>&ldquo;</div>
+            <p style={{ fontSize: "14px", color: "var(--text)", lineHeight: 1.8, fontStyle: "italic", margin: "8px 0 20px" }}>
+              Finalmente qualcuno che parla la mia lingua. Non mi ha sommerso di sigle &mdash; mi ha spiegato dove andavano i miei soldi e cosa potevamo fare meglio. Mi sono sentito capito, non venduto.
+            </p>
+            <div style={{ borderTop: "1px solid rgba(0,255,252,0.08)", paddingTop: "16px", display: "flex", alignItems: "center", gap: "12px" }}>
+              <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "rgba(0,255,252,0.08)", border: "1px solid rgba(0,255,252,0.15)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: 700, color: "var(--teal)" }}>AB</div>
+              <div>
+                <div style={{ fontSize: "13px", fontWeight: 500, color: "var(--text)" }}>Andrea B.</div>
+                <div style={{ fontSize: "10px", color: "var(--text-dim)" }}>Founder, Corso Online</div>
+              </div>
+            </div>
+          </div>
+          <div style={{ border: "1px solid rgba(0,255,252,0.12)", borderRadius: "10px", padding: "28px 24px", background: "rgba(0,255,252,0.02)" }}>
+            <div style={{ fontFamily: "var(--font-playfair), 'Playfair Display', serif", fontSize: "40px", color: "var(--teal)", opacity: 0.2, lineHeight: 1 }}>&ldquo;</div>
+            <p style={{ fontSize: "14px", color: "var(--text)", lineHeight: 1.8, fontStyle: "italic", margin: "8px 0 20px" }}>
+              Avevo gi&agrave; provato due agenzie. Con Nicola &egrave; stato diverso: mi ha detto subito che met&agrave; di quello che facevo era inutile. Duro da sentire, ma era vero. Ora spendo meno e guadagno di pi&ugrave;.
+            </p>
+            <div style={{ borderTop: "1px solid rgba(0,255,252,0.08)", paddingTop: "16px", display: "flex", alignItems: "center", gap: "12px" }}>
+              <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "rgba(0,255,252,0.08)", border: "1px solid rgba(0,255,252,0.15)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: 700, color: "var(--teal)" }}>FD</div>
+              <div>
+                <div style={{ fontSize: "13px", fontWeight: 500, color: "var(--text)" }}>Francesca D.</div>
+                <div style={{ fontSize: "10px", color: "var(--text-dim)" }}>Imprenditrice, Retail</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="hp-wrap"><div className="hp-divider" /></div>
