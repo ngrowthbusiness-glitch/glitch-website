@@ -371,8 +371,8 @@ export default function HomePage() {
         .review-card {
           flex: 0 0 calc(50% - 12px); min-width: 340px;
           border: 1px solid rgba(255,255,255,0.08); border-radius: 10px;
-          padding: 32px 28px; background: rgba(255,255,255,0.02);
-          display: flex; flex-direction: column; gap: 16px;
+          padding: 28px 24px; background: rgba(255,255,255,0.02);
+          display: flex; flex-direction: column; gap: 12px;
           transition: all 0.5s cubic-bezier(0.4,0,0.2,1);
           opacity: 0.35; transform: scale(0.95);
         }
@@ -1491,30 +1491,39 @@ const REVIEWS = [
     name: "Marco R.",
     role: "CEO, Brand Nutrition",
     initials: "MR",
+    caseHref: "/cosa-ho-fatto/balance-nutrition",
+    metric: "+200% fatturato",
   },
   {
-    text: "Non ci ha venduto campagne. Ci ha dato una direzione. Per la prima volta sappiamo esattamente cosa funziona, cosa no, e perch\u00e9.",
+    text: "Budget di 3mila euro e ci ha portato 19mila di revenue. Il lancio \u00e8 stato chirurgico: CPL a 1 euro, 3000 iscritti, show-up al 20%. Non avevo mai visto numeri cos\u00ec.",
     name: "Andrea B.",
-    role: "Founder, E-commerce Fashion",
+    role: "Founder, Corso Yoga Online",
     initials: "AB",
+    caseHref: "/cosa-ho-fatto/lancio-yoga",
+    metric: "\u20ac19K da \u20ac3K",
   },
   {
-    text: "Lavorare con Nicola \u00e8 diverso. Non \u00e8 un fornitore, \u00e8 qualcuno che pensa al tuo progetto come se fosse il suo. E i risultati si vedono.",
+    text: "Pagavamo 25 euro a lead e i competitor stavano a 10. Nicola ha rifatto landing e creative da zero. Adesso siamo a 4,50 con l\u201980% di lead qualificati.",
     name: "Laura M.",
-    role: "Direttrice Marketing, B2B Services",
+    role: "Direttrice Marketing, Autonoleggio",
     initials: "LM",
+    caseHref: "/cosa-ho-fatto/autonoleggio",
+    metric: "CPL \u20ac4,50",
   },
   {
     text: "Il setup AI che ci ha costruito ci fa risparmiare almeno 15 ore a settimana. Non pensavo fosse possibile avere tutto il contesto aziendale sempre accessibile cos\u00ec.",
     name: "Giovanni T.",
     role: "COO, SaaS Startup",
     initials: "GT",
+    metric: "~15h/sett",
   },
   {
-    text: "Avevamo speso 50K in agenzie senza capire dove andassero i soldi. Nicola in 30 giorni ci ha mostrato esattamente il problema. Ora investiamo la met\u00e0 con il doppio dei risultati.",
+    text: "ROAS 16 su un settore commodity come i pneumatici. La strategia stagionale che ha impostato funziona da sola, mese dopo mese.",
     name: "Francesca D.",
-    role: "Imprenditrice, Retail",
+    role: "E-commerce Manager, Pneumatici",
     initials: "FD",
+    caseHref: "/cosa-ho-fatto/pneumatici",
+    metric: "ROAS 16",
   },
 ];
 
@@ -1582,14 +1591,28 @@ function ReviewsCarousel() {
                 data-active={i === 0 ? "true" : "false"}
                 data-adjacent={i === 1 ? "true" : "false"}
               >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
                 <div className="review-quote-icon">&ldquo;</div>
-                <div className="review-text">{r.text}</div>
-                <div className="review-author">
-                  <div className="review-avatar">{r.initials}</div>
-                  <div className="review-author-info">
-                    <div className="review-author-name">{r.name}</div>
-                    <div className="review-author-role">{r.role}</div>
+                {r.metric && (
+                  <div style={{ fontSize: "11px", letterSpacing: "1px", color: "var(--teal)", fontWeight: 600, padding: "4px 10px", borderRadius: "4px", border: "1px solid rgba(0,255,252,0.2)", background: "rgba(0,255,252,0.05)", whiteSpace: "nowrap" }}>
+                    {r.metric}
                   </div>
+                )}
+              </div>
+                <div className="review-text">{r.text}</div>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "auto" }}>
+                  <div className="review-author">
+                    <div className="review-avatar">{r.initials}</div>
+                    <div className="review-author-info">
+                      <div className="review-author-name">{r.name}</div>
+                      <div className="review-author-role">{r.role}</div>
+                    </div>
+                  </div>
+                  {r.caseHref && (
+                    <a href={r.caseHref} style={{ fontSize: "9px", letterSpacing: "1.5px", textTransform: "uppercase", color: "var(--teal)", textDecoration: "none", opacity: 0.7, transition: "opacity 0.2s" }}>
+                      Caso studio &rarr;
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
