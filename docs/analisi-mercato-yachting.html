@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Mercato Yacht Broker/Dealer — Analisi posizionamento per outreach Timone</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #0a0e0d;
+    color: #e8f5f2;
+    line-height: 1.6;
+    padding: 40px 20px;
+  }
+  .wrap { max-width: 1280px; margin: 0 auto; }
+  h1 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    color: #00fffc;
+    letter-spacing: -0.02em;
+  }
+  h2 {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin: 60px 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 255, 252, 0.22);
+    color: #e8f5f2;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 24px 0 8px;
+    color: #00fffc;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  p { margin-bottom: 12px; max-width: 780px; }
+  .lead {
+    font-size: 17px;
+    color: rgba(232, 245, 242, 0.7);
+    max-width: 780px;
+    margin-bottom: 40px;
+  }
+  .eyebrow {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(0, 255, 252, 0.6);
+    margin-bottom: 8px;
+  }
+
+  /* Mappa SVG */
+  .map-wrap {
+    background: rgba(0, 255, 252, 0.03);
+    border: 1px solid rgba(0, 255, 252, 0.15);
+    border-radius: 4px;
+    padding: 24px;
+    margin: 24px 0;
+    overflow-x: auto;
+  }
+  svg.map { width: 100%; min-width: 800px; height: auto; display: block; }
+
+  /* Cards player */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .card {
+    background: rgba(232, 245, 242, 0.04);
+    border: 1px solid rgba(0, 255, 252, 0.12);
+    border-radius: 4px;
+    padding: 20px;
+  }
+  .card-cluster {
+    border-left: 3px solid #00fffc;
+  }
+  .card-broker { border-left-color: #00fffc; }
+  .card-dealer { border-left-color: #ffb300; }
+  .card-marketplace { border-left-color: #b388ff; }
+  .card-media { border-left-color: #ff5252; }
+
+  .card .name {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  .card .tag {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(0, 255, 252, 0.7);
+    margin-bottom: 12px;
+  }
+  .card .meta {
+    font-size: 13px;
+    color: rgba(232, 245, 242, 0.6);
+    margin-bottom: 12px;
+  }
+  .card .pos {
+    font-size: 14px;
+    color: rgba(232, 245, 242, 0.85);
+    margin-bottom: 12px;
+  }
+  .card .strong {
+    font-size: 13px;
+    color: rgba(0, 255, 252, 0.85);
+    border-top: 1px dashed rgba(0, 255, 252, 0.2);
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+
+  /* Tabella */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  th, td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 255, 252, 0.12);
+    vertical-align: top;
+  }
+  th {
+    background: rgba(0, 255, 252, 0.06);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    color: #00fffc;
+  }
+  tr:hover td { background: rgba(232, 245, 242, 0.02); }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 16px 0 24px;
+    font-size: 13px;
+  }
+  .legend-item { display: flex; align-items: center; gap: 8px; }
+  .legend-dot {
+    width: 12px; height: 12px; border-radius: 50%;
+  }
+
+  .callout {
+    background: rgba(0, 255, 252, 0.06);
+    border-left: 3px solid #00fffc;
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .callout strong { color: #00fffc; }
+
+  .gap-list {
+    list-style: none;
+    counter-reset: gap;
+    margin: 16px 0;
+  }
+  .gap-list li {
+    counter-increment: gap;
+    padding: 14px 0 14px 56px;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 255, 252, 0.1);
+  }
+  .gap-list li:before {
+    content: counter(gap, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    font-family: Georgia, serif;
+    font-size: 32px;
+    color: rgba(0, 255, 252, 0.5);
+  }
+  .gap-list .gap-title {
+    font-weight: 600;
+    color: #00fffc;
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+  .gap-list .gap-desc {
+    font-size: 14px;
+    color: rgba(232, 245, 242, 0.8);
+  }
+
+  .footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0, 255, 252, 0.15);
+    font-size: 12px;
+    color: rgba(232, 245, 242, 0.4);
+  }
+
+  .pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.05em;
+    background: rgba(0, 255, 252, 0.1);
+    color: #00fffc;
+    margin-right: 6px;
+  }
+  .pill-warn {
+    background: rgba(255, 179, 0, 0.12);
+    color: #ffb300;
+  }
+  .pill-danger {
+    background: rgba(255, 82, 82, 0.12);
+    color: #ff8a8a;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="eyebrow">Studio per outreach · Timone Yachts · 28 aprile 2026</div>
+<h1>Mercato Yacht Broker / Dealer</h1>
+<p class="lead">Mappa di posizionamento, lacune di Timone Yachts rispetto al benchmark, e opportunita di mossa digitale per riposizionarsi come autorita del Nord-Adriatico nel pre-owned. Documento operativo, non commerciale.</p>
+
+
+<h2>1. Come si muove il mercato — in 90 secondi</h2>
+
+<p>Il mercato del brokeraggio/dealing yacht si divide in <strong>quattro cluster</strong>, ciascuno con dinamiche, target e leve digitali differenti.</p>
+
+<div class="grid">
+  <div class="card card-broker">
+    <div class="name">Broker globali ultra-luxury</div>
+    <div class="tag">Cluster A · Posizionamento autorita</div>
+    <div class="meta">Fraser · Camper &amp; Nicholsons · Burgess · Northrop &amp; Johnson · Edmiston</div>
+    <div class="pos">Vendono yacht da 30 a 100+ metri (€15M-€200M+). Sede a Monaco / Londra / Fort Lauderdale. Modello: broker puro, full-service (sales, charter, refit, crew, management).</div>
+    <div class="strong">Leva digitale: <strong>autorita di mercato</strong>. Pubblicano report annuali, magazine, hub editoriali a 1.000+ articoli, 70k-120k follower IG. Il sito vende il "dopo" (lifestyle), il broker chiude offline.</div>
+  </div>
+
+  <div class="card card-dealer">
+    <div class="name">Dealer territoriali (mid-luxury)</div>
+    <div class="tag">Cluster B · Posizionamento prodotto</div>
+    <div class="meta">Italian Yacht Store · Gaio Yacht · Timone Yachts · Lion's Yachts</div>
+    <div class="pos">Vendono yacht da 10 a 35m (€500K-€10M+) con territorio esclusivo. Modello: rivenditore di un singolo cantiere (Azimut, Ferretti, Sanlorenzo, Princess) + brokerage usato della stessa categoria.</div>
+    <div class="strong">Leva attuale: <strong>esclusivita di marchio + presidio territoriale</strong>. Sito = vetrina prodotto. Funnel digitale assente o embrionale. Vendono via fiere, passaparola, network locale.</div>
+  </div>
+
+  <div class="card card-marketplace">
+    <div class="name">Marketplace MLS</div>
+    <div class="tag">Cluster C · Aggregazione SEO</div>
+    <div class="meta">YachtWorld · Boat Trader · TheYachtMarket</div>
+    <div class="pos">Aggregatori di listing da broker e dealer. YachtWorld ha 4M shopper/mese. Modello: subscription broker + lead pass-through.</div>
+    <div class="strong">Leva: <strong>volume search</strong>. I broker pagano (in salita +275% in 13 mesi). Per un dealer e canale obbligato ma costoso e non differenziante.</div>
+  </div>
+
+  <div class="card card-media">
+    <div class="name">Media + dato + community</div>
+    <div class="tag">Cluster D · Ecosistema</div>
+    <div class="meta">Boat International · SuperYacht Times · Yachting Magazine</div>
+    <div class="pos">Modello editoriale + database B2B SaaS (BoatPro) + eventi (World Superyacht Awards). Boat International e il "Bloomberg" del settore: il dato si compra.</div>
+    <div class="strong">Leva: <strong>autorita del dato</strong>. Citati come fonte da quasi tutti i broker. Modello non replicabile da un dealer, ma il pattern "diventa la fonte del dato" e replicabile in piccolo (Osservatorio territoriale).</div>
+  </div>
+</div>
+
+<div class="callout">
+  <strong>Punto chiave.</strong> I broker globali non vendono yacht migliori. Vendono <strong>autorita</strong>. La loro macchina digitale costruisce la percezione "questi sono il riferimento del settore", e il transato (offline) ne segue. Per un dealer territoriale come Timone questo significa: non si compete con Fraser sul prodotto, si copia il <em>metodo di costruzione dell'autorita</em> e lo si applica a un perimetro definito (es. Nord-Adriatico).
+</div>
+
+
+<h2>2. Mappa di posizionamento — i 10 player</h2>
+
+<p>Asse orizzontale: <strong>focus del business</strong> (transazione singola → autorita di settore). Asse verticale: <strong>livello prezzo medio</strong> (mid-luxury → ultra-luxury). I 4 colori = i 4 cluster.</p>
+
+<div class="legend">
+  <div class="legend-item"><span class="legend-dot" style="background:#00fffc"></span> Broker globali</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#ffb300"></span> Dealer territoriali</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#b388ff"></span> Marketplace</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#ff5252"></span> Media + dato</div>
+</div>
+
+<div class="map-wrap">
+<svg class="map" viewBox="0 0 1100 620" xmlns="http://www.w3.org/2000/svg">
+  <!-- Griglia di sfondo -->
+  <defs>
+    <pattern id="grid" width="100" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 100 0 L 0 0 0 60" fill="none" stroke="rgba(0,255,252,0.06)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect x="60" y="40" width="1000" height="520" fill="url(#grid)" />
+
+  <!-- Assi -->
+  <line x1="60" y1="560" x2="1060" y2="560" stroke="rgba(232,245,242,0.4)" stroke-width="1.5"/>
+  <line x1="60" y1="40" x2="60" y2="560" stroke="rgba(232,245,242,0.4)" stroke-width="1.5"/>
+
+  <!-- Etichette assi -->
+  <text x="560" y="600" fill="rgba(232,245,242,0.7)" font-family="monospace" font-size="12" text-anchor="middle">FOCUS DEL BUSINESS  →  Transazione   ────────   Autorita</text>
+  <text x="20" y="300" fill="rgba(232,245,242,0.7)" font-family="monospace" font-size="12" text-anchor="middle" transform="rotate(-90, 20, 300)">PREZZO MEDIO YACHT  →  Mid   ─────   Ultra-luxury</text>
+
+  <!-- Quadranti annotation -->
+  <text x="220" y="80" fill="rgba(0,255,252,0.4)" font-family="monospace" font-size="10" text-anchor="middle">QUADRANTE: prodotto puro / ultra-luxury</text>
+  <text x="900" y="80" fill="rgba(0,255,252,0.4)" font-family="monospace" font-size="10" text-anchor="middle">QUADRANTE: ultra-luxury con autorita digitale</text>
+  <text x="220" y="540" fill="rgba(0,255,252,0.4)" font-family="monospace" font-size="10" text-anchor="middle">QUADRANTE: dealer territoriali</text>
+  <text x="900" y="540" fill="rgba(0,255,252,0.4)" font-family="monospace" font-size="10" text-anchor="middle">QUADRANTE: hub digitale di settore</text>
+
+  <!-- Linea di divisione orizzontale -->
+  <line x1="60" y1="300" x2="1060" y2="300" stroke="rgba(232,245,242,0.15)" stroke-dasharray="4 4"/>
+
+  <!-- Linea di divisione verticale -->
+  <line x1="560" y1="40" x2="560" y2="560" stroke="rgba(232,245,242,0.15)" stroke-dasharray="4 4"/>
+
+  <!-- =========== PUNTI =========== -->
+
+  <!-- Burgess: ultra-luxury, alta autorita -->
+  <circle cx="900" cy="120" r="14" fill="#00fffc" opacity="0.8"/>
+  <text x="900" y="124" fill="#0a0e0d" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">B</text>
+  <text x="900" y="100" fill="#00fffc" font-size="12" text-anchor="middle">Burgess</text>
+
+  <!-- Fraser: ultra-luxury, autorita massima (top) -->
+  <circle cx="980" cy="100" r="16" fill="#00fffc"/>
+  <text x="980" y="105" fill="#0a0e0d" font-size="10" font-family="monospace" text-anchor="middle" font-weight="bold">F</text>
+  <text x="980" y="78" fill="#00fffc" font-size="13" text-anchor="middle" font-weight="bold">Fraser</text>
+
+  <!-- Camper & Nicholsons -->
+  <circle cx="870" cy="160" r="13" fill="#00fffc" opacity="0.85"/>
+  <text x="870" y="164" fill="#0a0e0d" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">C&amp;N</text>
+  <text x="870" y="186" fill="#00fffc" font-size="12" text-anchor="middle">Camper &amp; Nicholsons</text>
+
+  <!-- Northrop & Johnson -->
+  <circle cx="940" cy="170" r="14" fill="#00fffc" opacity="0.85"/>
+  <text x="940" y="174" fill="#0a0e0d" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">NJ</text>
+  <text x="940" y="196" fill="#00fffc" font-size="12" text-anchor="middle">Northrop &amp; Johnson</text>
+
+  <!-- Edmiston -->
+  <circle cx="820" cy="130" r="13" fill="#00fffc" opacity="0.8"/>
+  <text x="820" y="134" fill="#0a0e0d" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">E</text>
+  <text x="820" y="110" fill="#00fffc" font-size="12" text-anchor="middle">Edmiston</text>
+
+  <!-- Italian Yacht Group: mid-upper, autorita media -->
+  <circle cx="700" cy="350" r="11" fill="#00fffc" opacity="0.7"/>
+  <text x="700" y="354" fill="#0a0e0d" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">IYG</text>
+  <text x="700" y="376" fill="#00fffc" font-size="12" text-anchor="middle">Italian Yacht Group</text>
+
+  <!-- Denison: mid-upper, autorita alta (FRANK Magazine) -->
+  <circle cx="780" cy="290" r="13" fill="#00fffc" opacity="0.75"/>
+  <text x="780" y="294" fill="#0a0e0d" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">D</text>
+  <text x="780" y="276" fill="#00fffc" font-size="12" text-anchor="middle">Denison</text>
+
+  <!-- Italian Yacht Store: dealer territoriale, transazione -->
+  <circle cx="220" cy="440" r="11" fill="#ffb300" opacity="0.85"/>
+  <text x="220" y="444" fill="#0a0e0d" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">IYS</text>
+  <text x="220" y="466" fill="#ffb300" font-size="12" text-anchor="middle">Italian Yacht Store</text>
+
+  <!-- Timone Yachts: come IYS, leggermente diverso -->
+  <circle cx="200" cy="470" r="14" fill="#ffb300"/>
+  <text x="200" y="475" fill="#0a0e0d" font-size="10" font-family="monospace" text-anchor="middle" font-weight="bold">T</text>
+  <text x="200" y="500" fill="#ffb300" font-size="13" text-anchor="middle" font-weight="bold">Timone Yachts</text>
+
+  <!-- Gaio Yacht: dealer puro -->
+  <circle cx="170" cy="490" r="10" fill="#ffb300" opacity="0.75"/>
+  <text x="170" y="494" fill="#0a0e0d" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">G</text>
+  <text x="170" y="514" fill="#ffb300" font-size="11" text-anchor="middle">Gaio Yacht</text>
+
+  <!-- YachtWorld: marketplace -->
+  <circle cx="450" cy="380" r="12" fill="#b388ff" opacity="0.75"/>
+  <text x="450" y="384" fill="#0a0e0d" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">YW</text>
+  <text x="450" y="406" fill="#b388ff" font-size="12" text-anchor="middle">YachtWorld</text>
+
+  <!-- Boat International: media + autorita -->
+  <circle cx="1010" cy="240" r="14" fill="#ff5252" opacity="0.85"/>
+  <text x="1010" y="244" fill="#0a0e0d" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">BI</text>
+  <text x="1010" y="222" fill="#ff5252" font-size="12" text-anchor="middle">Boat International</text>
+
+  <!-- Freccia obiettivo Timone -->
+  <line x1="200" y1="460" x2="660" y2="320" stroke="#00fffc" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#00fffc"/>
+    </marker>
+  </defs>
+  <text x="430" y="380" fill="#00fffc" font-size="11" font-family="monospace" font-style="italic">→ traiettoria di posizionamento proponibile</text>
+
+  <!-- Posizione obiettivo -->
+  <circle cx="660" cy="320" r="20" fill="none" stroke="#00fffc" stroke-width="2" stroke-dasharray="3 3"/>
+  <text x="660" y="325" fill="#00fffc" font-size="9" font-family="monospace" text-anchor="middle">target</text>
+
+</svg>
+</div>
+
+<div class="callout">
+  <strong>Lettura della mappa.</strong> Timone (T) e oggi nello stesso quadrante di Italian Yacht Store (IYS) e Gaio: dealer territoriale, focus transazione, mid-luxury. Il cerchio tratteggiato indica una <strong>traiettoria di posizionamento proponibile</strong>: spostarsi verso destra (autorita di settore) restando ancorati al territorio Nord-Adriatico. Non si gioca contro Fraser, si gioca contro la <em>versione futura di Italian Yacht Store che ancora non esiste</em>.
+</div>
+
+
+<h2>3. Posizionamento dei 10 player — analisi puntuale</h2>
+
+<table>
+<thead>
+<tr>
+  <th>Player</th>
+  <th>Cluster</th>
+  <th>Posizionamento dichiarato in homepage</th>
+  <th>Asset di autorita</th>
+  <th>Lezione per Timone</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+  <td><strong>Fraser</strong></td>
+  <td><span class="pill">Broker globale</span></td>
+  <td>Yacht 30-100m+, $7.4B portfolio, 75 anni, 21 uffici, 240 specialisti. "The world's leading luxury yacht specialist."</td>
+  <td><strong>Global Superyacht Market Report</strong> (lead magnet flagship), 1.247 articoli editoriali, 123k follower IG</td>
+  <td>Il "Market Report annuale" e l'asset che chiude la categoria. Replicabile in scala territoriale.</td>
+</tr>
+
+<tr>
+  <td><strong>Camper &amp; Nicholsons</strong></td>
+  <td><span class="pill">Broker globale</span></td>
+  <td>"Founded in 1782." Heritage massima. Yacht 30m+, 10 servizi distinti.</td>
+  <td><strong>RADAR newsletter mensile a 65k contatti</strong>, Superyacht Market Report annuale</td>
+  <td>L'heritage si dichiara una volta. La newsletter segmentata e l'asset che la rende viva.</td>
+</tr>
+
+<tr>
+  <td><strong>Burgess</strong></td>
+  <td><span class="pill">Broker globale</span></td>
+  <td>"The luxury superyacht authority." Yacht 30m+ esclusivi, 14 uffici globali.</td>
+  <td><strong>Editorial 4 categorie</strong>, 360° tour library, Impact Report annuale, newsletter segmentata Buy/Charter/Build/News, 109k follower IG</td>
+  <td>La newsletter <strong>segmentata a opt-in</strong> e una mossa replicabile a costo zero.</td>
+</tr>
+
+<tr>
+  <td><strong>Northrop &amp; Johnson</strong></td>
+  <td><span class="pill">Broker globale</span></td>
+  <td>"The authority on yachting." Yacht 30m+, full-service.</td>
+  <td><strong>Navigator</strong> (magazine 9 categorie incluse Watches, Aviation, Estate, Auto), <strong>2 PDF guide gated</strong> Buyer + Charter, CTA segmentate per servizio</td>
+  <td>Il content hub multi-categoria intercetta l'HNW dove vive lo stile di vita, non solo dove cerca yacht.</td>
+</tr>
+
+<tr>
+  <td><strong>Edmiston</strong></td>
+  <td><span class="pill">Broker globale</span></td>
+  <td>Yacht ultra-luxury 40-115m, prezzi €24M-€195M. "Beyond the superyacht, the Edmiston lifestyle."</td>
+  <td><strong>Edmiston Presents</strong> (eventi proprietari), "16 yacht in 16 settimane Q1 2026" come dichiarazione pubblica</td>
+  <td>Il social proof transazionale <strong>datato e numerato</strong> e piu potente del social proof storico.</td>
+</tr>
+
+<tr>
+  <td><strong>Denison Yacht Sales</strong></td>
+  <td><span class="pill">Broker globale</span></td>
+  <td>Mid-large market US, "Selling the yachting lifestyle." Full-service.</td>
+  <td><strong>FRANK Magazine</strong> (rivista cartacea/digitale 164 pagine), Video Library + Virtual Tour Library separate, HubSpot CRM, wishlist con account utente</td>
+  <td>La rivista cartacea e unica del settore. L'idea: <em>quale formato fisico/distinguibile mancherebbe nel Nord-Adriatico?</em></td>
+</tr>
+
+<tr>
+  <td><strong>Italian Yacht Group</strong></td>
+  <td><span class="pill">Broker globale</span></td>
+  <td>Broker US-based di yacht italiani. 454 transazioni, $1B+ vendite.</td>
+  <td><strong>Yacht Finder con 8 filtri profondi</strong>, "Market Evaluation" form-based, "Notable Transactions"</td>
+  <td>Il form di valutazione yacht usato cattura la lead piu calda del settore (chi sta vendendo).</td>
+</tr>
+
+<tr>
+  <td><strong>Italian Yacht Store</strong></td>
+  <td><span class="pill pill-warn">Dealer territoriale</span></td>
+  <td>Dealer ufficiale Ferretti / Pershing / Itama / Custom Line. Esclusivita di marchio + brokerage usato. Sede Jesolo.</td>
+  <td>"30+ anni di esperienza" generica. <strong>Nessun lead magnet, nessun blog editoriale strutturato.</strong></td>
+  <td>Competitor diretto territoriale ma <strong>altrettanto debole digitalmente</strong>. La categoria "autorita digitale Nord-Adriatico" e vacante.</td>
+</tr>
+
+<tr>
+  <td><strong>Gaio Yacht</strong></td>
+  <td><span class="pill pill-warn">Dealer territoriale</span></td>
+  <td>Dealer Azimut Sud Italia. Posizionamento territoriale puro (Salento).</td>
+  <td>Funnel digitale assente. Solo "News" minimali.</td>
+  <td>Benchmark intra-Azimut: il livello digital della rete italiana e basso. Chi alza l'asticella si distingue dentro la rete.</td>
+</tr>
+
+<tr>
+  <td><strong>YachtWorld</strong></td>
+  <td><span class="pill" style="background:rgba(179,136,255,0.15);color:#b388ff;">Marketplace</span></td>
+  <td>"The largest yacht marketplace." 4M shopper/mese, 12 paesi.</td>
+  <td>Modello aggregatore SEO + lead pass-through. Pricing in salita +275%.</td>
+  <td>Canale obbligato per il listing. Non muove il posizionamento: e prezzo del biglietto, non differenziatore.</td>
+</tr>
+
+<tr>
+  <td><strong>Boat International</strong></td>
+  <td><span class="pill" style="background:rgba(255,82,82,0.15);color:#ff8a8a;">Media + dato</span></td>
+  <td>"The leading luxury yachting media." Magazine + BoatPro (B2B SaaS) + eventi.</td>
+  <td><strong>Global Order Book</strong> (database citato da tutti i broker), Superyacht Awards, Directory cantieri/designer.</td>
+  <td>Modello non replicabile in scala. Ma il pattern "diventa la fonte del dato" si applica in piccolo: <strong>Osservatorio Pre-Owned Adriatico</strong>.</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<h2>4. Dove si posiziona Timone oggi — diagnosi sintetica</h2>
+
+<div class="grid">
+  <div class="card">
+    <h3>Cosa comunica il sito</h3>
+    <p>"Dealer ufficiale Azimut + Brokerage. 40 anni di esperienza, oltre 1.500 armatori." Hero con immagine yacht, navigazione classica (Nuovo / Brokerage / Pre-owned / Tender / Refitting / News / Team / Contatti).</p>
+  </div>
+  <div class="card">
+    <h3>Cosa NON comunica</h3>
+    <p>Nessun report, nessun blog editoriale, nessuna sezione "Vendite recenti", nessun virtual tour, nessuna newsletter segmentata. La pagina Team con 12 volti e ben fatta ma <strong>nessuno dei broker ha presenza social organizzata</strong>.</p>
+  </div>
+  <div class="card">
+    <h3>Quale identita ha (oggi)</h3>
+    <p>"Bravo dealer Azimut con territorio esclusivo Nord-Adriatico, scelto da chi gia conosce il marchio." Identita di prodotto + presidio geografico. Non identita di autorita.</p>
+  </div>
+  <div class="card">
+    <h3>Quale identita potrebbe avere</h3>
+    <p>"L'autorita digitale del pre-owned Nord-Adriatico." Hub di dato e contenuto del segmento, non solo rivenditore. La storia di 1.500 armatori diventa <strong>la fonte del dato</strong>, non un claim di marketing.</p>
+  </div>
+</div>
+
+
+<h2>5. Le 5 lacune di Timone vs benchmark — in ordine di leva strategica</h2>
+
+<ol class="gap-list">
+  <li>
+    <div class="gap-title">Manca un asset di autorita di mercato</div>
+    <div class="gap-desc">Fraser, C&amp;N, Burgess, N&amp;J pubblicano ognuno almeno un report annuale o una guida gated. <strong>Italian Yacht Store ha lo stesso vuoto</strong>. La categoria "autorita pre-owned Nord-Adriatico" e vacante. <span class="pill pill-danger">Leva massima sul posizionamento</span></div>
+  </li>
+  <li>
+    <div class="gap-title">Manca un content hub editoriale con frequenza</div>
+    <div class="gap-desc">Solo "News &amp; Eventi" generici. Niente blog, niente magazine, niente video destination. I 1.500 armatori e le 950+ transazioni sono materiale narrativo non sfruttato. <span class="pill pill-warn">Leva alta su SEO + retargeting</span></div>
+  </li>
+  <li>
+    <div class="gap-title">Manca personal branding distribuito dei broker</div>
+    <div class="gap-desc">12 sales mappati nel sito con telefono e mail. Nessuno ha un profilo LinkedIn organizzato. Nel luxury B2B il rapporto e 1-a-1, e i sales che diventano micro-brand portano warm lead diretti. <span class="pill pill-warn">Leva alta su lead qualificati</span></div>
+  </li>
+  <li>
+    <div class="gap-title">Manca tracking e attribution coerenti</div>
+    <div class="gap-desc">Google Ads attivo (AW-738822604) ma niente Meta Pixel, niente LinkedIn Insight, niente Consent Mode v2. Spesa misurata male. <span class="pill">Leva tecnica</span></div>
+  </li>
+  <li>
+    <div class="gap-title">Manca self-service di scoperta yacht usato</div>
+    <div class="gap-desc">In un mercato pre-owned in crescita +129% (febbraio 2026) l'utente vuole filtrare e visualizzare prima di chiamare. Niente Yacht Finder profondo, niente Virtual Tour Library, niente Video Library aggregata. <span class="pill">Leva di conversione</span></div>
+  </li>
+</ol>
+
+
+<h2>6. Sistema digitale di posizionamento — proposta a 12 mesi</h2>
+
+<p>Una possibile architettura — <strong>NON da svelare nell'outreach</strong>, qui solo come riferimento per dimensionare il discorso strategico in call.</p>
+
+<div class="grid">
+  <div class="card card-cluster">
+    <h3>Asset 1 · Osservatorio Pre-Owned Adriatico</h3>
+    <p>Report PDF gated, 16-20 pagine, frequenza annuale + update semestrale. Dati: vendite proprie + benchmark mercato (fonte Boat International / Superyacht Times). Form download = lead capture. <strong>Posiziona Timone come la fonte del dato territoriale.</strong></p>
+  </div>
+  <div class="card card-cluster">
+    <h3>Asset 2 · Editorial hub a 4 categorie</h3>
+    <p>Mercato / Tecnica / Lifestyle / Storie armatori. Frequenza: 2-4 articoli/mese. Modello Burgess scalato. Costruisce SEO long-tail + materiale per newsletter + retargeting cookie.</p>
+  </div>
+  <div class="card card-cluster">
+    <h3>Asset 3 · Newsletter segmentata Buy / Sell / Refit / Eventi</h3>
+    <p>Modello Burgess. Su 1.500 armatori storici + traffico organico, in 12 mesi una lista 5-10k segmentata e realistica. Asset proprietario indipendente da Meta/Google.</p>
+  </div>
+  <div class="card card-cluster">
+    <h3>Asset 4 · Pagina "Vendi il tuo yacht"</h3>
+    <p>Form 8 campi (modello Italian Yacht Group). Cattura la lead piu calda del settore: chi sta vendendo. Assegnazione automatica a broker interno. Lead a valore 10-50x della lead "voglio info".</p>
+  </div>
+  <div class="card card-cluster">
+    <h3>Asset 5 · Personal branding distribuito (10 broker)</h3>
+    <p>LinkedIn coordinato per i 10 broker piu attivi. Calendario contenuti centralizzato (marketing) + esecuzione del singolo. Modello "loro postano, marketing fornisce". Genera warm lead 1-a-1.</p>
+  </div>
+  <div class="card card-cluster">
+    <h3>Asset 6 · Tracking server-side + Consent Mode v2</h3>
+    <p>Implementazione GTM server-side, Meta Pixel + Conversion API, Consent Mode v2. Penalizzazione bidding Google (da luglio 2024) rimossa. Spesa attuale Google Ads ottimizzata del 20-30% senza alzare budget.</p>
+  </div>
+</div>
+
+<div class="callout">
+  <strong>Logica del sistema.</strong> I 6 asset sono interdipendenti: l'Osservatorio (1) genera la newsletter (3), che alimenta il blog (2) tramite contenuti riconvertiti, che cattura lead per il "Vendi il tuo yacht" (4), che il personal branding (5) chiude offline. Il tracking (6) misura tutto. Insieme costruiscono un'<strong>identita di autorita</strong> — non solo migliorano la conversione.
+</div>
+
+
+<h2>7. Domande aperte per Nicola</h2>
+
+<p>Le 3 domande che, una volta risposte, definiscono la versione finale di questa analisi e l'angolo dell'outreach:</p>
+
+<ol class="gap-list">
+  <li>
+    <div class="gap-title">Posizionamento o conversione?</div>
+    <div class="gap-desc">Vogliamo proporre a Timone <strong>autorita di mercato</strong> (lungo termine, sposta pricing power) o <strong>piu lead nel funnel</strong> (breve termine, sposta volumi)?</div>
+  </li>
+  <li>
+    <div class="gap-title">Battaglia con Italian Yacht Store o salto di categoria?</div>
+    <div class="gap-desc"><strong>Competizione frontale</strong> dealer-vs-dealer (chi vende meglio gli yacht Azimut/Ferretti) <strong>o salto di categoria</strong> (Timone diventa hub digitale del Nord-Adriatico, IYS resta dealer e basta)?</div>
+  </li>
+  <li>
+    <div class="gap-title">Ticket medio o volume?</div>
+    <div class="gap-desc">Strategia per <strong>aumentare il ticket medio</strong> (clienti su yacht piu grandi, margini migliori) o per <strong>accelerare il volume di transazioni</strong> (piu vendite, ciclo piu corto)?</div>
+  </li>
+</ol>
+
+
+<div class="footer">
+  Analisi prodotta a partire da: brief prospect Timone Yachts (24/04/2026) + studio comparativo competitor (24/04/2026). Versione 1.0 — da raffinare con risposte alle 3 domande aperte.
+  <br>Posizionamento approssimato sulla mappa, da validare con dati interni se disponibili.
+</div>
+
+</div>
+</body>
+</html>

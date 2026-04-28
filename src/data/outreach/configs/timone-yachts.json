@@ -1,0 +1,72 @@
+{
+  "slug": "timone-yachts",
+  "version": "v5",
+
+  "prospect": {
+    "companyName": "Timone Yachts",
+    "contactName": "Matteo",
+    "contactRole": "Marketing & Communication Manager",
+    "sector": "Yacht brokerage / dealer Azimut"
+  },
+
+  "hero": {
+    "eyebrow": "ANALISI PRIVATA · TIMONE YACHTS",
+    "headline": "È possibile elevare ancora il vostro posizionamento?",
+    "subheadline": "Queste sono alcune opportunità che ho visto io. Le vedi anche tu? Sbaglio?",
+    "signature": "Nicola Serrao · Fractional CMO",
+    "videoUrl": "https://www.youtube.com/embed/Pr3le_w6D1Q?rel=0&modestbranding=1&playsinline=1",
+    "videoAspect": "9/16"
+  },
+
+  "closing": {
+    "title": "QUELLO CHE HO VISTO",
+    "introNote": "Sono ipotesi, non sentenze. Le ho fatte in 24 ore di studio del vostro mercato. Se mi smentisci, anche meglio."
+  },
+
+  "observations": [
+    {
+      "label": "01 · POSIZIONAMENTO",
+      "title": "C'è uno spazio editoriale che nessuno sta occupando.",
+      "body": "I top globali — Fraser, Burgess, Camper & Nicholsons — non vendono yacht migliori dei vostri. Vendono autorità di mercato, e lo fanno con magazine, report annuali, hub editoriali. Voi avete il materiale (40 anni di mestiere, 1.500 armatori, territorio esclusivo Azimut), ma manca il sistema digitale dove farlo vivere. Italian Yacht Store ha lo stesso vuoto. Lo spazio del Nord-Adriatico mid-luxury è vacante: chi lo occupa per primo si appropria della categoria.\n\nLo trovate sensato?"
+    },
+    {
+      "label": "02 · MERCATO",
+      "title": "Il pre-owned è in crescita. Avete un asset digitale che lo intercetta?",
+      "body": "La compravendita di yacht usati è in forte espansione — il segmento globale ha chiuso il 2025 a circa 7,5 miliardi di euro, e sta crescendo nel 2026. Il pre-owned rappresenta già il 35% del vostro fatturato.\n\nMi chiedo se avete oggi asset digitali pensati per intercettare questa domanda — una sezione dedicata, una newsletter sui listing pre-owned, un lead magnet per chi sta valutando di vendere — o se è qualcosa che state esplorando.\n\nQui ho l'impressione che ci sia margine concreto."
+    }
+  ],
+
+  "conditions": "Lavoro con massimo tre clienti per volta, e di ognuno mi prendo la responsabilità piena dei risultati. Se dopo 15-20 minuti di call vediamo entrambi le condizioni, partiamo. Se non le vediamo, ti dico cosa farei al posto tuo e ci salutiamo.\n\nNon vendo soluzioni che non servono.",
+
+  "cta": {
+    "primaryText": "Parliamone — 15-20 minuti",
+    "primaryHref": "https://wa.me/393385691369?text=Ciao%20Nicola%2C%20ho%20visto%20la%20pagina%20per%20Timone%20Yachts%20e%20vorrei%20fissare%20una%20chiamata.",
+    "secondaryText": "Oppure rispondi alla mail",
+    "whatsappHref": "https://wa.me/393385691369"
+  },
+
+  "prospectStyle": {
+    "bgPrimary": "#0D1014",
+    "bgSecondary": "#FFFFFF",
+    "textPrimary": "#FFFFFF",
+    "textSecondary": "#C3C6C9",
+    "textMuted": "#54575B",
+    "accent": "#D4AA41",
+    "accentSecondary": "#414141",
+    "border": "rgba(212, 170, 65, 0.22)",
+    "fontHeading": "var(--font-inter), 'Helvetica Neue', Helvetica, sans-serif",
+    "fontBody": "var(--font-inter), 'Helvetica Neue', Helvetica, sans-serif",
+    "headingWeight": 100,
+    "bodyWeight": 400,
+    "headingLetterSpacing": "-0.04em",
+    "headingTransform": "uppercase",
+    "buttonRadius": "30px",
+    "buttonPadding": "12px 48px"
+  },
+
+  "meta": {
+    "createdAt": "2026-04-28",
+    "status": "draft",
+    "notes": "Prima outreach v5 con architettura riusabile. Stile prospect estratto da timoneyachts.it (#0D1014 + #D4AA41, Inter weight 100, pill outline oro)."
+  }
+}
