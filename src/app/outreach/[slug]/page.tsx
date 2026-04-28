@@ -53,39 +53,36 @@ export default async function OutreachPage({
 
 function Divider({ config }: { config: OutreachConfig }) {
   const logoUrl = config.prospect.logoUrl;
-  const logoMaxH = config.prospect.logoMaxHeight ?? 56;
 
   return (
     <section className="o-divider">
-      <div className="o-divider__inner">
-        <div className="o-divider__glitch" aria-label="Nicola Serrao">
-          <span className="o-divider__glitch-back" aria-hidden="true">Nicola</span>
-          <span className="o-divider__glitch-front">Nicola Serrao</span>
-        </div>
-
-        <div className="o-divider__sep" aria-hidden="true">×</div>
-
-        <div className="o-divider__logo o-divider__logo--nicola">
+      <div className="o-divider__row">
+        <div className="o-divider__brand o-divider__brand--nicola">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/favicon.png" alt="Nicola Serrao" className="o-divider__logo-icon" />
-          <span className="o-divider__logo-text">
-            Nicola <em className="o-divider__logo-text-accent">Serrao</em>
+          <img src="/favicon.png" alt="" className="o-divider__icon" aria-hidden="true" />
+          <span className="o-divider__name" aria-label="Nicola Serrao">
+            <span className="o-divider__name-back" aria-hidden="true">Nicola Serrao</span>
+            <span className="o-divider__name-front">
+              Nicola <em className="o-divider__name-accent">Serrao</em>
+            </span>
           </span>
         </div>
 
+        <div className="o-divider__line" aria-hidden="true">
+          <span className="o-divider__line-base" />
+          <span className="o-divider__line-scan" />
+          <span className="o-divider__line-shift" />
+        </div>
+
         {logoUrl && (
-          <>
-            <div className="o-divider__sep" aria-hidden="true">×</div>
-            <div className="o-divider__logo o-divider__logo--prospect">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={logoUrl}
-                alt={config.prospect.companyName}
-                className="o-divider__logo-img"
-                style={{ maxHeight: `${logoMaxH}px` }}
-              />
-            </div>
-          </>
+          <div className="o-divider__brand o-divider__brand--prospect">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={logoUrl}
+              alt={config.prospect.companyName}
+              className="o-divider__logo-img"
+            />
+          </div>
         )}
       </div>
     </section>
@@ -374,120 +371,144 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
       text-transform: uppercase;
     }
 
-    /* ============ DIVIDER (stacco hero → prospect) ============ */
+    /* ============ DIVIDER (transizione orizzontale glitch hero → prospect) ============ */
 
     .o-divider {
       background: #0a0e0d;
-      padding: 32px 40px;
-      border-top: 1px solid rgba(0, 255, 252, 0.18);
-      border-bottom: 1px solid rgba(0, 255, 252, 0.18);
-      position: relative;
+      padding: 40px 40px;
     }
-    .o-divider::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        repeating-linear-gradient(
-          to bottom,
-          transparent 0,
-          transparent 2px,
-          rgba(0, 255, 252, 0.025) 2px,
-          rgba(0, 255, 252, 0.025) 3px
-        );
-    }
-    .o-divider__inner {
+    .o-divider__row {
       max-width: 1280px;
       margin: 0 auto;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
+      gap: 32px;
+      flex-wrap: nowrap;
     }
 
-    /* Glitch text */
-    .o-divider__glitch {
-      position: relative;
-      display: inline-block;
-      font-family: var(--font-playfair), Georgia, serif;
-      font-weight: 700;
-      font-size: clamp(20px, 2.2vw, 30px);
-      line-height: 1;
-      letter-spacing: -0.01em;
-      white-space: nowrap;
-      animation: o-glitch-jitter 8s infinite steps(1, end);
-    }
-    .o-divider__glitch-front {
-      position: relative;
-      color: #ffffff;
-      z-index: 2;
-    }
-    .o-divider__glitch-back {
-      position: absolute;
-      top: 0;
-      left: 0;
-      color: #00fffc;
-      transform: translate(-3px, 1px);
-      opacity: 0.85;
-      z-index: 1;
-      mix-blend-mode: screen;
-      filter: blur(0.3px);
-    }
-    @keyframes o-glitch-jitter {
-      0%, 96%, 100% { transform: translate(0, 0); }
-      97% { transform: translate(1px, 0); }
-      98% { transform: translate(-1px, 0); }
-      99% { transform: translate(0.5px, -0.5px); }
-    }
-
-    /* Separatore × */
-    .o-divider__sep {
-      font-family: var(--font-dm-mono), monospace;
-      color: rgba(0, 255, 252, 0.35);
-      font-size: 18px;
-      font-weight: 300;
-      user-select: none;
-    }
-
-    /* Logo Nicola */
-    .o-divider__logo {
+    .o-divider__brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      flex-shrink: 0;
     }
-    .o-divider__logo-icon {
+
+    /* Brand sinistro — Nicola */
+    .o-divider__brand--nicola {
+      gap: 12px;
+    }
+    .o-divider__icon {
       width: 28px;
       height: 28px;
       object-fit: contain;
     }
-    .o-divider__logo-text {
+    .o-divider__name {
+      position: relative;
+      display: inline-block;
       font-family: var(--font-playfair), Georgia, serif;
-      font-size: 19px;
+      font-size: clamp(16px, 1.6vw, 20px);
       font-weight: 700;
-      color: #e8f5f2;
-      letter-spacing: -0.3px;
       line-height: 1;
+      letter-spacing: -0.3px;
+      white-space: nowrap;
     }
-    .o-divider__logo-text-accent {
+    .o-divider__name-front {
+      position: relative;
+      color: #e8f5f2;
+      z-index: 2;
+    }
+    .o-divider__name-accent {
       color: #00fffc;
       font-style: normal;
     }
+    .o-divider__name-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #00fffc;
+      transform: translate(-2px, 1px);
+      opacity: 0.5;
+      z-index: 1;
+      mix-blend-mode: screen;
+      filter: blur(0.2px);
+      pointer-events: none;
+    }
 
-    /* Logo prospect */
-    .o-divider__logo--prospect {
-      display: flex;
-      align-items: center;
+    /* Linea centrale animata */
+    .o-divider__line {
+      flex: 1 1 auto;
+      position: relative;
+      height: 2px;
+      min-width: 80px;
+      overflow: hidden;
+    }
+    .o-divider__line-base {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(0, 255, 252, 0) 0%,
+        rgba(0, 255, 252, 0.45) 18%,
+        rgba(212, 170, 65, 0.45) 82%,
+        rgba(212, 170, 65, 0) 100%
+      );
+    }
+    /* Scanner luminoso che attraversa */
+    .o-divider__line-scan {
+      position: absolute;
+      top: -2px;
+      left: -10%;
+      width: 22%;
+      height: 6px;
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(0, 255, 252, 0.95),
+        rgba(255, 255, 255, 1),
+        rgba(212, 170, 65, 0.95),
+        transparent
+      );
+      filter: blur(1.5px);
+      animation: o-scan-cross 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes o-scan-cross {
+      0%   { left: -25%; opacity: 0; }
+      8%   { opacity: 1; }
+      92%  { opacity: 1; }
+      100% { left: 110%; opacity: 0; }
+    }
+    /* RGB-shift glitch sporadico */
+    .o-divider__line-shift {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(0, 255, 252, 0) 0%,
+        rgba(255, 0, 128, 0.6) 50%,
+        rgba(0, 255, 252, 0) 100%
+      );
+      transform: translate(0, 0);
+      opacity: 0;
+      animation: o-rgb-glitch 7s steps(1, end) infinite;
+    }
+    @keyframes o-rgb-glitch {
+      0%, 91%, 100% { opacity: 0; transform: translate(0, 0); }
+      92% { opacity: 0.7; transform: translate(3px, -1px); }
+      93% { opacity: 0; transform: translate(0, 0); }
+      94% { opacity: 0.5; transform: translate(-3px, 1px); }
+      95% { opacity: 0; transform: translate(0, 0); }
+    }
+
+    /* Brand destro — prospect (logo PNG ricolorato in oro Timone) */
+    .o-divider__brand--prospect {
+      flex-shrink: 0;
     }
     .o-divider__logo-img {
+      height: 48px;
       width: auto;
-      height: auto;
-      display: block;
       object-fit: contain;
-      opacity: 0.9;
+      display: block;
+      /* trasforma il logo bianco/grigio in oro Timone #D4AA41 */
+      filter: brightness(0) saturate(100%) invert(72%) sepia(56%) saturate(627%) hue-rotate(2deg) brightness(95%) contrast(88%);
     }
 
     /* ============ SEZIONE 2 (stile prospect) ============ */
@@ -647,10 +668,13 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
         gap: 48px;
       }
       .o-divider {
-        padding: 24px 24px;
+        padding: 32px 24px;
       }
-      .o-divider__inner {
-        gap: 24px;
+      .o-divider__row {
+        gap: 20px;
+      }
+      .o-divider__logo-img {
+        height: 40px;
       }
       .o-prospect {
         padding: 80px 24px;
@@ -677,21 +701,21 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
         line-height: 1.12;
       }
       .o-divider {
-        padding: 20px 20px;
+        padding: 24px 16px;
       }
-      .o-divider__inner {
+      .o-divider__row {
         gap: 14px;
-        flex-direction: column;
       }
-      .o-divider__sep {
-        display: none;
+      .o-divider__icon {
+        width: 22px;
+        height: 22px;
       }
-      .o-divider__glitch {
-        font-size: 22px;
+      .o-divider__name {
+        font-size: 13px;
       }
-      .o-divider__logo-img {
-        max-height: 44px !important;
-      }
+      .o-divider__brand--nicola { gap: 8px; }
+      .o-divider__line { min-width: 40px; height: 1.5px; }
+      .o-divider__logo-img { height: 32px; }
       .o-hero__subheadline {
         font-size: 15px;
       }
