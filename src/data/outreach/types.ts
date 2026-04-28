@@ -97,6 +97,8 @@ export type OutreachConfig = {
     createdAt: string;
     sentAt?: string;
     status: OutreachStatus;
+    /** ID della page Notion nel database "Outreach Prospect" — per riferimento incrociato repo ↔ Notion. */
+    notionPageId?: string;
     notes?: string;
   };
 };

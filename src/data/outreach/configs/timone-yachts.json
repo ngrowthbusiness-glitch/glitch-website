@@ -69,7 +69,9 @@
 
   "meta": {
     "createdAt": "2026-04-28",
-    "status": "draft",
-    "notes": "Prima outreach v5 con architettura riusabile. Stile prospect estratto da timoneyachts.it (#0D1014 + #D4AA41, Inter weight 100, pill outline oro)."
+    "sentAt": "2026-04-28",
+    "status": "sent",
+    "notionPageId": "35038cd8-4434-8126-a788-e486e64b1f89",
+    "notes": "Prima outreach v5 con architettura riusabile. Stile prospect estratto da timoneyachts.it (#0D1014 + #D4AA41, Inter weight 100, pill outline oro). Mail inviata a Matteo Angeletti (mangeletti@timoneyachts.it). Cadence follow-up: +3/+7/+14 gg."
   }
 }
