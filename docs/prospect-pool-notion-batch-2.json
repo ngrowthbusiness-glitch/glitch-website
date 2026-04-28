@@ -1,0 +1,384 @@
+{
+  "pages": [
+    {
+      "properties": {
+        "Nome Azienda": "Officina Profumo Santa Maria Novella",
+        "URL Sito": "https://www.smnovella.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Profumeria e cosmesi storica firenze",
+        "Fatturato Stimato": ">15M",
+        "Localita HQ": "Firenze (FI)",
+        "Decisore Probabile": "Direzione marketing strutturata",
+        "LinkedIn Azienda": "https://linkedin.com/company/officina-profumo-santa-maria-novella",
+        "Razionale": "Brand iconico secolare. Probabilmente CMO presente. Da validare; se accessibile in nicchie DTC export, fit interessante.",
+        "Angolo Iniziale": "(Se passa filtro CMO) Brand storico con domanda enorme su mercati asiatici. Vedo possibili miglioramenti su localizzazione e marketplace specifici. Vorrei capire dove c'e gap interno.",
+        "Priority Score": "🔍 Da validare",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: s STRUTTURATO. Da escludere se CMO interno confermato.",
+        "Regione": "Toscana"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Ginto Gin",
+        "URL Sito": "https://www.gintogin.com",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Gin artigianale italiano",
+        "Fatturato Stimato": "<500K",
+        "Localita HQ": "Pescara (PE)",
+        "Decisore Probabile": "Founder",
+        "LinkedIn Azienda": null,
+        "Razionale": "Distillato artigianale piccolo brand. Settore gin craft sotto-sfruttato in DTC, possibile growth share deal. Storia da raccontare.",
+        "Angolo Iniziale": "Il gin craft italiano sta esplodendo all'estero ma in casa siamo indietro. Vi serve soprattutto storytelling video + ads su community cocktail enthusiast: posso strutturarlo.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n. Possibile percentile/growth deal.",
+        "Regione": "Abruzzo"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Filottrano Mozzarella",
+        "URL Sito": "https://www.filottranomozzarella.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Mozzarella e formaggi DOP campania",
+        "Fatturato Stimato": "1-3M",
+        "Localita HQ": "Battipaglia (SA)",
+        "Decisore Probabile": "Founder family",
+        "LinkedIn Azienda": null,
+        "Razionale": "Caseificio campano con e-commerce mozzarella fresca. Logistica fresh complicata, ma DTC food in crescita. Spazio per CRO + retention.",
+        "Angolo Iniziale": "La mozzarella online e nicchia ma con LTV altissimo se attivi l'abbonamento e gestisci bene la logistica. Posso mostrarvi 2 player nordici che hanno raddoppiato cosi.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n.",
+        "Regione": "Campania"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Cantina Sociale Tollo",
+        "URL Sito": "https://www.cantinatollo.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Cantina cooperativa Abruzzo Montepulciano",
+        "Fatturato Stimato": "3-7M",
+        "Localita HQ": "Tollo (CH)",
+        "Decisore Probabile": "Direzione + Marketing junior",
+        "LinkedIn Azienda": "https://linkedin.com/company/cantina-tollo",
+        "Razionale": "Cooperativa storica abruzzese con buon export ma DTC italiano poco strutturato. Possibilita lavoro su brand consumer e DTC nazionale.",
+        "Angolo Iniziale": "Tollo ha la struttura per export ma il DTC italiano e una pagina catalogo. Le cooperative che si sono modernizzate hanno raddoppiato il margine: vorrei mostrarvi come.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: s base. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n.",
+        "Regione": "Abruzzo"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Marchi Olive Oil",
+        "URL Sito": "https://www.marchioliveoil.com",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Olio EVO premium Toscana export USA",
+        "Fatturato Stimato": "1-3M",
+        "Localita HQ": "Lucca (LU)",
+        "Decisore Probabile": "Founder",
+        "LinkedIn Azienda": null,
+        "Razionale": "Brand premium con focus export USA. Sito esistente ma marketing automation e ads non strutturati. Verticale ad alto LTV.",
+        "Angolo Iniziale": "L'export USA olio premium e tutto su brand + Amazon + retargeting. Vedo opportunita su tutti e tre i fronti. Posso preparare un'analisi specifica per il vostro mercato.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n.",
+        "Regione": "Toscana"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Le Streghe Cosmetics",
+        "URL Sito": "https://www.lestreghecosmetics.com",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Cosmesi naturale indie brand",
+        "Fatturato Stimato": "<500K",
+        "Localita HQ": "Roma (RM)",
+        "Decisore Probabile": "Founder",
+        "LinkedIn Azienda": null,
+        "Razionale": "Indie cosmetics brand piccolo ma con identita forte. Possibile growth share deal con Nicola, marketing acerbo.",
+        "Angolo Iniziale": "Le indie cosmetics che esplodono hanno tutte UGC + creator network organico. Voi avete il prodotto giusto, vi serve un piano TikTok + creator: posso costruirlo.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n. Da validare attivita sito.",
+        "Regione": "Lazio"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Aedes Nera",
+        "URL Sito": "https://www.aedesnera.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Abbigliamento donna sostenibile Roma",
+        "Fatturato Stimato": "<500K",
+        "Localita HQ": "Roma (RM)",
+        "Decisore Probabile": "Founder",
+        "LinkedIn Azienda": null,
+        "Razionale": "Brand donna piccolo emergente sostenibile. Marketing rudimentale, prodotto interessante. Ideale per growth share o piccolo budget.",
+        "Angolo Iniziale": "Il sustainable fashion italiano vince online con una formula precisa: contenuti supply chain + creator etici + paid mirato. Posso mostrarvi i 3 brand che lo stanno facendo bene.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n.",
+        "Regione": "Lazio"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "I Giardini di Marzo",
+        "URL Sito": "https://www.igiardinidimarzo.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Profumi artigianali e candele lifestyle",
+        "Fatturato Stimato": "500K-1M",
+        "Localita HQ": "Lecce (LE)",
+        "Decisore Probabile": "Founder",
+        "LinkedIn Azienda": null,
+        "Razionale": "Brand lifestyle pugliese con prodotti curati. E-commerce funzionante ma marketing molto basico. Verticale candele e profumi forte LTV.",
+        "Angolo Iniziale": "Le candele artigianali italiane di livello vendono a 40-60 euro in USA. Voi avete il prodotto. Manca la strategia di posizionamento internazionale: posso strutturarla.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n.",
+        "Regione": "Puglia"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Vini Properzio",
+        "URL Sito": "https://www.enotecaproperzio.com",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Enoteca online + cantina umbra",
+        "Fatturato Stimato": "1-3M",
+        "Localita HQ": "Spello (PG)",
+        "Decisore Probabile": "Founder family",
+        "LinkedIn Azienda": null,
+        "Razionale": "Storica enoteca con e-commerce attivo. Buon catalogo ma marketing internazionale debole, retention basica.",
+        "Angolo Iniziale": "Properzio ha 50 anni di selezione: e' un valore enorme che non si racconta online. Posso mostrarvi come trasformare il know-how in content che fa ordinare.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n base. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n.",
+        "Regione": "Umbria"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Sant'Egle Bio",
+        "URL Sito": "https://www.santegle.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Cosmetici biologici e tisane farm DTC",
+        "Fatturato Stimato": "500K-1M",
+        "Localita HQ": "Sorano (GR)",
+        "Decisore Probabile": "Founder family",
+        "LinkedIn Azienda": null,
+        "Razionale": "Farm bio toscana con prodotti naturali e accoglienza. Storia autentica, e-commerce piccolo. Possibile growth share deal.",
+        "Angolo Iniziale": "La fattoria biologica + e-commerce + esperienza ospite e una formula vincente se raccontata bene. Vedo opportunita su content + email + ads creator-led: posso aiutarvi.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n.",
+        "Regione": "Toscana"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Inerba Cosmesi",
+        "URL Sito": "https://www.inerba.com",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Cosmesi naturale Calabria farm to face",
+        "Fatturato Stimato": "<500K",
+        "Localita HQ": "Cosenza (CS)",
+        "Decisore Probabile": "Founder",
+        "LinkedIn Azienda": null,
+        "Razionale": "Brand cosmesi naturale calabrese piccolo. Prodotto interessante, marketing minimo. Possibile growth share deal con Nicola.",
+        "Angolo Iniziale": "Calabria + cosmesi naturale e una storia che oggi vende: ingredienti del territorio + ricerca scientifica. Vi serve la regia. Posso costruirla in 90 giorni.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 2. Agenzia esterna identificata: n. Validare attivita sito.",
+        "Regione": "Calabria"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Quinto Ego Gioielli",
+        "URL Sito": "https://www.quintoego.com",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Gioielli artigianali Carrara design",
+        "Fatturato Stimato": "<500K",
+        "Localita HQ": "Marina di Carrara (MS)",
+        "Decisore Probabile": "Founder",
+        "LinkedIn Azienda": null,
+        "Razionale": "Brand gioielli piccolo, design curato. Marketing rudimentale. Ideale growth percentile. Carrara ha appeal storico-culturale.",
+        "Angolo Iniziale": "Carrara e marmo ma anche identita estetica forte. I vostri gioielli hanno questo DNA: vi serve una strategia per posizionarli a livello design enthusiast EU. Posso strutturarla.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n. Possibile growth deal.",
+        "Regione": "Toscana"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Casa Rossa Cucina",
+        "URL Sito": "https://www.casarossacucina.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Conserve artigianali Sicilia DTC",
+        "Fatturato Stimato": "500K-1M",
+        "Localita HQ": "Pachino (SR)",
+        "Decisore Probabile": "Founder family",
+        "LinkedIn Azienda": null,
+        "Razionale": "Brand siciliano conserve premium pomodoro Pachino. E-commerce esistente, brand identitario forte. Spazio crescita digitale.",
+        "Angolo Iniziale": "Il pomodoro di Pachino e una storia da raccontare bene: chef internazionali, food bloggers, appassionati Italian food USA. Vedo zero attivazione su questi target. Posso aprirla io.",
+        "Priority Score": "🔥 Sognato",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n base. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n. Brand con anima, fit perfetto Nicola.",
+        "Regione": "Sicilia"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Pago Pago Coffee",
+        "URL Sito": "https://www.pagopagocoffee.com",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Caffe specialty subscription DTC",
+        "Fatturato Stimato": "500K-1M",
+        "Localita HQ": "Trieste (TS)",
+        "Decisore Probabile": "Founder",
+        "LinkedIn Azienda": null,
+        "Razionale": "Brand subscription specialty coffee. Settore esplosivo DTC, marketing strutturato base. Spazio crescita rapida con strategia paid + retention.",
+        "Angolo Iniziale": "Trieste e' l'epicentro caffe. Subscription specialty coffee in Italia e ancora fase early: chi struttura ora i flussi vince i prossimi 24 mesi. Posso costruirvelo.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n base. Sito quality: 3. Agenzia esterna identificata: n.",
+        "Regione": "FVG"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Pastificio Felicetti",
+        "URL Sito": "https://www.felicetti.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Pasta artigianale alta qualita Trentino",
+        "Fatturato Stimato": "7-15M",
+        "Localita HQ": "Predazzo (TN)",
+        "Decisore Probabile": "Founder family Felicetti",
+        "LinkedIn Azienda": "https://linkedin.com/company/pastificio-felicetti",
+        "Razionale": "Brand iconico pasta premium nelle Dolomiti, distribuzione strong nei top ristoranti. DTC ancora secondario, possibile spazio.",
+        "Angolo Iniziale": "Felicetti ha il brand chef del mondo: il DTC pero non riflette quel posizionamento. Posso mostrarvi come Rummo e Mancini stanno spingendo subscriptions chef-curated.",
+        "Priority Score": "🔥 Sognato",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: s. Ads attive: s scarse. Sito quality: 4. Agenzia esterna identificata: da validare.",
+        "Regione": "Trentino-AA"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Pilgio",
+        "URL Sito": "https://www.pilgio.com",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Gioielli alta artigianalita Milano",
+        "Fatturato Stimato": "<500K",
+        "Localita HQ": "Milano (MI)",
+        "Decisore Probabile": "Founder",
+        "LinkedIn Azienda": null,
+        "Razionale": "Brand piccolo gioielli design alto. Marketing organico solo, no paid. Spazio per crescita strutturata, piccolo budget, percentuale possibile.",
+        "Angolo Iniziale": "Pilgio ha un'estetica bellissima ma traffico minimo. Per gioielli premium servono specifici angles: luxury influencers, gift events, search intent. Posso strutturarli con voi.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 4. Agenzia esterna identificata: n. Nicchia lusso, fit growth share.",
+        "Regione": "Lombardia"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Salumi Pasini",
+        "URL Sito": "https://www.salumipasini.com",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Salumi artigianali Lombardia DTC",
+        "Fatturato Stimato": "3-7M",
+        "Localita HQ": "San Daniele (PV)",
+        "Decisore Probabile": "Founder family",
+        "LinkedIn Azienda": "https://linkedin.com/company/salumi-pasini",
+        "Razionale": "Salumificio storico con DTC funzionante. Marketing interno presente ma probabilmente sotto-strutturato strategicamente. Da validare.",
+        "Angolo Iniziale": "Pasini ha gia un buon digital, ma vedo opportunita su segmenti gift e abbonamento dove i margini scalano. Posso mostrarvi 2 brand simili che li hanno aperti bene.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: s. Ads attive: s scarse. Sito quality: 4. Agenzia esterna identificata: da validare.",
+        "Regione": "Lombardia"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Botanika Casa",
+        "URL Sito": "https://www.botanikacasa.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Profumi ambiente e candele home design",
+        "Fatturato Stimato": "<500K",
+        "Localita HQ": "Bologna (BO)",
+        "Decisore Probabile": "Founder",
+        "LinkedIn Azienda": null,
+        "Razionale": "Brand piccolo home fragrance con prodotto curato. Verticale crescita rapida DTC. Ideale growth share deal.",
+        "Angolo Iniziale": "Le home fragrance italiane indie stanno trovando il loro pubblico su Instagram e Pinterest. Voi avete il prodotto: vi serve un'attivazione organica + paid coordinata.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n. Da validare attivita.",
+        "Regione": "Emilia-Romagna"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Daunex Piumini",
+        "URL Sito": "https://www.daunex.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Piumini e biancheria casa premium",
+        "Fatturato Stimato": "3-7M",
+        "Localita HQ": "Pordenone (PN)",
+        "Decisore Probabile": "Direzione commerciale",
+        "LinkedIn Azienda": "https://linkedin.com/company/daunex",
+        "Razionale": "Brand storico piumini home, e-commerce attivo. Marketing presente ma possibile sotto-utilizzo CRO + advanced segmentation.",
+        "Angolo Iniziale": "Daunex ha brand awareness solida, ma i margini home si massimizzano con CRO chirurgico + cross-sell stagionale. Posso fare un audit dell'e-commerce: 90 minuti di valore concreto.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: s. Ads attive: s. Sito quality: 4. Agenzia esterna identificata: da validare.",
+        "Regione": "FVG"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "La Saponaria",
+        "URL Sito": "https://www.lasaponaria.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Cosmesi bio vegan Made in Italy",
+        "Fatturato Stimato": "7-15M",
+        "Localita HQ": "Fano (PU)",
+        "Decisore Probabile": "Founder + team marketing interno",
+        "LinkedIn Azienda": "https://linkedin.com/company/la-saponaria",
+        "Razionale": "Brand Marche di riferimento cosmesi bio. Crescita strong, possibile presenza CMO interno. Da validare prima outreach. Se accessibile, fit di valore.",
+        "Angolo Iniziale": "(Se passa filtro CMO) La Saponaria e vicina di casa. Vedo opportunita su retention e UGC creator network ancora poco strutturati. Vorrei un caffe per parlarne.",
+        "Priority Score": "🔍 Da validare",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: s STRUTTURATO. Ads attive: s. Sito quality: 4. Agenzia esterna identificata: da validare. Verificare se CMO.",
+        "Regione": "Marche"
+      }
+    }
+  ]
+}

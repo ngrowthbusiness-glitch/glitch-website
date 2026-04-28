@@ -1,0 +1,384 @@
+{
+  "pages": [
+    {
+      "properties": {
+        "Nome Azienda": "Tenuta Musone",
+        "URL Sito": "https://www.tenutamusone.com",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Vino biologico Verdicchio Castelli di Jesi",
+        "Fatturato Stimato": "500K-1M",
+        "Localita HQ": "Cingoli (MC)",
+        "Decisore Probabile": "Founder + Famiglia (azienda agricola familiare)",
+        "LinkedIn Azienda": null,
+        "Razionale": "Cantina familiare biologica con prodotto premium e storia autentica. E-commerce esistente ma marketing acerbo, nessuna ads visibile, social sotto-utilizzato. Sweet spot perfetto per CRO + lead gen.",
+        "Angolo Iniziale": "Il vostro Verdicchio biologico ha tutti i requisiti per posizionarsi su Vinitaly Online e amplificare il direct-to-consumer. Vedo zero campagne paid e blog fermo: c'e un gap di traffico qualificato evidente.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n. Cantina piccola con margine alto, terreno ideale per fractional CMO.",
+        "Regione": "Marche"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Mutti",
+        "URL Sito": "https://www.mutti-parma.com",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Conserve pomodoro premium DTC linea boutique",
+        "Fatturato Stimato": ">15M",
+        "Localita HQ": "Parma (PR)",
+        "Decisore Probabile": "CMO interno probabile (su brand storico)",
+        "LinkedIn Azienda": "https://linkedin.com/company/mutti-spa",
+        "Razionale": "Brand iconico ma su grande scala: probabile esclusione causa CMO interno. Inserito come benchmark per sub-brand specifici. Da validare.",
+        "Angolo Iniziale": "(Solo se sub-brand boutique senza CMO dedicato) Possibile fit per progetti DTC verticali su nicchia premium.",
+        "Priority Score": "🔍 Da validare",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: s STRUTTURATO. Probabile esclusione, inserito per coverage.",
+        "Regione": "Emilia-Romagna"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Velenosi Vini",
+        "URL Sito": "https://www.velenosivini.com",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Cantina premium Marche e Abruzzo",
+        "Fatturato Stimato": "7-15M",
+        "Localita HQ": "Ascoli Piceno (AP)",
+        "Decisore Probabile": "Founder Angela Velenosi + figlia",
+        "LinkedIn Azienda": "https://linkedin.com/company/velenosi-vini",
+        "Razionale": "Founder donna iconica nel territorio, storytelling forte ma e-commerce poco evoluto. Brand 'sognato' per il territorio Marche-Abruzzo, alto potenziale di crescita digitale.",
+        "Angolo Iniziale": "Angela, la vostra storia e una delle piu belle del Piceno. Online pero non si vede: il sito e un catalogo, non un brand. Vorrei mostrarvi come trasformarlo in motore di crescita.",
+        "Priority Score": "🔥 Sognato",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: s (basico). Ads attive: n visibili. Sito quality: 3. Agenzia esterna identificata: n. Brand iconico territorio.",
+        "Regione": "Marche"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Rever Gioielli",
+        "URL Sito": "https://www.revergioielli.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Gioielli artigianali design contemporaneo",
+        "Fatturato Stimato": "<500K",
+        "Localita HQ": "Pesaro (PU)",
+        "Decisore Probabile": "Founder Beatrice Battistini",
+        "LinkedIn Azienda": null,
+        "Razionale": "Designer founder con prodotto esteticamente forte, e-commerce esistente ma traffico limitato. Perfetto per growth percentile + AI-powered storytelling.",
+        "Angolo Iniziale": "Beatrice, il vostro design e raffinato ma il sito non racconta abbastanza la mano dietro al prodotto. Vorrei mostrarvi come la storia personale puo diventare il motore commerciale.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n. Piccola perla, perfetta per growth share deal.",
+        "Regione": "Marche"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Made in Marche Store",
+        "URL Sito": "https://www.madeinmarche.store",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Marketplace prodotti tipici marchigiani",
+        "Fatturato Stimato": "500K-1M",
+        "Localita HQ": "Ancona (AN)",
+        "Decisore Probabile": "Founder + team piccolo",
+        "LinkedIn Azienda": null,
+        "Razionale": "Aggregatore territorio Marche con buon assortimento ma traffico contenuto. Ideale per Nicola: tematica regionale, possibile percentuale revenue share.",
+        "Angolo Iniziale": "Avete il giusto prodotto e il giusto territorio. Manca il giusto traffico qualificato: zero ads strategiche, SEO debole. Posso mostrarvi un piano 90 giorni per triplicare le visite organiche.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n. Brand territorio-affine, easy fit Nicola.",
+        "Regione": "Marche"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "ACS Calzature Italiane",
+        "URL Sito": "https://www.acscalzatureitaliane.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Calzature DTC artigianali italiane",
+        "Fatturato Stimato": "500K-1M",
+        "Localita HQ": "Civitanova Marche (MC)",
+        "Decisore Probabile": "Founder",
+        "LinkedIn Azienda": null,
+        "Razionale": "Brand DTC giovane (2018) con prodotto solido nel cuore del distretto calzaturiero. Marketing acerbo, nessuna brand awareness costruita. Terreno fertile per strategia full-funnel.",
+        "Angolo Iniziale": "Civitanova produce le migliori scarpe d'Italia, ma raccontarlo online e altra cosa. ACS ha il prodotto: vi mostro come Velasca ha trasformato lo stesso DNA in un brand da 30M.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n. Piccolo, accessibile, terreno scuola.",
+        "Regione": "Marche"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Pasta Mancini",
+        "URL Sito": "https://www.pastamancini.com",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Pasta artigianale grano Marche filiera",
+        "Fatturato Stimato": "3-7M",
+        "Localita HQ": "Monte San Pietrangeli (FM)",
+        "Decisore Probabile": "Founder Massimo Mancini",
+        "LinkedIn Azienda": "https://linkedin.com/company/pasta-mancini",
+        "Razionale": "Brand iconico Marche filiera corta, prodotto eccellente e storytelling autentico. Crescita ottima ma DTC potenzialmente sotto-sfruttato vs distribuzione tradizionale.",
+        "Angolo Iniziale": "Massimo, Pasta Mancini e gia un caso da manuale per filiera e brand. Il salto successivo e DTC retention: subscription, gift box, brand experience. Sono di Agugliano, posso passare a parlarne.",
+        "Priority Score": "🔥 Sognato",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: s. Ads attive: s. Sito quality: 4. Agenzia esterna identificata: da validare. Da verificare a fondo, brand prestigioso.",
+        "Regione": "Marche"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Tartufi Acqualagna",
+        "URL Sito": "https://www.tartufiacqualagna.com",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Tartufo fresco e conservato Marche",
+        "Fatturato Stimato": "1-3M",
+        "Localita HQ": "Acqualagna (PU)",
+        "Decisore Probabile": "Founder family",
+        "LinkedIn Azienda": null,
+        "Razionale": "Capitale italiana del tartufo, prodotto premium con domanda internazionale. E-commerce funzionale, marketing internazionale acerbo. Forte potenziale export digitale.",
+        "Angolo Iniziale": "Acqualagna ha la materia prima migliore d'Italia. Ma online il vostro brand non riflette quel livello. Posso mostrarvi come trasformare l'e-commerce in motore export verso US e UK.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n.",
+        "Regione": "Marche"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Ciu Ciu Vini",
+        "URL Sito": "https://www.ciuciuvini.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Cantina biologica Marche Piceno",
+        "Fatturato Stimato": "3-7M",
+        "Localita HQ": "Offida (AP)",
+        "Decisore Probabile": "Founder family Bartolomei",
+        "LinkedIn Azienda": "https://linkedin.com/company/ciu-ciu-vini",
+        "Razionale": "Cantina biologica Piceno con buon export. E-commerce esistente ma DTC italiano debole, marketing digitale poco curato. Margine di crescita evidente.",
+        "Angolo Iniziale": "Ciu Ciu fa export bene, ma il DTC italiano e fermo. Le cantine sotto i 5M crescono molto se attivano content + ads territoriali. Posso analizzare 3 leve specifiche per voi.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n.",
+        "Regione": "Marche"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Ottaviani Shoes",
+        "URL Sito": "https://www.ottavianishoes.com",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Calzature artigianali Made in Marche",
+        "Fatturato Stimato": "1-3M",
+        "Localita HQ": "Monte San Giusto (MC)",
+        "Decisore Probabile": "Founder family",
+        "LinkedIn Azienda": null,
+        "Razionale": "Calzaturificio Marche con e-commerce attivo, prodotto buono ma branding e marketing internazionale acerbo. Spazio strategia DTC.",
+        "Angolo Iniziale": "Made in Marche e un asset ma serve branding evoluto: vedo gap su content video laboratorio, ads internazionali, retargeting. Sono di qui, posso passare in laboratorio.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n.",
+        "Regione": "Marche"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Olio Centonze",
+        "URL Sito": "https://www.oliocentonze.com",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Olio EVO biologico siciliano",
+        "Fatturato Stimato": "1-3M",
+        "Localita HQ": "Castelvetrano (TP)",
+        "Decisore Probabile": "Founder family Centonze",
+        "LinkedIn Azienda": "https://linkedin.com/company/olio-centonze",
+        "Razionale": "Olio premium con storia familiare e packaging curato. E-commerce attivo ma growth lenta, marketing internazionale debole. Settore olio EVO esplosivo per DTC.",
+        "Angolo Iniziale": "Centonze ha gia un posizionamento premium chiaro, ma vedo zero campagne sui mercati internazionali piu redditizi (USA, UK, Germania). Posso mostrarvi un piano export digitale 12 mesi.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: s (limitato). Ads attive: s scarse. Sito quality: 4. Agenzia esterna identificata: n.",
+        "Regione": "Sicilia"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Eterea Cosmesi",
+        "URL Sito": "https://etereacosmesi.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Cosmesi naturale biologica DTC",
+        "Fatturato Stimato": "3-7M",
+        "Localita HQ": "Pisa (PI)",
+        "Decisore Probabile": "Founder + Marketing Manager interno",
+        "LinkedIn Azienda": "https://linkedin.com/company/eterea-cosmesi",
+        "Razionale": "Brand cosmesi naturale in crescita con e-commerce evoluto, fatturato in espansione. Da validare se hanno gia CMO o agenzia. Possibile fit per amplificazione digital + CRO.",
+        "Angolo Iniziale": "Eterea sta facendo bene sul DTC ma il customer LTV e ancora inferiore al benchmark cosmesi. Posso analizzare flussi automation e segmentation per spingere il riacquisto.",
+        "Priority Score": "🔍 Da validare",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: s. Ads attive: s. Sito quality: 4. Agenzia esterna identificata: da validare. Da verificare CMO/agenzia prima outreach.",
+        "Regione": "Toscana"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Birra dell'Eremo",
+        "URL Sito": "https://www.birradelleremo.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Birrificio artigianale Umbria",
+        "Fatturato Stimato": "500K-1M",
+        "Localita HQ": "Assisi (PG)",
+        "Decisore Probabile": "Founder + Birraio capo",
+        "LinkedIn Azienda": null,
+        "Razionale": "Birrificio artigianale con produzioni solide e identita territoriale. E-commerce funzionale ma traffico contenuto. Settore birra craft sotto-marketed in Italia.",
+        "Angolo Iniziale": "Le vostre birre raccontano l'eremo, ma online non c'e narrativa visiva ne community engagement. La birra craft vive di racconto, oggi ne vedo poco. Posso aiutarvi a costruirlo.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n.",
+        "Regione": "Umbria"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Apicoltura Casentinese",
+        "URL Sito": "https://www.apicolturacasentinese.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Miele biologico artigianale Toscana",
+        "Fatturato Stimato": "1-3M",
+        "Localita HQ": "Pratovecchio Stia (AR)",
+        "Decisore Probabile": "Founder family",
+        "LinkedIn Azienda": null,
+        "Razionale": "Brand storico apicoltura biologica con buon assortimento. E-commerce funzionale, nessuna ads visibile. Verticale food specialty con margini interessanti.",
+        "Angolo Iniziale": "Il miele biologico e uno dei pochi food verticali dove premium price + storytelling vincono. Vedo zero campagne paid e flusso email basic: e' un peccato per un prodotto cosi forte.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n.",
+        "Regione": "Toscana"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Nudo Italia",
+        "URL Sito": "https://www.nudo-italia.com",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Adopt-a-tree olive oil DTC subscription",
+        "Fatturato Stimato": "3-7M",
+        "Localita HQ": "Roma (RM)",
+        "Decisore Probabile": "Founder Cathy Rogers",
+        "LinkedIn Azienda": "https://linkedin.com/company/nudo-italia",
+        "Razionale": "Brand premium subscription con modello adopt-a-tree innovativo, comunita internazionale. DTC nativo. Da validare presenza CMO o agenzia partner.",
+        "Angolo Iniziale": "Il modello adopt-a-tree e brillante, ma vedo che la conversione fuori UK e' frenata da cose risolvibili: pagamenti localizzati, ads multilingua, retargeting. Posso mostrarvelo.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: s. Ads attive: s. Sito quality: 4. Agenzia esterna identificata: da validare. Brand premium con anima.",
+        "Regione": "Lazio"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Si-Wine",
+        "URL Sito": "https://www.si-wine.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Enoteca online vini Sud Italia",
+        "Fatturato Stimato": "1-3M",
+        "Localita HQ": "Napoli (NA)",
+        "Decisore Probabile": "Founder",
+        "LinkedIn Azienda": null,
+        "Razionale": "Verticale interessante: solo Sud Italia, curatela AIS. E-commerce funzionante ma marketing acerbo, brand awareness bassa. Spazio per growth digital strategico.",
+        "Angolo Iniziale": "Vendere SOLO vini del Sud e un posizionamento brillante. Pero non vedo content che lo spinga: niente video produttori, niente racconto territorio. Posso aiutarvi a costruirlo.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n scarse. Sito quality: 3. Agenzia esterna identificata: n.",
+        "Regione": "Campania"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Saponi e Saponi (Erbario Toscano)",
+        "URL Sito": "https://www.erbariotoscano.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Cosmesi naturale toscana profumi",
+        "Fatturato Stimato": "3-7M",
+        "Localita HQ": "Lamporecchio (PT)",
+        "Decisore Probabile": "Founder family",
+        "LinkedIn Azienda": "https://linkedin.com/company/erbario-toscano",
+        "Razionale": "Brand toscano cosmesi naturale con catena retail e DTC. Buona produzione ma e-commerce non sempre in linea col brand fisico. Possibile esigenza fractional CMO.",
+        "Angolo Iniziale": "Erbario Toscano ha un retail forte ma online noto un gap di esperienza. Il vostro target premium spende online se trova lo stesso 'racconto sensoriale': posso aiutarvi a portarlo digital.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: s base. Ads attive: s scarse. Sito quality: 3. Agenzia esterna identificata: n.",
+        "Regione": "Toscana"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Cotto Etrusco",
+        "URL Sito": "https://www.cottoetrusco.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Ceramiche e cotto artigianale toscano",
+        "Fatturato Stimato": "1-3M",
+        "Localita HQ": "Impruneta (FI)",
+        "Decisore Probabile": "Founder family",
+        "LinkedIn Azienda": null,
+        "Razionale": "Artigianato toscano premium, prodotto eccellente. E-commerce funzionale ma marketing internazionale assente. Architetti USA target naturale.",
+        "Angolo Iniziale": "Il cotto Impruneta e un prodotto che gli architetti americani cercano attivamente. Online pero non vi trovano: zero SEO export, no LinkedIn ads B2B. Posso mostrarvi il piano.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n.",
+        "Regione": "Toscana"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Sapor d'Olio",
+        "URL Sito": "https://www.sapordolio.com",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Olio EVO selezione produttori italiani",
+        "Fatturato Stimato": "1-3M",
+        "Localita HQ": "Bari (BA)",
+        "Decisore Probabile": "Founder",
+        "LinkedIn Azienda": null,
+        "Razionale": "Marketplace verticale olio EVO con curatela. Settore in crescita DTC, marketing acerbo. Buon match per strategia content + email.",
+        "Angolo Iniziale": "Curare i migliori produttori e meta del lavoro. L'altra meta e raccontarli online: vedo zero video, zero contenuti dietro le quinte. Posso aiutarvi a colmare il gap.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n.",
+        "Regione": "Puglia"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Sartoria Rossi",
+        "URL Sito": "https://www.sartoriarossi.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Camicie su misura sartoriali",
+        "Fatturato Stimato": "3-7M",
+        "Localita HQ": "Foligno (PG)",
+        "Decisore Probabile": "Founder family Rossi",
+        "LinkedIn Azienda": "https://linkedin.com/company/sartoria-rossi",
+        "Razionale": "Sartoria storica con DTC camicie su misura. Buon prodotto ma awareness limitata fuori Italia. Verticale custom-fit menswear in crescita digitale.",
+        "Angolo Iniziale": "La sartoria su misura online vince con una sola cosa: configuratore di altissimo livello e ads molto chirurgiche su LinkedIn/Meta. Posso mostrarvi cosa fanno Hawes & Curtis e Lanieri.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n base. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n.",
+        "Regione": "Umbria"
+      }
+    }
+  ]
+}

@@ -1,0 +1,384 @@
+{
+  "pages": [
+    {
+      "properties": {
+        "Nome Azienda": "Casa Olearia Taggiasca",
+        "URL Sito": "https://www.casaoleariataggiasca.com",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Olive taggiasche e olio EVO Liguria",
+        "Fatturato Stimato": "3-7M",
+        "Localita HQ": "Imperia (IM)",
+        "Decisore Probabile": "Founder family",
+        "LinkedIn Azienda": "https://linkedin.com/company/casa-olearia-taggiasca",
+        "Razionale": "Brand olive taggiasche con e-commerce DTC, prodotto premium nicchia. Marketing internazionale sotto-sviluppato. Verticale food specialty in crescita.",
+        "Angolo Iniziale": "Le olive taggiasche sono unique selling proposition in chiave premium gourmet. Online ho visto traffico organico debole e zero ads internazionali: posso lavorare su entrambi.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n base. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n.",
+        "Regione": "Liguria"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Casa Vinicola Cottanera",
+        "URL Sito": "https://www.cottanera.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Cantina Etna DOC vino siciliano premium",
+        "Fatturato Stimato": "1-3M",
+        "Localita HQ": "Castiglione di Sicilia (CT)",
+        "Decisore Probabile": "Founder family Cambria",
+        "LinkedIn Azienda": "https://linkedin.com/company/cottanera",
+        "Razionale": "Cantina Etna in territorio premium (Etna DOC esplosivo a livello internazionale). Storia familiare forte, DTC ancora secondario al wholesale. Forte potenziale wine club.",
+        "Angolo Iniziale": "L'Etna DOC e nell'occhio del ciclone wine globale: Robert Parker, Wine Spectator. Vedo zero attivazione di un wine club premium per fans US. Posso aprirlo io.",
+        "Priority Score": "🔥 Sognato",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n. Brand sognato per Nicola, terroir storico.",
+        "Regione": "Sicilia"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Frantoio Muraglia",
+        "URL Sito": "https://www.frantoiomuraglia.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Olio EVO Puglia anfore design iconiche",
+        "Fatturato Stimato": "3-7M",
+        "Localita HQ": "Andria (BT)",
+        "Decisore Probabile": "Founder family Muraglia",
+        "LinkedIn Azienda": "https://linkedin.com/company/frantoio-muraglia",
+        "Razionale": "Brand iconico per packaging anfore in ceramica artigianale. Distribuzione gourmet internazionale ma DTC italiano migliorabile. Forte storytelling possibile.",
+        "Angolo Iniziale": "Le vostre anfore sono un capolavoro di branding fisico: il digital pero non racconta abbastanza l'oggetto + l'esperienza. Posso lavorare su content + DTC retention strategica.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: s base. Ads attive: s scarse. Sito quality: 4. Agenzia esterna identificata: da validare.",
+        "Regione": "Puglia"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Tenuta Selvolini",
+        "URL Sito": "https://www.tenutaselvolini.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Cantina toscana piccola produzione DTC",
+        "Fatturato Stimato": "<500K",
+        "Localita HQ": "Castelfiorentino (FI)",
+        "Decisore Probabile": "Founder family",
+        "LinkedIn Azienda": null,
+        "Razionale": "Piccola cantina toscana familiare con prodotto autentico. Marketing minimo, e-commerce basico. Ideale per growth share o piccolo budget.",
+        "Angolo Iniziale": "Le piccole cantine toscane vincono col vino club + esperienza visita: vedo zero strutturazione. Voi avete il prodotto giusto, posso aprire la struttura DTC + retention.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 2. Agenzia esterna identificata: n. Validare attivita sito.",
+        "Regione": "Toscana"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Bottega Verde",
+        "URL Sito": "https://www.bottegaverde.it",
+        "Verticale": "E-commerce",
+        "Settore": "E-commerce",
+        "Sotto-settore": "Cosmesi naturale catena retail + e-commerce",
+        "Fatturato Stimato": ">15M",
+        "Localita HQ": "Pienza (SI)",
+        "Decisore Probabile": "CMO interno probabile",
+        "LinkedIn Azienda": "https://linkedin.com/company/bottega-verde",
+        "Razionale": "Brand cosmesi storico digitalizzato. Quasi sicuro CMO interno. Inserito come reference point ma probabile esclusione.",
+        "Angolo Iniziale": "(Da escludere se conferma CMO interno) Possibile fit per progetti verticali specifici come riposizionamento target Gen Z.",
+        "Priority Score": "🔍 Da validare",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: s STRUTTURATO. Da escludere se CMO interno confermato. Inserito per coverage settoriale.",
+        "Regione": "Toscana"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Tartuferi & Associati",
+        "URL Sito": "https://www.tartuferieassociati.it/",
+        "Verticale": "B2B",
+        "Settore": "Professionale B2B",
+        "Sotto-settore": "Studio commercialisti e revisori legali, 11 professionisti, struttura 1000mq",
+        "Fatturato Stimato": "Sconosciuto",
+        "Localita HQ": "Macerata (MC)",
+        "Decisore Probabile": "Managing Partner / Senior Commercialista",
+        "LinkedIn Azienda": null,
+        "Razionale": "Studio storico (1962) ben strutturato in 11 professionisti, sede da 1000mq. Marketing minimo: zero blog, zero news, sito vetrina. Hanno autorita ma non la comunicano.",
+        "Angolo Iniziale": "Studio da 60+ anni con 11 professionisti e zero contenuto editoriale online: l'autorita c'e, ma fuori dallo studio non si vede. Cosa farebbero le PMI clienti dopo che il commercialista parla pubblicamente di Industria 4.0?",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 2. Agenzia esterna identificata: n. Storia 60+ anni inutilizzata come asset reputazionale.",
+        "Regione": "Marche"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Studio GMDC Commercialisti",
+        "URL Sito": "https://www.studiogmdc.com/",
+        "Verticale": "B2B",
+        "Settore": "Professionale B2B",
+        "Sotto-settore": "Studio commercialisti, 5 partner senior + 20 collaboratori, 3 sedi (Castelfidardo, Osimo, Sirolo)",
+        "Fatturato Stimato": "Sconosciuto",
+        "Localita HQ": "Castelfidardo (AN)",
+        "Decisore Probabile": "Senior Partner",
+        "LinkedIn Azienda": "https://www.linkedin.com/company/studio-gmdc",
+        "Razionale": "Tre sedi, 25 risorse, partner che parlano a convegni: gia' fanno marketing, ma destrutturato. Margine alto per amplificazione strategica e lead gen su PMI clienti.",
+        "Angolo Iniziale": "5 partner gia' attivi come speaker, social vivi su Instagram e Facebook ma senza un funnel: ogni intervento e' fuoco d'artificio singolo invece che campagna. Si puo' trasformare l'expertise in pipeline ricorrente.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: parziale. Ads attive: n verificato. Sito quality: 3. Agenzia esterna identificata: n. Decision maker accessibili tramite eventi locali.",
+        "Regione": "Marche"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "LFM Srl Carpenteria Meccanica",
+        "URL Sito": "https://www.lfmsrl.net/",
+        "Verticale": "B2B",
+        "Settore": "Industria",
+        "Sotto-settore": "Carpenteria meccanica medio-pesante e lavorazioni CNC conto terzi",
+        "Fatturato Stimato": "1-3M",
+        "Localita HQ": "Jesi (AN)",
+        "Decisore Probabile": "Founder / Direttore Commerciale",
+        "LinkedIn Azienda": null,
+        "Razionale": "Lavora per edilizia, aeronautico, petrolifero, chimico, navale: cliente medio-alto. Sito ok, sezione news aggiornata 2023. Comunicazione tecnica ma weak su lead inbound.",
+        "Angolo Iniziale": "Lavorano per nicchie alto-margine (aeronautico, petrolifero) ma il sito si presenta come carpenteria generalista. Riposizionando su 1-2 verticali si puo' triplicare il valore di ogni nuovo lead.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n. Ultime news 2023 = energie spese ma abbandonate.",
+        "Regione": "Marche"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Tiburon Yacht",
+        "URL Sito": "https://www.tiburonyacht.com/",
+        "Verticale": "B2B",
+        "Settore": "Industria",
+        "Sotto-settore": "Cantiere navale, costruzione, refit e manutenzione yacht custom",
+        "Fatturato Stimato": "Sconosciuto",
+        "Localita HQ": "Fano (PU)",
+        "Decisore Probabile": "Founder / CEO",
+        "LinkedIn Azienda": null,
+        "Razionale": "Cantiere Marche con specializzazione refit + custom outfitting: lo stesso pattern di Timone Yachts che Nicola gia' conosce. Filiera nautica Fano-Pesaro = piazza di valore.",
+        "Angolo Iniziale": "Cantiere a Fano in territorio del distretto nautico Marche. Modello refit + custom = prodotto premium ma comunicazione poco verticale sul cliente armatore. Possibilita' di diventare reference brand del distretto.",
+        "Priority Score": "🔥 Sognato",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3. Agenzia esterna identificata: n. Adiacenza al case Timone Yachts = leverage forte.",
+        "Regione": "Marche"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Adria Sail",
+        "URL Sito": "https://adriasail.it/",
+        "Verticale": "B2B",
+        "Settore": "Industria",
+        "Sotto-settore": "Cantiere yacht custom e semi-custom (regata + cruising)",
+        "Fatturato Stimato": "Sconosciuto",
+        "Localita HQ": "Fano (PU)",
+        "Decisore Probabile": "Founder Maurizio Testuzza",
+        "LinkedIn Azienda": "https://www.linkedin.com/company/adria-sail",
+        "Razionale": "Architetto-fondatore, brand custom semi-artigianale: prodotto eccellente, comunicazione datata. Tipico fit fractional CMO premium.",
+        "Angolo Iniziale": "Yacht custom Made in Marche con awards di design ma il sito ha estetica 2015 e i contenuti sono in ordine sparso. Il founder ha autorita progettuale ma non la sta capitalizzando come thought leader del segmento.",
+        "Priority Score": "🔥 Sognato",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 3 (datato). Agenzia esterna identificata: n. Founder-led brand.",
+        "Regione": "Marche"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "MECNA Cantiere Meccanico Navale",
+        "URL Sito": "https://www.mecna.it/",
+        "Verticale": "B2B",
+        "Settore": "Industria",
+        "Sotto-settore": "Cantiere meccanico navale, sistemi idraulici, carpenteria, montaggi propulsione",
+        "Fatturato Stimato": "1-3M",
+        "Localita HQ": "Fano (PU)",
+        "Decisore Probabile": "Founder / Direzione Tecnica",
+        "LinkedIn Azienda": null,
+        "Razionale": "50 anni di storia, posizione strategica nel porto di Fano, servizio 360 sulla nautica. Brand operativo verso cantieri yacht piu' grandi: classica filiera B2B sotto-comunicata.",
+        "Angolo Iniziale": "Subfornitore di filiera nautica con 50 anni di expertise tecnica: ma quando un yacht-builder cerca un partner di fiducia online, MECNA sembra una officina come altre. Identita' verticale =moltiplicatore.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 2. Agenzia esterna identificata: n. Identita' grafica datata.",
+        "Regione": "Marche"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "iPAN Scatolificio",
+        "URL Sito": "https://www.ipan.it/",
+        "Verticale": "B2B",
+        "Settore": "Industria",
+        "Sotto-settore": "Packaging cartone industriale custom (industria mobile + produzioni complesse)",
+        "Fatturato Stimato": "3-7M",
+        "Localita HQ": "Montelabbate (PU)",
+        "Decisore Probabile": "Founder / Direzione Commerciale",
+        "LinkedIn Azienda": "https://www.linkedin.com/company/ipan-srl",
+        "Razionale": "3.5M scatole/anno, FSC, fotovoltaico 325kW, narrazione family-business solida. Sito 4/5 ma marketing piu' brand che pipeline. Possibile salto su lead gen B2B.",
+        "Angolo Iniziale": "Storia familiare 1974, sostenibilita' reale (FSC + 325kW solare): tutti gli ingredienti per una narrazione ESG che oggi vale oro nei capitolati Industria 4.0. Manca solo il funnel commerciale.",
+        "Priority Score": "🔥 Sognato",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: parziale. Ads attive: n. Sito quality: 4. Agenzia esterna identificata: n. ESG forte ma poco capitalizzato in comunicazione vendor.",
+        "Regione": "Marche"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Nuovo Imballo Srl",
+        "URL Sito": "https://www.nuovoimballo.com/",
+        "Verticale": "B2B",
+        "Settore": "Industria",
+        "Sotto-settore": "Imballaggi industriali e pallet, dal 1978",
+        "Fatturato Stimato": "1-3M",
+        "Localita HQ": "Macerata (MC)",
+        "Decisore Probabile": "Founder / Direzione",
+        "LinkedIn Azienda": null,
+        "Razionale": "47 anni di storia, copertura 5 province Marche. Posizionamento generalista: il riposizionamento verticale su filiere specifiche (calzatura, mobile, food) puo' duplicare il valore.",
+        "Angolo Iniziale": "Servite 5 province Marche dal 1978 ma il messaggio e' 'pallet generalisti'. Le 4 filiere distrettuali Marche (calzatura, mobile, food, mecca) hanno problemi di imballaggio totalmente diversi: una pagina per filiera = +30% conversione tipico.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: n. Sito quality: 2. Agenzia esterna identificata: n. Esperienza enorme, comunicazione assente.",
+        "Regione": "Marche"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Medical Point Ancona",
+        "URL Sito": "https://www.medicalpoint.one/",
+        "Verticale": "B2B",
+        "Settore": "Altro",
+        "Sotto-settore": "Poliambulatorio specialistico privato (diagnostica, riabilitazione, fisioterapia)",
+        "Fatturato Stimato": "1-3M",
+        "Localita HQ": "Ancona (AN)",
+        "Decisore Probabile": "Direttore Sanitario / Founder",
+        "LinkedIn Azienda": null,
+        "Razionale": "Due sedi (Ancona + Torrette), online booking attivo, partnership con laboratorio analisi. Mix B2C ma con potenziale convenzioni aziende = vera leva B2B.",
+        "Angolo Iniziale": "Avete prenotazione online e diagnostica + riabilitazione + pediatrica nello stesso polo: e' esattamente il pacchetto che le PMI Ancona cercherebbero come welfare aziendale, ma nel sito non ce n'e' traccia.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: parziale. Ads attive: probabili Google. Sito quality: 4. Agenzia esterna identificata: n verificato. Pivot B2B welfare aziendale = high-leverage.",
+        "Regione": "Marche"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "PNK Farmaceutici",
+        "URL Sito": "https://pnkfarmaceutici.com/",
+        "Verticale": "B2B",
+        "Settore": "Industria",
+        "Sotto-settore": "CDMO nutraceutica conto terzi (capsule, compresse, gummies)",
+        "Fatturato Stimato": "7-15M",
+        "Localita HQ": "Castelnuovo Vomano (TE)",
+        "Decisore Probabile": "CEO / Direzione Commerciale",
+        "LinkedIn Azienda": "https://www.linkedin.com/company/pnk-farmaceutici",
+        "Razionale": "150+ clienti internazionali, 1500+ prodotti sviluppati, 10000mq, certificazioni GMP/FDA. Sito multilingua. Probabile fascia alta del nostro target ma resta accessibile come fractional CMO advisor.",
+        "Angolo Iniziale": "Producete per 150 brand globali ma siete invisibili come autorita di settore: chi cerca un partner CDMO nutraceutica oggi vi trova solo se vi cerca per nome. La produzione e' top, l'inbound 0.",
+        "Priority Score": "🔥 Sognato",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: parziale. Ads attive: n verificato. Sito quality: 4. Agenzia esterna identificata: n. Fatturato probabile alto ma fit advisor pluriennale.",
+        "Regione": "Abruzzo"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Sintal Group",
+        "URL Sito": "https://www.sintalgroup.it/",
+        "Verticale": "B2B",
+        "Settore": "Industria",
+        "Sotto-settore": "Gruppo nutraceutica (Sintal Dietetics, MdE, Sintal Liquid, Gumde, NTP Biotech)",
+        "Fatturato Stimato": "7-15M",
+        "Localita HQ": "Castelnuovo Vomano (TE)",
+        "Decisore Probabile": "Umberto Marini (Founder)",
+        "LinkedIn Azienda": "https://www.linkedin.com/company/sintal-group",
+        "Razionale": "Pioniere abruzzese della nutraceutica conto terzi. Holding multi-brand interna ma comunicazione frammentata. Possibile lead gen e brand orchestration.",
+        "Angolo Iniziale": "Avete cinque societa' specializzate sotto un unico tetto ma ogni brand parla da solo: la potenza di gruppo sta tutta nel commerciale interno. Un'orchestrazione comunicazionale single-brand puo' moltiplicare i lead inbound del gruppo intero.",
+        "Priority Score": "🔍 Da validare",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: parziale. Ads attive: ?. Sito quality: 3. Agenzia esterna identificata: n verificato. Validare pricing fit prima di pitch.",
+        "Regione": "Abruzzo"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "IMR Industrialesud SpA",
+        "URL Sito": "https://www.imr.it/",
+        "Verticale": "B2B",
+        "Settore": "Industria",
+        "Sotto-settore": "Componentistica plastica per automotive e veicoli industriali",
+        "Fatturato Stimato": ">15M",
+        "Localita HQ": "Atessa (CH)",
+        "Decisore Probabile": "Direzione Commerciale / Direzione Marketing",
+        "LinkedIn Azienda": "https://www.linkedin.com/company/imr-industrialesud",
+        "Razionale": "Tier-1 automotive abruzzese (Stellantis Atessa). Probabilmente fuori target di fatturato ma lasciato come benchmark per advisory consulting o referral upstream.",
+        "Angolo Iniziale": "Tier-1 nella filiera Stellantis: il vero gap non e' lead gen ma narrative B2B verso il mondo veicoli industriali. Posizionarsi come fornitore-pensante invece che fornitore-eseguitore vale due ordini di grandezza in fase di gara.",
+        "Priority Score": "🔍 Da validare",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: probabile. Ads attive: ?. Sito quality: ?. Agenzia esterna identificata: ? verificare. Fatturato probabilmente sopra sweet spot.",
+        "Regione": "Abruzzo"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Drive Service Carraro Drive Tech",
+        "URL Sito": "https://www.carraro.com/",
+        "Verticale": "B2B",
+        "Settore": "Industria",
+        "Sotto-settore": "Componenti meccanici per veicoli agricoli e industriali (Poggiofiorito CH)",
+        "Fatturato Stimato": ">15M",
+        "Localita HQ": "Poggiofiorito (CH)",
+        "Decisore Probabile": "Site Manager Abruzzo",
+        "LinkedIn Azienda": "https://www.linkedin.com/company/carraro-spa",
+        "Razionale": "Subsidiary di gruppo: probabilmente fuori target B2B PMI. Lasciato come riferimento di filiera Abruzzo.",
+        "Angolo Iniziale": "Plant Carraro a Poggiofiorito: parte di gruppo quotato, fuori scope diretto. Utile come riferimento per identificare PMI fornitori di filiera attorno a questo plant.",
+        "Priority Score": "🔍 Da validare",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: s (corporate). Ads attive: corporate. Sito quality: 4. Agenzia esterna identificata: probabile internazionale. ESCLUDIBILE come prospect diretto.",
+        "Regione": "Abruzzo"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Centro Odontoiatrico Avanguardia",
+        "URL Sito": "https://www.centroavanguardia.it/",
+        "Verticale": "B2B",
+        "Settore": "Altro",
+        "Sotto-settore": "Centro odontoiatrico privato strutturato Abruzzo",
+        "Fatturato Stimato": "1-3M",
+        "Localita HQ": "Pescara (PE)",
+        "Decisore Probabile": "Direttore Sanitario / Founder",
+        "LinkedIn Azienda": null,
+        "Razionale": "Decennio di attivita', riferimento per qualita' in Abruzzo. Mercato dental sta consolidandosi (Primo, Etica): chi rimane indipendente ha bisogno di brand forte.",
+        "Angolo Iniziale": "Mentre catene come Primo aggregano studi in tutta Italia, voi siete la 'qualita' indipendente Abruzzo'. Quel posizionamento vale oro ma va difeso con un brand digital chiaro: oggi l'unico vantaggio competitivo strutturale verso le catene e' la fiducia locale.",
+        "Priority Score": "⚡ Praticabile",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: n. Ads attive: probabili Google. Sito quality: 3. Agenzia esterna identificata: n. Pressione consolidamento di settore = urgenza posizionamento.",
+        "Regione": "Abruzzo"
+      }
+    },
+    {
+      "properties": {
+        "Nome Azienda": "Cliniche Dentistiche Francesco Saba",
+        "URL Sito": "https://francescosaba.com",
+        "Verticale": "B2B",
+        "Settore": "Altro",
+        "Sotto-settore": "Catena 16 cliniche dentistiche Lazio",
+        "Fatturato Stimato": ">15M",
+        "Localita HQ": "Roma (RM)",
+        "Decisore Probabile": "Founder / Direzione Marketing",
+        "LinkedIn Azienda": "https://www.linkedin.com/company/francesco-saba-dental",
+        "Razionale": "16 sedi Lazio, brand consolidato. Probabile esistenza di marketing interno strutturato: validare prima di pitch.",
+        "Angolo Iniziale": "16 cliniche Lazio = struttura paragonabile ai grandi gruppi: validare se hanno gia' direzione marketing in-house prima di proporre.",
+        "Priority Score": "🔍 Da validare",
+        "Status": "📋 Da analizzare",
+        "Note": "Marketing interno: probabile. Ads attive: s. Sito quality: ?. Agenzia esterna identificata: ?. Validare presenza CMO prima di outreach.",
+        "Regione": "Lazio"
+      }
+    }
+  ]
+}
