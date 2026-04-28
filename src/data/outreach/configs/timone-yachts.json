@@ -38,13 +38,14 @@
     }
   ],
 
-  "conditions": "Lavoro con massimo tre clienti per volta, e di ognuno mi prendo la responsabilità piena dei risultati. Se dopo 15-20 minuti di call vediamo entrambi le condizioni, partiamo. Se non le vediamo, ti dico cosa farei al posto tuo e ci salutiamo.\n\nNon vendo soluzioni che non servono.",
+  "conditions": "Lavoro con massimo 3 clienti alla volta. La call non è una vendita — è una chiacchierata con qualcuno che ha appena studiato a fondo il vostro mercato. Sono caldo sull'argomento, ho idee fresche.\n\nPer voi: un punto di vista da professionista, gratuito. Per me: l'occasione di conoscere persone interessanti. Tutto qui.",
 
   "cta": {
-    "primaryText": "Parliamone — 15-20 minuti",
-    "primaryHref": "https://wa.me/393385691369?text=Ciao%20Nicola%2C%20ho%20visto%20la%20pagina%20per%20Timone%20Yachts%20e%20vorrei%20fissare%20una%20chiamata.",
-    "secondaryText": "Oppure rispondi alla mail",
-    "whatsappHref": "https://wa.me/393385691369"
+    "primaryText": "Conosciamoci",
+    "emailHref": "mailto:marketing@nicolaserrao.com?subject=Chiacchierata%20Timone%20Yachts",
+    "phoneHref": "https://wa.me/393385691369?text=Ciao%20Nicola%2C%20ho%20visto%20la%20pagina%20per%20Timone%20Yachts%20e%20vorrei%20fissare%20una%20chiamata.",
+    "emailLabel": "Email",
+    "phoneLabel": "WhatsApp"
   },
 
   "prospectStyle": {

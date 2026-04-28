@@ -79,10 +79,16 @@ export type OutreachConfig = {
   conditions: string;
 
   cta: {
+    /** Testo del bottone primario (es. "Conosciamoci"). */
     primaryText: string;
-    primaryHref: string;
-    secondaryText: string;
-    whatsappHref: string;
+    /** href mailto: del bottone email che si rivela al click. */
+    emailHref: string;
+    /** href tel: o wa.me del bottone telefono/whatsapp che si rivela al click. */
+    phoneHref: string;
+    /** Etichetta del bottone email (es. "Email"). Default: "Email". */
+    emailLabel?: string;
+    /** Etichetta del bottone telefono (es. "WhatsApp"). Default: "WhatsApp". */
+    phoneLabel?: string;
   };
 
   prospectStyle: ProspectStyle;

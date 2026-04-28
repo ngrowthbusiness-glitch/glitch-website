@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { configs, getConfig, getAllSlugs } from "@/data/outreach/loader";
 import type { OutreachConfig } from "@/data/outreach/types";
 import { Tracker } from "./tracker";
+import { CtaBlock } from "./cta-block";
 
 export const dynamicParams = false;
 
@@ -41,6 +42,7 @@ export default async function OutreachPage({
       <Hero config={config} />
       <Divider config={config} />
       <ProspectSection config={config} />
+      <OutreachFooter />
       <OutreachStyles config={config} />
     </main>
   );
@@ -159,7 +161,7 @@ function VideoFrame({
 ───────────────────────────────────────────── */
 
 function ProspectSection({ config }: { config: OutreachConfig }) {
-  const { closing, observations, conditions, cta } = config;
+  const { closing, observations, conditions, cta, prospectStyle } = config;
   const conditionsParagraphs = conditions.split("\n\n");
 
   return (
@@ -184,34 +186,135 @@ function ProspectSection({ config }: { config: OutreachConfig }) {
           ))}
         </div>
 
-        <div className="o-divider" aria-hidden="true" />
-
-        <div className="o-conditions">
-          {conditionsParagraphs.map((p, i) => (
-            <p key={i} className={i === conditionsParagraphs.length - 1 ? "o-conditions__final" : ""}>
-              {p}
-            </p>
-          ))}
-        </div>
-
-        <div className="o-cta">
-          <a
-            href={cta.primaryHref}
-            className="o-cta__primary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {cta.primaryText}
-          </a>
-          <div className="o-cta__secondary">
-            {cta.secondaryText} · WhatsApp{" "}
-            <a href={cta.whatsappHref} target="_blank" rel="noopener noreferrer">
-              +39 338 5691369
-            </a>
+        {/* Box "conditions" evidenziato con effetto glitch */}
+        <aside className="o-conditions-box" role="note">
+          <div className="o-conditions-box__label" aria-hidden="true">
+            <span className="o-conditions-box__label-back">CHIUSURA</span>
+            <span className="o-conditions-box__label-front">CHIUSURA</span>
           </div>
-        </div>
+          <div className="o-conditions-box__inner">
+            {conditionsParagraphs.map((p, i) => (
+              <p
+                key={i}
+                className={
+                  i === 0 ? "o-conditions-box__lead" : "o-conditions-box__body"
+                }
+              >
+                {p}
+              </p>
+            ))}
+          </div>
+        </aside>
+
+        <CtaBlock
+          primaryText={cta.primaryText}
+          emailHref={cta.emailHref}
+          phoneHref={cta.phoneHref}
+          emailLabel={cta.emailLabel ?? "Email"}
+          phoneLabel={cta.phoneLabel ?? "WhatsApp"}
+          accent={prospectStyle.accent}
+          bgPrimary={prospectStyle.bgPrimary}
+          fontHeading={prospectStyle.fontHeading}
+          fontBody={prospectStyle.fontBody}
+          buttonRadius={prospectStyle.buttonRadius}
+          buttonPadding={prospectStyle.buttonPadding}
+          textSecondary={prospectStyle.textSecondary}
+          border={prospectStyle.border}
+        />
       </div>
     </section>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   FOOTER — info legali + contatti, riadattato dal sito
+───────────────────────────────────────────── */
+
+function OutreachFooter() {
+  return (
+    <footer className="o-footer">
+      <div className="o-footer__inner">
+        <div className="o-footer__brand">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/favicon.png" alt="" className="o-footer__brand-icon" aria-hidden="true" />
+          <div>
+            <div className="o-footer__brand-name">
+              Nicola <span className="o-footer__brand-accent">Serrao</span>
+            </div>
+            <div className="o-footer__brand-role">Fractional CMO &middot; AI-Powered Strategist</div>
+          </div>
+        </div>
+
+        <div className="o-footer__divider" aria-hidden="true" />
+
+        <div className="o-footer__cols">
+          <div className="o-footer__col">
+            <div className="o-footer__col-label">Contatti</div>
+            <ul>
+              <li>
+                <a href="mailto:marketing@nicolaserrao.com" className="o-footer__contact">
+                  marketing@nicolaserrao.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/393385691369"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="o-footer__contact"
+                >
+                  WhatsApp &rarr; +39 338 5691369
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/nicola-serrao/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="o-footer__contact"
+                >
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="o-footer__col">
+            <div className="o-footer__col-label">Sede</div>
+            <ul>
+              <li className="o-footer__txt">Via Oberdan 25</li>
+              <li className="o-footer__txt">60020 Agugliano (AN)</li>
+              <li className="o-footer__txt">Italia</li>
+            </ul>
+          </div>
+          <div className="o-footer__col">
+            <div className="o-footer__col-label">Legale</div>
+            <ul>
+              <li className="o-footer__txt">P.IVA 02703360426</li>
+              <li className="o-footer__txt">CF SRRNCL93T31B963M</li>
+              <li>
+                <a
+                  href="https://nicolaserrao.com/privacy-policy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="o-footer__link"
+                >
+                  Privacy &amp; Cookie
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="o-footer__divider" aria-hidden="true" />
+
+        <div className="o-footer__bottom">
+          <p>&copy; 2026 Nicola Serrao &mdash; Tutti i diritti riservati</p>
+          <p className="o-footer__bottom-fine">
+            Pagina riservata. Non indicizzata. Distribuita su invito.
+          </p>
+        </div>
+      </div>
+    </footer>
   );
 }
 
@@ -587,74 +690,190 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
     }
     .o-obs__body p:last-child { margin-bottom: 0; }
 
-    .o-divider {
-      width: 60px;
-      height: 1px;
-      background: ${s.accent};
-      margin: 0 auto 60px auto;
+    /* Box "conditions" evidenziato con effetto glitch */
+    .o-conditions-box {
+      position: relative;
+      max-width: 760px;
+      margin: 80px auto 64px auto;
+      padding: 36px 40px 40px 40px;
+      background: rgba(212, 170, 65, 0.04);
+      border: 1px solid ${s.accent};
+      box-shadow:
+        6px 6px 0 -1px rgba(212, 170, 65, 0.20),
+        -4px -4px 0 -1px rgba(0, 255, 252, 0.14),
+        0 0 50px rgba(212, 170, 65, 0.10);
     }
-
-    .o-conditions {
-      max-width: 720px;
-      margin: 0 auto 80px auto;
-      text-align: center;
+    .o-conditions-box::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        repeating-linear-gradient(
+          to bottom,
+          transparent 0,
+          transparent 2px,
+          rgba(212, 170, 65, 0.025) 2px,
+          rgba(212, 170, 65, 0.025) 3px
+        );
     }
-    .o-conditions p {
+    .o-conditions-box__label {
+      position: absolute;
+      top: -10px;
+      left: 24px;
+      padding: 0 12px;
+      background: ${s.bgPrimary};
+      font-family: ${s.fontHeading};
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      ${s.headingTransform === "uppercase" ? "text-transform: uppercase;" : ""}
+      line-height: 1;
+      display: inline-block;
+    }
+    .o-conditions-box__label-front {
+      position: relative;
+      color: ${s.accent};
+      z-index: 2;
+    }
+    .o-conditions-box__label-back {
+      position: absolute;
+      top: 0;
+      left: 12px;
+      color: #00fffc;
+      transform: translate(-2px, 1px);
+      opacity: 0.55;
+      z-index: 1;
+      mix-blend-mode: screen;
+      filter: blur(0.3px);
+      pointer-events: none;
+    }
+    .o-conditions-box__inner {
+      position: relative;
+      z-index: 1;
+    }
+    .o-conditions-box__lead {
+      font-family: ${s.fontHeading};
+      font-weight: ${s.headingWeight};
+      font-size: clamp(20px, 2.2vw, 26px);
+      line-height: 1.4;
+      letter-spacing: ${s.headingLetterSpacing};
+      ${s.headingTransform === "uppercase" ? "text-transform: uppercase;" : ""}
+      color: ${s.accent};
+      margin: 0 0 20px 0;
+    }
+    .o-conditions-box__body {
       font-family: ${s.fontBody};
       font-weight: ${s.bodyWeight};
-      font-size: 16px;
+      font-size: 15px;
       line-height: 1.75;
       color: ${s.textSecondary};
-      margin: 0 0 18px 0;
-    }
-    .o-conditions__final {
-      font-family: ${s.fontHeading} !important;
-      font-weight: ${s.headingWeight} !important;
-      font-size: clamp(20px, 2.2vw, 26px) !important;
-      line-height: 1.35 !important;
-      letter-spacing: ${s.headingLetterSpacing} !important;
-      ${s.headingTransform === "uppercase" ? "text-transform: uppercase !important;" : ""}
-      color: ${s.accent} !important;
-      margin-top: 24px !important;
+      margin: 0;
     }
 
-    .o-cta {
-      text-align: center;
+    /* ============ FOOTER ============ */
+
+    .o-footer {
+      background: #0a0e0d;
+      color: rgba(232, 245, 242, 0.7);
+      padding: 48px 40px 28px;
+      border-top: 1px solid rgba(0, 255, 252, 0.18);
+      font-family: var(--font-dm-mono), 'Courier New', monospace;
     }
-    .o-cta__primary {
-      display: inline-block;
-      font-family: ${s.fontHeading};
-      font-weight: 400;
-      font-size: 13px;
+    .o-footer__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .o-footer__brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    .o-footer__brand-icon {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+    .o-footer__brand-name {
+      font-family: var(--font-playfair), Georgia, serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #e8f5f2;
+      letter-spacing: -0.3px;
+      line-height: 1;
+    }
+    .o-footer__brand-accent { color: #00fffc; }
+    .o-footer__brand-role {
+      font-size: 9px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: ${s.accent};
-      background: transparent;
-      border: 1px solid ${s.accent};
-      border-radius: ${s.buttonRadius};
-      padding: ${s.buttonPadding};
+      color: rgba(232, 245, 242, 0.4);
+      margin-top: 4px;
+    }
+    .o-footer__divider {
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 255, 252, 0.22),
+        transparent
+      );
+      margin: 24px 0;
+    }
+    .o-footer__cols {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      flex-wrap: wrap;
+    }
+    .o-footer__col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .o-footer__col li { line-height: 1.4; }
+    .o-footer__col-label {
+      font-size: 8px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: #00fffc;
+      margin-bottom: 12px;
+    }
+    .o-footer__contact {
+      font-size: 11px;
+      color: rgba(232, 245, 242, 0.6);
       text-decoration: none;
-      transition: background-color 0.2s ease, color 0.2s ease;
+      transition: color 0.2s;
     }
-    .o-cta__primary:hover {
-      background: ${s.accent};
-      color: ${s.bgPrimary};
-    }
-    .o-cta__secondary {
-      font-family: ${s.fontBody};
-      font-weight: ${s.bodyWeight};
-      font-size: 13px;
-      color: ${s.textSecondary};
-      margin-top: 24px;
-      letter-spacing: 0.02em;
-    }
-    .o-cta__secondary a {
-      color: ${s.accent};
+    .o-footer__contact:hover { color: #00fffc; }
+    .o-footer__link {
+      font-size: 9px;
+      color: rgba(232, 245, 242, 0.4);
       text-decoration: none;
-      border-bottom: 1px solid ${s.border};
+      transition: color 0.2s;
     }
-    .o-cta__secondary a:hover {
-      border-bottom-color: ${s.accent};
+    .o-footer__link:hover { color: #00fffc; }
+    .o-footer__txt {
+      font-size: 10px;
+      color: rgba(232, 245, 242, 0.5);
+      letter-spacing: 0.04em;
+    }
+    .o-footer__bottom {
+      text-align: center;
+      font-size: 9px;
+      color: rgba(232, 245, 242, 0.25);
+      line-height: 1.8;
+      letter-spacing: 0.05em;
+    }
+    .o-footer__bottom-fine {
+      color: rgba(232, 245, 242, 0.15);
+      margin-top: 4px;
+      font-style: italic;
     }
 
     /* ============ RESPONSIVE ============ */
@@ -684,6 +903,16 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
         padding: 80px 24px;
       }
       .o-observations { gap: 56px; }
+      .o-conditions-box {
+        margin: 56px auto 48px auto;
+        padding: 28px 28px 32px 28px;
+      }
+      .o-footer {
+        padding: 40px 24px 24px;
+      }
+      .o-footer__cols {
+        gap: 48px;
+      }
       .o-video--vertical {
         max-width: 320px;
       }
@@ -740,17 +969,21 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
       .o-obs__body p {
         font-size: 15px;
       }
-      .o-conditions { margin-bottom: 56px; }
-      .o-conditions p { font-size: 15px; }
-      .o-conditions__final {
-        font-size: 18px !important;
+      .o-conditions-box {
+        margin: 48px auto 40px auto;
+        padding: 24px 22px 28px 22px;
       }
-      .o-cta__primary {
-        padding: 14px 32px;
-        font-size: 12px;
-        letter-spacing: 0.16em;
+      .o-conditions-box__lead { font-size: 18px; }
+      .o-conditions-box__body { font-size: 14px; }
+      .o-footer {
+        padding: 36px 20px 20px;
       }
-      .o-cta__secondary { font-size: 12px; }
+      .o-footer__cols {
+        gap: 32px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
       .o-video--vertical {
         max-width: 280px;
       }
