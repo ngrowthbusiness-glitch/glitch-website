@@ -375,21 +375,20 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
 
     .o-divider {
       background: #0a0e0d;
-      padding: 40px 40px;
+      padding: 36px 40px;
     }
     .o-divider__row {
       max-width: 1280px;
       margin: 0 auto;
-      display: flex;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
       align-items: center;
-      gap: 32px;
-      flex-wrap: nowrap;
+      gap: 28px;
     }
 
     .o-divider__brand {
       display: flex;
       align-items: center;
-      flex-shrink: 0;
     }
 
     /* Brand sinistro — Nicola */
@@ -498,17 +497,19 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
       95% { opacity: 0; transform: translate(0, 0); }
     }
 
-    /* Brand destro — prospect (logo PNG ricolorato in oro Timone) */
+    /* Brand destro — prospect (logo originale a colori in pill bianco) */
     .o-divider__brand--prospect {
-      flex-shrink: 0;
+      justify-self: end;
+      background: #ffffff;
+      padding: 6px 12px;
+      border-radius: 4px;
+      box-shadow: 0 0 0 1px rgba(212, 170, 65, 0.35), 0 0 20px rgba(212, 170, 65, 0.15);
     }
     .o-divider__logo-img {
-      height: 48px;
+      height: 36px;
       width: auto;
       object-fit: contain;
       display: block;
-      /* trasforma il logo bianco/grigio in oro Timone #D4AA41 */
-      filter: brightness(0) saturate(100%) invert(72%) sepia(56%) saturate(627%) hue-rotate(2deg) brightness(95%) contrast(88%);
     }
 
     /* ============ SEZIONE 2 (stile prospect) ============ */
@@ -668,13 +669,16 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
         gap: 48px;
       }
       .o-divider {
-        padding: 32px 24px;
+        padding: 28px 24px;
       }
       .o-divider__row {
-        gap: 20px;
+        gap: 18px;
       }
       .o-divider__logo-img {
-        height: 40px;
+        height: 32px;
+      }
+      .o-divider__brand--prospect {
+        padding: 5px 10px;
       }
       .o-prospect {
         padding: 80px 24px;
@@ -701,21 +705,24 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
         line-height: 1.12;
       }
       .o-divider {
-        padding: 24px 16px;
+        padding: 22px 14px;
       }
       .o-divider__row {
-        gap: 14px;
+        gap: 10px;
       }
       .o-divider__icon {
         width: 22px;
         height: 22px;
       }
       .o-divider__name {
-        font-size: 13px;
+        font-size: 12px;
       }
       .o-divider__brand--nicola { gap: 8px; }
-      .o-divider__line { min-width: 40px; height: 1.5px; }
-      .o-divider__logo-img { height: 32px; }
+      .o-divider__line { min-width: 30px; height: 1.5px; }
+      .o-divider__logo-img { height: 24px; }
+      .o-divider__brand--prospect {
+        padding: 4px 8px;
+      }
       .o-hero__subheadline {
         font-size: 15px;
       }
