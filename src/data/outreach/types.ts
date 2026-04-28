@@ -48,6 +48,10 @@ export type OutreachConfig = {
     contactName?: string;
     contactRole?: string;
     sector: string;
+    /** Path locale al logo del prospect (es. "/outreach/{slug}/logo.png"). Visualizzato nella divider. */
+    logoUrl?: string;
+    /** Aspect ratio approx del logo, default "auto". Usato per dimensionare l'altezza. */
+    logoMaxHeight?: number;
   };
 
   hero: {

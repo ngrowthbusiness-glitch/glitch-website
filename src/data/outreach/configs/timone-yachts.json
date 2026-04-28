@@ -6,7 +6,9 @@
     "companyName": "Timone Yachts",
     "contactName": "Matteo",
     "contactRole": "Marketing & Communication Manager",
-    "sector": "Yacht brokerage / dealer Azimut"
+    "sector": "Yacht brokerage / dealer Azimut",
+    "logoUrl": "/outreach/timone-yachts/logo.png",
+    "logoMaxHeight": 56
   },
 
   "hero": {

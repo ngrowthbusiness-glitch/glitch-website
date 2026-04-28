@@ -39,9 +39,56 @@ export default async function OutreachPage({
     <main>
       <Tracker slug={slug} />
       <Hero config={config} />
+      <Divider config={config} />
       <ProspectSection config={config} />
       <OutreachStyles config={config} />
     </main>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   DIVIDER — banda di transizione tra hero e sezione prospect
+   Layout: [testo glitch "Nicola Serrao"] · [logo Nicola] · [logo prospect]
+───────────────────────────────────────────── */
+
+function Divider({ config }: { config: OutreachConfig }) {
+  const logoUrl = config.prospect.logoUrl;
+  const logoMaxH = config.prospect.logoMaxHeight ?? 56;
+
+  return (
+    <section className="o-divider">
+      <div className="o-divider__inner">
+        <div className="o-divider__glitch" aria-label="Nicola Serrao">
+          <span className="o-divider__glitch-back" aria-hidden="true">Nicola</span>
+          <span className="o-divider__glitch-front">Nicola Serrao</span>
+        </div>
+
+        <div className="o-divider__sep" aria-hidden="true">×</div>
+
+        <div className="o-divider__logo o-divider__logo--nicola">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/favicon.png" alt="Nicola Serrao" className="o-divider__logo-icon" />
+          <span className="o-divider__logo-text">
+            Nicola <em className="o-divider__logo-text-accent">Serrao</em>
+          </span>
+        </div>
+
+        {logoUrl && (
+          <>
+            <div className="o-divider__sep" aria-hidden="true">×</div>
+            <div className="o-divider__logo o-divider__logo--prospect">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={logoUrl}
+                alt={config.prospect.companyName}
+                className="o-divider__logo-img"
+                style={{ maxHeight: `${logoMaxH}px` }}
+              />
+            </div>
+          </>
+        )}
+      </div>
+    </section>
   );
 }
 
@@ -183,12 +230,14 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
   // CSS scoped via classi prefix `o-*` per evitare conflitti col resto del sito
   const css = `
     .o-hero,
+    .o-divider,
     .o-prospect {
       width: 100%;
       box-sizing: border-box;
       overflow-x: clip;
     }
     .o-hero *,
+    .o-divider *,
     .o-prospect * {
       box-sizing: border-box;
     }
@@ -323,6 +372,122 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
       color: rgba(232, 245, 242, 0.4);
       letter-spacing: 0.1em;
       text-transform: uppercase;
+    }
+
+    /* ============ DIVIDER (stacco hero → prospect) ============ */
+
+    .o-divider {
+      background: #0a0e0d;
+      padding: 32px 40px;
+      border-top: 1px solid rgba(0, 255, 252, 0.18);
+      border-bottom: 1px solid rgba(0, 255, 252, 0.18);
+      position: relative;
+    }
+    .o-divider::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        repeating-linear-gradient(
+          to bottom,
+          transparent 0,
+          transparent 2px,
+          rgba(0, 255, 252, 0.025) 2px,
+          rgba(0, 255, 252, 0.025) 3px
+        );
+    }
+    .o-divider__inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Glitch text */
+    .o-divider__glitch {
+      position: relative;
+      display: inline-block;
+      font-family: var(--font-playfair), Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(20px, 2.2vw, 30px);
+      line-height: 1;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      animation: o-glitch-jitter 8s infinite steps(1, end);
+    }
+    .o-divider__glitch-front {
+      position: relative;
+      color: #ffffff;
+      z-index: 2;
+    }
+    .o-divider__glitch-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #00fffc;
+      transform: translate(-3px, 1px);
+      opacity: 0.85;
+      z-index: 1;
+      mix-blend-mode: screen;
+      filter: blur(0.3px);
+    }
+    @keyframes o-glitch-jitter {
+      0%, 96%, 100% { transform: translate(0, 0); }
+      97% { transform: translate(1px, 0); }
+      98% { transform: translate(-1px, 0); }
+      99% { transform: translate(0.5px, -0.5px); }
+    }
+
+    /* Separatore × */
+    .o-divider__sep {
+      font-family: var(--font-dm-mono), monospace;
+      color: rgba(0, 255, 252, 0.35);
+      font-size: 18px;
+      font-weight: 300;
+      user-select: none;
+    }
+
+    /* Logo Nicola */
+    .o-divider__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .o-divider__logo-icon {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+    .o-divider__logo-text {
+      font-family: var(--font-playfair), Georgia, serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: #e8f5f2;
+      letter-spacing: -0.3px;
+      line-height: 1;
+    }
+    .o-divider__logo-text-accent {
+      color: #00fffc;
+      font-style: normal;
+    }
+
+    /* Logo prospect */
+    .o-divider__logo--prospect {
+      display: flex;
+      align-items: center;
+    }
+    .o-divider__logo-img {
+      width: auto;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      opacity: 0.9;
     }
 
     /* ============ SEZIONE 2 (stile prospect) ============ */
@@ -481,6 +646,12 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
         grid-template-columns: 1fr;
         gap: 48px;
       }
+      .o-divider {
+        padding: 24px 24px;
+      }
+      .o-divider__inner {
+        gap: 24px;
+      }
       .o-prospect {
         padding: 80px 24px;
       }
@@ -504,6 +675,22 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
       .o-hero__headline {
         font-size: 32px;
         line-height: 1.12;
+      }
+      .o-divider {
+        padding: 20px 20px;
+      }
+      .o-divider__inner {
+        gap: 14px;
+        flex-direction: column;
+      }
+      .o-divider__sep {
+        display: none;
+      }
+      .o-divider__glitch {
+        font-size: 22px;
+      }
+      .o-divider__logo-img {
+        max-height: 44px !important;
       }
       .o-hero__subheadline {
         font-size: 15px;
