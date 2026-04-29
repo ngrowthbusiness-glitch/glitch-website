@@ -6,7 +6,7 @@
     "companyName": "Tiburon Yacht",
     "contactName": "Luciano",
     "contactRole": "Founder",
-    "sector": "Cantiere navale — refit + custom outfitting",
+    "sector": "Cantiere navale, refit + custom outfitting",
     "logoUrl": "/outreach/tiburon-yacht/logo.png",
     "logoMaxHeight": 56
   },
@@ -29,7 +29,7 @@
     {
       "label": "01 · OGGI",
       "title": "Costiera è tua. Sul sito di Tiburon, però, è solo un partner.",
-      "body": "Sul sito di Tiburon, Costiera Yacht è citata insieme ad Azimut, Pardo e Italia Yachts. Ma Azimut, Pardo e IY sono partner. Costiera è tua.\n\nIl CY39 al Salone di Venezia è il primo modello a marchio proprio — e online ancora non si racconta."
+      "body": "Sul sito di Tiburon, Costiera Yacht è citata insieme ad Azimut, Pardo e Italia Yachts. Ma Azimut, Pardo e IY sono partner. Costiera è tua.\n\nIl CY39 al Salone di Venezia è il primo modello a marchio proprio. Online, però, ancora non si racconta."
     },
     {
       "label": "02 · DOMANI",
@@ -38,7 +38,7 @@
     }
   ],
 
-  "conditions": "Lavoro con massimo 3 clienti alla volta. La call non è una vendita — è una chiacchierata con qualcuno che ha appena studiato a fondo il vostro mercato. Sono caldo sull'argomento, ho idee fresche.\n\nPer voi: un punto di vista da professionista, gratuito. Per me: l'occasione di conoscere persone interessanti. Tutto qui.",
+  "conditions": "Lavoro con massimo 3 clienti alla volta. La call non è una vendita: è una chiacchierata con qualcuno che ha appena studiato a fondo il vostro mercato. Sono caldo sull'argomento, ho idee fresche.\n\nPer voi: un punto di vista da professionista, gratuito. Per me: l'occasione di conoscere persone interessanti. Tutto qui.",
 
   "cta": {
     "primaryText": "Conosciamoci",
