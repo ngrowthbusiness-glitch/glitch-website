@@ -1,0 +1,73 @@
+{
+  "slug": "tiburon-yacht",
+  "version": "v5",
+
+  "prospect": {
+    "companyName": "Tiburon Yacht",
+    "contactName": "Luciano",
+    "contactRole": "Founder",
+    "sector": "Cantiere navale — refit + custom outfitting"
+  },
+
+  "hero": {
+    "eyebrow": "ANALISI PRIVATA · TIBURON YACHT",
+    "headline": "Hai mai pensato di poter ottenere di pi&ugrave; dal sito di Tiburon?",
+    "subheadline": "Ho notato che hai creato qualcosa di grande anche con l'altro tuo brand, Costiera Yacht. Potrebbe esserti utile qualcuno che orchestra tutto il tuo marketing online.",
+    "signature": "Nicola Serrao · Fractional CMO",
+    "videoUrl": "https://www.youtube.com/embed/Pr3le_w6D1Q?rel=0&modestbranding=1&playsinline=1",
+    "videoAspect": "9/16"
+  },
+
+  "closing": {
+    "title": "QUELLO CHE HO VISTO",
+    "introNote": "Sono ipotesi, non sentenze. Le ho fatte in qualche ora di studio del vostro mercato. Se mi smentisci, anche meglio."
+  },
+
+  "observations": [
+    {
+      "label": "01 · OGGI",
+      "title": "Costiera &egrave; di Luciano. Sul sito di Tiburon, per&ograve;, &egrave; solo un partner.",
+      "body": "Sul sito di Tiburon, Costiera Yacht &egrave; citata insieme ad Azimut, Pardo e Italia Yachts. Ma Azimut, Pardo e IY sono partner. Costiera &egrave; tua.\n\nIl CY39 al Salone di Venezia &egrave; il primo modello a marchio proprio — e online ancora non si racconta."
+    },
+    {
+      "label": "02 · DOMANI",
+      "title": "Sul sito mancano gli armatori che hanno scelto Tiburon.",
+      "body": "Oggi sulla pagina Servizi ci sono saldature, vetroresina, allestimento. Mancano i nomi degli yacht passati dal cantiere, le foto, le storie dei refit.\n\nPer chi cerca un cantiere, &egrave; la prima domanda: 'cosa hanno fatto, e per chi?'. Vale la pena sistemarlo adesso, mentre Costiera &egrave; ancora una notizia fresca."
+    }
+  ],
+
+  "conditions": "Lavoro con massimo 3 clienti alla volta. La call non &egrave; una vendita — &egrave; una chiacchierata con qualcuno che ha appena studiato a fondo il vostro mercato. Sono caldo sull'argomento, ho idee fresche.\n\nPer voi: un punto di vista da professionista, gratuito. Per me: l'occasione di conoscere persone interessanti. Tutto qui.",
+
+  "cta": {
+    "primaryText": "Conosciamoci",
+    "emailHref": "mailto:marketing@nicolaserrao.com?subject=Chiacchierata%20Tiburon%20Yacht",
+    "phoneHref": "https://wa.me/393385691369?text=Ciao%20Nicola%2C%20ho%20visto%20la%20pagina%20per%20Tiburon%20Yacht%20e%20vorrei%20fissare%20una%20chiamata.",
+    "emailLabel": "Email",
+    "phoneLabel": "WhatsApp"
+  },
+
+  "prospectStyle": {
+    "bgPrimary": "#FFFFFF",
+    "bgSecondary": "#F5F5F3",
+    "textPrimary": "#0A0A0A",
+    "textSecondary": "#3A3A3A",
+    "textMuted": "#6B6B6B",
+    "accent": "#1A3A5C",
+    "accentSecondary": "#3A3A3A",
+    "border": "rgba(26, 58, 92, 0.22)",
+    "fontHeading": "var(--font-inter), 'Helvetica Neue', Helvetica, sans-serif",
+    "fontBody": "var(--font-inter), 'Helvetica Neue', Helvetica, sans-serif",
+    "headingWeight": 600,
+    "bodyWeight": 400,
+    "headingLetterSpacing": "0.02em",
+    "headingTransform": "none",
+    "buttonRadius": "0px",
+    "buttonPadding": "14px 32px"
+  },
+
+  "meta": {
+    "createdAt": "2026-04-29",
+    "status": "draft",
+    "notes": "Secondo prospect outreach v5. Angolo: brand-launch (CY39 / Costiera Yacht). Stile prospect light/airy minimal italiano (#FFFFFF + #1A3A5C navy), opposto al dark-luxury Timone. Decisore: Luciano Savelli. Mail destinazione probabile: info@tiburonyacht.com (alta) o info@costierayacht.com. Verifiche pendenti: footer social IG/LinkedIn, P.IVA discrepanza."
+  }
+}

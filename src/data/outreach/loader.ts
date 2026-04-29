@@ -8,9 +8,11 @@
 
 import type { OutreachConfig } from "./types";
 import timoneYachts from "./configs/timone-yachts.json";
+import tiburonYacht from "./configs/tiburon-yacht.json";
 
 export const configs: OutreachConfig[] = [
   timoneYachts as unknown as OutreachConfig,
+  tiburonYacht as unknown as OutreachConfig,
 ];
 
 export function getConfig(slug: string): OutreachConfig | undefined {
