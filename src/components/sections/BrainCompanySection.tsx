@@ -393,10 +393,30 @@ export default function BrainCompanySection() {
         ═══════════════════════════════════ */
         @media (max-width: 900px) {
           .bc-section {
-            padding: 56px 0 64px;
+            padding: 64px 0 72px;
             margin-bottom: 60px;
             overflow: hidden;
+            position: relative;
+            background:
+              radial-gradient(circle at 50% 0%, rgba(0,255,252,0.10), transparent 55%),
+              radial-gradient(circle at 50% 100%, rgba(0,255,252,0.06), transparent 55%),
+              radial-gradient(circle at 1px 1px, rgba(0,255,252,0.14) 1px, transparent 0),
+              #0a0e0d;
+            background-size: 100% 100%, 100% 100%, 26px 26px, 100% 100%;
           }
+          /* Linee accent verticali tech (decorative) */
+          .bc-section::before,
+          .bc-section::after {
+            content: "";
+            position: absolute;
+            top: 10%; bottom: 10%;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, rgba(0,255,252,0.3), transparent);
+            pointer-events: none;
+            z-index: 1;
+          }
+          .bc-section::before { left: 16px; }
+          .bc-section::after  { right: 16px; }
           .bc-grid {
             display: flex;
             flex-direction: column;
@@ -417,23 +437,10 @@ export default function BrainCompanySection() {
             max-width: 540px;
             margin: 0 auto;
           }
-          /* Immagine: piccola, decorativa, centrata sopra il copy */
-          .bc-image-wrap {
-            position: relative;
-            top: auto; right: auto;
-            transform: none;
-            width: 60%;
-            max-width: 240px;
-            margin: 0 auto 24px;
-            aspect-ratio: 1228 / 882;
-            opacity: 0.9;
-            order: -1;
-          }
-          .bc-image-wrap img {
-            object-position: center center !important;
-          }
+          /* Immagine: NASCOSTA su mobile (sostituita da texture background tech) */
+          .bc-image-wrap,
           .bc-image-fade,
-          .bc-image-fade-right { display: none; }
+          .bc-image-fade-right { display: none !important; }
 
           .bc-eyebrow {
             justify-content: center;
@@ -509,8 +516,7 @@ export default function BrainCompanySection() {
           .bc-area-wide { grid-column: 1; }
         }
         @media (max-width: 480px) {
-          .bc-section { padding: 48px 0 56px; }
-          .bc-image-wrap { max-width: 200px; margin-bottom: 20px; }
+          .bc-section { padding: 56px 0 64px; }
           .bc-title { font-size: clamp(32px, 9vw, 42px); }
           .bc-sub-primary { font-size: 15px; }
           .bc-pillar { padding: 20px 18px; }

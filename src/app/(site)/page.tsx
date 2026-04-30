@@ -955,8 +955,9 @@ export default function HomePage() {
         @media (max-width: 900px) {
           .hp-wrap, .hp-wrap-narrow { padding: 0 32px; }
           .hero-grid {
-            padding: 96px 24px 64px;
-            gap: 28px; text-align: center;
+            padding: 140px 24px 64px;
+            gap: 26px; text-align: center;
+            justify-content: flex-start;
           }
           .hero-h1-wrap { max-width: 100%; }
           .hero-left { align-items: center; }
@@ -1068,7 +1069,7 @@ export default function HomePage() {
           .brain-mesh-core-label { font-size: 12px; }
           .brain-benefit-cards { grid-template-columns: 1fr; gap: 14px; }
           .brain-benefit { padding: 22px 20px; }
-          /* Cases carousel mobile: tutte le card swipeable, scroll-snap centrato */
+          /* Cases carousel mobile: tutte le card swipeable, prima card centrata */
           .uc-stage {
             height: auto; min-height: auto;
             overflow: hidden;
@@ -1083,6 +1084,7 @@ export default function HomePage() {
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scroll-snap-stop: always;
+            scroll-padding-inline: 6vw;
             -webkit-overflow-scrolling: touch;
             gap: 14px;
             padding: 0 6vw 14px;
@@ -1103,7 +1105,7 @@ export default function HomePage() {
             flex: 0 0 88vw !important;
             max-width: 88vw !important;
             width: auto !important;
-            scroll-snap-align: center;
+            scroll-snap-align: start;
             box-shadow: none !important;
           }
           .uc-card.uc-left::after,
@@ -1118,7 +1120,7 @@ export default function HomePage() {
           .hp-section { margin-bottom: 80px; }
           .hp-divider { margin-bottom: 80px; }
           .hero-pre        { font-size: 12px; }
-          .hero-h1         { font-size: clamp(38px, 8vw, 56px); line-height: 1.1; }
+          .hero-h1         { font-size: clamp(32px, 7.5vw, 44px); line-height: 1.08; letter-spacing: -0.5px; }
           .hero-sub        { font-size: clamp(15px, 2vw, 17px); max-width: 360px; margin-left: auto; margin-right: auto; }
           .hero-sub-strong { font-size: clamp(16px, 4.6vw, 20px); max-width: 320px; line-height: 1.4; }
           .hero-pill-teal  { font-size: 11px; padding: 7px 14px; }
@@ -1161,8 +1163,9 @@ export default function HomePage() {
 
           /* ── Typography mobile-first ── */
           .hero-pre        { font-size: 11px; letter-spacing: 1.5px; }
-          .hero-h1         { font-size: clamp(34px, 9vw, 44px); line-height: 1.15; }
+          .hero-h1         { font-size: clamp(28px, 8vw, 38px); line-height: 1.1; }
           .hero-sub        { font-size: 15px; }
+          .hero-grid       { padding: 120px 20px 56px; }
           .hero-pill-teal  { font-size: 11px; padding: 6px 14px; }
           .hero-pill-grey  { font-size: 10px; }
           .hp-eyebrow      { font-size: 11px; letter-spacing: 2.5px; }
@@ -1622,12 +1625,12 @@ export default function HomePage() {
           6. CASE STUDIES — Unified Carousel
       ════════════════════════════════════════ */}
       <div className="hp-wrap hp-section">
-        <div className="hp-eyebrow">RISULTATI REALI</div>
+        <div className="hp-eyebrow">CHI HA LAVORATO CON ME</div>
         <h2 className="hp-h2">
-          Numeri veri.<br /><em>Aziende vere.</em>
+          Non ti dico io come lavoro.<br /><em>Te lo dicono loro.</em>
         </h2>
         <p className="hp-subtitle" style={{ marginBottom: "8px" }}>
-          Non casi di studio generici. Problemi reali, scelte precise, risultati misurabili.
+          Quattro voci di chi ha lavorato con me. Numeri reali, parole loro, niente filtri.
         </p>
 
         <CasesCarousel />
