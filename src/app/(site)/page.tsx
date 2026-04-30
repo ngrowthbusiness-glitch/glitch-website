@@ -174,17 +174,22 @@ export default function HomePage() {
         .fcmo-grid {
           display: grid;
           grid-template-columns: 1.55fr 1fr;
-          grid-template-rows: 1fr 1fr;
           gap: 20px;
           margin-top: 40px;
+          align-items: stretch;
         }
         .fcmo-col {
           border-radius: 10px; padding: 32px 28px;
           display: flex; flex-direction: column; gap: 16px;
         }
-        .fcmo-col-main { grid-column: 1; grid-row: 1 / 3; padding: 40px 36px; }
-        .fcmo-col-side-1 { grid-column: 2; grid-row: 1; padding: 24px 22px; }
-        .fcmo-col-side-2 { grid-column: 2; grid-row: 2; padding: 24px 22px; }
+        .fcmo-col-main { grid-column: 1; padding: 40px 36px; }
+        .fcmo-side-stack {
+          grid-column: 2;
+          display: flex; flex-direction: column; gap: 20px;
+        }
+        .fcmo-col-side-1, .fcmo-col-side-2 {
+          flex: 1; padding: 24px 22px;
+        }
         .fcmo-col-side-1 .fcmo-col-icon svg,
         .fcmo-col-side-2 .fcmo-col-icon svg { width: 36px; height: 36px; }
         .fcmo-col-side-1 .fcmo-col-title,
@@ -950,8 +955,8 @@ export default function HomePage() {
         @media (max-width: 900px) {
           .hp-wrap, .hp-wrap-narrow { padding: 0 32px; }
           .hero-grid {
-            padding: 48px 32px 60px;
-            gap: 32px; text-align: center;
+            padding: 96px 24px 64px;
+            gap: 28px; text-align: center;
           }
           .hero-h1-wrap { max-width: 100%; }
           .hero-left { align-items: center; }
@@ -963,34 +968,47 @@ export default function HomePage() {
           .hero-photo-wrap { width: 120px !important; height: 120px !important; }
           .hero-pills-main, .hero-pills-grey { justify-content: center; }
           .hero-sub { margin-left: auto; margin-right: auto; }
-          /* FCMO 3 colonne → slider orizzontale su mobile */
+          /* FCMO mobile: 2 elementi swipeable centrati
+             — Card 1: Fractional CMO main
+             — Card 2: side-stack con Agenzia + Dipendente in colonna */
           .fcmo-grid {
             display: flex !important;
             grid-template-columns: none;
             grid-template-rows: none;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
+            scroll-snap-stop: always;
             -webkit-overflow-scrolling: touch;
-            gap: 12px;
-            padding-bottom: 10px;
+            gap: 14px;
+            padding-bottom: 12px;
             margin-left: -32px;
             margin-right: -32px;
-            padding-left: 32px;
-            padding-right: 32px;
+            padding-left: 6vw;
+            padding-right: 6vw;
             scrollbar-width: thin;
             scrollbar-color: var(--teal-border) transparent;
+            align-items: stretch;
           }
           .fcmo-grid::-webkit-scrollbar { height: 4px; }
           .fcmo-grid::-webkit-scrollbar-thumb { background: var(--teal-border); border-radius: 2px; }
-          .fcmo-col-main, .fcmo-col-side-1, .fcmo-col-side-2 {
+          .fcmo-col-main, .fcmo-side-stack {
             grid-column: auto !important;
             grid-row: auto !important;
-            flex: 0 0 86%;
-            scroll-snap-align: start;
+            flex: 0 0 88vw;
+            max-width: 88vw;
+            scroll-snap-align: center;
             min-width: 0;
           }
-          .fcmo-col-main { padding: 28px 24px; flex: 0 0 90%; }
-          .fcmo-col-side-1, .fcmo-col-side-2 { padding: 24px 22px; }
+          .fcmo-col-main { padding: 30px 24px; }
+          .fcmo-side-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+          }
+          .fcmo-col-side-1, .fcmo-col-side-2 {
+            flex: 1;
+            padding: 22px 20px;
+          }
           .fcmo-col-main .fcmo-col-title { font-size: 22px; }
           .fcmo-col-side-1 .fcmo-col-title,
           .fcmo-col-side-2 .fcmo-col-title { font-size: 17px; }
@@ -1050,10 +1068,48 @@ export default function HomePage() {
           .brain-mesh-core-label { font-size: 12px; }
           .brain-benefit-cards { grid-template-columns: 1fr; gap: 14px; }
           .brain-benefit { padding: 22px 20px; }
-          .uc-stage { height: auto; min-height: 480px; }
-          .uc-card { position: relative; left: auto; width: 100%; max-width: 100%;
-            transform: none !important; opacity: 1 !important; display: none; }
-          .uc-card.uc-center { display: flex; }
+          /* Cases carousel mobile: tutte le card swipeable, scroll-snap centrato */
+          .uc-stage {
+            height: auto; min-height: auto;
+            overflow: hidden;
+            margin-left: -32px;
+            margin-right: -32px;
+            margin-top: 24px;
+          }
+          .uc-track {
+            display: flex !important;
+            flex-direction: row;
+            position: relative;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-snap-stop: always;
+            -webkit-overflow-scrolling: touch;
+            gap: 14px;
+            padding: 0 6vw 14px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--teal-border) transparent;
+            height: auto;
+            align-items: stretch;
+            justify-content: flex-start;
+          }
+          .uc-track::-webkit-scrollbar { height: 4px; }
+          .uc-track::-webkit-scrollbar-thumb { background: var(--teal-border); border-radius: 2px; }
+          .uc-card {
+            position: relative !important;
+            left: auto !important;
+            transform: none !important;
+            opacity: 1 !important;
+            display: flex !important;
+            flex: 0 0 88vw !important;
+            max-width: 88vw !important;
+            width: auto !important;
+            scroll-snap-align: center;
+            box-shadow: none !important;
+          }
+          .uc-card.uc-left::after,
+          .uc-card.uc-right::after { display: none; }
+          /* Nascondi navigation buttons e dots: lo swipe touch è nativo */
+          [data-uc-nav], .uc-dots, .uc-nav-btn { display: none !important; }
           .uc-metrics-grid { grid-template-columns: repeat(2, 1fr); }
           .brain-svg-wrap { min-height: 280px; }
           .brain-svg-container { width: 260px; height: 260px; }
@@ -1063,7 +1119,8 @@ export default function HomePage() {
           .hp-divider { margin-bottom: 80px; }
           .hero-pre        { font-size: 12px; }
           .hero-h1         { font-size: clamp(38px, 8vw, 56px); line-height: 1.1; }
-          .hero-sub        { font-size: clamp(15px, 2vw, 17px); }
+          .hero-sub        { font-size: clamp(15px, 2vw, 17px); max-width: 360px; margin-left: auto; margin-right: auto; }
+          .hero-sub-strong { font-size: clamp(16px, 4.6vw, 20px); max-width: 320px; line-height: 1.4; }
           .hero-pill-teal  { font-size: 11px; padding: 7px 14px; }
           .hero-pill-grey  { font-size: 10px; padding: 5px 11px; }
           .hp-eyebrow      { font-size: 11px; letter-spacing: 3px; }
@@ -1251,6 +1308,8 @@ export default function HomePage() {
             <div className="fcmo-col-verdict">&#10003; Costo frazionato, impatto pieno</div>
           </div>
 
+          {/* Side stack: Agenzia + Dipendente impilati nella colonna destra */}
+          <div className="fcmo-side-stack">
           {/* Agenzia — top-right, compact */}
           <div className="fcmo-col fcmo-col-dim fcmo-col-side-1">
             <div className="fcmo-col-icon">
@@ -1286,6 +1345,8 @@ export default function HomePage() {
             </div>
             <div className="fcmo-col-verdict">&#10007; Costo alto, rischio alto</div>
           </div>
+          </div>
+          {/* /fcmo-side-stack */}
         </div>
 
         {/* Carosello esempi: cosa significa avere un Fractional CMO in azienda */}

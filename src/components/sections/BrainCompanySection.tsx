@@ -386,79 +386,139 @@ export default function BrainCompanySection() {
           .bc-grid { gap: 48px; }
           .bc-image-wrap { width: 52%; right: -8%; }
         }
+        /* ═══════════════════════════════════
+           MOBILE — Brain Company custom
+           Stack verticale, tutto centrato, immagine piccola decorativa,
+           pilastri stack (no slider), CTA centrata
+        ═══════════════════════════════════ */
         @media (max-width: 900px) {
-          .bc-section { padding: 64px 0 72px; margin-bottom: 80px; overflow-x: hidden; }
+          .bc-section {
+            padding: 56px 0 64px;
+            margin-bottom: 60px;
+            overflow: hidden;
+          }
           .bc-grid {
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
+            grid-template-columns: none;
             gap: 0;
             min-height: auto;
+            align-items: center;
+            text-align: center;
           }
           .bc-content {
-            grid-column: 1;
-            text-align: center;
+            grid-column: auto;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 22px;
+            text-align: center;
+            gap: 18px;
+            width: 100%;
+            max-width: 540px;
+            margin: 0 auto;
           }
+          /* Immagine: piccola, decorativa, centrata sopra il copy */
           .bc-image-wrap {
             position: relative;
             top: auto; right: auto;
             transform: none;
-            width: 100%;
-            max-width: 360px;
-            margin: 0 auto 32px;
+            width: 60%;
+            max-width: 240px;
+            margin: 0 auto 24px;
             aspect-ratio: 1228 / 882;
+            opacity: 0.9;
+            order: -1;
           }
           .bc-image-wrap img {
             object-position: center center !important;
           }
           .bc-image-fade,
           .bc-image-fade-right { display: none; }
-          .bc-eyebrow { justify-content: center; }
-          .bc-title { font-size: clamp(38px, 9vw, 52px); text-align: center; }
-          .bc-sub-primary { font-size: 16px; text-align: center; max-width: 100%; }
-          .bc-sub-secondary { text-align: center; max-width: 100%; }
 
-          /* Pilastri → slider orizzontale swipeable */
+          .bc-eyebrow {
+            justify-content: center;
+            font-size: 10px;
+          }
+          .bc-title {
+            font-size: clamp(36px, 9vw, 48px);
+            text-align: center;
+            line-height: 1;
+          }
+          .bc-sub-primary {
+            font-size: 16px;
+            text-align: center;
+            max-width: 100%;
+            line-height: 1.5;
+          }
+          .bc-sub-secondary {
+            text-align: center;
+            max-width: 100%;
+            font-size: 13.5px;
+          }
+
+          /* Pilastri: stack verticale pulito (NO slider, sono solo 3) */
           .bc-pillars {
-            flex-direction: row;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
+            display: flex;
+            flex-direction: column;
+            overflow: visible;
             gap: 12px;
-            margin-left: -32px; margin-right: -32px;
-            padding: 0 32px 10px;
-            scrollbar-width: thin;
-            scrollbar-color: var(--teal-border) transparent;
-            width: calc(100% + 64px);
+            width: 100%;
+            margin: 4px 0;
+            padding: 0;
           }
-          .bc-pillars::-webkit-scrollbar { height: 4px; }
-          .bc-pillars::-webkit-scrollbar-thumb { background: var(--teal-border); border-radius: 2px; }
           .bc-pillar {
-            flex: 0 0 86%;
-            scroll-snap-align: start;
-            max-width: none;
-            min-width: 0;
+            flex: none;
+            width: 100%;
+            max-width: 100%;
             text-align: left;
+            padding: 22px 22px;
+            min-width: 0;
           }
-          .bc-pillar-title { font-size: 17px; }
+          .bc-pillar-header { gap: 12px; }
+          .bc-pillar-icon { width: 38px; height: 38px; }
+          .bc-pillar-title { font-size: 16px; }
+          .bc-pillar-body { font-size: 13.5px; }
+          .bc-pillar-out { font-size: 10.5px; }
 
-          .bc-cta-wrap { align-items: center; }
-          .bc-cta-microcopy { text-align: center; max-width: 100%; }
-          .bc-note { text-align: center; }
+          .bc-cta-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            margin-top: 12px;
+          }
+          .bc-cta {
+            font-size: 12px;
+            padding: 14px 24px;
+          }
+          .bc-cta-microcopy {
+            text-align: center;
+            max-width: 100%;
+            font-size: 12px;
+          }
+          .bc-note {
+            text-align: center;
+            max-width: 100%;
+            font-size: 12px;
+          }
 
-          .bc-modal-card { padding: 44px 32px; }
+          /* Modal */
+          .bc-modal-card { padding: 44px 28px; }
           .bc-modal-grid { grid-template-columns: 1fr; }
           .bc-area-wide { grid-column: 1; }
         }
         @media (max-width: 480px) {
-          .bc-section { padding: 56px 0 64px; }
-          .bc-image-wrap { max-width: 280px; margin-bottom: 28px; }
-          .bc-cta { font-size: 12px; padding: 14px 22px; }
-          .bc-modal-card { padding: 32px 20px; }
+          .bc-section { padding: 48px 0 56px; }
+          .bc-image-wrap { max-width: 200px; margin-bottom: 20px; }
+          .bc-title { font-size: clamp(32px, 9vw, 42px); }
+          .bc-sub-primary { font-size: 15px; }
+          .bc-pillar { padding: 20px 18px; }
+          .bc-pillar-title { font-size: 15.5px; }
+          .bc-modal-card { padding: 32px 18px; }
           .bc-modal-close { top: 12px; right: 12px; width: 32px; height: 32px; }
-          .bc-area { padding: 22px 20px; }
-          .bc-area-list li { font-size: 13px; }
-          .bc-pillar { flex: 0 0 88%; padding: 22px 20px; }
+          .bc-area { padding: 20px 18px; }
+          .bc-area-list li { font-size: 12.5px; }
         }
       `}</style>
 
