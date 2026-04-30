@@ -1,0 +1,70 @@
+{
+  "slug": "velenosi-vini",
+  "version": "v5",
+
+  "prospect": {
+    "companyName": "Velenosi Vini",
+    "contactName": "Marianna",
+    "contactRole": "Responsabile Marketing Strategico & Digital Transformation",
+    "sector": "Cantina vinicola premium, Ascoli Piceno",
+    "logoUrl": "/outreach/velenosi-vini/logo.png",
+    "logoMaxHeight": 56
+  },
+
+  "hero": {
+    "eyebrow": "ANALISI PRIVATA · VELENOSI VINI",
+    "headline": "Vi conosco da fuori. Mi farebbe piacere conoscervi anche di persona.",
+    "subheadline": "Mi chiedevo se, ad oggi, una figura che vi aiuti ad amplificare il vostro posizionamento online vi possa interessare.",
+    "signature": "Nicola Serrao · Fractional CMO",
+    "videoUrl": "https://www.youtube.com/embed/Pr3le_w6D1Q?rel=0&modestbranding=1&playsinline=1",
+    "videoAspect": "9/16"
+  },
+
+  "closing": {
+    "title": "QUELLO CHE HO NOTATO",
+    "introNote": "Ho passato qualche ora a guardare il vostro digital. Ti lascio una piccola cosa, niente di pesante. La intendo come prova che ho studiato e mi sono fatto un'idea."
+  },
+
+  "observations": [
+    {
+      "label": "01 · UN DETTAGLIO",
+      "title": "Esportate in 52 paesi. Il sito oggi parla in italiano e in cinese.",
+      "body": "Velenosi distribuisce in 52 paesi. Il sito oggi parla due lingue, italiano e cinese semplificato.\n\nHo lavorato a lungo per un brand di lusso (sotto privacy) dove abbiamo costruito online un sistema per vendere tessuti di alta gamma in tutto il mondo. La lingua del buyer fa la differenza, anche per chi ha già una rete commerciale fortissima.\n\nTe la lascio qui come una cosa su cui mi sono soffermato. Cosa succederebbe se un buyer francese o tedesco potesse leggervi nella sua lingua?"
+    }
+  ],
+
+  "conditions": "Lavoro con massimo 3 clienti alla volta. La call non è una vendita, è una chiacchierata con qualcuno che ha appena studiato a fondo il vostro mercato. Sono caldo sull'argomento, ho idee fresche.\n\nPer voi: un punto di vista da professionista, gratuito. Per me: l'occasione di conoscere persone interessanti. Tutto qui.",
+
+  "cta": {
+    "primaryText": "Conosciamoci",
+    "emailHref": "mailto:marketing@nicolaserrao.com?subject=Chiacchierata%20Velenosi%20Vini",
+    "phoneHref": "https://wa.me/393385691369?text=Ciao%20Nicola%2C%20ho%20visto%20la%20pagina%20per%20Velenosi%20Vini%20e%20vorrei%20fissare%20una%20chiamata.",
+    "emailLabel": "Email",
+    "phoneLabel": "WhatsApp"
+  },
+
+  "prospectStyle": {
+    "bgPrimary": "#FAF7F2",
+    "bgSecondary": "#F3EDE3",
+    "textPrimary": "#1A1410",
+    "textSecondary": "#4A3F35",
+    "textMuted": "#8A7D6F",
+    "accent": "#6B1E2A",
+    "accentSecondary": "#B8924A",
+    "border": "rgba(107, 30, 42, 0.18)",
+    "fontHeading": "'Cormorant Garamond', 'Playfair Display', var(--font-inter), 'Helvetica Neue', serif",
+    "fontBody": "var(--font-inter), 'Helvetica Neue', sans-serif",
+    "headingWeight": 500,
+    "bodyWeight": 400,
+    "headingLetterSpacing": "0.01em",
+    "headingTransform": "none",
+    "buttonRadius": "999px",
+    "buttonPadding": "14px 32px"
+  },
+
+  "meta": {
+    "createdAt": "2026-04-30",
+    "status": "draft",
+    "notes": "Terzo prospect outreach v5. Angolo: conoscersi, non vendere. Lingua come dettaglio marginale, non leva. Stile prospect heritage luxury crema/bordeaux/oro, serif Cormorant. Decisore: Marianna Velenosi (figlia, Bocconi, Digital Transformation). Mail destinazione probabile: m.velenosi@velenosivini.com o info@velenosivini.com. Aggancio: Vinitaly 2026 (12-15 aprile, Padiglione 7), nuove annate Montagna 2024 e Nove 2025."
+  }
+}
