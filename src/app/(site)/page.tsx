@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SITE } from "@/lib/constants";
+import BrainCompanySection from "@/components/sections/BrainCompanySection";
 
 /* ───────────────────────────────────────────────────────
    HOMEPAGE — nicolaserrao.com
@@ -95,11 +96,13 @@ export default function HomePage() {
            1. HERO
         ═══════════════════════════════════ */
         .hero-grid {
-          max-width: 1400px; margin: 0 auto; padding: 80px 60px;
-          display: grid; grid-template-columns: 1fr 260px;
-          gap: 60px; align-items: center;
+          position: relative;
+          width: 100%;
+          max-width: 1400px; margin: 0 auto; padding: 120px 60px 100px;
+          display: flex; flex-direction: column;
         }
-        .hero-left { display: flex; flex-direction: column; gap: 24px; }
+        .hero-left { display: flex; flex-direction: column; gap: 24px; width: 100%; }
+        .hero-h1-wrap { max-width: calc(100% - 260px); }
 
         .hero-pre {
           font-size: 11px; letter-spacing: 1px;
@@ -111,8 +114,14 @@ export default function HomePage() {
           font-weight: 700; line-height: 1.05; color: var(--text);
         }
         .hero-sub {
-          font-size: clamp(13px, 1.5vw, 16px);
-          color: var(--text-dim); line-height: 1.7; max-width: 540px;
+          font-size: clamp(14px, 1.6vw, 17px);
+          color: var(--text); line-height: 1.7; max-width: 680px;
+          font-weight: 400;
+        }
+        .hero-sub-strong {
+          font-size: clamp(16px, 1.9vw, 20px);
+          font-weight: 500; line-height: 1.45;
+          margin-top: -4px;
         }
 
         /* Pills */
@@ -130,8 +139,12 @@ export default function HomePage() {
           border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04);
         }
 
-        /* Right column */
-        .hero-right { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        /* Right column — absolute on desktop (vertically centered), stacks on top in mobile */
+        .hero-right {
+          position: absolute; top: 50%; right: 60px;
+          transform: translateY(-50%);
+          display: flex; flex-direction: column; align-items: center; gap: 20px;
+        }
         .hero-photo-wrap { position: relative; width: 220px; height: 220px; flex-shrink: 0; }
 
         /* Live status */
@@ -154,15 +167,157 @@ export default function HomePage() {
         }
 
         /* ═══════════════════════════════════
-           2. FRACTIONAL CMO — 3 columns
+           2. FRACTIONAL CMO — asymmetric layout
+           Left: FCMO main (large, with bullets)
+           Right: Agenzia + Dipendente stacked
         ═══════════════════════════════════ */
         .fcmo-grid {
-          display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+          display: grid;
+          grid-template-columns: 1.55fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          gap: 20px;
           margin-top: 40px;
         }
         .fcmo-col {
           border-radius: 10px; padding: 32px 28px;
           display: flex; flex-direction: column; gap: 16px;
+        }
+        .fcmo-col-main { grid-column: 1; grid-row: 1 / 3; padding: 40px 36px; }
+        .fcmo-col-side-1 { grid-column: 2; grid-row: 1; padding: 24px 22px; }
+        .fcmo-col-side-2 { grid-column: 2; grid-row: 2; padding: 24px 22px; }
+        .fcmo-col-side-1 .fcmo-col-icon svg,
+        .fcmo-col-side-2 .fcmo-col-icon svg { width: 36px; height: 36px; }
+        .fcmo-col-side-1 .fcmo-col-title,
+        .fcmo-col-side-2 .fcmo-col-title { font-size: 15px; }
+        .fcmo-col-side-1 .fcmo-col-body,
+        .fcmo-col-side-2 .fcmo-col-body { font-size: 12px; line-height: 1.7; }
+        .fcmo-col-main .fcmo-col-title { font-size: 24px; }
+        .fcmo-col-main .fcmo-col-body { font-size: 14px; }
+        .fcmo-bullets {
+          list-style: none; padding: 0; margin: 6px 0 0 0;
+          display: flex; flex-direction: column; gap: 12px;
+        }
+        .fcmo-bullets li {
+          font-size: 13px; color: var(--text); line-height: 1.55;
+          padding-left: 26px; position: relative;
+        }
+        .fcmo-bullets li::before {
+          content: ""; position: absolute; left: 0; top: 5px;
+          width: 14px; height: 14px; border-radius: 50%;
+          background: rgba(0,255,252,0.15);
+          border: 1px solid var(--teal);
+        }
+        .fcmo-bullets li::after {
+          content: ""; position: absolute; left: 4px; top: 9px;
+          width: 6px; height: 3px;
+          border-left: 1.5px solid var(--teal);
+          border-bottom: 1.5px solid var(--teal);
+          transform: rotate(-45deg);
+        }
+        .fcmo-bullets strong { color: var(--text); font-weight: 600; }
+
+        /* Carosello esempi sotto le 3 colonne FCMO */
+        .fcmo-cases-wrap {
+          margin-top: 56px;
+          position: relative;
+        }
+        .fcmo-cases-header {
+          display: flex; align-items: flex-end; justify-content: space-between;
+          gap: 24px; margin-bottom: 24px;
+          flex-wrap: wrap;
+        }
+        .fcmo-cases-eyebrow {
+          font-size: 10px; letter-spacing: 3px;
+          text-transform: uppercase; color: var(--teal);
+          margin-bottom: 8px;
+          display: flex; align-items: center; gap: 12px;
+        }
+        .fcmo-cases-eyebrow::before {
+          content: ""; width: 22px; height: 1px;
+          background: var(--teal); opacity: 0.55;
+        }
+        .fcmo-cases-title {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: clamp(20px, 2.5vw, 28px);
+          font-weight: 700; color: var(--text);
+          line-height: 1.25; margin: 0;
+          max-width: 600px;
+        }
+        .fcmo-cases-nav {
+          display: flex; gap: 8px;
+        }
+        .fcmo-cases-nav button {
+          width: 38px; height: 38px;
+          border-radius: 50%;
+          border: 1px solid var(--teal-border);
+          background: transparent;
+          color: var(--teal);
+          cursor: pointer;
+          display: flex; align-items: center; justify-content: center;
+          transition: background 0.2s, border-color 0.2s, transform 0.2s;
+        }
+        .fcmo-cases-nav button:hover {
+          background: var(--teal-dim);
+          border-color: var(--teal);
+          transform: translateY(-2px);
+        }
+        .fcmo-cases-track {
+          display: flex; gap: 16px;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          scroll-padding: 0 4px;
+          -webkit-overflow-scrolling: touch;
+          padding-bottom: 12px;
+          scrollbar-width: thin;
+          scrollbar-color: var(--teal-border) transparent;
+        }
+        .fcmo-cases-track::-webkit-scrollbar { height: 6px; }
+        .fcmo-cases-track::-webkit-scrollbar-track { background: transparent; }
+        .fcmo-cases-track::-webkit-scrollbar-thumb {
+          background: var(--teal-border); border-radius: 3px;
+        }
+        .fcmo-case {
+          flex: 0 0 360px;
+          scroll-snap-align: start;
+          border: 1px solid rgba(0,255,252,0.18);
+          border-radius: 12px;
+          padding: 28px 26px;
+          background: rgba(0,255,252,0.03);
+          display: flex; flex-direction: column; gap: 14px;
+          transition: border-color 0.3s, background 0.3s, transform 0.3s;
+        }
+        .fcmo-case:hover {
+          border-color: rgba(0,255,252,0.45);
+          background: rgba(0,255,252,0.07);
+          transform: translateY(-2px);
+        }
+        .fcmo-case-tag {
+          font-size: 10px; letter-spacing: 1.5px;
+          text-transform: uppercase; color: var(--teal);
+          padding: 4px 10px;
+          border: 1px solid var(--teal-border);
+          border-radius: 4px;
+          background: var(--teal-dim);
+          width: fit-content;
+          font-weight: 600;
+        }
+        .fcmo-case-title {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: 18px; font-weight: 700;
+          color: var(--text); line-height: 1.3;
+        }
+        .fcmo-case-scenario {
+          font-size: 13.5px; color: var(--text);
+          line-height: 1.6;
+          flex: 1;
+        }
+        .fcmo-case-action {
+          font-size: 12px; color: var(--teal);
+          letter-spacing: 0.5px;
+          padding-top: 14px;
+          border-top: 1px solid rgba(0,255,252,0.12);
+          font-weight: 500;
+          margin-top: auto;
         }
         .fcmo-col-dim {
           border: 1px solid rgba(255,255,255,0.08);
@@ -199,6 +354,40 @@ export default function HomePage() {
           max-width: 780px; margin-top: 40px;
         }
         .fcmo-closer strong { color: var(--text); font-weight: 500; }
+        /* Closer box prominente con icona azienda */
+        .fcmo-closer-box {
+          margin-top: 48px;
+          padding: 32px 36px;
+          border: 1px solid rgba(0,255,252,0.3);
+          border-radius: 12px;
+          background: rgba(0,255,252,0.05);
+          display: flex; gap: 24px; align-items: flex-start;
+          max-width: 920px;
+          position: relative;
+          overflow: hidden;
+        }
+        .fcmo-closer-box::before {
+          content: ''; position: absolute; top: 0; left: 0;
+          width: 3px; height: 100%; background: var(--teal);
+          opacity: 0.7;
+        }
+        .fcmo-closer-icon {
+          flex-shrink: 0;
+          width: 52px; height: 52px;
+          border-radius: 10px;
+          background: rgba(0,255,252,0.1);
+          border: 1px solid rgba(0,255,252,0.3);
+          display: flex; align-items: center; justify-content: center;
+          color: var(--teal);
+        }
+        .fcmo-closer-content { flex: 1; }
+        .fcmo-closer-content p {
+          font-size: 16px; line-height: 1.65;
+          color: var(--text); margin: 0;
+        }
+        .fcmo-closer-content strong {
+          color: var(--teal); font-weight: 500;
+        }
 
         /* ═══════════════════════════════════
            3. NUMBERS TICKER
@@ -227,11 +416,171 @@ export default function HomePage() {
         }
 
         /* ═══════════════════════════════════
-           4. PRIMI 30 GIORNI — Box Cards
+           4. PRIMI 30 GIORNI — Mese 1 + Pixel Flow + Mese 2-3
         ═══════════════════════════════════ */
+        .tl-month-flow {
+          display: flex;
+          align-items: stretch;
+          gap: 0;
+          margin-top: 32px;
+          position: relative;
+        }
+        .tl-month-box {
+          flex: 1;
+          border: 1px solid rgba(0,255,252,0.18);
+          border-radius: 14px;
+          padding: 32px 28px;
+          background: rgba(0,255,252,0.03);
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          min-width: 0;
+        }
+        .tl-month-1 {
+          background: rgba(0,255,252,0.06);
+          border-color: rgba(0,255,252,0.4);
+          box-shadow: 0 0 40px rgba(0,255,252,0.05);
+        }
+        .tl-month-2 {
+          background: rgba(0,255,252,0.02);
+          border-color: rgba(0,255,252,0.18);
+        }
+        .tl-month-header {
+          display: flex; align-items: center; gap: 14px;
+          flex-wrap: wrap;
+        }
+        .tl-month-period {
+          font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+          color: var(--teal); font-weight: 600;
+          padding: 5px 11px;
+          border: 1px solid var(--teal-border);
+          border-radius: 4px;
+          background: var(--teal-dim);
+        }
+        .tl-month-title {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: 22px; font-weight: 700;
+          color: var(--text); line-height: 1.25;
+        }
+        .tl-activities {
+          list-style: none; padding: 0; margin: 0;
+          display: flex; flex-direction: column; gap: 14px;
+        }
+        .tl-activity {
+          display: flex; gap: 14px; align-items: flex-start;
+        }
+        .tl-activity-icon {
+          flex-shrink: 0;
+          width: 34px; height: 34px;
+          border-radius: 7px;
+          background: rgba(0,255,252,0.08);
+          border: 1px solid rgba(0,255,252,0.25);
+          display: flex; align-items: center; justify-content: center;
+          color: var(--teal);
+        }
+        .tl-activity-text { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+        .tl-activity-title {
+          font-size: 14px; font-weight: 600;
+          color: var(--text); line-height: 1.3;
+        }
+        .tl-activity-desc {
+          font-size: 13px; color: var(--text);
+          line-height: 1.55; opacity: 0.85;
+        }
+
+        /* Pixel flow animation tra i 2 mesi */
+        .tl-pixel-flow {
+          width: 90px; flex-shrink: 0;
+          position: relative;
+          display: flex; align-items: center; justify-content: center;
+        }
+        .tl-pixel-flow::before {
+          content: ""; position: absolute;
+          top: 50%; left: 0; right: 0; height: 1px;
+          background: linear-gradient(90deg, var(--teal-border), var(--teal), var(--teal-border));
+          opacity: 0.3;
+        }
+        .tl-pixel {
+          position: absolute;
+          width: 4px; height: 4px;
+          background: var(--teal);
+          border-radius: 50%;
+          box-shadow: 0 0 6px var(--teal);
+          animation: tl-pixel-fly 2.6s linear infinite;
+        }
+        @keyframes tl-pixel-fly {
+          0%   { transform: translateX(-40px); opacity: 0; }
+          15%  { opacity: 1; }
+          85%  { opacity: 1; }
+          100% { transform: translateX(50px); opacity: 0; }
+        }
+
         .tl-cards {
           display: grid; grid-template-columns: repeat(4, 1fr);
           gap: 16px; margin-top: 32px;
+        }
+
+        /* ═══════════════════════════════════
+           6. SCENARI / CASE STUDIES NARRATIVI
+        ═══════════════════════════════════ */
+        .cases-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+          margin-top: 40px;
+        }
+        .case-box {
+          border: 1px solid rgba(0,255,252,0.18);
+          border-radius: 12px;
+          padding: 32px 30px;
+          background: rgba(0,255,252,0.03);
+          display: flex; flex-direction: column; gap: 16px;
+          transition: border-color 0.3s, background 0.3s, transform 0.3s;
+        }
+        .case-box:hover {
+          border-color: rgba(0,255,252,0.45);
+          background: rgba(0,255,252,0.07);
+          transform: translateY(-3px);
+        }
+        .case-header {
+          display: flex; align-items: center; justify-content: space-between;
+          flex-wrap: wrap; gap: 10px;
+        }
+        .case-tag {
+          font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+          color: var(--teal); font-weight: 600;
+          padding: 4px 10px;
+          border: 1px solid var(--teal-border);
+          border-radius: 4px;
+          background: var(--teal-dim);
+        }
+        .case-cost {
+          font-size: 11px; color: var(--text);
+          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          letter-spacing: 0.5px;
+        }
+        .case-title {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: 19px; font-weight: 700;
+          color: var(--text); line-height: 1.3;
+        }
+        .case-body {
+          font-size: 13.5px; color: var(--text);
+          line-height: 1.65;
+        }
+        .case-result {
+          display: flex; flex-direction: column; gap: 4px;
+          padding-top: 16px; margin-top: auto;
+          border-top: 1px solid rgba(0,255,252,0.12);
+        }
+        .case-result-value {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: 18px; font-weight: 700;
+          color: var(--teal); line-height: 1.2;
+        }
+        .case-result-label {
+          font-size: 12px; color: var(--text);
+          line-height: 1.5; opacity: 0.85;
         }
         .tl-card {
           border-radius: 12px; overflow: hidden;
@@ -304,88 +653,82 @@ export default function HomePage() {
           margin-bottom: 120px;
         }
         .brain-grid {
-          display: grid; grid-template-columns: 1fr 1fr; gap: 56px;
-          align-items: center;
+          display: flex; flex-direction: column; gap: 56px;
         }
         .brain-benefit-cards {
-          display: flex; flex-direction: column; gap: 16px;
-          margin-top: 28px;
+          display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+          margin-top: 0;
         }
         .brain-benefit {
           border: 1px solid rgba(0,255,252,0.15); border-radius: 10px;
-          padding: 24px 24px; background: rgba(0,255,252,0.03);
-          display: flex; gap: 16px; align-items: flex-start;
-          transition: border-color 0.3s, background 0.3s;
+          padding: 28px 24px; background: rgba(0,255,252,0.03);
+          display: flex; flex-direction: column; gap: 14px; align-items: flex-start;
+          transition: border-color 0.3s, background 0.3s, transform 0.3s;
         }
         .brain-benefit:hover {
-          border-color: rgba(0,255,252,0.3); background: rgba(0,255,252,0.06);
+          border-color: rgba(0,255,252,0.4); background: rgba(0,255,252,0.07);
+          transform: translateY(-3px);
         }
         .brain-benefit-icon {
-          width: 40px; height: 40px; border-radius: 10px;
-          background: rgba(0,255,252,0.06); border: 1px solid rgba(0,255,252,0.15);
+          width: 44px; height: 44px; border-radius: 10px;
+          background: rgba(0,255,252,0.08); border: 1px solid rgba(0,255,252,0.25);
           display: flex; align-items: center; justify-content: center;
           flex-shrink: 0;
         }
         .brain-benefit-content { flex: 1; }
         .brain-benefit-title {
           font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 17px; font-weight: 700; color: var(--teal);
-          margin-bottom: 6px;
+          font-size: 18px; font-weight: 700; color: var(--teal);
+          margin-bottom: 8px; line-height: 1.25;
         }
         .brain-benefit-desc {
-          font-size: 13px; color: var(--text-dim); line-height: 1.7;
+          font-size: 13px; color: var(--text); line-height: 1.7;
         }
         .brain-note {
-          margin-top: 24px; font-size: 12px; color: var(--text-faint);
-          line-height: 1.7; max-width: 480px;
-          border-left: 2px solid rgba(0,255,252,0.15); padding-left: 14px;
+          margin: 0 auto; font-size: 12px; color: var(--text-dim);
+          line-height: 1.7; max-width: 620px; text-align: center;
+          padding-top: 24px;
+          border-top: 1px solid rgba(0,255,252,0.12);
         }
 
-        /* ── Concentric orbits ── */
-        .brain-orbits-wrap {
+        /* ── Brain mesh — neural network dentro silhouette laterale ── */
+        .brain-mesh-wrap {
           display: flex; align-items: center; justify-content: center;
-          min-height: 380px;
+          min-height: 520px; position: relative;
         }
-        .brain-orbits {
-          position: relative; width: 360px; height: 360px;
+        .brain-mesh {
+          position: relative;
+          width: 100%; max-width: 820px; aspect-ratio: 700 / 550;
         }
-        .brain-orbit-ring {
-          position: absolute; border-radius: 50%;
-          border: 1px solid rgba(0,255,252,0.08);
-          display: flex; align-items: center; justify-content: center;
+        .brain-mesh svg {
+          width: 100%; height: 100%; display: block;
+          filter: drop-shadow(0 0 40px rgba(0,255,252,0.12));
         }
-        .brain-orbit-ring-4 { inset: 0; border-color: rgba(0,255,252,0.06); }
-        .brain-orbit-ring-3 { inset: 40px; border-color: rgba(0,255,252,0.1); }
-        .brain-orbit-ring-2 { inset: 80px; border-color: rgba(0,255,252,0.15); }
-        .brain-orbit-ring-1 { inset: 120px; border-color: rgba(0,255,252,0.2); }
-        .brain-orbit-core {
-          position: absolute; inset: 140px;
-          border-radius: 50%; display: flex; flex-direction: column;
-          align-items: center; justify-content: center; gap: 4px;
-          background: rgba(0,255,252,0.06);
-          border: 1.5px solid rgba(0,255,252,0.35);
-          box-shadow: 0 0 30px rgba(0,255,252,0.1);
-          z-index: 5;
+        .brain-mesh-label {
+          position: absolute;
+          font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+          color: var(--teal); font-weight: 500;
+          background: rgba(10,14,13,0.92); padding: 9px 16px;
+          border: 1px solid rgba(0,255,252,0.45); border-radius: 6px;
+          white-space: nowrap; z-index: 2;
+          backdrop-filter: blur(4px);
+          -webkit-backdrop-filter: blur(4px);
+          box-shadow: 0 0 20px rgba(0,255,252,0.08);
         }
-        .brain-orbit-core-text {
+        /* Posizioni allineate al cervello PNG dentro viewBox 700x550 */
+        .brain-mesh-label-top    { top: 0;       left: 50%; transform: translateX(-50%); }
+        .brain-mesh-label-right  { top: 49%;     right: 0;  transform: translateY(-50%); }
+        .brain-mesh-label-bottom { bottom: 0;    left: 50%; transform: translateX(-50%); }
+        .brain-mesh-label-left   { top: 49%;     left: 0;   transform: translateY(-50%); }
+        .brain-mesh-core-label {
+          position: absolute;
+          top: calc(49% + 36px); left: 50%;
+          transform: translateX(-50%);
           font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 12px; font-weight: 700; color: var(--teal);
-        }
-        .brain-orbit-core-sub {
-          font-size: 7px; letter-spacing: 1.5px; text-transform: uppercase;
-          color: var(--text-dim);
-        }
-        .brain-ring-label {
-          position: absolute; font-size: 8px; letter-spacing: 1px;
-          text-transform: uppercase; color: var(--text-faint);
-          background: var(--bg); padding: 2px 8px; white-space: nowrap;
-        }
-        .brain-ring-node {
-          position: absolute; width: 32px; height: 32px; border-radius: 50%;
-          background: rgba(0,255,252,0.05); border: 1px solid rgba(0,255,252,0.2);
-          display: flex; align-items: center; justify-content: center;
-          font-size: 7px; color: var(--text-dim); font-weight: 500;
-          z-index: 3;
+          font-size: 14px; letter-spacing: 1.5px;
+          color: var(--teal); font-weight: 700;
+          z-index: 3; white-space: nowrap;
+          text-shadow: 0 0 14px rgba(0,255,252,0.5);
         }
 
         /* ═══════════════════════════════════
@@ -607,20 +950,106 @@ export default function HomePage() {
         @media (max-width: 900px) {
           .hp-wrap, .hp-wrap-narrow { padding: 0 32px; }
           .hero-grid {
-            grid-template-columns: 1fr; padding: 48px 32px 60px;
+            padding: 48px 32px 60px;
             gap: 32px; text-align: center;
           }
+          .hero-h1-wrap { max-width: 100%; }
           .hero-left { align-items: center; }
-          .hero-right { order: -1; flex-direction: row; align-items: center; justify-content: center; gap: 20px; }
+          .hero-right {
+            position: static;
+            transform: none;
+            order: -1; flex-direction: row; align-items: center; justify-content: center; gap: 20px;
+          }
           .hero-photo-wrap { width: 120px !important; height: 120px !important; }
           .hero-pills-main, .hero-pills-grey { justify-content: center; }
           .hero-sub { margin-left: auto; margin-right: auto; }
-          .fcmo-grid { grid-template-columns: 1fr; }
+          /* FCMO 3 colonne → slider orizzontale su mobile */
+          .fcmo-grid {
+            display: flex !important;
+            grid-template-columns: none;
+            grid-template-rows: none;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            gap: 12px;
+            padding-bottom: 10px;
+            margin-left: -32px;
+            margin-right: -32px;
+            padding-left: 32px;
+            padding-right: 32px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--teal-border) transparent;
+          }
+          .fcmo-grid::-webkit-scrollbar { height: 4px; }
+          .fcmo-grid::-webkit-scrollbar-thumb { background: var(--teal-border); border-radius: 2px; }
+          .fcmo-col-main, .fcmo-col-side-1, .fcmo-col-side-2 {
+            grid-column: auto !important;
+            grid-row: auto !important;
+            flex: 0 0 86%;
+            scroll-snap-align: start;
+            min-width: 0;
+          }
+          .fcmo-col-main { padding: 28px 24px; flex: 0 0 90%; }
+          .fcmo-col-side-1, .fcmo-col-side-2 { padding: 24px 22px; }
+          .fcmo-col-main .fcmo-col-title { font-size: 22px; }
+          .fcmo-col-side-1 .fcmo-col-title,
+          .fcmo-col-side-2 .fcmo-col-title { font-size: 17px; }
+          .fcmo-bullets li { font-size: 13px; }
+
+          /* CasesCarousel: forza overflow hidden per evitare scroll laterale */
+          .uc-stage { overflow: hidden; }
           .tl-cards { grid-template-columns: repeat(2, 1fr); }
-          .reviews-grid-3 { grid-template-columns: 1fr !important; }
-          .brain-grid { grid-template-columns: 1fr; }
-          .brain-orbits-wrap { min-height: 300px; }
-          .brain-orbits { width: 300px; height: 300px; }
+          .tl-month-flow { flex-direction: column; gap: 0; }
+          .tl-pixel-flow {
+            width: 100%; height: 80px; padding: 0;
+          }
+          .tl-pixel-flow::before {
+            top: 0; bottom: 0; left: 50%; right: auto;
+            width: 1px; height: 100%;
+            background: linear-gradient(180deg, var(--teal-border), var(--teal), var(--teal-border));
+          }
+          .tl-pixel { animation-name: tl-pixel-fly-vert; }
+          @keyframes tl-pixel-fly-vert {
+            0%   { transform: translate(-50%, -30px); opacity: 0; }
+            15%  { opacity: 1; }
+            85%  { opacity: 1; }
+            100% { transform: translate(-50%, 50px); opacity: 0; }
+          }
+          .tl-month-box { padding: 26px 22px; }
+          .tl-month-title { font-size: 20px; }
+          .cases-grid { grid-template-columns: 1fr; gap: 16px; }
+          .case-box { padding: 26px 24px; }
+          .case-title { font-size: 18px; }
+          .fcmo-cases-nav { display: none; }
+          .fcmo-case { flex: 0 0 290px; padding: 24px 22px; }
+          .fcmo-case-title { font-size: 17px; }
+          /* Recensioni 3 card → slider orizzontale su mobile */
+          .reviews-grid-3 {
+            grid-template-columns: none !important;
+            display: flex !important;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            gap: 12px !important;
+            margin-left: -32px;
+            margin-right: -32px;
+            padding: 0 32px 10px !important;
+            scrollbar-width: thin;
+            scrollbar-color: var(--teal-border) transparent;
+          }
+          .reviews-grid-3::-webkit-scrollbar { height: 4px; }
+          .reviews-grid-3::-webkit-scrollbar-thumb { background: var(--teal-border); border-radius: 2px; }
+          .reviews-grid-3 > * {
+            flex: 0 0 86% !important;
+            scroll-snap-align: start;
+            min-width: 0;
+          }
+          .brain-mesh-wrap { min-height: 420px; }
+          .brain-mesh { max-width: 600px; }
+          .brain-mesh-label { font-size: 10px; padding: 6px 12px; letter-spacing: 1.5px; }
+          .brain-mesh-core-label { font-size: 12px; }
+          .brain-benefit-cards { grid-template-columns: 1fr; gap: 14px; }
+          .brain-benefit { padding: 22px 20px; }
           .uc-stage { height: auto; min-height: 480px; }
           .uc-card { position: relative; left: auto; width: 100%; max-width: 100%;
             transform: none !important; opacity: 1 !important; display: none; }
@@ -628,14 +1057,68 @@ export default function HomePage() {
           .uc-metrics-grid { grid-template-columns: repeat(2, 1fr); }
           .brain-svg-wrap { min-height: 280px; }
           .brain-svg-container { width: 260px; height: 260px; }
+
+          /* ── Typography upgrade tablet/mobile ── */
+          .hp-section { margin-bottom: 80px; }
+          .hp-divider { margin-bottom: 80px; }
+          .hero-pre        { font-size: 12px; }
+          .hero-h1         { font-size: clamp(38px, 8vw, 56px); line-height: 1.1; }
+          .hero-sub        { font-size: clamp(15px, 2vw, 17px); }
+          .hero-pill-teal  { font-size: 11px; padding: 7px 14px; }
+          .hero-pill-grey  { font-size: 10px; padding: 5px 11px; }
+          .hp-eyebrow      { font-size: 11px; letter-spacing: 3px; }
+          .hp-h2           { font-size: clamp(28px, 5.5vw, 42px); }
+          .hp-subtitle     { font-size: 15px; line-height: 1.7; }
+          .hp-btn-primary,
+          .hp-btn-secondary { font-size: 12px; letter-spacing: 1.8px; padding: 14px 24px; }
+          .fcmo-col-title  { font-size: 19px; }
+          .fcmo-col-body   { font-size: 14px; line-height: 1.75; }
+          .fcmo-col-verdict { font-size: 12px; }
+          .fcmo-closer     { font-size: 15px; }
+          .tl-card-period  { font-size: 11px; }
+          .tl-card-title   { font-size: 18px; }
+          .tl-card-desc    { font-size: 14px; line-height: 1.7; }
+          .tl-card-label   { font-size: 11px; }
+          .tl-card-impact  { font-size: 15px; }
+          .tl-card-impact-sub { font-size: 13px; }
+          .ticker-value    { font-size: 20px; }
+          .ticker-item     { font-size: 14px; }
+          .brain-benefit-title { font-size: 15px; }
+          .brain-benefit-desc  { font-size: 13px; line-height: 1.7; }
+          .brain-note          { font-size: 13px; }
+          .uc-title        { font-size: 18px; }
+          .uc-quote        { font-size: 14px; }
+          .uc-strategy     { font-size: 13px; }
+          .uc-strategy-label { font-size: 11px; }
+          .uc-badge        { font-size: 11px; }
         }
         @media (max-width: 480px) {
           .hp-wrap, .hp-wrap-narrow { padding: 0 20px; }
           .hero-grid { padding: 40px 20px 48px; }
           .hero-actions { flex-direction: column; width: 100%; }
           .hero-actions a { justify-content: center; }
-          .hp-btn-primary, .hp-btn-secondary { width: 100%; justify-content: center; }
+          .hp-btn-primary, .hp-btn-secondary { width: 100%; justify-content: center; font-size: 13px; padding: 16px 20px; }
           .tl-cards { grid-template-columns: 1fr; }
+          .tl-pixel-flow { height: 60px; }
+          .tl-month-period { font-size: 9px; }
+
+          /* ── Typography mobile-first ── */
+          .hero-pre        { font-size: 11px; letter-spacing: 1.5px; }
+          .hero-h1         { font-size: clamp(34px, 9vw, 44px); line-height: 1.15; }
+          .hero-sub        { font-size: 15px; }
+          .hero-pill-teal  { font-size: 11px; padding: 6px 14px; }
+          .hero-pill-grey  { font-size: 10px; }
+          .hp-eyebrow      { font-size: 11px; letter-spacing: 2.5px; }
+          .hp-h2           { font-size: clamp(26px, 7.5vw, 34px); line-height: 1.2; }
+          .hp-subtitle     { font-size: 14px; }
+          .fcmo-col-title  { font-size: 18px; }
+          .fcmo-col-body   { font-size: 14px; }
+          .tl-card-title   { font-size: 17px; }
+          .tl-card-desc    { font-size: 13px; }
+          .tl-card-impact  { font-size: 15px; }
+          .ticker-value    { font-size: 19px; }
+          .uc-title        { font-size: 17px; }
+          .uc-quote        { font-size: 14px; }
         }
       `}</style>
 
@@ -653,19 +1136,24 @@ export default function HomePage() {
           <div className="hero-left">
             <div className="hero-pre">Per aziende B2B, E-commerce e Startup</div>
 
-            <h1 className="hero-h1">
-              Il mio lavoro &egrave; portare<br />
-              <span style={{ color: "var(--teal)" }}>crescita nelle aziende.</span>
-            </h1>
+            <div className="hero-h1-wrap">
+              <h1 className="hero-h1">
+                Il mio lavoro &egrave; portare<br />
+                <span style={{ color: "var(--teal)" }}>crescita nelle aziende.</span>
+              </h1>
+            </div>
+
+            <p className="hero-sub hero-sub-strong">
+              Un direttore marketing senior nella tua azienda &mdash; <strong style={{ color: "var(--teal)", fontWeight: 600 }}>senza assumerlo</strong>.
+            </p>
 
             <p className="hero-sub">
-              Strategia, numeri e direzione &mdash; senza assumere un team interno.
+              Strategia, numeri e responsabilit&agrave; piena sui risultati &mdash; ad una <strong style={{ color: "var(--text)", fontWeight: 600 }}>frazione del costo di un&apos;agenzia</strong>.
             </p>
 
             {/* Teal pills */}
             <div className="hero-pills-main">
               <span className="hero-pill-teal">Fractional CMO</span>
-              <span className="hero-pill-teal">AI-Powered</span>
             </div>
 
             {/* Grey pills */}
@@ -679,12 +1167,24 @@ export default function HomePage() {
             <div className="flex flex-wrap hero-actions" style={{ gap: "14px" }}>
               <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="hp-btn-primary">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.335-1.502A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.523-5.172-1.432l-.371-.22-3.762.892.946-3.653-.242-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-                Prenota 15 minuti
+                Scrivimi su WhatsApp
               </a>
-              <Link href="/risorse" className="hp-btn-secondary">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                Risorse Gratis
-              </Link>
+              <a href={`mailto:${SITE.email}`} className="hp-btn-secondary">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                Inviami una mail
+              </a>
+            </div>
+
+            {/* Reassurance microcopy */}
+            <div style={{
+              fontSize: "12px",
+              color: "var(--text)",
+              letterSpacing: "0.3px",
+              marginTop: "-4px",
+              lineHeight: 1.6,
+              maxWidth: "560px"
+            }}>
+              Approfitta di <strong style={{ color: "var(--teal)", fontWeight: 600 }}>10 minuti del mio tempo</strong>. Mi fa sempre piacere conoscere nuove persone e nuovi contesti.
             </div>
           </div>
 
@@ -717,30 +1217,10 @@ export default function HomePage() {
         </h2>
 
         <div className="fcmo-grid">
-          {/* Agenzia */}
-          <div className="fcmo-col fcmo-col-dim">
+          {/* Fractional CMO — main, large with bullet benefits */}
+          <div className="fcmo-col fcmo-col-teal fcmo-col-main">
             <div className="fcmo-col-icon">
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                <rect x="8" y="18" width="8" height="22" rx="1" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5"/>
-                <rect x="20" y="12" width="8" height="28" rx="1" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5"/>
-                <rect x="32" y="22" width="8" height="18" rx="1" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5"/>
-                <circle cx="12" cy="14" r="2" fill="rgba(255,255,255,0.12)"/>
-                <circle cx="24" cy="8" r="2" fill="rgba(255,255,255,0.2)"/>
-                <circle cx="36" cy="18" r="2" fill="rgba(255,255,255,0.08)"/>
-                <path d="M12 14L24 8L36 18" stroke="rgba(255,255,255,0.08)" strokeWidth="1" strokeDasharray="3 3"/>
-              </svg>
-            </div>
-            <div className="fcmo-col-title">Agenzia</div>
-            <div className="fcmo-col-body">
-              Il senior vende, il junior esegue. Ottimizza metriche di piattaforma &mdash; ROAS, CTR, CPM &mdash; ma nessuno guarda i tuoi margini reali.
-            </div>
-            <div className="fcmo-col-verdict">&#10007; Nessuno guarda i tuoi margini</div>
-          </div>
-
-          {/* Fractional CMO (center, prominent) */}
-          <div className="fcmo-col fcmo-col-teal">
-            <div className="fcmo-col-icon">
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <svg width="56" height="56" viewBox="0 0 48 48" fill="none">
                 <circle cx="24" cy="24" r="10" stroke="rgba(0,255,252,0.3)" strokeWidth="1.5"/>
                 <circle cx="24" cy="24" r="4" fill="rgba(0,255,252,0.15)" stroke="rgba(0,255,252,0.4)" strokeWidth="1"/>
                 <circle cx="24" cy="8" r="3" stroke="rgba(0,255,252,0.25)" strokeWidth="1"/><text x="24" y="10" textAnchor="middle" fontSize="5" fill="rgba(0,255,252,0.5)">S</text>
@@ -759,13 +1239,40 @@ export default function HomePage() {
             </div>
             <div className="fcmo-col-title">Fractional CMO</div>
             <div className="fcmo-col-body">
-              Da &euro;1.500/mese. Strategia e numeri. Si prende la responsabilit&agrave; dei risultati. Pochi clienti, massima cura.
+              Da &euro;1.500/mese. Strategia, numeri e responsabilit&agrave; piena sui risultati. Pochi clienti, massima cura.
             </div>
+            <ul className="fcmo-bullets">
+              <li><strong>Direzione marketing senior</strong> &mdash; strategia + coordinamento dell&apos;esecuzione</li>
+              <li><strong>Visione completa</strong> &mdash; ADV, e-commerce, CRO, lead gen, analytics</li>
+              <li><strong>Margini, non solo metriche</strong> &mdash; responsabilit&agrave; sui numeri reali</li>
+              <li><strong>Brain Company AI inclusa</strong> &mdash; il sistema operativo del tuo marketing</li>
+              <li><strong>Massimo 3 clienti</strong> &mdash; cura maniacale, niente economia di scala</li>
+            </ul>
             <div className="fcmo-col-verdict">&#10003; Costo frazionato, impatto pieno</div>
           </div>
 
-          {/* Dipendente */}
-          <div className="fcmo-col fcmo-col-dim">
+          {/* Agenzia — top-right, compact */}
+          <div className="fcmo-col fcmo-col-dim fcmo-col-side-1">
+            <div className="fcmo-col-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <rect x="8" y="18" width="8" height="22" rx="1" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5"/>
+                <rect x="20" y="12" width="8" height="28" rx="1" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5"/>
+                <rect x="32" y="22" width="8" height="18" rx="1" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5"/>
+                <circle cx="12" cy="14" r="2" fill="rgba(255,255,255,0.12)"/>
+                <circle cx="24" cy="8" r="2" fill="rgba(255,255,255,0.2)"/>
+                <circle cx="36" cy="18" r="2" fill="rgba(255,255,255,0.08)"/>
+                <path d="M12 14L24 8L36 18" stroke="rgba(255,255,255,0.08)" strokeWidth="1" strokeDasharray="3 3"/>
+              </svg>
+            </div>
+            <div className="fcmo-col-title">Agenzia</div>
+            <div className="fcmo-col-body">
+              Il senior vende, il junior esegue. Ottimizzano ROAS e CTR &mdash; nessuno guarda i tuoi margini.
+            </div>
+            <div className="fcmo-col-verdict">&#10007; Nessuno guarda i margini</div>
+          </div>
+
+          {/* Dipendente — bottom-right, compact */}
+          <div className="fcmo-col fcmo-col-dim fcmo-col-side-2">
             <div className="fcmo-col-icon">
               <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
                 <circle cx="24" cy="16" r="7" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5"/>
@@ -775,15 +1282,94 @@ export default function HomePage() {
             </div>
             <div className="fcmo-col-title">Dipendente</div>
             <div className="fcmo-col-body">
-              60&ndash;80K/anno. Una skill, un ruolo. Ha bisogno di qualcuno che gli dica cosa fare. E se non funziona, sei bloccato.
+              60&ndash;80K/anno per una skill sola. Aspetta che gli dici cosa fare. Se non funziona, sei bloccato.
             </div>
             <div className="fcmo-col-verdict">&#10007; Costo alto, rischio alto</div>
           </div>
         </div>
 
-        <p className="fcmo-closer">
-          Entro nella tua azienda, costruisco la strategia, coordino chi esegue, misuro cosa resta in tasca. <strong>Penso ai miei clienti anche fuori dall&apos;orario di lavoro &mdash; non per ossessione, ma perch&eacute; ci tengo davvero.</strong>
-        </p>
+        {/* Carosello esempi: cosa significa avere un Fractional CMO in azienda */}
+        <div className="fcmo-cases-wrap">
+          <div className="fcmo-cases-header">
+            <div>
+              <div className="fcmo-cases-eyebrow">In azione</div>
+              <h3 className="fcmo-cases-title">Cosa significa farmi entrare in azienda.</h3>
+            </div>
+            <div className="fcmo-cases-nav">
+              <button type="button" data-fcmo-prev aria-label="Precedente">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button type="button" data-fcmo-next aria-label="Successivo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div className="fcmo-cases-track" data-fcmo-track>
+            <div className="fcmo-case">
+              <span className="fcmo-case-tag">B2B</span>
+              <div className="fcmo-case-title">Azienda con vendita complessa.</div>
+              <div className="fcmo-case-scenario">
+                Hanno bisogno di un sistema di lead generation prevedibile &mdash; non pi&ugrave; solo passaparola o fiere.
+              </div>
+              <div className="fcmo-case-action">
+                &rarr; Costruisco tracking, qualificazione e nurturing
+              </div>
+            </div>
+
+            <div className="fcmo-case">
+              <span className="fcmo-case-tag">E-commerce</span>
+              <div className="fcmo-case-title">Fatturato fermo, non sanno dove guardare.</div>
+              <div className="fcmo-case-scenario">
+                Stanno spendendo in Ads, email, marketplace &mdash; ma non sanno cosa funziona davvero e cosa va tagliato.
+              </div>
+              <div className="fcmo-case-action">
+                &rarr; Piano trimestrale priorizzato, area dopo area
+              </div>
+            </div>
+
+            <div className="fcmo-case">
+              <span className="fcmo-case-tag">Premium / Luxury</span>
+              <div className="fcmo-case-title">Brand forte, digital ancora marginale.</div>
+              <div className="fcmo-case-scenario">
+                Hanno un nome riconoscibile e un prodotto solido, ma il digital &egrave; un canale fantasma. Vogliono renderlo strategico.
+              </div>
+              <div className="fcmo-case-action">
+                &rarr; Strategia digital end-to-end, dal positioning ai canali
+              </div>
+            </div>
+
+            <div className="fcmo-case">
+              <span className="fcmo-case-tag">Info-prodotto</span>
+              <div className="fcmo-case-title">Lancio sotto le aspettative.</div>
+              <div className="fcmo-case-scenario">
+                Primo lancio andato male, vogliono farlo bene la seconda volta &mdash; budget pi&ugrave; chiaro, scelte motivate.
+              </div>
+              <div className="fcmo-case-action">
+                &rarr; Setup tecnico, budget, creativi, pacing del lancio
+              </div>
+            </div>
+          </div>
+        </div>
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function() {
+            var track = document.querySelector('[data-fcmo-track]');
+            var prev = document.querySelector('[data-fcmo-prev]');
+            var next = document.querySelector('[data-fcmo-next]');
+            if (!track || !prev || !next) return;
+            function scrollAmount() {
+              var card = track.querySelector('.fcmo-case');
+              if (!card) return 360;
+              return card.offsetWidth + 16;
+            }
+            prev.addEventListener('click', function() {
+              track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+            });
+            next.addEventListener('click', function() {
+              track.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+            });
+          })();
+        `}} />
       </div>
 
       {/* ════════════════════════════════════════
@@ -816,78 +1402,152 @@ export default function HomePage() {
           Impegno minimo: 3 mesi. Ecco cosa succede nei primi 30 giorni.
         </p>
 
-        <div className="tl-cards">
-          {/* Card 1 */}
-          <div className="tl-card">
-            <div className="tl-card-top">
-              <div className="tl-card-period">Settimana 1</div>
-              <div className="tl-card-title">Analisi risorse</div>
-              <div className="tl-card-desc">Mappo team, canali, budget. Ti dico subito cosa serve da fuori.</div>
+        <div className="tl-month-flow">
+          {/* MESE 1 — Costruzione del sistema */}
+          <div className="tl-month-box tl-month-1">
+            <div className="tl-month-header">
+              <span className="tl-month-period">Mese 1</span>
+              <div className="tl-month-title">Costruzione del sistema</div>
             </div>
-            <div className="tl-card-bottom">
-              <div className="tl-card-label">Per te</div>
-              <div className="tl-card-impact">Chiarezza immediata</div>
-              <div className="tl-card-impact-sub">Sai dove stai spendendo e cosa manca.</div>
-            </div>
+            <ul className="tl-activities">
+              <li className="tl-activity">
+                <div className="tl-activity-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="4" width="18" height="16" rx="2"/>
+                    <path d="M7 9h10M7 13h7M7 17h5"/>
+                  </svg>
+                </div>
+                <div className="tl-activity-text">
+                  <div className="tl-activity-title">Analisi risorse</div>
+                  <div className="tl-activity-desc">Team, canali, budget. Capisco subito cosa serve da fuori.</div>
+                </div>
+              </li>
+              <li className="tl-activity">
+                <div className="tl-activity-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="9"/>
+                    <circle cx="12" cy="12" r="5"/>
+                    <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+                  </svg>
+                </div>
+                <div className="tl-activity-text">
+                  <div className="tl-activity-title">Tracking audit</div>
+                  <div className="tl-activity-desc">GA4, Pixel Meta, Consent Mode. Dati puliti prima di decidere.</div>
+                </div>
+              </li>
+              <li className="tl-activity">
+                <div className="tl-activity-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="4" y="3" width="16" height="18" rx="2"/>
+                    <path d="M8 7h8M8 11h8M8 15h4"/>
+                    <circle cx="14" cy="15" r="1.5" fill="currentColor"/>
+                  </svg>
+                </div>
+                <div className="tl-activity-text">
+                  <div className="tl-activity-title">Unit economics</div>
+                  <div className="tl-activity-desc">Margine reale, scenari di crescita, forecasting concreto.</div>
+                </div>
+              </li>
+              <li className="tl-activity">
+                <div className="tl-activity-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M16 8l-2 6-6 2 2-6z"/>
+                  </svg>
+                </div>
+                <div className="tl-activity-text">
+                  <div className="tl-activity-title">Strategia</div>
+                  <div className="tl-activity-desc">Roadmap a 3 mesi con priorit&agrave; chiare e KPI definiti.</div>
+                </div>
+              </li>
+              <li className="tl-activity">
+                <div className="tl-activity-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 4a4 4 0 014 4c0 1.5-.8 2.7-1.5 3.5C15 12 16 13 16 14.5a3.5 3.5 0 01-7 0c0-.5.1-1 .3-1.5"/>
+                    <path d="M9 7c-2 0-3 2-3 4 0 1.5 1 2.7 2 3.5"/>
+                    <circle cx="12" cy="14" r="1.5" fill="currentColor"/>
+                  </svg>
+                </div>
+                <div className="tl-activity-text">
+                  <div className="tl-activity-title">Brain Company setup</div>
+                  <div className="tl-activity-desc">Il tuo cervello digitale, costruito sul tuo business.</div>
+                </div>
+              </li>
+            </ul>
           </div>
 
-          {/* Card 2 */}
-          <div className="tl-card">
-            <div className="tl-card-top">
-              <div className="tl-card-period">Settimana 1&ndash;2</div>
-              <div className="tl-card-title">Tracking audit</div>
-              <div className="tl-card-desc">GA4, Pixel Meta, Consent Mode, GDPR. Dati puliti prima di decidere.</div>
-            </div>
-            <div className="tl-card-bottom">
-              <div className="tl-card-label">Per te</div>
-              <div className="tl-card-impact">Decisioni su dati reali</div>
-              <div className="tl-card-impact-sub">Non su numeri sporchi o stime a occhio.</div>
-            </div>
+          {/* PIXEL FLOW: dissolvenza pixel da Mese 1 → Mese 2-3 */}
+          <div className="tl-pixel-flow" aria-hidden="true">
+            {Array.from({ length: 12 }).map((_, i) => (
+              <div
+                key={i}
+                className="tl-pixel"
+                style={{
+                  top: `${10 + i * 7}%`,
+                  animationDelay: `${i * 0.22}s`,
+                }}
+              />
+            ))}
           </div>
 
-          {/* Card 3 */}
-          <div className="tl-card">
-            <div className="tl-card-top">
-              <div className="tl-card-period">Settimana 2&ndash;4</div>
-              <div className="tl-card-title">Unit economics</div>
-              <div className="tl-card-desc">Margine reale per vendita. Tre scenari di crescita e forecasting.</div>
+          {/* MESE 2-3 — Si va sul mercato */}
+          <div className="tl-month-box tl-month-2">
+            <div className="tl-month-header">
+              <span className="tl-month-period">Mese 2&ndash;3</span>
+              <div className="tl-month-title">Si va sul mercato</div>
             </div>
-            <div className="tl-card-bottom">
-              <div className="tl-card-label">Per te</div>
-              <div className="tl-card-impact">Sai quanto investire</div>
-              <div className="tl-card-impact-sub">E cosa aspettarti in termini di ritorno.</div>
-            </div>
-          </div>
-
-          {/* Card 4 */}
-          <div className="tl-card">
-            <div className="tl-card-top">
-              <div className="tl-card-period">Setup</div>
-              <div className="tl-card-title">Brain Company</div>
-              <div className="tl-card-desc">Notion + Claude AI + Drive. Il cervello operativo del tuo progetto.</div>
-            </div>
-            <div className="tl-card-bottom">
-              <div className="tl-card-label">Per te</div>
-              <div className="tl-card-impact">Tutto in un posto</div>
-              <div className="tl-card-impact-sub">Sempre aggiornato. Zero email perse.</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Arrow flow: Mese 1 → converge → Mese 2-3 iterazione → risultati */}
-        <div className="tl-arrow">
-          <div className="tl-arrow-line" style={{ display: "flex", alignItems: "center" }}>
-            <div className="tl-arrow-seg" style={{ flex: "0 0 25%", background: "linear-gradient(90deg, rgba(0,255,252,0.1), rgba(0,255,252,0.3))" }} />
-            <div className="tl-arrow-label" style={{ color: "var(--teal)", opacity: 0.7 }}>Mese 1</div>
-            <div className="tl-arrow-seg" style={{ flex: "0 0 15%", background: "rgba(0,255,252,0.3)" }} />
-            <div className="tl-arrow-label" style={{ color: "var(--teal)" }}>Mese 2&ndash;3: test &amp; calibra</div>
-            <div className="tl-arrow-seg" style={{ flex: 1, background: "linear-gradient(90deg, rgba(0,255,252,0.3), var(--teal))" }} />
-            <div className="tl-arrow-head" />
-          </div>
-          <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
-            <div style={{ fontSize: "10px", color: "var(--text-faint)" }}>Costruzione</div>
-            <div style={{ fontSize: "10px", color: "var(--text-dim)" }}>Iterazione</div>
-            <div style={{ fontSize: "10px", color: "var(--teal)", fontWeight: 500 }}>Risultati</div>
+            <ul className="tl-activities">
+              <li className="tl-activity">
+                <div className="tl-activity-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 19l3-7 3 4 4-9 4 12"/>
+                    <circle cx="14" cy="7" r="2"/>
+                  </svg>
+                </div>
+                <div className="tl-activity-text">
+                  <div className="tl-activity-title">Lancio campagne</div>
+                  <div className="tl-activity-desc">Budget controllato, creativi testati, tracking attivo.</div>
+                </div>
+              </li>
+              <li className="tl-activity">
+                <div className="tl-activity-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 3v6l-5 9a2 2 0 002 3h12a2 2 0 002-3l-5-9V3"/>
+                    <path d="M8 3h8"/>
+                  </svg>
+                </div>
+                <div className="tl-activity-text">
+                  <div className="tl-activity-title">Test reali, non ipotesi</div>
+                  <div className="tl-activity-desc">A/B test, varianti, validazione su mercato vero.</div>
+                </div>
+              </li>
+              <li className="tl-activity">
+                <div className="tl-activity-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 6h11M4 12h11M4 18h11"/>
+                    <circle cx="18" cy="6" r="2.5"/>
+                    <circle cx="18" cy="12" r="2.5"/>
+                    <circle cx="18" cy="18" r="2.5"/>
+                  </svg>
+                </div>
+                <div className="tl-activity-text">
+                  <div className="tl-activity-title">Calibrazione su dati</div>
+                  <div className="tl-activity-desc">Ogni settimana: ottimizzo ci&ograve; che funziona, taglio il resto.</div>
+                </div>
+              </li>
+              <li className="tl-activity">
+                <div className="tl-activity-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 17l6-6 4 4 7-9"/>
+                    <path d="M14 6h6v6"/>
+                  </svg>
+                </div>
+                <div className="tl-activity-text">
+                  <div className="tl-activity-title">Scalata graduale</div>
+                  <div className="tl-activity-desc">Quando un canale converte, si scala. Non prima.</div>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -895,110 +1555,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════
           5. BRAIN COMPANY (AI) — Full-width section with bg
       ════════════════════════════════════════ */}
-      <div className="brain-section">
-        <div className="hp-wrap">
-          {/* Product badge */}
-          <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
-            <div style={{
-              display: "inline-flex", alignItems: "center", gap: "8px",
-              padding: "6px 14px", borderRadius: "5px",
-              border: "1px solid rgba(0,255,252,0.4)", background: "rgba(0,255,252,0.08)",
-              fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase",
-              color: "var(--teal)", fontWeight: 600,
-            }}>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-              Incluso nel servizio
-            </div>
-          </div>
-
-          <h2 className="hp-h2" style={{ fontSize: "clamp(28px, 4vw, 48px)" }}>
-            Brain Company<span style={{ color: "var(--teal)" }}>.</span>
-          </h2>
-          <p className="hp-subtitle" style={{ marginBottom: "16px", maxWidth: "620px" }}>
-            Il cervello digitale della tua azienda. Se inizi una collaborazione con me, te lo costruisco. &Egrave; il mio modo di lavorare &mdash; e diventa tuo.
-          </p>
-          <p style={{ fontSize: "12px", color: "var(--text-faint)", marginBottom: "48px" }}>
-            Powered by Anthropic Claude &mdash; il modello AI pi&ugrave; avanzato al mondo.
-          </p>
-
-          <div className="brain-grid">
-            {/* Left — benefits + ownership note */}
-            <div>
-              <div className="brain-benefit-cards">
-                <div className="brain-benefit">
-                  <div className="brain-benefit-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                  </div>
-                  <div className="brain-benefit-content">
-                    <div className="brain-benefit-title">~20h risparmiate al mese</div>
-                    <div className="brain-benefit-desc">
-                      Addio preventivi manuali, report ripetitivi, email di routine. L&apos;AI se ne occupa.
-                    </div>
-                  </div>
-                </div>
-                <div className="brain-benefit">
-                  <div className="brain-benefit-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" strokeWidth="1.5"><path d="M12 2a4 4 0 014 4c0 1.95-2 4-4 6-2-2-4-4.05-4-6a4 4 0 014-4z"/><path d="M12 12v10M8 22h8"/></svg>
-                  </div>
-                  <div className="brain-benefit-content">
-                    <div className="brain-benefit-title">Un assistente AI costruito sul tuo business</div>
-                    <div className="brain-benefit-desc">
-                      Servono interviste, analisi, tempo per capire la tua azienda. Ma una volta configurato, conosce ogni numero, ogni decisione, ogni cliente. Sempre aggiornato.
-                    </div>
-                  </div>
-                </div>
-                <div className="brain-benefit">
-                  <div className="brain-benefit-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" strokeWidth="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                  </div>
-                  <div className="brain-benefit-content">
-                    <div className="brain-benefit-title">La propriet&agrave; intellettuale &egrave; tua</div>
-                    <div className="brain-benefit-desc">
-                      Iniziamo col mio sistema. Quando vuoi, tutto passa a te: contesto, skill, automazioni. Costo per te: &euro;90/mese di Anthropic. Il valore che contiene? Inestimabile.
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="brain-note">
-                Usiamo il Brain Company per il bene del progetto. Non &egrave; un upsell &mdash; &egrave; il modo in cui lavoro. Fa parte del servizio di Fractional CMO.
-              </div>
-            </div>
-
-            {/* Right — Concentric orbits */}
-            <div className="brain-orbits-wrap">
-              <div className="brain-orbits">
-                {/* Ring 4: Automazioni */}
-                <div className="brain-orbit-ring brain-orbit-ring-4">
-                  <div className="brain-ring-label" style={{ top: "-10px", left: "50%", transform: "translateX(-50%)" }}>Automazioni</div>
-                  <div className="brain-ring-node" style={{ top: "10px", right: "40px" }}>N8N</div>
-                  <div className="brain-ring-node" style={{ bottom: "10px", left: "40px" }}>Zap</div>
-                </div>
-                {/* Ring 3: Skills */}
-                <div className="brain-orbit-ring brain-orbit-ring-3">
-                  <div className="brain-ring-label" style={{ top: "-10px", left: "50%", transform: "translateX(-50%)" }}>Skills</div>
-                  <div className="brain-ring-node" style={{ top: "8px", right: "20px" }}>Ads</div>
-                  <div className="brain-ring-node" style={{ bottom: "8px", left: "20px" }}>SEO</div>
-                </div>
-                {/* Ring 2: Tools */}
-                <div className="brain-orbit-ring brain-orbit-ring-2">
-                  <div className="brain-ring-label" style={{ top: "-10px", left: "50%", transform: "translateX(-50%)" }}>Tools</div>
-                  <div className="brain-ring-node" style={{ top: "4px", left: "50%", transform: "translateX(-50%)" }}>GA4</div>
-                  <div className="brain-ring-node" style={{ bottom: "4px", right: "10px" }}>CRM</div>
-                </div>
-                {/* Ring 1: Contesto */}
-                <div className="brain-orbit-ring brain-orbit-ring-1">
-                  <div className="brain-ring-label" style={{ bottom: "-10px", left: "50%", transform: "translateX(-50%)" }}>Contesto</div>
-                </div>
-                {/* Core: Brand */}
-                <div className="brain-orbit-core">
-                  <div className="brain-orbit-core-text">Il tuo brand</div>
-                  <div className="brain-orbit-core-sub">Centro</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <BrainCompanySection />
 
       {/* ════════════════════════════════════════
           6. CASE STUDIES — Unified Carousel
@@ -1077,20 +1634,23 @@ export default function HomePage() {
       ════════════════════════════════════════ */}
       <div className="hp-wrap" style={{ marginBottom: "120px" }}>
         <div className="hp-cta">
-          <h2 className="hp-h2" style={{ position: "relative", marginBottom: "12px" }}>15 minuti. Zero pitch.</h2>
+          <h2 className="hp-h2" style={{ position: "relative", marginBottom: "12px" }}>Conosciamoci. Senza impegno.</h2>
           <p style={{ fontSize: "14px", color: "var(--text-dim)", lineHeight: 1.8, marginBottom: "32px", position: "relative" }}>
-            Una call per capire se il modello Fractional CMO ha senso per il tuo business.<br />
-            Nessuna presentazione, nessun preventivo. Solo una conversazione onesta sui tuoi numeri.
+            Mandami un messaggio, ci sentiamo, e ti dico onestamente se posso aiutarti<br />
+            &mdash; o se non ne hai bisogno. Nessuna presentazione, nessun preventivo.
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: "14px", position: "relative", flexWrap: "wrap" }}>
             <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="hp-btn-primary">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.335-1.502A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.523-5.172-1.432l-.371-.22-3.762.892.946-3.653-.242-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-              Prenota la call
+              Scrivimi su WhatsApp
             </a>
             <a href={`mailto:${SITE.email}`} className="hp-btn-secondary">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              Scrivimi una mail
+              Inviami una mail
             </a>
+          </div>
+          <div style={{ marginTop: "20px", fontSize: "12px", color: "var(--text)", lineHeight: 1.6, position: "relative", textAlign: "center" }}>
+            Hai letto fin qui &mdash; significa che qualcosa ti ha incuriosito. <strong style={{ color: "var(--teal)", fontWeight: 500 }}>Vediamo se ha senso parlarne.</strong>
           </div>
         </div>
       </div>
@@ -1110,7 +1670,7 @@ export default function HomePage() {
           </div>
           <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="hp-btn-primary">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.335-1.502A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.523-5.172-1.432l-.371-.22-3.762.892.946-3.653-.242-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-            Prenota 15 minuti
+            Scrivimi su WhatsApp
           </a>
         </div>
       </div>

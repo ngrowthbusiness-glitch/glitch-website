@@ -54,7 +54,8 @@ export default function SiteLayout({
           }
         }
       `}</style>
-      <div dangerouslySetInnerHTML={{ __html: '<div class="c-dot" id="c-dot"></div><div class="c-ring" id="c-ring"></div>' }} />
+      <div className="c-dot" id="c-dot" />
+      <div className="c-ring" id="c-ring" />
       <script dangerouslySetInnerHTML={{ __html: `
         (function() {
           if (window.matchMedia('(pointer: coarse)').matches) return;

@@ -51,14 +51,19 @@
 
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
 
 body {
   background: var(--bg);
   color: var(--text);
   font-family: 'DM Mono', monospace;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
+  width: 100%;
+  position: relative;
 }
 
 /* ── Background glow ── */
@@ -280,9 +285,35 @@ body {
 @media (max-width: 900px) {
   .s-wrap, .s-wrap-md, .s-wrap-sm { padding: 0 32px; }
   .s-page { padding: 48px 32px 80px; }
+
+  /* Typography upgrade — leggibilita' tablet/mobile */
+  .s-eyebrow      { font-size: 11px; letter-spacing: 3px; }
+  .s-h1           { font-size: clamp(36px, 7vw, 56px); }
+  .s-h2           { font-size: clamp(28px, 5.5vw, 42px); }
+  .s-h3           { font-size: clamp(20px, 4vw, 24px); }
+  .s-subtitle     { font-size: 15px; line-height: 1.7; }
+  .s-body         { font-size: 15px; line-height: 1.75; }
+  .s-btn-primary,
+  .s-btn-secondary { font-size: 12px; letter-spacing: 1.8px; padding: 14px 24px; }
+  .s-pill, .s-badge { font-size: 11px; padding: 4px 11px; }
+  .s-metric-label { font-size: 11px; }
+  .s-link         { font-size: 11px; }
+  .s-divider      { margin-bottom: 80px; }
+  .s-section      { margin-bottom: 80px; }
 }
 @media (max-width: 480px) {
   .s-wrap, .s-wrap-md, .s-wrap-sm { padding: 0 20px; }
   .s-page { padding: 40px 20px 60px; }
-  .s-btn-primary, .s-btn-secondary { width: 100%; justify-content: center; }
+  .s-btn-primary, .s-btn-secondary { width: 100%; justify-content: center; font-size: 13px; padding: 16px 20px; }
+
+  /* Typography mobile-first */
+  .s-eyebrow      { font-size: 11px; letter-spacing: 2.5px; }
+  .s-h1           { font-size: clamp(34px, 9vw, 44px); line-height: 1.15; }
+  .s-h2           { font-size: clamp(26px, 7.5vw, 34px); line-height: 1.2; }
+  .s-h3           { font-size: 20px; }
+  .s-subtitle     { font-size: 15px; line-height: 1.7; }
+  .s-body         { font-size: 15px; line-height: 1.75; }
+  .s-pill, .s-badge { font-size: 11px; }
+  .s-cta          { padding: 40px 24px; }
+  .s-quote        { padding: 28px 24px; }
 }
