@@ -2,7 +2,7 @@ export const SITE = {
   name: "Nicola Serrao",
   title: "Fractional CMO & AI-Powered Strategist",
   tagline: "La mente di un ufficio marketing. In una sola persona.",
-  liveStatus: { current: 2, max: 3 },
+  liveStatus: { current: 3, max: 5 },
   url: "https://nicolaserrao.com",
   email: "marketing@nicolaserrao.com",
   whatsapp: "https://wa.me/393385691369",

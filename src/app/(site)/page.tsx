@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SITE } from "@/lib/constants";
 import BrainCompanySection from "@/components/sections/BrainCompanySection";
+import HeroLocationLive from "@/components/layout/HeroLocationLive";
 
 /* ───────────────────────────────────────────────────────
    HOMEPAGE — nicolaserrao.com
@@ -1258,10 +1259,11 @@ export default function HomePage() {
             <div className="hero-status">
               <div className="hero-status-row">
                 <span className="hero-status-dot" />
-                <span>{SITE.liveStatus.current} clienti su {SITE.liveStatus.max} &mdash; <strong style={{ color: "var(--teal)" }}>disponibile</strong></span>
+                <span>Lavoro con un <strong style={{ color: "var(--teal)" }}>massimo di {SITE.liveStatus.max} clienti</strong></span>
               </div>
-              <span className="hero-status-label">Seguo massimo {SITE.liveStatus.max} aziende alla volta</span>
+              <span className="hero-status-label">Disponibile per nuovi progetti</span>
             </div>
+            <HeroLocationLive />
           </div>
         </div>
       </div>
@@ -1306,7 +1308,7 @@ export default function HomePage() {
               <li><strong>Visione completa</strong> &mdash; ADV, e-commerce, CRO, lead gen, analytics</li>
               <li><strong>Margini, non solo metriche</strong> &mdash; responsabilit&agrave; sui numeri reali</li>
               <li><strong>Brain Company AI inclusa</strong> &mdash; il sistema operativo del tuo marketing</li>
-              <li><strong>Massimo 3 clienti</strong> &mdash; cura maniacale, niente economia di scala</li>
+              <li><strong>Massimo 5 clienti</strong> &mdash; cura maniacale, niente economia di scala</li>
             </ul>
             <div className="fcmo-col-verdict">&#10003; Costo frazionato, impatto pieno</div>
           </div>
