@@ -17,6 +17,10 @@ type Props = {
   align?: Align;
   /** Override classe button (es. classi globali s-btn-primary) */
   buttonClassName?: string;
+  /** Override mailto custom (per outreach con subject precompilato). Default: mailto:SITE.email */
+  emailHref?: string;
+  /** Override WhatsApp link custom (per outreach con messaggio precompilato). Default: SITE.whatsapp */
+  whatsappHref?: string;
 };
 
 /**
@@ -29,8 +33,12 @@ export default function ContactCTAButton({
   variant = "primary",
   align = "left",
   buttonClassName,
+  emailHref,
+  whatsappHref,
 }: Props) {
   const [open, setOpen] = useState(false);
+  const resolvedEmail = emailHref ?? `mailto:${SITE.email}`;
+  const resolvedWhatsapp = whatsappHref ?? SITE.whatsapp;
 
   useEffect(() => {
     if (!open) return;
@@ -214,7 +222,7 @@ export default function ContactCTAButton({
 
             <div className="ccta-modal-actions">
               <a
-                href={SITE.whatsapp}
+                href={resolvedWhatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="ccta-channel-btn ccta-channel-wa"
@@ -227,7 +235,7 @@ export default function ContactCTAButton({
                 Scrivimi su WhatsApp
               </a>
               <a
-                href={`mailto:${SITE.email}`}
+                href={resolvedEmail}
                 className="ccta-channel-btn ccta-channel-mail"
                 onClick={() => setOpen(false)}
               >

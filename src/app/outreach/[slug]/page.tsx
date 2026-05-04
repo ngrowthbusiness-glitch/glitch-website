@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { configs, getConfig, getAllSlugs } from "@/data/outreach/loader";
 import type { OutreachConfig } from "@/data/outreach/types";
 import { Tracker } from "./tracker";
-import { CtaBlock } from "./cta-block";
+import ContactCTAButton from "@/components/layout/ContactCTAButton";
 
 export const dynamicParams = false;
 
@@ -42,6 +42,7 @@ export default async function OutreachPage({
       <Hero config={config} />
       <Divider config={config} />
       <ProspectSection config={config} />
+      <NicolaContactSection config={config} />
       <OutreachFooter />
       <OutreachStyles config={config} />
     </main>
@@ -169,9 +170,7 @@ function VideoFrame({
 ───────────────────────────────────────────── */
 
 function ProspectSection({ config }: { config: OutreachConfig }) {
-  const { closing, observations, cta, prospectStyle } = config;
-  const emotionalParagraphs = closing.emotional?.split("\n\n") ?? [];
-  const emotionalTitle = closing.emotionalTitle ?? "CONOSCIAMOCI";
+  const { closing, observations } = config;
 
   return (
     <section className="o-prospect">
@@ -181,7 +180,7 @@ function ProspectSection({ config }: { config: OutreachConfig }) {
           <p className="o-prospect__intro-note">{closing.introNote}</p>
         </div>
 
-        <div className="o-observations">
+        <div className="o-observations" role="region" aria-label="Idee embrionali">
           {observations.map((obs, i) => (
             <article key={i} className="o-obs">
               <div className="o-obs__label">{obs.label}</div>
@@ -194,29 +193,44 @@ function ProspectSection({ config }: { config: OutreachConfig }) {
             </article>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
 
-        {/* Sezione emotiva "Conosciamoci" — opzionale, renderizzata solo se closing.emotional e' presente */}
+/* ─────────────────────────────────────────────
+   SEZIONE FINALE — torna allo stile Nicola (dark, teal)
+   Contiene: emotional "Conosciamoci" + conditions box pattern home + CTA stile sito
+───────────────────────────────────────────── */
+
+function NicolaContactSection({ config }: { config: OutreachConfig }) {
+  const { closing, cta } = config;
+  const emotionalParagraphs = closing.emotional?.split("\n\n") ?? [];
+  const emotionalTitle = closing.emotionalTitle ?? "CONOSCIAMOCI";
+
+  return (
+    <section className="o-nicola">
+      <div className="o-nicola__inner">
         {closing.emotional && (
-          <section className="o-emotional" aria-label={emotionalTitle}>
-            <div className="o-emotional__title">{emotionalTitle}</div>
-            <div className="o-emotional__body">
+          <div className="o-nicola__emotional">
+            <div className="o-nicola__emotional-title">{emotionalTitle}</div>
+            <div className="o-nicola__emotional-body">
               {emotionalParagraphs.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
             </div>
-          </section>
+          </div>
         )}
 
-        {/* Box conditions stile home page (Conosciamoci, 20 minuti, promesse) */}
-        <aside className="o-conditions-box" role="note">
-          <div className="o-conditions-box__eyebrow">Conosciamoci</div>
-          <h2 className="o-conditions-box__title">
+        <div className="o-nicola__cond">
+          <div className="o-nicola__cond-eyebrow">Conosciamoci</div>
+          <h2 className="o-nicola__cond-title">
             20 minuti.<br />Ne usciamo con <em>ordine e chiarezza</em>.
           </h2>
-          <p className="o-conditions-box__honest">
+          <p className="o-nicola__cond-honest">
             &ldquo;Se ti dicessi che dietro non c&apos;&egrave; una vendita, ti mentirei. Ma non &egrave; proprio cos&igrave; che funziona con me.&rdquo;
           </p>
-          <div className="o-conditions-box__explainer">
+          <div className="o-nicola__cond-explainer">
             <p>
               Faccio call con chi vuole una <strong>reale consulenza</strong>, non con chi cerca un preventivo. Mi racconti dove sei e dove vuoi arrivare. Io ti dico onestamente <strong>se posso esserti utile, o se puoi farcela da solo</strong>.
             </p>
@@ -224,43 +238,38 @@ function ProspectSection({ config }: { config: OutreachConfig }) {
               &Egrave; controproducente per entrambi se ti vendo qualcosa che non ti serve.
             </p>
           </div>
-          <div className="o-conditions-box__promise">
-            <div className="o-conditions-box__promise-title">Cosa ricevi sempre, in 20 minuti:</div>
-            <ul className="o-conditions-box__promise-list">
+          <div className="o-nicola__cond-promise">
+            <div className="o-nicola__cond-promise-title">Cosa ricevi sempre, in 20 minuti:</div>
+            <ul className="o-nicola__cond-promise-list">
               <li>
-                <span className="o-conditions-box__promise-key">Ordine</span>
-                <span className="o-conditions-box__promise-val">sui passi successivi</span>
+                <span className="o-nicola__cond-promise-key">Ordine</span>
+                <span className="o-nicola__cond-promise-val">sui passi successivi</span>
               </li>
               <li>
-                <span className="o-conditions-box__promise-key">Chiarezza</span>
-                <span className="o-conditions-box__promise-val">sulle priorit&agrave;</span>
+                <span className="o-nicola__cond-promise-key">Chiarezza</span>
+                <span className="o-nicola__cond-promise-val">sulle priorit&agrave;</span>
               </li>
               <li>
-                <span className="o-conditions-box__promise-key">Focus</span>
-                <span className="o-conditions-box__promise-val">su cosa muove davvero i numeri</span>
+                <span className="o-nicola__cond-promise-key">Focus</span>
+                <span className="o-nicola__cond-promise-val">su cosa muove davvero i numeri</span>
               </li>
             </ul>
           </div>
-          <p className="o-conditions-box__closing">
+          <p className="o-nicola__cond-closing">
             Tu non vuoi questo ordine? Non vuoi questa chiarezza?
           </p>
-        </aside>
+        </div>
 
-        <CtaBlock
-          primaryText={cta.primaryText}
-          emailHref={cta.emailHref}
-          phoneHref={cta.phoneHref}
-          emailLabel={cta.emailLabel ?? "Email"}
-          phoneLabel={cta.phoneLabel ?? "WhatsApp"}
-          accent={prospectStyle.accent}
-          bgPrimary={prospectStyle.bgPrimary}
-          fontHeading={prospectStyle.fontHeading}
-          fontBody={prospectStyle.fontBody}
-          buttonRadius={prospectStyle.buttonRadius}
-          buttonPadding={prospectStyle.buttonPadding}
-          textSecondary={prospectStyle.textSecondary}
-          border={prospectStyle.border}
-        />
+        <div className="o-nicola__cta">
+          <ContactCTAButton
+            label={cta.primaryText}
+            microcopy="Ho sempre un grande interesse nel conoscere nuovi contesti."
+            align="center"
+            buttonClassName="s-btn-primary"
+            emailHref={cta.emailHref}
+            whatsappHref={cta.phoneHref}
+          />
+        </div>
       </div>
     </section>
   );
@@ -726,13 +735,35 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
 
     .o-observations {
       display: flex;
-      flex-direction: column;
-      gap: 80px;
-      margin-bottom: 100px;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: ${s.accent} transparent;
+      padding: 4px 4px 24px 4px;
+      margin: 0 -4px;
+    }
+    .o-observations::-webkit-scrollbar {
+      height: 6px;
+    }
+    .o-observations::-webkit-scrollbar-track {
+      background: ${s.border};
+    }
+    .o-observations::-webkit-scrollbar-thumb {
+      background: ${s.accent};
+      border-radius: 3px;
     }
     .o-obs {
-      border-top: 1px solid ${s.border};
-      padding-top: 32px;
+      flex: 0 0 clamp(280px, 32%, 360px);
+      min-width: 280px;
+      max-width: 380px;
+      scroll-snap-align: start;
+      border: 1px solid ${s.border};
+      background: rgba(0, 0, 0, 0.02);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
     }
     .o-obs__label {
       font-family: ${s.fontHeading};
@@ -764,112 +795,115 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
     }
     .o-obs__body p:last-child { margin-bottom: 0; }
 
-    /* ============ SEZIONE EMOTIVA "Conosciamoci" ============ */
+    /* ============ SEZIONE NICOLA (finale) — stile sito (dark, teal) ============ */
 
-    .o-emotional {
+    .o-nicola {
+      background: #0a0e0d;
+      color: #e8f5f2;
+      padding: 100px 40px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .o-nicola__inner {
       max-width: 760px;
-      margin: 100px auto 80px auto;
+      margin: 0 auto;
       text-align: center;
-      padding: 0 20px;
-    }
-    .o-emotional__title {
-      font-family: ${s.fontHeading};
-      font-size: 12px;
-      font-weight: 400;
-      letter-spacing: 0.4em;
-      ${s.headingTransform === "uppercase" ? "text-transform: uppercase;" : ""}
-      color: ${s.accent};
-      margin-bottom: 36px;
-    }
-    .o-emotional__body p {
-      font-family: ${s.fontHeading};
-      font-weight: ${s.headingWeight};
-      font-size: clamp(22px, 2.6vw, 32px);
-      line-height: 1.5;
-      letter-spacing: ${s.headingLetterSpacing};
-      color: ${s.textPrimary};
-      margin: 0 0 22px 0;
-    }
-    .o-emotional__body p:last-child { margin: 0; }
-    .o-emotional__body p:first-child {
-      color: ${s.accent};
-      font-weight: ${s.headingWeight};
     }
 
-    /* Box "conditions" stile home page — eyebrow + 20 minuti + promesse */
-    .o-conditions-box {
-      position: relative;
-      max-width: 720px;
-      margin: 80px auto 64px auto;
-      padding: 56px 48px 52px 48px;
-      background: rgba(0, 0, 0, 0.02);
-      border: 1px solid ${s.border};
-      text-align: center;
+    /* Sezione emotiva "Conosciamoci" (le 2 domande) */
+    .o-nicola__emotional {
+      margin-bottom: 80px;
     }
-    .o-conditions-box__eyebrow {
-      font-family: ${s.fontHeading};
+    .o-nicola__emotional-title {
+      font-family: var(--font-dm-mono), 'Courier New', monospace;
       font-size: 11px;
       font-weight: 400;
       letter-spacing: 0.4em;
       text-transform: uppercase;
-      color: ${s.accent};
-      margin-bottom: 22px;
+      color: #00fffc;
+      margin-bottom: 28px;
     }
-    .o-conditions-box__title {
-      font-family: ${s.fontHeading};
-      font-weight: ${s.headingWeight};
+    .o-nicola__emotional-body p {
+      font-family: var(--font-playfair), Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(22px, 2.6vw, 32px);
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      color: #e8f5f2;
+      margin: 0 0 18px 0;
+    }
+    .o-nicola__emotional-body p:last-child { margin: 0; }
+    .o-nicola__emotional-body p:first-child {
+      color: rgba(232, 245, 242, 0.78);
+    }
+
+    /* Box conditions pattern home — stile Nicola */
+    .o-nicola__cond {
+      max-width: 680px;
+      margin: 0 auto 56px auto;
+      padding: 0;
+    }
+    .o-nicola__cond-eyebrow {
+      font-family: var(--font-dm-mono), 'Courier New', monospace;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: #00fffc;
+      margin-bottom: 20px;
+    }
+    .o-nicola__cond-title {
+      font-family: var(--font-playfair), Georgia, serif;
+      font-weight: 700;
       font-size: clamp(28px, 3.4vw, 42px);
       line-height: 1.2;
-      letter-spacing: ${s.headingLetterSpacing};
-      color: ${s.textPrimary};
+      letter-spacing: -0.02em;
+      color: #e8f5f2;
       margin: 0 0 28px 0;
     }
-    .o-conditions-box__title em {
+    .o-nicola__cond-title em {
       font-style: italic;
-      color: ${s.accent};
+      color: #00fffc;
     }
-    .o-conditions-box__honest {
-      font-family: ${s.fontHeading};
+    .o-nicola__cond-honest {
+      font-family: var(--font-playfair), Georgia, serif;
       font-style: italic;
-      font-size: 16px;
-      line-height: 1.65;
-      color: ${s.textSecondary};
+      font-size: 17px;
+      line-height: 1.6;
+      color: rgba(232, 245, 242, 0.78);
       margin: 0 auto 28px auto;
       max-width: 540px;
     }
-    .o-conditions-box__explainer p {
-      font-family: ${s.fontBody};
-      font-weight: ${s.bodyWeight};
-      font-size: 15px;
-      line-height: 1.75;
-      color: ${s.textSecondary};
+    .o-nicola__cond-explainer p {
+      font-family: var(--font-dm-mono), 'Courier New', monospace;
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(232, 245, 242, 0.78);
       margin: 0 auto 14px auto;
-      max-width: 580px;
+      max-width: 560px;
     }
-    .o-conditions-box__explainer p:last-child {
-      margin-bottom: 0;
-    }
-    .o-conditions-box__explainer strong {
-      color: ${s.textPrimary};
+    .o-nicola__cond-explainer p:last-child { margin-bottom: 0; }
+    .o-nicola__cond-explainer strong {
+      color: #e8f5f2;
       font-weight: 600;
     }
-    .o-conditions-box__promise {
+    .o-nicola__cond-promise {
       margin: 36px auto;
       padding: 28px 0;
-      border-top: 1px solid ${s.border};
-      border-bottom: 1px solid ${s.border};
+      border-top: 1px solid rgba(0, 255, 252, 0.18);
+      border-bottom: 1px solid rgba(0, 255, 252, 0.18);
       max-width: 480px;
     }
-    .o-conditions-box__promise-title {
-      font-family: ${s.fontHeading};
+    .o-nicola__cond-promise-title {
+      font-family: var(--font-dm-mono), 'Courier New', monospace;
       font-size: 11px;
       font-weight: 400;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: ${s.textMuted ?? s.textSecondary};
+      color: rgba(232, 245, 242, 0.5);
       margin-bottom: 20px;
     }
-    .o-conditions-box__promise-list {
+    .o-nicola__cond-promise-list {
       list-style: none;
       padding: 0;
       margin: 0;
@@ -878,33 +912,35 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
       gap: 14px;
       align-items: center;
     }
-    .o-conditions-box__promise-list li {
-      font-family: ${s.fontBody};
-      font-size: 15px;
+    .o-nicola__cond-promise-list li {
+      font-family: var(--font-dm-mono), 'Courier New', monospace;
+      font-size: 14px;
       display: flex;
       align-items: baseline;
       gap: 10px;
       flex-wrap: wrap;
       justify-content: center;
     }
-    .o-conditions-box__promise-key {
-      font-family: ${s.fontHeading};
-      font-weight: ${s.headingWeight};
-      color: ${s.accent};
+    .o-nicola__cond-promise-key {
+      font-family: var(--font-playfair), Georgia, serif;
+      font-weight: 700;
+      color: #00fffc;
       font-size: 18px;
-      letter-spacing: ${s.headingLetterSpacing};
     }
-    .o-conditions-box__promise-val {
-      color: ${s.textSecondary};
+    .o-nicola__cond-promise-val {
+      color: rgba(232, 245, 242, 0.7);
     }
-    .o-conditions-box__closing {
-      font-family: ${s.fontHeading};
+    .o-nicola__cond-closing {
+      font-family: var(--font-playfair), Georgia, serif;
       font-style: italic;
       font-size: 17px;
       line-height: 1.5;
-      color: ${s.textPrimary};
+      color: #e8f5f2;
       margin: 28px auto 0 auto;
       max-width: 520px;
+    }
+    .o-nicola__cta {
+      margin-top: 32px;
     }
 
     /* ============ FOOTER ============ */
@@ -1038,15 +1074,11 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
       .o-prospect {
         padding: 80px 24px;
       }
-      .o-observations { gap: 56px; }
-      .o-emotional {
-        margin: 72px auto 56px auto;
-      }
-      .o-emotional__title { margin-bottom: 28px; }
-      .o-conditions-box {
-        margin: 56px auto 48px auto;
-        padding: 28px 28px 32px 28px;
-      }
+      .o-observations { gap: 18px; padding-bottom: 18px; }
+      .o-obs { padding: 28px 22px; min-width: 260px; flex-basis: 86%; }
+      .o-nicola { padding: 80px 24px; }
+      .o-nicola__emotional { margin-bottom: 56px; }
+      .o-nicola__cond { margin-bottom: 40px; }
       .o-footer {
         padding: 40px 24px 24px;
       }
@@ -1103,18 +1135,20 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
         font-size: 19px;
       }
       .o-obs__title {
-        font-size: 26px;
-        line-height: 1.15;
+        font-size: 22px;
+        line-height: 1.2;
       }
       .o-obs__body p {
-        font-size: 15px;
+        font-size: 14px;
       }
-      .o-conditions-box {
-        margin: 48px auto 40px auto;
-        padding: 24px 22px 28px 22px;
-      }
-      .o-conditions-box__lead { font-size: 18px; }
-      .o-conditions-box__body { font-size: 14px; }
+      .o-obs { padding: 24px 20px; min-width: 240px; flex-basis: 90%; }
+      .o-nicola { padding: 64px 20px; }
+      .o-nicola__cond-title { font-size: 24px; line-height: 1.25; }
+      .o-nicola__cond-honest { font-size: 15px; }
+      .o-nicola__cond-explainer p { font-size: 13px; }
+      .o-nicola__cond-promise { padding: 22px 0; margin: 28px auto; }
+      .o-nicola__cond-promise-key { font-size: 16px; }
+      .o-nicola__cond-closing { font-size: 15px; }
       .o-footer {
         padding: 36px 20px 20px;
       }
