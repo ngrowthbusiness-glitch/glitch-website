@@ -811,46 +811,71 @@ export default function HomePage() {
         @media (max-width: 900px) {
           .hp-wrap, .hp-wrap-narrow { padding: 0 32px; }
           .hero-grid {
-            padding: 140px 24px 64px;
-            gap: 26px; text-align: center;
+            padding: 140px 18px 64px;
+            gap: 22px; text-align: center;
             justify-content: flex-start;
           }
           .hero-h1-wrap { max-width: 100%; }
-          .hero-left { align-items: center; }
+          /* Su mobile rendiamo hero-left "trasparente" (display: contents)
+             così possiamo riordinare i suoi figli con flex order
+             nel hero-grid (flex column) — pills finiscono sotto hero-right */
+          .hero-left { display: contents; }
+          .hero-pre { order: 1; }
+          .hero-h1-wrap { order: 2; }
+          .hero-sub-strong { order: 3; }
+          .hero-sub { order: 3; }
+          .hero-actions { order: 4; }
+          .hero-right { order: 5; }
+          .hero-pills-main { order: 6; }
+          .hero-pills-grey { order: 7; }
           /* Hero RIGHT su mobile: ORDER 0 (sotto hero-left)
              — Layout 2-COLONNE: FOTO sx (più grande) + STACK box/location dx
              — Spazio generoso sopra (sotto microcopy CTA) e sotto */
           .hero-right {
             position: static;
             transform: none;
-            order: 0;
+            order: 5;
             flex-direction: row;
-            align-items: center;
+            align-items: stretch;
             justify-content: center;
-            gap: 18px;
+            gap: 16px;
             width: 100%;
-            max-width: 480px;
-            margin: 36px auto 24px;
+            max-width: 460px;
+            margin: 32px auto 32px;
           }
           .hero-photo-wrap {
-            width: 150px !important;
-            height: 150px !important;
+            width: 140px !important;
+            height: 140px !important;
             flex-shrink: 0;
+            align-self: center;
           }
           .hero-bottom-row {
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: stretch;
-            gap: 10px;
+            gap: 14px;
             flex: 1;
             min-width: 0;
           }
           .hero-status {
-            padding: 12px 14px;
+            padding: 14px 16px;
             min-width: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
           }
-          .hero-status-row { font-size: 12px; }
-          .hero-status-label { font-size: 9px; line-height: 1.3; }
+          .hero-status-row {
+            font-size: 13px;
+            line-height: 1.35;
+            align-items: flex-start;
+          }
+          .hero-status-label {
+            font-size: 10px;
+            line-height: 1.4;
+            letter-spacing: 0.8px;
+          }
           .hero-locationlive-wrap {
             display: flex;
             align-items: center;
@@ -862,6 +887,7 @@ export default function HomePage() {
             margin-top: 0 !important;
             align-items: flex-start !important;
             text-align: left !important;
+            gap: 6px !important;
           }
           .hero-pills-main, .hero-pills-grey { justify-content: center; }
           .hero-sub { margin-left: auto; margin-right: auto; }
@@ -1010,8 +1036,8 @@ export default function HomePage() {
           .hp-divider { margin-bottom: 80px; }
           .hero-pre        { font-size: 12px; }
           .hero-h1         { font-size: clamp(32px, 7.5vw, 44px); line-height: 1.08; letter-spacing: -0.5px; }
-          .hero-sub        { font-size: clamp(15px, 2vw, 17px); max-width: 360px; margin-left: auto; margin-right: auto; }
-          .hero-sub-strong { font-size: clamp(16px, 4.6vw, 20px); max-width: 320px; line-height: 1.4; }
+          .hero-sub        { font-size: clamp(15px, 2vw, 17px); max-width: 100%; margin-left: auto; margin-right: auto; }
+          .hero-sub-strong { font-size: clamp(15px, 4.2vw, 18px); max-width: 100%; line-height: 1.4; padding: 0 4px; }
           .hero-pill-teal  { font-size: 11px; padding: 7px 14px; }
           .hero-pill-grey  { font-size: 10px; padding: 5px 11px; }
           .hp-eyebrow      { font-size: 11px; letter-spacing: 3px; }
