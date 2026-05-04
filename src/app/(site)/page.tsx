@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SITE } from "@/lib/constants";
 import BrainCompanySection from "@/components/sections/BrainCompanySection";
 import HeroLocationLive from "@/components/layout/HeroLocationLive";
+import HeroGlitchTagline from "@/components/layout/HeroGlitchTagline";
 
 /* ───────────────────────────────────────────────────────
    HOMEPAGE — nicolaserrao.com
@@ -1212,9 +1213,10 @@ export default function HomePage() {
               Strategia, numeri e responsabilit&agrave; piena sui risultati &mdash; ad una <strong style={{ color: "var(--text)", fontWeight: 600 }}>frazione del costo di un&apos;agenzia</strong>.
             </p>
 
-            {/* Teal pills */}
+            {/* Teal pills + glitch tagline */}
             <div className="hero-pills-main">
               <span className="hero-pill-teal">Fractional CMO</span>
+              <HeroGlitchTagline />
             </div>
 
             {/* Grey pills */}
