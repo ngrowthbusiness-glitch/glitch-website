@@ -4,6 +4,7 @@ import { SITE } from "@/lib/constants";
 import BrainCompanySection from "@/components/sections/BrainCompanySection";
 import HeroLocationLive from "@/components/layout/HeroLocationLive";
 import HeroGlitchTagline from "@/components/layout/HeroGlitchTagline";
+import ContactCTAButton from "@/components/layout/ContactCTAButton";
 
 /* ───────────────────────────────────────────────────────
    HOMEPAGE — nicolaserrao.com
@@ -356,46 +357,6 @@ export default function HomePage() {
         }
         .fcmo-col-dim .fcmo-col-verdict { color: rgba(255,100,100,0.6); }
         .fcmo-col-teal .fcmo-col-verdict { color: var(--teal); }
-        .fcmo-closer {
-          font-size: 14px; color: var(--text-dim); line-height: 1.8;
-          max-width: 780px; margin-top: 40px;
-        }
-        .fcmo-closer strong { color: var(--text); font-weight: 500; }
-        /* Closer box prominente con icona azienda */
-        .fcmo-closer-box {
-          margin-top: 48px;
-          padding: 32px 36px;
-          border: 1px solid rgba(0,255,252,0.3);
-          border-radius: 12px;
-          background: rgba(0,255,252,0.05);
-          display: flex; gap: 24px; align-items: flex-start;
-          max-width: 920px;
-          position: relative;
-          overflow: hidden;
-        }
-        .fcmo-closer-box::before {
-          content: ''; position: absolute; top: 0; left: 0;
-          width: 3px; height: 100%; background: var(--teal);
-          opacity: 0.7;
-        }
-        .fcmo-closer-icon {
-          flex-shrink: 0;
-          width: 52px; height: 52px;
-          border-radius: 10px;
-          background: rgba(0,255,252,0.1);
-          border: 1px solid rgba(0,255,252,0.3);
-          display: flex; align-items: center; justify-content: center;
-          color: var(--teal);
-        }
-        .fcmo-closer-content { flex: 1; }
-        .fcmo-closer-content p {
-          font-size: 16px; line-height: 1.65;
-          color: var(--text); margin: 0;
-        }
-        .fcmo-closer-content strong {
-          color: var(--teal); font-weight: 500;
-        }
-
         /* ═══════════════════════════════════
            3. NUMBERS TICKER
         ═══════════════════════════════════ */
@@ -520,222 +481,6 @@ export default function HomePage() {
           15%  { opacity: 1; }
           85%  { opacity: 1; }
           100% { transform: translateX(50px); opacity: 0; }
-        }
-
-        .tl-cards {
-          display: grid; grid-template-columns: repeat(4, 1fr);
-          gap: 16px; margin-top: 32px;
-        }
-
-        /* ═══════════════════════════════════
-           6. SCENARI / CASE STUDIES NARRATIVI
-        ═══════════════════════════════════ */
-        .cases-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 20px;
-          margin-top: 40px;
-        }
-        .case-box {
-          border: 1px solid rgba(0,255,252,0.18);
-          border-radius: 12px;
-          padding: 32px 30px;
-          background: rgba(0,255,252,0.03);
-          display: flex; flex-direction: column; gap: 16px;
-          transition: border-color 0.3s, background 0.3s, transform 0.3s;
-        }
-        .case-box:hover {
-          border-color: rgba(0,255,252,0.45);
-          background: rgba(0,255,252,0.07);
-          transform: translateY(-3px);
-        }
-        .case-header {
-          display: flex; align-items: center; justify-content: space-between;
-          flex-wrap: wrap; gap: 10px;
-        }
-        .case-tag {
-          font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
-          color: var(--teal); font-weight: 600;
-          padding: 4px 10px;
-          border: 1px solid var(--teal-border);
-          border-radius: 4px;
-          background: var(--teal-dim);
-        }
-        .case-cost {
-          font-size: 11px; color: var(--text);
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
-          letter-spacing: 0.5px;
-        }
-        .case-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 19px; font-weight: 700;
-          color: var(--text); line-height: 1.3;
-        }
-        .case-body {
-          font-size: 13.5px; color: var(--text);
-          line-height: 1.65;
-        }
-        .case-result {
-          display: flex; flex-direction: column; gap: 4px;
-          padding-top: 16px; margin-top: auto;
-          border-top: 1px solid rgba(0,255,252,0.12);
-        }
-        .case-result-value {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 18px; font-weight: 700;
-          color: var(--teal); line-height: 1.2;
-        }
-        .case-result-label {
-          font-size: 12px; color: var(--text);
-          line-height: 1.5; opacity: 0.85;
-        }
-        .tl-card {
-          border-radius: 12px; overflow: hidden;
-          border: 1px solid rgba(0,255,252,0.12);
-          transition: border-color 0.3s;
-        }
-        .tl-card:hover { border-color: rgba(0,255,252,0.3); }
-        .tl-card-top {
-          background: rgba(10,14,13,0.9);
-          padding: 24px 20px; min-height: 140px;
-          display: flex; flex-direction: column; gap: 8px;
-        }
-        .tl-card-period {
-          font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
-          color: var(--teal); opacity: 0.6;
-        }
-        .tl-card-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 17px; font-weight: 700; color: var(--text);
-        }
-        .tl-card-desc {
-          font-size: 12px; color: var(--text-dim); line-height: 1.7;
-        }
-        .tl-card-bottom {
-          background: rgba(0,255,252,0.04);
-          border-top: 1px solid rgba(0,255,252,0.1);
-          padding: 20px 20px; min-height: 100px;
-          display: flex; flex-direction: column; gap: 4px;
-        }
-        .tl-card-label {
-          font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
-          color: var(--teal); opacity: 0.7; margin-bottom: 4px;
-        }
-        .tl-card-impact {
-          font-size: 14px; color: var(--text); line-height: 1.6;
-          font-weight: 500;
-        }
-        .tl-card-impact-sub {
-          font-size: 12px; color: var(--text-dim); line-height: 1.6;
-        }
-        /* Arrow flow below cards */
-        .tl-arrow {
-          margin-top: 40px; position: relative;
-        }
-        .tl-arrow-line {
-          display: flex; align-items: center; gap: 0;
-        }
-        .tl-arrow-seg {
-          height: 3px; border-radius: 2px;
-        }
-        .tl-arrow-label {
-          font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
-          white-space: nowrap; padding: 0 12px;
-        }
-        .tl-arrow-head {
-          width: 0; height: 0; flex-shrink: 0;
-          border-top: 8px solid transparent;
-          border-bottom: 8px solid transparent;
-          border-left: 12px solid var(--teal);
-        }
-
-        /* ═══════════════════════════════════
-           5. BRAIN COMPANY (AI)
-        ═══════════════════════════════════ */
-        .brain-section {
-          background: rgba(0,255,252,0.02);
-          border-top: 1px solid rgba(0,255,252,0.08);
-          border-bottom: 1px solid rgba(0,255,252,0.08);
-          padding: 100px 0;
-          margin-bottom: 120px;
-        }
-        .brain-grid {
-          display: flex; flex-direction: column; gap: 56px;
-        }
-        .brain-benefit-cards {
-          display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-          margin-top: 0;
-        }
-        .brain-benefit {
-          border: 1px solid rgba(0,255,252,0.15); border-radius: 10px;
-          padding: 28px 24px; background: rgba(0,255,252,0.03);
-          display: flex; flex-direction: column; gap: 14px; align-items: flex-start;
-          transition: border-color 0.3s, background 0.3s, transform 0.3s;
-        }
-        .brain-benefit:hover {
-          border-color: rgba(0,255,252,0.4); background: rgba(0,255,252,0.07);
-          transform: translateY(-3px);
-        }
-        .brain-benefit-icon {
-          width: 44px; height: 44px; border-radius: 10px;
-          background: rgba(0,255,252,0.08); border: 1px solid rgba(0,255,252,0.25);
-          display: flex; align-items: center; justify-content: center;
-          flex-shrink: 0;
-        }
-        .brain-benefit-content { flex: 1; }
-        .brain-benefit-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 18px; font-weight: 700; color: var(--teal);
-          margin-bottom: 8px; line-height: 1.25;
-        }
-        .brain-benefit-desc {
-          font-size: 13px; color: var(--text); line-height: 1.7;
-        }
-        .brain-note {
-          margin: 0 auto; font-size: 12px; color: var(--text-dim);
-          line-height: 1.7; max-width: 620px; text-align: center;
-          padding-top: 24px;
-          border-top: 1px solid rgba(0,255,252,0.12);
-        }
-
-        /* ── Brain mesh — neural network dentro silhouette laterale ── */
-        .brain-mesh-wrap {
-          display: flex; align-items: center; justify-content: center;
-          min-height: 520px; position: relative;
-        }
-        .brain-mesh {
-          position: relative;
-          width: 100%; max-width: 820px; aspect-ratio: 700 / 550;
-        }
-        .brain-mesh svg {
-          width: 100%; height: 100%; display: block;
-          filter: drop-shadow(0 0 40px rgba(0,255,252,0.12));
-        }
-        .brain-mesh-label {
-          position: absolute;
-          font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-          color: var(--teal); font-weight: 500;
-          background: rgba(10,14,13,0.92); padding: 9px 16px;
-          border: 1px solid rgba(0,255,252,0.45); border-radius: 6px;
-          white-space: nowrap; z-index: 2;
-          backdrop-filter: blur(4px);
-          -webkit-backdrop-filter: blur(4px);
-          box-shadow: 0 0 20px rgba(0,255,252,0.08);
-        }
-        /* Posizioni allineate al cervello PNG dentro viewBox 700x550 */
-        .brain-mesh-label-top    { top: 0;       left: 50%; transform: translateX(-50%); }
-        .brain-mesh-label-right  { top: 49%;     right: 0;  transform: translateY(-50%); }
-        .brain-mesh-label-bottom { bottom: 0;    left: 50%; transform: translateX(-50%); }
-        .brain-mesh-label-left   { top: 49%;     left: 0;   transform: translateY(-50%); }
-        .brain-mesh-core-label {
-          position: absolute;
-          top: calc(49% + 36px); left: 50%;
-          transform: translateX(-50%);
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 14px; letter-spacing: 1.5px;
-          color: var(--teal); font-weight: 700;
-          z-index: 3; white-space: nowrap;
-          text-shadow: 0 0 14px rgba(0,255,252,0.5);
         }
 
         /* ═══════════════════════════════════
@@ -949,7 +694,6 @@ export default function HomePage() {
         ═══════════════════════════════════ */
         @media (max-width: 1200px) {
           .hero-grid { gap: 48px; }
-          .brain-grid { grid-template-columns: 1fr; }
           .uc-card { width: 420px; }
           .uc-card.uc-left { transform: translateX(calc(-50% - 380px)) scale(0.85); }
           .uc-card.uc-right { transform: translateX(calc(-50% + 380px)) scale(0.85); }
@@ -1019,7 +763,6 @@ export default function HomePage() {
 
           /* CasesCarousel: forza overflow hidden per evitare scroll laterale */
           .uc-stage { overflow: hidden; }
-          .tl-cards { grid-template-columns: repeat(2, 1fr); }
           .tl-month-flow { flex-direction: column; gap: 0; }
           .tl-pixel-flow {
             width: 100%; height: 80px; padding: 0;
@@ -1038,9 +781,6 @@ export default function HomePage() {
           }
           .tl-month-box { padding: 26px 22px; }
           .tl-month-title { font-size: 20px; }
-          .cases-grid { grid-template-columns: 1fr; gap: 16px; }
-          .case-box { padding: 26px 24px; }
-          .case-title { font-size: 18px; }
           .fcmo-cases-nav { display: none; }
           .fcmo-case { flex: 0 0 290px; padding: 24px 22px; }
           .fcmo-case-title { font-size: 17px; }
@@ -1065,12 +805,6 @@ export default function HomePage() {
             scroll-snap-align: start;
             min-width: 0;
           }
-          .brain-mesh-wrap { min-height: 420px; }
-          .brain-mesh { max-width: 600px; }
-          .brain-mesh-label { font-size: 10px; padding: 6px 12px; letter-spacing: 1.5px; }
-          .brain-mesh-core-label { font-size: 12px; }
-          .brain-benefit-cards { grid-template-columns: 1fr; gap: 14px; }
-          .brain-benefit { padding: 22px 20px; }
           /* Cases carousel mobile: tutte le card swipeable, prima card centrata */
           .uc-stage {
             height: auto; min-height: auto;
@@ -1135,17 +869,8 @@ export default function HomePage() {
           .fcmo-col-title  { font-size: 19px; }
           .fcmo-col-body   { font-size: 14px; line-height: 1.75; }
           .fcmo-col-verdict { font-size: 12px; }
-          .fcmo-closer     { font-size: 15px; }
-          .tl-card-period  { font-size: 11px; }
-          .tl-card-title   { font-size: 18px; }
-          .tl-card-desc    { font-size: 14px; line-height: 1.7; }
-          .tl-card-label   { font-size: 11px; }
-          .tl-card-impact  { font-size: 15px; }
-          .tl-card-impact-sub { font-size: 13px; }
           .ticker-value    { font-size: 20px; }
           .ticker-item     { font-size: 14px; }
-          .brain-benefit-title { font-size: 15px; }
-          .brain-benefit-desc  { font-size: 13px; line-height: 1.7; }
           .brain-note          { font-size: 13px; }
           .uc-title        { font-size: 18px; }
           .uc-quote        { font-size: 14px; }
@@ -1159,7 +884,6 @@ export default function HomePage() {
           .hero-actions { flex-direction: column; width: 100%; }
           .hero-actions a { justify-content: center; }
           .hp-btn-primary, .hp-btn-secondary { width: 100%; justify-content: center; font-size: 13px; padding: 16px 20px; }
-          .tl-cards { grid-template-columns: 1fr; }
           .tl-pixel-flow { height: 60px; }
           .tl-month-period { font-size: 9px; }
 
@@ -1175,9 +899,6 @@ export default function HomePage() {
           .hp-subtitle     { font-size: 14px; }
           .fcmo-col-title  { font-size: 18px; }
           .fcmo-col-body   { font-size: 14px; }
-          .tl-card-title   { font-size: 17px; }
-          .tl-card-desc    { font-size: 13px; }
-          .tl-card-impact  { font-size: 15px; }
           .ticker-value    { font-size: 19px; }
           .uc-title        { font-size: 17px; }
           .uc-quote        { font-size: 14px; }
@@ -1206,11 +927,7 @@ export default function HomePage() {
             </div>
 
             <p className="hero-sub hero-sub-strong">
-              Un direttore marketing senior nella tua azienda &mdash; <strong style={{ color: "var(--teal)", fontWeight: 600 }}>senza assumerlo</strong>.
-            </p>
-
-            <p className="hero-sub">
-              Strategia, numeri e responsabilit&agrave; piena sui risultati &mdash; ad una <strong style={{ color: "var(--text)", fontWeight: 600 }}>frazione del costo di un&apos;agenzia</strong>.
+              Un <strong style={{ color: "var(--teal)", fontWeight: 600 }}>direttore marketing senior</strong> nella tua azienda, senza assumerlo: strategia, numeri e responsabilit&agrave; piena sui risultati, a una <strong style={{ color: "var(--text)", fontWeight: 600 }}>frazione del costo di un&apos;agenzia</strong>.
             </p>
 
             {/* Teal pills + glitch tagline */}
@@ -1226,28 +943,12 @@ export default function HomePage() {
               ))}
             </div>
 
-            {/* CTA buttons */}
-            <div className="flex flex-wrap hero-actions" style={{ gap: "14px" }}>
-              <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="hp-btn-primary">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.335-1.502A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.523-5.172-1.432l-.371-.22-3.762.892.946-3.653-.242-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-                Scrivimi su WhatsApp
-              </a>
-              <a href={`mailto:${SITE.email}`} className="hp-btn-secondary">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                Inviami una mail
-              </a>
-            </div>
-
-            {/* Reassurance microcopy */}
-            <div style={{
-              fontSize: "12px",
-              color: "var(--text)",
-              letterSpacing: "0.3px",
-              marginTop: "-4px",
-              lineHeight: 1.6,
-              maxWidth: "560px"
-            }}>
-              Approfitta di <strong style={{ color: "var(--teal)", fontWeight: 600 }}>10 minuti del mio tempo</strong>. Mi fa sempre piacere conoscere nuove persone e nuovi contesti.
+            {/* CTA universale */}
+            <div className="hero-actions">
+              <ContactCTAButton
+                buttonClassName="hp-btn-primary"
+                microcopy="Sempre un forte piacere conoscere nuovi contesti."
+              />
             </div>
           </div>
 
@@ -1629,12 +1330,12 @@ export default function HomePage() {
           6. CASE STUDIES — Unified Carousel
       ════════════════════════════════════════ */}
       <div className="hp-wrap hp-section">
-        <div className="hp-eyebrow">CHI HA LAVORATO CON ME</div>
+        <div className="hp-eyebrow">CASE STUDY</div>
         <h2 className="hp-h2">
-          Non ti dico io come lavoro.<br /><em>Te lo dicono loro.</em>
+          Casi reali.<br /><em>Numeri reali.</em>
         </h2>
         <p className="hp-subtitle" style={{ marginBottom: "8px" }}>
-          Quattro voci di chi ha lavorato con me. Numeri reali, parole loro, niente filtri.
+          Quattro progetti, quattro modi diversi di entrare in azienda. Numeri concreti, scelte motivate, risultati misurabili.
         </p>
 
         <CasesCarousel />
@@ -1707,18 +1408,12 @@ export default function HomePage() {
             Mandami un messaggio, ci sentiamo, e ti dico onestamente se posso aiutarti<br />
             &mdash; o se non ne hai bisogno. Nessuna presentazione, nessun preventivo.
           </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "14px", position: "relative", flexWrap: "wrap" }}>
-            <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="hp-btn-primary">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.335-1.502A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.523-5.172-1.432l-.371-.22-3.762.892.946-3.653-.242-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-              Scrivimi su WhatsApp
-            </a>
-            <a href={`mailto:${SITE.email}`} className="hp-btn-secondary">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              Inviami una mail
-            </a>
-          </div>
-          <div style={{ marginTop: "20px", fontSize: "12px", color: "var(--text)", lineHeight: 1.6, position: "relative", textAlign: "center" }}>
-            Hai letto fin qui &mdash; significa che qualcosa ti ha incuriosito. <strong style={{ color: "var(--teal)", fontWeight: 500 }}>Vediamo se ha senso parlarne.</strong>
+          <div style={{ display: "flex", justifyContent: "center", position: "relative" }}>
+            <ContactCTAButton
+              buttonClassName="hp-btn-primary"
+              microcopy="Sempre un forte piacere conoscere nuovi contesti."
+              align="center"
+            />
           </div>
         </div>
       </div>
@@ -1736,10 +1431,11 @@ export default function HomePage() {
           <div className="hp-popup-body">
             15 minuti per conoscerci e parlare del tuo progetto. Nella peggiore delle ipotesi, ti do dei consigli utili.
           </div>
-          <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="hp-btn-primary">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.335-1.502A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.523-5.172-1.432l-.371-.22-3.762.892.946-3.653-.242-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-            Scrivimi su WhatsApp
-          </a>
+          <ContactCTAButton
+            buttonClassName="hp-btn-primary"
+            microcopy="Sempre un forte piacere conoscere nuovi contesti."
+            align="center"
+          />
         </div>
       </div>
       <script dangerouslySetInnerHTML={{ __html: `

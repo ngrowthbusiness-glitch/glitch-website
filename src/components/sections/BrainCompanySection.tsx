@@ -43,14 +43,14 @@ export default function BrainCompanySection() {
         .bc-image-wrap {
           position: relative;
           width: 100%;
-          max-width: 520px;
+          max-width: 660px;
           aspect-ratio: 5 / 4;
           margin: 0 auto;
           z-index: 1;
           display: flex;
           align-items: center;
           justify-content: center;
-          filter: drop-shadow(0 0 40px rgba(0,255,252,0.2));
+          filter: drop-shadow(0 0 50px rgba(0,255,252,0.22));
         }
         .bc-image-wrap svg {
           width: 100%;
