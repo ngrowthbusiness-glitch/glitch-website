@@ -149,6 +149,9 @@ export default function HomePage() {
           display: flex; flex-direction: column; align-items: center; gap: 20px;
         }
         .hero-photo-wrap { position: relative; width: 220px; height: 220px; flex-shrink: 0; }
+        /* Wrapper status+location: trasparente su desktop, flex row su mobile */
+        .hero-bottom-row { display: contents; }
+        .hero-locationlive-wrap { display: contents; }
 
         /* Live status */
         .hero-status {
@@ -707,12 +710,47 @@ export default function HomePage() {
           }
           .hero-h1-wrap { max-width: 100%; }
           .hero-left { align-items: center; }
+          /* Hero RIGHT su mobile: ORDER 0 (sotto hero-left), STACK column
+             — Foto sopra
+             — Sotto: hero-bottom-row con BOX (sx) + LOCATION (dx) in row */
           .hero-right {
             position: static;
             transform: none;
-            order: -1; flex-direction: row; align-items: center; justify-content: center; gap: 20px;
+            order: 0;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+            width: 100%;
+            margin-top: 8px;
           }
-          .hero-photo-wrap { width: 120px !important; height: 120px !important; }
+          .hero-photo-wrap { width: 130px !important; height: 130px !important; }
+          .hero-bottom-row {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            max-width: 480px;
+          }
+          .hero-status {
+            flex: 1;
+            min-width: 0;
+            padding: 12px 14px;
+          }
+          .hero-status-row { font-size: 12px; }
+          .hero-status-label { font-size: 9px; line-height: 1.3; }
+          .hero-locationlive-wrap {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 0;
+          }
+          .hero-locationlive-wrap > div {
+            margin-top: 0 !important;
+          }
           .hero-pills-main, .hero-pills-grey { justify-content: center; }
           .hero-sub { margin-left: auto; margin-right: auto; }
           /* FCMO mobile: 2 elementi swipeable centrati
@@ -805,7 +843,10 @@ export default function HomePage() {
             scroll-snap-align: start;
             min-width: 0;
           }
-          /* Cases carousel mobile: tutte le card swipeable, prima card centrata */
+          /* Cases carousel mobile:
+             - prima card centrata (padding 12vw left)
+             - peek visibile della seconda card (~10vw a destra)
+             - swipe naturale touch */
           .uc-stage {
             height: auto; min-height: auto;
             overflow: hidden;
@@ -820,10 +861,10 @@ export default function HomePage() {
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scroll-snap-stop: always;
-            scroll-padding-inline: 6vw;
+            scroll-padding-inline: 12vw;
             -webkit-overflow-scrolling: touch;
-            gap: 14px;
-            padding: 0 6vw 14px;
+            gap: 12px;
+            padding: 0 12vw 14px;
             scrollbar-width: thin;
             scrollbar-color: var(--teal-border) transparent;
             height: auto;
@@ -838,8 +879,8 @@ export default function HomePage() {
             transform: none !important;
             opacity: 1 !important;
             display: flex !important;
-            flex: 0 0 88vw !important;
-            max-width: 88vw !important;
+            flex: 0 0 76vw !important;
+            max-width: 76vw !important;
             width: auto !important;
             scroll-snap-align: start;
             box-shadow: none !important;
@@ -959,14 +1000,20 @@ export default function HomePage() {
               <div className="absolute rounded-full" style={{ inset: "3px", background: "var(--bg)", zIndex: 1 }} />
               <Image src="/images/nicola.png" alt="Nicola Serrao" width={208} height={208} priority className="absolute rounded-full object-cover object-top" style={{ inset: "6px", width: "calc(100% - 12px)", height: "calc(100% - 12px)", zIndex: 2 }} />
             </div>
-            <div className="hero-status">
-              <div className="hero-status-row">
-                <span className="hero-status-dot" />
-                <span>Lavoro con un <strong style={{ color: "var(--teal)" }}>massimo di {SITE.liveStatus.max} clienti</strong></span>
+            {/* hero-bottom-row: display:contents su desktop (lascia status+location come fratelli diretti);
+                su mobile diventa flex row 2-colonne sotto la foto */}
+            <div className="hero-bottom-row">
+              <div className="hero-status">
+                <div className="hero-status-row">
+                  <span className="hero-status-dot" />
+                  <span>Lavoro con un <strong style={{ color: "var(--teal)" }}>massimo di {SITE.liveStatus.max} clienti</strong></span>
+                </div>
+                <span className="hero-status-label">Disponibile per nuovi progetti</span>
               </div>
-              <span className="hero-status-label">Disponibile per nuovi progetti</span>
+              <div className="hero-locationlive-wrap">
+                <HeroLocationLive />
+              </div>
             </div>
-            <HeroLocationLive />
           </div>
         </div>
       </div>
