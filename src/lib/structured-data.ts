@@ -37,8 +37,8 @@ export function getOrganizationSchema() {
     "@type": "ProfessionalService",
     name: SITE.name,
     url: SITE.url,
-    logo: `${SITE.url}/favicon.svg`,
-    image: `${SITE.url}/favicon.svg`,
+    logo: `${SITE.url}/favicon.png`,
+    image: `${SITE.url}/favicon.png`,
     email: SITE.email,
     telephone: SITE.phone,
     address: {
