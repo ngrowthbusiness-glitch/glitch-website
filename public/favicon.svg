@@ -1,11 +1,19 @@
-<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
- "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="225.000000pt" height="225.000000pt" viewBox="0 0 225.000000 225.000000"
- preserveAspectRatio="xMidYMid meet">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Cerchio dark con bordo teal sottile -->
+  <circle cx="32" cy="32" r="30" fill="#0a0e0d" stroke="#00fffc" stroke-width="1.5" opacity="0.95"/>
 
-<g transform="translate(0.000000,225.000000) scale(0.100000,-0.100000)"
-fill="#000000" stroke="none">
-</g>
+  <!-- Stella a 6 punte teal (richiama il logo originale) -->
+  <g stroke="#00fffc" stroke-width="2.4" stroke-linecap="round" fill="none">
+    <!-- Asta verticale -->
+    <line x1="32" y1="14" x2="32" y2="50"/>
+    <!-- Asta orizzontale leggermente inclinata -->
+    <line x1="14" y1="32" x2="50" y2="32"/>
+    <!-- Diagonale 1 -->
+    <line x1="20" y1="20" x2="44" y2="44"/>
+    <!-- Diagonale 2 -->
+    <line x1="44" y1="20" x2="20" y2="44"/>
+  </g>
+
+  <!-- Punto centrale luminoso -->
+  <circle cx="32" cy="32" r="2.2" fill="#00fffc"/>
 </svg>

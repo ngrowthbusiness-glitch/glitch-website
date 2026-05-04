@@ -1,6 +1,6 @@
 export const SITE = {
   name: "Nicola Serrao",
-  title: "Fractional CMO & AI-Powered Strategist",
+  title: "Fractional CMO",
   tagline: "La mente di un ufficio marketing. In una sola persona.",
   liveStatus: { current: 3, max: 5 },
   url: "https://nicolaserrao.com",

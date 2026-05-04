@@ -2,7 +2,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import GlowBackground from "@/components/layout/GlowBackground";
 import CookieBanner from "@/components/layout/CookieBanner";
-import FeedbackPopup from "@/components/layout/FeedbackPopup";
+// FeedbackPopup: in pausa — non più montato. File mantenuto per riattivazione futura.
+// import FeedbackPopup from "@/components/layout/FeedbackPopup";
 import FloatMailBubble from "@/components/layout/FloatMailBubble";
 import ScrollToContactCTA from "@/components/layout/ScrollToContactCTA";
 import { getPersonSchema, getOrganizationSchema } from "@/lib/structured-data";
@@ -100,7 +101,7 @@ export default function SiteLayout({
       </main>
       <Footer />
       <CookieBanner />
-      <FeedbackPopup />
+      {/* <FeedbackPopup /> — in pausa */}
 
       {/* ── Floating bubbles: WhatsApp (right) + Risorse (left) ── */}
       <style>{`

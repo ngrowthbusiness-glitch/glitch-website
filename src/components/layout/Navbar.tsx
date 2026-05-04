@@ -5,11 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { NAV_LINKS, SITE } from "@/lib/constants";
-import DiagnosiPopup from "@/components/layout/DiagnosiPopup";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [popupOpen, setPopupOpen] = useState(false);
   const [outreach, setOutreach] = useState<{
     slug: string;
     url: string;
@@ -131,9 +129,8 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <button
-              type="button"
-              onClick={() => setPopupOpen(true)}
+            <Link
+              href="/#cta-finale"
               className="nav-cta"
               style={{
                 fontSize: "10px",
@@ -148,6 +145,9 @@ export default function Navbar() {
                 transition: "all 0.2s",
                 cursor: "pointer",
                 fontFamily: "inherit",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget;
@@ -160,8 +160,8 @@ export default function Navbar() {
                 el.style.borderColor = "rgba(0,255,252,0.22)";
               }}
             >
-              Diagnosi gratuita
-            </button>
+              Consulenza gratuita &rarr;
+            </Link>
           </li>
         </ul>
 
@@ -268,12 +268,9 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <button
-            type="button"
-            onClick={() => {
-              setMenuOpen(false);
-              setPopupOpen(true);
-            }}
+          <Link
+            href="/#cta-finale"
+            onClick={() => setMenuOpen(false)}
             style={{
               fontSize: "12px",
               letterSpacing: "2.5px",
@@ -282,20 +279,14 @@ export default function Navbar() {
               color: "#00fffc",
               padding: "8px 0",
               transition: "color 0.2s",
-              background: "none",
-              border: "none",
-              cursor: "pointer",
               fontFamily: "inherit",
               textAlign: "left",
             }}
           >
-            Diagnosi gratuita
-          </button>
+            Consulenza gratuita &rarr;
+          </Link>
         </div>
       )}
-
-      {/* ── Diagnosi Popup ── */}
-      <DiagnosiPopup open={popupOpen} onClose={() => setPopupOpen(false)} />
 
       {/* ── Outreach Bubble ── */}
       {outreach && (

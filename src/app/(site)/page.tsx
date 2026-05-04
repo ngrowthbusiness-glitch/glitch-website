@@ -1560,7 +1560,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════
           9. CTA FINALE — onesta, non vendita mascherata
       ════════════════════════════════════════ */}
-      <div className="hp-wrap" style={{ marginBottom: "120px" }} data-scroll-target="contact-cta">
+      <div id="cta-finale" className="hp-wrap" style={{ marginBottom: "120px", scrollMarginTop: "88px" }} data-scroll-target="contact-cta">
         <div className="hp-cta hp-cta-final">
           <div className="hp-cta-eyebrow">Conosciamoci</div>
 
@@ -1613,56 +1613,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* ════════════════════════════════════════
-          POPUP — 50% scroll / 15s trigger
-      ════════════════════════════════════════ */}
-      <div className="hp-popup-overlay" id="hp-popup">
-        <div className="hp-popup-card">
-          <button className="hp-popup-close" id="hp-popup-close">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-          </button>
-          <div className="hp-popup-title">Sei un imprenditore?</div>
-          <div className="hp-popup-subtitle">Perch&eacute; non ci conosciamo?</div>
-          <div className="hp-popup-body">
-            20 minuti per conoscerci e parlare del tuo progetto. Nella peggiore delle ipotesi, ti do dei consigli utili.
-          </div>
-          <ContactCTAButton
-            buttonClassName="hp-btn-primary"
-            microcopy="Ho sempre un grande interesse nel conoscere nuovi contesti."
-            align="center"
-          />
-        </div>
-      </div>
-      <script dangerouslySetInnerHTML={{ __html: `
-        (function() {
-          var shown = false;
-          function showPopup() {
-            if (shown) return;
-            if (sessionStorage.getItem('hp-popup-shown')) return;
-            shown = true;
-            sessionStorage.setItem('hp-popup-shown', '1');
-            var el = document.getElementById('hp-popup');
-            if (el) el.classList.add('visible');
-          }
-          function closePopup() {
-            var el = document.getElementById('hp-popup');
-            if (el) el.classList.remove('visible');
-          }
-          // Close button
-          document.addEventListener('click', function(e) {
-            if (e.target.closest('#hp-popup-close')) { closePopup(); return; }
-            // Click on overlay (not card) closes
-            if (e.target.id === 'hp-popup') closePopup();
-          });
-          // 15s timer
-          setTimeout(showPopup, 15000);
-          // 50% scroll
-          window.addEventListener('scroll', function() {
-            var scrollPct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-            if (scrollPct >= 0.5) showPopup();
-          });
-        })();
-      `}} />
+      {/* Popup auto-trigger 15s/50% rimosso — sostituito da pillola scroll-to-CTA */}
     </>
   );
 }

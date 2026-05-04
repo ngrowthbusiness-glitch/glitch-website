@@ -20,27 +20,29 @@ const dmMono = DM_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://nicolaserrao.com"),
   title: {
-    default: "Nicola Serrao — Digital Marketing Strategist",
+    default: "Nicola Serrao | Fractional CMO Italia",
     template: "%s | Nicola Serrao",
   },
   description:
-    "Strategia, digital marketing, e-commerce, CRO e lead generation per imprese italiane. Metodo GLITCH.",
+    "Direttore marketing senior nella tua azienda, senza assumerlo. Strategia, numeri e responsabilità sui risultati a una frazione del costo.",
   openGraph: {
     type: "website",
     locale: "it_IT",
     url: "https://nicolaserrao.com",
     siteName: "Nicola Serrao",
-    title: "Nicola Serrao — Digital Marketing Strategist",
+    title: "Nicola Serrao | Fractional CMO Italia",
     description:
-      "Strategia, digital marketing, e-commerce, CRO e lead generation per imprese italiane.",
+      "Direttore marketing senior nella tua azienda, senza assumerlo. Strategia, numeri e responsabilità sui risultati a una frazione del costo.",
   },
   twitter: {
     card: "summary_large_image",
   },
   icons: {
     icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
       { url: "/favicon.png", type: "image/png" },
     ],
+    apple: [{ url: "/favicon.png" }],
   },
 };
 

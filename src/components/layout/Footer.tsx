@@ -135,7 +135,7 @@ export default function Footer() {
           .ft-mid { gap: 48px; }
         }
 
-        /* MOBILE: grid 2-col
+        /* MOBILE: grid 2-col più ariosa con separatore verticale teal
            SX: Contatti (top) + Legale (bottom)
            DX: Navigazione (span 2 row) */
         @media (max-width: 600px) {
@@ -143,24 +143,42 @@ export default function Footer() {
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: auto auto;
-            gap: 24px 28px;
+            gap: 28px 32px;
             text-align: left;
-            max-width: 360px;
+            max-width: 400px;
             margin: 0 auto;
             justify-content: stretch;
             align-items: start;
+            position: relative;
+          }
+          /* Separatore verticale teal sottile fra le 2 colonne */
+          .ft-mid::before {
+            content: "";
+            position: absolute;
+            top: 8%; bottom: 8%;
+            left: 50%;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, var(--teal-border) 30%, var(--teal-border) 70%, transparent);
+            pointer-events: none;
           }
           .ft-mid > div:nth-child(1) { /* Contatti */
             grid-column: 1; grid-row: 1;
           }
           .ft-mid > div:nth-child(2) { /* Navigazione */
             grid-column: 2; grid-row: 1 / 3;
+            padding-left: 8px;
           }
           .ft-mid > div:nth-child(3) { /* Legale */
             grid-column: 1; grid-row: 2;
           }
-          .ft-contact { font-size: 13px; }
-          .ft-link { font-size: 12px; }
+          .ft-label {
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            margin-bottom: 14px;
+          }
+          .ft-contact { font-size: 14px; }
+          .ft-link { font-size: 13px; }
+          .ft-list { gap: 10px; }
         }
       `}</style>
       <div className="ft-mid">

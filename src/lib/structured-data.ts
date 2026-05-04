@@ -37,6 +37,8 @@ export function getOrganizationSchema() {
     "@type": "ProfessionalService",
     name: SITE.name,
     url: SITE.url,
+    logo: `${SITE.url}/favicon.svg`,
+    image: `${SITE.url}/favicon.svg`,
     email: SITE.email,
     telephone: SITE.phone,
     address: {
@@ -51,10 +53,12 @@ export function getOrganizationSchema() {
     taxID: SITE.cf,
     areaServed: "IT",
     serviceType: [
+      "Fractional CMO",
       "Digital Marketing",
       "E-commerce Consulting",
       "Conversion Rate Optimization",
       "Lead Generation",
     ],
+    description: SITE.tagline,
   };
 }
