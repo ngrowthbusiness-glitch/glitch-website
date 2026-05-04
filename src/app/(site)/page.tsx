@@ -1560,7 +1560,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════
           9. CTA FINALE — onesta, non vendita mascherata
       ════════════════════════════════════════ */}
-      <div className="hp-wrap" style={{ marginBottom: "120px" }}>
+      <div className="hp-wrap" style={{ marginBottom: "120px" }} data-scroll-target="contact-cta">
         <div className="hp-cta hp-cta-final">
           <div className="hp-cta-eyebrow">Conosciamoci</div>
 
