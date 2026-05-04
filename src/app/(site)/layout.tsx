@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 import GlowBackground from "@/components/layout/GlowBackground";
 import CookieBanner from "@/components/layout/CookieBanner";
 import FeedbackPopup from "@/components/layout/FeedbackPopup";
+import FloatMailBubble from "@/components/layout/FloatMailBubble";
 import { getPersonSchema, getOrganizationSchema } from "@/lib/structured-data";
 
 export default function SiteLayout({
@@ -155,6 +156,7 @@ export default function SiteLayout({
           .float-tooltip { display: none; }
         }
       `}</style>
+      <FloatMailBubble />
       <a href="https://wa.me/393385691369" target="_blank" rel="noopener noreferrer" className="float-bubble float-wa" aria-label="WhatsApp">
         <span className="float-tooltip">Scrivimi su WhatsApp</span>
         <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff">

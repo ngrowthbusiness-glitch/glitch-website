@@ -642,6 +642,113 @@ export default function HomePage() {
           background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(0,255,252,0.06), transparent);
           pointer-events: none;
         }
+        /* CTA FINALE riscritta — onesta + dettagliata */
+        .hp-cta-final { padding: 64px 56px; }
+        .hp-cta-eyebrow {
+          font-size: 10px; letter-spacing: 3px;
+          text-transform: uppercase; color: var(--teal);
+          font-weight: 600; margin-bottom: 18px;
+          position: relative;
+        }
+        .hp-cta-honest {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-style: italic;
+          font-size: clamp(17px, 2vw, 22px);
+          line-height: 1.5;
+          color: var(--text);
+          max-width: 720px;
+          margin: 0 auto 32px;
+          position: relative;
+          padding: 18px 0;
+          border-top: 1px solid rgba(0,255,252,0.18);
+          border-bottom: 1px solid rgba(0,255,252,0.18);
+        }
+        .hp-cta-explainer {
+          max-width: 720px;
+          margin: 0 auto 32px;
+          position: relative;
+          display: flex; flex-direction: column; gap: 16px;
+        }
+        .hp-cta-explainer p {
+          font-size: 14px;
+          color: var(--text);
+          line-height: 1.7;
+          margin: 0;
+        }
+        .hp-cta-explainer strong {
+          color: var(--teal);
+          font-weight: 500;
+        }
+        .hp-cta-promise {
+          max-width: 600px;
+          margin: 0 auto 32px;
+          padding: 28px 32px;
+          border: 1px solid rgba(0,255,252,0.3);
+          border-radius: 12px;
+          background: rgba(0,255,252,0.05);
+          position: relative;
+          text-align: left;
+        }
+        .hp-cta-promise-title {
+          font-size: 11px; letter-spacing: 2px;
+          text-transform: uppercase; color: var(--teal);
+          font-weight: 600; margin-bottom: 16px;
+          text-align: center;
+        }
+        .hp-cta-promise-list {
+          list-style: none; padding: 0; margin: 0;
+          display: flex; flex-direction: column; gap: 12px;
+        }
+        .hp-cta-promise-list li {
+          display: flex; align-items: baseline; gap: 14px;
+          padding-left: 22px; position: relative;
+        }
+        .hp-cta-promise-list li::before {
+          content: ""; position: absolute;
+          left: 0; top: 8px;
+          width: 8px; height: 8px;
+          border-radius: 50%;
+          background: var(--teal);
+          box-shadow: 0 0 10px rgba(0,255,252,0.5);
+        }
+        .hp-cta-promise-key {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: 18px;
+          font-weight: 700;
+          color: var(--teal);
+          line-height: 1.2;
+          flex-shrink: 0;
+        }
+        .hp-cta-promise-val {
+          font-size: 14px;
+          color: var(--text);
+          line-height: 1.4;
+        }
+        .hp-cta-closing {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: clamp(18px, 2.2vw, 24px);
+          font-weight: 700;
+          color: var(--text);
+          line-height: 1.4;
+          margin: 0 auto 28px;
+          max-width: 600px;
+          position: relative;
+        }
+        @media (max-width: 900px) {
+          .hp-cta-final { padding: 48px 28px; }
+          .hp-cta-honest { font-size: 16px; padding: 14px 0; margin-bottom: 24px; }
+          .hp-cta-explainer { margin-bottom: 24px; }
+          .hp-cta-promise { padding: 22px 22px; margin-bottom: 24px; }
+          .hp-cta-promise-list li { flex-direction: column; gap: 2px; align-items: flex-start; }
+          .hp-cta-promise-key { font-size: 16px; }
+          .hp-cta-promise-val { font-size: 13px; }
+          .hp-cta-closing { font-size: 17px; margin-bottom: 22px; }
+        }
+        @media (max-width: 480px) {
+          .hp-cta-final { padding: 40px 22px; }
+          .hp-cta-honest { font-size: 15px; }
+          .hp-cta-promise { padding: 20px 20px; }
+        }
 
         /* ═══════════════════════════════════
            POPUP
@@ -1451,15 +1558,51 @@ export default function HomePage() {
       <div className="hp-wrap"><div className="hp-divider" /></div>
 
       {/* ════════════════════════════════════════
-          9. CTA FINALE
+          9. CTA FINALE — onesta, non vendita mascherata
       ════════════════════════════════════════ */}
       <div className="hp-wrap" style={{ marginBottom: "120px" }}>
-        <div className="hp-cta">
-          <h2 className="hp-h2" style={{ position: "relative", marginBottom: "12px" }}>Conosciamoci. Senza impegno.</h2>
-          <p style={{ fontSize: "14px", color: "var(--text-dim)", lineHeight: 1.8, marginBottom: "32px", position: "relative" }}>
-            Mandami un messaggio, ci sentiamo, e ti dico onestamente se posso aiutarti<br />
-            &mdash; o se non ne hai bisogno. Nessuna presentazione, nessun preventivo.
+        <div className="hp-cta hp-cta-final">
+          <div className="hp-cta-eyebrow">Conosciamoci</div>
+
+          <h2 className="hp-h2" style={{ position: "relative", marginBottom: "20px" }}>
+            20 minuti.<br />Ne usciamo con <em>ordine e chiarezza</em>.
+          </h2>
+
+          <p className="hp-cta-honest">
+            &ldquo;Se ti dicessi che dietro non c&apos;&egrave; una vendita, ti mentirei. Ma non &egrave; proprio cos&igrave; che funziona con me.&rdquo;
           </p>
+
+          <div className="hp-cta-explainer">
+            <p>
+              Faccio call con chi vuole una <strong>reale consulenza</strong>, non con chi cerca un preventivo. Mi racconti dove sei e dove vuoi arrivare. Io ti dico onestamente <strong>se posso esserti utile, o se puoi farcela da solo</strong>.
+            </p>
+            <p>
+              &Egrave; controproducente per entrambi se ti vendo qualcosa che non ti serve.
+            </p>
+          </div>
+
+          <div className="hp-cta-promise">
+            <div className="hp-cta-promise-title">Cosa ricevi sempre, in 20 minuti:</div>
+            <ul className="hp-cta-promise-list">
+              <li>
+                <span className="hp-cta-promise-key">Ordine</span>
+                <span className="hp-cta-promise-val">sui passi successivi</span>
+              </li>
+              <li>
+                <span className="hp-cta-promise-key">Chiarezza</span>
+                <span className="hp-cta-promise-val">sulle priorit&agrave;</span>
+              </li>
+              <li>
+                <span className="hp-cta-promise-key">Focus</span>
+                <span className="hp-cta-promise-val">su cosa muove davvero i numeri</span>
+              </li>
+            </ul>
+          </div>
+
+          <p className="hp-cta-closing">
+            Tu non vuoi questo ordine? Non vuoi questa chiarezza?
+          </p>
+
           <div style={{ display: "flex", justifyContent: "center", position: "relative" }}>
             <ContactCTAButton
               buttonClassName="hp-btn-primary"
