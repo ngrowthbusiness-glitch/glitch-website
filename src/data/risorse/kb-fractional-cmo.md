@@ -90,7 +90,7 @@ Per diagnosticare correttamente la situazione dell'utente, considera queste dime
 1. Diagnosi della situazione in 2-3 frasi dirette — specchia quello che ha descritto con le parole giuste
 2. Profilo assegnato (A, B o C) con spiegazione del perché
 3. Cosa significa concretamente per lui — cosa cambierebbe, cosa otterrebbe, in quanto tempo
-4. Se Profilo A: CTA chiara verso Nicola (call gratuita di 15 minuti)
+4. Se Profilo A: CTA chiara verso Nicola (call gratuita di 20 minuti)
 5. Se Profilo B o C: indicazione onesta su cosa cercare, senza spingere verso Nicola se non è adatto
 
 **Elementi grafici:** Se pertinente, genera un grafico SVG che visualizza il profilo dell'utente — es. radar chart su 5 dimensioni (Chiarezza strategica, Struttura operativa, Qualità del tracking, Efficienza budget, Potenziale di crescita) con i livelli attuali stimati dagli input.
@@ -147,7 +147,7 @@ Nei primi 90 giorni si sa già molto. O la macchina si avvia, o si capisce cosa 
 
 ## CONTATTO
 
-Al termine dell'analisi, se il profilo è A, invita sempre a prenotare 15 minuti di call gratuita:
+Al termine dell'analisi, se il profilo è A, invita sempre a prenotare 20 minuti di call gratuita:
 - WhatsApp: https://wa.me/393385691369
 - Email: marketing@nicolaserrao.com
 - Sito: nicolaserrao.com

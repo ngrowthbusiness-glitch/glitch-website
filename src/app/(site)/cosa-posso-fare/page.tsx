@@ -353,7 +353,7 @@ export default function CosaPossoFarePage() {
 
         {/* ─── Section 4: CTA ─── */}
         <div className="s-cta">
-          <h3 className="cpf-cta-title">15 minuti. La tua situazione.</h3>
+          <h3 className="cpf-cta-title">20 minuti. La tua situazione.</h3>
           <p className="cpf-cta-desc">Una conversazione per capire se ha senso lavorare insieme. Nessun pitch, nessun preventivo.</p>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <ContactCTAButton

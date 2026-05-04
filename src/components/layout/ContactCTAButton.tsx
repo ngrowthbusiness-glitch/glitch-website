@@ -7,7 +7,7 @@ type Variant = "primary" | "secondary";
 type Align = "left" | "center";
 
 type Props = {
-  /** Testo del bottone. Default: "Approfitta di 15 minuti del mio tempo" */
+  /** Testo del bottone. Default: "Approfitta di 20 minuti del mio tempo" */
   label?: string;
   /** Microcopy sotto il bottone. Default frase genuina. */
   microcopy?: string;
@@ -20,11 +20,11 @@ type Props = {
 };
 
 /**
- * CTA universale: 1 bottone "Approfitta di 15 minuti del mio tempo"
+ * CTA universale: 1 bottone "Approfitta di 20 minuti del mio tempo"
  * + microcopy sotto. Click → modal con scelta WhatsApp / Mail.
  */
 export default function ContactCTAButton({
-  label = "Approfitta di 15 minuti del mio tempo",
+  label = "Approfitta di 20 minuti del mio tempo",
   microcopy = "Ho sempre un grande interesse nel conoscere nuovi contesti.",
   variant = "primary",
   align = "left",

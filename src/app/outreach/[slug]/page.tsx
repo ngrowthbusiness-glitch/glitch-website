@@ -104,8 +104,12 @@ function Hero({ config }: { config: OutreachConfig }) {
       <div className="o-hero__inner">
         <div className="o-hero__copy">
           <div className="o-hero__brand">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/nicola.png" alt="Nicola Serrao" className="o-hero__brand-img" />
+            <span className="o-hero__brand-name" aria-label="Nicola Serrao">
+              <span className="o-hero__brand-name-back" aria-hidden="true">Nicola Serrao</span>
+              <span className="o-hero__brand-name-front">
+                Nicola <em className="o-hero__brand-name-accent">Serrao</em>
+              </span>
+            </span>
           </div>
           <div className="o-hero__eyebrow">{hero.eyebrow}</div>
           <h1 className="o-hero__headline">{hero.headline}</h1>
@@ -165,8 +169,7 @@ function VideoFrame({
 ───────────────────────────────────────────── */
 
 function ProspectSection({ config }: { config: OutreachConfig }) {
-  const { closing, observations, conditions, cta, prospectStyle } = config;
-  const conditionsParagraphs = conditions.split("\n\n");
+  const { closing, observations, cta, prospectStyle } = config;
   const emotionalParagraphs = closing.emotional?.split("\n\n") ?? [];
   const emotionalTitle = closing.emotionalTitle ?? "CONOSCIAMOCI";
 
@@ -204,24 +207,43 @@ function ProspectSection({ config }: { config: OutreachConfig }) {
           </section>
         )}
 
-        {/* Box "conditions" evidenziato con effetto glitch */}
+        {/* Box conditions stile home page (Conosciamoci, 20 minuti, promesse) */}
         <aside className="o-conditions-box" role="note">
-          <div className="o-conditions-box__label" aria-hidden="true">
-            <span className="o-conditions-box__label-back">CHIUSURA</span>
-            <span className="o-conditions-box__label-front">CHIUSURA</span>
+          <div className="o-conditions-box__eyebrow">Conosciamoci</div>
+          <h2 className="o-conditions-box__title">
+            20 minuti.<br />Ne usciamo con <em>ordine e chiarezza</em>.
+          </h2>
+          <p className="o-conditions-box__honest">
+            &ldquo;Se ti dicessi che dietro non c&apos;&egrave; una vendita, ti mentirei. Ma non &egrave; proprio cos&igrave; che funziona con me.&rdquo;
+          </p>
+          <div className="o-conditions-box__explainer">
+            <p>
+              Faccio call con chi vuole una <strong>reale consulenza</strong>, non con chi cerca un preventivo. Mi racconti dove sei e dove vuoi arrivare. Io ti dico onestamente <strong>se posso esserti utile, o se puoi farcela da solo</strong>.
+            </p>
+            <p>
+              &Egrave; controproducente per entrambi se ti vendo qualcosa che non ti serve.
+            </p>
           </div>
-          <div className="o-conditions-box__inner">
-            {conditionsParagraphs.map((p, i) => (
-              <p
-                key={i}
-                className={
-                  i === 0 ? "o-conditions-box__lead" : "o-conditions-box__body"
-                }
-              >
-                {p}
-              </p>
-            ))}
+          <div className="o-conditions-box__promise">
+            <div className="o-conditions-box__promise-title">Cosa ricevi sempre, in 20 minuti:</div>
+            <ul className="o-conditions-box__promise-list">
+              <li>
+                <span className="o-conditions-box__promise-key">Ordine</span>
+                <span className="o-conditions-box__promise-val">sui passi successivi</span>
+              </li>
+              <li>
+                <span className="o-conditions-box__promise-key">Chiarezza</span>
+                <span className="o-conditions-box__promise-val">sulle priorit&agrave;</span>
+              </li>
+              <li>
+                <span className="o-conditions-box__promise-key">Focus</span>
+                <span className="o-conditions-box__promise-val">su cosa muove davvero i numeri</span>
+              </li>
+            </ul>
           </div>
+          <p className="o-conditions-box__closing">
+            Tu non vuoi questo ordine? Non vuoi questa chiarezza?
+          </p>
         </aside>
 
         <CtaBlock
@@ -421,15 +443,38 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
       display: inline-block;
     }
     .o-hero__brand {
-      margin-bottom: 32px;
+      margin-bottom: 36px;
     }
-    .o-hero__brand-img {
-      height: 56px;
-      width: auto;
-      object-fit: contain;
-      display: block;
-      filter: brightness(0) invert(1);
-      opacity: 0.92;
+    .o-hero__brand-name {
+      position: relative;
+      display: inline-block;
+      font-family: var(--font-playfair), Georgia, serif;
+      font-size: clamp(22px, 2.4vw, 30px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.5px;
+      white-space: nowrap;
+    }
+    .o-hero__brand-name-front {
+      position: relative;
+      color: #e8f5f2;
+      z-index: 2;
+    }
+    .o-hero__brand-name-accent {
+      color: #00fffc;
+      font-style: normal;
+    }
+    .o-hero__brand-name-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #00fffc;
+      transform: translate(-2px, 1px);
+      opacity: 0.5;
+      z-index: 1;
+      mix-blend-mode: screen;
+      filter: blur(0.2px);
+      pointer-events: none;
     }
 
     .o-hero__video {
@@ -751,85 +796,115 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
       font-weight: ${s.headingWeight};
     }
 
-    /* Box "conditions" evidenziato con effetto glitch */
+    /* Box "conditions" stile home page — eyebrow + 20 minuti + promesse */
     .o-conditions-box {
       position: relative;
-      max-width: 760px;
+      max-width: 720px;
       margin: 80px auto 64px auto;
-      padding: 36px 40px 40px 40px;
-      background: rgba(212, 170, 65, 0.04);
-      border: 1px solid ${s.accent};
-      box-shadow:
-        6px 6px 0 -1px rgba(212, 170, 65, 0.20),
-        -4px -4px 0 -1px rgba(0, 255, 252, 0.14),
-        0 0 50px rgba(212, 170, 65, 0.10);
+      padding: 56px 48px 52px 48px;
+      background: rgba(0, 0, 0, 0.02);
+      border: 1px solid ${s.border};
+      text-align: center;
     }
-    .o-conditions-box::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        repeating-linear-gradient(
-          to bottom,
-          transparent 0,
-          transparent 2px,
-          rgba(212, 170, 65, 0.025) 2px,
-          rgba(212, 170, 65, 0.025) 3px
-        );
-    }
-    .o-conditions-box__label {
-      position: absolute;
-      top: -10px;
-      left: 24px;
-      padding: 0 12px;
-      background: ${s.bgPrimary};
+    .o-conditions-box__eyebrow {
       font-family: ${s.fontHeading};
       font-size: 11px;
       font-weight: 400;
-      letter-spacing: 0.3em;
-      ${s.headingTransform === "uppercase" ? "text-transform: uppercase;" : ""}
-      line-height: 1;
-      display: inline-block;
-    }
-    .o-conditions-box__label-front {
-      position: relative;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
       color: ${s.accent};
-      z-index: 2;
+      margin-bottom: 22px;
     }
-    .o-conditions-box__label-back {
-      position: absolute;
-      top: 0;
-      left: 12px;
-      color: #00fffc;
-      transform: translate(-2px, 1px);
-      opacity: 0.55;
-      z-index: 1;
-      mix-blend-mode: screen;
-      filter: blur(0.3px);
-      pointer-events: none;
-    }
-    .o-conditions-box__inner {
-      position: relative;
-      z-index: 1;
-    }
-    .o-conditions-box__lead {
+    .o-conditions-box__title {
       font-family: ${s.fontHeading};
       font-weight: ${s.headingWeight};
-      font-size: clamp(20px, 2.2vw, 26px);
-      line-height: 1.4;
+      font-size: clamp(28px, 3.4vw, 42px);
+      line-height: 1.2;
       letter-spacing: ${s.headingLetterSpacing};
-      ${s.headingTransform === "uppercase" ? "text-transform: uppercase;" : ""}
-      color: ${s.accent};
-      margin: 0 0 20px 0;
+      color: ${s.textPrimary};
+      margin: 0 0 28px 0;
     }
-    .o-conditions-box__body {
+    .o-conditions-box__title em {
+      font-style: italic;
+      color: ${s.accent};
+    }
+    .o-conditions-box__honest {
+      font-family: ${s.fontHeading};
+      font-style: italic;
+      font-size: 16px;
+      line-height: 1.65;
+      color: ${s.textSecondary};
+      margin: 0 auto 28px auto;
+      max-width: 540px;
+    }
+    .o-conditions-box__explainer p {
       font-family: ${s.fontBody};
       font-weight: ${s.bodyWeight};
       font-size: 15px;
       line-height: 1.75;
       color: ${s.textSecondary};
+      margin: 0 auto 14px auto;
+      max-width: 580px;
+    }
+    .o-conditions-box__explainer p:last-child {
+      margin-bottom: 0;
+    }
+    .o-conditions-box__explainer strong {
+      color: ${s.textPrimary};
+      font-weight: 600;
+    }
+    .o-conditions-box__promise {
+      margin: 36px auto;
+      padding: 28px 0;
+      border-top: 1px solid ${s.border};
+      border-bottom: 1px solid ${s.border};
+      max-width: 480px;
+    }
+    .o-conditions-box__promise-title {
+      font-family: ${s.fontHeading};
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: ${s.textMuted ?? s.textSecondary};
+      margin-bottom: 20px;
+    }
+    .o-conditions-box__promise-list {
+      list-style: none;
+      padding: 0;
       margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+    }
+    .o-conditions-box__promise-list li {
+      font-family: ${s.fontBody};
+      font-size: 15px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .o-conditions-box__promise-key {
+      font-family: ${s.fontHeading};
+      font-weight: ${s.headingWeight};
+      color: ${s.accent};
+      font-size: 18px;
+      letter-spacing: ${s.headingLetterSpacing};
+    }
+    .o-conditions-box__promise-val {
+      color: ${s.textSecondary};
+    }
+    .o-conditions-box__closing {
+      font-family: ${s.fontHeading};
+      font-style: italic;
+      font-size: 17px;
+      line-height: 1.5;
+      color: ${s.textPrimary};
+      margin: 28px auto 0 auto;
+      max-width: 520px;
     }
 
     /* ============ FOOTER ============ */

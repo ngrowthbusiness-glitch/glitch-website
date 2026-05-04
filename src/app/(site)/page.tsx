@@ -1624,7 +1624,7 @@ export default function HomePage() {
           <div className="hp-popup-title">Sei un imprenditore?</div>
           <div className="hp-popup-subtitle">Perch&eacute; non ci conosciamo?</div>
           <div className="hp-popup-body">
-            15 minuti per conoscerci e parlare del tuo progetto. Nella peggiore delle ipotesi, ti do dei consigli utili.
+            20 minuti per conoscerci e parlare del tuo progetto. Nella peggiore delle ipotesi, ti do dei consigli utili.
           </div>
           <ContactCTAButton
             buttonClassName="hp-btn-primary"

@@ -17,18 +17,18 @@ export default function Footer() {
     <footer
       style={{
         borderTop: "1px solid var(--teal-border)",
-        padding: "40px 60px 28px",
+        padding: "44px 60px 32px",
       }}
     >
-      {/* ── footer-top ── */}
-      <div style={{ textAlign: "center", marginBottom: "20px" }}>
+      {/* ── footer-top: brand + ruolo ── */}
+      <div style={{ textAlign: "center", marginBottom: "22px" }}>
         <div
           style={{
             display: "inline-flex",
             alignItems: "center",
-            gap: "6px",
+            gap: "7px",
             fontFamily: "var(--font-playfair), 'Playfair Display', serif",
-            fontSize: "16px",
+            fontSize: "18px",
             fontWeight: 700,
             color: "var(--text)",
           }}
@@ -36,22 +36,43 @@ export default function Footer() {
           <Image
             src="/favicon.png"
             alt=""
-            width={18}
-            height={18}
+            width={20}
+            height={20}
             style={{ display: "inline-block" }}
           />
           Nicola <span style={{ color: "var(--teal)" }}>Serrao</span>
         </div>
         <div
           style={{
-            fontSize: "9px",
+            fontSize: "11px",
+            letterSpacing: "1.8px",
+            fontStyle: "italic",
+            color: "var(--text-dim)",
+            marginTop: "8px",
+            textTransform: "uppercase",
+            fontWeight: 500,
+          }}
+        >
+          Fractional CMO
+        </div>
+        <div
+          style={{
+            width: "28px",
+            height: "1px",
+            background: "var(--teal-border)",
+            margin: "8px auto",
+          }}
+        />
+        <div
+          style={{
+            fontSize: "10px",
             letterSpacing: "1.5px",
             fontStyle: "italic",
             color: "var(--text-faint)",
-            marginTop: "4px",
+            textTransform: "uppercase",
           }}
         >
-          Digital Marketing Strategist
+          Digital Marketing
         </div>
       </div>
 
@@ -62,21 +83,85 @@ export default function Footer() {
           height: "1px",
           background:
             "linear-gradient(90deg, transparent, var(--teal-border), transparent)",
-          marginBottom: "32px",
+          marginBottom: "36px",
         }}
       />
 
-      {/* ── footer-middle ── */}
+      {/* ── footer-middle: 3 colonne (desktop) / 2-col grid (mobile) ── */}
       <style>{`
-        .ft-mid { display: flex; justify-content: center; gap: 80px; }
-        .ft-label { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
-        .ft-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
-        .ft-contact { font-size: 11px; color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+        .ft-mid {
+          display: flex;
+          justify-content: center;
+          gap: 88px;
+        }
+        .ft-label {
+          font-size: 9px;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          color: var(--teal);
+          margin-bottom: 12px;
+          font-weight: 600;
+        }
+        .ft-list {
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          padding: 0; margin: 0;
+        }
+        .ft-contact {
+          font-size: 12px;
+          color: var(--text);
+          text-decoration: none;
+          transition: color 0.2s;
+        }
         .ft-contact:hover { color: var(--teal); }
-        .ft-link { font-size: 9px; color: var(--text-faint); text-decoration: none; transition: color 0.2s; }
+        .ft-link {
+          font-size: 11px;
+          color: var(--text-dim);
+          text-decoration: none;
+          transition: color 0.2s;
+          background: none;
+          border: none;
+          padding: 0;
+          cursor: pointer;
+          font-family: inherit;
+          text-align: left;
+        }
         .ft-link:hover { color: var(--teal); }
-        @media (max-width: 900px) { .ft-mid { gap: 40px; } }
-        @media (max-width: 480px) { .ft-mid { flex-direction: column; align-items: center; text-align: center; } }
+
+        /* TABLET: gap ridotto */
+        @media (max-width: 900px) {
+          .ft-mid { gap: 48px; }
+        }
+
+        /* MOBILE: grid 2-col
+           SX: Contatti (top) + Legale (bottom)
+           DX: Navigazione (span 2 row) */
+        @media (max-width: 600px) {
+          .ft-mid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 24px 28px;
+            text-align: left;
+            max-width: 360px;
+            margin: 0 auto;
+            justify-content: stretch;
+            align-items: start;
+          }
+          .ft-mid > div:nth-child(1) { /* Contatti */
+            grid-column: 1; grid-row: 1;
+          }
+          .ft-mid > div:nth-child(2) { /* Navigazione */
+            grid-column: 2; grid-row: 1 / 3;
+          }
+          .ft-mid > div:nth-child(3) { /* Legale */
+            grid-column: 1; grid-row: 2;
+          }
+          .ft-contact { font-size: 13px; }
+          .ft-link { font-size: 12px; }
+        }
       `}</style>
       <div className="ft-mid">
         {/* Contatti — più visibili */}
@@ -101,7 +186,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Navigazione — discreto */}
+        {/* Navigazione */}
         <div>
           <div className="ft-label">Navigazione</div>
           <ul className="ft-list">
@@ -120,10 +205,20 @@ export default function Footer() {
                 Metodo GLITCH
               </Link>
             </li>
+            <li>
+              <Link href="/blog" className="ft-link">
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link href="/risorse" className="ft-link">
+                Risorse
+              </Link>
+            </li>
           </ul>
         </div>
 
-        {/* Legale — discreto */}
+        {/* Legale */}
         <div>
           <div className="ft-label">Legale</div>
           <ul className="ft-list">
@@ -137,13 +232,6 @@ export default function Footer() {
                 type="button"
                 onClick={handleCookieReset}
                 className="ft-link"
-                style={{
-                  background: "none",
-                  border: "none",
-                  padding: 0,
-                  cursor: "pointer",
-                  fontFamily: "inherit",
-                }}
               >
                 Gestisci cookie
               </button>
@@ -159,8 +247,8 @@ export default function Footer() {
           height: "1px",
           background:
             "linear-gradient(90deg, transparent, var(--teal-border), transparent)",
-          marginTop: "28px",
-          marginBottom: "20px",
+          marginTop: "32px",
+          marginBottom: "22px",
         }}
       />
 
@@ -168,8 +256,8 @@ export default function Footer() {
       <div
         style={{
           textAlign: "center",
-          fontSize: "8px",
-          color: "rgba(232,245,242,0.15)",
+          fontSize: "9px",
+          color: "rgba(232,245,242,0.20)",
           lineHeight: 1.8,
           letterSpacing: "0.5px",
         }}
@@ -178,7 +266,7 @@ export default function Footer() {
           Via Oberdan 25, 60020 Agugliano (AN) &mdash; P.IVA: 02703360426
           &mdash; CF: SRRNCL93T31B963M
         </p>
-        <p style={{ color: "rgba(232,245,242,0.10)", marginTop: "3px" }}>
+        <p style={{ color: "rgba(232,245,242,0.13)", marginTop: "4px" }}>
           &copy; 2026 Nicola Serrao &mdash; Tutti i diritti riservati
         </p>
       </div>

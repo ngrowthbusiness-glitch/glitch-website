@@ -41,7 +41,7 @@ Formato della risposta:
 1. Inizia con una frase che specchia la loro situazione — dimostra che hai capito esattamente dove sono
 2. Assegna un profilo (A: Fractional CMO / B: Consulente spot / C: Agenzia / D: Early-stage) con la spiegazione del perché
 3. Descrivi concretamente cosa cambierebbe per loro nei prossimi 90 giorni
-4. Se il profilo è A o D: proponi sempre la call gratuita di 15 minuti come passo successivo
+4. Se il profilo è A o D: proponi sempre la call gratuita di 20 minuti come passo successivo
 5. Se pertinente, genera un grafico SVG inline (radar chart o barre) che visualizzi il loro profilo su 5 dimensioni: Chiarezza strategica, Struttura operativa, Efficienza budget, Qualità dati, Potenziale crescita — stima i valori su scala 1-10 dagli input forniti
 
 Usa markdown per la formattazione (## per sezioni, **grassetto** per concetti chiave, liste quando utile).

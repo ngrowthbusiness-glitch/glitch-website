@@ -326,7 +326,7 @@ export default function DiagnosiPopup({ open, onClose }: DiagnosiPopupProps) {
           <div className="dx-divider" />
 
           <p className="dx-promise">
-            15 minuti, zero impegno, <strong>zero fuffa.</strong><br />
+            20 minuti, zero impegno, <strong>zero fuffa.</strong><br />
             Solo onest&agrave; &mdash; &egrave; l&apos;unico modo in cui so lavorare.
           </p>
 

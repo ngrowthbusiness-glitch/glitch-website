@@ -709,7 +709,7 @@ export default function FractionalCMOPage() {
                   <div className="fcmo-post-cta">
                     <div className="fcmo-post-cta-text">
                       <strong>Vuoi approfondire?</strong><br />
-                      Prenota 15 minuti gratuiti per verificare insieme se il modello Fractional CMO ha senso per il tuo business specifico.
+                      Prenota 20 minuti gratuiti per verificare insieme se il modello Fractional CMO ha senso per il tuo business specifico.
                     </div>
                     <a
                       href="https://wa.me/393516737345"

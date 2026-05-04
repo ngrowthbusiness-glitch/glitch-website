@@ -675,7 +675,7 @@ export default function AuditScorePage() {
               <div className="as-post-cta">
                 <div className="as-post-cta-text">
                   <strong>Vuoi trasformare questa diagnosi in un piano?</strong><br />
-                  15 minuti per capire insieme quali 3 azioni portano il massimo impatto nel tuo caso specifico.
+                  20 minuti per capire insieme quali 3 azioni portano il massimo impatto nel tuo caso specifico.
                 </div>
                 <a
                   href="https://wa.me/393516737345"
