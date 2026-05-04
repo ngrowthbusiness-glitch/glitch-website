@@ -71,6 +71,10 @@ export type OutreachConfig = {
     title: string;
     /** Riga di apertura — "Sono ipotesi, non sentenze..." */
     introNote: string;
+    /** Titolo della sezione emotiva "Conosciamoci" (opzionale, default: "CONOSCIAMOCI") */
+    emotionalTitle?: string;
+    /** Testo emotivo prima delle conditions (opzionale). Se presente, renderizza la sezione "Conosciamoci". Usa "\n\n" per i paragrafi. */
+    emotional?: string;
   };
 
   observations: ObservationBlock[];

@@ -103,6 +103,10 @@ function Hero({ config }: { config: OutreachConfig }) {
     <section className="o-hero">
       <div className="o-hero__inner">
         <div className="o-hero__copy">
+          <div className="o-hero__brand">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/nicola.png" alt="Nicola Serrao" className="o-hero__brand-img" />
+          </div>
           <div className="o-hero__eyebrow">{hero.eyebrow}</div>
           <h1 className="o-hero__headline">{hero.headline}</h1>
           <p className="o-hero__subheadline">{hero.subheadline}</p>
@@ -163,6 +167,8 @@ function VideoFrame({
 function ProspectSection({ config }: { config: OutreachConfig }) {
   const { closing, observations, conditions, cta, prospectStyle } = config;
   const conditionsParagraphs = conditions.split("\n\n");
+  const emotionalParagraphs = closing.emotional?.split("\n\n") ?? [];
+  const emotionalTitle = closing.emotionalTitle ?? "CONOSCIAMOCI";
 
   return (
     <section className="o-prospect">
@@ -185,6 +191,18 @@ function ProspectSection({ config }: { config: OutreachConfig }) {
             </article>
           ))}
         </div>
+
+        {/* Sezione emotiva "Conosciamoci" — opzionale, renderizzata solo se closing.emotional e' presente */}
+        {closing.emotional && (
+          <section className="o-emotional" aria-label={emotionalTitle}>
+            <div className="o-emotional__title">{emotionalTitle}</div>
+            <div className="o-emotional__body">
+              {emotionalParagraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Box "conditions" evidenziato con effetto glitch */}
         <aside className="o-conditions-box" role="note">
@@ -401,6 +419,17 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
       border-radius: 50%;
       background: #00fffc;
       display: inline-block;
+    }
+    .o-hero__brand {
+      margin-bottom: 32px;
+    }
+    .o-hero__brand-img {
+      height: 56px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      filter: brightness(0) invert(1);
+      opacity: 0.92;
     }
 
     .o-hero__video {
@@ -690,6 +719,38 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
     }
     .o-obs__body p:last-child { margin-bottom: 0; }
 
+    /* ============ SEZIONE EMOTIVA "Conosciamoci" ============ */
+
+    .o-emotional {
+      max-width: 760px;
+      margin: 100px auto 80px auto;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .o-emotional__title {
+      font-family: ${s.fontHeading};
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      ${s.headingTransform === "uppercase" ? "text-transform: uppercase;" : ""}
+      color: ${s.accent};
+      margin-bottom: 36px;
+    }
+    .o-emotional__body p {
+      font-family: ${s.fontHeading};
+      font-weight: ${s.headingWeight};
+      font-size: clamp(22px, 2.6vw, 32px);
+      line-height: 1.5;
+      letter-spacing: ${s.headingLetterSpacing};
+      color: ${s.textPrimary};
+      margin: 0 0 22px 0;
+    }
+    .o-emotional__body p:last-child { margin: 0; }
+    .o-emotional__body p:first-child {
+      color: ${s.accent};
+      font-weight: ${s.headingWeight};
+    }
+
     /* Box "conditions" evidenziato con effetto glitch */
     .o-conditions-box {
       position: relative;
@@ -903,6 +964,10 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
         padding: 80px 24px;
       }
       .o-observations { gap: 56px; }
+      .o-emotional {
+        margin: 72px auto 56px auto;
+      }
+      .o-emotional__title { margin-bottom: 28px; }
       .o-conditions-box {
         margin: 56px auto 48px auto;
         padding: 28px 28px 32px 28px;

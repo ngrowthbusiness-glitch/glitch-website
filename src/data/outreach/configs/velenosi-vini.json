@@ -21,20 +21,27 @@
   },
 
   "closing": {
-    "title": "COSA PUÒ SUCCEDERE IN MEZZ'ORA CON ME",
-    "introNote": "Niente PowerPoint, niente preventivo già pronto. Una chiacchierata vera. Ti racconto cosa puoi portare a casa."
+    "title": "TRE IDEE EMBRIONALI",
+    "introNote": "Tre cose che mi sono passate in testa dopo qualche ora dentro Velenosi. Niente sentenze, solo curiosità. Se mi smentisci, anche meglio.",
+    "emotionalTitle": "CONOSCIAMOCI",
+    "emotional": "Niente di più bello di conoscere qualcuno che ha un interesse reale nel migliorare la vostra azienda.\n\nMezz'ora insieme. Niente PowerPoint, niente preventivi pronti. Una chiacchierata. Se ci sono le condizioni per lavorare insieme, lo capiamo lì."
   },
 
   "observations": [
     {
-      "label": "01 · IL PUNTO DI VISTA DA FUORI",
-      "title": "Una lettura del vostro mercato e del vostro digital, fatta da fuori.",
-      "body": "Niente di banale, niente di generico. Cose specifiche che ho visto io dopo qualche ora a studiarle.\n\nSono ipotesi, non sentenze. Se mi smentisci, anche meglio."
+      "label": "01 · META ADS",
+      "title": "Quanta pubblicità a pagamento fate?",
+      "body": "Vendete box, gift, prodotti complessi: il sito è pronto. Da fuori la sensazione è che ci sia poca spinta a pagamento.\n\nMi piacerebbe capire come avete avuto i risultati che avete avuto, e se ci sarebbero margini per aprirla."
     },
     {
-      "label": "02 · QUELLO CHE È SUL PIATTO",
-      "title": "Le 2 o 3 cose che, dal mio punto di vista, oggi sono lasciate sul piatto.",
-      "body": "Quando si sta dentro un'azienda da anni, capita di non vedere alcune cose che da fuori sono evidenti. Te le dico.\n\nMagari le state già facendo. Oppure sono quei quick win semplici ma impattanti che, sommati, fanno una differenza vera."
+      "label": "02 · WINE CLUB",
+      "title": "Avete un sistema di abbonamento ricorrente?",
+      "body": "Se ce l'avete e funziona bene, ottimo.\n\nMi chiedevo se l'avete pensato come asset DTC ricorrente, vista la fanbase e la profondità del catalogo."
+    },
+    {
+      "label": "03 · ANGELA, VOCE DIGITAL",
+      "title": "Angela come asset editoriale online.",
+      "body": "Angela è una delle voci più riconoscibili del wine marchigiano.\n\nMi chiedevo che ruolo abbia oggi nel vostro digital editoriale, e se c'è spazio per farla pesare ancora di più."
     }
   ],
 
