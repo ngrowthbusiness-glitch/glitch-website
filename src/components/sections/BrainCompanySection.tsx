@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { SITE } from "@/lib/constants";
 
 export default function BrainCompanySection() {
@@ -38,46 +37,24 @@ export default function BrainCompanySection() {
           overflow: hidden;
         }
 
-        /* Immagine bleeding a destra (più al centro, gradient fade più morbido) */
+        /* Immagine: contenuta nella colonna destra del grid, centrata.
+           SVG wrapper con filter feColorMatrix per killare lo sfondo bianco del PNG. */
         .bc-image-wrap {
-          position: absolute;
-          top: 50%;
-          right: 4%;
-          transform: translateY(-50%);
-          width: 50%;
-          max-width: 760px;
-          z-index: 0;
-          pointer-events: none;
-          aspect-ratio: 1228 / 882;
+          position: relative;
+          width: 100%;
+          max-width: 520px;
+          aspect-ratio: 5 / 4;
+          margin: 0 auto;
+          z-index: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          filter: drop-shadow(0 0 40px rgba(0,255,252,0.2));
         }
-        .bc-image-wrap img {
-          width: 100% !important;
-          height: 100% !important;
-          object-fit: contain !important;
-          object-position: center center !important;
-        }
-        /* Gradient fade più marcato: copre quasi metà dell'immagine, sfuma teneramente */
-        .bc-image-fade {
-          position: absolute; inset: 0;
-          background: linear-gradient(90deg,
-            #0a0e0d 0%,
-            #0a0e0d 38%,
-            rgba(10,14,13,0.7) 50%,
-            rgba(10,14,13,0.25) 65%,
-            transparent 80%
-          );
-          pointer-events: none; z-index: 1;
-        }
-        /* Fade extra a destra per evitare il logo Claude attaccato al bordo su schermi enormi */
-        .bc-image-fade-right {
-          position: absolute; top: 0; right: 0; bottom: 0;
-          width: 12%;
-          background: linear-gradient(270deg,
-            #0a0e0d 0%,
-            rgba(10,14,13,0.3) 60%,
-            transparent 100%
-          );
-          pointer-events: none; z-index: 1;
+        .bc-image-wrap svg {
+          width: 100%;
+          height: 100%;
+          display: block;
         }
 
         .bc-grid {
@@ -529,19 +506,6 @@ export default function BrainCompanySection() {
       `}</style>
 
       <section className="bc-section">
-        {/* Image bleeding from the right */}
-        <div className="bc-image-wrap">
-          <Image
-            src="/images/Brain Company full.png"
-            alt="Brain Company — Marketing senior infuso con Anthropic Claude"
-            width={1228}
-            height={882}
-            priority={false}
-          />
-        </div>
-        <div className="bc-image-fade" />
-        <div className="bc-image-fade-right" />
-
         <div className="hp-wrap">
           <div className="bc-grid">
             <div className="bc-content">
@@ -627,6 +591,27 @@ export default function BrainCompanySection() {
               <div className="bc-note">
                 Brain Company &egrave; incluso nel servizio Fractional CMO. Non &egrave; un upsell &mdash; &egrave; il modo in cui lavoro.
               </div>
+            </div>
+
+            {/* Colonna destra: immagine cervello (filtrata per togliere sfondo bianco) */}
+            <div className="bc-image-wrap">
+              <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <filter id="killWhiteBC">
+                    <feColorMatrix type="matrix" values="
+                      1 0 0 0 0
+                      0 1 0 0 0
+                      0 0 1 0 0
+                      -3 -3 -3 1 3" />
+                  </filter>
+                </defs>
+                <image
+                  href="/images/Brain%20Company%20full.png"
+                  x="0" y="0" width="500" height="400"
+                  preserveAspectRatio="xMidYMid meet"
+                  filter="url(#killWhiteBC)"
+                />
+              </svg>
             </div>
           </div>
         </div>
