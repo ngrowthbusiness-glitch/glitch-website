@@ -280,7 +280,7 @@ export default function CosaPossoFarePage() {
           <div className="cpf-wa-block animate-fade-up delay-300">
             <ContactCTAButton
               buttonClassName="s-btn-primary"
-              microcopy="Sempre un forte piacere conoscere nuovi contesti."
+              microcopy="Ho sempre un grande interesse nel conoscere nuovi contesti."
               align="center"
             />
           </div>
@@ -358,7 +358,7 @@ export default function CosaPossoFarePage() {
           <div style={{ display: "flex", justifyContent: "center" }}>
             <ContactCTAButton
               buttonClassName="s-btn-primary"
-              microcopy="Sempre un forte piacere conoscere nuovi contesti."
+              microcopy="Ho sempre un grande interesse nel conoscere nuovi contesti."
               align="center"
             />
           </div>

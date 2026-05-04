@@ -710,46 +710,51 @@ export default function HomePage() {
           }
           .hero-h1-wrap { max-width: 100%; }
           .hero-left { align-items: center; }
-          /* Hero RIGHT su mobile: ORDER 0 (sotto hero-left), STACK column
-             — Foto sopra
-             — Sotto: hero-bottom-row con BOX (sx) + LOCATION (dx) in row */
+          /* Hero RIGHT su mobile: ORDER 0 (sotto hero-left)
+             — Layout 2-COLONNE: FOTO sx (più grande) + STACK box/location dx
+             — Spazio generoso sopra (sotto microcopy CTA) e sotto */
           .hero-right {
             position: static;
             transform: none;
             order: 0;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             justify-content: center;
-            gap: 22px;
-            width: 100%;
-            margin-top: 8px;
-          }
-          .hero-photo-wrap { width: 130px !important; height: 130px !important; }
-          .hero-bottom-row {
-            display: flex;
-            flex-direction: row;
-            align-items: stretch;
-            justify-content: center;
-            gap: 12px;
+            gap: 18px;
             width: 100%;
             max-width: 480px;
+            margin: 36px auto 24px;
           }
-          .hero-status {
+          .hero-photo-wrap {
+            width: 150px !important;
+            height: 150px !important;
+            flex-shrink: 0;
+          }
+          .hero-bottom-row {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 10px;
             flex: 1;
             min-width: 0;
+          }
+          .hero-status {
             padding: 12px 14px;
+            min-width: 0;
           }
           .hero-status-row { font-size: 12px; }
           .hero-status-label { font-size: 9px; line-height: 1.3; }
           .hero-locationlive-wrap {
-            flex: 1;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             min-width: 0;
+            padding: 0 4px;
           }
           .hero-locationlive-wrap > div {
             margin-top: 0 !important;
+            align-items: flex-start !important;
+            text-align: left !important;
           }
           .hero-pills-main, .hero-pills-grey { justify-content: center; }
           .hero-sub { margin-left: auto; margin-right: auto; }
@@ -861,10 +866,10 @@ export default function HomePage() {
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scroll-snap-stop: always;
-            scroll-padding-inline: 12vw;
+            scroll-padding-inline: 14vw;
             -webkit-overflow-scrolling: touch;
             gap: 12px;
-            padding: 0 12vw 14px;
+            padding: 0 14vw 14px;
             scrollbar-width: thin;
             scrollbar-color: var(--teal-border) transparent;
             height: auto;
@@ -879,8 +884,8 @@ export default function HomePage() {
             transform: none !important;
             opacity: 1 !important;
             display: flex !important;
-            flex: 0 0 76vw !important;
-            max-width: 76vw !important;
+            flex: 0 0 72vw !important;
+            max-width: 72vw !important;
             width: auto !important;
             scroll-snap-align: start;
             box-shadow: none !important;
@@ -988,7 +993,7 @@ export default function HomePage() {
             <div className="hero-actions">
               <ContactCTAButton
                 buttonClassName="hp-btn-primary"
-                microcopy="Sempre un forte piacere conoscere nuovi contesti."
+                microcopy="Ho sempre un grande interesse nel conoscere nuovi contesti."
               />
             </div>
           </div>
@@ -1458,7 +1463,7 @@ export default function HomePage() {
           <div style={{ display: "flex", justifyContent: "center", position: "relative" }}>
             <ContactCTAButton
               buttonClassName="hp-btn-primary"
-              microcopy="Sempre un forte piacere conoscere nuovi contesti."
+              microcopy="Ho sempre un grande interesse nel conoscere nuovi contesti."
               align="center"
             />
           </div>
@@ -1480,7 +1485,7 @@ export default function HomePage() {
           </div>
           <ContactCTAButton
             buttonClassName="hp-btn-primary"
-            microcopy="Sempre un forte piacere conoscere nuovi contesti."
+            microcopy="Ho sempre un grande interesse nel conoscere nuovi contesti."
             align="center"
           />
         </div>

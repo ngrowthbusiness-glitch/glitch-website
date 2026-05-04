@@ -95,7 +95,9 @@ export default function HeroGlitchTagline() {
           font-weight: 600;
           position: relative;
           display: inline-block;
-          min-width: 1ch;
+          min-width: 175px;
+          white-space: nowrap;
+          text-align: left;
           font-variant-numeric: tabular-nums;
         }
         .hg-dynamic.glitching {
@@ -130,11 +132,15 @@ export default function HeroGlitchTagline() {
           60% { transform: translate(1px, 1px); }
           75% { transform: translate(-1px, 0); }
         }
+        @media (max-width: 900px) {
+          .hg-dynamic { min-width: 158px; }
+        }
         @media (max-width: 480px) {
           .hg-tagline-mount {
             font-size: 12px;
           }
           .hg-static { font-size: 11px; letter-spacing: 1.5px; }
+          .hg-dynamic { min-width: 148px; }
         }
       `}</style>
       <span className="hg-tagline-mount" aria-live="polite">

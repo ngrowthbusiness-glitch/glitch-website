@@ -25,7 +25,7 @@ type Props = {
  */
 export default function ContactCTAButton({
   label = "Approfitta di 15 minuti del mio tempo",
-  microcopy = "Sempre un forte piacere conoscere nuovi contesti.",
+  microcopy = "Ho sempre un grande interesse nel conoscere nuovi contesti.",
   variant = "primary",
   align = "left",
   buttonClassName,
@@ -159,10 +159,20 @@ export default function ContactCTAButton({
           font-size: 11px; color: var(--text-dim);
           line-height: 1.55;
         }
+        /* Su mobile: forziamo center anche se data-align="left",
+           e diamo più respiro tra bottone e microcopy */
+        @media (max-width: 900px) {
+          .ccta-wrap[data-align="left"] {
+            align-items: center; text-align: center;
+          }
+          .ccta-wrap { gap: 14px; }
+          .ccta-microcopy { max-width: 320px; font-size: 13px; line-height: 1.5; }
+        }
         @media (max-width: 480px) {
           .ccta-modal-card { padding: 32px 22px 24px; }
           .ccta-modal-title { font-size: 19px; }
           .ccta-modal-close { top: 10px; right: 10px; width: 30px; height: 30px; }
+          .ccta-microcopy { font-size: 12.5px; }
         }
       `}</style>
 
