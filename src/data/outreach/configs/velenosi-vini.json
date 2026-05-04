@@ -13,27 +13,32 @@
 
   "hero": {
     "eyebrow": "ANALISI PRIVATA · VELENOSI VINI",
-    "headline": "Vi conosco da fuori. Mi farebbe piacere conoscervi anche di persona.",
-    "subheadline": "Mi chiedevo se, ad oggi, una figura che vi aiuti ad amplificare il vostro posizionamento online vi possa interessare.",
+    "headline": "Sono Nicola, marchigiano, e ho una passione: lavorare con aziende come la vostra.",
+    "subheadline": "Ho passato qualche ora dentro il vostro mercato. Vorrei dedicarvi mezz'ora di chiacchierata, senza pitch.",
     "signature": "Nicola Serrao · Fractional CMO",
     "videoUrl": "https://www.youtube.com/embed/Pr3le_w6D1Q?rel=0&modestbranding=1&playsinline=1",
     "videoAspect": "9/16"
   },
 
   "closing": {
-    "title": "DUE PAROLE PRIMA DELLA CALL",
-    "introNote": "Niente analisi puntuali in questa pagina. Quelle me le tengo per la chiacchierata, se ti va. Solo due parole su perché ti scrivo."
+    "title": "COSA PUÒ SUCCEDERE IN MEZZ'ORA CON ME",
+    "introNote": "Niente PowerPoint, niente preventivo già pronto. Una chiacchierata vera. Ti racconto cosa puoi portare a casa."
   },
 
   "observations": [
     {
-      "label": "01 · PERCHÉ",
-      "title": "Sono interessato a voi, non sono a caccia.",
-      "body": "Sono un marketing manager con la passione di poter lavorare con aziende che stimolano il mio interesse, e Velenosi è una di queste.\n\nNon c'è una vendita dietro questa pagina. Quello che mi piacerebbe è entrare un po' più dentro la vostra situazione, fare un breve brainstorming su quali sono i vostri obiettivi e capire insieme se da fuori posso essere di aiuto.\n\nSe ti risuona, ne parliamo. Altrimenti grazie comunque del tempo."
+      "label": "01 · IL PUNTO DI VISTA DA FUORI",
+      "title": "Una lettura del vostro mercato e del vostro digital, fatta da fuori.",
+      "body": "Niente di banale, niente di generico. Cose specifiche che ho visto io dopo qualche ora a studiarle.\n\nSono ipotesi, non sentenze. Se mi smentisci, anche meglio."
+    },
+    {
+      "label": "02 · QUELLO CHE È SUL PIATTO",
+      "title": "Le 2 o 3 cose che, dal mio punto di vista, oggi sono lasciate sul piatto.",
+      "body": "Quando si sta dentro un'azienda da anni, capita di non vedere alcune cose che da fuori sono evidenti. Te le dico.\n\nMagari le state già facendo. Oppure sono quei quick win semplici ma impattanti che, sommati, fanno una differenza vera."
     }
   ],
 
-  "conditions": "Lavoro con massimo 3 clienti alla volta. La call non è una vendita, è una chiacchierata con qualcuno che ha appena studiato a fondo il vostro mercato. Sono caldo sull'argomento, ho idee fresche.\n\nPer voi: un punto di vista da professionista, gratuito. Per me: l'occasione di conoscere persone interessanti. Tutto qui.",
+  "conditions": "Lavoro con un massimo di 5 clienti alla volta. C'è una vendita dietro questa pagina? Certo, perché no, siamo nel business. Ma solo se ci sono le condizioni, solo se vogliamo raggiungere insieme gli obiettivi giusti.\n\nPer voi: un punto di vista da professionista, gratuito. Per me: l'occasione di conoscere persone interessanti. Tutto qui.",
 
   "cta": {
     "primaryText": "Conosciamoci",
