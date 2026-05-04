@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { SITE } from "@/lib/constants";
 
 export default function BrainCompanySection() {
@@ -593,25 +594,20 @@ export default function BrainCompanySection() {
               </div>
             </div>
 
-            {/* Colonna destra: immagine cervello (filtrata per togliere sfondo bianco) */}
+            {/* Colonna destra: immagine cervello (PNG con sfondo già trasparente) */}
             <div className="bc-image-wrap">
-              <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <defs>
-                  <filter id="killWhiteBC">
-                    <feColorMatrix type="matrix" values="
-                      1 0 0 0 0
-                      0 1 0 0 0
-                      0 0 1 0 0
-                      -3 -3 -3 1 3" />
-                  </filter>
-                </defs>
-                <image
-                  href="/images/Brain%20Company%20full.png"
-                  x="0" y="0" width="500" height="400"
-                  preserveAspectRatio="xMidYMid meet"
-                  filter="url(#killWhiteBC)"
-                />
-              </svg>
+              <Image
+                src="/images/Brain Company full.png"
+                alt="Brain Company — cervello AI stilizzato"
+                width={1000}
+                height={800}
+                priority={false}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "contain",
+                }}
+              />
             </div>
           </div>
         </div>
