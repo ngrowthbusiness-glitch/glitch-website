@@ -222,15 +222,19 @@ function NicolaContactSection({ config }: { config: OutreachConfig }) {
           </div>
         )}
 
-        <div className="o-nicola__cond">
-          <div className="o-nicola__cond-eyebrow">Conosciamoci</div>
-          <h2 className="o-nicola__cond-title">
+        {/* Box CTA finale — IDENTICA alla home page (.hp-cta hp-cta-final) */}
+        <div className="hp-cta hp-cta-final">
+          <div className="hp-cta-eyebrow">Conosciamoci</div>
+
+          <h2 className="hp-h2" style={{ position: "relative", marginBottom: "20px" }}>
             20 minuti.<br />Ne usciamo con <em>ordine e chiarezza</em>.
           </h2>
-          <p className="o-nicola__cond-honest">
+
+          <p className="hp-cta-honest">
             &ldquo;Se ti dicessi che dietro non c&apos;&egrave; una vendita, ti mentirei. Ma non &egrave; proprio cos&igrave; che funziona con me.&rdquo;
           </p>
-          <div className="o-nicola__cond-explainer">
+
+          <div className="hp-cta-explainer">
             <p>
               Faccio call con chi vuole una <strong>reale consulenza</strong>, non con chi cerca un preventivo. Mi racconti dove sei e dove vuoi arrivare. Io ti dico onestamente <strong>se posso esserti utile, o se puoi farcela da solo</strong>.
             </p>
@@ -238,37 +242,39 @@ function NicolaContactSection({ config }: { config: OutreachConfig }) {
               &Egrave; controproducente per entrambi se ti vendo qualcosa che non ti serve.
             </p>
           </div>
-          <div className="o-nicola__cond-promise">
-            <div className="o-nicola__cond-promise-title">Cosa ricevi sempre, in 20 minuti:</div>
-            <ul className="o-nicola__cond-promise-list">
+
+          <div className="hp-cta-promise">
+            <div className="hp-cta-promise-title">Cosa ricevi sempre, in 20 minuti:</div>
+            <ul className="hp-cta-promise-list">
               <li>
-                <span className="o-nicola__cond-promise-key">Ordine</span>
-                <span className="o-nicola__cond-promise-val">sui passi successivi</span>
+                <span className="hp-cta-promise-key">Ordine</span>
+                <span className="hp-cta-promise-val">sui passi successivi</span>
               </li>
               <li>
-                <span className="o-nicola__cond-promise-key">Chiarezza</span>
-                <span className="o-nicola__cond-promise-val">sulle priorit&agrave;</span>
+                <span className="hp-cta-promise-key">Chiarezza</span>
+                <span className="hp-cta-promise-val">sulle priorit&agrave;</span>
               </li>
               <li>
-                <span className="o-nicola__cond-promise-key">Focus</span>
-                <span className="o-nicola__cond-promise-val">su cosa muove davvero i numeri</span>
+                <span className="hp-cta-promise-key">Focus</span>
+                <span className="hp-cta-promise-val">su cosa muove davvero i numeri</span>
               </li>
             </ul>
           </div>
-          <p className="o-nicola__cond-closing">
+
+          <p className="hp-cta-closing">
             Tu non vuoi questo ordine? Non vuoi questa chiarezza?
           </p>
-        </div>
 
-        <div className="o-nicola__cta">
-          <ContactCTAButton
-            label={cta.primaryText}
-            microcopy="Ho sempre un grande interesse nel conoscere nuovi contesti."
-            align="center"
-            buttonClassName="s-btn-primary"
-            emailHref={cta.emailHref}
-            whatsappHref={cta.phoneHref}
-          />
+          <div style={{ display: "flex", justifyContent: "center", position: "relative" }}>
+            <ContactCTAButton
+              label={cta.primaryText}
+              microcopy="Ho sempre un grande interesse nel conoscere nuovi contesti."
+              align="center"
+              buttonClassName="s-btn-primary"
+              emailHref={cta.emailHref}
+              whatsappHref={cta.phoneHref}
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -755,13 +761,13 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
       border-radius: 3px;
     }
     .o-obs {
-      flex: 0 0 clamp(280px, 32%, 360px);
-      min-width: 280px;
-      max-width: 380px;
+      flex: 0 0 clamp(340px, 42%, 460px);
+      min-width: 320px;
+      max-width: 480px;
       scroll-snap-align: start;
       border: 1px solid ${s.border};
       background: rgba(0, 0, 0, 0.02);
-      padding: 32px 28px;
+      padding: 44px 40px;
       display: flex;
       flex-direction: column;
     }
@@ -777,21 +783,20 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
     .o-obs__title {
       font-family: ${s.fontHeading};
       font-weight: ${s.headingWeight};
-      font-size: clamp(28px, 3.6vw, 48px);
-      line-height: 1.1;
+      font-size: clamp(22px, 2.4vw, 28px);
+      line-height: 1.25;
       letter-spacing: ${s.headingLetterSpacing};
       ${s.headingTransform === "uppercase" ? "text-transform: uppercase;" : ""}
       color: ${s.accent};
-      margin: 0 0 32px 0;
+      margin: 0 0 24px 0;
     }
     .o-obs__body p {
       font-family: ${s.fontBody};
       font-weight: ${s.bodyWeight};
-      font-size: 16px;
-      line-height: 1.75;
+      font-size: 15.5px;
+      line-height: 1.7;
       color: ${s.textSecondary};
-      margin: 0 0 18px 0;
-      max-width: 760px;
+      margin: 0 0 16px 0;
     }
     .o-obs__body p:last-child { margin-bottom: 0; }
 
@@ -805,7 +810,7 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
       box-sizing: border-box;
     }
     .o-nicola__inner {
-      max-width: 760px;
+      max-width: 1100px;
       margin: 0 auto;
       text-align: center;
     }
@@ -837,110 +842,120 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
       color: rgba(232, 245, 242, 0.78);
     }
 
-    /* Box conditions pattern home — stile Nicola */
-    .o-nicola__cond {
-      max-width: 680px;
-      margin: 0 auto 56px auto;
-      padding: 0;
+    /* ════════════════════════════════════════
+       Box CTA finale — IDENTICA alla home page
+       (copia di .hp-cta + .hp-cta-final + .hp-h2 da src/app/(site)/page.tsx)
+    ════════════════════════════════════════ */
+
+    .o-nicola .hp-cta {
+      border: 1px solid var(--teal-border); border-radius: 10px;
+      padding: 56px 48px; background: var(--teal-dim);
+      text-align: center; position: relative; overflow: hidden;
     }
-    .o-nicola__cond-eyebrow {
-      font-family: var(--font-dm-mono), 'Courier New', monospace;
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: #00fffc;
-      margin-bottom: 20px;
+    .o-nicola .hp-cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(0,255,252,0.06), transparent);
+      pointer-events: none;
     }
-    .o-nicola__cond-title {
-      font-family: var(--font-playfair), Georgia, serif;
+    .o-nicola .hp-cta-final { padding: 64px 56px; }
+    .o-nicola .hp-cta-eyebrow {
+      font-size: 10px; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--teal);
+      font-weight: 600; margin-bottom: 18px;
+      position: relative;
+    }
+    .o-nicola .hp-h2 {
+      font-family: var(--font-playfair), 'Playfair Display', serif;
+      font-size: clamp(26px, 3.5vw, 42px);
       font-weight: 700;
-      font-size: clamp(28px, 3.4vw, 42px);
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      color: #e8f5f2;
-      margin: 0 0 28px 0;
-    }
-    .o-nicola__cond-title em {
-      font-style: italic;
-      color: #00fffc;
-    }
-    .o-nicola__cond-honest {
-      font-family: var(--font-playfair), Georgia, serif;
-      font-style: italic;
-      font-size: 17px;
-      line-height: 1.6;
-      color: rgba(232, 245, 242, 0.78);
-      margin: 0 auto 28px auto;
-      max-width: 540px;
-    }
-    .o-nicola__cond-explainer p {
-      font-family: var(--font-dm-mono), 'Courier New', monospace;
-      font-size: 14px;
-      line-height: 1.8;
-      color: rgba(232, 245, 242, 0.78);
-      margin: 0 auto 14px auto;
-      max-width: 560px;
-    }
-    .o-nicola__cond-explainer p:last-child { margin-bottom: 0; }
-    .o-nicola__cond-explainer strong {
-      color: #e8f5f2;
-      font-weight: 600;
-    }
-    .o-nicola__cond-promise {
-      margin: 36px auto;
-      padding: 28px 0;
-      border-top: 1px solid rgba(0, 255, 252, 0.18);
-      border-bottom: 1px solid rgba(0, 255, 252, 0.18);
-      max-width: 480px;
-    }
-    .o-nicola__cond-promise-title {
-      font-family: var(--font-dm-mono), 'Courier New', monospace;
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: rgba(232, 245, 242, 0.5);
-      margin-bottom: 20px;
-    }
-    .o-nicola__cond-promise-list {
-      list-style: none;
-      padding: 0;
+      line-height: 1.15;
+      color: var(--text);
       margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      align-items: center;
     }
-    .o-nicola__cond-promise-list li {
-      font-family: var(--font-dm-mono), 'Courier New', monospace;
-      font-size: 14px;
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .o-nicola__cond-promise-key {
-      font-family: var(--font-playfair), Georgia, serif;
-      font-weight: 700;
-      color: #00fffc;
-      font-size: 18px;
-    }
-    .o-nicola__cond-promise-val {
-      color: rgba(232, 245, 242, 0.7);
-    }
-    .o-nicola__cond-closing {
-      font-family: var(--font-playfair), Georgia, serif;
+    .o-nicola .hp-h2 em { font-style: italic; color: var(--teal); }
+    .o-nicola .hp-cta-honest {
+      font-family: var(--font-playfair), 'Playfair Display', serif;
       font-style: italic;
-      font-size: 17px;
+      font-size: clamp(17px, 2vw, 22px);
       line-height: 1.5;
-      color: #e8f5f2;
-      margin: 28px auto 0 auto;
-      max-width: 520px;
+      color: var(--text);
+      max-width: 720px;
+      margin: 0 auto 32px;
+      position: relative;
+      padding: 18px 0;
+      border-top: 1px solid rgba(0,255,252,0.18);
+      border-bottom: 1px solid rgba(0,255,252,0.18);
     }
-    .o-nicola__cta {
-      margin-top: 32px;
+    .o-nicola .hp-cta-explainer {
+      max-width: 720px;
+      margin: 0 auto 32px;
+      position: relative;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .o-nicola .hp-cta-explainer p {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.7;
+      margin: 0;
+    }
+    .o-nicola .hp-cta-explainer strong {
+      color: var(--teal);
+      font-weight: 500;
+    }
+    .o-nicola .hp-cta-promise {
+      max-width: 600px;
+      margin: 0 auto 32px;
+      padding: 28px 32px;
+      border: 1px solid rgba(0,255,252,0.3);
+      border-radius: 12px;
+      background: rgba(0,255,252,0.05);
+      position: relative;
+      text-align: left;
+    }
+    .o-nicola .hp-cta-promise-title {
+      font-size: 11px; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--teal);
+      font-weight: 600; margin-bottom: 16px;
+      text-align: center;
+    }
+    .o-nicola .hp-cta-promise-list {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .o-nicola .hp-cta-promise-list li {
+      display: flex; align-items: baseline; gap: 14px;
+      padding-left: 22px; position: relative;
+    }
+    .o-nicola .hp-cta-promise-list li::before {
+      content: ""; position: absolute;
+      left: 0; top: 8px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 10px rgba(0,255,252,0.5);
+    }
+    .o-nicola .hp-cta-promise-key {
+      font-family: var(--font-playfair), 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--teal);
+      line-height: 1.2;
+      flex-shrink: 0;
+    }
+    .o-nicola .hp-cta-promise-val {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .o-nicola .hp-cta-closing {
+      font-family: var(--font-playfair), 'Playfair Display', serif;
+      font-size: clamp(18px, 2.2vw, 24px);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+      margin: 0 auto 28px;
+      max-width: 600px;
+      position: relative;
     }
 
     /* ============ FOOTER ============ */
@@ -1075,10 +1090,17 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
         padding: 80px 24px;
       }
       .o-observations { gap: 18px; padding-bottom: 18px; }
-      .o-obs { padding: 28px 22px; min-width: 260px; flex-basis: 86%; }
-      .o-nicola { padding: 80px 24px; }
+      .o-obs { padding: 36px 28px; min-width: 290px; flex-basis: 88%; max-width: 420px; }
+      .o-nicola { padding: 72px 24px; }
       .o-nicola__emotional { margin-bottom: 56px; }
-      .o-nicola__cond { margin-bottom: 40px; }
+      .o-nicola .hp-cta-final { padding: 48px 28px; }
+      .o-nicola .hp-cta-honest { font-size: 16px; padding: 14px 0; margin-bottom: 24px; }
+      .o-nicola .hp-cta-explainer { margin-bottom: 24px; }
+      .o-nicola .hp-cta-promise { padding: 22px 22px; margin-bottom: 24px; }
+      .o-nicola .hp-cta-promise-list li { flex-direction: column; gap: 2px; align-items: flex-start; }
+      .o-nicola .hp-cta-promise-key { font-size: 16px; }
+      .o-nicola .hp-cta-promise-val { font-size: 13px; }
+      .o-nicola .hp-cta-closing { font-size: 17px; margin-bottom: 22px; }
       .o-footer {
         padding: 40px 24px 24px;
       }
@@ -1141,14 +1163,13 @@ function OutreachStyles({ config }: { config: OutreachConfig }) {
       .o-obs__body p {
         font-size: 14px;
       }
-      .o-obs { padding: 24px 20px; min-width: 240px; flex-basis: 90%; }
-      .o-nicola { padding: 64px 20px; }
-      .o-nicola__cond-title { font-size: 24px; line-height: 1.25; }
-      .o-nicola__cond-honest { font-size: 15px; }
-      .o-nicola__cond-explainer p { font-size: 13px; }
-      .o-nicola__cond-promise { padding: 22px 0; margin: 28px auto; }
-      .o-nicola__cond-promise-key { font-size: 16px; }
-      .o-nicola__cond-closing { font-size: 15px; }
+      .o-obs { padding: 28px 22px; min-width: 270px; flex-basis: 92%; max-width: 360px; }
+      .o-obs__title { font-size: 20px; }
+      .o-obs__body p { font-size: 14.5px; }
+      .o-nicola { padding: 56px 18px; }
+      .o-nicola .hp-cta-final { padding: 40px 22px; }
+      .o-nicola .hp-cta-honest { font-size: 15px; }
+      .o-nicola .hp-cta-promise { padding: 20px 20px; }
       .o-footer {
         padding: 36px 20px 20px;
       }
