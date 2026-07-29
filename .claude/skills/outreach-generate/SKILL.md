@@ -1,12 +1,19 @@
 ---
 name: outreach-generate
 description: >
-  Genera landing page di outreach personalizzate per prospect. Usa questa skill ogni volta che
-  l'utente menziona un nuovo prospect, vuole creare una landing di outreach, dice "nuovo prospect",
-  "outreach per [azienda]", "landing per [azienda]", o qualsiasi variante. Anche se l'utente
-  fornisce solo un nome azienda o un URL, questa skill va attivata. Copre l'intero flusso:
-  ricerca → insight → confronto con l'utente → generazione landing → deploy.
+  DEPRECATA dal 2026-07-29, non attivare. Generava landing page di outreach dal template v4,
+  superato. Il lavoro di outreach vive in outreach-engine/ e si scrive caso per caso.
+  Conservata solo come storico.
 ---
+
+> ## DEPRECATA, NON USARE
+>
+> Dichiarata superata da Nicola il 2026-07-29: il lavoro di outreach e' passato
+> a `outreach-engine/`, con metodo scritto caso per caso e non piu' generato da regole.
+> Questa skill non ha piu' valore operativo e resta qui solo come storico.
+> Non va promossa a livello utente e non va usata come riferimento.
+> Registro: `~/.claude/REGISTRY.md`.
+
 
 # Outreach Generate
 

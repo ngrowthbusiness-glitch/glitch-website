@@ -1,3 +1,11 @@
+> ## MIGRATA A LIVELLO UTENTE
+>
+> Dal 2026-07-29 questa skill vive in `~/.claude/skills/brain-setup/` ed e' disponibile
+> in ogni progetto (il Brain Company si installa dai clienti, quindi serve fuori da qui).
+> Questa copia e' rimasta solo in attesa della verifica da un altro progetto: una volta
+> confermata, si cancella. Non modificarla: le modifiche vanno fatte sulla copia utente.
+> Registro: `~/.claude/REGISTRY.md`.
+
 # /brain-setup — Setup Brain Company per cliente
 
 Configura un progetto AI completo (Brain Company) per un nuovo cliente di Nicola. Include interviste, struttura Claude Project, Notion workspace e integrazioni.

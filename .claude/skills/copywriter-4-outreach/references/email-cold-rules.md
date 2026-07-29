@@ -1,5 +1,35 @@
 # Regole per la mail di primo contatto (cold email)
 
+> ## ⛔ SUPERATO — NON USARE PER NUOVE MAIL
+>
+> **Queste regole hanno prodotto 10 landing e 0 conversioni.** Sono state esplicitamente
+> smentite da `outreach-engine/PIANO.md` (24/06/2026), scritto due mesi dopo questo file.
+>
+> Cosa è stato bocciato, nello specifico:
+>
+> | Regola qui dentro | Perché è stata abbandonata |
+> |---|---|
+> | "La mail è il ponte verso la pagina, deve solo far cliccare il link" | La landing su misura per ogni freddo è uno spreco: diventa la ricompensa per chi risponde, non il primo passo |
+> | Regola 5 — "Curiosità, non svelamento" | Per un imprenditore scettico = profumo di agenzia. Contraddice il posizionamento "medico, dimostro competenza con le azioni" |
+> | Regola 9 — CTA unica = link alla landing | Il primo contatto punta alla **risposta**, non al click |
+>
+> **La strategia attuale:** valore reale e verificabile dentro la mail stessa (l'insight della
+> diagnosi), landing solo a T2 dopo una risposta. Vedi `PIANO.md` §1-2.
+>
+> **Il nuovo primo contatto è in costruzione caso per caso**, non da regole scritte a tavolino:
+> si scrive a mano prospect per prospect, si osserva cosa ottiene risposta, e solo dopo decine
+> di casi si estraggono i pattern. È lo stesso motivo per cui questo file va lasciato fermo:
+> era teoria, e la teoria ha fatto 0/10.
+>
+> Cosa resta valido anche nel nuovo modello: Regola 1 (personalizzazione al millimetro),
+> Regola 6 (body breve), Regola 7 (why — perché a loro, perché oggi), Regola 10 (firma che
+> sostituisce l'autopresentazione). Il resto è legato alla strategia vecchia.
+
+---
+
+<details>
+<summary>Contenuto storico (conservato come riferimento di cosa NON ha funzionato)</summary>
+
 > La mail e il ponte verso la pagina. Non deve vendere niente, non deve convincere. Deve fare solo una cosa: far cliccare il link. Il resto lo fa la pagina + il video.
 
 ---
@@ -236,3 +266,5 @@ nicolaserrao.com · +39 338 5691369
 7. Ho **promesse numeriche** inventate? (toglile tutte)
 8. Il tono e **peer-to-peer**? (niente "vorrei proporvi", niente "avrei il piacere")
 9. Se mandassi questa mail a 10 prospect diversi cambiando solo il nome, funzionerebbe? (se si, e da riscrivere — deve essere ultra-personalizzata)
+
+</details>

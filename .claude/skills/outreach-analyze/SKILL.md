@@ -1,3 +1,11 @@
+> ## DEPRECATA, NON USARE
+>
+> Dichiarata superata da Nicola il 2026-07-29: il lavoro di outreach e' passato
+> a `outreach-engine/`, con metodo scritto caso per caso e non piu' generato da regole.
+> Questa skill non ha piu' valore operativo e resta qui solo come storico.
+> Non va promossa a livello utente e non va usata come riferimento.
+> Registro: `~/.claude/REGISTRY.md`.
+
 # /outreach-analyze — Analisi completa prospect
 
 Analizza un prospect per preparare un outreach personalizzato. Prende come input il nome dell'azienda e/o URL del sito web.

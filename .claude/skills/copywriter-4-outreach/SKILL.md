@@ -12,12 +12,32 @@ description: >
 
 # Copywriter 4.0 Outreach
 
+> ## ⚠️ La parte "mail di primo contatto" è SOSPESA
+>
+> **Non generare mail di primo contatto con questa skill.** L'impianto cold-email qui dentro
+> ha prodotto 10 landing e 0 conversioni, ed è stato smentito da `outreach-engine/PIANO.md`
+> (24/06/2026): il primo contatto ora dà **valore reale upfront** e punta alla **risposta**,
+> non al click verso una landing.
+>
+> Il nuovo primo contatto si sta costruendo **caso per caso, a mano**, prospect per prospect,
+> partendo dalle diagnosi di Polipo (`outreach-engine/polipo/`). I pattern si estrarranno solo
+> dopo decine di casi reali e di risposte osservate. Finché non esistono, non c'è una regola
+> da applicare — ed è voluto: la versione precedente nasceva da regole scritte a tavolino.
+>
+> Se serve una mail di primo contatto: si scrive insieme, non si genera.
+>
+> **Resta utilizzabile** il resto della skill (headline, copy pagina, follow-up), tenendo conto
+> che anche lì la landing non è più il primo passo ma la ricompensa per chi ha risposto.
+
 Skill verticale per la produzione di copy dell'outreach 1:1 di Nicola Serrao. Vive dentro il progetto nicolaserrao.com, non ha dipendenze da Layer 0 (avatar/funnel/mechanism) come il Copywriter 4.0 mainstream.
 
 ## Filosofia in 2 frasi
 
-1. **Approccio, non soluzione.** MAI svelare il COME. Solo il COSA e l'APPROCCIO. Se il prospect puo "risolvere da solo" dopo aver letto, hai rivelato troppo.
-2. **Dottore, non venditore.** Nicola diagnostica, non vende. La call e il valore (un punto di vista onesto, gratuito). La vendita non e nella pagina ne nella mail — e nella call.
+1. ~~**Approccio, non soluzione.** MAI svelare il COME.~~ — **SUPERATO.** Per un imprenditore
+   scettico il non-svelamento sa di agenzia. Ora si dà l'insight vero e verificabile subito:
+   è la dimostrazione di competenza, e la competenza non si esaurisce svelandola.
+2. **Dottore, non venditore.** Nicola diagnostica, non vende. — **Sempre valido**, anzi
+   rafforzato: il piano lo chiama "medico, dimostro competenza con le azioni".
 
 Vedi `references/copy-philosophy.md` per i 7 principi completi.
 
