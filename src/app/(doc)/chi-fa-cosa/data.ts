@@ -65,6 +65,14 @@ export const STAGES: { id: StageId; n: string; label: string; claim: string }[] 
   },
 ];
 
+/* Il limite che regge la credibilita' di tutto il resto:
+   non e' la competenza, e' quante cose insieme. */
+export const SIMULTANEITA = {
+  label: "Il limite, detto adesso",
+  body: "Posso coprire tutte queste aree. Non tutte nello stesso momento. Il vincolo non sono le competenze: è il numero di cantieri che restano aperti insieme. Se ne apriamo cinque, restano tutti e cinque a metà. Se ne apriamo due, si chiudono e si passa ai successivi.",
+  link: "Quante mani servono, e quando una persona sola non basta più",
+};
+
 export const BASE_STAGE = {
   id: "base" as StageId,
   label: "I due pilastri",
@@ -646,6 +654,97 @@ export const BREAKS: Break[] = [
     note: "Punta breve e voluta. Prima la checklist di pre-volo, durante non si tocca niente per settantadue ore, dopo il punto a mente fredda.",
   },
 ];
+
+/* ─────────────────────────────────────────────
+   VISTA 3 — QUANTE MANI
+───────────────────────────────────────────── */
+
+export const HANDS_INTRO =
+  "La mappa non cambia mai: quelle aree servono a un business da centomila euro come a uno da tre milioni. Quello che cambia è quante persone ci stanno sopra. E a farlo cambiare sono due cose diverse, che vale la pena non confondere.";
+
+export const MOTORS: { label: string; claim: string; body: string }[] = [
+  {
+    label: "La fretta",
+    claim: "Vuoi aprire più fronti adesso, perché c'è una finestra da prendere.",
+    body: "Il fatturato può anche essere piccolo. Quello che ti serve non è una competenza in più: sono più mani nello stesso mese. Un lancio, una stagione, un canale nuovo da aprire mentre gli altri continuano a girare.",
+  },
+  {
+    label: "La dimensione",
+    claim: "Più fatturato non vuol dire più aree. Vuol dire più conseguenze per ogni azione.",
+    body: "Sotto una certa soglia cambi un prezzo e hai cambiato un prezzo. Sopra, la stessa mossa si propaga su mezzo business nello stesso giorno, perché il traffico non si ferma ad aspettare che tu finisca.",
+  },
+];
+
+export const CHAIN = {
+  action: "Cambi un prezzo",
+  small: { label: "Sotto una certa dimensione", targets: ["Il prezzo sul sito"] },
+  big: {
+    label: "Più avanti, la stessa mossa",
+    targets: ["Catalogo", "Feed prodotti", "Campagne attive", "Flussi CRM", "Assistenza clienti", "Magazzino"],
+  },
+  note: "Nessuna di queste è un'area nuova: sono tutte già sulla mappa. Quello che cambia è che vanno toccate insieme, e in giornata.",
+};
+
+export type Config = {
+  n: string;
+  heads: string;
+  label: string;
+  who: string[];
+  role: string;
+  note: string;
+};
+
+export const CONFIGS: Config[] = [
+  {
+    n: "01",
+    heads: "Una testa, tre paia di mani",
+    label: "Nessuno a tempo pieno",
+    who: [
+      "Io, su tutte le aree del percorso",
+      "Chi gestisce i social e la community",
+      "Chi risponde ai clienti",
+      "Chi produce creatività, video e foto",
+    ],
+    role: "Decido, costruisco e metto in aria io la maggior parte delle cose. Le tre figure intorno servono poche ore a settimana ciascuna, e quasi mai sono assunzioni: sono persone che già hai, o commesse esterne.",
+    note: "È la configurazione della maggior parte dei progetti con cui lavoro, ed è quella descritta in tutto il resto di questa pagina.",
+  },
+  {
+    n: "02",
+    heads: "Tre o quattro persone",
+    label: "Quando vuoi accelerare",
+    who: [
+      "Io, sulla direzione e sui pezzi dove sbagliare costa di più",
+      "Chi esegue sulle campagne",
+      "Chi produce contenuti e creatività in continuo",
+      "Chi mette mano al sito quando serve",
+    ],
+    role: "Mi sposto: meno esecuzione, più conduzione, brief scritti e controllo di quello che torna indietro. Continuo a mettere le mani, ma scelgo dove, e non è più dappertutto.",
+    note: "Serve quando i cantieri da chiudere nello stesso mese diventano più di due, o quando un canale nuovo deve partire mentre gli altri continuano a girare.",
+  },
+  {
+    n: "03",
+    heads: "Un team con ruoli fissi",
+    label: "Sopra una certa dimensione",
+    who: [
+      "Persone dedicate, interne o di agenzia, con un ruolo stabile",
+      "Io come chi lo dirige e ne risponde",
+    ],
+    role: "Qui il mestiere è dirigere, non fare. Scelgo le persone, scrivo cosa devono fare, leggo i numeri e rispondo del risultato davanti a te.",
+    note: "E se il team che ti serve è più grande di quello che posso condurre bene da solo, è una cosa che ti dico prima di partire, non al quarto mese.",
+  },
+];
+
+export const SIGNALS: string[] = [
+  "Hai più di due cantieri che devono chiudere nello stesso mese",
+  "Una modifica al catalogo tocca feed, campagne e assistenza in giornata",
+  "Le creatività si consumano più in fretta di quanto riesci a produrle",
+  "Ci sono decisioni ferme da più di una settimana perché nessuno ha il tempo di prepararle",
+  "Hai canali aperti che nessuno guarda da un mese",
+  "L'assistenza risponde in ritardo, e ha iniziato a vedersi nelle recensioni",
+];
+
+export const SIGNALS_NOTE =
+  "Se te ne riconosci tre, una persona sola non ti basta più. Non è un problema ed è meglio saperlo adesso: si parte già con la configurazione giusta, invece di scoprire al quarto mese che il collo di bottiglia sono io.";
 
 /* ─────────────────────────────────────────────
    FAQ
