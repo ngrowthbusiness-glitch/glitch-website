@@ -5,28 +5,26 @@ import {
   AREAS,
   BASE_STAGE,
   BREAKS,
-  CHAIN,
-  CONFIGS,
   CYCLE_LOAD,
   EFFORTS,
   EFFORT_NEST,
   FAQ,
-  HANDS_INTRO,
   MODES,
   MONTH,
   MONTH_INTRO,
   MONTH_NOTE,
-  MOTORS,
   OPENING,
   RHYTHM_LABEL,
-  SIGNALS,
-  SIGNALS_NOTE,
+  SETUPS,
+  SETUPS_CLAIM,
+  SETUPS_LABEL,
   SIMULTANEITA,
   STAGES,
   WHO_LABEL,
   type Area,
   type Effort,
   type Mode,
+  type PersonIcon,
   type Rhythm,
   type StageId,
   type WeekIcon,
@@ -54,10 +52,16 @@ function EffortIcon({ id }: { id: Effort }) {
   );
 }
 
-const PATHS: Record<WeekIcon | "flag" | "loop" | "tap" | "clock" | "bolt" | "grow", string> = {
+type IconName = WeekIcon | PersonIcon | "flag" | "loop" | "tap" | "clock";
+
+const PATHS: Record<IconName, string> = {
   clock: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z",
-  bolt: "M11 21h-1l1-7H6.5c-.88 0-.33-.75-.31-.78C8.48 9.19 11.02 4.79 13.5.5h1l-1 7h4.5c.4 0 .62.19.4.66C13.98 14.53 11 21 11 21z",
-  grow: "M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z",
+  person: "M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z",
+  camera: "M9 2 7.17 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-3.17L15 2H9zm3 15a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z",
+  megaphone: "M18 11v2h4v-2h-4zm-2 6.6c.96.71 2.21 1.65 3.2 2.4.4-.53.8-1.07 1.2-1.6-.99-.74-2.24-1.68-3.2-2.4-.4.54-.8 1.07-1.2 1.6zM20.4 5.6c-.4-.53-.8-1.07-1.2-1.6-.99.75-2.24 1.69-3.2 2.4.4.53.8 1.07 1.2 1.6.96-.72 2.21-1.65 3.2-2.4zM4 9c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h1v4h2v-4h1l5 3V6L8 9H4zm11.5 3c0-1.33-.58-2.53-1.5-3.35v6.69c.92-.81 1.5-2.01 1.5-3.34z",
+  palette: "M12 22a1 1 0 0 0 1-1 1 1 0 0 0-.25-.66 1 1 0 0 1-.24-.65c0-.55.45-1 1-1H15c3.31 0 6-2.69 6-6 0-4.42-4.03-8-9-8s-9 3.58-9 8 4.03 8 9 8zM6.5 13a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3-4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3 4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z",
+  code: "M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0 4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z",
+  headset: "M21 12.22C21 6.73 16.74 3 12 3c-4.69 0-9 3.65-9 9.28-.6.34-1 .98-1 1.72v2c0 1.1.9 2 2 2h1v-6.1c0-3.87 3.13-7 7-7s7 3.13 7 7V19h-8v2h8c1.1 0 2-.9 2-2v-1.22c.59-.31 1-.92 1-1.64v-2.3c0-.7-.41-1.31-1-1.62zM9 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm6 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z",
   tap: "M9 11.24V7.5a2.5 2.5 0 0 1 5 0v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.44-.72c-.37-.08-.76.04-1.03.31l-.79.8 4.94 4.94c.27.27.65.43 1.04.43h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.09-.61-.23-1.2-.86-1.58z",
   call: "M20 15.5c-1.2 0-2.4-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2a15.1 15.1 0 0 1-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.4-1.1-.6-2.3-.6-3.5 0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z",
   check: "M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15-5-5 1.4-1.4L10 14.2l7.6-7.6L19 8z",
@@ -67,13 +71,7 @@ const PATHS: Record<WeekIcon | "flag" | "loop" | "tap" | "clock" | "bolt" | "gro
   loop: "M12 4V1L8 5l4 4V6c3.3 0 6 2.7 6 6 0 1-.3 2-.7 2.8l1.5 1.5C19.5 15.1 20 13.6 20 12c0-4.4-3.6-8-8-8zm0 14c-3.3 0-6-2.7-6-6 0-1 .3-2 .7-2.8L5.2 7.7C4.5 8.9 4 10.4 4 12c0 4.4 3.6 8 8 8v3l4-4-4-4v3z",
 };
 
-function Ico({
-  n,
-  s = 13,
-}: {
-  n: WeekIcon | "flag" | "loop" | "tap" | "clock" | "bolt" | "grow";
-  s?: number;
-}) {
+function Ico({ n, s = 13 }: { n: IconName; s?: number }) {
   return (
     <svg width={s} height={s} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d={PATHS[n]} />
@@ -93,7 +91,6 @@ const STAGE_ORDER: Record<StageId, string[]> = {
 const VIEWS = [
   { id: "percorso", label: "Il percorso", hint: "Tutto quello che serve, e chi se ne occupa pezzo per pezzo." },
   { id: "ritmo", label: "Il ritmo", hint: "Come funziona un mese normale: quando ci si sente e quando si consegna." },
-  { id: "mani", label: "Quante mani", hint: "Quando una persona sola basta, e quando invece non basta più." },
 ] as const;
 
 type View = (typeof VIEWS)[number]["id"];
@@ -103,6 +100,7 @@ export default function ChiFaCosa() {
   const [view, setView] = useState<View>("percorso");
   const [openId, setOpenId] = useState<string | null>(null);
   const [anchor, setAnchor] = useState<DOMRect | null>(null);
+  const [setup, setSetup] = useState<string>(SETUPS[0].id);
 
   const areas = useMemo(() => AREAS.filter((a) => a.modes.includes(mode)), [mode]);
   const open: Area | undefined = useMemo(
@@ -323,84 +321,50 @@ export default function ChiFaCosa() {
         }
         .cfc-sim-l { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-faint); display: block; margin-bottom: 8px; }
         .cfc-sim-b { font-size: 12.5px; color: var(--text-dim); line-height: 1.85; max-width: 760px; margin-bottom: 12px; }
-        .cfc-sim-a {
-          font-family: inherit; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
-          color: var(--teal); background: transparent; border: none; padding: 0; cursor: pointer;
-          display: inline-flex; align-items: center; gap: 7px; transition: gap .2s, opacity .2s;
-          text-align: left;
-        }
-        .cfc-sim-a::after { content: "\\2192"; }
-        .cfc-sim-a:hover { gap: 11px; opacity: .75; }
 
-        /* ── Quante mani: i due motori ── */
-        .cfc-mot { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 30px; }
-        .cfc-mot-c { border: 1px solid var(--teal-border); border-radius: 10px; padding: 26px 24px; background: rgba(0,255,252,0.03); }
-        .cfc-mot-i {
-          width: 34px; height: 34px; border-radius: 9px; margin-bottom: 14px;
+        /* ── Quante persone: le due configurazioni ── */
+        .cfc-set { margin-top: 34px; }
+        .cfc-set-h { margin-bottom: 18px; }
+        .cfc-set-h .cfc-base-c { display: block; margin-top: 8px; max-width: 780px; }
+        .cfc-set-body { animation: fadeUp .3s ease both; }
+        .cfc-set-count {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: 20px; font-weight: 700; color: var(--text);
+          line-height: 1.25; margin: 22px 0 8px;
+        }
+        .cfc-set-when { font-size: 12.5px; color: var(--text-dim); line-height: 1.85; max-width: 780px; margin-bottom: 22px; }
+        .cfc-set-note {
+          font-size: 12.5px; color: var(--text-dim); line-height: 1.85;
+          margin-top: 18px; padding-left: 16px;
+          border-left: 2px solid var(--teal-border); max-width: 800px;
+        }
+
+        .cfc-crew { display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: 10px; }
+        .cfc-crew-c {
+          position: relative; display: flex; flex-direction: column; gap: 9px;
+          border: 1px solid rgba(232,245,242,0.10); border-radius: 10px;
+          padding: 20px 18px 18px; background: rgba(232,245,242,0.02);
+        }
+        .cfc-crew-c[data-me="1"] { border-color: var(--teal); background: rgba(0,255,252,0.07); box-shadow: 0 0 22px rgba(0,255,252,.10); }
+        .cfc-crew-c[data-soft="1"] { border-style: dashed; border-color: rgba(232,245,242,0.16); background: transparent; opacity: .78; }
+        .cfc-crew-i {
+          width: 40px; height: 40px; border-radius: 50%;
           display: flex; align-items: center; justify-content: center;
           border: 1px solid var(--teal-border); color: var(--teal); background: var(--teal-dim);
         }
-        .cfc-mot-q { font-size: 13px; color: var(--text); opacity: .9; line-height: 1.7; margin-bottom: 10px; }
-        .cfc-mot-b { font-size: 12.5px; color: var(--text-dim); line-height: 1.8; }
-
-        /* ── La reazione a catena ── */
-        .cfc-chain { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; align-items: start; }
-        .cfc-chain-c { border: 1px solid rgba(232,245,242,0.09); border-radius: 10px; padding: 22px 22px 24px; background: rgba(232,245,242,0.02); }
-        .cfc-chain-c[data-big="1"] { border-color: var(--teal-border); background: rgba(0,255,252,0.04); }
-        .cfc-chain-h { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-faint); display: block; margin-bottom: 18px; }
-        .cfc-chain-c[data-big="1"] .cfc-chain-h { color: var(--teal); }
-        .cfc-chain-row { display: flex; align-items: center; }
-        .cfc-chain-node {
-          flex-shrink: 0; font-size: 11.5px; color: var(--text);
-          border: 1px solid var(--teal); border-radius: 7px;
-          padding: 9px 12px; background: rgba(0,255,252,0.10); white-space: nowrap;
+        .cfc-crew-c[data-me="1"] .cfc-crew-i { border-color: var(--teal); background: rgba(0,255,252,0.16); box-shadow: 0 0 16px rgba(0,255,252,.25); }
+        .cfc-crew-c[data-soft="1"] .cfc-crew-i { border-style: dashed; border-color: rgba(232,245,242,0.20); color: var(--text-faint); background: transparent; }
+        .cfc-crew-r {
+          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-size: 16px; font-weight: 700; color: var(--text); line-height: 1.2;
         }
-        .cfc-chain-out { position: relative; padding-left: 34px; display: flex; flex-direction: column; gap: 7px; flex: 1; }
-        .cfc-chain-out::before {
-          content: ""; position: absolute; left: 17px; top: 13px; bottom: 13px;
-          border-left: 1px dashed rgba(0,255,252,0.35);
+        .cfc-crew-n { font-size: 11.5px; color: var(--text-dim); line-height: 1.65; }
+        .cfc-crew-tag {
+          position: absolute; top: 14px; right: 14px;
+          font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase;
+          color: var(--text-faint);
         }
-        .cfc-chain-chip {
-          position: relative; font-size: 11px; color: var(--text-dim);
-          border: 1px solid rgba(232,245,242,0.12); border-radius: 20px;
-          padding: 5px 11px; background: rgba(10,14,13,0.7); align-self: flex-start;
-        }
-        .cfc-chain-chip::before {
-          content: ""; position: absolute; left: -17px; top: 50%;
-          width: 17px; height: 1px; background: rgba(0,255,252,0.35);
-        }
-        .cfc-chain-note {
-          font-size: 12px; color: var(--text-dim); line-height: 1.85;
-          margin: 16px 0 48px; padding-left: 16px;
-          border-left: 2px solid var(--teal-border); max-width: 780px;
-        }
-
-        /* ── Le tre configurazioni ── */
-        .cfc-cfg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 52px; }
-        .cfc-cfg-c { border: 1px solid rgba(232,245,242,0.08); border-radius: 10px; padding: 24px 22px; background: rgba(232,245,242,0.02); display: flex; flex-direction: column; }
-        .cfc-cfg-c[data-on="1"] { border-color: var(--teal-border); background: rgba(0,255,252,0.04); }
-        .cfc-cfg-top { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
-        .cfc-cfg-n { font-family: var(--font-dm-mono), 'DM Mono', monospace; font-size: 9px; letter-spacing: 2.5px; color: var(--teal); opacity: .6; }
-        .cfc-cfg-lab { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-faint); }
-        .cfc-cfg-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
-        .cfc-cfg-li { font-size: 12px; color: var(--text); opacity: .88; line-height: 1.6; padding-left: 15px; position: relative; }
-        .cfc-cfg-li::before { content: ""; position: absolute; left: 0; top: 7px; width: 5px; height: 5px; border-radius: 1px; background: var(--teal); opacity: .7; }
-        .cfc-cfg-note { font-size: 11.5px; color: var(--text-faint); line-height: 1.75; margin-top: auto; }
-
-        /* ── I segnali ── */
-        .cfc-sig { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .cfc-sig-i {
-          display: flex; align-items: flex-start; gap: 12px;
-          border: 1px solid rgba(232,245,242,0.09); border-radius: 9px;
-          padding: 15px 17px; background: rgba(232,245,242,0.02);
-        }
-        .cfc-sig-b { width: 13px; height: 13px; border-radius: 3px; border: 1px solid var(--teal-border); flex-shrink: 0; margin-top: 3px; }
-        .cfc-sig-t { font-size: 12.5px; color: var(--text); opacity: .9; line-height: 1.7; }
-        .cfc-sig-note {
-          font-size: 12.5px; color: var(--text-dim); line-height: 1.85;
-          margin-top: 20px; padding-left: 16px;
-          border-left: 2px solid var(--teal); max-width: 800px;
-        }
+        .cfc-crew-tag[data-me="1"] { color: var(--teal); opacity: .8; }
 
         /* ── Modale ── */
         .cfc-back {
@@ -593,7 +557,7 @@ export default function ChiFaCosa() {
           .cfc-fn-col { border-left: 1px solid var(--teal-border); padding-left: 18px; }
           .cfc-mo-grid, .cfc-tl-grid { grid-template-columns: repeat(2, 1fr); }
           .cfc-mo-rail, .cfc-arc { display: none; }
-          .cfc-cfg { grid-template-columns: 1fr; }
+          .cfc-crew { grid-template-columns: repeat(3, 1fr); }
         }
         @media (max-width: 860px) {
           .cfc-pop { border-radius: 14px 14px 0 0; animation: cfcup .22s ease both; transform: none !important; }
@@ -602,11 +566,11 @@ export default function ChiFaCosa() {
           .cfc-hero-sub { font-size: 15.5px; }
           .cfc-fn-cols { grid-template-columns: 1fr; }
           .cfc-base-list, .cfc-mo-grid, .cfc-tl-grid, .cfc-brk { grid-template-columns: 1fr; }
-          .cfc-mot, .cfc-chain, .cfc-sig { grid-template-columns: 1fr; }
+          .cfc-crew { grid-template-columns: repeat(2, 1fr); }
           .cfc-sim { grid-template-columns: 1fr; }
-          .cfc-sim-b, .cfc-mot-b, .cfc-mot-q, .cfc-chain-note, .cfc-sig-t, .cfc-sig-note, .cfc-cfg-li { font-size: 14px; }
-          .cfc-chain-chip, .cfc-chain-node { font-size: 13px; }
-          .cfc-cfg-note { font-size: 13px; }
+          .cfc-sim-b, .cfc-set-when, .cfc-set-note { font-size: 14px; }
+          .cfc-crew-n { font-size: 13px; }
+          .cfc-set-count { font-size: 19px; }
           .cfc-open { grid-template-columns: 1fr; }
           .cfc-open-side { flex-direction: row; justify-content: flex-start; padding: 16px 22px; border-right: none; border-bottom: 1px solid var(--teal-border); }
           .cfc-open-badge { writing-mode: horizontal-tb; transform: none; }
@@ -785,11 +749,64 @@ export default function ChiFaCosa() {
                 </span>
                 <div>
                   <span className="cfc-sim-l">{SIMULTANEITA.label}</span>
-                  <p className="cfc-sim-b">{SIMULTANEITA.body}</p>
-                  <button type="button" className="cfc-sim-a" onClick={() => setView("mani")}>
-                    {SIMULTANEITA.link}
-                  </button>
+                  <p className="cfc-sim-b" style={{ marginBottom: 0 }}>
+                    {SIMULTANEITA.body}
+                  </p>
                 </div>
+              </div>
+
+              {/* quante persone servono: due configurazioni, uno switch */}
+              <div className="cfc-set">
+                <div className="cfc-set-h">
+                  <span className="cfc-base-t">{SETUPS_LABEL}</span>
+                  <span className="cfc-base-c">{SETUPS_CLAIM}</span>
+                </div>
+
+                <div className="cfc-seg" role="tablist" aria-label="Configurazione">
+                  {SETUPS.map((s) => (
+                    <button
+                      key={s.id}
+                      type="button"
+                      role="tab"
+                      aria-selected={setup === s.id}
+                      data-on={setup === s.id ? "1" : "0"}
+                      onClick={() => setSetup(s.id)}
+                    >
+                      {s.label}
+                    </button>
+                  ))}
+                </div>
+
+                {SETUPS.filter((s) => s.id === setup).map((s) => (
+                  <div className="cfc-set-body" key={s.id}>
+                    <div className="cfc-set-count">{s.count}</div>
+                    <p className="cfc-set-when">{s.when}</p>
+
+                    <div className="cfc-crew">
+                      {s.people.map((p) => (
+                        <div
+                          className="cfc-crew-c"
+                          key={p.role}
+                          data-me={p.me ? "1" : "0"}
+                          data-soft={p.soft ? "1" : "0"}
+                        >
+                          <span className="cfc-crew-i">
+                            <Ico n={p.icon} s={20} />
+                          </span>
+                          <span className="cfc-crew-r">{p.role}</span>
+                          <span className="cfc-crew-n">{p.note}</span>
+                          {(p.tag || p.me) && (
+                            <span className="cfc-crew-tag" data-me={p.me ? "1" : "0"}>
+                              {p.me ? "Sempre" : p.tag}
+                            </span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+
+                    <p className="cfc-set-note">{s.note}</p>
+                  </div>
+                ))}
               </div>
             </>
           )}
@@ -939,102 +956,6 @@ export default function ChiFaCosa() {
                   </div>
                 ))}
               </div>
-            </>
-          )}
-          {/* ────────── QUANTE MANI ────────── */}
-          {view === "mani" && (
-            <>
-              <p className="s-subtitle" style={{ marginBottom: "34px", maxWidth: "760px" }}>
-                {HANDS_INTRO}
-              </p>
-
-              {/* i due motori */}
-              <div className="cfc-mot">
-                {MOTORS.map((m, i) => (
-                  <div className="cfc-mot-c" key={m.label}>
-                    <span className="cfc-mot-i">
-                      <Ico n={i === 0 ? "bolt" : "grow"} s={16} />
-                    </span>
-                    <h3 className="s-h3" style={{ fontSize: "20px", marginBottom: "8px" }}>
-                      {m.label}
-                    </h3>
-                    <p className="cfc-mot-q">{m.claim}</p>
-                    <p className="cfc-mot-b">{m.body}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* la reazione a catena, resa visibile */}
-              <div className="cfc-chain">
-                {([CHAIN.small, CHAIN.big] as const).map((side, i) => (
-                  <div className="cfc-chain-c" key={side.label} data-big={i === 1 ? "1" : "0"}>
-                    <span className="cfc-chain-h">{side.label}</span>
-                    <div className="cfc-chain-row">
-                      <span className="cfc-chain-node">{CHAIN.action}</span>
-                      <div className="cfc-chain-out">
-                        {side.targets.map((t) => (
-                          <span className="cfc-chain-chip" key={t}>
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <p className="cfc-chain-note">{CHAIN.note}</p>
-
-              {/* le tre configurazioni */}
-              <h2 className="s-h2" style={{ fontSize: "24px", marginBottom: "8px" }}>
-                {"Tre configurazioni, la stessa mappa"}
-              </h2>
-              <p className="s-subtitle" style={{ marginBottom: "28px" }}>
-                {"Quello che cambia non sono le aree: è quante persone ci lavorano, e cosa faccio io."}
-              </p>
-              <div className="cfc-cfg">
-                {CONFIGS.map((c, i) => (
-                  <div className="cfc-cfg-c" key={c.n} data-on={i === 0 ? "1" : "0"}>
-                    <div className="cfc-cfg-top">
-                      <span className="cfc-cfg-n">{c.n}</span>
-                      <span className="cfc-cfg-lab">{c.label}</span>
-                    </div>
-                    <h3 className="s-h3" style={{ fontSize: "19px", marginBottom: "14px" }}>
-                      {c.heads}
-                    </h3>
-                    <ul className="cfc-cfg-list">
-                      {c.who.map((w) => (
-                        <li className="cfc-cfg-li" key={w}>
-                          {w}
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="cfc-need" style={{ marginTop: 0, marginBottom: "14px" }}>
-                      <span className="cfc-need-l">Cosa faccio io qui</span>
-                      <p className="cfc-need-b" style={{ fontSize: "12px" }}>
-                        {c.role}
-                      </p>
-                    </div>
-                    <p className="cfc-cfg-note">{c.note}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* i segnali */}
-              <h2 className="s-h2" style={{ fontSize: "24px", marginBottom: "8px" }}>
-                {"Come capisci di essere uscito dalla prima configurazione"}
-              </h2>
-              <p className="s-subtitle" style={{ marginBottom: "26px" }}>
-                {"Sei segnali concreti. Non servono a me per venderti qualcosa: servono a te per guardarti in casa senza chiedere il permesso a nessuno."}
-              </p>
-              <div className="cfc-sig">
-                {SIGNALS.map((s) => (
-                  <div className="cfc-sig-i" key={s}>
-                    <span className="cfc-sig-b" aria-hidden="true" />
-                    <span className="cfc-sig-t">{s}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="cfc-sig-note">{SIGNALS_NOTE}</p>
             </>
           )}
         </section>
