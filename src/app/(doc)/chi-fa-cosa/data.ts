@@ -65,131 +65,69 @@ export const STAGES: { id: StageId; n: string; label: string; claim: string }[] 
   },
 ];
 
+/* ─────────────────────────────────────────────
+   LA ROTTA (2026-11-04): la pagina apre sulla strategia.
+   Prima la direzione, poi il ritmo, poi le mani.
+   Le competenze sono la prova che la direzione si mette a terra,
+   non un elenco di servizi.
+───────────────────────────────────────────── */
+
+export const HERO = {
+  eyebrow: "Come lavoro",
+  title: "Prima la direzione,",
+  titleEm: "poi le mani.",
+  sub: "Entro nella tua azienda come direttore marketing. Guardo tutto il percorso a partire dai numeri veri, e decido con te la cosa che conta adesso. Il resto aspetta, e c'è scritto perché.",
+};
+
+export const DIRECTION = {
+  label: "La direzione",
+  title: "Il mio lavoro è decidere cosa conta. Poi farlo succedere.",
+  points: [
+    {
+      t: "Capire dove sei",
+      b: "Prima di toccare qualcosa guardo i numeri veri: cosa porta soldi, cosa ne costa, dove si perde la gente. Non la dashboard, la conclusione.",
+    },
+    {
+      t: "Decidere la cosa che conta adesso",
+      b: "Le priorità scritte, in ordine, con il perché di quell'ordine. Una cosa grossa al mese, chiusa, invece di dieci lasciate a metà.",
+    },
+    {
+      t: "Dire cosa non si fa",
+      b: "Anche quando è la cosa su cui ti eri intestardito. Due ore passate a decidere di non fare una cosa valgono più di venti passate a farla.",
+    },
+    {
+      t: "Tenere tutti sulla stessa rotta",
+      b: "Tu, chi lavora con te, l'agenzia, i fornitori: ognuno sa cosa deve fare, e io controllo che quello che torna funzioni davvero.",
+    },
+  ],
+  limit:
+    "Per questo si apre un cantiere alla volta, due al massimo. Se ne apriamo cinque restano tutti a metà; se ne apriamo due si chiudono, e si passa ai successivi.",
+};
+
+export const RHYTHM = {
+  label: "Il ritmo",
+  title: "Come la direzione diventa lavoro, mese per mese",
+};
+
+export const HANDS = {
+  label: "Le mani",
+  title: "Quando serve, la direzione la metto a terra io",
+  body: "So fare molte delle cose che servono, e le faccio quando sono la priorità, non perché c'è da fare. Dove non arrivo io, scelgo chi lo fa, gli scrivo cosa deve fare e controllo il risultato prima che lo veda il pubblico.",
+  open: "Vedi le aree una per una",
+  close: "Chiudi le aree",
+};
+
 /* La chiusura in fondo alla pagina: il motivo per cui l'ho mandata. */
 export const CLOSING = {
   title: "Se qualcosa qui non torna con come lavorate voi, è la prima cosa da dirmi.",
   body: "Questa pagina racconta come lavoro di norma. Ogni progetto la piega un po', e la forma giusta si decide insieme, dopo aver guardato i numeri veri. Le domande che restano si chiariscono meglio a voce.",
 };
 
-/* Il limite che regge la credibilita' di tutto il resto:
-   non e' la competenza, e' quante cose insieme. */
-export const SIMULTANEITA = {
-  label: "Il limite, detto adesso",
-  body: "Posso coprire tutte queste aree. Non tutte nello stesso momento. Il vincolo non sono le competenze: è il numero di cantieri che restano aperti insieme. Se ne apriamo cinque, restano tutti e cinque a metà. Se ne apriamo due, si chiudono e si passa ai successivi.",
-};
-
-/* Le due configurazioni possibili intorno alla stessa mappa.
-   La mappa non cambia mai: cambia chi ci sta sopra. */
-export type PersonIcon = "person" | "camera" | "megaphone" | "palette" | "code" | "headset";
-
-export type Person = {
-  icon: PersonIcon;
-  role: string;
-  note: string;
-  me?: boolean;
-  /* etichetta in alto a destra sulla card */
-  tag?: string;
-  /* true = non e' una figura in piu' da trovare: o ce l'hai gia', o si chiama quando serve */
-  soft?: boolean;
-};
-
-export type Setup = {
-  id: string;
-  label: string;
-  count: string;
-  when: string;
-  people: Person[];
-  note: string;
-};
-
-export const SETUPS_LABEL = "Quante persone servono intorno alla mappa";
-export const SETUPS_CLAIM =
-  "La mappa qui sopra non cambia mai: quelle aree servono a un business piccolo come a uno grande. Quello che cambia è quante persone ci stanno sopra.";
-
-export const SETUPS: Setup[] = [
-  {
-    id: "solo",
-    label: "Una persona più una o due",
-    count: "Io, più una figura dedicata ai contenuti",
-    when: "Quando il fatturato è ancora contenuto, il modello di business lo consente e non stai cercando un'accelerazione forte. È la configurazione della maggior parte dei progetti con cui lavoro.",
-    people: [
-      {
-        icon: "person",
-        role: "Io",
-        note: "Tutte le aree del percorso, con le mani dove serve davvero",
-        me: true,
-      },
-      {
-        icon: "camera",
-        role: "Contenuti e social",
-        note: "Pubblica, risponde, tiene la community. Poche ore a settimana",
-      },
-      {
-        icon: "headset",
-        role: "Assistenza clienti",
-        note: "Quasi sempre è già una persona che hai in casa",
-        soft: true,
-        tag: "Ce l'hai già",
-      },
-    ],
-    note: "Due figure oltre a me, e nessuna delle due a tempo pieno. Con questo assetto si tiene aperto un cantiere alla volta, due al massimo: si chiudono e si passa ai successivi.",
-  },
-  {
-    id: "team",
-    label: "Piccolo team",
-    count: "Quattro persone, più due che si chiamano quando servono",
-    when: "Quando vuoi un'accelerazione e più fronti aperti insieme, oppure quando il fatturato cresce e ogni area comincia a chiedere attenzione dedicata invece di un ritaglio di tempo.",
-    people: [
-      {
-        icon: "person",
-        role: "Io",
-        note: "Direzione, priorità, e le leve dove sbagliare costa di più",
-        me: true,
-      },
-      {
-        icon: "megaphone",
-        role: "Campagne",
-        note: "Chi presidia il paid tutti i giorni, non una volta a settimana",
-      },
-      {
-        icon: "camera",
-        role: "Contenuti e social",
-        note: "Produzione continua, non più a strappi",
-      },
-      {
-        icon: "palette",
-        role: "Creatività",
-        note: "Grafica e video che si rinnovano prima di consumarsi",
-      },
-      {
-        icon: "code",
-        role: "Sviluppo",
-        note: "Quando il lavoro esce dalle modifiche mirate",
-        soft: true,
-        tag: "A chiamata",
-      },
-      {
-        icon: "headset",
-        role: "Assistenza clienti",
-        note: "Con volumi più alti smette di essere un ritaglio di tempo",
-        soft: true,
-        tag: "Interna",
-      },
-    ],
-    note: "Qui il mio ruolo cambia: meno esecuzione, più conduzione, brief scritti e controllo di quello che torna indietro. Continuo a mettere le mani, ma scelgo dove.",
-  },
-];
-
 export const BASE_STAGE = {
   id: "base" as StageId,
   label: "I due pilastri",
   claim: "Non sono tappe del percorso: reggono tutte e quattro. Se cedono questi, non c'è campagna che tenga.",
 };
-
-/* I tre livelli sono uno dentro l'altro: il nucleo c'e' sempre,
-   quello che cambia e' quanto arrivo a fare con le mani. */
-export const EFFORT_NEST =
-  "Le tre modalità sono una dentro l'altra, come le matrioske. Il nucleo c'è sempre: su ogni riga di questa pagina decido io che serve, scelgo chi lo fa e controllo io il risultato. Quello che cambia da un livello all'altro è quanto arrivo a fare con le mani.";
 
 /* Il livello di impegno, dichiarato su ogni pezzo di lavoro.
    Tre stati, non due: la maggior parte del fraintendimento
@@ -654,7 +592,6 @@ export type Week = {
   icon: WeekIcon;
   call: string;
   callNote: string;
-  ops: string[];
   lands: string;
   landsKind: "consegna" | "milestone" | "nota" | "punto";
 };
@@ -666,11 +603,6 @@ export const MONTH: Week[] = [
     label: "Si decide e si parte",
     call: "Call di apertura",
     callNote: "Lunedì, circa un'ora. Cosa dicono i numeri, cosa si fa adesso, chi fa cosa.",
-    ops: [
-      "Dal martedì si produce: io sulle mie righe, tu e chi lavora con te sulle vostre",
-      "Nessuno aspetta il permesso: quello che andava deciso è stato deciso in call",
-      "Se salta fuori un imprevisto, si scrive, non si aspetta la call dopo",
-    ],
     lands: "Il primo pezzo del mese è online entro venerdì",
     landsKind: "consegna",
   },
@@ -680,10 +612,6 @@ export const MONTH: Week[] = [
     label: "Si chiude la cosa grossa",
     call: "Call di verifica",
     callNote: "Si guarda il primo dato vero di quello che è partito la settimana prima.",
-    ops: [
-      "Correzioni a caldo, non a fine mese: se una cosa non gira si tocca adesso",
-      "Si completa quello che era rimasto aperto in settimana 1",
-    ],
     lands: "Entro il giorno 14 la milestone del mese è chiusa",
     landsKind: "milestone",
   },
@@ -693,11 +621,6 @@ export const MONTH: Week[] = [
     label: "Operatività densa",
     call: "Call facoltativa",
     callNote: "Questa è la settimana in cui la call può saltare, e salta dicendolo.",
-    ops: [
-      "Rinfresco delle creatività e dei contenuti, prima che si consumino",
-      "Manutenzione di quello che si è costruito, perché si rompe da solo",
-      "Al posto della call arriva una nota scritta: cosa è stato fatto, cosa manca",
-    ],
     lands: "Una nota scritta al posto della call",
     landsKind: "nota",
   },
@@ -707,10 +630,6 @@ export const MONTH: Week[] = [
     label: "Si tira la riga",
     call: "Call di chiusura",
     callNote: "I numeri del mese messi in fila, e cosa ne consegue.",
-    ops: [
-      "Cosa ha funzionato e si tiene, cosa non ha funzionato e si butta",
-      "Si sceglie la cosa grossa del mese successivo, una sola",
-    ],
     lands: "Il punto scritto e il piano del mese dopo",
     landsKind: "punto",
   },
@@ -734,48 +653,11 @@ export const OPENING = {
   bridge: "Finito l'avvio, si entra nel ciclo. Da lì in poi ogni mese ha la stessa forma.",
 };
 
-/* Le due cose che cambiano il passo del ciclo,
-   senza cambiarne la forma. */
-export type Break = {
-  label: string;
-  when: string;
-  claim: string;
-  load: number;
-  note: string;
-};
-
-export const CYCLE_LOAD = 3;
-
-export const BREAKS: Break[] = [
-  {
-    label: "I primi tre mesi",
-    when: "Mesi 1 · 3",
-    claim: "Il ciclo gira già uguale, ma dentro le settimane c'è più cantiere che manutenzione.",
-    load: 5,
-    note: "È il picco, ed è il motivo per cui i primi mesi costano uguale e rendono meno: stai costruendo cose che ti renderanno al mese nono.",
-  },
-  {
-    label: "I mesi di lancio",
-    when: "Quando c'è un lancio o una stagione",
-    claim: "Il ritmo si stringe: si può sentirsi due volte a settimana, e per quelle settimane il resto rallenta.",
-    load: 5,
-    note: "Punta breve e voluta. Prima la checklist di pre-volo, durante non si tocca niente per settantadue ore, dopo il punto a mente fredda.",
-  },
-];
-
 /* ─────────────────────────────────────────────
    FAQ
 ───────────────────────────────────────────── */
 
 export const FAQ: { q: string; a: string }[] = [
-  {
-    q: "La gestione dei social la fai tu, o mi serve un'altra figura?",
-    a: "Ti serve un'altra figura, e di solito è part-time. Io decido gli argomenti, gli angoli e il calendario, e li tengo agganciati a quello che stanno dicendo le campagne: senza questo l'organico e le ads raccontano due storie diverse. Pubblicare ogni giorno, rispondere ai commenti e ai messaggi, moderare la community è un lavoro quotidiano che va fatto da qualcuno che c'è tutti i giorni. Può essere chi già ti segue, o il video maker se ha le competenze.",
-  },
-  {
-    q: "Segui anche CRM, marketing automation, email e SMS, tracking, CRO ed e-commerce?",
-    a: "Sì, tutte. Faccio tutte le attività propedeutiche al raggiungimento dell'obiettivo, qualunque esse siano: ottimizzazione del sito, CRM, email marketing, tracciamento, campagne. Non scelgo in base a cosa mi piace fare, scelgo in base a cosa sta bloccando il risultato. Se il collo di bottiglia è il checkout, si lavora sul checkout anche se avevamo in programma le ads.",
-  },
   {
     q: "Mi conviene un'agenzia, o uno specialist Meta e uno specialist Google?",
     a: "Dipende da quanto spendi in pubblicità. Sotto una certa soglia tre fornitori sulla stessa cosa non aggiungono competenza: aggiungono riunioni, rimpalli e zone grigie in cui nessuno si sente responsabile. Le sovrapposizioni costano più della competenza che manca. Con budget importanti su entrambe le piattaforme uno specialist ha senso, e in quel caso lo cerco io, gli scrivo cosa deve fare e controllo il risultato.",
@@ -785,20 +667,8 @@ export const FAQ: { q: string; a: string }[] = [
     a: "Il metro non è quanti canali hai aperto, è il peso del team rispetto al fatturato. Sotto i 30-40.000 € di fatturato mensile bastano una o due persone, più qualche commessa esterna quando c'è da produrre. Il team si costruisce passo passo man mano che serve, oppure tutto insieme con agenzia e freelance. Quello che conta di più è che ci sia qualcuno che si responsabilizza sul progetto invece di consegnare il suo pezzo e basta.",
   },
   {
-    q: "Quante volte ci sentiamo?",
-    a: "Di norma una volta a settimana, e la call è dove si decide, non dove ci si aggiorna. Prima di un lancio capita di sentirsi due volte. E capita di saltarne una: quando la settimana è tutta operatività non c'è niente da decidere e c'è tutto da fare, e una call in mezzo toglie tempo invece di darne. Si salta dicendolo, non sparendo.",
-  },
-  {
-    q: "Quanto lavoro è, in concreto?",
-    a: "Non vendo ore e non le conto, perché conterebbero la cosa sbagliata: due ore passate a decidere di non fare una cosa valgono più di venti passate a farla. Quello che posso dirti è la forma del carico, ed è nella vista Ritmo: le prime due settimane sono intense e non producono niente di visibile, i primi tre mesi sono il picco, poi si stabilizza. Lavoro con pochi progetti alla volta proprio perché il carico non è costante.",
-  },
-  {
     q: "In quanto tempo si vedono i risultati?",
     a: "Non te lo posso dire prima di aver guardato i tuoi numeri, e chi te lo dice prima sta indovinando. Le prime due settimane servono esattamente a questo: capire cosa è rotto, quanto è rotto e in che ordine si aggiusta. Alla fine di quelle due settimane hai un piano con delle date dentro. Se dopo aver guardato penso che non ci sia abbastanza margine per lavorarci, te lo dico e non partiamo.",
-  },
-  {
-    q: "Cosa succede nelle settimane in cui non ci sentiamo?",
-    a: "Si lavora, e una parte di quel lavoro non si vede: verificare che quello che dovrebbe funzionare funzioni davvero, tenere l'ordine su quale sia la versione buona di ogni cosa, e decidere di non fare. Sono le ore che non producono niente di nuovo e che impediscono i disastri. Alla call successiva le trovi comunque scritte, una per una.",
   },
   {
     q: "Di chi sono gli account, i dati e quello che si costruisce?",

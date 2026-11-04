@@ -3,13 +3,13 @@ import { SITE } from "@/lib/constants";
 import ChiFaCosa from "./ChiFaCosa";
 
 export const metadata: Metadata = {
-  title: "Chi fa cosa",
+  title: "Come lavoro: prima la direzione, poi le mani",
   description:
-    "Le aree di un business online, dove metto le mani e dove no, cosa succede davvero dentro ognuna e con che ritmo. La risposta lunga alla domanda: cosa fai tu, nel concreto?",
+    "Come lavoro da direttore marketing esterno: capire dove sei dai numeri veri, decidere la cosa che conta adesso, dire cosa non si fa, tenere tutti sulla stessa rotta. Poi il ritmo, mese per mese.",
   openGraph: {
-    title: "Chi fa cosa – Nicola Serrao",
+    title: "Come lavoro · Nicola Serrao, Fractional CMO",
     description:
-      "Le aree di un business online, dove metto le mani e dove no, cosa succede davvero dentro ognuna e con che ritmo.",
+      "Prima la direzione, poi le mani: come lavoro da direttore marketing esterno, e con che ritmo.",
     url: `${SITE.url}/chi-fa-cosa`,
   },
 };

@@ -5,28 +5,24 @@ import { SITE } from "@/lib/constants";
 import {
   AREAS,
   BASE_STAGE,
-  BREAKS,
   CLOSING,
-  CYCLE_LOAD,
+  DIRECTION,
   EFFORTS,
-  EFFORT_NEST,
   FAQ,
+  HANDS,
+  HERO,
   MODES,
   MONTH,
   MONTH_INTRO,
   MONTH_NOTE,
   OPENING,
+  RHYTHM,
   RHYTHM_LABEL,
-  SETUPS,
-  SETUPS_CLAIM,
-  SETUPS_LABEL,
-  SIMULTANEITA,
   STAGES,
   WHO_LABEL,
   type Area,
   type Effort,
   type Mode,
-  type PersonIcon,
   type Rhythm,
   type StageId,
   type WeekIcon,
@@ -54,16 +50,10 @@ function EffortIcon({ id }: { id: Effort }) {
   );
 }
 
-type IconName = WeekIcon | PersonIcon | "flag" | "loop" | "tap" | "clock";
+type IconName = WeekIcon | "flag" | "loop" | "tap" | "clock";
 
 const PATHS: Record<IconName, string> = {
   clock: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z",
-  person: "M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z",
-  camera: "M9 2 7.17 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-3.17L15 2H9zm3 15a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z",
-  megaphone: "M18 11v2h4v-2h-4zm-2 6.6c.96.71 2.21 1.65 3.2 2.4.4-.53.8-1.07 1.2-1.6-.99-.74-2.24-1.68-3.2-2.4-.4.54-.8 1.07-1.2 1.6zM20.4 5.6c-.4-.53-.8-1.07-1.2-1.6-.99.75-2.24 1.69-3.2 2.4.4.53.8 1.07 1.2 1.6.96-.72 2.21-1.65 3.2-2.4zM4 9c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h1v4h2v-4h1l5 3V6L8 9H4zm11.5 3c0-1.33-.58-2.53-1.5-3.35v6.69c.92-.81 1.5-2.01 1.5-3.34z",
-  palette: "M12 22a1 1 0 0 0 1-1 1 1 0 0 0-.25-.66 1 1 0 0 1-.24-.65c0-.55.45-1 1-1H15c3.31 0 6-2.69 6-6 0-4.42-4.03-8-9-8s-9 3.58-9 8 4.03 8 9 8zM6.5 13a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3-4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3 4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z",
-  code: "M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0 4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z",
-  headset: "M21 12.22C21 6.73 16.74 3 12 3c-4.69 0-9 3.65-9 9.28-.6.34-1 .98-1 1.72v2c0 1.1.9 2 2 2h1v-6.1c0-3.87 3.13-7 7-7s7 3.13 7 7V19h-8v2h8c1.1 0 2-.9 2-2v-1.22c.59-.31 1-.92 1-1.64v-2.3c0-.7-.41-1.31-1-1.62zM9 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm6 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z",
   tap: "M9 11.24V7.5a2.5 2.5 0 0 1 5 0v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.44-.72c-.37-.08-.76.04-1.03.31l-.79.8 4.94 4.94c.27.27.65.43 1.04.43h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.09-.61-.23-1.2-.86-1.58z",
   call: "M20 15.5c-1.2 0-2.4-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2a15.1 15.1 0 0 1-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.4-1.1-.6-2.3-.6-3.5 0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z",
   check: "M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15-5-5 1.4-1.4L10 14.2l7.6-7.6L19 8z",
@@ -90,19 +80,11 @@ const STAGE_ORDER: Record<StageId, string[]> = {
   base: ["misura", "conduzione"],
 };
 
-const VIEWS = [
-  { id: "percorso", label: "Il percorso", hint: "Tutto quello che serve, e chi se ne occupa pezzo per pezzo." },
-  { id: "ritmo", label: "Il ritmo", hint: "Come funziona un mese normale: quando ci si sente e quando si consegna." },
-] as const;
-
-type View = (typeof VIEWS)[number]["id"];
-
 export default function ChiFaCosa() {
   const [mode, setMode] = useState<Mode>("servizi");
-  const [view, setView] = useState<View>("percorso");
+  const [handsOpen, setHandsOpen] = useState(false);
   const [openId, setOpenId] = useState<string | null>(null);
   const [anchor, setAnchor] = useState<DOMRect | null>(null);
-  const [setup, setSetup] = useState<string>(SETUPS[0].id);
 
   const areas = useMemo(() => AREAS.filter((a) => a.modes.includes(mode)), [mode]);
   const open: Area | undefined = useMemo(
@@ -133,16 +115,15 @@ export default function ChiFaCosa() {
     setOpenId(id);
   }
 
-  /* Il link mandato a un prospect puo' aprire gia' sulla vista giusta:
-     /chi-fa-cosa?tipo=ecommerce, ?vista=ritmo
+  /* Il link mandato a un prospect puo' aprire gia' sulla mappa giusta:
+     /chi-fa-cosa?tipo=ecommerce (e ?aree=1 per trovarla gia' aperta).
      Letto una volta dopo l'idratazione, cosi' la pagina resta statica. */
   useEffect(() => {
     const q = new URLSearchParams(window.location.search);
     const t = q.get("tipo");
-    const v = q.get("vista");
     /* eslint-disable react-hooks/set-state-in-effect */
     if (t && MODES.some((m) => m.id === t)) setMode(t as Mode);
-    if (v && VIEWS.some((x) => x.id === v)) setView(v as View);
+    if (q.get("aree") === "1") setHandsOpen(true);
     /* eslint-enable react-hooks/set-state-in-effect */
   }, []);
 
@@ -209,11 +190,45 @@ export default function ChiFaCosa() {
   return (
     <div className="cfc">
       <style>{`
-        /* ══ CHI FA COSA ══ */
+        /* ══ CHI FA COSA · LA ROTTA ══ */
         /* Pagina da leggere da soli, senza nessuno accanto:
            i grigi del sito qui sono troppo spenti, li alzo solo in questa pagina. */
         .cfc { --text-dim: rgba(232,245,242,0.68); --text-faint: rgba(232,245,242,0.46); }
         .cfc-hero-sub { font-size: 16px; color: var(--text-dim); line-height: 1.95; max-width: 680px; }
+
+        /* ── Sezioni: tre tempi, direzione, ritmo, mani ── */
+        .cfc-sec { margin-top: 104px; }
+        .cfc-sec-l { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); }
+        .cfc-sec-l b { font-family: var(--font-playfair), 'Playfair Display', serif; font-size: 15px; letter-spacing: 0; font-weight: 700; }
+        .cfc-sec-l::after { content: ""; flex: 1; height: 1px; background: var(--teal-border); }
+        .cfc-sec-h { font-family: var(--font-playfair), 'Playfair Display', serif; font-size: clamp(26px, 3.2vw, 36px); font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 36px; max-width: 760px; }
+
+        /* ── La direzione ── */
+        .cfc-dir { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 56px; }
+        .cfc-dir-i { padding: 26px 0 30px; border-top: 1px solid rgba(232,245,242,0.14); }
+        .cfc-dir-n { font-family: var(--font-dm-mono), 'DM Mono', monospace; font-size: 12px; letter-spacing: 2px; color: var(--teal); display: block; margin-bottom: 10px; }
+        .cfc-dir-t { font-family: var(--font-playfair), 'Playfair Display', serif; font-size: 23px; font-weight: 700; color: var(--text); line-height: 1.25; margin-bottom: 10px; }
+        .cfc-dir-b { font-size: 14.5px; color: var(--text-dim); line-height: 1.85; max-width: 470px; }
+        .cfc-limit { display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; margin-top: 18px; padding: 20px 22px; border-left: 2px solid var(--teal); background: rgba(0,255,252,0.05); border-radius: 0 10px 10px 0; }
+        .cfc-limit-i { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid var(--teal-border); color: var(--teal); }
+        .cfc-limit p { font-size: 15px; color: var(--text); line-height: 1.8; max-width: 780px; opacity: .92; }
+
+        /* ── Le mani: chiuse, si aprono solo se servono ── */
+        .cfc-hands-b { font-size: 15px; color: var(--text-dim); line-height: 1.9; max-width: 720px; margin: -16px 0 26px; }
+        .cfc-hands-btn {
+          display: inline-flex; align-items: center; gap: 10px; cursor: pointer;
+          font-family: var(--font-dm-mono), 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+          padding: 13px 20px; border-radius: 8px; border: 1px solid var(--teal-border);
+          background: transparent; color: var(--teal); transition: background .2s, border-color .2s;
+        }
+        .cfc-hands-btn:hover { background: var(--teal-dim); border-color: var(--teal); }
+        .cfc-hands-btn span { font-size: 15px; line-height: 1; transition: transform .25s; }
+        .cfc-hands-btn[aria-expanded="true"] span { transform: rotate(45deg); }
+        .cfc-hands-body { margin-top: 34px; animation: fadeUp .3s ease both; }
+        .cfc-effs { display: flex; flex-wrap: wrap; gap: 10px 28px; margin: 18px 0 30px; }
+        .cfc-effs span { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-dim); }
+        .cfc-effs b { color: var(--teal); font-weight: 500; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; }
+        .cfc-effs span[data-eff="consulenziale"] b { color: var(--text-faint); }
 
         .cfc-bar { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
         .cfc-seg { display: inline-flex; gap: 3px; padding: 3px; border: 1px solid var(--teal-border); border-radius: 8px; background: rgba(232,245,242,0.02); }
@@ -226,40 +241,15 @@ export default function ChiFaCosa() {
         }
         .cfc-seg button:hover { color: var(--text); }
         .cfc-seg button[data-on="1"] { background: var(--teal); color: #0a0e0d; font-weight: 500; }
-        .cfc-bar-hint { font-size: 13px; color: var(--text-faint); line-height: 1.7; margin: 12px 0 34px; }
-
-        /* ── I tre livelli, una matrioska ── */
-        .cfc-nest { border-radius: 12px; padding: 18px 20px 18px; }
-        .cfc-nest[data-lv="1"] {
-          border: 1px solid var(--teal); background: rgba(0,255,252,0.07);
-          box-shadow: 0 0 26px rgba(0,255,252,.08);
-        }
-        .cfc-nest[data-lv="2"] { border: 1px solid var(--teal-border); background: rgba(0,255,252,0.05); margin-top: 4px; }
-        .cfc-nest[data-lv="3"] { border: 1px dashed rgba(232,245,242,0.22); background: rgba(10,14,13,0.5); margin-top: 4px; position: relative; }
-        .cfc-nest-h { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; color: var(--teal); }
-        .cfc-nest[data-lv="3"] .cfc-nest-h { color: rgba(232,245,242,0.5); }
-        .cfc-nest-t { font-size: 11.5px; letter-spacing: 2.5px; text-transform: uppercase; }
-        .cfc-nest-b { font-size: 13.5px; color: var(--text-dim); line-height: 1.75; margin-bottom: 14px; max-width: 720px; }
-        .cfc-nest-core {
-          position: absolute; top: 14px; right: 16px;
-          font-size: 8.5px; letter-spacing: 1.5px; text-transform: uppercase;
-          color: var(--text-faint);
-        }
-        .cfc-nest-note {
-          font-size: 13.5px; color: var(--text-dim); line-height: 1.85;
-          margin: 14px 0 34px; padding-left: 16px;
-          border-left: 2px solid var(--teal-border); max-width: 780px;
-        }
+        .cfc-bar-hint { font-size: 13px; color: var(--text-faint); line-height: 1.7; }
 
         /* ── Segnale che le voci si aprono ── */
         .cfc-tap {
           display: flex; align-items: flex-start; gap: 8px; margin-bottom: 14px; line-height: 1.7;
-        }
-        .cfc-tap svg { flex-shrink: 0; margin-top: 1px; }
-        .cfc-tap {
           font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
           color: var(--teal); opacity: .85;
         }
+        .cfc-tap svg { flex-shrink: 0; margin-top: 1px; }
         .cfc-more {
           width: 17px; height: 17px; border-radius: 50%; flex-shrink: 0;
           display: inline-flex; align-items: center; justify-content: center;
@@ -325,65 +315,6 @@ export default function ChiFaCosa() {
         .cfc-pillar .cfc-pill-t { font-family: var(--font-playfair), 'Playfair Display', serif; font-size: 19px; font-weight: 700; }
         .cfc-pillar-c { font-size: 13.5px; color: var(--text-dim); line-height: 1.7; }
 
-        /* ── Il limite di tempo, nella vista percorso ── */
-        .cfc-sim {
-          display: grid; grid-template-columns: 34px 1fr; gap: 14px;
-          margin-top: 26px; padding: 20px 22px;
-          border: 1px solid rgba(232,245,242,0.12); border-radius: 10px;
-          background: rgba(232,245,242,0.025);
-        }
-        .cfc-sim-i {
-          width: 34px; height: 34px; border-radius: 50%;
-          display: flex; align-items: center; justify-content: center;
-          border: 1px solid rgba(232,245,242,0.18); color: var(--text-dim);
-        }
-        .cfc-sim-l { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-faint); display: block; margin-bottom: 8px; }
-        .cfc-sim-b { font-size: 14px; color: var(--text-dim); line-height: 1.85; max-width: 760px; margin-bottom: 12px; }
-
-        /* ── Quante persone: le due configurazioni ── */
-        .cfc-set { margin-top: 34px; }
-        .cfc-set-h { margin-bottom: 18px; }
-        .cfc-set-h .cfc-base-c { display: block; margin-top: 8px; max-width: 780px; }
-        .cfc-set-body { animation: fadeUp .3s ease both; }
-        .cfc-set-count {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 20px; font-weight: 700; color: var(--text);
-          line-height: 1.25; margin: 22px 0 8px;
-        }
-        .cfc-set-when { font-size: 14px; color: var(--text-dim); line-height: 1.85; max-width: 780px; margin-bottom: 22px; }
-        .cfc-set-note {
-          font-size: 14px; color: var(--text-dim); line-height: 1.85;
-          margin-top: 18px; padding-left: 16px;
-          border-left: 2px solid var(--teal-border); max-width: 800px;
-        }
-
-        .cfc-crew { display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: 10px; }
-        .cfc-crew-c {
-          position: relative; display: flex; flex-direction: column; gap: 9px;
-          border: 1px solid rgba(232,245,242,0.10); border-radius: 10px;
-          padding: 20px 18px 18px; background: rgba(232,245,242,0.02);
-        }
-        .cfc-crew-c[data-me="1"] { border-color: var(--teal); background: rgba(0,255,252,0.07); box-shadow: 0 0 22px rgba(0,255,252,.10); }
-        .cfc-crew-c[data-soft="1"] { border-style: dashed; border-color: rgba(232,245,242,0.16); background: transparent; opacity: .78; }
-        .cfc-crew-i {
-          width: 40px; height: 40px; border-radius: 50%;
-          display: flex; align-items: center; justify-content: center;
-          border: 1px solid var(--teal-border); color: var(--teal); background: var(--teal-dim);
-        }
-        .cfc-crew-c[data-me="1"] .cfc-crew-i { border-color: var(--teal); background: rgba(0,255,252,0.16); box-shadow: 0 0 16px rgba(0,255,252,.25); }
-        .cfc-crew-c[data-soft="1"] .cfc-crew-i { border-style: dashed; border-color: rgba(232,245,242,0.20); color: var(--text-faint); background: transparent; }
-        .cfc-crew-r {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
-          font-size: 16px; font-weight: 700; color: var(--text); line-height: 1.2;
-        }
-        .cfc-crew-n { font-size: 13px; color: var(--text-dim); line-height: 1.65; }
-        .cfc-crew-tag {
-          position: absolute; top: 14px; right: 14px;
-          font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
-          color: var(--text-faint);
-        }
-        .cfc-crew-tag[data-me="1"] { color: var(--teal); opacity: .8; }
-
         /* ── Modale ── */
         .cfc-back {
           position: fixed; inset: 0; z-index: 60;
@@ -445,7 +376,7 @@ export default function ChiFaCosa() {
         .cfc-open {
           display: grid; grid-template-columns: 92px 1fr; gap: 0;
           border: 1px solid var(--teal); border-radius: 12px;
-          background: rgba(0,255,252,0.05); overflow: hidden; margin-bottom: 0;
+          background: rgba(0,255,252,0.05); overflow: hidden;
         }
         .cfc-open-side {
           display: flex; flex-direction: column; align-items: center; gap: 14px;
@@ -467,6 +398,8 @@ export default function ChiFaCosa() {
         .cfc-open-when { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
         .cfc-open-claim { font-size: 14px; color: var(--text-dim); line-height: 1.75; margin-bottom: 18px; max-width: 640px; }
         .cfc-open-steps { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 9px 26px; margin-bottom: 20px; }
+        .cfc-step { font-size: 13.5px; color: var(--text); opacity: .88; line-height: 1.65; padding-left: 16px; position: relative; }
+        .cfc-step::before { content: ""; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 1px; background: var(--teal); opacity: .8; }
 
         /* ── Il ponte fra avvio e ciclo ── */
         .cfc-bridge { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 22px 0 26px; }
@@ -486,7 +419,6 @@ export default function ChiFaCosa() {
           border: 1px dashed var(--teal); color: var(--teal); background: var(--teal-dim);
         }
         .cfc-cyc-badge { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal); opacity: .8; }
-        .cfc-cyc-load { display: flex; align-items: center; gap: 10px; margin-top: 46px; }
 
         /* ── L'arco che chiude il ciclo ── */
         .cfc-arc {
@@ -507,10 +439,8 @@ export default function ChiFaCosa() {
           color: var(--teal); opacity: .8;
         }
 
-        .cfc-brk { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-
-        /* ── Il mese ── */
-        .cfc-mo { position: relative; margin-bottom: 60px; }
+        /* ── Il mese: per ogni settimana solo cosa si decide e cosa arriva ── */
+        .cfc-mo { position: relative; }
         .cfc-mo-rail { position: absolute; left: 0; right: 0; top: 27px; height: 1px; background: linear-gradient(90deg, var(--teal), rgba(0,255,252,0.18)); }
         .cfc-mo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; position: relative; }
         .cfc-mo-col { display: flex; flex-direction: column; }
@@ -528,30 +458,12 @@ export default function ChiFaCosa() {
         .cfc-mo-t { font-family: var(--font-playfair), 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 16px; }
         .cfc-mo-call { display: flex; align-items: center; gap: 7px; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
         .cfc-mo-call[data-soft="1"] { color: var(--text-faint); }
-        .cfc-mo-cn { font-size: 13px; color: var(--text-dim); line-height: 1.7; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid rgba(232,245,242,0.07); }
-        .cfc-mo-ops { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 18px; flex: 1; }
-        .cfc-mo-op { font-size: 13px; color: var(--text); opacity: .85; line-height: 1.65; padding-left: 14px; position: relative; }
-        .cfc-mo-op::before { content: ""; position: absolute; left: 0; top: 7px; width: 4px; height: 4px; border-radius: 1px; background: var(--teal); opacity: .7; }
+        .cfc-mo-cn { font-size: 13px; color: var(--text-dim); line-height: 1.7; margin-bottom: 18px; flex: 1; }
         .cfc-mo-l { display: block; font-size: 12.5px; line-height: 1.6; padding: 10px 12px; border-radius: 7px; border: 1px solid var(--teal-border); background: var(--teal-dim); color: var(--teal); }
         .cfc-mo-l[data-k="milestone"] { background: rgba(0,255,252,0.14); border-color: var(--teal); }
         .cfc-mo-l[data-k="nota"] { background: transparent; border-style: dashed; border-color: rgba(232,245,242,0.2); color: var(--text-dim); }
         .cfc-mo-lk { display: block; font-size: 8.5px; letter-spacing: 2px; text-transform: uppercase; opacity: .65; margin-bottom: 4px; }
-        .cfc-mo-note { font-size: 14px; color: var(--text-dim); line-height: 1.85; max-width: 780px; padding-left: 16px; border-left: 2px solid var(--teal-border); margin-top: 30px; }
-
-        /* ── Le fasi lunghe ── */
-        .cfc-tl-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-        .cfc-tl-card { border: 1px solid rgba(232,245,242,0.08); border-radius: 10px; padding: 24px 22px; background: rgba(232,245,242,0.02); height: 100%; }
-        .cfc-tl-when { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
-        .cfc-tl-claim { font-size: 13.5px; color: var(--text-dim); line-height: 1.75; margin-bottom: 18px; }
-        .cfc-tl-steps { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 20px; }
-        .cfc-tl-step { font-size: 13.5px; color: var(--text); opacity: .88; line-height: 1.65; padding-left: 16px; position: relative; }
-        .cfc-tl-step::before { content: ""; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 1px; background: var(--teal); opacity: .8; }
-        .cfc-load { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-        .cfc-load-bars { display: flex; gap: 3px; }
-        .cfc-load-b { width: 16px; height: 6px; border-radius: 1px; background: rgba(232,245,242,0.12); }
-        .cfc-load-b[data-on="1"] { background: var(--teal); box-shadow: 0 0 6px rgba(0,255,252,.45); }
-        .cfc-load-l { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-faint); }
-        .cfc-load-note { font-size: 13px; color: var(--text-dim); line-height: 1.75; }
+        .cfc-mo-note { font-size: 14px; color: var(--text-dim); line-height: 1.85; max-width: 780px; padding-left: 16px; border-left: 2px solid var(--teal-border); margin-top: 40px; }
 
         /* ── FAQ ── */
         .cfc-faq details { border-bottom: 1px solid rgba(232,245,242,0.08); }
@@ -564,14 +476,13 @@ export default function ChiFaCosa() {
         .cfc-faq summary:hover { color: var(--teal); }
         .cfc-faq summary::after { content: "+"; position: absolute; right: 8px; top: 18px; font-family: var(--font-dm-mono), 'DM Mono', monospace; font-size: 20px; color: var(--teal); }
         .cfc-faq details[open] summary::after { content: "\\2013"; }
+        .cfc-faq-a { font-size: 14.5px; color: var(--text-dim); line-height: 1.9; padding: 0 40px 24px 0; max-width: 860px; }
+
         /* ── Chiusura ── */
         .cfc-end { margin-top: 88px; padding: 40px 44px; border: 1px solid var(--teal-border); border-radius: 14px; background: rgba(0,255,252,0.04); max-width: 900px; }
         .cfc-end-h { font-size: 26px; line-height: 1.25; margin-bottom: 14px; }
         .cfc-end-b { font-size: 14.5px; color: var(--text-dim); line-height: 1.85; max-width: 680px; margin-bottom: 26px; }
         .cfc-end-cta { display: flex; flex-wrap: wrap; gap: 12px; }
-        @media (max-width: 820px) { .cfc-end { padding: 28px 22px; } .cfc-end-h { font-size: 22px; } }
-
-        .cfc-faq-a { font-size: 14.5px; color: var(--text-dim); line-height: 1.9; padding: 0 40px 24px 0; max-width: 860px; }
 
         /* ── Responsive ── */
         @media (max-width: 1080px) {
@@ -580,40 +491,31 @@ export default function ChiFaCosa() {
           .cfc-fn-head { min-height: 0; margin-bottom: 12px; }
           .cfc-fn-pills { min-height: 0; padding: 0; justify-content: flex-start; }
           .cfc-fn-col { border-left: 1px solid var(--teal-border); padding-left: 18px; }
-          .cfc-mo-grid, .cfc-tl-grid { grid-template-columns: repeat(2, 1fr); }
+          .cfc-mo-grid { grid-template-columns: repeat(2, 1fr); }
           .cfc-mo-rail, .cfc-arc { display: none; }
-          .cfc-crew { grid-template-columns: repeat(3, 1fr); }
         }
         @media (max-width: 860px) {
           .cfc-pop { border-radius: 14px 14px 0 0; animation: cfcup .22s ease both; transform: none !important; }
         }
         @media (max-width: 820px) {
-          .cfc-hero-sub { font-size: 15.5px; }
+          .cfc-hero-sub { font-size: 16px; }
+          .cfc-sec { margin-top: 76px; }
+          .cfc-dir { grid-template-columns: 1fr; }
+          .cfc-dir-t { font-size: 21px; }
+          .cfc-limit { grid-template-columns: 1fr; }
           .cfc-fn-cols { grid-template-columns: 1fr; }
-          .cfc-base-list, .cfc-mo-grid, .cfc-tl-grid, .cfc-brk { grid-template-columns: 1fr; }
-          .cfc-crew { grid-template-columns: repeat(2, 1fr); }
-          .cfc-sim { grid-template-columns: 1fr; }
-          .cfc-sim-b, .cfc-set-when, .cfc-set-note { font-size: 14px; }
-          .cfc-crew-n { font-size: 13px; }
-          .cfc-set-count { font-size: 19px; }
+          .cfc-base-list, .cfc-mo-grid { grid-template-columns: 1fr; }
           .cfc-open { grid-template-columns: 1fr; }
           .cfc-open-side { flex-direction: row; justify-content: flex-start; padding: 16px 22px; border-right: none; border-bottom: 1px solid var(--teal-border); }
           .cfc-open-badge { writing-mode: horizontal-tb; transform: none; }
           .cfc-open-body { padding: 22px 20px 20px; }
           .cfc-open-steps { grid-template-columns: 1fr; }
-          .cfc-open-claim, .cfc-bridge-t { font-size: 14px; }
           .cfc-pop { padding: 24px 20px 20px; }
-          .cfc-op-t, .cfc-need-b, .cfc-tl-step, .cfc-tl-claim, .cfc-mo-op, .cfc-mo-cn, .cfc-mo-note, .cfc-pillar-c { font-size: 14px; }
           .cfc-pill-t { font-size: 13.5px; }
-          .cfc-fn-c, .cfc-base-c, .cfc-bar-hint, .cfc-load-note, .cfc-pop-eff-b { font-size: 13px; }
-          .cfc-nest-b, .cfc-nest-note { font-size: 14px; }
-          .cfc-nest { padding: 16px 15px; }
-          .cfc-nest-core { display: none; }
-          .cfc-tap { font-size: 11.5px; }
-          .cfc-legend-item, .cfc-term { font-size: 12px; }
           .cfc-faq summary { font-size: 16px; }
-          .cfc-faq-a { font-size: 14px; }
           .cfc-mo-dot { display: none; }
+          .cfc-end { padding: 28px 22px; }
+          .cfc-end-h { font-size: 22px; }
         }
         @media (max-width: 560px) {
           .cfc-seg { width: 100%; }
@@ -622,97 +524,203 @@ export default function ChiFaCosa() {
         }
 
         @media print {
-          .cfc-seg, .cfc-back, .cfc-pop { display: none !important; }
+          .cfc-seg, .cfc-back, .cfc-pop, .cfc-hands-btn { display: none !important; }
           .cfc-fn-shape { display: none; }
         }
       `}</style>
 
       <div className="s-page" style={{ paddingTop: "48px" }}>
         {/* ══ HERO ══ */}
-        <section style={{ marginBottom: "56px" }} className="animate-fade-up">
-          <div className="s-eyebrow">Chi fa cosa</div>
+        <section className="animate-fade-up">
+          <div className="s-eyebrow">{HERO.eyebrow}</div>
           <h1 className="s-h1" style={{ maxWidth: "900px" }}>
-            {"Dove metto le mani, "}
-            <em>{"e dove no"}</em>
+            {HERO.title} <em>{HERO.titleEm}</em>
           </h1>
-          <p className="cfc-hero-sub">
-            {
-              "Una mappa di tutte le aree che tengono in piedi un business online, e di quanto in là si spinge il mio lavoro su ognuna. Dove non arrivo io c'è scritto chi ci arriva, così non restano zone grigie da scoprire al terzo mese."
-            }
-          </p>
+          <p className="cfc-hero-sub">{HERO.sub}</p>
         </section>
 
-        {/* ══ SISTEMA ══ */}
-        <section>
-          <div className="cfc-bar">
-            <div className="cfc-seg" role="tablist" aria-label="Vista">
-              {VIEWS.map((v) => (
-                <button
-                  key={v.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={view === v.id}
-                  data-on={view === v.id ? "1" : "0"}
-                  onClick={() => setView(v.id)}
-                >
-                  {v.label}
-                </button>
-              ))}
-            </div>
-            {view === "percorso" && (
-              <div className="cfc-seg" role="tablist" aria-label="Tipo di business">
-                {MODES.map((m) => (
-                  <button
-                    key={m.id}
-                    type="button"
-                    role="tab"
-                    aria-selected={mode === m.id}
-                    data-on={mode === m.id ? "1" : "0"}
-                    onClick={() => setMode(m.id)}
-                  >
-                    {m.label}
-                  </button>
-                ))}
-              </div>
-            )}
+        {/* ══ 1. LA DIREZIONE ══ */}
+        <section className="cfc-sec">
+          <div className="cfc-sec-l">
+            <b>1</b>
+            {DIRECTION.label}
           </div>
-          <p className="cfc-bar-hint">
-            {view === "percorso"
-              ? `${VIEWS[0].hint}  ·  ${MODES.find((m) => m.id === mode)?.hint}`
-              : VIEWS.find((v) => v.id === view)?.hint}
+          <h2 className="cfc-sec-h">{DIRECTION.title}</h2>
+          <div className="cfc-dir">
+            {DIRECTION.points.map((p, i) => (
+              <div className="cfc-dir-i" key={p.t}>
+                <span className="cfc-dir-n">{String(i + 1).padStart(2, "0")}</span>
+                <div className="cfc-dir-t">{p.t}</div>
+                <p className="cfc-dir-b">{p.b}</p>
+              </div>
+            ))}
+          </div>
+          <div className="cfc-limit">
+            <span className="cfc-limit-i">
+              <Ico n="clock" s={15} />
+            </span>
+            <p>{DIRECTION.limit}</p>
+          </div>
+        </section>
+
+        {/* ══ 2. IL RITMO ══ */}
+        <section className="cfc-sec">
+          <div className="cfc-sec-l">
+            <b>2</b>
+            {RHYTHM.label}
+          </div>
+          <h2 className="cfc-sec-h">{RHYTHM.title}</h2>
+
+          {/* L'avvio: lineare, una volta sola */}
+          <div className="cfc-open">
+            <div className="cfc-open-side">
+              <span className="cfc-open-ico">
+                <Ico n="flag" s={17} />
+              </span>
+              <span className="cfc-open-badge">{OPENING.badge}</span>
+            </div>
+            <div className="cfc-open-body">
+              <div className="cfc-open-when">{OPENING.when}</div>
+              <h3 className="s-h2" style={{ fontSize: "26px", marginBottom: "10px" }}>
+                {OPENING.label}
+              </h3>
+              <p className="cfc-open-claim">{OPENING.claim}</p>
+              <ul className="cfc-open-steps">
+                {OPENING.steps.map((s) => (
+                  <li className="cfc-step" key={s}>
+                    {s}
+                  </li>
+                ))}
+              </ul>
+              <div className="cfc-need" style={{ marginTop: 0 }}>
+                <span className="cfc-need-l">Cosa serve da te</span>
+                <p className="cfc-need-b">{OPENING.need}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="cfc-bridge">
+            <span className="cfc-bridge-a" aria-hidden="true" />
+            <span className="cfc-bridge-t">{OPENING.bridge}</span>
+          </div>
+
+          {/* Il ciclo: da lì in poi ogni mese è uguale */}
+          <div className="cfc-cyc-h">
+            <span className="cfc-cyc-ico">
+              <Ico n="loop" s={17} />
+            </span>
+            <div>
+              <span className="cfc-cyc-badge">Dal mese 2 in poi, ogni mese uguale</span>
+              <h3 className="s-h2" style={{ fontSize: "26px", margin: "6px 0 0" }}>
+                {"Il ciclo mensile"}
+              </h3>
+            </div>
+          </div>
+          <p className="s-subtitle" style={{ marginBottom: "10px" }}>
+            {MONTH_INTRO}
           </p>
 
-          {/* ────────── IL PERCORSO ────────── */}
-          {view === "percorso" && (
-            <>
-              {/* le tre modalità, una dentro l'altra */}
-              <div className="cfc-nest" data-lv="1">
-                <div className="cfc-nest-h">
-                  <EffortIcon id="operativo" />
-                  <span className="cfc-nest-t">{EFFORTS[0].label}</span>
-                </div>
-                <p className="cfc-nest-b">{EFFORTS[0].body}</p>
-
-                <div className="cfc-nest" data-lv="2">
-                  <div className="cfc-nest-h">
-                    <EffortIcon id="supporto" />
-                    <span className="cfc-nest-t">{EFFORTS[1].label}</span>
-                  </div>
-                  <p className="cfc-nest-b">{EFFORTS[1].body}</p>
-
-                  <div className="cfc-nest" data-lv="3">
-                    <div className="cfc-nest-h">
-                      <EffortIcon id="consulenziale" />
-                      <span className="cfc-nest-t">{EFFORTS[2].label}</span>
+          <div className="cfc-mo">
+            <div className="cfc-mo-rail" aria-hidden="true" />
+            <div className="cfc-mo-grid">
+              {MONTH.map((w) => {
+                const soft = w.landsKind === "nota";
+                return (
+                  <div className="cfc-mo-col" key={w.n}>
+                    <div className="cfc-mo-dot" data-soft={soft ? "1" : "0"} aria-hidden="true" />
+                    <div className="cfc-mo-card">
+                      <div className="cfc-mo-top">
+                        <span className="cfc-mo-badge" data-soft={soft ? "1" : "0"}>
+                          <Ico n={w.icon} s={13} />
+                        </span>
+                        <span className="cfc-mo-n">{`Settimana ${w.n}`}</span>
+                      </div>
+                      <div className="cfc-mo-t">{w.label}</div>
+                      <div className="cfc-mo-call" data-soft={soft ? "1" : "0"}>
+                        <Ico n="call" s={12} />
+                        {w.call}
+                      </div>
+                      <p className="cfc-mo-cn">{w.callNote}</p>
+                      <span className="cfc-mo-l" data-k={w.landsKind}>
+                        <span className="cfc-mo-lk">
+                          {w.landsKind === "milestone"
+                            ? "Cosa si porta a casa"
+                            : w.landsKind === "nota"
+                            ? "Al posto della call"
+                            : "A fine settimana"}
+                        </span>
+                        {w.lands}
+                      </span>
                     </div>
-                    <p className="cfc-nest-b" style={{ marginBottom: 0 }}>
-                      {EFFORTS[2].body}
-                    </p>
-                    <span className="cfc-nest-core">Il nucleo, sempre presente</span>
                   </div>
+                );
+              })}
+            </div>
+
+            {/* il ritorno: chiude il ciclo su se stesso */}
+            <div className="cfc-arc" aria-hidden="true">
+              <span className="cfc-arc-l">
+                <Ico n="loop" s={12} />
+                {"il mese dopo si ricomincia da qui"}
+              </span>
+            </div>
+
+            <p className="cfc-mo-note">{MONTH_NOTE}</p>
+          </div>
+        </section>
+
+        {/* ══ 3. LE MANI: chiuse, si aprono se servono ══ */}
+        <section className="cfc-sec">
+          <div className="cfc-sec-l">
+            <b>3</b>
+            {HANDS.label}
+          </div>
+          <h2 className="cfc-sec-h">{HANDS.title}</h2>
+          <p className="cfc-hands-b">{HANDS.body}</p>
+          <button
+            type="button"
+            className="cfc-hands-btn"
+            aria-expanded={handsOpen}
+            aria-controls="cfc-aree"
+            onClick={() => setHandsOpen((v) => !v)}
+          >
+            <span aria-hidden="true">{"+"}</span>
+            {handsOpen ? HANDS.close : HANDS.open}
+          </button>
+
+          {handsOpen && (
+            <div className="cfc-hands-body" id="cfc-aree">
+              <div className="cfc-bar">
+                <div className="cfc-seg" role="tablist" aria-label="Tipo di business">
+                  {MODES.map((m) => (
+                    <button
+                      key={m.id}
+                      type="button"
+                      role="tab"
+                      aria-selected={mode === m.id}
+                      data-on={mode === m.id ? "1" : "0"}
+                      onClick={() => setMode(m.id)}
+                    >
+                      {m.label}
+                    </button>
+                  ))}
                 </div>
+                <p className="cfc-bar-hint">{MODES.find((m) => m.id === mode)?.hint}</p>
               </div>
-              <p className="cfc-nest-note">{EFFORT_NEST}</p>
+
+              <div className="cfc-effs">
+                {EFFORTS.map((e) => (
+                  <span key={e.id} data-eff={e.id}>
+                    <EffortIcon id={e.id} />
+                    <b>{e.label}</b>
+                    {e.id === "operativo"
+                      ? "ci metto le mani io"
+                      : e.id === "supporto"
+                      ? "lo facciamo in due"
+                      : "decido, scelgo chi lo fa, controllo"}
+                  </span>
+                ))}
+              </div>
 
               <p className="cfc-tap">
                 <Ico n="tap" s={14} />
@@ -766,222 +774,7 @@ export default function ChiFaCosa() {
                   ))}
                 </div>
               </div>
-
-              {/* il limite di tempo, detto subito */}
-              <div className="cfc-sim">
-                <span className="cfc-sim-i">
-                  <Ico n="clock" s={15} />
-                </span>
-                <div>
-                  <span className="cfc-sim-l">{SIMULTANEITA.label}</span>
-                  <p className="cfc-sim-b" style={{ marginBottom: 0 }}>
-                    {SIMULTANEITA.body}
-                  </p>
-                </div>
-              </div>
-
-              {/* quante persone servono: due configurazioni, uno switch */}
-              <div className="cfc-set">
-                <div className="cfc-set-h">
-                  <span className="cfc-base-t">{SETUPS_LABEL}</span>
-                  <span className="cfc-base-c">{SETUPS_CLAIM}</span>
-                </div>
-
-                <div className="cfc-seg" role="tablist" aria-label="Configurazione">
-                  {SETUPS.map((s) => (
-                    <button
-                      key={s.id}
-                      type="button"
-                      role="tab"
-                      aria-selected={setup === s.id}
-                      data-on={setup === s.id ? "1" : "0"}
-                      onClick={() => setSetup(s.id)}
-                    >
-                      {s.label}
-                    </button>
-                  ))}
-                </div>
-
-                {SETUPS.filter((s) => s.id === setup).map((s) => (
-                  <div className="cfc-set-body" key={s.id}>
-                    <div className="cfc-set-count">{s.count}</div>
-                    <p className="cfc-set-when">{s.when}</p>
-
-                    <div className="cfc-crew">
-                      {s.people.map((p) => (
-                        <div
-                          className="cfc-crew-c"
-                          key={p.role}
-                          data-me={p.me ? "1" : "0"}
-                          data-soft={p.soft ? "1" : "0"}
-                        >
-                          <span className="cfc-crew-i">
-                            <Ico n={p.icon} s={20} />
-                          </span>
-                          <span className="cfc-crew-r">{p.role}</span>
-                          <span className="cfc-crew-n">{p.note}</span>
-                          {(p.tag || p.me) && (
-                            <span className="cfc-crew-tag" data-me={p.me ? "1" : "0"}>
-                              {p.me ? "Sempre" : p.tag}
-                            </span>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-
-                    <p className="cfc-set-note">{s.note}</p>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
-
-          {/* ────────── IL RITMO ────────── */}
-          {view === "ritmo" && (
-            <>
-              {/* ── 1. L'avvio: lineare, una volta sola ── */}
-              <div className="cfc-open">
-                <div className="cfc-open-side">
-                  <span className="cfc-open-ico">
-                    <Ico n="flag" s={17} />
-                  </span>
-                  <span className="cfc-open-badge">{OPENING.badge}</span>
-                </div>
-                <div className="cfc-open-body">
-                  <div className="cfc-open-when">{OPENING.when}</div>
-                  <h2 className="s-h2" style={{ fontSize: "26px", marginBottom: "10px" }}>
-                    {OPENING.label}
-                  </h2>
-                  <p className="cfc-open-claim">{OPENING.claim}</p>
-                  <ul className="cfc-open-steps">
-                    {OPENING.steps.map((s) => (
-                      <li className="cfc-tl-step" key={s}>
-                        {s}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="cfc-need" style={{ marginTop: 0 }}>
-                    <span className="cfc-need-l">Cosa serve da te</span>
-                    <p className="cfc-need-b">{OPENING.need}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="cfc-bridge">
-                <span className="cfc-bridge-a" aria-hidden="true" />
-                <span className="cfc-bridge-t">{OPENING.bridge}</span>
-              </div>
-
-              {/* ── 2. Il ciclo: da lì in poi ogni mese è uguale ── */}
-              <div className="cfc-cyc-h">
-                <span className="cfc-cyc-ico">
-                  <Ico n="loop" s={17} />
-                </span>
-                <div>
-                  <span className="cfc-cyc-badge">Dal mese 2 in poi, ogni mese uguale</span>
-                  <h2 className="s-h2" style={{ fontSize: "26px", margin: "6px 0 0" }}>
-                    {"Il ciclo mensile"}
-                  </h2>
-                </div>
-              </div>
-              <p className="s-subtitle" style={{ marginBottom: "10px" }}>
-                {MONTH_INTRO}
-              </p>
-
-              <div className="cfc-mo">
-                <div className="cfc-mo-rail" aria-hidden="true" />
-                <div className="cfc-mo-grid">
-                  {MONTH.map((w) => {
-                    const soft = w.landsKind === "nota";
-                    return (
-                      <div className="cfc-mo-col" key={w.n}>
-                        <div className="cfc-mo-dot" data-soft={soft ? "1" : "0"} aria-hidden="true" />
-                        <div className="cfc-mo-card">
-                          <div className="cfc-mo-top">
-                            <span className="cfc-mo-badge" data-soft={soft ? "1" : "0"}>
-                              <Ico n={w.icon} s={13} />
-                            </span>
-                            <span className="cfc-mo-n">{`Settimana ${w.n}`}</span>
-                          </div>
-                          <div className="cfc-mo-t">{w.label}</div>
-                          <div className="cfc-mo-call" data-soft={soft ? "1" : "0"}>
-                            <Ico n="call" s={12} />
-                            {w.call}
-                          </div>
-                          <p className="cfc-mo-cn">{w.callNote}</p>
-                          <ul className="cfc-mo-ops">
-                            {w.ops.map((o) => (
-                              <li className="cfc-mo-op" key={o}>
-                                {o}
-                              </li>
-                            ))}
-                          </ul>
-                          <span className="cfc-mo-l" data-k={w.landsKind}>
-                            <span className="cfc-mo-lk">
-                              {w.landsKind === "milestone"
-                                ? "Cosa si porta a casa"
-                                : w.landsKind === "nota"
-                                ? "Al posto della call"
-                                : "A fine settimana"}
-                            </span>
-                            {w.lands}
-                          </span>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* il ritorno: chiude il ciclo su se stesso */}
-                <div className="cfc-arc" aria-hidden="true">
-                  <span className="cfc-arc-l">
-                    <Ico n="loop" s={12} />
-                    {"il mese dopo si ricomincia da qui"}
-                  </span>
-                </div>
-
-                <div className="cfc-cyc-load">
-                  <span className="cfc-load-bars" aria-hidden="true">
-                    {[1, 2, 3, 4, 5].map((n) => (
-                      <span className="cfc-load-b" key={n} data-on={n <= CYCLE_LOAD ? "1" : "0"} />
-                    ))}
-                  </span>
-                  <span className="cfc-load-l">Carico di un mese normale</span>
-                </div>
-
-                <p className="cfc-mo-note">{MONTH_NOTE}</p>
-              </div>
-
-              {/* ── 3. Quando il ciclo cambia passo ── */}
-              <h2 className="s-h2" style={{ fontSize: "24px", marginBottom: "8px" }}>
-                {"Quando il ciclo cambia passo"}
-              </h2>
-              <p className="s-subtitle" style={{ marginBottom: "28px" }}>
-                {
-                  "La forma del mese resta questa. Cambia quanto pesa, e succede in due casi soli."
-                }
-              </p>
-              <div className="cfc-brk">
-                {BREAKS.map((b) => (
-                  <div className="cfc-tl-card" key={b.label}>
-                    <div className="cfc-tl-when">{b.when}</div>
-                    <h3 className="s-h3" style={{ fontSize: "20px", marginBottom: "10px" }}>
-                      {b.label}
-                    </h3>
-                    <p className="cfc-tl-claim">{b.claim}</p>
-                    <div className="cfc-load">
-                      <span className="cfc-load-bars" aria-hidden="true">
-                        {[1, 2, 3, 4, 5].map((n) => (
-                          <span className="cfc-load-b" key={n} data-on={n <= b.load ? "1" : "0"} />
-                        ))}
-                      </span>
-                      <span className="cfc-load-l">Carico</span>
-                    </div>
-                    <p className="cfc-load-note">{b.note}</p>
-                  </div>
-                ))}
-              </div>
-            </>
+            </div>
           )}
         </section>
 
