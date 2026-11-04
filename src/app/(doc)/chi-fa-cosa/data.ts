@@ -18,7 +18,7 @@ export const MODES: { id: Mode; label: string; hint: string }[] = [
   {
     id: "ecommerce",
     label: "E-commerce",
-    hint: "Si vende online, senza che nessuno parli con nessuno.",
+    hint: "Si vende online: l'ordine si chiude sul sito, anche quando prima c'è stata una chat o una telefonata.",
   },
 ];
 
@@ -64,6 +64,12 @@ export const STAGES: { id: StageId; n: string; label: string; claim: string }[] 
     claim: "Nutrire chi non è ancora pronto e far tornare chi ha già comprato. Il fatturato meno caro che esista.",
   },
 ];
+
+/* La chiusura in fondo alla pagina: il motivo per cui l'ho mandata. */
+export const CLOSING = {
+  title: "Se qualcosa qui non torna con come lavorate voi, è la prima cosa da dirmi.",
+  body: "Questa pagina racconta come lavoro di norma. Ogni progetto la piega un po', e la forma giusta si decide insieme, dopo aver guardato i numeri veri. Le domande che restano si chiariscono meglio a voce.",
+};
 
 /* Il limite che regge la credibilita' di tutto il resto:
    non e' la competenza, e' quante cose insieme. */
@@ -204,7 +210,7 @@ export const EFFORTS: { id: Effort; label: string; short: string; body: string }
   {
     id: "consulenziale",
     label: "Consulenziale",
-    short: "Consulenza",
+    short: "Consulenziale",
     body: "Non lo tocco. Decido che serve, scelgo chi lo fa, gli scrivo cosa deve fare e verifico il risultato prima che lo veda il pubblico.",
   },
 ];
@@ -263,7 +269,8 @@ export const AREAS: Area[] = [
       { t: "Le priorità della settimana, scritte, con l'ordine dichiarato", who: "io", r: 3 },
       { t: "Lettura dei numeri: non la dashboard, la conclusione", who: "io", r: 3 },
       { t: "La call di confronto, di norma una a settimana", who: "insieme", r: 3 },
-      { t: "Coordinamento di chi già lavora con te: sviluppatore, grafico, social, fornitori", who: "io", r: 3 },
+      { t: "Coordinamento di chi già lavora con te: agenzia, sviluppatore, grafico, social, fornitori", who: "io", r: 3 },
+      { t: "Controllo di quello che consegnano agenzia e fornitori: che funzioni sul sito vero, che misuri giusto, che sia quello che si era deciso", who: "io", r: 3 },
       { t: "Scegliere il fornitore quando serve una competenza che non ho, e scrivergli cosa deve fare", who: "io", r: 2 },
       { t: "Dire cosa non si fa, e perché. Anche quando è la cosa su cui ti eri intestardito", who: "io", r: 3 },
       { t: "Il punto a mente fredda dopo ogni lancio: cosa teniamo, cosa buttiamo", who: "io", r: 4 },
@@ -468,7 +475,7 @@ export const AREAS: Area[] = [
       { t: "Cosa non si dice mai, per scelta", who: "insieme", r: 1 },
       { t: "Revisione quando cambia l'offerta o si muove il mercato", who: "io", r: 4 },
     ],
-    need: "Un paio d'ore della tua testa, e non sono delegabili. Il posizionamento non si inventa a tavolino: si tira fuori da te. Io faccio le domande e scrivo la risposta.",
+    need: "Un paio d'ore della tua testa, e non sono delegabili. Cosa ti rende diverso non si inventa a tavolino: si tira fuori da te. Io faccio le domande e scrivo la risposta.",
   },
   {
     id: "organico",

@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { SITE } from "@/lib/constants";
 import {
   AREAS,
   BASE_STAGE,
   BREAKS,
+  CLOSING,
   CYCLE_LOAD,
   EFFORTS,
   EFFORT_NEST,
@@ -131,6 +133,19 @@ export default function ChiFaCosa() {
     setOpenId(id);
   }
 
+  /* Il link mandato a un prospect puo' aprire gia' sulla vista giusta:
+     /chi-fa-cosa?tipo=ecommerce, ?vista=ritmo
+     Letto una volta dopo l'idratazione, cosi' la pagina resta statica. */
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search);
+    const t = q.get("tipo");
+    const v = q.get("vista");
+    /* eslint-disable react-hooks/set-state-in-effect */
+    if (t && MODES.some((m) => m.id === t)) setMode(t as Mode);
+    if (v && VIEWS.some((x) => x.id === v)) setView(v as View);
+    /* eslint-enable react-hooks/set-state-in-effect */
+  }, []);
+
   /* Esc per chiudere, e niente scroll sotto la modale */
   useEffect(() => {
     if (!openId) return;
@@ -192,10 +207,13 @@ export default function ChiFaCosa() {
   };
 
   return (
-    <>
+    <div className="cfc">
       <style>{`
         /* ══ CHI FA COSA ══ */
-        .cfc-hero-sub { font-size: 14.5px; color: var(--text-dim); line-height: 1.95; max-width: 680px; }
+        /* Pagina da leggere da soli, senza nessuno accanto:
+           i grigi del sito qui sono troppo spenti, li alzo solo in questa pagina. */
+        .cfc { --text-dim: rgba(232,245,242,0.68); --text-faint: rgba(232,245,242,0.46); }
+        .cfc-hero-sub { font-size: 16px; color: var(--text-dim); line-height: 1.95; max-width: 680px; }
 
         .cfc-bar { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
         .cfc-seg { display: inline-flex; gap: 3px; padding: 3px; border: 1px solid var(--teal-border); border-radius: 8px; background: rgba(232,245,242,0.02); }
@@ -208,7 +226,7 @@ export default function ChiFaCosa() {
         }
         .cfc-seg button:hover { color: var(--text); }
         .cfc-seg button[data-on="1"] { background: var(--teal); color: #0a0e0d; font-weight: 500; }
-        .cfc-bar-hint { font-size: 11.5px; color: var(--text-faint); line-height: 1.7; margin: 12px 0 34px; }
+        .cfc-bar-hint { font-size: 13px; color: var(--text-faint); line-height: 1.7; margin: 12px 0 34px; }
 
         /* ── I tre livelli, una matrioska ── */
         .cfc-nest { border-radius: 12px; padding: 18px 20px 18px; }
@@ -220,15 +238,15 @@ export default function ChiFaCosa() {
         .cfc-nest[data-lv="3"] { border: 1px dashed rgba(232,245,242,0.22); background: rgba(10,14,13,0.5); margin-top: 4px; position: relative; }
         .cfc-nest-h { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; color: var(--teal); }
         .cfc-nest[data-lv="3"] .cfc-nest-h { color: rgba(232,245,242,0.5); }
-        .cfc-nest-t { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; }
-        .cfc-nest-b { font-size: 12px; color: var(--text-dim); line-height: 1.75; margin-bottom: 14px; max-width: 720px; }
+        .cfc-nest-t { font-size: 11.5px; letter-spacing: 2.5px; text-transform: uppercase; }
+        .cfc-nest-b { font-size: 13.5px; color: var(--text-dim); line-height: 1.75; margin-bottom: 14px; max-width: 720px; }
         .cfc-nest-core {
           position: absolute; top: 14px; right: 16px;
           font-size: 8.5px; letter-spacing: 1.5px; text-transform: uppercase;
           color: var(--text-faint);
         }
         .cfc-nest-note {
-          font-size: 12px; color: var(--text-dim); line-height: 1.85;
+          font-size: 13.5px; color: var(--text-dim); line-height: 1.85;
           margin: 14px 0 34px; padding-left: 16px;
           border-left: 2px solid var(--teal-border); max-width: 780px;
         }
@@ -239,8 +257,8 @@ export default function ChiFaCosa() {
         }
         .cfc-tap svg { flex-shrink: 0; margin-top: 1px; }
         .cfc-tap {
-          font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-          color: var(--teal); opacity: .75;
+          font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+          color: var(--teal); opacity: .85;
         }
         .cfc-more {
           width: 17px; height: 17px; border-radius: 50%; flex-shrink: 0;
@@ -257,7 +275,7 @@ export default function ChiFaCosa() {
 
         /* ── L'asse ── */
         .cfc-axis { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
-        .cfc-axis-l { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
+        .cfc-axis-l { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
         .cfc-axis-line { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(0,255,252,0.15), var(--teal)); position: relative; }
         .cfc-axis-line::after { content: ""; position: absolute; right: -1px; top: -3px; border-left: 7px solid var(--teal); border-top: 3.5px solid transparent; border-bottom: 3.5px solid transparent; }
 
@@ -269,7 +287,7 @@ export default function ChiFaCosa() {
         .cfc-fn-head { min-height: 120px; padding-right: 8px; }
         .cfc-fn-n { font-family: var(--font-dm-mono), 'DM Mono', monospace; font-size: 9px; letter-spacing: 2.5px; color: var(--teal); opacity: .6; display: block; margin-bottom: 8px; }
         .cfc-fn-t { font-family: var(--font-playfair), 'Playfair Display', serif; font-size: 21px; font-weight: 700; color: var(--text); line-height: 1.15; margin-bottom: 8px; }
-        .cfc-fn-c { font-size: 11px; color: var(--text-faint); line-height: 1.65; }
+        .cfc-fn-c { font-size: 12.5px; color: var(--text-dim); line-height: 1.65; }
         .cfc-fn-pills { flex: 1; display: flex; flex-direction: column; gap: 8px; justify-content: center; min-height: 340px; padding: 18px 0; }
 
         /* ── Pastiglie ── */
@@ -286,13 +304,13 @@ export default function ChiFaCosa() {
         .cfc-pill[data-eff="consulenziale"], .cfc-pillar[data-eff="consulenziale"] { border-style: dashed; border-color: rgba(232,245,242,0.20); background: transparent; opacity: .72; }
         .cfc-pill[data-eff="consulenziale"]:hover, .cfc-pill[data-eff="consulenziale"][data-on="1"],
         .cfc-pillar[data-eff="consulenziale"]:hover, .cfc-pillar[data-eff="consulenziale"][data-on="1"] { opacity: 1; border-style: solid; border-color: var(--teal); }
-        .cfc-pill-t { font-size: 12px; line-height: 1.3; color: var(--text); letter-spacing: .2px; }
+        .cfc-pill-t { font-size: 13px; line-height: 1.3; color: var(--text); letter-spacing: .2px; }
 
         .cfc-pill-r { display: inline-flex; align-items: center; gap: 9px; flex-shrink: 0; }
         .cfc-eff {
           display: inline-flex; align-items: center; gap: 5px; flex-shrink: 0;
-          font-size: 8.5px; letter-spacing: 1.4px; text-transform: uppercase;
-          color: var(--teal); opacity: .8;
+          font-size: 9.5px; letter-spacing: 1.2px; text-transform: uppercase;
+          color: var(--teal); opacity: .9;
         }
         .cfc-pill[data-eff="supporto"] .cfc-eff, .cfc-pillar[data-eff="supporto"] .cfc-eff { color: rgba(0,255,252,0.72); }
         .cfc-pill[data-eff="consulenziale"] .cfc-eff, .cfc-pillar[data-eff="consulenziale"] .cfc-eff { color: rgba(232,245,242,0.42); }
@@ -301,11 +319,11 @@ export default function ChiFaCosa() {
         .cfc-base { margin-top: 26px; }
         .cfc-base-h { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
         .cfc-base-t { font-family: var(--font-dm-mono), 'DM Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); }
-        .cfc-base-c { font-size: 11px; color: var(--text-faint); line-height: 1.7; flex: 1 1 300px; }
+        .cfc-base-c { font-size: 12.5px; color: var(--text-dim); line-height: 1.7; flex: 1 1 300px; }
         .cfc-base-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
         .cfc-pillar { display: flex; flex-direction: column; align-items: flex-start; gap: 9px; padding: 22px 22px 18px; }
         .cfc-pillar .cfc-pill-t { font-family: var(--font-playfair), 'Playfair Display', serif; font-size: 19px; font-weight: 700; }
-        .cfc-pillar-c { font-size: 12px; color: var(--text-dim); line-height: 1.7; }
+        .cfc-pillar-c { font-size: 13.5px; color: var(--text-dim); line-height: 1.7; }
 
         /* ── Il limite di tempo, nella vista percorso ── */
         .cfc-sim {
@@ -319,8 +337,8 @@ export default function ChiFaCosa() {
           display: flex; align-items: center; justify-content: center;
           border: 1px solid rgba(232,245,242,0.18); color: var(--text-dim);
         }
-        .cfc-sim-l { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-faint); display: block; margin-bottom: 8px; }
-        .cfc-sim-b { font-size: 12.5px; color: var(--text-dim); line-height: 1.85; max-width: 760px; margin-bottom: 12px; }
+        .cfc-sim-l { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-faint); display: block; margin-bottom: 8px; }
+        .cfc-sim-b { font-size: 14px; color: var(--text-dim); line-height: 1.85; max-width: 760px; margin-bottom: 12px; }
 
         /* ── Quante persone: le due configurazioni ── */
         .cfc-set { margin-top: 34px; }
@@ -332,9 +350,9 @@ export default function ChiFaCosa() {
           font-size: 20px; font-weight: 700; color: var(--text);
           line-height: 1.25; margin: 22px 0 8px;
         }
-        .cfc-set-when { font-size: 12.5px; color: var(--text-dim); line-height: 1.85; max-width: 780px; margin-bottom: 22px; }
+        .cfc-set-when { font-size: 14px; color: var(--text-dim); line-height: 1.85; max-width: 780px; margin-bottom: 22px; }
         .cfc-set-note {
-          font-size: 12.5px; color: var(--text-dim); line-height: 1.85;
+          font-size: 14px; color: var(--text-dim); line-height: 1.85;
           margin-top: 18px; padding-left: 16px;
           border-left: 2px solid var(--teal-border); max-width: 800px;
         }
@@ -358,10 +376,10 @@ export default function ChiFaCosa() {
           font-family: var(--font-playfair), 'Playfair Display', serif;
           font-size: 16px; font-weight: 700; color: var(--text); line-height: 1.2;
         }
-        .cfc-crew-n { font-size: 11.5px; color: var(--text-dim); line-height: 1.65; }
+        .cfc-crew-n { font-size: 13px; color: var(--text-dim); line-height: 1.65; }
         .cfc-crew-tag {
           position: absolute; top: 14px; right: 14px;
-          font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase;
+          font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
           color: var(--text-faint);
         }
         .cfc-crew-tag[data-me="1"] { color: var(--teal); opacity: .8; }
@@ -391,22 +409,22 @@ export default function ChiFaCosa() {
           transition: border-color .2s, color .2s;
         }
         .cfc-pop-x:hover { border-color: var(--teal); color: var(--teal); }
-        .cfc-pop-s { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); opacity: .7; margin-bottom: 10px; display: block; padding-right: 34px; }
+        .cfc-pop-s { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); opacity: .7; margin-bottom: 10px; display: block; padding-right: 34px; }
         .cfc-pop-h { font-family: var(--font-playfair), 'Playfair Display', serif; font-size: 23px; font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 10px; padding-right: 34px; }
-        .cfc-pop-c { font-size: 13px; color: var(--text-dim); line-height: 1.75; margin-bottom: 18px; }
+        .cfc-pop-c { font-size: 14px; color: var(--text-dim); line-height: 1.75; margin-bottom: 18px; }
         .cfc-pop-eff { display: flex; align-items: flex-start; gap: 10px; padding: 13px 15px; border-radius: 8px; border: 1px solid var(--teal-border); background: var(--teal-dim); margin-bottom: 20px; }
         .cfc-pop-eff-i { color: var(--teal); padding-top: 1px; }
         .cfc-pop-eff-t { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 5px; }
-        .cfc-pop-eff-b { font-size: 12px; color: var(--text-dim); line-height: 1.7; }
+        .cfc-pop-eff-b { font-size: 13px; color: var(--text-dim); line-height: 1.7; }
         .cfc-terms { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 20px; }
-        .cfc-term { font-size: 9.5px; letter-spacing: .5px; padding: 3px 9px; border-radius: 20px; border: 1px solid rgba(232,245,242,0.12); color: var(--text-dim); }
+        .cfc-term { font-size: 11px; letter-spacing: .5px; padding: 3px 9px; border-radius: 20px; border: 1px solid rgba(232,245,242,0.12); color: var(--text-dim); }
 
         .cfc-op { display: grid; grid-template-columns: 16px 1fr; gap: 12px; align-items: start; padding: 11px 0; border-bottom: 1px solid rgba(232,245,242,0.06); }
         .cfc-op:last-of-type { border-bottom: none; }
-        .cfc-op-t { font-size: 12.5px; color: var(--text); line-height: 1.7; opacity: .92; }
+        .cfc-op-t { font-size: 14px; color: var(--text); line-height: 1.7; opacity: .92; }
         .cfc-op[data-w="tu"] .cfc-op-t, .cfc-op[data-w="fuori"] .cfc-op-t { color: var(--text-dim); }
         .cfc-op-meta { grid-column: 2; display: flex; align-items: center; gap: 8px; margin-top: 5px; }
-        .cfc-op-who { font-size: 8.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-faint); }
+        .cfc-op-who { font-size: 9.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-faint); }
         .cfc-op[data-w="io"] .cfc-op-who { color: var(--teal); }
 
         .cfc-mk { width: 9px; height: 9px; border-radius: 2px; display: inline-block; margin-top: 5px; }
@@ -417,10 +435,10 @@ export default function ChiFaCosa() {
         .cfc-r { width: 16px; height: 16px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-dm-mono), 'DM Mono', monospace; font-size: 8.5px; border: 1px solid var(--teal-border); color: var(--teal); background: var(--teal-dim); }
 
         .cfc-need { margin-top: 20px; padding: 15px 17px; border-left: 2px solid var(--teal); border-radius: 0 6px 6px 0; background: rgba(0,255,252,0.06); }
-        .cfc-need-l { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; display: block; }
-        .cfc-need-b { font-size: 12.5px; color: var(--text-dim); line-height: 1.8; }
+        .cfc-need-l { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; display: block; }
+        .cfc-need-b { font-size: 14px; color: var(--text-dim); line-height: 1.8; }
         .cfc-legend { display: flex; flex-wrap: wrap; gap: 7px 16px; margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(232,245,242,0.06); }
-        .cfc-legend-item { display: inline-flex; align-items: center; gap: 7px; font-size: 9.5px; color: var(--text-faint); }
+        .cfc-legend-item { display: inline-flex; align-items: center; gap: 7px; font-size: 11px; color: var(--text-faint); }
         .cfc-legend-item .cfc-mk { margin-top: 0; }
 
         /* ── L'avvio: lineare, con la banda piena a sinistra ── */
@@ -447,7 +465,7 @@ export default function ChiFaCosa() {
         }
         .cfc-open-body { padding: 26px 28px 24px; }
         .cfc-open-when { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
-        .cfc-open-claim { font-size: 13px; color: var(--text-dim); line-height: 1.75; margin-bottom: 18px; max-width: 640px; }
+        .cfc-open-claim { font-size: 14px; color: var(--text-dim); line-height: 1.75; margin-bottom: 18px; max-width: 640px; }
         .cfc-open-steps { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 9px 26px; margin-bottom: 20px; }
 
         /* ── Il ponte fra avvio e ciclo ── */
@@ -458,7 +476,7 @@ export default function ChiFaCosa() {
           border-top: 8px solid rgba(0,255,252,0.55);
           border-left: 4.5px solid transparent; border-right: 4.5px solid transparent;
         }
-        .cfc-bridge-t { font-size: 11.5px; color: var(--text-faint); line-height: 1.7; text-align: center; max-width: 520px; }
+        .cfc-bridge-t { font-size: 13px; color: var(--text-faint); line-height: 1.7; text-align: center; max-width: 520px; }
 
         /* ── Intestazione del ciclo ── */
         .cfc-cyc-h { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
@@ -510,30 +528,30 @@ export default function ChiFaCosa() {
         .cfc-mo-t { font-family: var(--font-playfair), 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 16px; }
         .cfc-mo-call { display: flex; align-items: center; gap: 7px; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
         .cfc-mo-call[data-soft="1"] { color: var(--text-faint); }
-        .cfc-mo-cn { font-size: 11.5px; color: var(--text-dim); line-height: 1.7; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid rgba(232,245,242,0.07); }
+        .cfc-mo-cn { font-size: 13px; color: var(--text-dim); line-height: 1.7; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid rgba(232,245,242,0.07); }
         .cfc-mo-ops { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 18px; flex: 1; }
-        .cfc-mo-op { font-size: 11.5px; color: var(--text); opacity: .85; line-height: 1.65; padding-left: 14px; position: relative; }
+        .cfc-mo-op { font-size: 13px; color: var(--text); opacity: .85; line-height: 1.65; padding-left: 14px; position: relative; }
         .cfc-mo-op::before { content: ""; position: absolute; left: 0; top: 7px; width: 4px; height: 4px; border-radius: 1px; background: var(--teal); opacity: .7; }
-        .cfc-mo-l { display: block; font-size: 11px; line-height: 1.6; padding: 10px 12px; border-radius: 7px; border: 1px solid var(--teal-border); background: var(--teal-dim); color: var(--teal); }
+        .cfc-mo-l { display: block; font-size: 12.5px; line-height: 1.6; padding: 10px 12px; border-radius: 7px; border: 1px solid var(--teal-border); background: var(--teal-dim); color: var(--teal); }
         .cfc-mo-l[data-k="milestone"] { background: rgba(0,255,252,0.14); border-color: var(--teal); }
         .cfc-mo-l[data-k="nota"] { background: transparent; border-style: dashed; border-color: rgba(232,245,242,0.2); color: var(--text-dim); }
         .cfc-mo-lk { display: block; font-size: 8.5px; letter-spacing: 2px; text-transform: uppercase; opacity: .65; margin-bottom: 4px; }
-        .cfc-mo-note { font-size: 12.5px; color: var(--text-dim); line-height: 1.85; max-width: 780px; padding-left: 16px; border-left: 2px solid var(--teal-border); margin-top: 30px; }
+        .cfc-mo-note { font-size: 14px; color: var(--text-dim); line-height: 1.85; max-width: 780px; padding-left: 16px; border-left: 2px solid var(--teal-border); margin-top: 30px; }
 
         /* ── Le fasi lunghe ── */
         .cfc-tl-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
         .cfc-tl-card { border: 1px solid rgba(232,245,242,0.08); border-radius: 10px; padding: 24px 22px; background: rgba(232,245,242,0.02); height: 100%; }
         .cfc-tl-when { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
-        .cfc-tl-claim { font-size: 12px; color: var(--text-dim); line-height: 1.75; margin-bottom: 18px; }
+        .cfc-tl-claim { font-size: 13.5px; color: var(--text-dim); line-height: 1.75; margin-bottom: 18px; }
         .cfc-tl-steps { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 20px; }
-        .cfc-tl-step { font-size: 12px; color: var(--text); opacity: .88; line-height: 1.65; padding-left: 16px; position: relative; }
+        .cfc-tl-step { font-size: 13.5px; color: var(--text); opacity: .88; line-height: 1.65; padding-left: 16px; position: relative; }
         .cfc-tl-step::before { content: ""; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 1px; background: var(--teal); opacity: .8; }
         .cfc-load { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
         .cfc-load-bars { display: flex; gap: 3px; }
         .cfc-load-b { width: 16px; height: 6px; border-radius: 1px; background: rgba(232,245,242,0.12); }
         .cfc-load-b[data-on="1"] { background: var(--teal); box-shadow: 0 0 6px rgba(0,255,252,.45); }
-        .cfc-load-l { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-faint); }
-        .cfc-load-note { font-size: 11.5px; color: var(--text-dim); line-height: 1.75; }
+        .cfc-load-l { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-faint); }
+        .cfc-load-note { font-size: 13px; color: var(--text-dim); line-height: 1.75; }
 
         /* ── FAQ ── */
         .cfc-faq details { border-bottom: 1px solid rgba(232,245,242,0.08); }
@@ -546,7 +564,14 @@ export default function ChiFaCosa() {
         .cfc-faq summary:hover { color: var(--teal); }
         .cfc-faq summary::after { content: "+"; position: absolute; right: 8px; top: 18px; font-family: var(--font-dm-mono), 'DM Mono', monospace; font-size: 20px; color: var(--teal); }
         .cfc-faq details[open] summary::after { content: "\\2013"; }
-        .cfc-faq-a { font-size: 13px; color: var(--text-dim); line-height: 1.9; padding: 0 40px 24px 0; max-width: 860px; }
+        /* ── Chiusura ── */
+        .cfc-end { margin-top: 88px; padding: 40px 44px; border: 1px solid var(--teal-border); border-radius: 14px; background: rgba(0,255,252,0.04); max-width: 900px; }
+        .cfc-end-h { font-size: 26px; line-height: 1.25; margin-bottom: 14px; }
+        .cfc-end-b { font-size: 14.5px; color: var(--text-dim); line-height: 1.85; max-width: 680px; margin-bottom: 26px; }
+        .cfc-end-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+        @media (max-width: 820px) { .cfc-end { padding: 28px 22px; } .cfc-end-h { font-size: 22px; } }
+
+        .cfc-faq-a { font-size: 14.5px; color: var(--text-dim); line-height: 1.9; padding: 0 40px 24px 0; max-width: 860px; }
 
         /* ── Responsive ── */
         @media (max-width: 1080px) {
@@ -607,8 +632,8 @@ export default function ChiFaCosa() {
         <section style={{ marginBottom: "56px" }} className="animate-fade-up">
           <div className="s-eyebrow">Chi fa cosa</div>
           <h1 className="s-h1" style={{ maxWidth: "900px" }}>
-            {"Il mio approccio di lavoro, "}
-            <em>{"lungo tutto il funnel"}</em>
+            {"Dove metto le mani, "}
+            <em>{"e dove no"}</em>
           </h1>
           <p className="cfc-hero-sub">
             {
@@ -742,7 +767,7 @@ export default function ChiFaCosa() {
                 </div>
               </div>
 
-              {/* il limite di tempo, detto qui e approfondito nella terza vista */}
+              {/* il limite di tempo, detto subito */}
               <div className="cfc-sim">
                 <span className="cfc-sim-i">
                   <Ico n="clock" s={15} />
@@ -977,6 +1002,20 @@ export default function ChiFaCosa() {
             ))}
           </div>
         </section>
+
+        {/* ══ CHIUSURA ══ */}
+        <section className="cfc-end">
+          <h2 className="s-h2 cfc-end-h">{CLOSING.title}</h2>
+          <p className="cfc-end-b">{CLOSING.body}</p>
+          <div className="cfc-end-cta">
+            <a className="s-btn-primary" href={`mailto:${SITE.email}`}>
+              {"Scrivimi"}
+            </a>
+            <a className="s-btn-secondary" href={SITE.whatsapp} target="_blank" rel="noopener noreferrer">
+              {"WhatsApp"}
+            </a>
+          </div>
+        </section>
       </div>
 
       {/* ══ MODALE ══ */}
@@ -1053,6 +1092,6 @@ export default function ChiFaCosa() {
           </div>
         </>
       )}
-    </>
+    </div>
   );
 }
