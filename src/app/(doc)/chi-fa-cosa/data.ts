@@ -112,10 +112,51 @@ export const RHYTHM = {
 export const HANDS = {
   label: "Le mani",
   title: "Quando serve, la direzione la metto a terra io",
-  body: "So fare molte delle cose che servono, e le faccio quando sono la priorità, non perché c'è da fare. Dove non arrivo io, scelgo chi lo fa, gli scrivo cosa deve fare e controllo il risultato prima che lo veda il pubblico.",
-  open: "Vedi le aree una per una",
+  body: "So fare molte delle cose che servono, e le faccio quando sono la priorità, non perché c'è da fare. Su ogni pezzo di lavoro dichiaro prima quanto ci metto le mani, così non ci sono zone grigie.",
+  ends: ["Le mie mani", "Le mani di altri, il mio controllo"],
+  /* tre livelli, e per ognuno qualche area d'esempio (id di AREAS): si aprono con un clic */
+  levels: [
+    {
+      id: "operativo" as const,
+      says: "Ci metto le mani io",
+      body: "La pagina, la campagna, il tracciamento, i flussi email: li faccio io e li metto online io.",
+      areas: ["misura", "ads", "cro", "email"],
+    },
+    {
+      id: "supporto" as const,
+      says: "Lo facciamo in due",
+      body: "Imposto, scrivo e controllo io. Una parte la fai tu o chi lavora con te, perché serve la tua testa, la tua faccia o il tuo tempo.",
+      areas: ["messaggio", "economia", "organico", "newsletter"],
+    },
+    {
+      id: "consulenziale" as const,
+      says: "Non lo tocco, lo dirigo",
+      body: "Decido che serve, scelgo chi lo fa, gli scrivo cosa deve fare e controllo il risultato prima che lo veda il pubblico.",
+      areas: ["social", "produzione", "sviluppo"],
+    },
+  ],
+  open: "Vedi tutte le aree, tappa per tappa",
   close: "Chiudi le aree",
+  mapTitle: "Il percorso del cliente, da sinistra a destra",
+  mapBody: "Più si va a destra, più si stringe: è il percorso che fa chi ti trova, ti sceglie e torna. Ogni area si apre e dice cosa faccio io, cosa facciamo insieme, cosa fai tu.",
 };
+
+/* Il limite, disegnato: cinque cantieri aperti restano a metà, due alla volta si chiudono. */
+export const LIMIT_VIEW = {
+  tanti: "Cinque aperti insieme",
+  tantiEsito: "tutti a metà",
+  pochi: "Due alla volta",
+  pochiEsito: "chiusi, e si passa ai successivi",
+};
+
+/* L'indice in testa alla pagina, che poi resta a margine mentre si legge. */
+export const INDEX: { id: string; n?: number; t: string; b: string }[] = [
+  { id: "direzione", n: 1, t: "La direzione", b: "Cosa conta adesso, e cosa aspetta" },
+  { id: "cervello", t: "Il cervello e io", b: "Cosa fa l'AI, cosa faccio io" },
+  { id: "ritmo", n: 2, t: "Il ritmo", b: "Come diventa lavoro, mese per mese" },
+  { id: "mani", n: 3, t: "Le mani", b: "Cosa faccio io, cosa facciamo in due, cosa dirigo" },
+  { id: "domande", t: "Domande", b: "Quelle che mi fanno per iscritto" },
+];
 
 /* La rotta (design 2026-11-04): il rumore di un'azienda che, mentre si scorre,
    si mette in ordine sotto i quattro punti della direzione. a = sotto quale punto, -1 = aspetta. */
@@ -150,15 +191,49 @@ export const BRAIN = {
     "Controllo quello che esce, prima che lo veda il pubblico",
     "Mi prendo la responsabilità del risultato",
   ],
+  /* La scena: un pezzo di call qualsiasi (nessun cliente vero) che diventa piano.
+     key = la frase che il cervello sottolinea. */
+  call: "La call del lunedì",
+  righe: [
+    { chi: "Tu", t: "Le campagne costano sempre di più, e non sappiamo quali contatti diventano clienti.", key: "non sappiamo quali contatti diventano clienti" },
+    { chi: "Io", t: "Chi li richiama, adesso, i contatti che arrivano?", key: "" },
+    { chi: "Tu", t: "Un po' tutti, quando c'è tempo.", key: "" },
+    { chi: "Tu", t: "E il sito nuovo? Lo vorremmo pronto per la primavera.", key: "il sito nuovo" },
+    { chi: "Io", t: "Prima guardiamo dove si perde la gente su quello che c'è.", key: "dove si perde la gente" },
+  ],
+  pagina: "La pagina del progetto",
+  uscite: [
+    { tipo: "Task", t: "Collegare ogni contatto alla vendita che ne è uscita", bozza: "Bozza del tracciamento pronta", timbro: "Si fa adesso" },
+    { tipo: "Task", t: "Rifare il sito per la primavera", timbro: "Aspetta", perche: "Prima si guarda dove si perde la gente" },
+    { tipo: "Memoria", t: "Deciso lunedì: prima i numeri, poi il sito" },
+  ],
+  fasi: [
+    "Una call come tutte le settimane.",
+    "Il cervello ascolta.",
+    "Tira fuori task e decisioni, e le scrive sulla pagina del progetto.",
+    "Prepara le bozze.",
+    "Ricorda perché si è deciso, e quando.",
+    "Poi decido io: cosa si fa adesso, cosa aspetta.",
+    "Il cervello propone e ricorda. Decido io, e ne rispondo io.",
+  ],
 };
 
-/* Il righello del mese: i giorni che contano nel ciclo. */
-export const RIGHELLO: [number, string][] = [
-  [1, "La call di apertura"],
-  [7, "La verifica"],
-  [14, "La cosa grossa, chiusa"],
-  [21, "La nota scritta"],
-  [28, "Si tira la riga"],
+/* Il righello del mese: quattro settimane da sette giorni, e i giorni che contano.
+   Il giorno 1 e' il lunedi' della call di apertura. */
+export type DayMark = "call" | "online" | "chiusa" | "nota" | "riga";
+export const RIGHELLO: Record<number, { k: DayMark; t: string }> = {
+  1: { k: "call", t: "Call di apertura" },
+  5: { k: "online", t: "Il primo pezzo è online" },
+  8: { k: "call", t: "Call di verifica" },
+  14: { k: "chiusa", t: "La cosa grossa è chiusa" },
+  15: { k: "nota", t: "La nota scritta" },
+  22: { k: "call", t: "Call di chiusura" },
+  28: { k: "riga", t: "Il punto e il mese dopo" },
+};
+export const RIGHELLO_LEGENDA: { k: DayMark; t: string }[] = [
+  { k: "call", t: "Call" },
+  { k: "chiusa", t: "La cosa grossa chiusa" },
+  { k: "nota", t: "Nota scritta" },
 ];
 
 /* La chiusura in fondo alla pagina: il motivo per cui l'ho mandata. */
@@ -626,55 +701,60 @@ export const MONTH_INTRO =
   "Quattro call in un mese normale, una a settimana. Tre quando una salta perché c'è solo da produrre. Cinque nel mese di un lancio. La call è dove si decide, non dove ci si aggiorna.";
 
 export const MONTH_NOTE =
-  "La cosa importante del mese si chiude nelle prime due settimane, non l'ultimo giorno. È una scelta: se una milestone slitta, lo scopriamo il giorno 14 e c'è ancora mezzo mese per rimediare, invece di scoprirlo quando il mese è finito.";
+  "La cosa grossa del mese si chiude entro il giorno 14, non l'ultimo giorno. È una scelta: se slitta, ce ne accorgiamo con mezzo mese ancora davanti per rimediare, invece di scoprirlo a mese finito.";
 
-export type WeekIcon = "call" | "check" | "gear" | "chart";
+export type WeekIcon = "signpost" | "flag" | "wrench" | "chart-line";
 
 export type Week = {
-  n: string;
+  n: number;
   label: string;
   icon: WeekIcon;
   call: string;
   callNote: string;
+  when: string;
   lands: string;
   landsKind: "consegna" | "milestone" | "nota" | "punto";
 };
 
 export const MONTH: Week[] = [
   {
-    n: "01",
-    icon: "call",
+    n: 1,
+    icon: "signpost",
     label: "Si decide e si parte",
-    call: "Call di apertura",
-    callNote: "Lunedì, circa un'ora. Cosa dicono i numeri, cosa si fa adesso, chi fa cosa.",
-    lands: "Il primo pezzo del mese è online entro venerdì",
+    call: "Call di apertura, lunedì",
+    callNote: "Circa un'ora: cosa dicono i numeri del mese prima, cosa si fa adesso, chi fa cosa.",
+    when: "Entro venerdì",
+    lands: "Il primo pezzo del mese è online.",
     landsKind: "consegna",
   },
   {
-    n: "02",
-    icon: "check",
+    n: 2,
+    icon: "flag",
     label: "Si chiude la cosa grossa",
     call: "Call di verifica",
-    callNote: "Si guarda il primo dato vero di quello che è partito la settimana prima.",
-    lands: "Entro il giorno 14 la milestone del mese è chiusa",
+    callNote: "Si legge il primo dato vero di quello che è partito. Se non va, si corregge adesso.",
+    when: "Entro il giorno 14",
+    lands: "La cosa grossa del mese è chiusa.",
     landsKind: "milestone",
   },
   {
-    n: "03",
-    icon: "gear",
-    label: "Operatività densa",
-    call: "Call facoltativa",
-    callNote: "Questa è la settimana in cui la call può saltare, e salta dicendolo.",
-    lands: "Una nota scritta al posto della call",
+    n: 3,
+    icon: "wrench",
+    label: "Si lavora, si parla meno",
+    call: "Call solo se serve",
+    callNote: "È la settimana del fare. Se non c'è niente da decidere la call salta, e te lo dico prima.",
+    lands: "Una nota scritta: cosa è uscito e cosa viene dopo.",
+    when: "Al posto della call",
     landsKind: "nota",
   },
   {
-    n: "04",
-    icon: "chart",
+    n: 4,
+    icon: "chart-line",
     label: "Si tira la riga",
     call: "Call di chiusura",
-    callNote: "I numeri del mese messi in fila, e cosa ne consegue.",
-    lands: "Il punto scritto e il piano del mese dopo",
+    callNote: "I numeri del mese in fila: cosa ha funzionato, cosa no, cosa ne consegue.",
+    when: "A fine mese",
+    lands: "Il punto scritto e la cosa grossa del mese dopo.",
     landsKind: "punto",
   },
 ];
