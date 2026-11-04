@@ -117,6 +117,50 @@ export const HANDS = {
   close: "Chiudi le aree",
 };
 
+/* La rotta (design 2026-11-04): il rumore di un'azienda che, mentre si scorre,
+   si mette in ordine sotto i quattro punti della direzione. a = sotto quale punto, -1 = aspetta. */
+export const RUMORE: [string, number][] = [
+  ["Meta Ads", 1], ["Google Ads", 1], ["newsletter", -1], ["sito nuovo", 0], ["l'agenzia", 3],
+  ["preventivi", -1], ["GA4", 0], ["Instagram", -1], ["il listino", 1], ["checkout", 0],
+  ["SEO", -1], ["WhatsApp", 3], ["fornitori", 3], ["TikTok", 2], ["il CRM", -1], ["i video", -1],
+  ["il catalogo", 0], ["recensioni", -1], ["Amazon", 2], ["la fiera", 2], ["il grafico", 3],
+  ["le offerte", 1], ["LinkedIn", -1], ["i coupon", 2], ["il pixel", 0], ["la mail di Natale", 2],
+];
+export const RUMORE_FASI = [
+  "Oggi è tutto acceso, e niente è in ordine.",
+  "Prima si guarda tutto, a partire dai numeri veri.",
+  "Poi si sceglie. Il resto aspetta, e c'è scritto perché.",
+];
+
+/* Chi fa cosa, fra il cervello AI e me: il sistema vero con cui lavoro
+   (le call diventano task e decisioni sulla pagina del progetto del cliente). */
+export const BRAIN = {
+  label: "Il cervello e io",
+  title: "Un cervello AI tiene insieme il tuo progetto. Io decido cosa conta.",
+  body: "Uso l'intelligenza artificiale in modo massiccio: mi rende più veloce, e il tempo che risparmio va sulle decisioni.",
+  ai: [
+    "Ascolta le call e ne tira fuori task e decisioni",
+    "Tiene il piano aggiornato sulla pagina del tuo progetto",
+    "Prepara bozze, controlli e letture dei numeri",
+    "Ricorda perché si è deciso cosa, e quando",
+  ],
+  io: [
+    "Decido la cosa che conta adesso",
+    "Parlo con te e con chi lavora con te",
+    "Controllo quello che esce, prima che lo veda il pubblico",
+    "Mi prendo la responsabilità del risultato",
+  ],
+};
+
+/* Il righello del mese: i giorni che contano nel ciclo. */
+export const RIGHELLO: [number, string][] = [
+  [1, "La call di apertura"],
+  [7, "La verifica"],
+  [14, "La cosa grossa, chiusa"],
+  [21, "La nota scritta"],
+  [28, "Si tira la riga"],
+];
+
 /* La chiusura in fondo alla pagina: il motivo per cui l'ho mandata. */
 export const CLOSING = {
   title: "Se qualcosa qui non torna con come lavorate voi, è la prima cosa da dirmi.",
