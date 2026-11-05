@@ -8,10 +8,11 @@ import useComparse from "@/components/useComparse";
 import { DIRECTION } from "@/app/(doc)/chi-fa-cosa/data";
 import Rumore from "./Rumore";
 import Ora from "./Ora";
+import { CLIENTI, ESITI } from "@/components/clienti/testi";
 
 /* La home (copy approvato da Nicola il 2026-11-04, varianti A; design: concept 01 «La rotta»).
-   Ordine: chi sei e cosa fai, la direzione in breve, le domande, come si parte. La prova (i casi vecchi) e' uscita
-   il 2026-11-05: non reggeva sulle fonti. Torna come rimando alla pagina Clienti quando c'e'.
+   Ordine: chi sei e cosa fai, la direzione in breve, i clienti (rimando alla pagina Clienti), le domande, come si
+   parte. I casi vecchi sono usciti il 2026-11-05: non reggevano sulle fonti.
    I numeri di credibilita' di aprile non ci sono finche' Nicola non li conferma. */
 
 const TESTI = {
@@ -125,6 +126,16 @@ const STILE = `
 .hm-link svg{transition:transform .3s var(--e)}
 .hm-link:hover svg{transform:translateX(4px)}
 
+/* ── i clienti, in breve ── */
+.hm-cli{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:center;padding:36px;border-radius:28px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
+.hm-cli p{margin-top:12px!important;font-size:16.5px;line-height:1.6;color:var(--body);max-width:48ch}
+.hm-cli ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.hm-cli li a{display:inline-flex;align-items:center;gap:9px;padding:12px 16px;border-radius:999px;background:var(--soft);color:var(--ink);font:700 14.5px/1 var(--font-manrope),sans-serif;text-decoration:none;transition:background .25s,transform .3s var(--e)}
+.hm-cli li a:hover{background:var(--accent-soft);transform:translateY(-2px)}
+.hm-cli li i{width:9px;height:9px;border-radius:50%;background:var(--accent)}
+.hm-cli li i.caldo{background:var(--warm)}
+.hm-cli .hm-link{margin-top:20px}
+
 /* ── le domande ── */
 .hm-dom{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px;align-items:start}
 .hm-dom-t{position:sticky;top:calc(var(--nav-h) + 32px)}
@@ -153,7 +164,8 @@ const STILE = `
 @media (max-width:1020px){
   .hm-testa{grid-template-columns:1fr;min-height:0;gap:28px;padding-top:28px}
   .rm-campo{height:480px;min-height:0}
-  .hm-dom{grid-template-columns:1fr;gap:18px}
+  .hm-dom,.hm-cli{grid-template-columns:1fr;gap:18px}
+  .hm-cli{padding:24px}
   .hm-dom-t{position:static}
   .hm-fine .hm-w{grid-template-columns:auto 1fr}
   .hm-fine .hm-w > :last-child{grid-column:1/-1}
@@ -243,6 +255,33 @@ export default function Home() {
             Come lavoro, nel dettaglio
             <Icona n="arrow-right" size={17} stroke={2.2} />
           </Link>
+        </section>
+
+        {/* ══ I CLIENTI, IN BREVE ══ */}
+        <section className="hm-sec">
+          <div className="hm-cli" data-rv>
+            <div>
+              <span className="hm-k">Clienti</span>
+              <h2 style={{ marginTop: 12 }}>Prima di crescere, si mette ordine.</h2>
+              <p>I clienti che seguo adesso, senza nomi: cosa c&apos;era prima, cosa ho fatto, cosa c&apos;è adesso.</p>
+            </div>
+            <div>
+              <ul>
+                {CLIENTI.map((c) => (
+                  <li key={c.id}>
+                    <Link href="/clienti" aria-label={`${c.tab}: ${ESITI[c.esito].t}`}>
+                      <i className={c.esito === "blocco" ? "caldo" : undefined} />
+                      {c.tab}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <Link href="/clienti" className="hm-link">
+                Il prima e l&apos;adesso, uno per uno
+                <Icona n="arrow-right" size={17} stroke={2.2} />
+              </Link>
+            </div>
+          </div>
         </section>
 
         {/* ══ LE DOMANDE ══ */}
