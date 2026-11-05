@@ -3,7 +3,8 @@ export const SITE = {
   title: "Fractional CMO",
   tagline: "La mente di un ufficio marketing. In una sola persona.",
   liveStatus: { current: 3, max: 5 },
-  url: "https://nicolaserrao.com",
+  /* l'indirizzo unico del sito (ticket 11, 2026-11-05): Vercel serve www, nicolaserrao.com rimanda qui */
+  url: "https://www.nicolaserrao.com",
   email: "marketing@nicolaserrao.com",
   whatsapp: "https://wa.me/393385691369",
   phone: "+39 338 5691369",

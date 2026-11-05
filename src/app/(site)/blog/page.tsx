@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Blog — Strategia, KPI e Digital Marketing",
+  alternates: { canonical: "/blog" },
+  title: "Blog: le domande che mi fanno, con le risposte lunghe",
   description:
     "Articoli su strategia digitale, KPI reali, advertising e come far crescere un business senza sprecare budget. Niente teorie generiche — solo metodo e numeri.",
 };

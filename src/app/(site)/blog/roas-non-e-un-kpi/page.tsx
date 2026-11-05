@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SITE } from "@/lib/constants";
 
 /* ─────────────────────────────────────────────
    SEO METADATA
 ───────────────────────────────────────────── */
 export const metadata: Metadata = {
-  title: "ROAS non è un KPI — Guida ai numeri che contano davvero",
+  alternates: { canonical: "/blog/roas-non-e-un-kpi" },
+  title: "ROAS non è un KPI: i numeri che contano davvero",
   description:
     "Il ROAS misura un'azione, non un risultato di business. Scopri come calcolare il tuo break-even ROAS reale e quali KPI guardare per valutare davvero le tue campagne.",
   openGraph: {
-    title: "ROAS non è un KPI — Guida ai numeri che contano davvero",
+    title: "ROAS non è un KPI: i numeri che contano davvero",
     description:
       "Il ROAS misura un'azione, non un risultato di business. Scopri come calcolare il tuo break-even ROAS reale e quali KPI guardare davvero.",
     type: "article",
@@ -29,15 +31,15 @@ const articleSchema = {
   author: {
     "@type": "Person",
     name: "Nicola Serrao",
-    url: "https://nicolaserrao.com",
+    url: "https://www.nicolaserrao.com",
   },
   publisher: {
     "@type": "Person",
     name: "Nicola Serrao",
-    url: "https://nicolaserrao.com",
+    url: "https://www.nicolaserrao.com",
   },
   datePublished: "2026-04-17",
-  url: "https://nicolaserrao.com/blog/roas-non-e-un-kpi",
+  url: "https://www.nicolaserrao.com/blog/roas-non-e-un-kpi",
 };
 
 const faqSchema = {
@@ -1489,7 +1491,7 @@ export default function RoasArticlePage() {
           <div className="art-author-bar">
             <span className="art-author-name">Nicola Serrao</span>
             <span className="art-meta-dot" />
-            <span className="art-author-role">Digital Business Advisor</span>
+            <span className="art-author-role">Fractional CMO</span>
             <span className="art-meta-dot" />
             <span className="art-meta-item">8 min lettura</span>
             <span className="art-meta-dot" />
@@ -1952,28 +1954,21 @@ export default function RoasArticlePage() {
         {/* LEAD MAGNET */}
         <div className="art-col-wide">
           <div className="art-lead-magnet">
-            <div className="art-lm-eyebrow">Strumento gratuito</div>
-            <div className="art-lm-title">
-              Quanto &egrave; sano il tuo marketing digitale?
-            </div>
+            <div className="art-lm-eyebrow">Se vuoi un parere</div>
+            <div className="art-lm-title">Vuoi sapere quali numeri guardare, nel tuo caso?</div>
             <div className="art-lm-desc">
-              10 domande, 3 minuti. Ricevi un profilo della tua situazione attuale
-              con i punti di attenzione specifici del tuo business &mdash;
-              prima di spendere un altro euro in advertising.
+              Mandami un messaggio. Ti dico onestamente se posso aiutarti, o se non ne hai bisogno.
             </div>
             <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "16px" }}>
-              <Link href="/risorse/audit-score" className="art-lm-cta">
-                Fai l&rsquo;Audit Score gratuito
+              <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="art-lm-cta">
+                Scrivimi su WhatsApp
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
+              </a>
+              <Link href="/il-metodo" className="art-lm-meta">
+                Oppure guarda come lavoro
               </Link>
-              <span className="art-lm-meta">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" />
-                </svg>
-                3 minuti &middot; Gratuito &middot; Nessun impegno
-              </span>
             </div>
           </div>
         </div>
@@ -2165,7 +2160,7 @@ export default function RoasArticlePage() {
             <div>
               <div className="art-sig-name">Nicola Serrao</div>
               <div className="art-sig-role">
-                Digital Business Advisor &mdash; Strategia, KPI, Direzione operativa
+                Fractional CMO
               </div>
             </div>
             <Link href="/#contatti" className="art-sig-link">

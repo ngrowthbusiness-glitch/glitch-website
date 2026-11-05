@@ -3,11 +3,12 @@ import Link from "next/link";
 import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Case Study: Balance Nutrition | Nicola Serrao",
+  alternates: { canonical: "/cosa-ho-fatto/balance-nutrition" },
+  title: "Caso: Balance Nutrition",
   description:
     "Da €45k a €150k al mese in 5 mesi. Come ho triplicato il fatturato di un e-commerce alimentazione con unit economics, forecasting e ottimizzazione ROAS.",
   openGraph: {
-    title: "Case Study: Balance Nutrition | Nicola Serrao",
+    title: "Caso: Balance Nutrition",
     description:
       "Da €45k a €150k al mese in 5 mesi. Come ho triplicato il fatturato di un e-commerce alimentazione con unit economics, forecasting e ottimizzazione ROAS.",
     url: `${SITE.url}/cosa-ho-fatto/balance-nutrition`,

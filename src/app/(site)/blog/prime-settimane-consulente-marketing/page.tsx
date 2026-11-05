@@ -5,11 +5,12 @@ import Link from "next/link";
    SEO METADATA
 ───────────────────────────────────────────── */
 export const metadata: Metadata = {
-  title: "Le prime settimane di un consulente marketing — Prima della strategia, si mappa",
+  alternates: { canonical: "/blog/prime-settimane-consulente-marketing" },
+  title: "Le prime settimane di un consulente marketing: prima della strategia, si mappa",
   description:
     "Audit dei dati, intervista interna, benchmark di mercato: le tre macro aree che un buon consulente copre prima di toccare il budget. Niente slide, niente proposte — prima si capisce.",
   openGraph: {
-    title: "Le prime settimane di un consulente marketing — Prima della strategia, si mappa",
+    title: "Le prime settimane di un consulente marketing: prima della strategia, si mappa",
     description:
       "Cosa fa davvero un buon consulente marketing nelle prime settimane. Prima di qualsiasi strategia, mappa tre cose precise.",
     type: "article",
@@ -30,15 +31,15 @@ const articleSchema = {
   author: {
     "@type": "Person",
     name: "Nicola Serrao",
-    url: "https://nicolaserrao.com",
+    url: "https://www.nicolaserrao.com",
   },
   publisher: {
     "@type": "Person",
     name: "Nicola Serrao",
-    url: "https://nicolaserrao.com",
+    url: "https://www.nicolaserrao.com",
   },
   datePublished: "2026-04-17",
-  url: "https://nicolaserrao.com/blog/prime-settimane-consulente-marketing",
+  url: "https://www.nicolaserrao.com/blog/prime-settimane-consulente-marketing",
 };
 
 const faqSchema = {
@@ -836,7 +837,7 @@ export default function ArticleConsulentePage() {
               </div>
             </div>
             <div className="mk-cta-action">
-              <Link href="/risorse/domande-consulente" className="mk-cta-btn">Ricevi la lista</Link>
+              <Link href="/blog/domande-consulente-marketing" className="mk-cta-btn">Leggi le 16 domande</Link>
             </div>
           </div>
         </div>

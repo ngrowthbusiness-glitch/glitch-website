@@ -3,11 +3,12 @@ import Link from "next/link";
 import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Case Study: Autonoleggio B2B | Nicola Serrao",
+  alternates: { canonical: "/cosa-ho-fatto/autonoleggio" },
+  title: "Caso: Autonoleggio B2B",
   description:
     "CPL da €25 a €4,50 con qualità lead 80%+. Come ho ristrutturato la lead generation per un'azienda di noleggio auto B2B.",
   openGraph: {
-    title: "Case Study: Autonoleggio B2B | Nicola Serrao",
+    title: "Caso: Autonoleggio B2B",
     description:
       "CPL da €25 a €4,50 con qualità lead 80%+. Come ho ristrutturato la lead generation per un'azienda di noleggio auto B2B.",
     url: `${SITE.url}/cosa-ho-fatto/autonoleggio`,

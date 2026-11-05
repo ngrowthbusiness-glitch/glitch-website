@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SITE } from "@/lib/constants";
 
 /* ─────────────────────────────────────────────
    SEO METADATA
 ───────────────────────────────────────────── */
 export const metadata: Metadata = {
-  title: "16 domande da fare al tuo consulente marketing | Nicola Serrao",
+  alternates: { canonical: "/blog/domande-consulente-marketing" },
+  title: "16 domande da fare al tuo consulente marketing",
   description:
     "16 domande concrete divise per area per valutare un consulente marketing prima di firmare. Con la spiegazione del perch\u00e9 ogni risposta rivela qualcosa.",
   openGraph: {
-    title: "16 domande da fare al tuo consulente marketing | Nicola Serrao",
+    title: "16 domande da fare al tuo consulente marketing",
     description:
       "16 domande concrete divise per area per valutare un consulente marketing prima di firmare qualsiasi accordo.",
     type: "article",
@@ -29,15 +31,15 @@ const articleSchema = {
   author: {
     "@type": "Person",
     name: "Nicola Serrao",
-    url: "https://nicolaserrao.com",
+    url: "https://www.nicolaserrao.com",
   },
   publisher: {
     "@type": "Person",
     name: "Nicola Serrao",
-    url: "https://nicolaserrao.com",
+    url: "https://www.nicolaserrao.com",
   },
   datePublished: "2026-04-22",
-  url: "https://nicolaserrao.com/blog/domande-consulente-marketing",
+  url: "https://www.nicolaserrao.com/blog/domande-consulente-marketing",
 };
 
 /* ─────────────────────────────────────────────
@@ -690,7 +692,7 @@ export default function DomandeConsulentArticlePage() {
           <div className="art-author-bar">
             <span className="art-author-name">Nicola Serrao</span>
             <span className="art-meta-dot" />
-            <span className="art-author-role">Digital Business Advisor</span>
+            <span className="art-author-role">Fractional CMO</span>
             <span className="art-meta-dot" />
             <span className="art-meta-item">10 min lettura</span>
             <span className="art-meta-dot" />
@@ -975,14 +977,14 @@ export default function DomandeConsulentArticlePage() {
               Nessun impegno &mdash; solo una conversazione onesta sui numeri.
             </div>
             <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "16px" }}>
-              <Link href="/cosa-posso-fare" className="art-lm-cta">
-                Cosa posso fare per te
+              <Link href="/il-metodo" className="art-lm-cta">
+                Come lavoro
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </Link>
               <a
-                href="https://wa.me/393516737345"
+                href={SITE.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="art-lm-cta-wa"
@@ -1005,7 +1007,7 @@ export default function DomandeConsulentArticlePage() {
             <div>
               <div className="art-sig-name">Nicola Serrao</div>
               <div className="art-sig-role">
-                Digital Business Advisor &mdash; Strategia, KPI, Direzione operativa
+                Fractional CMO
               </div>
             </div>
             <Link href="/#contatti" className="art-sig-link">

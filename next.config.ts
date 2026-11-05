@@ -8,6 +8,13 @@ const nextConfig: NextConfig = {
         destination: "/?utm_source=biglietto&utm_medium=offline&utm_campaign=business_card",
         permanent: true,
       },
+      // Restyling 2026-11 (ticket 11): le pagine che escono rimandano alla loro casa nuova
+      { source: "/metodo-glitch", destination: "/il-metodo", permanent: true },
+      { source: "/cosa-posso-fare", destination: "/il-metodo", permanent: true },
+      { source: "/risorse/fractional-cmo", destination: "/fractional-cmo", permanent: true },
+      { source: "/risorse/domande-consulente", destination: "/blog/domande-consulente-marketing", permanent: true },
+      { source: "/risorse/:path*", destination: "/", permanent: true },
+      { source: "/risorse", destination: "/", permanent: true },
       // Redirect old .php outreach URLs to new Next.js routes
       {
         source: "/outreach/:slug.php",

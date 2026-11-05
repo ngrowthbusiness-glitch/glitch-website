@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import GTMScript, { GTMNoscript } from "@/components/layout/GTMScript";
 import { SCRIPT_TEMA } from "@/lib/tema";
+import { SITE } from "@/lib/constants";
 
 /* Un font solo, Manrope (Brand Nicola Serrao v2.0). Playfair e DM Mono restano
    soltanto nel layout di /outreach, che non passa dal restyling. */
@@ -14,7 +15,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nicolaserrao.com"),
+  metadataBase: new URL(SITE.url),
   title: {
     default: "Nicola Serrao | Fractional CMO Italia",
     template: "%s | Nicola Serrao",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "it_IT",
-    url: "https://nicolaserrao.com",
+    url: SITE.url,
     siteName: "Nicola Serrao",
     title: "Nicola Serrao | Fractional CMO Italia",
     description:

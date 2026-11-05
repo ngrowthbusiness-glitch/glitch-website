@@ -3,11 +3,12 @@ import Link from "next/link";
 import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Case Study: Pneumatici B2C | Nicola Serrao",
+  alternates: { canonical: "/cosa-ho-fatto/pneumatici" },
+  title: "Caso: Pneumatici B2C",
   description:
     "ROAS 16 con €200k+ di budget su 7 paesi. Come ho reso il digital marketing il primo canale worldwide per un luxury brand italiano.",
   openGraph: {
-    title: "Case Study: Pneumatici B2C | Nicola Serrao",
+    title: "Caso: Pneumatici B2C",
     description:
       "ROAS 16 con €200k+ di budget su 7 paesi. Come ho reso il digital marketing il primo canale worldwide per un luxury brand italiano.",
     url: `${SITE.url}/cosa-ho-fatto/pneumatici`,

@@ -1,27 +1,33 @@
 import type { MetadataRoute } from "next";
+import { SITE } from "@/lib/constants";
 
-const BASE_URL = "https://nicolaserrao.com";
+/* La sitemap (ticket 11, 2026-11-05). Le date sono quelle dell'ultima modifica vera del contenuto:
+   quando una pagina cambia, si aggiorna la sua data qui. Niente new Date(), che dichiarerebbe
+   tutte le pagine cambiate a ogni rilascio.
+   Fuori: le pagine in redirect (Metodo GLITCH, Perché conoscerci, Risorse), /chi-fa-cosa
+   (ha come originale /il-metodo) e le pagine outreach, che sono noindex. */
+const PAGINE: { path: string; data: string; freq: "weekly" | "monthly" | "yearly"; prio: number }[] = [
+  { path: "", data: "2026-11-05", freq: "monthly", prio: 1 },
+  { path: "/fractional-cmo", data: "2026-11-05", freq: "monthly", prio: 0.9 },
+  { path: "/il-metodo", data: "2026-11-05", freq: "monthly", prio: 0.8 },
+  { path: "/cosa-ho-fatto", data: "2026-04-23", freq: "monthly", prio: 0.8 },
+  { path: "/cosa-ho-fatto/autonoleggio", data: "2026-04-23", freq: "yearly", prio: 0.6 },
+  { path: "/cosa-ho-fatto/balance-nutrition", data: "2026-04-23", freq: "yearly", prio: 0.6 },
+  { path: "/cosa-ho-fatto/lancio-yoga", data: "2026-04-23", freq: "yearly", prio: 0.6 },
+  { path: "/cosa-ho-fatto/pneumatici", data: "2026-04-23", freq: "yearly", prio: 0.6 },
+  { path: "/blog", data: "2026-04-23", freq: "weekly", prio: 0.8 },
+  { path: "/blog/prime-settimane-consulente-marketing", data: "2026-04-17", freq: "yearly", prio: 0.7 },
+  { path: "/blog/test-ab-significanza-statistica", data: "2026-04-17", freq: "yearly", prio: 0.7 },
+  { path: "/blog/roas-non-e-un-kpi", data: "2026-04-17", freq: "yearly", prio: 0.7 },
+  { path: "/blog/domande-consulente-marketing", data: "2026-04-22", freq: "yearly", prio: 0.7 },
+  { path: "/privacy-policy", data: "2026-04-23", freq: "yearly", prio: 0.3 },
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    { url: BASE_URL, lastModified: new Date(), changeFrequency: "monthly", priority: 1 },
-    { url: `${BASE_URL}/cosa-posso-fare`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE_URL}/cosa-ho-fatto`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE_URL}/chi-fa-cosa`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE_URL}/metodo-glitch`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    // Blog
-    { url: `${BASE_URL}/blog`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE_URL}/blog/prime-settimane-consulente-marketing`, lastModified: new Date("2026-04-17"), changeFrequency: "yearly", priority: 0.7 },
-    { url: `${BASE_URL}/blog/test-ab-significanza-statistica`, lastModified: new Date("2026-04-17"), changeFrequency: "yearly", priority: 0.7 },
-    { url: `${BASE_URL}/blog/roas-non-e-un-kpi`, lastModified: new Date("2026-04-17"), changeFrequency: "yearly", priority: 0.7 },
-    // Risorse gratuite
-    { url: `${BASE_URL}/risorse`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE_URL}/risorse/audit-score`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/risorse/kpi-calculator`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/risorse/fractional-cmo`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/risorse/domande-consulente`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
-    // Legal
-    { url: `${BASE_URL}/privacy-policy`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
-  ];
-  // Outreach pages are noindex — excluded from sitemap intentionally
+  return PAGINE.map((p) => ({
+    url: `${SITE.url}${p.path}`,
+    lastModified: new Date(`${p.data}T00:00:00Z`),
+    changeFrequency: p.freq,
+    priority: p.prio,
+  }));
 }

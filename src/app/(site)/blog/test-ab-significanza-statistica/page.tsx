@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SITE } from "@/lib/constants";
 
 /* ─────────────────────────────────────────────
    SEO METADATA
 ───────────────────────────────────────────── */
 export const metadata: Metadata = {
-  title: "Test A/B e significanza statistica — Il tuo test probabilmente non prova nulla",
+  alternates: { canonical: "/blog/test-ab-significanza-statistica" },
+  title: "Test A/B e significanza statistica: il tuo test probabilmente non prova nulla",
   description:
     "Stagionalità, competitor, giorno del mese: le variabili nascoste che falsano ogni test. Quanti utenti servono davvero e come interpretare i risultati senza ingannare te stesso.",
   openGraph: {
-    title: "Test A/B e significanza statistica — Il tuo test probabilmente non prova nulla",
+    title: "Test A/B e significanza statistica: il tuo test probabilmente non prova nulla",
     description:
       "Stagionalità, competitor, giorno del mese: le variabili nascoste che falsano ogni test A/B. Come fare test che contano davvero.",
     type: "article",
@@ -30,15 +32,15 @@ const articleSchema = {
   author: {
     "@type": "Person",
     name: "Nicola Serrao",
-    url: "https://nicolaserrao.com",
+    url: "https://www.nicolaserrao.com",
   },
   publisher: {
     "@type": "Person",
     name: "Nicola Serrao",
-    url: "https://nicolaserrao.com",
+    url: "https://www.nicolaserrao.com",
   },
   datePublished: "2026-04-17",
-  url: "https://nicolaserrao.com/blog/test-ab-significanza-statistica",
+  url: "https://www.nicolaserrao.com/blog/test-ab-significanza-statistica",
 };
 
 const faqSchema = {
@@ -709,7 +711,7 @@ export default function TestAbPage() {
           <div className="ab-author-bar">
             <span className="ab-author-name">Nicola Serrao</span>
             <span className="ab-meta-dot" />
-            <span className="ab-author-role">Digital Business Advisor</span>
+            <span className="ab-author-role">Fractional CMO</span>
             <span className="ab-meta-dot" />
             <span className="ab-meta-item">9 min lettura</span>
             <span className="ab-meta-dot" />
@@ -1152,26 +1154,21 @@ export default function TestAbPage() {
         {/* LEAD MAGNET */}
         <div className="ab-col-wide">
           <div className="ab-lead-magnet">
-            <div className="ab-lm-eyebrow">Strumento gratuito</div>
-            <div className="ab-lm-title">Il tuo marketing sta misurando le cose giuste?</div>
+            <div className="ab-lm-eyebrow">Se vuoi un parere</div>
+            <div className="ab-lm-title">Vuoi sapere se i tuoi test dicono qualcosa?</div>
             <div className="ab-lm-desc">
-              10 domande per capire se stai costruendo decisioni su dati solidi o su rumore.
-              Ricevi un profilo della tua situazione attuale con i punti critici
-              da correggere prima del prossimo test.
+              Mandami un messaggio. Ti dico onestamente se posso aiutarti, o se non ne hai bisogno.
             </div>
             <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "16px" }}>
-              <Link href="/risorse/audit-score" className="ab-lm-cta">
-                Fai l&rsquo;Audit Score gratuito
+              <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="ab-lm-cta">
+                Scrivimi su WhatsApp
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
+              </a>
+              <Link href="/il-metodo" className="ab-lm-meta">
+                Oppure guarda come lavoro
               </Link>
-              <span className="ab-lm-meta">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" />
-                </svg>
-                3 minuti &middot; Gratuito &middot; Nessun impegno
-              </span>
             </div>
           </div>
         </div>
@@ -1379,7 +1376,7 @@ export default function TestAbPage() {
             <div>
               <div className="ab-sig-name">Nicola Serrao</div>
               <div className="ab-sig-role">
-                Digital Business Advisor &mdash; Strategia, KPI, Direzione operativa
+                Fractional CMO
               </div>
             </div>
             <Link href="/#contatti" className="ab-sig-link">

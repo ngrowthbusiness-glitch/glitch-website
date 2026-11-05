@@ -3,11 +3,12 @@ import Link from "next/link";
 import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Case Study: Lancio Yoga | Nicola Serrao",
+  alternates: { canonical: "/cosa-ho-fatto/lancio-yoga" },
+  title: "Caso: Lancio Yoga",
   description:
     "3.000 iscritti a €1 CPL, 20% show-up e €19.000 di revenue da €3.000 di budget. Come ho lanciato un info-product yoga da zero con Meta Ads.",
   openGraph: {
-    title: "Case Study: Lancio Yoga | Nicola Serrao",
+    title: "Caso: Lancio Yoga",
     description:
       "3.000 iscritti a €1 CPL, 20% show-up e €19.000 di revenue da €3.000 di budget. Come ho lanciato un info-product yoga da zero con Meta Ads.",
     url: `${SITE.url}/cosa-ho-fatto/lancio-yoga`,

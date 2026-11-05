@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: `Privacy & Cookie Policy — ${SITE.name}`,
+  alternates: { canonical: "/privacy-policy" },
+  title: "Privacy e cookie",
   robots: { index: false, follow: true },
   openGraph: {
-    title: `Privacy & Cookie Policy — ${SITE.name}`,
+    title: "Privacy e cookie",
     url: `${SITE.url}/privacy-policy`,
   },
 };
