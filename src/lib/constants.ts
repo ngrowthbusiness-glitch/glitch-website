@@ -28,7 +28,7 @@ export const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/fractional-cmo", label: "Fractional CMO" },
   { href: "/il-metodo", label: "Il metodo" },
-  { href: "/cosa-ho-fatto", label: "Casi" },
+  /* «Clienti» (la pagina prima e dopo, ticket 16) entra qui quando e' pronta; i casi vecchi sono usciti il 2026-11-05 */
   { href: "/blog", label: "Blog" },
 ] as const;
 

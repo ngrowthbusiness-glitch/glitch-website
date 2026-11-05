@@ -4,17 +4,12 @@ import { SITE } from "@/lib/constants";
 /* La sitemap (ticket 11, 2026-11-05). Le date sono quelle dell'ultima modifica vera del contenuto:
    quando una pagina cambia, si aggiorna la sua data qui. Niente new Date(), che dichiarerebbe
    tutte le pagine cambiate a ogni rilascio.
-   Fuori: le pagine in redirect (Metodo GLITCH, Perché conoscerci, Risorse), /chi-fa-cosa
+   Fuori: le pagine in redirect (Metodo GLITCH, Perché conoscerci, Risorse, i casi vecchi), /chi-fa-cosa
    (ha come originale /il-metodo) e le pagine outreach, che sono noindex. */
 const PAGINE: { path: string; data: string; freq: "weekly" | "monthly" | "yearly"; prio: number }[] = [
   { path: "", data: "2026-11-05", freq: "monthly", prio: 1 },
   { path: "/fractional-cmo", data: "2026-11-05", freq: "monthly", prio: 0.9 },
   { path: "/il-metodo", data: "2026-11-05", freq: "monthly", prio: 0.8 },
-  { path: "/cosa-ho-fatto", data: "2026-04-23", freq: "monthly", prio: 0.8 },
-  { path: "/cosa-ho-fatto/autonoleggio", data: "2026-04-23", freq: "yearly", prio: 0.6 },
-  { path: "/cosa-ho-fatto/balance-nutrition", data: "2026-04-23", freq: "yearly", prio: 0.6 },
-  { path: "/cosa-ho-fatto/lancio-yoga", data: "2026-04-23", freq: "yearly", prio: 0.6 },
-  { path: "/cosa-ho-fatto/pneumatici", data: "2026-04-23", freq: "yearly", prio: 0.6 },
   { path: "/blog", data: "2026-04-23", freq: "weekly", prio: 0.8 },
   { path: "/blog/prime-settimane-consulente-marketing", data: "2026-04-17", freq: "yearly", prio: 0.7 },
   { path: "/blog/test-ab-significanza-statistica", data: "2026-04-17", freq: "yearly", prio: 0.7 },

@@ -15,6 +15,9 @@ const nextConfig: NextConfig = {
       { source: "/risorse/domande-consulente", destination: "/blog/domande-consulente-marketing", permanent: true },
       { source: "/risorse/:path*", destination: "/", permanent: true },
       { source: "/risorse", destination: "/", permanent: true },
+      // I casi vecchi escono il 2026-11-05 (non reggevano sulle fonti). Temporanei: quando c'e' /clienti, puntano li' in 301
+      { source: "/cosa-ho-fatto/:path*", destination: "/il-metodo", permanent: false },
+      { source: "/cosa-ho-fatto", destination: "/il-metodo", permanent: false },
       // Redirect old .php outreach URLs to new Next.js routes
       {
         source: "/outreach/:slug.php",

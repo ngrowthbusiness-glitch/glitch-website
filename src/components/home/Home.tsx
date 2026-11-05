@@ -10,7 +10,8 @@ import Rumore from "./Rumore";
 import Ora from "./Ora";
 
 /* La home (copy approvato da Nicola il 2026-11-04, varianti A; design: concept 01 «La rotta»).
-   Ordine: chi sei e cosa fai, la direzione in breve, la prova, le domande, come si parte.
+   Ordine: chi sei e cosa fai, la direzione in breve, le domande, come si parte. La prova (i casi vecchi) e' uscita
+   il 2026-11-05: non reggeva sulle fonti. Torna come rimando alla pagina Clienti quando c'e'.
    I numeri di credibilita' di aprile non ci sono finche' Nicola non li conferma. */
 
 const TESTI = {
@@ -35,13 +36,6 @@ const DIREZIONE = [
   "Dire cosa non si fa",
   "Tenere tutti sulla stessa rotta",
 ].map((t, i) => ({ t, b: DIRECTION.points[i].b }));
-
-const CASI = [
-  { slug: "autonoleggio", nome: "Autonoleggio B2B", com: "Stesso messaggio di tutti, stesso risultato.", dec: "Un angolo che nessuno usava." },
-  { slug: "balance-nutrition", nome: "Balance Nutrition", com: "Un business sano con la crescita ferma.", dec: "Partire dai conti, prima di spingere sulle campagne." },
-  { slug: "lancio-yoga", nome: "Lancio yoga", com: "Zero lista, zero storico.", dec: "Costruire il lancio come un sistema, prima di spendere." },
-  { slug: "pneumatici", nome: "Pneumatici B2C", com: "Un marchio di lusso che non si fidava del digitale.", dec: "Semplificare, non complicare." },
-];
 
 const DOMANDE = [
   { q: "Sei una persona sola. E se serve qualcosa che non fai?", a: "Dove non arrivo io, scelgo chi lo fa, gli scrivo cosa deve fare e controllo il risultato. La responsabilità resta mia." },
@@ -131,20 +125,6 @@ const STILE = `
 .hm-link svg{transition:transform .3s var(--e)}
 .hm-link:hover svg{transform:translateX(4px)}
 
-/* ── la prova: i casi ── */
-.hm-casi-t{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:32px;align-items:end}
-.hm-casi-t p{font-size:17px;line-height:1.6;color:var(--body);max-width:52ch}
-.hm-casi{margin-top:36px;display:flex;flex-direction:column;gap:10px}
-.hm-caso{display:grid;grid-template-columns:54px minmax(0,.85fr) minmax(0,1fr) minmax(0,1.15fr) 40px;gap:20px;align-items:center;padding:22px 22px;border-radius:18px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);text-decoration:none;color:var(--body);transition:box-shadow .3s,transform .35s var(--e)}
-.hm-caso:hover{box-shadow:inset 0 0 0 1.5px var(--accent);transform:translateY(-2px)}
-.hm-caso .n{font:800 13px/1 var(--font-manrope),sans-serif;color:var(--muted);font-variant-numeric:tabular-nums}
-.hm-caso b{font:800 18px/1.25 var(--font-manrope),sans-serif;color:var(--ink)}
-.hm-caso .com{font-size:15px;line-height:1.5}
-.hm-caso .dec{font-size:15px;line-height:1.5;color:var(--ink);font-weight:600;padding:10px 14px;border-radius:12px;background:var(--accent-soft)}
-.hm-caso .dec small{display:block;font:800 10.5px/1.3 var(--font-manrope),sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
-.hm-caso .va{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:var(--muted);box-shadow:inset 0 0 0 1px var(--line);transition:color .2s,background .2s,transform .35s var(--e)}
-.hm-caso:hover .va{color:var(--accent-ink);background:var(--accent);box-shadow:none;transform:translateX(3px)}
-
 /* ── le domande ── */
 .hm-dom{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px;align-items:start}
 .hm-dom-t{position:sticky;top:calc(var(--nav-h) + 32px)}
@@ -173,11 +153,7 @@ const STILE = `
 @media (max-width:1020px){
   .hm-testa{grid-template-columns:1fr;min-height:0;gap:28px;padding-top:28px}
   .rm-campo{height:480px;min-height:0}
-  .hm-caso{grid-template-columns:40px minmax(0,1fr) 36px;gap:12px 16px}
-  .hm-caso .com{grid-column:2/3}
-  .hm-caso .dec{grid-column:2/3}
-  .hm-caso .va{grid-row:1;grid-column:3}
-  .hm-casi-t,.hm-dom{grid-template-columns:1fr;gap:18px}
+  .hm-dom{grid-template-columns:1fr;gap:18px}
   .hm-dom-t{position:static}
   .hm-fine .hm-w{grid-template-columns:auto 1fr}
   .hm-fine .hm-w > :last-child{grid-column:1/-1}
@@ -265,43 +241,6 @@ export default function Home() {
           </ol>
           <Link href="/il-metodo" className="hm-link" data-rv>
             Come lavoro, nel dettaglio
-            <Icona n="arrow-right" size={17} stroke={2.2} />
-          </Link>
-        </section>
-
-        {/* ══ LA PROVA: I CASI ══ */}
-        <section className="hm-sec">
-          <div className="hm-casi-t">
-            <div>
-              <span className="hm-k" data-rv>
-                Casi
-              </span>
-              <h2 style={{ marginTop: 12 }} data-rv>
-                Quattro aziende, quattro decisioni.
-              </h2>
-            </div>
-            <p data-rv>
-              Ogni volta la stessa domanda prima di tutto: dove va l&apos;azienda, e dove vanno i soldi. Poi si decide cosa fare.
-            </p>
-          </div>
-          <div className="hm-casi">
-            {CASI.map((c, i) => (
-              <Link key={c.slug} href={`/cosa-ho-fatto/${c.slug}`} className="hm-caso" data-rv style={{ "--i": i } as React.CSSProperties}>
-                <span className="n">0{i + 1}</span>
-                <b>{c.nome}</b>
-                <span className="com">{c.com}</span>
-                <span className="dec">
-                  <small>La decisione</small>
-                  {c.dec}
-                </span>
-                <span className="va" aria-hidden="true">
-                  <Icona n="arrow-right" size={16} stroke={2.2} />
-                </span>
-              </Link>
-            ))}
-          </div>
-          <Link href="/cosa-ho-fatto" className="hm-link" data-rv>
-            Tutti i casi
             <Icona n="arrow-right" size={17} stroke={2.2} />
           </Link>
         </section>
