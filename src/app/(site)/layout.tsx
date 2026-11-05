@@ -11,6 +11,7 @@ import { getPersonSchema, getOrganizationSchema } from "@/lib/structured-data";
 const STILE = `
 .ns-site{--sticky-top:var(--nav-h);display:flex;flex-direction:column;min-height:100vh}
 .ns-site [id]{scroll-margin-top:calc(var(--nav-h) + 24px)}
+.ns-site > main{position:relative;flex:1;padding-top:var(--nav-h)}
 .wa-bolla{position:fixed;right:24px;bottom:24px;z-index:90;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--accent-ink);text-decoration:none;box-shadow:0 12px 32px -10px color-mix(in srgb,var(--accent) 60%,transparent);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
 .wa-bolla:hover{transform:translateY(-3px) scale(1.04)}
 .wa-bolla span{position:absolute;right:66px;white-space:nowrap;font:700 13px/1 var(--font-manrope),sans-serif;padding:9px 12px;border-radius:9px;background:var(--ink);color:var(--bg);opacity:0;transform:translateX(6px);pointer-events:none;transition:opacity .2s,transform .25s cubic-bezier(.2,.7,.2,1)}
@@ -25,7 +26,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getOrganizationSchema()) }} />
       <style>{STILE}</style>
       <Navbar />
-      <main className="relative pt-[var(--nav-h)] flex-1">{children}</main>
+      <main>{children}</main>
       <Footer />
       <CookieBanner />
       <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="wa-bolla" aria-label="Scrivimi su WhatsApp">
