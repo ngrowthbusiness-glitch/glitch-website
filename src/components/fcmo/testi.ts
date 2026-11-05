@@ -1,5 +1,7 @@
 /* I testi della pagina Fractional CMO: copy approvato da Nicola il 2026-11-04 (lavagna del copy,
-   varianti A). Il prezzo «da 2.500 € in su» e' la decisione di Nicola nel ticket 09 (IVA da confermare).
+   varianti A), con le correzioni di Nicola del 2026-11-05: niente cifra nel prezzo (deve far capire che non
+   costa poco senza dirlo), aziende di tutta Italia per cui il digitale conta, le soluzioni su misura con l'AI,
+   e le mani come mock up e linee guida per un piccolo team, non operativita' al 100%.
    Servono anche ai dati strutturati FAQ in app/(site)/fractional-cmo/page.tsx. */
 
 export const FCMO = {
@@ -14,7 +16,10 @@ export const FCMO = {
     { b: "Decide la cosa che conta adesso.", t: "Le priorità scritte, in ordine. Una cosa grossa al mese, chiusa." },
     { b: "Dice cosa non si fa.", t: "Anche quando è la cosa su cui ti eri intestardito." },
     { b: "Tiene tutti sulla stessa rotta.", t: "Tu, chi lavora con te, l'agenzia, i fornitori." },
-    { b: "Quando serve, mette le mani.", t: "Pagine, campagne, mail, tracciamento." },
+    {
+      b: "Quando serve, mette le mani.",
+      t: "Mock up, linee guida, i pezzi che sbloccano il resto. Con un piccolo team sotto si va meglio: lo guida e lo segue da vicino.",
+    },
   ],
   serve: [
     "Funziona tutto, ma nessuno tiene la regia",
@@ -42,14 +47,25 @@ export const FCMO = {
       c: ["Quello che vende.", "Tutto, dal traffico al cliente che torna.", "Di solito una competenza sola."],
     },
   ],
-  prezzo: "2.500 €",
-  costoTesto: "Una fee mensile fissa, mese per mese, senza vincoli. Non vendo ore e non le conto: conterebbero la cosa sbagliata.",
+  prezzoTitolo: "Una fee fissa, mese per mese.",
+  /* i segnali che non e' un fornitore a basso costo, senza dire la cifra: tutti veri */
+  prezzoSegni: [
+    "Poche aziende alla volta, seguite in profondità: è il prezzo di una regia senior, non di un fornitore",
+    "La cifra te la dico dopo la prima chiacchierata, quando ho visto i numeri e so quanto lavoro c'è",
+    "Se dopo aver guardato i numeri penso che non ci sia margine, te lo dico e non partiamo",
+  ],
+  /* il testo approvato, senza ripetere il titolo della scheda */
+  costoTesto: "Senza vincoli. Non vendo ore e non le conto: conterebbero la cosa sbagliata.",
   incluso: [
     "La direzione: priorità, piano, lettura dei numeri",
     "Il coordinamento di chi lavora con te",
-    "L'esecuzione dove serve: pagine, campagne, mail, tracciamento",
+    "Mock up e linee guida: come va fatto il lavoro, e il controllo che sia fatto così",
   ],
-  escluso: ["Il budget della pubblicità", "I fornitori esterni quando servono: video, foto, sviluppo pesante"],
+  escluso: [
+    "Il budget della pubblicità",
+    "I fornitori esterni quando servono: video, foto, sviluppo pesante",
+    "L'esecuzione di tutti i giorni: con un piccolo team sotto si va meglio, e lo guido io",
+  ],
   passi: [
     "Una o due chiacchierate, poi un sì, un no o un forse",
     "Se è sì, i primi due giorni raccolgo gli accessi e guardo tutto",
@@ -59,7 +75,7 @@ export const FCMO = {
   faq: [
     {
       q: "Quanto costa un Fractional CMO?",
-      a: "Una fee mensile fissa, senza vincoli. Parte da 2.500 € al mese; la cifra dipende da quanto lavoro c'è.",
+      a: "Una fee mensile fissa, senza vincoli: il prezzo di una regia senior, per il tempo che serve. La cifra dipende da quanto lavoro c'è e da chi lavora già con te, e la dico dopo la prima chiacchierata, quando ho visto i numeri.",
     },
     {
       q: "Che differenza c'è con un temporary manager?",
@@ -71,7 +87,11 @@ export const FCMO = {
     },
     {
       q: "Lavori solo nelle Marche?",
-      a: "Sono ad Agugliano, vicino Ancona. Lavoro con aziende di tutta Italia; con chi è vicino ci si vede anche di persona.",
+      a: "Sono ad Agugliano, vicino Ancona. Lavoro con aziende di tutta Italia per cui il digitale conta: marketing e vendita online. Con chi è vicino ci si vede anche di persona.",
+    },
+    {
+      q: "Usi l'intelligenza artificiale?",
+      a: "Molto: mi rende più veloce, e il tempo che risparmio va sulle decisioni. E se in azienda c'è un processo che si può alleggerire, posso costruire una soluzione su misura con l'AI.",
     },
   ],
   ioTesto: "Prima la direzione, poi le mani: come lo faccio io, con che ritmo e chi fa cosa, è scritto in Il metodo.",

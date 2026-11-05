@@ -105,30 +105,9 @@ export default function CosaHoFattoPage() {
       <div className="s-page" style={{ position: "relative", zIndex: 1 }}>
 
         {/* HERO */}
-        <div className="s-eyebrow animate-fade-up">Cosa ho fatto</div>
-        <h1 className="s-h1 animate-fade-up delay-100">Numeri reali.<br /><em>Aziende reali.</em></h1>
-        <p className="chf-hero-sub">
-          Non ho casi studio inventati n&eacute; slide patinate con proiezioni fantasy.<br />
-          Questi sono progetti in cui ho lavorato davvero &mdash; con budget reali, problemi reali e risultati che si possono misurare.
-        </p>
-
-        {/* NUMERI IN EVIDENZA */}
-        <div className="chf-numbers-bar">
-          <div className="chf-number-item">
-            <span className="s-metric-value">30+</span>
-            <span className="s-metric-label">Clienti gestiti</span>
-          </div>
-          <div className="chf-number-divider"></div>
-          <div className="chf-number-item">
-            <span className="s-metric-value">6 mesi</span>
-            <span className="s-metric-label">Durata media del rapporto<br /><em>3 collaborazioni oltre i 2 anni</em></span>
-          </div>
-          <div className="chf-number-divider"></div>
-          <div className="chf-number-item">
-            <span className="s-metric-value">&euro;5M+</span>
-            <span className="s-metric-label">Budget Adv gestito su Meta</span>
-          </div>
-        </div>
+        <div className="s-eyebrow animate-fade-up">Casi</div>
+        <h1 className="s-h1 animate-fade-up delay-100">Quattro aziende,<br /><em>quattro decisioni.</em></h1>
+        <p className="chf-hero-sub">Per ognuna: com&apos;era, cosa ho deciso e perch&eacute;, cosa &egrave; successo.</p>
 
         {/* CASES */}
         <div className="chf-cases-list">
@@ -259,14 +238,6 @@ export default function CosaHoFattoPage() {
                 <div>
                   <div className="chf-case-results-label">Il perimetro</div>
                   <div className="chf-case-metrics">
-                    <div className="chf-metric">
-                      <span className="s-metric-value">15+</span>
-                      <span className="s-metric-label">Clienti gestiti in totale</span>
-                    </div>
-                    <div className="chf-metric">
-                      <span className="s-metric-value">15</span>
-                      <span className="s-metric-label">Mercati e settori diversi</span>
-                    </div>
                     <div className="chf-metric">
                       <span className="s-metric-value">Lead</span>
                       <span className="s-metric-label">B2B, HR, Tech, Servizi professionali</span>

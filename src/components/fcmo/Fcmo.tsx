@@ -91,9 +91,12 @@ const STILE = `
 .fc-costo{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:16px;margin-top:34px;align-items:stretch}
 .fc-prezzo{padding:32px 30px;border-radius:24px;background:var(--accent);color:var(--accent-ink);display:flex;flex-direction:column;justify-content:space-between;gap:28px}
 .fc-prezzo .da{font:700 13px/1 var(--font-manrope),sans-serif;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
-.fc-prezzo .cifra{font:800 clamp(48px,6vw,76px)/1 var(--font-manrope),sans-serif;letter-spacing:-.04em;margin-top:10px}
-.fc-prezzo .mese{font:700 18px/1.2 var(--font-manrope),sans-serif;opacity:.9;margin-top:6px}
-.fc-prezzo p{font-size:16px;line-height:1.6;opacity:.95}
+.fc-prezzo .cifra{font:800 clamp(32px,3.4vw,44px)/1.08 var(--font-manrope),sans-serif;letter-spacing:-.03em;margin-top:12px;text-wrap:balance}
+.fc-prezzo .mese{font:700 17px/1.3 var(--font-manrope),sans-serif;opacity:.9;margin-top:8px}
+.fc-prezzo .testo{font-size:15.5px;line-height:1.6;opacity:.92;margin-top:14px!important;max-width:44ch}
+.fc-prezzo .segni{list-style:none;margin:0;padding:18px 0 0;border-top:1px solid color-mix(in srgb,var(--accent-ink) 28%,transparent);display:flex;flex-direction:column;gap:11px}
+.fc-prezzo .segni li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:15px;line-height:1.5;font-weight:600}
+.fc-prezzo .segni svg{margin-top:2px}
 .fc-liste{display:grid;grid-template-rows:auto auto;gap:12px}
 .fc-liste > div{padding:22px 24px;border-radius:20px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
 .fc-liste > div:last-child{background:transparent;box-shadow:inset 0 0 0 1px var(--line)}
@@ -120,6 +123,7 @@ const STILE = `
 .fc-faq{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:34px}
 .fc-faq > div{padding:24px 26px;border-radius:20px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
 .fc-faq h3{font-size:18px;margin-bottom:10px}
+.fc-faq > div:last-child:nth-child(odd){grid-column:1/-1}
 .fc-faq p{font-size:15.5px;line-height:1.65;color:var(--body)}
 
 /* io lavoro cosi' */
@@ -305,11 +309,18 @@ export default function Fcmo() {
           <div className="fc-costo">
             <div className="fc-prezzo" data-rv>
               <div>
-                <span className="da">Da</span>
-                <div className="cifra">{FCMO.prezzo}</div>
-                <div className="mese">al mese</div>
+                <span className="da">Come è fatto il prezzo</span>
+                <div className="cifra">{FCMO.prezzoTitolo}</div>
+                <p className="testo">{FCMO.costoTesto}</p>
               </div>
-              <p>{FCMO.costoTesto}</p>
+              <ul className="segni">
+                {FCMO.prezzoSegni.map((t) => (
+                  <li key={t}>
+                    <Icona n="check" size={16} stroke={2.6} />
+                    {t}
+                  </li>
+                ))}
+              </ul>
             </div>
             <div className="fc-liste">
               <div data-rv style={{ "--i": 1 } as React.CSSProperties}>

@@ -25,7 +25,7 @@ const TESTI = {
 const TRE: { ico: NomeIcona; b: string; t: string }[] = [
   { ico: "signpost", b: "Decido cosa conta.", t: "Le priorità scritte, in ordine, con il perché di quell'ordine." },
   { ico: "users", b: "Tengo tutti sulla stessa rotta.", t: "Tu, chi lavora con te, l'agenzia, i fornitori: ognuno sa cosa fare, e io controllo che funzioni." },
-  { ico: "wrench", b: "Metto le mani dove serve.", t: "Pagine, campagne, mail, tracciamento: quando sono la priorità, le faccio io." },
+  { ico: "wrench", b: "Metto le mani dove serve.", t: "Mock up, linee guida, i pezzi che sbloccano il resto. Se c'è un piccolo team, gli dico come va fatto il lavoro e lo seguo." },
 ];
 
 /* i quattro punti della direzione: i titoli della home, la spiegazione di Il metodo */
