@@ -169,27 +169,27 @@ export default function BalanceNutritionPage() {
             <svg viewBox="0 0 480 200" width="100%" style={{ maxWidth: 520 }} aria-label="Grafico crescita fatturato da 45k a 150k in 5 mesi">
               <defs>
                 <linearGradient id="bn-grad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="rgba(0,255,252,0.25)" />
-                  <stop offset="100%" stopColor="rgba(0,255,252,0)" />
+                  <stop offset="0%" stopColor="color-mix(in srgb, var(--accent) 25%, transparent)" />
+                  <stop offset="100%" stopColor="color-mix(in srgb, var(--accent) 0%, transparent)" />
                 </linearGradient>
               </defs>
               {/* Grid lines */}
-              <line x1="50" y1="20" x2="50" y2="170" stroke="rgba(232,245,242,0.08)" strokeWidth="1" />
-              <line x1="50" y1="170" x2="460" y2="170" stroke="rgba(232,245,242,0.08)" strokeWidth="1" />
-              <line x1="50" y1="120" x2="460" y2="120" stroke="rgba(232,245,242,0.05)" strokeWidth="1" strokeDasharray="4" />
-              <line x1="50" y1="70" x2="460" y2="70" stroke="rgba(232,245,242,0.05)" strokeWidth="1" strokeDasharray="4" />
-              <line x1="50" y1="20" x2="460" y2="20" stroke="rgba(232,245,242,0.05)" strokeWidth="1" strokeDasharray="4" />
+              <line x1="50" y1="20" x2="50" y2="170" stroke="color-mix(in srgb, var(--ink) 8%, transparent)" strokeWidth="1" />
+              <line x1="50" y1="170" x2="460" y2="170" stroke="color-mix(in srgb, var(--ink) 8%, transparent)" strokeWidth="1" />
+              <line x1="50" y1="120" x2="460" y2="120" stroke="color-mix(in srgb, var(--ink) 5%, transparent)" strokeWidth="1" strokeDasharray="4" />
+              <line x1="50" y1="70" x2="460" y2="70" stroke="color-mix(in srgb, var(--ink) 5%, transparent)" strokeWidth="1" strokeDasharray="4" />
+              <line x1="50" y1="20" x2="460" y2="20" stroke="color-mix(in srgb, var(--ink) 5%, transparent)" strokeWidth="1" strokeDasharray="4" />
               {/* Y-axis labels */}
-              <text x="44" y="174" fill="rgba(232,245,242,0.3)" fontSize="9" textAnchor="end" fontFamily="monospace">€0</text>
-              <text x="44" y="124" fill="rgba(232,245,242,0.3)" fontSize="9" textAnchor="end" fontFamily="monospace">€50k</text>
-              <text x="44" y="74" fill="rgba(232,245,242,0.3)" fontSize="9" textAnchor="end" fontFamily="monospace">€100k</text>
-              <text x="44" y="24" fill="rgba(232,245,242,0.3)" fontSize="9" textAnchor="end" fontFamily="monospace">€150k</text>
+              <text x="44" y="174" fill="color-mix(in srgb, var(--ink) 30%, transparent)" fontSize="9" textAnchor="end" fontFamily="var(--font-manrope), sans-serif">€0</text>
+              <text x="44" y="124" fill="color-mix(in srgb, var(--ink) 30%, transparent)" fontSize="9" textAnchor="end" fontFamily="var(--font-manrope), sans-serif">€50k</text>
+              <text x="44" y="74" fill="color-mix(in srgb, var(--ink) 30%, transparent)" fontSize="9" textAnchor="end" fontFamily="var(--font-manrope), sans-serif">€100k</text>
+              <text x="44" y="24" fill="color-mix(in srgb, var(--ink) 30%, transparent)" fontSize="9" textAnchor="end" fontFamily="var(--font-manrope), sans-serif">€150k</text>
               {/* X-axis labels */}
-              <text x="50" y="188" fill="rgba(232,245,242,0.3)" fontSize="9" textAnchor="middle" fontFamily="monospace">M0</text>
-              <text x="152" y="188" fill="rgba(232,245,242,0.3)" fontSize="9" textAnchor="middle" fontFamily="monospace">M1</text>
-              <text x="255" y="188" fill="rgba(232,245,242,0.3)" fontSize="9" textAnchor="middle" fontFamily="monospace">M2</text>
-              <text x="357" y="188" fill="rgba(232,245,242,0.3)" fontSize="9" textAnchor="middle" fontFamily="monospace">M3</text>
-              <text x="460" y="188" fill="rgba(232,245,242,0.3)" fontSize="9" textAnchor="middle" fontFamily="monospace">M5</text>
+              <text x="50" y="188" fill="color-mix(in srgb, var(--ink) 30%, transparent)" fontSize="9" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif">M0</text>
+              <text x="152" y="188" fill="color-mix(in srgb, var(--ink) 30%, transparent)" fontSize="9" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif">M1</text>
+              <text x="255" y="188" fill="color-mix(in srgb, var(--ink) 30%, transparent)" fontSize="9" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif">M2</text>
+              <text x="357" y="188" fill="color-mix(in srgb, var(--ink) 30%, transparent)" fontSize="9" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif">M3</text>
+              <text x="460" y="188" fill="color-mix(in srgb, var(--ink) 30%, transparent)" fontSize="9" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif">M5</text>
               {/* Area fill */}
               <path d="M50,125 L152,110 L255,85 L357,55 L460,20 L460,170 L50,170 Z" fill="url(#bn-grad)" />
               {/* Line */}
@@ -201,8 +201,8 @@ export default function BalanceNutritionPage() {
               <circle cx="357" cy="55" r="4" fill="var(--bg)" stroke="var(--teal)" strokeWidth="2" />
               <circle cx="460" cy="20" r="5" fill="var(--teal)" stroke="var(--teal)" strokeWidth="2" />
               {/* Start / End labels */}
-              <text x="50" y="140" fill="rgba(232,245,242,0.5)" fontSize="10" textAnchor="middle" fontFamily="monospace">€45k</text>
-              <text x="460" y="14" fill="var(--teal)" fontSize="11" textAnchor="middle" fontWeight="bold" fontFamily="monospace">€150k</text>
+              <text x="50" y="140" fill="var(--muted)" fontSize="10" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif">€45k</text>
+              <text x="460" y="14" fill="var(--teal)" fontSize="11" textAnchor="middle" fontWeight="bold" fontFamily="var(--font-manrope), sans-serif">€150k</text>
             </svg>
           </div>
         </section>

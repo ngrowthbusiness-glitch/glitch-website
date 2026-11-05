@@ -30,9 +30,9 @@ export default function BrainCompanySection() {
         ═══════════════════════════════════ */
         .bc-section {
           position: relative;
-          background: #0a0e0d;
-          border-top: 1px solid rgba(0,255,252,0.08);
-          border-bottom: 1px solid rgba(0,255,252,0.08);
+          background: var(--bg);
+          border-top: 1px solid color-mix(in srgb, var(--accent) 8%, transparent);
+          border-bottom: 1px solid color-mix(in srgb, var(--accent) 8%, transparent);
           padding: 120px 0;
           margin-bottom: 120px;
           overflow: hidden;
@@ -50,7 +50,7 @@ export default function BrainCompanySection() {
           display: flex;
           align-items: center;
           justify-content: center;
-          filter: drop-shadow(0 0 50px rgba(0,255,252,0.22));
+          filter: drop-shadow(0 0 50px color-mix(in srgb, var(--accent) 22%, transparent));
         }
         .bc-image-wrap svg {
           width: 100%;
@@ -91,7 +91,7 @@ export default function BrainCompanySection() {
         }
 
         .bc-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(46px, 6vw, 76px);
           font-weight: 700;
           line-height: 1;
@@ -124,10 +124,10 @@ export default function BrainCompanySection() {
           margin-top: 8px;
         }
         .bc-pillar {
-          border: 1px solid rgba(0,255,252,0.18);
+          border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
           border-radius: 10px;
           padding: 22px 24px;
-          background: rgba(0,255,252,0.03);
+          background: color-mix(in srgb, var(--accent) 3%, transparent);
           display: flex;
           flex-direction: column;
           gap: 10px;
@@ -135,8 +135,8 @@ export default function BrainCompanySection() {
           max-width: 540px;
         }
         .bc-pillar:hover {
-          border-color: rgba(0,255,252,0.45);
-          background: rgba(0,255,252,0.07);
+          border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+          background: color-mix(in srgb, var(--accent) 7%, transparent);
           transform: translateY(-2px);
         }
         .bc-pillar-header {
@@ -145,14 +145,14 @@ export default function BrainCompanySection() {
         .bc-pillar-icon {
           width: 42px; height: 42px;
           border-radius: 8px;
-          background: rgba(0,255,252,0.1);
-          border: 1px solid rgba(0,255,252,0.3);
+          background: color-mix(in srgb, var(--accent) 10%, transparent);
+          border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
           display: flex; align-items: center; justify-content: center;
           color: var(--teal);
           flex-shrink: 0;
         }
         .bc-pillar-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 18px;
           font-weight: 700;
           color: var(--text);
@@ -172,7 +172,7 @@ export default function BrainCompanySection() {
           margin-top: 2px;
           font-weight: 500;
           padding-top: 10px;
-          border-top: 1px solid rgba(0,255,252,0.12);
+          border-top: 1px solid color-mix(in srgb, var(--accent) 12%, transparent);
         }
 
         .bc-cta-wrap {
@@ -185,7 +185,7 @@ export default function BrainCompanySection() {
           gap: 10px;
           background: transparent;
           color: var(--teal);
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 2px;
@@ -217,7 +217,7 @@ export default function BrainCompanySection() {
           color: var(--text-dim);
           line-height: 1.7;
           max-width: 540px;
-          border-top: 1px solid rgba(0,255,252,0.12);
+          border-top: 1px solid color-mix(in srgb, var(--accent) 12%, transparent);
           padding-top: 20px;
           margin-top: 12px;
         }
@@ -227,7 +227,7 @@ export default function BrainCompanySection() {
         ═══════════════════════════════════ */
         .bc-modal-overlay {
           position: fixed; inset: 0; z-index: 1000;
-          background: rgba(10,14,13,0.88);
+          background: color-mix(in srgb, var(--bg) 88%, transparent);
           backdrop-filter: blur(10px);
           -webkit-backdrop-filter: blur(10px);
           display: flex;
@@ -242,8 +242,8 @@ export default function BrainCompanySection() {
           to { opacity: 1; }
         }
         .bc-modal-card {
-          background: #0a0e0d;
-          border: 1px solid rgba(0,255,252,0.3);
+          background: var(--bg);
+          border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
           border-radius: 14px;
           padding: 56px;
           max-width: 1100px;
@@ -251,7 +251,7 @@ export default function BrainCompanySection() {
           max-height: 92vh;
           overflow-y: auto;
           position: relative;
-          box-shadow: 0 0 80px rgba(0,255,252,0.15);
+          box-shadow: 0 0 80px color-mix(in srgb, var(--accent) 15%, transparent);
           animation: bc-slide-up 0.3s ease;
         }
         @keyframes bc-slide-up {
@@ -261,7 +261,7 @@ export default function BrainCompanySection() {
         .bc-modal-close {
           position: absolute; top: 20px; right: 20px;
           background: transparent;
-          border: 1px solid rgba(232,245,242,0.1);
+          border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
           color: var(--text-dim);
           cursor: pointer;
           width: 36px; height: 36px;
@@ -284,7 +284,7 @@ export default function BrainCompanySection() {
           font-weight: 500;
         }
         .bc-modal-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(28px, 3.5vw, 42px);
           font-weight: 700;
           color: var(--text);
@@ -306,19 +306,19 @@ export default function BrainCompanySection() {
         }
         .bc-area-wide { grid-column: 1 / -1; }
         .bc-area {
-          border: 1px solid rgba(0,255,252,0.2);
+          border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
           border-radius: 10px;
           padding: 28px 26px;
-          background: rgba(0,255,252,0.03);
+          background: color-mix(in srgb, var(--accent) 3%, transparent);
           transition: border-color 0.3s, background 0.3s, transform 0.3s;
         }
         .bc-area:hover {
-          border-color: rgba(0,255,252,0.5);
-          background: rgba(0,255,252,0.07);
+          border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+          background: color-mix(in srgb, var(--accent) 7%, transparent);
           transform: translateY(-2px);
         }
         .bc-area-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 19px;
           font-weight: 700;
           color: var(--teal);
@@ -346,7 +346,7 @@ export default function BrainCompanySection() {
           width: 6px; height: 6px;
           border-radius: 50%;
           background: var(--teal);
-          box-shadow: 0 0 8px rgba(0,255,252,0.5);
+          box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 50%, transparent);
         }
 
         .bc-modal-cta-row {
@@ -354,7 +354,7 @@ export default function BrainCompanySection() {
           justify-content: center;
           margin-top: 36px;
           padding-top: 28px;
-          border-top: 1px solid rgba(0,255,252,0.12);
+          border-top: 1px solid color-mix(in srgb, var(--accent) 12%, transparent);
         }
 
         /* ═══════════════════════════════════
@@ -376,10 +376,10 @@ export default function BrainCompanySection() {
             overflow: hidden;
             position: relative;
             background:
-              radial-gradient(circle at 50% 0%, rgba(0,255,252,0.10), transparent 55%),
-              radial-gradient(circle at 50% 100%, rgba(0,255,252,0.06), transparent 55%),
-              radial-gradient(circle at 1px 1px, rgba(0,255,252,0.14) 1px, transparent 0),
-              #0a0e0d;
+              radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 55%),
+              radial-gradient(circle at 50% 100%, color-mix(in srgb, var(--accent) 6%, transparent), transparent 55%),
+              radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--accent) 14%, transparent) 1px, transparent 0),
+              var(--bg);
             background-size: 100% 100%, 100% 100%, 26px 26px, 100% 100%;
           }
           /* Linee accent verticali tech (decorative) */
@@ -389,7 +389,7 @@ export default function BrainCompanySection() {
             position: absolute;
             top: 10%; bottom: 10%;
             width: 1px;
-            background: linear-gradient(180deg, transparent, rgba(0,255,252,0.3), transparent);
+            background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--accent) 30%, transparent), transparent);
             pointer-events: none;
             z-index: 1;
           }

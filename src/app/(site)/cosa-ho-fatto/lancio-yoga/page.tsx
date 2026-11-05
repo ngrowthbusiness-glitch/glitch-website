@@ -21,7 +21,7 @@ export default function LancioYogaPage() {
         .cs-hero-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
         .cs-context-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
         .cs-steps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 32px 0; }
-        .cs-step-num { font-family: var(--font-playfair), 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--teal); opacity: 0.4; margin-bottom: 8px; }
+        .cs-step-num { font-family: var(--font-playfair), var(--font-manrope), sans-serif; font-size: 28px; font-weight: 700; color: var(--teal); opacity: 0.4; margin-bottom: 8px; }
         .cs-step-title { font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--text); margin-bottom: 6px; }
         .cs-step-desc { font-size: 12px; color: var(--text-dim); line-height: 1.8; }
         .cs-metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 32px 0; }
@@ -167,18 +167,18 @@ export default function LancioYogaPage() {
           <div className="cs-funnel-wrap">
             <svg viewBox="0 0 400 280" width="100%" style={{ maxWidth: 440 }} aria-label="Funnel: da budget 3k a 3000 iscritti a 600 partecipanti a 19k revenue">
               {/* Funnel shape */}
-              <polygon points="40,20 360,20 310,90 90,90" fill="rgba(0,255,252,0.12)" stroke="var(--teal)" strokeWidth="1" />
-              <polygon points="90,95 310,95 280,155 120,155" fill="rgba(0,255,252,0.09)" stroke="var(--teal)" strokeWidth="1" strokeOpacity="0.6" />
-              <polygon points="120,160 280,160 260,220 140,220" fill="rgba(0,255,252,0.06)" stroke="var(--teal)" strokeWidth="1" strokeOpacity="0.4" />
-              <polygon points="140,225 260,225 245,265 155,265" fill="rgba(0,255,252,0.18)" stroke="var(--teal)" strokeWidth="1.5" />
+              <polygon points="40,20 360,20 310,90 90,90" fill="color-mix(in srgb, var(--accent) 12%, transparent)" stroke="var(--teal)" strokeWidth="1" />
+              <polygon points="90,95 310,95 280,155 120,155" fill="color-mix(in srgb, var(--accent) 9%, transparent)" stroke="var(--teal)" strokeWidth="1" strokeOpacity="0.6" />
+              <polygon points="120,160 280,160 260,220 140,220" fill="color-mix(in srgb, var(--accent) 6%, transparent)" stroke="var(--teal)" strokeWidth="1" strokeOpacity="0.4" />
+              <polygon points="140,225 260,225 245,265 155,265" fill="color-mix(in srgb, var(--accent) 18%, transparent)" stroke="var(--teal)" strokeWidth="1.5" />
               {/* Labels */}
-              <text x="200" y="50" fill="var(--text)" fontSize="11" textAnchor="middle" fontFamily="monospace" fontWeight="bold">€3.000 BUDGET</text>
-              <text x="200" y="66" fill="rgba(232,245,242,0.4)" fontSize="9" textAnchor="middle" fontFamily="monospace">Meta Ads</text>
-              <text x="200" y="120" fill="var(--text)" fontSize="11" textAnchor="middle" fontFamily="monospace" fontWeight="bold">3.000 ISCRITTI</text>
-              <text x="200" y="136" fill="rgba(232,245,242,0.4)" fontSize="9" textAnchor="middle" fontFamily="monospace">€1 CPL</text>
-              <text x="200" y="186" fill="var(--text)" fontSize="11" textAnchor="middle" fontFamily="monospace" fontWeight="bold">600 LIVE</text>
-              <text x="200" y="202" fill="rgba(232,245,242,0.4)" fontSize="9" textAnchor="middle" fontFamily="monospace">20% show-up</text>
-              <text x="200" y="250" fill="var(--teal)" fontSize="12" textAnchor="middle" fontFamily="monospace" fontWeight="bold">€19.000 REVENUE</text>
+              <text x="200" y="50" fill="var(--text)" fontSize="11" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif" fontWeight="bold">€3.000 BUDGET</text>
+              <text x="200" y="66" fill="var(--muted)" fontSize="9" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif">Meta Ads</text>
+              <text x="200" y="120" fill="var(--text)" fontSize="11" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif" fontWeight="bold">3.000 ISCRITTI</text>
+              <text x="200" y="136" fill="var(--muted)" fontSize="9" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif">€1 CPL</text>
+              <text x="200" y="186" fill="var(--text)" fontSize="11" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif" fontWeight="bold">600 LIVE</text>
+              <text x="200" y="202" fill="var(--muted)" fontSize="9" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif">20% show-up</text>
+              <text x="200" y="250" fill="var(--teal)" fontSize="12" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif" fontWeight="bold">€19.000 REVENUE</text>
             </svg>
           </div>
         </section>

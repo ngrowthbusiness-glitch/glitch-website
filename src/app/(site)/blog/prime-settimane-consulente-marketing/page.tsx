@@ -127,7 +127,7 @@ export default function ArticleConsulentePage() {
           color: var(--teal); margin-bottom: 20px;
         }
         .mk-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(28px, 4.5vw, 52px);
           font-weight: 700; color: var(--text);
           line-height: 1.12; margin-bottom: 28px;
@@ -157,7 +157,7 @@ export default function ArticleConsulentePage() {
         .mk-body strong { color: var(--text); font-weight: 600; }
         .mk-body em { font-style: italic; color: var(--teal); }
         .mk-h2 {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(20px, 2.8vw, 28px); font-weight: 700;
           color: var(--text); margin-bottom: 20px; line-height: 1.25;
         }
@@ -177,7 +177,7 @@ export default function ArticleConsulentePage() {
         }
         .mk-compare-card {
           border-radius: 8px; padding: 28px;
-          border: 1px solid rgba(232,245,242,0.08);
+          border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
         }
         .mk-compare-card.mk-bad {
           background: rgba(255,80,80,0.04);
@@ -194,7 +194,7 @@ export default function ArticleConsulentePage() {
         .mk-compare-card.mk-bad .mk-compare-label { color: rgba(255,100,100,0.8); }
         .mk-compare-card.mk-good .mk-compare-label { color: var(--teal); }
         .mk-compare-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 16px; font-weight: 700; color: var(--text);
           margin-bottom: 16px; line-height: 1.3;
         }
@@ -202,7 +202,7 @@ export default function ArticleConsulentePage() {
         .mk-compare-list li {
           font-size: 12px; color: var(--text-dim); line-height: 1.7;
           padding: 6px 0 6px 18px; position: relative;
-          border-bottom: 1px solid rgba(232,245,242,0.05);
+          border-bottom: 1px solid color-mix(in srgb, var(--ink) 5%, transparent);
         }
         .mk-compare-list li:last-child { border-bottom: none; }
         .mk-compare-list li::before {
@@ -220,9 +220,9 @@ export default function ArticleConsulentePage() {
           margin: 40px 0;
         }
         .mk-area-card {
-          border: 1px solid rgba(232,245,242,0.08);
+          border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
           border-radius: 8px; padding: 28px 24px;
-          background: rgba(232,245,242,0.02);
+          background: color-mix(in srgb, var(--ink) 2%, transparent);
           position: relative; overflow: hidden;
         }
         .mk-area-card::before {
@@ -231,12 +231,12 @@ export default function ArticleConsulentePage() {
           opacity: 0.6;
         }
         .mk-area-number {
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 32px; font-weight: 700; color: var(--teal);
           opacity: 0.25; line-height: 1; margin-bottom: 16px;
         }
         .mk-area-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 16px; font-weight: 700; color: var(--text);
           margin-bottom: 12px; line-height: 1.3;
         }
@@ -247,7 +247,7 @@ export default function ArticleConsulentePage() {
         .mk-area-items { list-style: none; padding: 0; margin: 0; }
         .mk-area-items li {
           font-size: 11px; color: var(--text-dim); padding: 4px 0 4px 14px;
-          position: relative; border-top: 1px solid rgba(232,245,242,0.05);
+          position: relative; border-top: 1px solid color-mix(in srgb, var(--ink) 5%, transparent);
         }
         .mk-area-items li:first-child { border-top: none; }
         .mk-area-items li::before {
@@ -270,7 +270,7 @@ export default function ArticleConsulentePage() {
         }
         .mk-questions-header-icon {
           width: 28px; height: 28px; border-radius: 6px;
-          background: rgba(0,255,252,0.1); border: 1px solid var(--teal-border);
+          background: color-mix(in srgb, var(--accent) 10%, transparent); border: 1px solid var(--teal-border);
           display: flex; align-items: center; justify-content: center;
           flex-shrink: 0;
         }
@@ -281,7 +281,7 @@ export default function ArticleConsulentePage() {
         .mk-questions-header-sub {
           font-size: 11px; color: var(--text-dim); margin-left: auto;
         }
-        .mk-q-group { padding: 20px 28px; border-bottom: 1px solid rgba(232,245,242,0.06); }
+        .mk-q-group { padding: 20px 28px; border-bottom: 1px solid color-mix(in srgb, var(--ink) 6%, transparent); }
         .mk-q-group:last-child { border-bottom: none; }
         .mk-q-category {
           font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
@@ -291,9 +291,9 @@ export default function ArticleConsulentePage() {
         .mk-q-list li {
           font-size: 12px; color: var(--text-dim); line-height: 1.6;
           padding: 10px 14px;
-          background: rgba(232,245,242,0.03);
+          background: color-mix(in srgb, var(--ink) 3%, transparent);
           border-radius: 4px;
-          border-left: 2px solid rgba(0,255,252,0.2);
+          border-left: 2px solid color-mix(in srgb, var(--accent) 20%, transparent);
         }
         .mk-q-list li strong { color: var(--text); font-weight: 600; }
 
@@ -301,12 +301,12 @@ export default function ArticleConsulentePage() {
            VISUAL 4 — OUTPUT DEL MAPPING
         ═══════════════════════════════════════ */
         .mk-output-wrap {
-          border: 1px solid rgba(232,245,242,0.08);
+          border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
           border-radius: 8px; overflow: hidden; margin: 40px 0;
         }
         .mk-output-header {
-          padding: 18px 28px; background: rgba(232,245,242,0.04);
-          border-bottom: 1px solid rgba(232,245,242,0.08);
+          padding: 18px 28px; background: color-mix(in srgb, var(--ink) 4%, transparent);
+          border-bottom: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
           font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
           color: var(--text-dim);
         }
@@ -315,8 +315,8 @@ export default function ArticleConsulentePage() {
         }
         .mk-output-item {
           padding: 22px 28px;
-          border-bottom: 1px solid rgba(232,245,242,0.06);
-          border-right: 1px solid rgba(232,245,242,0.06);
+          border-bottom: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
+          border-right: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
         }
         .mk-output-item:nth-child(even) { border-right: none; }
         .mk-output-item:nth-last-child(-n+2) { border-bottom: none; }
@@ -337,7 +337,7 @@ export default function ArticleConsulentePage() {
         }
         .mk-output-footer {
           padding: 18px 28px;
-          background: rgba(0,255,252,0.04);
+          background: color-mix(in srgb, var(--accent) 4%, transparent);
           border-top: 1px solid var(--teal-border);
           font-size: 12px; color: var(--text-dim); line-height: 1.7;
         }
@@ -348,13 +348,13 @@ export default function ArticleConsulentePage() {
         .mk-numbered li {
           counter-increment: mk-counter;
           display: flex; gap: 16px; align-items: flex-start;
-          padding: 16px 0; border-bottom: 1px solid rgba(232,245,242,0.06);
+          padding: 16px 0; border-bottom: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
           font-size: 13px; color: var(--text-dim); line-height: 1.75;
         }
         .mk-numbered li:last-child { border-bottom: none; }
         .mk-numbered li::before {
           content: counter(mk-counter, decimal-leading-zero);
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 11px; color: var(--teal); flex-shrink: 0;
           padding-top: 3px; min-width: 24px;
         }
@@ -373,7 +373,7 @@ export default function ArticleConsulentePage() {
           color: var(--teal); margin-bottom: 12px;
         }
         .mk-cta-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 20px; font-weight: 700; color: var(--text);
           margin-bottom: 12px; line-height: 1.3;
         }
@@ -394,10 +394,10 @@ export default function ArticleConsulentePage() {
         /* ── FAQ ── */
         .mk-faq-wrap { margin: 0 0 56px; }
         .mk-faq-item {
-          border-bottom: 1px solid rgba(232,245,242,0.08);
+          border-bottom: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
           padding: 24px 0;
         }
-        .mk-faq-item:first-child { border-top: 1px solid rgba(232,245,242,0.08); }
+        .mk-faq-item:first-child { border-top: 1px solid color-mix(in srgb, var(--ink) 8%, transparent); }
         .mk-faq-q {
           font-size: 13px; font-weight: 600; color: var(--text);
           margin-bottom: 12px; line-height: 1.4;
@@ -407,7 +407,7 @@ export default function ArticleConsulentePage() {
         /* ── SIGNATURE ── */
         .mk-signature {
           display: flex; align-items: center; gap: 16px;
-          padding: 28px 0; border-top: 1px solid rgba(232,245,242,0.08);
+          padding: 28px 0; border-top: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
           margin-bottom: 32px;
         }
         .mk-sig-avatar {
@@ -424,12 +424,12 @@ export default function ArticleConsulentePage() {
         .mk-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 48px; }
         .mk-tag {
           font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
-          color: var(--text-faint); border: 1px solid rgba(232,245,242,0.08);
+          color: var(--text-faint); border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
           padding: 4px 10px; border-radius: 3px;
         }
 
         /* ── REFERENCES ── */
-        .mk-references { padding-top: 24px; border-top: 1px solid rgba(232,245,242,0.06); }
+        .mk-references { padding-top: 24px; border-top: 1px solid color-mix(in srgb, var(--ink) 6%, transparent); }
         .mk-ref-title {
           font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
           color: var(--text-faint); margin-bottom: 12px;
@@ -444,7 +444,7 @@ export default function ArticleConsulentePage() {
           .mk-compare-wrap { grid-template-columns: 1fr; }
           .mk-output-grid { grid-template-columns: 1fr; }
           .mk-output-item { border-right: none; }
-          .mk-output-item:nth-last-child(-n+2) { border-bottom: 1px solid rgba(232,245,242,0.06); }
+          .mk-output-item:nth-last-child(-n+2) { border-bottom: 1px solid color-mix(in srgb, var(--ink) 6%, transparent); }
           .mk-output-item:last-child { border-bottom: none; }
           .mk-cta-block { flex-direction: column; gap: 20px; }
         }

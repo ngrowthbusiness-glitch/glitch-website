@@ -88,7 +88,7 @@ export default function CosaPossoFarePage() {
           display: flex;
           align-items: center;
           justify-content: center;
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 13px;
           font-weight: 700;
           color: var(--teal);
@@ -143,7 +143,7 @@ export default function CosaPossoFarePage() {
 
         .skill-card:hover {
           border-color: var(--teal);
-          background: rgba(0,255,252,0.15);
+          background: color-mix(in srgb, var(--accent) 15%, transparent);
           transform: translateY(-4px);
         }
 
@@ -195,7 +195,7 @@ export default function CosaPossoFarePage() {
         }
 
         .cpf-quote p {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-style: italic;
           font-size: clamp(16px, 2vw, 20px);
           line-height: 1.65;
@@ -212,7 +212,7 @@ export default function CosaPossoFarePage() {
 
         /* ── CTA SECTION ── */
         .cpf-cta-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(22px, 3vw, 30px);
           font-weight: 700;
           color: var(--text);

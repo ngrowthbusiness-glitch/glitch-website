@@ -76,113 +76,39 @@ export default function CookieBanner() {
   if (!visible) return null;
 
   return (
-    <div
-      className="fixed bottom-0 left-0 right-0 z-[9999] backdrop-blur-[16px]"
-      style={{
-        background: "rgba(10,14,19,0.97)",
-        borderTop: "1px solid var(--teal-border)",
-        padding: "28px 60px",
-        animation: hiding
-          ? "slideDown 0.3s ease forwards"
-          : "slideUp 0.4s ease both",
-      }}
-    >
+    <div className="ck" role="region" aria-label="Cookie e privacy" data-esce={hiding ? "1" : "0"}>
       <style>{`
-        @keyframes slideUp { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        @keyframes slideDown { from { transform: translateY(0); opacity: 1; } to { transform: translateY(100%); opacity: 0; } }
-        @media (max-width: 768px) {
-          .cookie-banner-inner { padding: 24px 24px !important; }
-        }
-        @media (max-width: 480px) {
-          .cookie-banner-inner { padding: 20px 20px !important; }
-        }
+        .ck{position:fixed;left:24px;bottom:24px;z-index:9999;width:min(440px,calc(100vw - 48px));padding:20px 20px 18px;border-radius:18px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line),0 24px 60px -24px rgba(0,0,0,.35);font-family:var(--font-manrope),sans-serif;animation:ck-su .45s cubic-bezier(.2,.7,.2,1) both}
+        .ck[data-esce="1"]{animation:ck-giu .3s ease forwards}
+        @keyframes ck-su{from{transform:translateY(16px);opacity:0}to{transform:none;opacity:1}}
+        @keyframes ck-giu{to{transform:translateY(16px);opacity:0}}
+        .ck b{display:block;font-size:15px;font-weight:800;color:var(--ink);margin-bottom:6px}
+        .ck p{font-size:13.5px;line-height:1.6;color:var(--body);margin:0}
+        .ck p a{color:var(--accent);font-weight:700;text-decoration:none}
+        .ck p a:hover{text-decoration:underline}
+        .ck-az{display:flex;gap:8px;margin-top:14px}
+        .ck-az button{flex:1;font:700 14px/1 var(--font-manrope),sans-serif;padding:12px 14px;border-radius:10px;cursor:pointer;transition:border-color .2s,color .2s,transform .25s cubic-bezier(.2,.7,.2,1)}
+        .ck-no{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+        .ck-no:hover{border-color:var(--accent);color:var(--accent)}
+        .ck-si{background:var(--accent);color:var(--accent-ink);border:1px solid var(--accent)}
+        .ck-si:hover{transform:translateY(-1px)}
+        @media (max-width:480px){.ck{left:12px;right:12px;bottom:12px;width:auto}}
+        @media (prefers-reduced-motion:reduce){.ck,.ck[data-esce="1"]{animation:none}}
+        .v1 .ck{background:rgba(10,14,19,0.97);box-shadow:inset 0 0 0 1px rgba(0,255,252,0.22)}
       `}</style>
-      <div
-        className="cookie-banner-inner"
-        style={{ maxWidth: 1100, margin: "0 auto", display: "flex", alignItems: "center", gap: "48px" }}
-      >
-        <div style={{ flex: 1 }}>
-          <span
-            style={{
-              display: "inline-block",
-              fontSize: "8px",
-              letterSpacing: "3px",
-              textTransform: "uppercase",
-              color: "var(--teal)",
-              marginBottom: "10px",
-            }}
-          >
-            Cookie & Privacy
-          </span>
-          <p
-            style={{
-              fontSize: "11px",
-              lineHeight: 1.8,
-              color: "var(--text-dim)",
-              margin: 0,
-            }}
-          >
-            Uso cookie tecnici (necessari) e cookie di profilazione (Meta Pixel
-            via GTM) per analizzare il traffico e migliorare la tua esperienza.
-            Puoi accettare tutto o continuare solo con i necessari.{" "}
-            <Link
-              href="/privacy-policy"
-              className="no-underline hover:opacity-70 transition-opacity"
-              style={{ color: "var(--teal)" }}
-            >
-              Leggi la policy completa &rarr;
-            </Link>
-          </p>
-        </div>
-        <div style={{ display: "flex", gap: "12px", flexShrink: 0 }}>
-          <button
-            onClick={() => handleChoice(false)}
-            className="hover:-translate-y-px transition-all duration-200"
-            style={{
-              fontSize: "9px",
-              letterSpacing: "2px",
-              textTransform: "uppercase",
-              color: "var(--teal)",
-              background: "transparent",
-              border: "1px solid var(--teal-border)",
-              padding: "11px 20px",
-              borderRadius: "4px",
-              cursor: "pointer",
-              whiteSpace: "nowrap",
-              fontFamily: "inherit",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgba(0,255,252,0.08)";
-              e.currentTarget.style.borderColor = "var(--teal)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-              e.currentTarget.style.borderColor = "var(--teal-border)";
-            }}
-          >
-            Solo necessari
-          </button>
-          <button
-            onClick={() => handleChoice(true)}
-            className="hover:opacity-85 hover:-translate-y-px transition-all duration-200"
-            style={{
-              fontSize: "9px",
-              letterSpacing: "2px",
-              textTransform: "uppercase",
-              background: "var(--teal)",
-              color: "var(--bg)",
-              border: "none",
-              padding: "11px 20px",
-              borderRadius: "4px",
-              cursor: "pointer",
-              fontWeight: 500,
-              whiteSpace: "nowrap",
-              fontFamily: "inherit",
-            }}
-          >
-            Accetta tutto
-          </button>
-        </div>
+      <b>Cookie e privacy</b>
+      <p>
+        Uso cookie tecnici (necessari) e cookie di profilazione (Meta Pixel via GTM) per analizzare il traffico e
+        migliorare la tua esperienza. Puoi accettare tutto o continuare solo con i necessari.{" "}
+        <Link href="/privacy-policy">Leggi la policy completa</Link>
+      </p>
+      <div className="ck-az">
+        <button type="button" className="ck-no" onClick={() => handleChoice(false)}>
+          Solo necessari
+        </button>
+        <button type="button" className="ck-si" onClick={() => handleChoice(true)}>
+          Accetta tutto
+        </button>
       </div>
     </div>
   );

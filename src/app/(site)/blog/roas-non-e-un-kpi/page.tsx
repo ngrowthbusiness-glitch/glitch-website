@@ -164,7 +164,7 @@ export default function RoasArticlePage() {
         }
 
         .art-h1 {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(32px, 5vw, 52px);
           font-weight: 700;
           line-height: 1.15;
@@ -178,7 +178,7 @@ export default function RoasArticlePage() {
         }
 
         .art-subtitle {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(15px, 2vw, 18px);
           font-style: italic;
           color: var(--text-dim);
@@ -277,7 +277,7 @@ export default function RoasArticlePage() {
           color: var(--teal);
           opacity: 0.7;
           flex-shrink: 0;
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
         }
 
         .art-toc a {
@@ -310,7 +310,7 @@ export default function RoasArticlePage() {
         }
 
         .art-h2 {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(22px, 3vw, 28px);
           font-weight: 700;
           color: var(--text);
@@ -360,7 +360,7 @@ export default function RoasArticlePage() {
         .art-formula-wrap {
           border: 1px solid var(--teal-border);
           border-radius: 8px;
-          background: rgba(0,255,252,0.04);
+          background: color-mix(in srgb, var(--accent) 4%, transparent);
           padding: 36px 40px;
           margin: 32px 0;
           position: relative;
@@ -392,7 +392,7 @@ export default function RoasArticlePage() {
         }
 
         .art-formula-numerator {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(16px, 2.5vw, 22px);
           font-weight: 700;
           color: var(--text);
@@ -414,7 +414,7 @@ export default function RoasArticlePage() {
         }
 
         .art-formula-denominator {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(16px, 2.5vw, 22px);
           font-weight: 700;
           color: var(--text-dim);
@@ -428,7 +428,7 @@ export default function RoasArticlePage() {
         }
 
         .art-formula-result {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(28px, 4vw, 40px);
           font-weight: 700;
           color: var(--teal);
@@ -447,7 +447,7 @@ export default function RoasArticlePage() {
         }
 
         .art-formula-example code {
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 13px;
           color: var(--teal);
           background: var(--teal-dim);
@@ -475,7 +475,7 @@ export default function RoasArticlePage() {
         }
 
         .art-stat-block--ok {
-          background: rgba(0,255,252,0.04);
+          background: color-mix(in srgb, var(--accent) 4%, transparent);
         }
 
         .art-stat-block--warn {
@@ -492,7 +492,7 @@ export default function RoasArticlePage() {
         }
 
         .art-stat-block-value {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(40px, 5vw, 56px);
           font-weight: 700;
           line-height: 1;
@@ -548,7 +548,7 @@ export default function RoasArticlePage() {
         ══════════════════════════════════════════ */
 
         .art-cost-breakdown {
-          border: 1px solid rgba(232,245,242,0.08);
+          border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
           border-radius: 8px;
           overflow: hidden;
           margin: 28px 0;
@@ -559,7 +559,7 @@ export default function RoasArticlePage() {
           grid-template-columns: 1fr auto auto;
           align-items: center;
           padding: 14px 24px;
-          border-bottom: 1px solid rgba(232,245,242,0.06);
+          border-bottom: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
           gap: 16px;
         }
 
@@ -568,12 +568,12 @@ export default function RoasArticlePage() {
         }
 
         .art-cost-row--header {
-          background: rgba(232,245,242,0.03);
+          background: color-mix(in srgb, var(--ink) 3%, transparent);
           padding: 10px 24px;
         }
 
         .art-cost-row--total {
-          background: rgba(0,255,252,0.05);
+          background: color-mix(in srgb, var(--accent) 5%, transparent);
           border-top: 1px solid var(--teal-border) !important;
         }
 
@@ -602,7 +602,7 @@ export default function RoasArticlePage() {
         }
 
         .art-cost-value {
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 12px;
           color: var(--text-dim);
           text-align: right;
@@ -610,7 +610,7 @@ export default function RoasArticlePage() {
         }
 
         .art-cost-pct {
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 11px;
           color: var(--text-faint);
           text-align: right;
@@ -628,7 +628,7 @@ export default function RoasArticlePage() {
         }
 
         .art-cost-row--result .art-cost-value {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 18px;
           font-weight: 700;
           color: rgba(255,110,90,0.9);
@@ -665,10 +665,10 @@ export default function RoasArticlePage() {
         }
 
         .art-be-formula-eq {
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 13px;
           color: var(--teal);
-          background: rgba(0,255,252,0.1);
+          background: color-mix(in srgb, var(--accent) 10%, transparent);
           padding: 6px 14px;
           border-radius: 4px;
           white-space: nowrap;
@@ -677,7 +677,7 @@ export default function RoasArticlePage() {
         .art-be-table {
           width: 100%;
           border-collapse: collapse;
-          border: 1px solid rgba(232,245,242,0.08);
+          border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
           border-radius: 0 0 8px 8px;
           overflow: hidden;
         }
@@ -690,12 +690,12 @@ export default function RoasArticlePage() {
           font-weight: 400;
           padding: 12px 20px;
           text-align: left;
-          background: rgba(232,245,242,0.02);
-          border-bottom: 1px solid rgba(232,245,242,0.06);
+          background: color-mix(in srgb, var(--ink) 2%, transparent);
+          border-bottom: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
         }
 
         .art-be-table tbody tr {
-          border-bottom: 1px solid rgba(232,245,242,0.04);
+          border-bottom: 1px solid color-mix(in srgb, var(--ink) 4%, transparent);
           transition: background 0.2s;
         }
 
@@ -704,7 +704,7 @@ export default function RoasArticlePage() {
         }
 
         .art-be-table tbody tr:hover {
-          background: rgba(232,245,242,0.02);
+          background: color-mix(in srgb, var(--ink) 2%, transparent);
         }
 
         .art-be-table tbody tr.zone-red {
@@ -720,12 +720,12 @@ export default function RoasArticlePage() {
         }
 
         .art-be-table tbody tr.zone-green {
-          background: rgba(0,255,252,0.03);
+          background: color-mix(in srgb, var(--accent) 3%, transparent);
         }
 
         .art-be-table tbody td {
           padding: 16px 20px;
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 12px;
           color: var(--text-dim);
         }
@@ -736,7 +736,7 @@ export default function RoasArticlePage() {
         }
 
         .art-be-roas-value {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 18px;
           font-weight: 700;
         }
@@ -754,7 +754,7 @@ export default function RoasArticlePage() {
           text-transform: uppercase;
           padding: 3px 8px;
           border-radius: 3px;
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
         }
 
         .badge-red {
@@ -837,7 +837,7 @@ export default function RoasArticlePage() {
         }
 
         .art-chain-row--b .art-chain-steps {
-          background: rgba(0,255,252,0.03);
+          background: color-mix(in srgb, var(--accent) 3%, transparent);
           border: 1px solid var(--teal-border);
           border-top: none;
           border-radius: 0 0 8px 8px;
@@ -923,7 +923,7 @@ export default function RoasArticlePage() {
         .art-pyramid-level {
           border-radius: 6px;
           overflow: hidden;
-          border: 1px solid rgba(232,245,242,0.06);
+          border: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
         }
 
         .art-pyramid-header {
@@ -935,7 +935,7 @@ export default function RoasArticlePage() {
         }
 
         .art-pyramid-level--vanity .art-pyramid-header {
-          background: rgba(232,245,242,0.03);
+          background: color-mix(in srgb, var(--ink) 3%, transparent);
         }
 
         .art-pyramid-level--operative .art-pyramid-header {
@@ -949,7 +949,7 @@ export default function RoasArticlePage() {
         }
 
         .art-pyramid-level--critical .art-pyramid-header {
-          background: rgba(0,255,252,0.06);
+          background: color-mix(in srgb, var(--accent) 6%, transparent);
           border-color: var(--teal-border);
         }
 
@@ -979,8 +979,8 @@ export default function RoasArticlePage() {
           color: var(--text-dim);
           padding: 4px 10px;
           border-radius: 3px;
-          background: rgba(232,245,242,0.04);
-          border: 1px solid rgba(232,245,242,0.06);
+          background: color-mix(in srgb, var(--ink) 4%, transparent);
+          border: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
           white-space: nowrap;
         }
 
@@ -1011,7 +1011,7 @@ export default function RoasArticlePage() {
         .art-callout {
           border-left: 2px solid var(--teal);
           padding: 16px 20px;
-          background: rgba(0,255,252,0.04);
+          background: color-mix(in srgb, var(--accent) 4%, transparent);
           border-radius: 0 6px 6px 0;
           margin: 24px 0;
         }
@@ -1044,9 +1044,9 @@ export default function RoasArticlePage() {
           gap: 16px;
           align-items: flex-start;
           padding: 16px 20px;
-          border: 1px solid rgba(232,245,242,0.06);
+          border: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
           border-radius: 6px;
-          background: rgba(232,245,242,0.02);
+          background: color-mix(in srgb, var(--ink) 2%, transparent);
           transition: border-color 0.2s;
         }
 
@@ -1055,7 +1055,7 @@ export default function RoasArticlePage() {
         }
 
         .art-check-num {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 20px;
           font-weight: 700;
           color: var(--teal);
@@ -1099,7 +1099,7 @@ export default function RoasArticlePage() {
           content: '';
           position: absolute;
           inset: 0;
-          background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,255,252,0.05), transparent);
+          background: radial-gradient(ellipse 80% 60% at 50% 50%, color-mix(in srgb, var(--accent) 5%, transparent), transparent);
           pointer-events: none;
         }
 
@@ -1121,7 +1121,7 @@ export default function RoasArticlePage() {
         }
 
         .art-lm-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(20px, 3vw, 26px);
           font-weight: 700;
           color: var(--text);
@@ -1145,7 +1145,7 @@ export default function RoasArticlePage() {
           gap: 10px;
           background: var(--teal);
           color: var(--bg);
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 10px;
           font-weight: 500;
           letter-spacing: 2px;
@@ -1184,7 +1184,7 @@ export default function RoasArticlePage() {
         }
 
         .art-faq-item {
-          border: 1px solid rgba(232,245,242,0.08);
+          border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
           border-radius: 6px;
           overflow: hidden;
           transition: border-color 0.2s;
@@ -1205,13 +1205,13 @@ export default function RoasArticlePage() {
           justify-content: space-between;
           align-items: center;
           gap: 16px;
-          background: rgba(232,245,242,0.02);
+          background: color-mix(in srgb, var(--ink) 2%, transparent);
           user-select: none;
           transition: background 0.2s;
         }
 
         .art-faq-item summary:hover {
-          background: rgba(232,245,242,0.04);
+          background: color-mix(in srgb, var(--ink) 4%, transparent);
         }
 
         .art-faq-item summary::-webkit-details-marker { display: none; }
@@ -1234,7 +1234,7 @@ export default function RoasArticlePage() {
           font-size: 12px;
           color: var(--text-dim);
           line-height: 1.85;
-          border-top: 1px solid rgba(232,245,242,0.06);
+          border-top: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
           padding-top: 16px;
         }
 
@@ -1245,7 +1245,7 @@ export default function RoasArticlePage() {
         .art-conclusion {
           border: 1px solid var(--teal-border);
           border-radius: 8px;
-          background: rgba(0,255,252,0.04);
+          background: color-mix(in srgb, var(--accent) 4%, transparent);
           padding: 32px 36px;
           margin: 56px 0 48px;
         }
@@ -1259,7 +1259,7 @@ export default function RoasArticlePage() {
         }
 
         .art-conclusion-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(18px, 2.5vw, 22px);
           font-weight: 700;
           color: var(--text);
@@ -1285,7 +1285,7 @@ export default function RoasArticlePage() {
           content: '→';
           color: var(--teal);
           flex-shrink: 0;
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           margin-top: 1px;
         }
 
@@ -1298,8 +1298,8 @@ export default function RoasArticlePage() {
           align-items: center;
           gap: 20px;
           padding: 24px 0;
-          border-top: 1px solid rgba(232,245,242,0.06);
-          border-bottom: 1px solid rgba(232,245,242,0.06);
+          border-top: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
+          border-bottom: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
           margin-bottom: 32px;
           flex-wrap: wrap;
         }
@@ -1315,7 +1315,7 @@ export default function RoasArticlePage() {
           display: flex;
           align-items: center;
           justify-content: center;
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 20px;
           font-weight: 700;
           color: var(--teal);
@@ -1371,10 +1371,10 @@ export default function RoasArticlePage() {
           letter-spacing: 1px;
           text-transform: uppercase;
           color: var(--text-dim);
-          border: 1px solid rgba(232,245,242,0.08);
+          border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
           padding: 4px 10px;
           border-radius: 3px;
-          background: rgba(232,245,242,0.02);
+          background: color-mix(in srgb, var(--ink) 2%, transparent);
           text-decoration: none;
           transition: border-color 0.2s, color 0.2s;
         }
@@ -1390,7 +1390,7 @@ export default function RoasArticlePage() {
 
         .art-references {
           padding-top: 24px;
-          border-top: 1px solid rgba(232,245,242,0.06);
+          border-top: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
         }
 
         .art-references-label {
@@ -1419,13 +1419,13 @@ export default function RoasArticlePage() {
         .art-ref-num {
           color: var(--text-faint);
           flex-shrink: 0;
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
         }
 
         .art-ref-item a {
           color: var(--text-dim);
           text-decoration: underline;
-          text-decoration-color: rgba(232,245,242,0.15);
+          text-decoration-color: color-mix(in srgb, var(--ink) 15%, transparent);
           transition: color 0.2s;
         }
 

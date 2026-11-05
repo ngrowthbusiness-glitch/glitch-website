@@ -31,7 +31,7 @@ export default function PrivacyPolicyPage() {
   margin-bottom: 24px;
 }
 .pp-wrapper .page-title {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-manrope), sans-serif;
   font-size: clamp(32px, 5vw, 52px);
   font-weight: 700; line-height: 1.1;
   margin-bottom: 12px;
@@ -47,7 +47,7 @@ export default function PrivacyPolicyPage() {
   margin: 40px 0;
 }
 .pp-wrapper h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-manrope), sans-serif;
   font-size: 20px; font-weight: 700;
   margin-bottom: 14px; margin-top: 40px;
   color: var(--text);
@@ -64,7 +64,7 @@ export default function PrivacyPolicyPage() {
 .pp-wrapper ul li {
   font-size: 12px; line-height: 1.85; color: var(--text-dim);
   padding: 6px 0 6px 20px; position: relative;
-  border-bottom: 1px solid rgba(232,245,242,0.05);
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 5%, transparent);
 }
 .pp-wrapper ul li::before {
   content: '→';
@@ -82,7 +82,7 @@ export default function PrivacyPolicyPage() {
 .pp-wrapper .cookie-reset-btn {
   display: inline-flex; align-items: center; gap: 10px;
   background: transparent; color: var(--teal);
-  font-family: 'DM Mono', monospace; font-size: 10px;
+  font-family: var(--font-manrope), sans-serif; font-size: 10px;
   letter-spacing: 2px; text-transform: uppercase;
   padding: 12px 22px; border-radius: 5px;
   border: 1px solid var(--teal-border); cursor: pointer;

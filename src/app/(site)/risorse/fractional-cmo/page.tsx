@@ -207,7 +207,7 @@ export default function FractionalCMOPage() {
           margin-bottom: 12px;
         }
         .fcmo-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(26px, 4vw, 40px);
           font-weight: 700;
           color: var(--text);
@@ -233,7 +233,7 @@ export default function FractionalCMOPage() {
           width: 8px;
           height: 8px;
           border-radius: 50%;
-          background: rgba(232,245,242,0.12);
+          background: color-mix(in srgb, var(--ink) 12%, transparent);
           transition: background 0.3s, transform 0.2s;
         }
         .fcmo-step-dot.active {
@@ -241,7 +241,7 @@ export default function FractionalCMOPage() {
           transform: scale(1.25);
         }
         .fcmo-step-dot.done {
-          background: rgba(0,255,252,0.35);
+          background: color-mix(in srgb, var(--accent) 35%, transparent);
         }
         .fcmo-step-label {
           font-size: 10px;
@@ -253,16 +253,16 @@ export default function FractionalCMOPage() {
 
         /* ── FORM CARD ── */
         .fcmo-card {
-          border: 1px solid rgba(232,245,242,0.08);
+          border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
           border-radius: 12px;
           padding: 36px 40px;
-          background: rgba(232,245,242,0.02);
+          background: color-mix(in srgb, var(--ink) 2%, transparent);
           margin-bottom: 24px;
         }
         @media (max-width: 480px) { .fcmo-card { padding: 24px 20px; } }
 
         .fcmo-card-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 18px;
           font-weight: 700;
           color: var(--text);
@@ -279,12 +279,12 @@ export default function FractionalCMOPage() {
         @media (max-width: 560px) { .fcmo-options { grid-template-columns: 1fr; } }
 
         .fcmo-option {
-          border: 1px solid rgba(232,245,242,0.1);
+          border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
           border-radius: 8px;
           padding: 12px 16px;
           background: transparent;
           color: var(--text-dim);
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 11px;
           letter-spacing: 0.5px;
           cursor: pointer;
@@ -298,7 +298,7 @@ export default function FractionalCMOPage() {
         }
         .fcmo-option.selected {
           border-color: var(--teal);
-          background: rgba(0,255,252,0.08);
+          background: color-mix(in srgb, var(--accent) 8%, transparent);
           color: var(--text);
         }
 
@@ -314,12 +314,12 @@ export default function FractionalCMOPage() {
         }
         .fcmo-textarea {
           width: 100%;
-          background: rgba(232,245,242,0.03);
-          border: 1px solid rgba(232,245,242,0.1);
+          background: color-mix(in srgb, var(--ink) 3%, transparent);
+          border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
           border-radius: 8px;
           padding: 14px 16px;
           color: var(--text);
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 12px;
           line-height: 1.65;
           resize: vertical;
@@ -342,11 +342,11 @@ export default function FractionalCMOPage() {
         }
         .fcmo-btn-back {
           background: transparent;
-          border: 1px solid rgba(232,245,242,0.12);
+          border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
           border-radius: 6px;
           padding: 12px 22px;
           color: var(--text-dim);
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 10px;
           letter-spacing: 1.5px;
           text-transform: uppercase;
@@ -360,8 +360,8 @@ export default function FractionalCMOPage() {
           border: none;
           border-radius: 6px;
           padding: 12px 28px;
-          color: #0a0e0d;
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          color: var(--accent-ink);
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 10px;
           font-weight: 500;
           letter-spacing: 2px;
@@ -377,14 +377,14 @@ export default function FractionalCMOPage() {
 
         /* ── RESULT ── */
         .fcmo-result-wrap {
-          border: 1px solid rgba(0,255,252,0.15);
+          border: 1px solid color-mix(in srgb, var(--accent) 15%, transparent);
           border-radius: 12px;
           overflow: hidden;
           margin-top: 48px;
         }
         .fcmo-result-header {
-          background: rgba(0,255,252,0.05);
-          border-bottom: 1px solid rgba(0,255,252,0.1);
+          background: color-mix(in srgb, var(--accent) 5%, transparent);
+          border-bottom: 1px solid color-mix(in srgb, var(--accent) 10%, transparent);
           padding: 16px 32px;
           display: flex;
           align-items: center;
@@ -425,7 +425,7 @@ export default function FractionalCMOPage() {
         .fcmo-spinner {
           width: 32px;
           height: 32px;
-          border: 2px solid rgba(0,255,252,0.15);
+          border: 2px solid color-mix(in srgb, var(--accent) 15%, transparent);
           border-top-color: var(--teal);
           border-radius: 50%;
           animation: spin 0.8s linear infinite;
@@ -447,9 +447,9 @@ export default function FractionalCMOPage() {
         .fcmo-post-cta {
           margin-top: 32px;
           padding: 28px 32px;
-          border: 1px solid rgba(0,255,252,0.12);
+          border: 1px solid color-mix(in srgb, var(--accent) 12%, transparent);
           border-radius: 10px;
-          background: rgba(0,255,252,0.03);
+          background: color-mix(in srgb, var(--accent) 3%, transparent);
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -467,8 +467,8 @@ export default function FractionalCMOPage() {
           align-items: center;
           gap: 8px;
           background: var(--teal);
-          color: #0a0e0d;
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          color: var(--accent-ink);
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 10px;
           font-weight: 500;
           letter-spacing: 2px;

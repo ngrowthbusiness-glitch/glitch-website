@@ -55,7 +55,8 @@ const IMBUTO = [44, 34, 25, 17, 10];
 /* quanto e' pieno ogni cantiere nel disegno del limite (solo forma, nessun dato) */
 const TANTI = [0.38, 0.5, 0.3, 0.46, 0.42];
 
-export default function ChiFaCosa() {
+/* etichetta: nel sito la pagina si chiama «Il metodo» (copy approvato), per i prospect «Come lavoro» */
+export default function ChiFaCosa({ etichetta = HERO.eyebrow }: { etichetta?: string }) {
   const root = useRef<HTMLDivElement>(null);
   const [mode, setMode] = useState<Mode>("servizi");
   const [handsOpen, setHandsOpen] = useState(false);
@@ -213,7 +214,7 @@ export default function ChiFaCosa() {
            I token vengono dal layout documento (Manrope, chiaro e scuro). */
         .cf{--max:1200px;--e:cubic-bezier(.2,.7,.2,1);--rimbalzo:cubic-bezier(.34,1.56,.64,1);interpolate-size:allow-keywords}
         :root:has(.cf){scroll-behavior:smooth}
-        .cf [id]{scroll-margin-top:28px}
+        .cf [id]{scroll-margin-top:calc(var(--sticky-top,0px) + 28px)}
         .cf-wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
         .cf-kicker{font:700 12px/1.3 var(--font-manrope),sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
         .cf h1{font:800 clamp(40px,6vw,78px)/1.02 var(--font-manrope),sans-serif;letter-spacing:-.035em;color:var(--ink);margin:16px 0 22px;text-wrap:balance;max-width:14ch}
@@ -281,7 +282,7 @@ export default function ChiFaCosa() {
 
         /* ── la rotta ── */
         .rt-scena{height:300vh;position:relative;margin-top:8px}
-        .rt-palco{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:36px;align-items:center;padding:24px 0}
+        .rt-palco{position:sticky;top:var(--sticky-top,0px);height:calc(100vh - var(--sticky-top,0px));display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:36px;align-items:center;padding:24px 0}
         .rt-barre{display:flex;gap:6px;margin-bottom:16px;max-width:240px}
         .rt-barre span{flex:1;height:4px;border-radius:2px;background:var(--line);overflow:hidden}
         .rt-barre i{display:block;height:100%;background:var(--accent);transform-origin:left;transform:scaleX(0)}
@@ -672,7 +673,7 @@ export default function ChiFaCosa() {
         {/* ══ TESTA ══ */}
         <section className="cf-hero" data-bordo="testa">
           <div className="cf-hero-t">
-            <span className="cf-kicker">{HERO.eyebrow}</span>
+            <span className="cf-kicker">{etichetta}</span>
             <h1>
               {HERO.title} <em>{HERO.titleEm}</em>
             </h1>

@@ -11,19 +11,22 @@ Prezzo: da €1.500/mese. Engagement minimo 3 mesi.
 - **Repo**: github.com/ngrowthbusiness-glitch/glitch-website
 - **Styling**: CSS inline in page components + globals.css (design system s-*)
 - **AI**: Anthropic Claude SDK (@anthropic-ai/sdk) per risorse streaming
-- **Font**: Playfair Display (heading) + DM Mono (body/mono)
-- **Palette**: teal #00fffc, bg #0a0e0d, text #e8f5f2
+- **Font**: Manrope, uno solo (Brand Nicola Serrao v2.0, dal 2026-11-04). Playfair e DM Mono restano solo in /outreach
+- **Palette**: i token di Basecamp in `src/app/globals.css` (`--bg`, `--surface`, `--ink`, `--body`, `--muted`, `--accent`...), chiaro di default, scuro col sistema o con l'interruttore (`components/ThemeToggle.tsx`, script in `lib/tema.ts`). Niente colori scritti a mano: si usano i token
 
 ## Design system
 Classi globali in `src/app/globals.css` con prefisso `s-`:
-- Layout: s-wrap (1400px), s-page (padding 80px 60px 120px)
+- Layout: s-wrap (1200px), s-page (padding 64px 24px 104px)
+- Le vecchie variabili (`--teal`, `--text`, `--text-dim`) sono alias dei token nuovi: le pagine non ancora rifatte le usano
+- /outreach e' escluso dal restyling: il suo layout avvolge in `.v1`, che rimette il vecchio sistema
 - Typography: s-h1, s-h2, s-h3, s-eyebrow, s-subtitle, s-body
 - Components: s-btn-primary, s-btn-secondary, s-card, s-card-teal, s-badge, s-pill
 - Blocks: s-divider, s-quote, s-cta, s-metric-value, s-metric-label, s-link
 
 ## Struttura sito
 ```
-/ (homepage) — 7 sezioni: hero, FCMO, ticker, timeline, brain company, case studies, CTA
+/ (homepage) — in rifacimento (restyling 2026-11, mappa in _work/restyling-sito/map.md)
+/il-metodo — Chi fa cosa col menu del sito; /chi-fa-cosa e' la stessa pagina senza menu, per i prospect
 /cosa-posso-fare — "Perché conoscerci" (approccio dottore, non venditore)
 /cosa-ho-fatto — Case study + link a pagine verticali
 /cosa-ho-fatto/{slug} — 4 case study verticali con SVG

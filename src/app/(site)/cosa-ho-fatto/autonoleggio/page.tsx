@@ -25,7 +25,7 @@ export default function AutonoleggoPage() {
         .cs-cta-buttons { display: flex; gap: 14px; margin-top: 24px; flex-wrap: wrap; }
         .cs-cpl-wrap { margin: 40px 0; display: flex; justify-content: center; }
         .cs-vs-block { display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px; align-items: center; margin: 32px 0; }
-        .cs-vs-divider { font-family: var(--font-playfair), 'Playfair Display', serif; font-size: 20px; color: var(--teal); opacity: 0.5; }
+        .cs-vs-divider { font-family: var(--font-playfair), var(--font-manrope), sans-serif; font-size: 20px; color: var(--teal); opacity: 0.5; }
         @media (max-width: 900px) {
           .cs-context-grid { grid-template-columns: 1fr; }
           .cs-strategy-grid { grid-template-columns: 1fr; }
@@ -107,7 +107,7 @@ export default function AutonoleggoPage() {
               <p className="s-body" style={{ fontStyle: "italic", fontSize: 14 }}>
                 &ldquo;Scopri le nostre offerte&rdquo;
               </p>
-              <p className="s-body" style={{ marginTop: 8, color: "rgba(232,245,242,0.3)" }}>
+              <p className="s-body" style={{ marginTop: 8, color: "color-mix(in srgb, var(--ink) 30%, transparent)" }}>
                 Stesso messaggio. Stessi risultati. CPL &euro;10+
               </p>
             </div>
@@ -165,27 +165,27 @@ export default function AutonoleggoPage() {
           <div className="cs-cpl-wrap">
             <svg viewBox="0 0 400 220" width="100%" style={{ maxWidth: 440 }} aria-label="Grafico riduzione CPL da 25 a 4.50 euro">
               {/* Grid */}
-              <line x1="60" y1="30" x2="60" y2="180" stroke="rgba(232,245,242,0.08)" strokeWidth="1" />
-              <line x1="60" y1="180" x2="370" y2="180" stroke="rgba(232,245,242,0.08)" strokeWidth="1" />
+              <line x1="60" y1="30" x2="60" y2="180" stroke="color-mix(in srgb, var(--ink) 8%, transparent)" strokeWidth="1" />
+              <line x1="60" y1="180" x2="370" y2="180" stroke="color-mix(in srgb, var(--ink) 8%, transparent)" strokeWidth="1" />
               {/* Y labels */}
-              <text x="54" y="40" fill="rgba(232,245,242,0.3)" fontSize="9" textAnchor="end" fontFamily="monospace">€25</text>
-              <text x="54" y="82" fill="rgba(232,245,242,0.3)" fontSize="9" textAnchor="end" fontFamily="monospace">€15</text>
-              <text x="54" y="120" fill="rgba(232,245,242,0.3)" fontSize="9" textAnchor="end" fontFamily="monospace">€10</text>
-              <text x="54" y="170" fill="rgba(232,245,242,0.3)" fontSize="9" textAnchor="end" fontFamily="monospace">€4,50</text>
+              <text x="54" y="40" fill="color-mix(in srgb, var(--ink) 30%, transparent)" fontSize="9" textAnchor="end" fontFamily="var(--font-manrope), sans-serif">€25</text>
+              <text x="54" y="82" fill="color-mix(in srgb, var(--ink) 30%, transparent)" fontSize="9" textAnchor="end" fontFamily="var(--font-manrope), sans-serif">€15</text>
+              <text x="54" y="120" fill="color-mix(in srgb, var(--ink) 30%, transparent)" fontSize="9" textAnchor="end" fontFamily="var(--font-manrope), sans-serif">€10</text>
+              <text x="54" y="170" fill="color-mix(in srgb, var(--ink) 30%, transparent)" fontSize="9" textAnchor="end" fontFamily="var(--font-manrope), sans-serif">€4,50</text>
               {/* Horizontal guides */}
-              <line x1="60" y1="40" x2="370" y2="40" stroke="rgba(232,245,242,0.05)" strokeWidth="1" strokeDasharray="4" />
+              <line x1="60" y1="40" x2="370" y2="40" stroke="color-mix(in srgb, var(--ink) 5%, transparent)" strokeWidth="1" strokeDasharray="4" />
               <line x1="60" y1="120" x2="370" y2="120" stroke="rgba(255,100,100,0.15)" strokeWidth="1" strokeDasharray="4" />
-              <text x="375" y="124" fill="rgba(255,100,100,0.4)" fontSize="8" fontFamily="monospace">Media competitor</text>
+              <text x="375" y="124" fill="rgba(255,100,100,0.4)" fontSize="8" fontFamily="var(--font-manrope), sans-serif">Media competitor</text>
               {/* Bars */}
               <rect x="90" y="40" width="50" height="140" rx="4" fill="rgba(255,100,100,0.2)" stroke="rgba(255,100,100,0.3)" strokeWidth="1" />
-              <text x="115" y="195" fill="rgba(232,245,242,0.4)" fontSize="9" textAnchor="middle" fontFamily="monospace">Partenza</text>
-              <text x="115" y="35" fill="rgba(255,100,100,0.6)" fontSize="10" textAnchor="middle" fontWeight="bold" fontFamily="monospace">€25</text>
-              <rect x="185" y="120" width="50" height="60" rx="4" fill="rgba(232,245,242,0.08)" stroke="rgba(232,245,242,0.15)" strokeWidth="1" />
-              <text x="210" y="195" fill="rgba(232,245,242,0.4)" fontSize="9" textAnchor="middle" fontFamily="monospace">Competitor</text>
-              <text x="210" y="115" fill="rgba(232,245,242,0.4)" fontSize="10" textAnchor="middle" fontFamily="monospace">€10</text>
-              <rect x="280" y="165" width="50" height="15" rx="4" fill="rgba(0,255,252,0.25)" stroke="var(--teal)" strokeWidth="1.5" />
-              <text x="305" y="195" fill="var(--teal)" fontSize="9" textAnchor="middle" fontFamily="monospace">Risultato</text>
-              <text x="305" y="160" fill="var(--teal)" fontSize="12" textAnchor="middle" fontWeight="bold" fontFamily="monospace">€4,50</text>
+              <text x="115" y="195" fill="var(--muted)" fontSize="9" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif">Partenza</text>
+              <text x="115" y="35" fill="rgba(255,100,100,0.6)" fontSize="10" textAnchor="middle" fontWeight="bold" fontFamily="var(--font-manrope), sans-serif">€25</text>
+              <rect x="185" y="120" width="50" height="60" rx="4" fill="color-mix(in srgb, var(--ink) 8%, transparent)" stroke="color-mix(in srgb, var(--ink) 15%, transparent)" strokeWidth="1" />
+              <text x="210" y="195" fill="var(--muted)" fontSize="9" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif">Competitor</text>
+              <text x="210" y="115" fill="var(--muted)" fontSize="10" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif">€10</text>
+              <rect x="280" y="165" width="50" height="15" rx="4" fill="color-mix(in srgb, var(--accent) 25%, transparent)" stroke="var(--teal)" strokeWidth="1.5" />
+              <text x="305" y="195" fill="var(--teal)" fontSize="9" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif">Risultato</text>
+              <text x="305" y="160" fill="var(--teal)" fontSize="12" textAnchor="middle" fontWeight="bold" fontFamily="var(--font-manrope), sans-serif">€4,50</text>
             </svg>
           </div>
         </section>

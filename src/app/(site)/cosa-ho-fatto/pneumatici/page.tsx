@@ -169,23 +169,23 @@ export default function PneumaticiPage() {
                 <linearGradient id="pn-gauge-grad" x1="0" y1="0" x2="1" y2="0">
                   <stop offset="0%" stopColor="rgba(255,100,100,0.4)" />
                   <stop offset="40%" stopColor="rgba(255,200,100,0.4)" />
-                  <stop offset="70%" stopColor="rgba(0,255,252,0.3)" />
-                  <stop offset="100%" stopColor="rgba(0,255,252,0.6)" />
+                  <stop offset="70%" stopColor="color-mix(in srgb, var(--accent) 30%, transparent)" />
+                  <stop offset="100%" stopColor="color-mix(in srgb, var(--accent) 60%, transparent)" />
                 </linearGradient>
               </defs>
               {/* Background arc */}
-              <path d="M 40 160 A 110 110 0 0 1 260 160" fill="none" stroke="rgba(232,245,242,0.06)" strokeWidth="20" strokeLinecap="round" />
+              <path d="M 40 160 A 110 110 0 0 1 260 160" fill="none" stroke="color-mix(in srgb, var(--ink) 6%, transparent)" strokeWidth="20" strokeLinecap="round" />
               {/* Filled arc — ~85% of semicircle for ROAS 16 */}
               <path d="M 40 160 A 110 110 0 0 1 252 128" fill="none" stroke="url(#pn-gauge-grad)" strokeWidth="20" strokeLinecap="round" />
               {/* Needle endpoint */}
               <circle cx="252" cy="128" r="6" fill="var(--teal)" />
               {/* Labels */}
-              <text x="40" y="180" fill="rgba(232,245,242,0.3)" fontSize="9" textAnchor="middle" fontFamily="monospace">0x</text>
-              <text x="150" y="60" fill="rgba(232,245,242,0.3)" fontSize="9" textAnchor="middle" fontFamily="monospace">10x</text>
-              <text x="260" y="180" fill="rgba(232,245,242,0.3)" fontSize="9" textAnchor="middle" fontFamily="monospace">20x</text>
+              <text x="40" y="180" fill="color-mix(in srgb, var(--ink) 30%, transparent)" fontSize="9" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif">0x</text>
+              <text x="150" y="60" fill="color-mix(in srgb, var(--ink) 30%, transparent)" fontSize="9" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif">10x</text>
+              <text x="260" y="180" fill="color-mix(in srgb, var(--ink) 30%, transparent)" fontSize="9" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif">20x</text>
               {/* Center value */}
-              <text x="150" y="130" fill="var(--teal)" fontSize="36" textAnchor="middle" fontWeight="bold" fontFamily="'Playfair Display', serif">16x</text>
-              <text x="150" y="150" fill="rgba(232,245,242,0.4)" fontSize="10" textAnchor="middle" fontFamily="monospace" letterSpacing="2">ROAS</text>
+              <text x="150" y="130" fill="var(--teal)" fontSize="36" textAnchor="middle" fontWeight="bold" fontFamily="var(--font-manrope), sans-serif">16x</text>
+              <text x="150" y="150" fill="var(--muted)" fontSize="10" textAnchor="middle" fontFamily="var(--font-manrope), sans-serif" letterSpacing="2">ROAS</text>
             </svg>
           </div>
         </section>

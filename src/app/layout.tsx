@@ -1,19 +1,15 @@
 import type { Metadata } from "next";
-import { Playfair_Display, DM_Mono } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import GTMScript, { GTMNoscript } from "@/components/layout/GTMScript";
+import { SCRIPT_TEMA } from "@/lib/tema";
 
-const playfair = Playfair_Display({
-  weight: "700",
+/* Un font solo, Manrope (Brand Nicola Serrao v2.0). Playfair e DM Mono restano
+   soltanto nel layout di /outreach, che non passa dal restyling. */
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
-});
-
-const dmMono = DM_Mono({
-  weight: ["400", "500"],
-  subsets: ["latin"],
-  variable: "--font-dm-mono",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-manrope",
   display: "swap",
 });
 
@@ -51,11 +47,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="it"
-      className={`${playfair.variable} ${dmMono.variable} h-full antialiased`}
-    >
+    <html lang="it" className={`${manrope.variable} h-full antialiased`} suppressHydrationWarning>
       <head>
+        {/* il tema scelto si applica prima del primo disegno, cosi' la pagina non lampeggia */}
+        <script dangerouslySetInnerHTML={{ __html: SCRIPT_TEMA }} />
         <GTMScript />
       </head>
       <body

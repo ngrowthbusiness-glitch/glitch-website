@@ -109,7 +109,7 @@ export default function DomandeConsulentArticlePage() {
         }
 
         .art-h1 {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(32px, 5vw, 52px);
           font-weight: 700;
           line-height: 1.15;
@@ -123,7 +123,7 @@ export default function DomandeConsulentArticlePage() {
         }
 
         .art-subtitle {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(15px, 2vw, 18px);
           font-style: italic;
           color: var(--text-dim);
@@ -222,7 +222,7 @@ export default function DomandeConsulentArticlePage() {
           color: var(--teal);
           opacity: 0.7;
           flex-shrink: 0;
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
         }
 
         .art-toc a {
@@ -255,7 +255,7 @@ export default function DomandeConsulentArticlePage() {
         }
 
         .art-h2 {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(22px, 3vw, 28px);
           font-weight: 700;
           color: var(--text);
@@ -325,11 +325,11 @@ export default function DomandeConsulentArticlePage() {
         }
 
         .art-q-item {
-          border: 1px solid rgba(232,245,242,0.07);
+          border: 1px solid color-mix(in srgb, var(--ink) 7%, transparent);
           border-radius: 6px;
           padding: 20px 24px;
           margin-bottom: 10px;
-          background: rgba(232,245,242,0.02);
+          background: color-mix(in srgb, var(--ink) 2%, transparent);
         }
 
         .art-q-text {
@@ -345,7 +345,7 @@ export default function DomandeConsulentArticlePage() {
           color: var(--text-dim);
           line-height: 1.7;
           padding-left: 12px;
-          border-left: 2px solid rgba(0,255,252,0.2);
+          border-left: 2px solid color-mix(in srgb, var(--accent) 20%, transparent);
         }
 
         .art-q-why-label {
@@ -372,7 +372,7 @@ export default function DomandeConsulentArticlePage() {
         .art-callout {
           border-left: 2px solid var(--teal);
           padding: 16px 20px;
-          background: rgba(0,255,252,0.04);
+          background: color-mix(in srgb, var(--accent) 4%, transparent);
           border-radius: 0 6px 6px 0;
           margin: 24px 0;
         }
@@ -396,7 +396,7 @@ export default function DomandeConsulentArticlePage() {
         .art-conclusion {
           border: 1px solid var(--teal-border);
           border-radius: 8px;
-          background: rgba(0,255,252,0.04);
+          background: color-mix(in srgb, var(--accent) 4%, transparent);
           padding: 32px 36px;
           margin: 56px 0 48px;
         }
@@ -410,7 +410,7 @@ export default function DomandeConsulentArticlePage() {
         }
 
         .art-conclusion-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(18px, 2.5vw, 22px);
           font-weight: 700;
           color: var(--text);
@@ -436,7 +436,7 @@ export default function DomandeConsulentArticlePage() {
           content: '\u2192';
           color: var(--teal);
           flex-shrink: 0;
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           margin-top: 1px;
         }
 
@@ -458,7 +458,7 @@ export default function DomandeConsulentArticlePage() {
           content: '';
           position: absolute;
           inset: 0;
-          background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,255,252,0.05), transparent);
+          background: radial-gradient(ellipse 80% 60% at 50% 50%, color-mix(in srgb, var(--accent) 5%, transparent), transparent);
           pointer-events: none;
         }
 
@@ -480,7 +480,7 @@ export default function DomandeConsulentArticlePage() {
         }
 
         .art-lm-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(20px, 3vw, 26px);
           font-weight: 700;
           color: var(--text);
@@ -504,7 +504,7 @@ export default function DomandeConsulentArticlePage() {
           gap: 10px;
           background: var(--teal);
           color: var(--bg);
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 10px;
           font-weight: 500;
           letter-spacing: 2px;
@@ -527,7 +527,7 @@ export default function DomandeConsulentArticlePage() {
           gap: 10px;
           background: transparent;
           color: var(--teal);
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 10px;
           font-weight: 500;
           letter-spacing: 2px;
@@ -542,7 +542,7 @@ export default function DomandeConsulentArticlePage() {
 
         .art-lm-cta-wa:hover {
           opacity: 0.85;
-          background: rgba(0,255,252,0.04);
+          background: color-mix(in srgb, var(--accent) 4%, transparent);
         }
 
         /* ══════════════════════════════════════════
@@ -554,8 +554,8 @@ export default function DomandeConsulentArticlePage() {
           align-items: center;
           gap: 20px;
           padding: 24px 0;
-          border-top: 1px solid rgba(232,245,242,0.06);
-          border-bottom: 1px solid rgba(232,245,242,0.06);
+          border-top: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
+          border-bottom: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
           margin-bottom: 32px;
           flex-wrap: wrap;
         }
@@ -571,7 +571,7 @@ export default function DomandeConsulentArticlePage() {
           display: flex;
           align-items: center;
           justify-content: center;
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 20px;
           font-weight: 700;
           color: var(--teal);
@@ -627,10 +627,10 @@ export default function DomandeConsulentArticlePage() {
           letter-spacing: 1px;
           text-transform: uppercase;
           color: var(--text-dim);
-          border: 1px solid rgba(232,245,242,0.08);
+          border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
           padding: 4px 10px;
           border-radius: 3px;
-          background: rgba(232,245,242,0.02);
+          background: color-mix(in srgb, var(--ink) 2%, transparent);
           text-decoration: none;
           transition: border-color 0.2s, color 0.2s;
         }

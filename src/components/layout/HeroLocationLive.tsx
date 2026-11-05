@@ -45,7 +45,7 @@ export default function HeroLocationLive() {
         flexDirection: "column",
         alignItems: "center",
         gap: 4,
-        fontFamily: "var(--font-dm-mono), 'DM Mono', monospace",
+        fontFamily: "var(--font-dm-mono), var(--font-manrope), sans-serif",
         textTransform: "uppercase",
         textAlign: "center",
       }}

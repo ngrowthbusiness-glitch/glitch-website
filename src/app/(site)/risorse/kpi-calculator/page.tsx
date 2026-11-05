@@ -34,7 +34,7 @@ function renderMarkdown(text: string): string {
     .replace(/^\|(.+)\|$/gm, (row) => {
       const cells = row.split("|").filter(Boolean).map((c) => c.trim());
       const isHeader = false;
-      return `<tr>${cells.map((c) => `<td style="padding:8px 12px;border:1px solid rgba(232,245,242,0.08);font-size:12px;color:var(--text-dim);">${c}</td>`).join("")}</tr>`;
+      return `<tr>${cells.map((c) => `<td style="padding:8px 12px;border:1px solid color-mix(in srgb, var(--ink) 8%, transparent);font-size:12px;color:var(--text-dim);">${c}</td>`).join("")}</tr>`;
     })
     .replace(/(<tr>.*<\/tr>\n?)+/g, (m) => `<table style="width:100%;border-collapse:collapse;margin:16px 0;">${m}</table>`)
     .replace(/^- (.+)$/gm, '<li style="margin:6px 0;padding-left:4px;">$1</li>')
@@ -218,7 +218,7 @@ export default function KPICalculatorPage() {
           margin-bottom: 12px;
         }
         .kpi-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(26px, 4vw, 40px);
           font-weight: 700;
           color: var(--text);
@@ -235,16 +235,16 @@ export default function KPICalculatorPage() {
 
         /* ── FORM CARD ── */
         .kpi-card {
-          border: 1px solid rgba(232,245,242,0.08);
+          border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
           border-radius: 12px;
           padding: 36px 40px;
-          background: rgba(232,245,242,0.02);
+          background: color-mix(in srgb, var(--ink) 2%, transparent);
           margin-bottom: 24px;
         }
         @media (max-width: 480px) { .kpi-card { padding: 24px 20px; } }
 
         .kpi-card-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 18px;
           font-weight: 700;
           color: var(--text);
@@ -266,12 +266,12 @@ export default function KPICalculatorPage() {
           text-transform: uppercase;
           color: var(--text-faint);
         }
-        .kpi-hint { text-transform: none; letter-spacing: 0; font-size: 10px; color: rgba(232,245,242,0.25); }
+        .kpi-hint { text-transform: none; letter-spacing: 0; font-size: 10px; color: color-mix(in srgb, var(--ink) 25%, transparent); }
         .kpi-input-wrap {
           display: flex;
           align-items: center;
-          background: rgba(232,245,242,0.03);
-          border: 1px solid rgba(232,245,242,0.1);
+          background: color-mix(in srgb, var(--ink) 3%, transparent);
+          border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
           border-radius: 8px;
           overflow: hidden;
           transition: border-color 0.2s;
@@ -281,14 +281,14 @@ export default function KPICalculatorPage() {
           padding: 0 12px;
           font-size: 13px;
           color: var(--teal);
-          background: rgba(0,255,252,0.05);
+          background: color-mix(in srgb, var(--accent) 5%, transparent);
           height: 44px;
           display: flex;
           align-items: center;
-          border-right: 1px solid rgba(232,245,242,0.08);
+          border-right: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
           flex-shrink: 0;
         }
-        .kpi-suffix { border-right: none; border-left: 1px solid rgba(232,245,242,0.08); }
+        .kpi-suffix { border-right: none; border-left: 1px solid color-mix(in srgb, var(--ink) 8%, transparent); }
         .kpi-input {
           flex: 1;
           background: transparent;
@@ -296,7 +296,7 @@ export default function KPICalculatorPage() {
           padding: 0 14px;
           height: 44px;
           color: var(--text);
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 14px;
           outline: none;
         }
@@ -315,12 +315,12 @@ export default function KPICalculatorPage() {
         @media (max-width: 600px) { .kpi-models { grid-template-columns: repeat(2, 1fr); } }
 
         .kpi-model-btn {
-          border: 1px solid rgba(232,245,242,0.1);
+          border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
           border-radius: 8px;
           padding: 10px 8px;
           background: transparent;
           color: var(--text-dim);
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 10px;
           letter-spacing: 0.5px;
           cursor: pointer;
@@ -334,7 +334,7 @@ export default function KPICalculatorPage() {
         }
         .kpi-model-btn.selected {
           border-color: var(--teal);
-          background: rgba(0,255,252,0.08);
+          background: color-mix(in srgb, var(--accent) 8%, transparent);
           color: var(--text);
         }
 
@@ -350,7 +350,7 @@ export default function KPICalculatorPage() {
           font-size: 8px;
           letter-spacing: 1px;
           color: var(--text-faint);
-          border: 1px solid rgba(232,245,242,0.1);
+          border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
           padding: 2px 6px;
           border-radius: 3px;
           margin-left: 6px;
@@ -369,8 +369,8 @@ export default function KPICalculatorPage() {
           border: none;
           border-radius: 6px;
           padding: 14px 32px;
-          color: #0a0e0d;
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          color: var(--accent-ink);
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 10px;
           font-weight: 500;
           letter-spacing: 2px;
@@ -386,11 +386,11 @@ export default function KPICalculatorPage() {
 
         .kpi-reset {
           background: transparent;
-          border: 1px solid rgba(232,245,242,0.12);
+          border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
           border-radius: 6px;
           padding: 10px 18px;
           color: var(--text-faint);
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 10px;
           letter-spacing: 1px;
           cursor: pointer;
@@ -401,14 +401,14 @@ export default function KPICalculatorPage() {
 
         /* ── RESULT ── */
         .kpi-result-wrap {
-          border: 1px solid rgba(0,255,252,0.15);
+          border: 1px solid color-mix(in srgb, var(--accent) 15%, transparent);
           border-radius: 12px;
           overflow: hidden;
           margin-top: 48px;
         }
         .kpi-result-header {
-          background: rgba(0,255,252,0.05);
-          border-bottom: 1px solid rgba(0,255,252,0.1);
+          background: color-mix(in srgb, var(--accent) 5%, transparent);
+          border-bottom: 1px solid color-mix(in srgb, var(--accent) 10%, transparent);
           padding: 16px 32px;
           display: flex;
           align-items: center;
@@ -440,13 +440,13 @@ export default function KPICalculatorPage() {
           font-size: 12px;
         }
         .kpi-result-body table th {
-          background: rgba(0,255,252,0.06);
+          background: color-mix(in srgb, var(--accent) 6%, transparent);
           color: var(--teal);
           font-size: 10px;
           letter-spacing: 1px;
           text-transform: uppercase;
           padding: 8px 12px;
-          border: 1px solid rgba(232,245,242,0.08);
+          border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
           text-align: left;
         }
 
@@ -465,7 +465,7 @@ export default function KPICalculatorPage() {
         .kpi-spinner {
           width: 32px;
           height: 32px;
-          border: 2px solid rgba(0,255,252,0.15);
+          border: 2px solid color-mix(in srgb, var(--accent) 15%, transparent);
           border-top-color: var(--teal);
           border-radius: 50%;
           animation: spin 0.8s linear infinite;
@@ -485,9 +485,9 @@ export default function KPICalculatorPage() {
         .kpi-post-cta {
           margin-top: 32px;
           padding: 28px 32px;
-          border: 1px solid rgba(0,255,252,0.12);
+          border: 1px solid color-mix(in srgb, var(--accent) 12%, transparent);
           border-radius: 10px;
-          background: rgba(0,255,252,0.03);
+          background: color-mix(in srgb, var(--accent) 3%, transparent);
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -505,8 +505,8 @@ export default function KPICalculatorPage() {
           align-items: center;
           gap: 8px;
           background: var(--teal);
-          color: #0a0e0d;
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          color: var(--accent-ink);
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 10px;
           font-weight: 500;
           letter-spacing: 2px;

@@ -21,13 +21,14 @@ export const SITE = {
   glitchEconomicsUrl: "https://glitch-economics.vercel.app",
 } as const;
 
+/* Il menu del sito (alberatura approvata da Nicola il 2026-11-04): gli stessi nomi
+   valgono per il footer e per il titolo delle pagine. */
 export const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/cosa-posso-fare", label: "Perché conoscerci" },
-  { href: "/cosa-ho-fatto", label: "Cosa ho fatto" },
-  { href: "/metodo-glitch", label: "Metodo GLITCH" },
+  { href: "/fractional-cmo", label: "Fractional CMO" },
+  { href: "/il-metodo", label: "Il metodo" },
+  { href: "/cosa-ho-fatto", label: "Casi" },
   { href: "/blog", label: "Blog" },
-  { href: "/risorse", label: "Risorse" },
 ] as const;
 
 export const SERVICES = [

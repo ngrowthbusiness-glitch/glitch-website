@@ -3,7 +3,6 @@ import Link from "next/link";
 import { SITE } from "@/lib/constants";
 import BrainCompanySection from "@/components/sections/BrainCompanySection";
 import HeroLocationLive from "@/components/layout/HeroLocationLive";
-import HeroGlitchTagline from "@/components/layout/HeroGlitchTagline";
 import ContactCTAButton from "@/components/layout/ContactCTAButton";
 
 /* ───────────────────────────────────────────────────────
@@ -51,7 +50,7 @@ export default function HomePage() {
           margin-bottom: 24px;
         }
         .hp-h2 {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(26px, 3.5vw, 42px);
           font-weight: 700;
           line-height: 1.15;
@@ -77,8 +76,8 @@ export default function HomePage() {
         /* ── Buttons ── */
         .hp-btn-primary {
           display: inline-flex; align-items: center; gap: 10px;
-          background: var(--teal); color: #0a0e0d;
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          background: var(--teal); color: var(--accent-ink);
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
           padding: 14px 28px; border-radius: 5px; text-decoration: none;
           transition: opacity 0.2s, transform 0.2s; white-space: nowrap;
@@ -87,7 +86,7 @@ export default function HomePage() {
         .hp-btn-secondary {
           display: inline-flex; align-items: center; gap: 10px;
           background: transparent; color: var(--teal);
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 10px; font-weight: 400; letter-spacing: 2px; text-transform: uppercase;
           padding: 14px 28px; border-radius: 5px;
           border: 1px solid var(--teal-border); text-decoration: none;
@@ -112,7 +111,7 @@ export default function HomePage() {
           color: var(--text-dim); text-transform: uppercase;
         }
         .hero-h1 {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(40px, 5.5vw, 68px);
           font-weight: 700; line-height: 1.05; color: var(--text);
         }
@@ -132,14 +131,14 @@ export default function HomePage() {
         .hero-pill-teal {
           font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
           color: var(--teal); padding: 7px 16px; border-radius: 5px;
-          border: 1px solid rgba(0,255,252,0.5); background: rgba(0,255,252,0.08);
+          border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent); background: color-mix(in srgb, var(--accent) 8%, transparent);
           font-weight: 500;
         }
         .hero-pills-grey { display: flex; flex-wrap: wrap; gap: 8px; }
         .hero-pill-grey {
           font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
           color: var(--text-dim); padding: 4px 10px; border-radius: 5px;
-          border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04);
+          border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent); background: color-mix(in srgb, var(--ink) 4%, transparent);
         }
 
         /* Right column — absolute on desktop (vertically centered), stacks on top in mobile */
@@ -215,7 +214,7 @@ export default function HomePage() {
         .fcmo-bullets li::before {
           content: ""; position: absolute; left: 0; top: 5px;
           width: 14px; height: 14px; border-radius: 50%;
-          background: rgba(0,255,252,0.15);
+          background: color-mix(in srgb, var(--accent) 15%, transparent);
           border: 1px solid var(--teal);
         }
         .fcmo-bullets li::after {
@@ -248,7 +247,7 @@ export default function HomePage() {
           background: var(--teal); opacity: 0.55;
         }
         .fcmo-cases-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(20px, 2.5vw, 28px);
           font-weight: 700; color: var(--text);
           line-height: 1.25; margin: 0;
@@ -290,16 +289,16 @@ export default function HomePage() {
         .fcmo-case {
           flex: 0 0 360px;
           scroll-snap-align: start;
-          border: 1px solid rgba(0,255,252,0.18);
+          border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
           border-radius: 12px;
           padding: 28px 26px;
-          background: rgba(0,255,252,0.03);
+          background: color-mix(in srgb, var(--accent) 3%, transparent);
           display: flex; flex-direction: column; gap: 14px;
           transition: border-color 0.3s, background 0.3s, transform 0.3s;
         }
         .fcmo-case:hover {
-          border-color: rgba(0,255,252,0.45);
-          background: rgba(0,255,252,0.07);
+          border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+          background: color-mix(in srgb, var(--accent) 7%, transparent);
           transform: translateY(-2px);
         }
         .fcmo-case-tag {
@@ -313,7 +312,7 @@ export default function HomePage() {
           font-weight: 600;
         }
         .fcmo-case-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 18px; font-weight: 700;
           color: var(--text); line-height: 1.3;
         }
@@ -326,24 +325,24 @@ export default function HomePage() {
           font-size: 12px; color: var(--teal);
           letter-spacing: 0.5px;
           padding-top: 14px;
-          border-top: 1px solid rgba(0,255,252,0.12);
+          border-top: 1px solid color-mix(in srgb, var(--accent) 12%, transparent);
           font-weight: 500;
           margin-top: auto;
         }
         .fcmo-col-dim {
-          border: 1px solid rgba(255,255,255,0.08);
-          background: rgba(255,255,255,0.02);
+          border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
+          background: color-mix(in srgb, var(--ink) 2%, transparent);
         }
         .fcmo-col-teal {
-          border: 1px solid rgba(0,255,252,0.3);
-          background: rgba(0,255,252,0.04);
-          box-shadow: 0 0 40px rgba(0,255,252,0.06);
+          border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+          background: color-mix(in srgb, var(--accent) 4%, transparent);
+          box-shadow: 0 0 40px color-mix(in srgb, var(--accent) 6%, transparent);
         }
         .fcmo-col-icon {
           margin-bottom: 8px; opacity: 0.9;
         }
         .fcmo-col-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 18px; font-weight: 700; line-height: 1.2;
         }
         .fcmo-col-dim .fcmo-col-title { color: var(--text-dim); }
@@ -356,7 +355,7 @@ export default function HomePage() {
         .fcmo-col-verdict {
           font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
           margin-top: auto; padding-top: 12px;
-          border-top: 1px solid rgba(255,255,255,0.06);
+          border-top: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
         }
         .fcmo-col-dim .fcmo-col-verdict { color: rgba(255,100,100,0.6); }
         .fcmo-col-teal .fcmo-col-verdict { color: var(--teal); }
@@ -378,7 +377,7 @@ export default function HomePage() {
           flex-shrink: 0;
         }
         .ticker-value {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 22px; font-weight: 700; color: var(--teal);
         }
         @keyframes ticker-scroll {
@@ -398,23 +397,23 @@ export default function HomePage() {
         }
         .tl-month-box {
           flex: 1;
-          border: 1px solid rgba(0,255,252,0.18);
+          border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
           border-radius: 14px;
           padding: 32px 28px;
-          background: rgba(0,255,252,0.03);
+          background: color-mix(in srgb, var(--accent) 3%, transparent);
           display: flex;
           flex-direction: column;
           gap: 20px;
           min-width: 0;
         }
         .tl-month-1 {
-          background: rgba(0,255,252,0.06);
-          border-color: rgba(0,255,252,0.4);
-          box-shadow: 0 0 40px rgba(0,255,252,0.05);
+          background: color-mix(in srgb, var(--accent) 6%, transparent);
+          border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+          box-shadow: 0 0 40px color-mix(in srgb, var(--accent) 5%, transparent);
         }
         .tl-month-2 {
-          background: rgba(0,255,252,0.02);
-          border-color: rgba(0,255,252,0.18);
+          background: color-mix(in srgb, var(--accent) 2%, transparent);
+          border-color: color-mix(in srgb, var(--accent) 18%, transparent);
         }
         .tl-month-header {
           display: flex; align-items: center; gap: 14px;
@@ -429,7 +428,7 @@ export default function HomePage() {
           background: var(--teal-dim);
         }
         .tl-month-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 22px; font-weight: 700;
           color: var(--text); line-height: 1.25;
         }
@@ -444,8 +443,8 @@ export default function HomePage() {
           flex-shrink: 0;
           width: 34px; height: 34px;
           border-radius: 7px;
-          background: rgba(0,255,252,0.08);
-          border: 1px solid rgba(0,255,252,0.25);
+          background: color-mix(in srgb, var(--accent) 8%, transparent);
+          border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
           display: flex; align-items: center; justify-content: center;
           color: var(--teal);
         }
@@ -503,8 +502,8 @@ export default function HomePage() {
         .uc-card {
           position: absolute;
           width: 500px; max-width: 90vw;
-          border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;
-          padding: 32px 28px; background: rgba(12,16,15,0.95);
+          border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent); border-radius: 12px;
+          padding: 32px 28px; background: color-mix(in srgb, var(--bg) 95%, transparent);
           display: flex; flex-direction: column; gap: 14px;
           transition: all 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
           will-change: transform, opacity;
@@ -512,8 +511,8 @@ export default function HomePage() {
         .uc-card.uc-center {
           transform: translateX(-50%) scale(1);
           left: 50%; opacity: 1; z-index: 4;
-          border-color: rgba(0,255,252,0.3);
-          box-shadow: 0 0 60px rgba(0,255,252,0.1), 0 0 120px rgba(0,255,252,0.04);
+          border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+          box-shadow: 0 0 60px color-mix(in srgb, var(--accent) 10%, transparent), 0 0 120px color-mix(in srgb, var(--accent) 4%, transparent);
         }
         .uc-card.uc-left {
           transform: translateX(calc(-50% - 480px)) scale(0.85);
@@ -538,10 +537,10 @@ export default function HomePage() {
           pointer-events: none;
         }
         .uc-card.uc-left::after {
-          background: linear-gradient(90deg, rgba(10,14,13,0.8), transparent);
+          background: linear-gradient(90deg, color-mix(in srgb, var(--bg) 80%, transparent), transparent);
         }
         .uc-card.uc-right::after {
-          background: linear-gradient(-90deg, rgba(10,14,13,0.8), transparent);
+          background: linear-gradient(-90deg, color-mix(in srgb, var(--bg) 80%, transparent), transparent);
         }
         /* Card inner elements */
         .uc-top-row {
@@ -557,20 +556,20 @@ export default function HomePage() {
           text-align: right; flex-shrink: 0;
         }
         .uc-kpi-value {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 32px; font-weight: 700; color: var(--teal); line-height: 1;
         }
         .uc-kpi-sub {
           font-size: 10px; color: var(--text-dim); margin-top: 2px;
         }
         .uc-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 20px; font-weight: 700; color: var(--text);
         }
         .uc-quote {
           font-size: 13px; color: var(--text); line-height: 1.8;
           font-style: italic; padding-left: 16px;
-          border-left: 2px solid rgba(0,255,252,0.4);
+          border-left: 2px solid color-mix(in srgb, var(--accent) 40%, transparent);
         }
         .uc-strategy-label {
           font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
@@ -583,12 +582,12 @@ export default function HomePage() {
           display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
         }
         .uc-metric-box {
-          border: 1px solid rgba(255,255,255,0.06); border-radius: 6px;
-          padding: 10px 8px; background: rgba(255,255,255,0.02);
+          border: 1px solid color-mix(in srgb, var(--ink) 6%, transparent); border-radius: 6px;
+          padding: 10px 8px; background: color-mix(in srgb, var(--ink) 2%, transparent);
           text-align: center;
         }
         .uc-metric-val {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 16px; font-weight: 700; color: var(--teal); line-height: 1.2;
         }
         .uc-metric-lbl {
@@ -607,7 +606,7 @@ export default function HomePage() {
         }
         .uc-arrow {
           width: 48px; height: 48px; border-radius: 50%;
-          border: 1px solid rgba(255,255,255,0.1); background: transparent;
+          border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent); background: transparent;
           color: var(--text-dim); cursor: pointer;
           display: flex; align-items: center; justify-content: center;
           transition: all 0.2s; flex-shrink: 0;
@@ -621,12 +620,12 @@ export default function HomePage() {
         }
         .uc-dot {
           width: 6px; height: 6px; border-radius: 50%;
-          background: rgba(255,255,255,0.12); transition: all 0.3s;
+          background: color-mix(in srgb, var(--ink) 12%, transparent); transition: all 0.3s;
           border: none; cursor: pointer; padding: 0;
         }
         .uc-dot[data-active="true"] {
           background: var(--teal); width: 22px; border-radius: 4px;
-          box-shadow: 0 0 8px rgba(0,255,252,0.4);
+          box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 40%, transparent);
         }
 
         /* ═══════════════════════════════════
@@ -639,7 +638,7 @@ export default function HomePage() {
         }
         .hp-cta::before {
           content: ''; position: absolute; inset: 0;
-          background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(0,255,252,0.06), transparent);
+          background: radial-gradient(ellipse 60% 60% at 50% 50%, color-mix(in srgb, var(--accent) 6%, transparent), transparent);
           pointer-events: none;
         }
         /* CTA FINALE riscritta — onesta + dettagliata */
@@ -651,7 +650,7 @@ export default function HomePage() {
           position: relative;
         }
         .hp-cta-honest {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-style: italic;
           font-size: clamp(17px, 2vw, 22px);
           line-height: 1.5;
@@ -660,8 +659,8 @@ export default function HomePage() {
           margin: 0 auto 32px;
           position: relative;
           padding: 18px 0;
-          border-top: 1px solid rgba(0,255,252,0.18);
-          border-bottom: 1px solid rgba(0,255,252,0.18);
+          border-top: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+          border-bottom: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
         }
         .hp-cta-explainer {
           max-width: 720px;
@@ -683,9 +682,9 @@ export default function HomePage() {
           max-width: 600px;
           margin: 0 auto 32px;
           padding: 28px 32px;
-          border: 1px solid rgba(0,255,252,0.3);
+          border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
           border-radius: 12px;
-          background: rgba(0,255,252,0.05);
+          background: color-mix(in srgb, var(--accent) 5%, transparent);
           position: relative;
           text-align: left;
         }
@@ -709,10 +708,10 @@ export default function HomePage() {
           width: 8px; height: 8px;
           border-radius: 50%;
           background: var(--teal);
-          box-shadow: 0 0 10px rgba(0,255,252,0.5);
+          box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 50%, transparent);
         }
         .hp-cta-promise-key {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 18px;
           font-weight: 700;
           color: var(--teal);
@@ -725,7 +724,7 @@ export default function HomePage() {
           line-height: 1.4;
         }
         .hp-cta-closing {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(18px, 2.2vw, 24px);
           font-weight: 700;
           color: var(--text);
@@ -764,7 +763,7 @@ export default function HomePage() {
           opacity: 1; pointer-events: auto;
         }
         .hp-popup-card {
-          background: var(--bg, #0a0e0d); border: 1px solid var(--teal-border);
+          background: var(--bg); border: 1px solid var(--teal-border);
           border-radius: 12px; padding: 48px 40px; max-width: 480px; width: 90%;
           position: relative; text-align: center;
           transform: translateY(20px) scale(0.96);
@@ -776,7 +775,7 @@ export default function HomePage() {
         .hp-popup-close {
           position: absolute; top: 16px; right: 16px;
           width: 32px; height: 32px; border-radius: 50%;
-          border: 1px solid rgba(255,255,255,0.1); background: transparent;
+          border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent); background: transparent;
           color: var(--text-dim); cursor: pointer;
           display: flex; align-items: center; justify-content: center;
           transition: all 0.2s;
@@ -785,12 +784,12 @@ export default function HomePage() {
           border-color: var(--teal-border); color: var(--teal);
         }
         .hp-popup-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 28px; font-weight: 700; color: var(--text);
           margin-bottom: 8px;
         }
         .hp-popup-subtitle {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 20px; font-weight: 700; color: var(--teal);
           margin-bottom: 16px;
         }
@@ -1109,10 +1108,8 @@ export default function HomePage() {
               Un <strong style={{ color: "var(--teal)", fontWeight: 600 }}>direttore marketing senior</strong> nella tua azienda, senza assumerlo: strategia, numeri e responsabilit&agrave; piena sui risultati, a una <strong style={{ color: "var(--text)", fontWeight: 600 }}>frazione del costo di un&apos;agenzia</strong>.
             </p>
 
-            {/* Teal pills + glitch tagline */}
             <div className="hero-pills-main">
               <span className="hero-pill-teal">Fractional CMO</span>
-              <HeroGlitchTagline />
             </div>
 
             {/* Grey pills */}
@@ -1171,20 +1168,20 @@ export default function HomePage() {
           <div className="fcmo-col fcmo-col-teal fcmo-col-main">
             <div className="fcmo-col-icon">
               <svg width="56" height="56" viewBox="0 0 48 48" fill="none">
-                <circle cx="24" cy="24" r="10" stroke="rgba(0,255,252,0.3)" strokeWidth="1.5"/>
-                <circle cx="24" cy="24" r="4" fill="rgba(0,255,252,0.15)" stroke="rgba(0,255,252,0.4)" strokeWidth="1"/>
-                <circle cx="24" cy="8" r="3" stroke="rgba(0,255,252,0.25)" strokeWidth="1"/><text x="24" y="10" textAnchor="middle" fontSize="5" fill="rgba(0,255,252,0.5)">S</text>
-                <circle cx="38" cy="18" r="3" stroke="rgba(0,255,252,0.25)" strokeWidth="1"/><text x="38" y="20" textAnchor="middle" fontSize="5" fill="rgba(0,255,252,0.5)">N</text>
-                <circle cx="38" cy="32" r="3" stroke="rgba(0,255,252,0.25)" strokeWidth="1"/><text x="38" y="34" textAnchor="middle" fontSize="5" fill="rgba(0,255,252,0.5)">E</text>
-                <circle cx="24" cy="40" r="3" stroke="rgba(0,255,252,0.25)" strokeWidth="1"/><text x="24" y="42" textAnchor="middle" fontSize="5" fill="rgba(0,255,252,0.5)">A</text>
-                <circle cx="10" cy="32" r="3" stroke="rgba(0,255,252,0.25)" strokeWidth="1"/><text x="10" y="34" textAnchor="middle" fontSize="5" fill="rgba(0,255,252,0.5)">D</text>
-                <circle cx="10" cy="18" r="3" stroke="rgba(0,255,252,0.25)" strokeWidth="1"/><text x="10" y="20" textAnchor="middle" fontSize="5" fill="rgba(0,255,252,0.5)">C</text>
-                <line x1="24" y1="14" x2="24" y2="11" stroke="rgba(0,255,252,0.15)" strokeWidth="0.5"/>
-                <line x1="32" y1="18" x2="35" y2="18" stroke="rgba(0,255,252,0.15)" strokeWidth="0.5"/>
-                <line x1="32" y1="30" x2="35" y2="32" stroke="rgba(0,255,252,0.15)" strokeWidth="0.5"/>
-                <line x1="24" y1="34" x2="24" y2="37" stroke="rgba(0,255,252,0.15)" strokeWidth="0.5"/>
-                <line x1="16" y1="30" x2="13" y2="32" stroke="rgba(0,255,252,0.15)" strokeWidth="0.5"/>
-                <line x1="16" y1="18" x2="13" y2="18" stroke="rgba(0,255,252,0.15)" strokeWidth="0.5"/>
+                <circle cx="24" cy="24" r="10" stroke="color-mix(in srgb, var(--accent) 30%, transparent)" strokeWidth="1.5"/>
+                <circle cx="24" cy="24" r="4" fill="color-mix(in srgb, var(--accent) 15%, transparent)" stroke="color-mix(in srgb, var(--accent) 40%, transparent)" strokeWidth="1"/>
+                <circle cx="24" cy="8" r="3" stroke="color-mix(in srgb, var(--accent) 25%, transparent)" strokeWidth="1"/><text x="24" y="10" textAnchor="middle" fontSize="5" fill="color-mix(in srgb, var(--accent) 50%, transparent)">S</text>
+                <circle cx="38" cy="18" r="3" stroke="color-mix(in srgb, var(--accent) 25%, transparent)" strokeWidth="1"/><text x="38" y="20" textAnchor="middle" fontSize="5" fill="color-mix(in srgb, var(--accent) 50%, transparent)">N</text>
+                <circle cx="38" cy="32" r="3" stroke="color-mix(in srgb, var(--accent) 25%, transparent)" strokeWidth="1"/><text x="38" y="34" textAnchor="middle" fontSize="5" fill="color-mix(in srgb, var(--accent) 50%, transparent)">E</text>
+                <circle cx="24" cy="40" r="3" stroke="color-mix(in srgb, var(--accent) 25%, transparent)" strokeWidth="1"/><text x="24" y="42" textAnchor="middle" fontSize="5" fill="color-mix(in srgb, var(--accent) 50%, transparent)">A</text>
+                <circle cx="10" cy="32" r="3" stroke="color-mix(in srgb, var(--accent) 25%, transparent)" strokeWidth="1"/><text x="10" y="34" textAnchor="middle" fontSize="5" fill="color-mix(in srgb, var(--accent) 50%, transparent)">D</text>
+                <circle cx="10" cy="18" r="3" stroke="color-mix(in srgb, var(--accent) 25%, transparent)" strokeWidth="1"/><text x="10" y="20" textAnchor="middle" fontSize="5" fill="color-mix(in srgb, var(--accent) 50%, transparent)">C</text>
+                <line x1="24" y1="14" x2="24" y2="11" stroke="color-mix(in srgb, var(--accent) 15%, transparent)" strokeWidth="0.5"/>
+                <line x1="32" y1="18" x2="35" y2="18" stroke="color-mix(in srgb, var(--accent) 15%, transparent)" strokeWidth="0.5"/>
+                <line x1="32" y1="30" x2="35" y2="32" stroke="color-mix(in srgb, var(--accent) 15%, transparent)" strokeWidth="0.5"/>
+                <line x1="24" y1="34" x2="24" y2="37" stroke="color-mix(in srgb, var(--accent) 15%, transparent)" strokeWidth="0.5"/>
+                <line x1="16" y1="30" x2="13" y2="32" stroke="color-mix(in srgb, var(--accent) 15%, transparent)" strokeWidth="0.5"/>
+                <line x1="16" y1="18" x2="13" y2="18" stroke="color-mix(in srgb, var(--accent) 15%, transparent)" strokeWidth="0.5"/>
               </svg>
             </div>
             <div className="fcmo-col-title">Fractional CMO</div>
@@ -1207,13 +1204,13 @@ export default function HomePage() {
           <div className="fcmo-col fcmo-col-dim fcmo-col-side-1">
             <div className="fcmo-col-icon">
               <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                <rect x="8" y="18" width="8" height="22" rx="1" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5"/>
-                <rect x="20" y="12" width="8" height="28" rx="1" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5"/>
-                <rect x="32" y="22" width="8" height="18" rx="1" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5"/>
-                <circle cx="12" cy="14" r="2" fill="rgba(255,255,255,0.12)"/>
-                <circle cx="24" cy="8" r="2" fill="rgba(255,255,255,0.2)"/>
-                <circle cx="36" cy="18" r="2" fill="rgba(255,255,255,0.08)"/>
-                <path d="M12 14L24 8L36 18" stroke="rgba(255,255,255,0.08)" strokeWidth="1" strokeDasharray="3 3"/>
+                <rect x="8" y="18" width="8" height="22" rx="1" stroke="color-mix(in srgb, var(--ink) 15%, transparent)" strokeWidth="1.5"/>
+                <rect x="20" y="12" width="8" height="28" rx="1" stroke="color-mix(in srgb, var(--ink) 15%, transparent)" strokeWidth="1.5"/>
+                <rect x="32" y="22" width="8" height="18" rx="1" stroke="color-mix(in srgb, var(--ink) 15%, transparent)" strokeWidth="1.5"/>
+                <circle cx="12" cy="14" r="2" fill="color-mix(in srgb, var(--ink) 12%, transparent)"/>
+                <circle cx="24" cy="8" r="2" fill="color-mix(in srgb, var(--ink) 20%, transparent)"/>
+                <circle cx="36" cy="18" r="2" fill="color-mix(in srgb, var(--ink) 8%, transparent)"/>
+                <path d="M12 14L24 8L36 18" stroke="color-mix(in srgb, var(--ink) 8%, transparent)" strokeWidth="1" strokeDasharray="3 3"/>
               </svg>
             </div>
             <div className="fcmo-col-title">Agenzia</div>
@@ -1227,9 +1224,9 @@ export default function HomePage() {
           <div className="fcmo-col fcmo-col-dim fcmo-col-side-2">
             <div className="fcmo-col-icon">
               <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                <circle cx="24" cy="16" r="7" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5"/>
-                <path d="M12 40c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5" strokeLinecap="round"/>
-                <path d="M24 28v-4" stroke="rgba(255,255,255,0.08)" strokeWidth="1" strokeDasharray="2 2"/>
+                <circle cx="24" cy="16" r="7" stroke="color-mix(in srgb, var(--ink) 15%, transparent)" strokeWidth="1.5"/>
+                <path d="M12 40c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="color-mix(in srgb, var(--ink) 15%, transparent)" strokeWidth="1.5" strokeLinecap="round"/>
+                <path d="M24 28v-4" stroke="color-mix(in srgb, var(--ink) 8%, transparent)" strokeWidth="1" strokeDasharray="2 2"/>
               </svg>
             </div>
             <div className="fcmo-col-title">Dipendente</div>
@@ -1539,39 +1536,39 @@ export default function HomePage() {
           </h2>
         </div>
         <div className="reviews-grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }}>
-          <div style={{ border: "1px solid rgba(0,255,252,0.12)", borderRadius: "10px", padding: "28px 24px", background: "rgba(0,255,252,0.02)" }}>
-            <div style={{ fontFamily: "var(--font-playfair), 'Playfair Display', serif", fontSize: "40px", color: "var(--teal)", opacity: 0.2, lineHeight: 1 }}>&ldquo;</div>
+          <div style={{ border: "1px solid color-mix(in srgb, var(--accent) 12%, transparent)", borderRadius: "10px", padding: "28px 24px", background: "color-mix(in srgb, var(--accent) 2%, transparent)" }}>
+            <div style={{ fontFamily: "var(--font-playfair), var(--font-manrope), sans-serif", fontSize: "40px", color: "var(--teal)", opacity: 0.2, lineHeight: 1 }}>&ldquo;</div>
             <p style={{ fontSize: "14px", color: "var(--text)", lineHeight: 1.8, fontStyle: "italic", margin: "8px 0 20px" }}>
               La cosa che mi ha colpito &egrave; che non ha provato a vendermi nulla. Mi ha ascoltato, ha analizzato i numeri e mi ha detto esattamente dove stavo sbagliando. In 4 mesi il fatturato &egrave; triplicato.
             </p>
-            <div style={{ borderTop: "1px solid rgba(0,255,252,0.08)", paddingTop: "16px", display: "flex", alignItems: "center", gap: "12px" }}>
-              <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "rgba(0,255,252,0.08)", border: "1px solid rgba(0,255,252,0.15)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: 700, color: "var(--teal)" }}>MR</div>
+            <div style={{ borderTop: "1px solid color-mix(in srgb, var(--accent) 8%, transparent)", paddingTop: "16px", display: "flex", alignItems: "center", gap: "12px" }}>
+              <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "color-mix(in srgb, var(--accent) 8%, transparent)", border: "1px solid color-mix(in srgb, var(--accent) 15%, transparent)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: 700, color: "var(--teal)" }}>MR</div>
               <div>
                 <div style={{ fontSize: "13px", fontWeight: 500, color: "var(--text)" }}>Marco R.</div>
                 <div style={{ fontSize: "10px", color: "var(--text-dim)" }}>Imprenditore, E-commerce</div>
               </div>
             </div>
           </div>
-          <div style={{ border: "1px solid rgba(0,255,252,0.12)", borderRadius: "10px", padding: "28px 24px", background: "rgba(0,255,252,0.02)" }}>
-            <div style={{ fontFamily: "var(--font-playfair), 'Playfair Display', serif", fontSize: "40px", color: "var(--teal)", opacity: 0.2, lineHeight: 1 }}>&ldquo;</div>
+          <div style={{ border: "1px solid color-mix(in srgb, var(--accent) 12%, transparent)", borderRadius: "10px", padding: "28px 24px", background: "color-mix(in srgb, var(--accent) 2%, transparent)" }}>
+            <div style={{ fontFamily: "var(--font-playfair), var(--font-manrope), sans-serif", fontSize: "40px", color: "var(--teal)", opacity: 0.2, lineHeight: 1 }}>&ldquo;</div>
             <p style={{ fontSize: "14px", color: "var(--text)", lineHeight: 1.8, fontStyle: "italic", margin: "8px 0 20px" }}>
               Finalmente qualcuno che parla la mia lingua. Non mi ha sommerso di sigle &mdash; mi ha spiegato dove andavano i miei soldi e cosa potevamo fare meglio. Mi sono sentito capito, non venduto.
             </p>
-            <div style={{ borderTop: "1px solid rgba(0,255,252,0.08)", paddingTop: "16px", display: "flex", alignItems: "center", gap: "12px" }}>
-              <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "rgba(0,255,252,0.08)", border: "1px solid rgba(0,255,252,0.15)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: 700, color: "var(--teal)" }}>AB</div>
+            <div style={{ borderTop: "1px solid color-mix(in srgb, var(--accent) 8%, transparent)", paddingTop: "16px", display: "flex", alignItems: "center", gap: "12px" }}>
+              <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "color-mix(in srgb, var(--accent) 8%, transparent)", border: "1px solid color-mix(in srgb, var(--accent) 15%, transparent)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: 700, color: "var(--teal)" }}>AB</div>
               <div>
                 <div style={{ fontSize: "13px", fontWeight: 500, color: "var(--text)" }}>Andrea B.</div>
                 <div style={{ fontSize: "10px", color: "var(--text-dim)" }}>Founder, Corso Online</div>
               </div>
             </div>
           </div>
-          <div style={{ border: "1px solid rgba(0,255,252,0.12)", borderRadius: "10px", padding: "28px 24px", background: "rgba(0,255,252,0.02)" }}>
-            <div style={{ fontFamily: "var(--font-playfair), 'Playfair Display', serif", fontSize: "40px", color: "var(--teal)", opacity: 0.2, lineHeight: 1 }}>&ldquo;</div>
+          <div style={{ border: "1px solid color-mix(in srgb, var(--accent) 12%, transparent)", borderRadius: "10px", padding: "28px 24px", background: "color-mix(in srgb, var(--accent) 2%, transparent)" }}>
+            <div style={{ fontFamily: "var(--font-playfair), var(--font-manrope), sans-serif", fontSize: "40px", color: "var(--teal)", opacity: 0.2, lineHeight: 1 }}>&ldquo;</div>
             <p style={{ fontSize: "14px", color: "var(--text)", lineHeight: 1.8, fontStyle: "italic", margin: "8px 0 20px" }}>
               Avevo gi&agrave; provato due agenzie. Con Nicola &egrave; stato diverso: mi ha detto subito che met&agrave; di quello che facevo era inutile. Duro da sentire, ma era vero. Ora spendo meno e guadagno di pi&ugrave;.
             </p>
-            <div style={{ borderTop: "1px solid rgba(0,255,252,0.08)", paddingTop: "16px", display: "flex", alignItems: "center", gap: "12px" }}>
-              <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "rgba(0,255,252,0.08)", border: "1px solid rgba(0,255,252,0.15)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: 700, color: "var(--teal)" }}>FD</div>
+            <div style={{ borderTop: "1px solid color-mix(in srgb, var(--accent) 8%, transparent)", paddingTop: "16px", display: "flex", alignItems: "center", gap: "12px" }}>
+              <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "color-mix(in srgb, var(--accent) 8%, transparent)", border: "1px solid color-mix(in srgb, var(--accent) 15%, transparent)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: 700, color: "var(--teal)" }}>FD</div>
               <div>
                 <div style={{ fontSize: "13px", fontWeight: 500, color: "var(--text)" }}>Francesca D.</div>
                 <div style={{ fontSize: "10px", color: "var(--text-dim)" }}>Imprenditrice, Retail</div>

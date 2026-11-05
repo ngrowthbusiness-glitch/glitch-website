@@ -131,13 +131,13 @@ export default function TestAbPage() {
           color: var(--teal); margin-bottom: 20px;
         }
         .ab-h1 {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(32px, 5vw, 52px); font-weight: 700;
           line-height: 1.15; color: var(--text); margin-bottom: 24px;
         }
         .ab-h1 em { font-style: italic; color: var(--teal); }
         .ab-subtitle {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(15px, 2vw, 18px); font-style: italic;
           color: var(--text-dim); line-height: 1.7; margin-bottom: 32px;
         }
@@ -169,7 +169,7 @@ export default function TestAbPage() {
         .ab-toc li::before {
           content: counter(toc, decimal-leading-zero);
           font-size: 10px; color: var(--teal); opacity: .7; flex-shrink: 0;
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
         }
         .ab-toc a { font-size: 12px; color: var(--text-dim); text-decoration: none; transition: color .2s; line-height: 1.5; }
         .ab-toc a:hover { color: var(--teal); }
@@ -181,7 +181,7 @@ export default function TestAbPage() {
         }
         .ab-lead strong { color: var(--text); font-weight: 500; }
         .ab-h2 {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(22px, 3vw, 28px); font-weight: 700;
           color: var(--text); margin-bottom: 20px;
           scroll-margin-top: 88px; line-height: 1.25;
@@ -198,7 +198,7 @@ export default function TestAbPage() {
         }
         .ab-callout {
           border-left: 2px solid var(--teal); padding: 16px 20px;
-          background: rgba(0,255,252,0.04); border-radius: 0 6px 6px 0; margin: 24px 0;
+          background: color-mix(in srgb, var(--accent) 4%, transparent); border-radius: 0 6px 6px 0; margin: 24px 0;
         }
         .ab-callout p { font-size: 13px; color: var(--text-dim); line-height: 1.8; margin: 0; }
         .ab-callout p strong { color: var(--text); font-weight: 500; }
@@ -247,17 +247,17 @@ export default function TestAbPage() {
         .ab-funnel-step-name { font-size: 11px; font-weight: 500; color: var(--text); }
         .ab-funnel-step-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
         .ab-funnel-step-n {
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 12px; color: var(--text-dim);
         }
         .ab-funnel-step-pct {
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 11px; font-weight: 500; min-width: 36px; text-align: right;
         }
         .ab-funnel-drop-hint {
           padding: 3px 0 3px 16px; font-size: 10px;
           color: rgba(255,110,90,0.6);
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
         }
         .ab-funnel-single-stat {
           display: flex; align-items: center; justify-content: space-between;
@@ -265,7 +265,7 @@ export default function TestAbPage() {
         }
         .ab-funnel-single-label { font-size: 11px; color: var(--text-dim); }
         .ab-funnel-single-value {
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 13px; font-weight: 500; color: var(--text);
         }
 
@@ -283,11 +283,11 @@ export default function TestAbPage() {
           gap: 12px; margin: 32px 0;
         }
         .ab-var-card {
-          border: 1px solid rgba(232,245,242,0.06); border-radius: 8px;
-          padding: 16px 18px; background: rgba(232,245,242,0.02);
+          border: 1px solid color-mix(in srgb, var(--ink) 6%, transparent); border-radius: 8px;
+          padding: 16px 18px; background: color-mix(in srgb, var(--ink) 2%, transparent);
           transition: border-color .2s, background .2s; position: relative;
         }
-        .ab-var-card:hover { border-color: var(--teal-border); background: rgba(0,255,252,0.03); }
+        .ab-var-card:hover { border-color: var(--teal-border); background: color-mix(in srgb, var(--accent) 3%, transparent); }
         .ab-var-card--high { border-color: rgba(255,100,80,0.15); }
         .ab-var-card--high:hover { border-color: rgba(255,100,80,0.3); background: rgba(255,100,80,0.04); }
         .ab-var-icon { font-size: 22px; margin-bottom: 10px; line-height: 1; }
@@ -318,16 +318,16 @@ export default function TestAbPage() {
         .ab-conf-meter-wrap { position: relative; padding-top: 28px; margin-bottom: 4px; }
         .ab-conf-meter {
           position: relative; height: 36px; border-radius: 6px;
-          overflow: hidden; border: 1px solid rgba(232,245,242,0.06);
+          overflow: hidden; border: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
         }
         .ab-conf-track { position: absolute; inset: 0; display: flex; }
         .ab-conf-zone { height: 100%; display: flex; align-items: center; justify-content: center; }
         .ab-conf-zone--red  { width: 70%; background: rgba(255,100,80,0.12); }
         .ab-conf-zone--yellow { width: 20%; background: rgba(255,200,50,0.10); }
-        .ab-conf-zone--green  { width: 10%; background: rgba(0,255,252,0.08); }
+        .ab-conf-zone--green  { width: 10%; background: color-mix(in srgb, var(--accent) 8%, transparent); }
         .ab-conf-zone-label {
           font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
         }
         .ab-conf-zone--red .ab-conf-zone-label    { color: rgba(255,110,90,0.7); }
         .ab-conf-zone--yellow .ab-conf-zone-label { color: rgba(255,200,60,0.7); }
@@ -335,12 +335,12 @@ export default function TestAbPage() {
         .ab-conf-marker {
           position: absolute; top: 0; bottom: 0; width: 2px;
           background: var(--teal); left: 90%;
-          box-shadow: 0 0 8px rgba(0,255,252,0.4);
+          box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 40%, transparent);
         }
         .ab-conf-marker::after {
           content: '95%';
           position: absolute; top: -24px; left: 50%; transform: translateX(-50%);
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 10px; color: var(--teal); white-space: nowrap;
         }
         .ab-conf-axis {
@@ -348,27 +348,27 @@ export default function TestAbPage() {
         }
         .ab-conf-axis-label {
           font-size: 9px; color: var(--text-faint);
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
         }
         .ab-sample-table {
           width: 100%; border-collapse: collapse;
-          border: 1px solid rgba(232,245,242,0.06);
+          border: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
           border-radius: 8px; overflow: hidden; margin-top: 8px;
         }
         .ab-sample-table thead th {
           font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
           color: var(--text-faint); font-weight: 400; padding: 10px 16px;
-          text-align: left; background: rgba(232,245,242,0.02);
-          border-bottom: 1px solid rgba(232,245,242,0.06);
+          text-align: left; background: color-mix(in srgb, var(--ink) 2%, transparent);
+          border-bottom: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
         }
         .ab-sample-table tbody tr {
-          border-bottom: 1px solid rgba(232,245,242,0.04); transition: background .2s;
+          border-bottom: 1px solid color-mix(in srgb, var(--ink) 4%, transparent); transition: background .2s;
         }
         .ab-sample-table tbody tr:last-child { border-bottom: none; }
-        .ab-sample-table tbody tr:hover { background: rgba(232,245,242,0.02); }
+        .ab-sample-table tbody tr:hover { background: color-mix(in srgb, var(--ink) 2%, transparent); }
         .ab-sample-table tbody td {
           padding: 14px 16px;
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 12px; color: var(--text-dim);
         }
         .ab-sample-table tbody td:first-child { color: var(--text); font-weight: 500; }
@@ -385,12 +385,12 @@ export default function TestAbPage() {
         ══════════════════════════════════════════ */
 
         .ab-timeline-wrap {
-          margin: 32px 0; border: 1px solid rgba(232,245,242,0.06);
+          margin: 32px 0; border: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
           border-radius: 8px; overflow: hidden;
         }
         .ab-tl-header {
-          padding: 14px 20px; background: rgba(232,245,242,0.02);
-          border-bottom: 1px solid rgba(232,245,242,0.06);
+          padding: 14px 20px; background: color-mix(in srgb, var(--ink) 2%, transparent);
+          border-bottom: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
           display: flex; align-items: center; gap: 12px;
         }
         .ab-tl-header-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); }
@@ -405,8 +405,8 @@ export default function TestAbPage() {
         .ab-tl-week-label {
           text-align: center; font-size: 9px; letter-spacing: 1.5px;
           text-transform: uppercase; color: var(--text-faint);
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
-          padding-bottom: 8px; border-bottom: 1px solid rgba(232,245,242,0.06);
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
+          padding-bottom: 8px; border-bottom: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
         }
 
         /* events row */
@@ -436,10 +436,10 @@ export default function TestAbPage() {
           display: flex; align-items: center; padding: 0 14px;
         }
         .ab-tl-bar--a {
-          background: rgba(232,245,242,0.04); border: 1px solid rgba(232,245,242,0.10);
+          background: color-mix(in srgb, var(--ink) 4%, transparent); border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
         }
         .ab-tl-bar--b {
-          background: rgba(0,255,252,0.04); border: 1px solid var(--teal-border);
+          background: color-mix(in srgb, var(--accent) 4%, transparent); border: 1px solid var(--teal-border);
         }
         .ab-tl-bar-text { font-size: 10px; color: var(--text-dim); }
         .ab-tl-bar--b .ab-tl-bar-text { color: var(--teal); opacity: .8; }
@@ -447,7 +447,7 @@ export default function TestAbPage() {
         /* result */
         .ab-tl-result {
           margin-top: 16px; padding: 12px 16px;
-          background: rgba(232,245,242,0.02); border: 1px solid rgba(232,245,242,0.08);
+          background: color-mix(in srgb, var(--ink) 2%, transparent); border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
           border-radius: 6px; display: flex; align-items: center;
           justify-content: space-between; flex-wrap: wrap; gap: 12px;
         }
@@ -474,10 +474,10 @@ export default function TestAbPage() {
           padding: 16px 20px; border-radius: 6px; border: 1px solid;
         }
         .ab-4si-item--yes {
-          border-color: var(--teal-border); background: rgba(0,255,252,0.03);
+          border-color: var(--teal-border); background: color-mix(in srgb, var(--accent) 3%, transparent);
         }
         .ab-4si-num {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 22px; font-weight: 700; opacity: .35;
           line-height: 1; color: var(--teal);
         }
@@ -505,11 +505,11 @@ export default function TestAbPage() {
         .ab-method-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 48px; }
         .ab-method-item {
           display: grid; grid-template-columns: auto 1fr; gap: 20px;
-          padding: 20px 24px; border: 1px solid rgba(232,245,242,0.06);
-          border-radius: 8px; background: rgba(232,245,242,0.02);
+          padding: 20px 24px; border: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
+          border-radius: 8px; background: color-mix(in srgb, var(--ink) 2%, transparent);
         }
         .ab-method-num {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 28px; font-weight: 700; color: var(--teal);
           opacity: .35; line-height: 1; padding-top: 2px; min-width: 28px;
         }
@@ -527,7 +527,7 @@ export default function TestAbPage() {
         }
         .ab-lead-magnet::before {
           content: ''; position: absolute; inset: 0;
-          background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,255,252,0.05), transparent);
+          background: radial-gradient(ellipse 80% 60% at 50% 50%, color-mix(in srgb, var(--accent) 5%, transparent), transparent);
           pointer-events: none;
         }
         .ab-lead-magnet::after {
@@ -536,7 +536,7 @@ export default function TestAbPage() {
         }
         .ab-lm-eyebrow { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; position: relative; }
         .ab-lm-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: var(--text);
           margin-bottom: 12px; position: relative; line-height: 1.3;
         }
@@ -544,7 +544,7 @@ export default function TestAbPage() {
         .ab-lm-cta {
           display: inline-flex; align-items: center; gap: 10px;
           background: var(--teal); color: var(--bg);
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
           padding: 14px 28px; border-radius: 5px; text-decoration: none;
           transition: opacity .2s, transform .2s; position: relative;
@@ -561,7 +561,7 @@ export default function TestAbPage() {
 
         .ab-faq-wrap { display: flex; flex-direction: column; gap: 8px; margin: 32px 0; }
         .ab-faq-item {
-          border: 1px solid rgba(232,245,242,0.08); border-radius: 6px;
+          border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent); border-radius: 6px;
           overflow: hidden; transition: border-color .2s;
         }
         .ab-faq-item:hover { border-color: var(--teal-border); }
@@ -569,9 +569,9 @@ export default function TestAbPage() {
           padding: 18px 20px; font-size: 13px; font-weight: 500; color: var(--text);
           cursor: pointer; list-style: none; display: flex;
           justify-content: space-between; align-items: center; gap: 16px;
-          background: rgba(232,245,242,0.02); user-select: none; transition: background .2s;
+          background: color-mix(in srgb, var(--ink) 2%, transparent); user-select: none; transition: background .2s;
         }
-        .ab-faq-item summary:hover { background: rgba(232,245,242,0.04); }
+        .ab-faq-item summary:hover { background: color-mix(in srgb, var(--ink) 4%, transparent); }
         .ab-faq-item summary::-webkit-details-marker { display: none; }
         .ab-faq-icon {
           flex-shrink: 0; width: 16px; height: 16px;
@@ -580,7 +580,7 @@ export default function TestAbPage() {
         .ab-faq-item[open] .ab-faq-icon { transform: rotate(45deg); }
         .ab-faq-answer {
           padding: 16px 20px 18px; font-size: 12px; color: var(--text-dim);
-          line-height: 1.85; border-top: 1px solid rgba(232,245,242,0.06);
+          line-height: 1.85; border-top: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
         }
 
         /* ══════════════════════════════════════════
@@ -589,14 +589,14 @@ export default function TestAbPage() {
 
         .ab-conclusion {
           border: 1px solid var(--teal-border); border-radius: 8px;
-          background: rgba(0,255,252,0.04); padding: 32px 36px; margin: 56px 0 48px;
+          background: color-mix(in srgb, var(--accent) 4%, transparent); padding: 32px 36px; margin: 56px 0 48px;
         }
         .ab-conclusion-label {
           font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
           color: var(--teal); margin-bottom: 16px;
         }
         .ab-conclusion-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(18px, 2.5vw, 22px); font-weight: 700;
           color: var(--text); margin-bottom: 20px;
         }
@@ -607,7 +607,7 @@ export default function TestAbPage() {
         }
         .ab-conclusion-point::before {
           content: '→'; color: var(--teal); flex-shrink: 0;
-          font-family: var(--font-dm-mono), 'DM Mono', monospace; margin-top: 1px;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif; margin-top: 1px;
         }
 
         /* ══════════════════════════════════════════
@@ -617,15 +617,15 @@ export default function TestAbPage() {
         .ab-signature {
           display: flex; align-items: center; gap: 20px;
           padding: 24px 0;
-          border-top: 1px solid rgba(232,245,242,0.06);
-          border-bottom: 1px solid rgba(232,245,242,0.06);
+          border-top: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
+          border-bottom: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
           margin-bottom: 32px; flex-wrap: wrap;
         }
         .ab-sig-avatar {
           width: 52px; height: 52px; border-radius: 50%;
           border: 1px solid var(--teal-border); flex-shrink: 0;
           background: var(--teal-dim); display: flex; align-items: center; justify-content: center;
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 20px; font-weight: 700; color: var(--teal);
         }
         .ab-sig-name { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
@@ -640,21 +640,21 @@ export default function TestAbPage() {
         .ab-tags-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-faint); margin-right: 4px; }
         .ab-tag {
           font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
-          color: var(--text-dim); border: 1px solid rgba(232,245,242,0.08);
-          padding: 4px 10px; border-radius: 3px; background: rgba(232,245,242,0.02);
+          color: var(--text-dim); border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
+          padding: 4px 10px; border-radius: 3px; background: color-mix(in srgb, var(--ink) 2%, transparent);
           text-decoration: none; transition: border-color .2s, color .2s;
         }
         .ab-tag:hover { border-color: var(--teal-border); color: var(--teal); }
 
-        .ab-references { padding-top: 24px; border-top: 1px solid rgba(232,245,242,0.06); }
+        .ab-references { padding-top: 24px; border-top: 1px solid color-mix(in srgb, var(--ink) 6%, transparent); }
         .ab-ref-label {
           font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase;
           color: var(--text-faint); margin-bottom: 14px;
         }
         .ab-ref-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
         .ab-ref-item { font-size: 11px; color: var(--text-dim); line-height: 1.6; display: flex; gap: 10px; }
-        .ab-ref-num { color: var(--text-faint); flex-shrink: 0; font-family: var(--font-dm-mono), 'DM Mono', monospace; }
-        .ab-ref-item a { color: var(--text-dim); text-decoration: underline; text-decoration-color: rgba(232,245,242,0.15); transition: color .2s; }
+        .ab-ref-num { color: var(--text-faint); flex-shrink: 0; font-family: var(--font-dm-mono), var(--font-manrope), sans-serif; }
+        .ab-ref-item a { color: var(--text-dim); text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--ink) 15%, transparent); transition: color .2s; }
         .ab-ref-item a:hover { color: var(--teal); }
 
         /* ══════════════════════════════════════════
@@ -804,7 +804,7 @@ export default function TestAbPage() {
               <div className="ab-funnel-col ab-funnel-col--bad">
                 <div className="ab-funnel-col-label">Senza segmentazione</div>
                 <div className="ab-funnel-steps">
-                  <div className="ab-funnel-step" style={{ background: "rgba(232,245,242,0.03)", border: "1px solid rgba(232,245,242,0.08)" }}>
+                  <div className="ab-funnel-step" style={{ background: "color-mix(in srgb, var(--ink) 3%, transparent)", border: "1px solid color-mix(in srgb, var(--ink) 8%, transparent)" }}>
                     <div className="ab-funnel-step-info">
                       <div className="ab-funnel-step-name">Sessioni totali</div>
                       <div className="ab-funnel-step-right">
@@ -814,9 +814,9 @@ export default function TestAbPage() {
                     </div>
                   </div>
                   <div style={{ padding: "16px 0", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <span style={{ fontSize: "11px", color: "var(--text-faint)", fontFamily: "var(--font-dm-mono), 'DM Mono', monospace" }}>??? (dati non disponibili)</span>
+                    <span style={{ fontSize: "11px", color: "var(--text-faint)", fontFamily: "var(--font-dm-mono), var(--font-manrope), sans-serif" }}>??? (dati non disponibili)</span>
                   </div>
-                  <div className="ab-funnel-step" style={{ background: "rgba(232,245,242,0.03)", border: "1px solid rgba(232,245,242,0.08)" }}>
+                  <div className="ab-funnel-step" style={{ background: "color-mix(in srgb, var(--ink) 3%, transparent)", border: "1px solid color-mix(in srgb, var(--ink) 8%, transparent)" }}>
                     <div className="ab-funnel-step-info">
                       <div className="ab-funnel-step-name">Acquisti</div>
                       <div className="ab-funnel-step-right">
@@ -826,7 +826,7 @@ export default function TestAbPage() {
                     </div>
                   </div>
                 </div>
-                <div className="ab-funnel-single-stat" style={{ background: "rgba(232,245,242,0.02)", border: "1px solid rgba(232,245,242,0.08)" }}>
+                <div className="ab-funnel-single-stat" style={{ background: "color-mix(in srgb, var(--ink) 2%, transparent)", border: "1px solid color-mix(in srgb, var(--ink) 8%, transparent)" }}>
                   <span className="ab-funnel-single-label">Cosa vedi</span>
                   <span className="ab-funnel-single-value">CR 3,2% &mdash; ok o no?</span>
                 </div>
@@ -847,7 +847,7 @@ export default function TestAbPage() {
                       <div
                         className="ab-funnel-step"
                         style={{
-                          background: s.warn ? "rgba(255,100,80,0.06)" : "rgba(0,255,252,0.03)",
+                          background: s.warn ? "rgba(255,100,80,0.06)" : "color-mix(in srgb, var(--accent) 3%, transparent)",
                           border: s.warn ? "1px solid rgba(255,100,80,0.18)" : "1px solid var(--teal-border)",
                         }}
                       >
@@ -869,7 +869,7 @@ export default function TestAbPage() {
                     </div>
                   ))}
                 </div>
-                <div className="ab-funnel-single-stat" style={{ background: "rgba(0,255,252,0.04)", border: "1px solid var(--teal-border)" }}>
+                <div className="ab-funnel-single-stat" style={{ background: "color-mix(in srgb, var(--accent) 4%, transparent)", border: "1px solid var(--teal-border)" }}>
                   <span className="ab-funnel-single-label">Cosa vedi</span>
                   <span className="ab-funnel-single-value" style={{ color: "var(--teal)" }}>Lavora sulla scheda prodotto</span>
                 </div>

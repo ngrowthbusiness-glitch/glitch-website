@@ -29,16 +29,16 @@ export default function CosaHoFattoPage() {
 
         /* CASES */
         .chf-cases-list { display: flex; flex-direction: column; gap: 24px; margin-bottom: 56px; animation: fadeUp 0.7s ease both; animation-delay: 0.4s; }
-        .chf-case-card { border: 1px solid var(--teal-border); border-radius: 10px; overflow: hidden; background: rgba(232,245,242,0.02); transition: border-color 0.3s; }
-        .chf-case-card:hover { border-color: rgba(0,255,252,0.5); }
+        .chf-case-card { border: 1px solid var(--teal-border); border-radius: 10px; overflow: hidden; background: color-mix(in srgb, var(--ink) 2%, transparent); transition: border-color 0.3s; }
+        .chf-case-card:hover { border-color: color-mix(in srgb, var(--accent) 50%, transparent); }
         .chf-case-bar { height: 3px; background: linear-gradient(90deg, var(--teal) 0%, transparent 100%); }
         .chf-case-inner { display: grid; grid-template-columns: 1fr 1fr; }
         .chf-case-left { padding: 32px; border-right: 1px solid var(--teal-border); }
         .chf-case-right { padding: 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
         .chf-case-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
         .chf-case-badge { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); border: 1px solid var(--teal-border); padding: 4px 10px; border-radius: 3px; background: var(--teal-dim); }
-        .chf-case-badge.chf-sector { color: var(--text-dim); border-color: rgba(232,245,242,0.1); background: transparent; }
-        .chf-case-brand { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+        .chf-case-badge.chf-sector { color: var(--text-dim); border-color: color-mix(in srgb, var(--ink) 10%, transparent); background: transparent; }
+        .chf-case-brand { font-family: var(--font-manrope), sans-serif; font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
         .chf-case-market { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-faint); margin-bottom: 20px; }
         .chf-case-situation-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-faint); margin-bottom: 8px; }
         .chf-case-situation { font-size: 12px; font-weight: 300; color: var(--text-dim); line-height: 1.85; }
@@ -57,7 +57,7 @@ export default function CosaHoFattoPage() {
 
         /* MARKET TAGS */
         .chf-markets-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-        .chf-market-tag { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-dim); border: 1px solid rgba(232,245,242,0.12); padding: 3px 9px; border-radius: 3px; background: rgba(232,245,242,0.03); }
+        .chf-market-tag { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-dim); border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent); padding: 3px 9px; border-radius: 3px; background: color-mix(in srgb, var(--ink) 3%, transparent); }
 
         /* SECTION LABEL */
         .chf-section-label { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--text-faint); margin-bottom: 28px; }
@@ -65,14 +65,14 @@ export default function CosaHoFattoPage() {
         /* SKILLS GRID */
         .chf-skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 56px; }
         .chf-skill-card { border: 1px solid var(--teal-border); border-radius: 8px; padding: 24px 20px; background: var(--teal-dim); transition: border-color 0.3s, background 0.3s, transform 0.3s; }
-        .chf-skill-card:hover { border-color: var(--teal); background: rgba(0,255,252,0.15); transform: translateY(-3px); }
+        .chf-skill-card:hover { border-color: var(--teal); background: color-mix(in srgb, var(--accent) 15%, transparent); transform: translateY(-3px); }
         .chf-skill-icon { width: 32px; height: 32px; margin-bottom: 12px; color: var(--teal); }
         .chf-skill-title { font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text); margin-bottom: 8px; }
         .chf-skill-desc { font-size: 11px; font-weight: 300; color: var(--text-dim); line-height: 1.75; }
 
         /* TOOLS GRID */
         .chf-tools-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 56px; }
-        .chf-tool-item { display: flex; flex-direction: column; gap: 3px; border: 1px solid rgba(232,245,242,0.1); border-radius: 6px; padding: 12px 20px; background: rgba(232,245,242,0.03); transition: border-color 0.2s, background 0.2s; }
+        .chf-tool-item { display: flex; flex-direction: column; gap: 3px; border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent); border-radius: 6px; padding: 12px 20px; background: color-mix(in srgb, var(--ink) 3%, transparent); transition: border-color 0.2s, background 0.2s; }
         .chf-tool-item:hover { border-color: var(--teal-border); background: var(--teal-dim); }
         .chf-tool-item-special { border-color: var(--teal-border) !important; background: var(--teal-dim) !important; }
         .chf-tool-name { font-size: 11px; font-weight: 500; color: var(--text); letter-spacing: 0.5px; }
@@ -80,7 +80,7 @@ export default function CosaHoFattoPage() {
 
         /* CTA */
         .chf-cta-section { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
-        .chf-cta-text h3 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 30px); font-weight: 700; margin-bottom: 10px; }
+        .chf-cta-text h3 { font-family: var(--font-manrope), sans-serif; font-size: clamp(22px, 3vw, 30px); font-weight: 700; margin-bottom: 10px; }
         .chf-cta-text p { font-size: 11px; font-weight: 300; color: var(--text-dim); line-height: 1.8; }
         .chf-cta-buttons { display: flex; gap: 14px; flex-shrink: 0; }
 

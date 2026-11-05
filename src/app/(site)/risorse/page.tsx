@@ -82,10 +82,10 @@ export default function RisorsePage() {
         }
 
         .risorse-card {
-          border: 1px solid rgba(232,245,242,0.08);
+          border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
           border-radius: 8px;
           padding: 32px 36px;
-          background: rgba(232,245,242,0.02);
+          background: color-mix(in srgb, var(--ink) 2%, transparent);
           text-decoration: none;
           display: block;
           transition: border-color 0.2s, background 0.2s;
@@ -129,7 +129,7 @@ export default function RisorsePage() {
         }
 
         .risorse-card-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(18px, 2.5vw, 22px);
           font-weight: 700;
           color: var(--text);
@@ -158,7 +158,7 @@ export default function RisorsePage() {
           margin-bottom: 24px;
           padding: 16px 18px;
           border-left: 2px solid var(--teal-border);
-          background: rgba(0,255,252,0.02);
+          background: color-mix(in srgb, var(--accent) 2%, transparent);
           border-radius: 0 6px 6px 0;
         }
 
@@ -217,9 +217,9 @@ export default function RisorsePage() {
           max-width: 800px;
           margin: 48px auto 0;
           padding: 20px 24px;
-          border: 1px solid rgba(232,245,242,0.06);
+          border: 1px solid color-mix(in srgb, var(--ink) 6%, transparent);
           border-radius: 8px;
-          background: rgba(232,245,242,0.01);
+          background: color-mix(in srgb, var(--ink) 1%, transparent);
           display: flex;
           align-items: flex-start;
           gap: 14px;

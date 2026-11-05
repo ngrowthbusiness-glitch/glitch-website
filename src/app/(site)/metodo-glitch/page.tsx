@@ -134,7 +134,7 @@ export default function MetodoGlitchPage() {
         }
 
         .mg-step-letter {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 26px; font-weight: 700;
           color: var(--teal);
           line-height: 1;
@@ -155,7 +155,7 @@ export default function MetodoGlitchPage() {
         }
 
         .mg-step-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(20px, 3vw, 26px);
           font-weight: 700; color: var(--text);
           margin-bottom: 12px; line-height: 1.2;
@@ -179,7 +179,7 @@ export default function MetodoGlitchPage() {
         .mg-truth { margin-bottom: 56px; }
 
         .mg-truth-text {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-style: italic; font-size: clamp(16px, 2vw, 20px);
           line-height: 1.65; color: var(--text);
           position: relative; z-index: 1; max-width: 700px;
@@ -192,7 +192,7 @@ export default function MetodoGlitchPage() {
           justify-content: space-between; gap: 40px;
         }
         .mg-cta-text h3 {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(22px, 3vw, 30px);
           font-weight: 700; color: var(--text); margin-bottom: 10px;
         }

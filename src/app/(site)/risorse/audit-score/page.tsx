@@ -113,7 +113,7 @@ function getProfile(score: number): Profile {
   return {
     label: "Data-driven",
     tagline: "Sei tra il 5% delle aziende che misura davvero.",
-    color: "#00fffc",
+    color: "var(--accent)",
     summary: "Hai una struttura dati solida. Misuri i KPI giusti, segmenti per canale, e prendi decisioni basate su dati di business reali. Il lavoro ora è mantenere questa disciplina mentre il business scala — e trovare i margini di ottimizzazione più sottili. Spesso a questo livello il valore maggiore è nella strategia, non nella tecnica.",
     actions: [
       "Focalizzati su test incrementali: ogni test migliora un numero specifico",
@@ -266,7 +266,7 @@ export default function AuditScorePage() {
         /* INTRO */
         .as-eyebrow { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--teal); margin-bottom: 20px; }
         .as-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(26px, 4vw, 44px); font-weight: 700;
           color: var(--text); line-height: 1.15; margin-bottom: 20px;
         }
@@ -290,7 +290,7 @@ export default function AuditScorePage() {
         /* PROGRESS */
         .as-progress { margin-bottom: 40px; }
         .as-progress-bar-bg {
-          height: 3px; background: rgba(232,245,242,0.08); border-radius: 2px;
+          height: 3px; background: color-mix(in srgb, var(--ink) 8%, transparent); border-radius: 2px;
           margin-bottom: 12px; overflow: hidden;
         }
         .as-progress-bar-fill {
@@ -304,18 +304,18 @@ export default function AuditScorePage() {
 
         /* QUESTION */
         .as-q-number {
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 11px; color: var(--teal); letter-spacing: 2px;
           margin-bottom: 20px;
         }
         .as-q-text {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: clamp(18px, 2.5vw, 24px); font-weight: 700;
           color: var(--text); line-height: 1.35; margin-bottom: 16px;
         }
         .as-q-hint {
           font-size: 12px; color: var(--text-dim); line-height: 1.7;
-          padding: 12px 16px; background: rgba(232,245,242,0.03);
+          padding: 12px 16px; background: color-mix(in srgb, var(--ink) 3%, transparent);
           border-left: 2px solid var(--teal-border); border-radius: 0 4px 4px 0;
           margin-bottom: 36px;
         }
@@ -331,37 +331,37 @@ export default function AuditScorePage() {
         }
         .as-q-btn-yes:hover { background: var(--teal); color: var(--bg); }
         .as-q-btn-no {
-          border-color: rgba(232,245,242,0.12); color: var(--text-dim);
-          background: rgba(232,245,242,0.03);
+          border-color: color-mix(in srgb, var(--ink) 12%, transparent); color: var(--text-dim);
+          background: color-mix(in srgb, var(--ink) 3%, transparent);
         }
-        .as-q-btn-no:hover { border-color: rgba(232,245,242,0.25); color: var(--text); }
+        .as-q-btn-no:hover { border-color: color-mix(in srgb, var(--ink) 25%, transparent); color: var(--text); }
 
         /* RESULT */
         .as-result-score {
           display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;
         }
         .as-result-num {
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 64px; font-weight: 700; line-height: 1;
         }
         .as-result-total {
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 24px; color: var(--text-faint);
         }
         .as-result-bar-bg {
-          height: 6px; background: rgba(232,245,242,0.08);
+          height: 6px; background: color-mix(in srgb, var(--ink) 8%, transparent);
           border-radius: 3px; margin: 16px 0 24px; overflow: hidden;
         }
         .as-result-bar-fill { height: 100%; border-radius: 3px; transition: width .6s ease; }
         .as-result-label {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 28px; font-weight: 700; margin-bottom: 8px;
         }
         .as-result-tagline { font-size: 14px; color: var(--text-dim); margin-bottom: 28px; line-height: 1.6; }
         .as-result-summary {
           font-size: 13px; color: var(--text-dim); line-height: 1.9;
-          padding: 20px; background: rgba(232,245,242,0.03);
-          border: 1px solid rgba(232,245,242,0.07); border-radius: 6px; margin-bottom: 32px;
+          padding: 20px; background: color-mix(in srgb, var(--ink) 3%, transparent);
+          border: 1px solid color-mix(in srgb, var(--ink) 7%, transparent); border-radius: 6px; margin-bottom: 32px;
         }
         .as-result-actions { margin-bottom: 32px; }
         .as-result-actions-title {
@@ -370,17 +370,17 @@ export default function AuditScorePage() {
         }
         .as-result-action {
           display: flex; gap: 14px; padding: 12px 0;
-          border-bottom: 1px solid rgba(232,245,242,0.06); font-size: 13px;
+          border-bottom: 1px solid color-mix(in srgb, var(--ink) 6%, transparent); font-size: 13px;
           color: var(--text-dim); line-height: 1.65;
         }
         .as-result-action:last-child { border-bottom: none; }
         .as-result-action-num {
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 10px; color: var(--teal); flex-shrink: 0; padding-top: 3px;
         }
         .as-nextstep {
           padding: 16px 20px;
-          background: rgba(0,255,252,0.06);
+          background: color-mix(in srgb, var(--accent) 6%, transparent);
           border-left: 3px solid var(--teal);
           border-radius: 0 6px 6px 0; margin-bottom: 40px;
           font-size: 12px; color: var(--text-dim); line-height: 1.7;
@@ -401,15 +401,15 @@ export default function AuditScorePage() {
           padding: 36px 40px; background: var(--teal-dim); margin-top: 8px;
         }
         .as-form-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 10px;
         }
         .as-form-sub { font-size: 13px; color: var(--text-dim); line-height: 1.7; margin-bottom: 28px; }
         .as-field { margin-bottom: 16px; }
         .as-label { display: block; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; }
         .as-input {
-          width: 100%; padding: 12px 16px; background: rgba(232,245,242,0.05);
-          border: 1px solid rgba(232,245,242,0.12); border-radius: 5px;
+          width: 100%; padding: 12px 16px; background: color-mix(in srgb, var(--ink) 5%, transparent);
+          border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent); border-radius: 5px;
           color: var(--text); font-size: 13px; box-sizing: border-box;
           transition: border-color .2s; outline: none;
         }
@@ -434,7 +434,7 @@ export default function AuditScorePage() {
         }
         .as-done-icon { font-size: 40px; margin-bottom: 20px; }
         .as-done-title {
-          font-family: var(--font-playfair), 'Playfair Display', serif;
+          font-family: var(--font-playfair), var(--font-manrope), sans-serif;
           font-size: 26px; font-weight: 700; color: var(--text); margin-bottom: 12px;
         }
         .as-done-sub { font-size: 13px; color: var(--text-dim); line-height: 1.8; margin-bottom: 28px; }
@@ -451,13 +451,13 @@ export default function AuditScorePage() {
         /* ── AI ANALYSIS ── */
         .as-ai-wrap {
           margin-top: 48px;
-          border: 1px solid rgba(0,255,252,0.15);
+          border: 1px solid color-mix(in srgb, var(--accent) 15%, transparent);
           border-radius: 12px;
           overflow: hidden;
         }
         .as-ai-header {
-          background: rgba(0,255,252,0.05);
-          border-bottom: 1px solid rgba(0,255,252,0.1);
+          background: color-mix(in srgb, var(--accent) 5%, transparent);
+          border-bottom: 1px solid color-mix(in srgb, var(--accent) 10%, transparent);
           padding: 14px 28px;
           display: flex;
           align-items: center;
@@ -493,7 +493,7 @@ export default function AuditScorePage() {
         .as-ai-spin {
           width: 28px;
           height: 28px;
-          border: 2px solid rgba(0,255,252,0.12);
+          border: 2px solid color-mix(in srgb, var(--accent) 12%, transparent);
           border-top-color: var(--teal);
           border-radius: 50%;
           animation: aispin 0.8s linear infinite;
@@ -507,9 +507,9 @@ export default function AuditScorePage() {
         .as-post-cta {
           margin-top: 28px;
           padding: 24px 28px;
-          border: 1px solid rgba(0,255,252,0.1);
+          border: 1px solid color-mix(in srgb, var(--accent) 10%, transparent);
           border-radius: 10px;
-          background: rgba(0,255,252,0.025);
+          background: color-mix(in srgb, var(--accent) 2.5%, transparent);
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -523,8 +523,8 @@ export default function AuditScorePage() {
           align-items: center;
           gap: 8px;
           background: var(--teal);
-          color: #0a0e0d;
-          font-family: var(--font-dm-mono), 'DM Mono', monospace;
+          color: var(--accent-ink);
+          font-family: var(--font-dm-mono), var(--font-manrope), sans-serif;
           font-size: 10px;
           font-weight: 500;
           letter-spacing: 2px;
